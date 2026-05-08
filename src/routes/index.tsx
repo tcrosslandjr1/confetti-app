@@ -41,19 +41,35 @@ const PROOF = [
     quote: "It planned a Friday night that ended in a dive bar I’d driven past 100 times. New favorite.",
     name: "Mara K.",
     role: "Brooklyn",
-    tilt: "-rotate-2",
+    rating: 5,
+    avatarBg: "bg-coral",
+    initials: "MK",
+    // desktop scatter
+    pos: "lg:col-start-1 lg:row-start-1 lg:translate-y-2",
+    rot: "-rotate-3",
+    z: "z-20",
   },
   {
     quote: "Killed our 47-message group chat dead. Sent everyone the trip link, voted, done.",
     name: "Devin R.",
     role: "Atlanta",
-    tilt: "rotate-1",
+    rating: 5,
+    avatarBg: "bg-purple",
+    initials: "DR",
+    pos: "lg:col-start-2 lg:row-start-1 lg:-translate-y-6 lg:translate-x-[-12%]",
+    rot: "rotate-2",
+    z: "z-30",
   },
   {
     quote: "I’m the planner friend. This is the first thing that out-planned me.",
     name: "Priya S.",
     role: "Chicago",
-    tilt: "-rotate-1",
+    rating: 4,
+    avatarBg: "bg-gold",
+    initials: "PS",
+    pos: "lg:col-start-3 lg:row-start-1 lg:translate-y-10 lg:translate-x-[-18%]",
+    rot: "-rotate-1",
+    z: "z-10",
   },
 ];
 
@@ -304,18 +320,43 @@ function Landing() {
             People are <span className="font-serif italic font-normal">leaving the house</span> again.
           </h2>
 
-          <div className="mt-14 grid gap-10 md:grid-cols-3">
-            {PROOF.map((p) => (
-              <figure key={p.name} className={`${p.tilt} rounded-2xl border-2 border-ink bg-cream p-7 shadow-brut`}>
-                <div className="flex gap-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-coral stroke-ink" />
-                  ))}
+          <div className="mt-16 flex flex-col gap-8 md:gap-10 lg:grid lg:grid-cols-3 lg:gap-0">
+            {PROOF.map((p, i) => (
+              <figure
+                key={p.name}
+                className={`${p.rot} ${p.pos ?? ""} ${p.z ?? ""} relative rounded-2xl border-2 border-ink bg-cream p-7 shadow-brut transition-pop hover:z-40 hover:scale-[1.03] hover:rotate-0`}
+              >
+                {/* tape strip */}
+                <span
+                  aria-hidden
+                  className={`absolute -top-3 ${i % 2 === 0 ? "left-6" : "right-6"} h-5 w-16 -rotate-6 rounded-sm bg-gold/70 shadow-soft`}
+                />
+
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`grid h-12 w-12 shrink-0 place-items-center rounded-full border-2 border-ink ${p.avatarBg} font-display text-base font-extrabold text-ink shadow-brut`}
+                  >
+                    {p.initials}
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-display text-base font-extrabold leading-tight">{p.name}</span>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">{p.role}</span>
+                  </div>
+                  <div className="ml-auto flex gap-0.5">
+                    {Array.from({ length: 5 }).map((_, idx) => (
+                      <Star
+                        key={idx}
+                        className={`h-4 w-4 stroke-ink ${idx < p.rating ? "fill-gold" : "fill-cream"}`}
+                      />
+                    ))}
+                  </div>
                 </div>
-                <blockquote className="mt-4 font-serif text-2xl italic leading-snug">"{p.quote}"</blockquote>
-                <figcaption className="mt-6 flex items-center justify-between font-mono text-[11px] uppercase tracking-widest">
-                  <span className="font-bold">{p.name}</span>
-                  <span className="text-ink/60">{p.role}</span>
+
+                <blockquote className="mt-5 font-serif text-2xl italic leading-snug">"{p.quote}"</blockquote>
+
+                <figcaption className="mt-5 flex items-center justify-between border-t-2 border-dashed border-ink/30 pt-3 font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                  <span>verified planner</span>
+                  <span>{p.rating}.0 / 5</span>
                 </figcaption>
               </figure>
             ))}

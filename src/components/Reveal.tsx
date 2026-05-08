@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
   className?: string;
   delay?: number;
   variant?: "up" | "scale";

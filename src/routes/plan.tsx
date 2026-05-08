@@ -136,7 +136,7 @@ function PlanPage() {
             <p className="mt-1.5 text-xs text-muted-foreground">Auto = AI picks the best mode for each leg (walk short hops, rideshare when drinking, transit downtown).</p>
           </Field>
 
-
+          <Field label="Anything special? (optional)">
             <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3}
               placeholder="Allergies, can't drink, want it walkable, kids in tow..." className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
           </Field>

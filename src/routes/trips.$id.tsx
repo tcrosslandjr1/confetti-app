@@ -95,8 +95,13 @@ function TripDetail() {
         <ol className="relative space-y-6 border-l-2 border-dashed border-border pl-6">
           {stops.map((s, i) => {
             const Icon = CAT_ICONS[s.category as string] ?? Sparkles;
+            const leg = (s.travel_from_prev ?? null) as TravelLeg | null;
+            const prev = i > 0 ? stops[i - 1] : null;
             return (
               <li key={s.id} className="relative">
+                {leg && prev && (
+                  <TravelLegCard leg={leg} from={prev} to={s} />
+                )}
                 <span className="absolute -left-[34px] grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-pop">
                   <Icon className="h-5 w-5" />
                 </span>

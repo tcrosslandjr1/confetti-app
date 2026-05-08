@@ -15,6 +15,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
+import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile'
 import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
@@ -51,6 +52,11 @@ const ConciergeIndexRoute = ConciergeIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ConciergeRoute,
+} as any)
+const IdeasSlugRoute = IdeasSlugRouteImport.update({
+  id: '/ideas/$slug',
+  path: '/ideas/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const EventsEventIdRoute = EventsEventIdRouteImport.update({
   id: '/events/$eventId',
@@ -92,6 +98,7 @@ export interface FileRoutesByFullPath {
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/ideas/$slug': typeof IdeasSlugRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
@@ -105,6 +112,7 @@ export interface FileRoutesByTo {
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/ideas/$slug': typeof IdeasSlugRoute
   '/concierge': typeof ConciergeIndexRoute
   '/events': typeof EventsIndexRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
@@ -120,6 +128,7 @@ export interface FileRoutesById {
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/ideas/$slug': typeof IdeasSlugRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
@@ -136,6 +145,7 @@ export interface FileRouteTypes {
     | '/concierge/passport'
     | '/concierge/profile'
     | '/events/$eventId'
+    | '/ideas/$slug'
     | '/concierge/'
     | '/events/'
     | '/concierge/chat/$threadId'
@@ -149,6 +159,7 @@ export interface FileRouteTypes {
     | '/concierge/passport'
     | '/concierge/profile'
     | '/events/$eventId'
+    | '/ideas/$slug'
     | '/concierge'
     | '/events'
     | '/concierge/chat/$threadId'
@@ -163,6 +174,7 @@ export interface FileRouteTypes {
     | '/concierge/passport'
     | '/concierge/profile'
     | '/events/$eventId'
+    | '/ideas/$slug'
     | '/concierge/'
     | '/events/'
     | '/concierge/chat/$threadId'
@@ -176,6 +188,7 @@ export interface RootRouteChildren {
   OnboardingRoute: typeof OnboardingRoute
   ApiChatRoute: typeof ApiChatRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
+  IdeasSlugRoute: typeof IdeasSlugRoute
   EventsIndexRoute: typeof EventsIndexRoute
 }
 
@@ -222,6 +235,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/concierge/'
       preLoaderRoute: typeof ConciergeIndexRouteImport
       parentRoute: typeof ConciergeRoute
+    }
+    '/ideas/$slug': {
+      id: '/ideas/$slug'
+      path: '/ideas/$slug'
+      fullPath: '/ideas/$slug'
+      preLoaderRoute: typeof IdeasSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/events/$eventId': {
       id: '/events/$eventId'
@@ -295,8 +315,19 @@ const rootRouteChildren: RootRouteChildren = {
   OnboardingRoute: OnboardingRoute,
   ApiChatRoute: ApiChatRoute,
   EventsEventIdRoute: EventsEventIdRoute,
+  IdeasSlugRoute: IdeasSlugRoute,
   EventsIndexRoute: EventsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

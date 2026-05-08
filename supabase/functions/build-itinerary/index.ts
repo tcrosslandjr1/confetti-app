@@ -24,6 +24,7 @@ type Body = {
   seedIdea?: SeedIdea;       // expand a flashcard into a day
   notes?: string;
   tasteSummary?: string;
+  transportMode?: "auto" | "car" | "transit" | "lyft" | "uber" | "walk"; // user preference
 };
 
 Deno.serve(async (req) => {

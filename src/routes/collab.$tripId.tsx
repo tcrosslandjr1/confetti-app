@@ -132,6 +132,7 @@ function CollabPage() {
               const inPct = total ? (tally.in / total) * 100 : 0;
               const maybePct = total ? (tally.maybe / total) * 100 : 0;
               const outPct = total ? (tally.out / total) * 100 : 0;
+              const fit = checkStopFits(s.name, s.time, s.durationMin, TRIP_PREVIEW.day);
               return (
                 <li key={i} className="space-y-3 p-4 sm:p-5">
                   <div className="flex items-start gap-3">
@@ -140,9 +141,29 @@ function CollabPage() {
                     </span>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-semibold">{s.name}</p>
-                      <p className="truncate text-xs text-muted-foreground">{s.neighborhood} · {s.note}</p>
+                      <p className="truncate text-xs text-muted-foreground">
+                        {s.neighborhood} · {s.note}
+                        {fit.state !== "unknown" && <> · <span className="font-medium">{fit.hoursLabel}</span></>}
+                      </p>
                     </div>
-                    <span className="shrink-0 text-sm font-semibold text-muted-foreground">{s.time}</span>
+                    <div className="flex shrink-0 flex-col items-end gap-1">
+                      <span className="text-sm font-semibold text-muted-foreground">{s.time}</span>
+                      {fit.state === "open" && (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
+                          <Check className="h-3 w-3" /> Open
+                        </span>
+                      )}
+                      {fit.state === "tight" && (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
+                          <AlertTriangle className="h-3 w-3" /> Tight
+                        </span>
+                      )}
+                      {fit.state === "closed" && (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-destructive/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-destructive">
+                          <AlertTriangle className="h-3 w-3" /> {fit.reason}
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   {/* Vote buttons */}

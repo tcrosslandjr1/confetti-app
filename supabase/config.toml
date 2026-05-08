@@ -8,3 +8,6 @@ verify_jwt = false
 
 [functions.taste-chat]
 verify_jwt = false
+
+[functions.social-learn]
+verify_jwt = false

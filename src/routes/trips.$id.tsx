@@ -100,6 +100,29 @@ function TripDetail() {
             {it.est_total_cost && <span className="inline-flex items-center gap-1.5">💵 {it.est_total_cost}</span>}
             <span className="inline-flex items-center gap-1.5"><Check className="h-4 w-4 text-primary" /> {confirmedCount}/{stops.length} confirmed</span>
           </div>
+          {tripStatus && (tripStatus.minutesLate > 0 || tripStatus.cancelled || tripStatus.rescheduledAt) && (
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
+              {tripStatus.cancelled && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 px-2.5 py-1 font-semibold text-rose-700">
+                  <X className="h-3 w-3" /> Cancelled · {formatUpdatedAt(tripStatus.updatedAt)} · <LiveElapsed since={tripStatus.updatedAt} />
+                </span>
+              )}
+              {tripStatus.rescheduledAt && !tripStatus.cancelled && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/15 px-2.5 py-1 font-semibold text-sky-700">
+                  <Calendar className="h-3 w-3" /> Rescheduled · {new Date(tripStatus.rescheduledAt).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}
+                </span>
+              )}
+              {tripStatus.minutesLate > 0 && !tripStatus.cancelled && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 px-2.5 py-1 font-semibold text-amber-700">
+                  <span className="relative inline-flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
+                  </span>
+                  Running ~{tripStatus.minutesLate} min late · {formatUpdatedAt(tripStatus.updatedAt)} · <LiveElapsed since={tripStatus.updatedAt} />
+                </span>
+              )}
+            </div>
+          )}
           <div className="mt-5 flex flex-wrap gap-3">
             <button onClick={completeDay} className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-pop hover:scale-105 transition-pop">
               <Stamp className="h-3.5 w-3.5" /> {it.completed_at ? "View passport" : "Complete day → Passport"}
@@ -211,8 +234,90 @@ function TripDetail() {
           })}
         </ol>
       </section>
+
+      {/* Notification history */}
+      <section className="mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+          <header className="flex items-center justify-between gap-3 border-b border-border bg-muted/40 p-4 sm:px-5">
+            <div className="flex items-center gap-2">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-foreground/10 text-foreground">
+                <History className="h-4 w-4" />
+              </span>
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Notification history</p>
+                <p className="mt-0.5 text-sm font-semibold">
+                  {notifications.length === 0
+                    ? "Nothing sent yet"
+                    : `${notifications.length} message${notifications.length === 1 ? "" : "s"} sent`}
+                </p>
+              </div>
+            </div>
+            {notifications.length > 0 && (
+              <button
+                type="button"
+                onClick={() => { clearNotifications(id); toast.success("History cleared"); }}
+                className="inline-flex items-center gap-1 rounded-full border border-border bg-card px-2.5 py-1 text-[11px] font-semibold text-muted-foreground transition-colors hover:border-destructive hover:text-destructive"
+              >
+                <RotateCcw className="h-3 w-3" /> Clear
+              </button>
+            )}
+          </header>
+          {notifications.length === 0 ? (
+            <p className="p-5 text-xs text-muted-foreground">
+              Use the floating button to notify venues when you're running late, rescheduling, or cancelling. Every message lands here with a timestamp.
+            </p>
+          ) : (
+            <ol className="divide-y divide-border">
+              {notifications.map((n) => {
+                const tone =
+                  n.kind === "late" ? "bg-amber-500/15 text-amber-700"
+                  : n.kind === "reschedule" ? "bg-sky-500/15 text-sky-700"
+                  : "bg-rose-500/15 text-rose-700";
+                const Icon = n.kind === "late" ? Timer : n.kind === "reschedule" ? Calendar : AlertTriangle;
+                return (
+                  <li key={n.id} className="flex items-start gap-3 p-4 sm:px-5">
+                    <span className={`mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg ${tone}`}>
+                      <Icon className="h-3.5 w-3.5" />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-baseline justify-between gap-2">
+                        <p className="text-sm font-semibold">{n.venue}</p>
+                        <span className="text-[11px] text-muted-foreground">
+                          {new Date(n.sentAt).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}
+                        </span>
+                      </div>
+                      <p className="text-xs text-muted-foreground">{n.message}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          )}
+        </div>
+      </section>
+
+      <LateRescheduleFab
+        tripId={id}
+        partyName={it.title}
+        groupSize={Math.max(1, stops.length)}
+        stops={stops.map((s) => ({
+          time: formatTimeLabel(s.start_time),
+          name: s.name,
+          durationMin: s.duration_minutes ?? undefined,
+        }))}
+      />
     </div>
   );
+}
+
+function formatTimeLabel(t?: string | null): string {
+  if (!t) return "12:00 PM";
+  const m = t.match(/^(\d{1,2}):(\d{2})/);
+  if (!m) return t;
+  let h = parseInt(m[1], 10);
+  const mer = h >= 12 ? "PM" : "AM";
+  h = ((h + 11) % 12) + 1;
+  return `${h}:${m[2]} ${mer}`;
 }
 
 function BookingPill({ status, onChange }: { status: Stop["booking_status"]; onChange: (s: Stop["booking_status"]) => void }) {

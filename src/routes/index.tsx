@@ -134,15 +134,15 @@ function Landing() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link
-                to="/plan"
+              <WizardButton
+                ariaLabel="Build my night"
                 className="inline-flex h-14 items-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
               >
                 Build my night <ArrowUpRight className="h-5 w-5" />
-              </Link>
+              </WizardButton>
               <Link
                 to="/how-it-works"
-                className="inline-flex h-14 items-center rounded-full border-2 border-ink bg-cream px-7 text-base font-bold transition-pop hover:bg-gold"
+                className="inline-flex h-14 items-center rounded-full border-2 border-ink bg-cream px-7 text-base font-bold transition-pop hover:-translate-y-1 hover:bg-gold hover:shadow-brut"
               >
                 How it works
               </Link>

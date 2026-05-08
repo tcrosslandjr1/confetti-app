@@ -6,11 +6,13 @@ import {
   Eye,
   Flag,
   MessageSquareWarning,
+  Search,
   ShieldCheck,
   Star,
   Trash2,
   User,
 } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
@@ -156,6 +158,7 @@ function AdminModerationPage() {
   const [tab, setTab] = useState<"pending" | "approved" | "removed" | "all">("pending");
   const [typeFilter, setTypeFilter] = useState<"all" | ItemType>("all");
   const [severityFilter, setSeverityFilter] = useState<"all" | Severity>("all");
+  const [query, setQuery] = useState("");
 
   const counts = useMemo(
     () => ({
@@ -168,13 +171,18 @@ function AdminModerationPage() {
   );
 
   const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
     return reports.filter((r) => {
       if (tab !== "all" && r.status !== tab) return false;
       if (typeFilter !== "all" && r.type !== typeFilter) return false;
       if (severityFilter !== "all" && r.severity !== severityFilter) return false;
+      if (q) {
+        const hay = `${r.id} ${r.target} ${r.reason} ${r.content} ${r.context} ${r.reporter}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
       return true;
     });
-  }, [reports, tab, typeFilter, severityFilter]);
+  }, [reports, tab, typeFilter, severityFilter, query]);
 
   const decide = (id: string, status: "approved" | "removed") => {
     setReports((prev) => prev.map((r) => (r.id === id ? { ...r, status } : r)));
@@ -202,6 +210,18 @@ function AdminModerationPage() {
           ))}
         </div>
       </header>
+
+      <div className="rounded-2xl border border-border bg-card p-3 shadow-card">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by report ID, target, reason, or content…"
+            className="pl-9"
+          />
+        </div>
+      </div>
 
       <div className="flex flex-wrap items-center gap-2">
         {TABS.map((t) => {

@@ -142,6 +142,8 @@
   0%, 100% { opacity: 1; }
   50%      { opacity: 0; }
 }
+
+@layer base {
   * { border-color: var(--color-border); }
   html { font-family: var(--font-sans); }
   body {
@@ -153,7 +155,6 @@
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
 }
 
-@layer base {
 @layer utilities {
   .bg-gradient-hero { background-image: var(--gradient-hero); }
   .bg-gradient-vibe { background-image: var(--gradient-vibe); }

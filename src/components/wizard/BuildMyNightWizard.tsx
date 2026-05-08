@@ -111,16 +111,18 @@ function getDetails(venue: string, vibe: string) {
     `${venue} nails the ${vibe.toLowerCase()} brief. Tight menu, sharp drinks, and lighting that makes everyone look good.`,
   ];
   // Dietary + allergen flags — deterministic per venue
-  const ALL_DIETARY = ["Gluten-free menu", "Vegan options", "Vegetarian", "Dairy-free", "Nut-free kitchen"] as const;
+  const ALL_DIETARY = ["Gluten-free menu", "Vegan options", "Vegetarian", "Pescatarian", "Dairy-free", "Nut-free kitchen"] as const;
   const ALL_ALLERGENS = ["peanuts", "tree nuts", "shellfish", "dairy", "eggs", "soy", "sesame", "wheat/gluten"] as const;
   const dietary = ALL_DIETARY.filter((_, i) => ((h >> (i + 1)) & 1) === 1);
   // Always surface the big three so guests can plan
   if (!dietary.includes("Gluten-free menu")) dietary.push("Gluten-free menu");
   if (!dietary.includes("Vegan options")) dietary.push("Vegan options");
   if (!dietary.includes("Vegetarian")) dietary.push("Vegetarian");
+  if (!dietary.includes("Pescatarian")) dietary.push("Pescatarian");
   const glutenFree = dietary.includes("Gluten-free menu");
   const vegan = dietary.includes("Vegan options");
   const vegetarian = dietary.includes("Vegetarian");
+  const pescatarian = dietary.includes("Pescatarian");
   // Allergens the kitchen can accommodate (request ahead)
   const allergens = ALL_ALLERGENS.filter((_, i) => ((h >> (i + 2)) & 1) === 1).slice(0, 4);
   return {
@@ -136,6 +138,7 @@ function getDetails(venue: string, vibe: string) {
     glutenFree,
     vegan,
     vegetarian,
+    pescatarian,
     allergens,
   };
 }
@@ -505,6 +508,11 @@ export function BuildMyNightWizard() {
                             {d.vegetarian && !d.vegan && (
                               <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint/70 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
                                 Vegetarian
+                              </span>
+                            )}
+                            {d.pescatarian && (
+                              <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint/70 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+                                🐟 Pescatarian
                               </span>
                             )}
                           </div>

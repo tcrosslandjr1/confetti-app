@@ -395,6 +395,110 @@ function ReadyPage() {
           </button>
         </div>
 
+        {/* Invite the crew */}
+        <section className="mt-6 rounded-3xl border border-border bg-card p-4 shadow-card sm:p-5">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+              <UserPlus className="h-3.5 w-3.5 text-primary" /> Invite the crew
+            </div>
+            {invites.length > 0 && (
+              <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
+                {invites.length} invited
+              </span>
+            )}
+          </div>
+
+          <form onSubmit={addInvite} className="mt-3 flex flex-col gap-2 sm:flex-row">
+            <div className="relative flex-1">
+              <Mail className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <input
+                type="email"
+                inputMode="email"
+                autoComplete="email"
+                placeholder="friend@email.com"
+                value={emailInput}
+                onChange={(e) => { setEmailInput(e.target.value); if (emailError) setEmailError(null); }}
+                aria-invalid={!!emailError}
+                aria-describedby={emailError ? "invite-email-error" : undefined}
+                className={`w-full rounded-xl border bg-background py-2.5 pl-9 pr-3 text-sm outline-none transition-colors focus:border-primary ${emailError ? "border-destructive" : "border-border"}`}
+              />
+            </div>
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-border bg-foreground px-4 py-2.5 text-sm font-semibold text-background transition-all hover:-translate-y-0.5 hover:shadow-pop"
+            >
+              <Plus className="h-4 w-4" /> Add
+            </button>
+          </form>
+          {emailError && (
+            <p id="invite-email-error" className="mt-1.5 text-[11px] font-medium text-destructive">{emailError}</p>
+          )}
+
+          {invites.length > 0 ? (
+            <>
+              <ul className="mt-3 divide-y divide-border overflow-hidden rounded-xl border border-border">
+                {invites.map((i) => (
+                  <li key={i.id} className="flex items-center gap-3 bg-muted/30 px-3 py-2.5">
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-primary/10 text-[11px] font-bold uppercase text-primary">
+                      {i.email[0]}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-semibold">{i.email}</p>
+                      <p className="truncate font-mono text-[11px] text-muted-foreground">{inviteUrl(i.token)}</p>
+                    </div>
+                    {i.status === "sent" ? (
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-600">
+                        <Check className="h-3 w-3" /> Sent
+                      </span>
+                    ) : (
+                      <span className="inline-flex shrink-0 rounded-full bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-600">
+                        Pending
+                      </span>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => copyInvite(i.token)}
+                      title="Copy this invite link"
+                      className="shrink-0 rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-background hover:text-primary"
+                    >
+                      <Copy className="h-3.5 w-3.5" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => removeInvite(i.id)}
+                      title="Remove"
+                      className="shrink-0 rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-background hover:text-destructive"
+                    >
+                      <X className="h-3.5 w-3.5" />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+                <button
+                  type="button"
+                  onClick={sendInvites}
+                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-pop transition-all hover:-translate-y-0.5"
+                >
+                  <Send className="h-4 w-4" /> Send {invites.length} invite{invites.length > 1 ? "s" : ""}
+                </button>
+                <button
+                  type="button"
+                  onClick={copyAllInvites}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary hover:shadow-pop"
+                >
+                  <Copy className="h-4 w-4" /> Copy all links
+                </button>
+              </div>
+            </>
+          ) : (
+            <p className="mt-3 text-[11px] text-muted-foreground">
+              Add anyone you want to invite. Each gets a unique link they can RSVP with — no account needed.
+            </p>
+          )}
+        </section>
+
         {/* Primary CTAs */}
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Link to="/trips" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-pop transition-pop hover:scale-[1.02] sm:w-auto">

@@ -144,7 +144,9 @@ import { loadVotes, subscribeVotes, tallyStop, type TripVotes } from "@/lib/vote
 import { supabase } from "@/integrations/supabase/client";
 import { Users, AlertTriangle, Timer, Zap } from "lucide-react";
 import { checkStopFits, dayKeyFromDate } from "@/lib/hours";
-import { clearStatus, formatUpdatedAt, loadStatus, setMinutesLate, shiftTimeLabel, subscribeStatus, type TripStatus } from "@/lib/trip-status";
+import { clearStatus, formatUpdatedAt, loadStatus, setMinutesLate, shiftTimeLabel, subscribeStatus, type TripStatus, loadNotifications, subscribeNotifications, clearNotifications, type SentNotification } from "@/lib/trip-status";
+import { LateRescheduleFab } from "@/components/LateRescheduleFab";
+import { History, RotateCcw } from "lucide-react";
 
 function makeToken() {
   const bytes = new Uint8Array(8);

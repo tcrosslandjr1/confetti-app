@@ -13,6 +13,7 @@ import {
   type VoteValue,
 } from "@/lib/votes";
 import { checkStopFits } from "@/lib/hours";
+import { formatUpdatedAt, loadStatus, subscribeStatus, type TripStatus } from "@/lib/trip-status";
 
 export const Route = createFileRoute("/collab/$tripId")({
   head: () => ({

@@ -171,13 +171,18 @@ function AdminModerationPage() {
   );
 
   const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
     return reports.filter((r) => {
       if (tab !== "all" && r.status !== tab) return false;
       if (typeFilter !== "all" && r.type !== typeFilter) return false;
       if (severityFilter !== "all" && r.severity !== severityFilter) return false;
+      if (q) {
+        const hay = `${r.id} ${r.target} ${r.reason} ${r.content} ${r.context} ${r.reporter}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
       return true;
     });
-  }, [reports, tab, typeFilter, severityFilter]);
+  }, [reports, tab, typeFilter, severityFilter, query]);
 
   const decide = (id: string, status: "approved" | "removed") => {
     setReports((prev) => prev.map((r) => (r.id === id ? { ...r, status } : r)));

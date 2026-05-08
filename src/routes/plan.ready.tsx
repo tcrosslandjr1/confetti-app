@@ -533,7 +533,17 @@ function ReadyPage() {
               <p className="mt-0.5 font-display text-xl font-semibold">A little romance, end-to-end</p>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-              {status && status.minutesLate > 0 && (
+              {status?.cancelled && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 px-2.5 py-1 font-semibold text-rose-700">
+                  <X className="h-3 w-3" /> Cancelled · {formatUpdatedAt(status.updatedAt)}
+                </span>
+              )}
+              {status?.rescheduledAt && !status.cancelled && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/15 px-2.5 py-1 font-semibold text-sky-700">
+                  <Calendar className="h-3 w-3" /> Rescheduled · {new Date(status.rescheduledAt).toLocaleDateString([], { month: "short", day: "numeric" })}
+                </span>
+              )}
+              {status && status.minutesLate > 0 && !status.cancelled && (
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 px-2.5 py-1 font-semibold text-amber-700">
                   <span className="relative inline-flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" />

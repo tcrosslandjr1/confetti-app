@@ -9,12 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PlanRouteImport } from './routes/plan'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as ConciergeRouteImport } from './routes/concierge'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TripsIndexRouteImport } from './routes/trips.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
+import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile'
@@ -23,6 +26,11 @@ import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
 import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
 
+const PlanRoute = PlanRouteImport.update({
+  id: '/plan',
+  path: '/plan',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OnboardingRoute = OnboardingRouteImport.update({
   id: '/onboarding',
   path: '/onboarding',
@@ -43,6 +51,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TripsIndexRoute = TripsIndexRouteImport.update({
+  id: '/trips/',
+  path: '/trips/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EventsIndexRoute = EventsIndexRouteImport.update({
   id: '/events/',
   path: '/events/',
@@ -52,6 +65,11 @@ const ConciergeIndexRoute = ConciergeIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ConciergeRoute,
+} as any)
+const TripsIdRoute = TripsIdRouteImport.update({
+  id: '/trips/$id',
+  path: '/trips/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const IdeasSlugRoute = IdeasSlugRouteImport.update({
   id: '/ideas/$slug',
@@ -94,13 +112,16 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/onboarding': typeof OnboardingRoute
+  '/plan': typeof PlanRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
+  '/trips/$id': typeof TripsIdRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
+  '/trips/': typeof TripsIndexRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
 }
@@ -108,13 +129,16 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/onboarding': typeof OnboardingRoute
+  '/plan': typeof PlanRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
+  '/trips/$id': typeof TripsIdRoute
   '/concierge': typeof ConciergeIndexRoute
   '/events': typeof EventsIndexRoute
+  '/trips': typeof TripsIndexRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/concierge/chat': typeof ConciergeChatIndexRoute
 }
@@ -124,13 +148,16 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/onboarding': typeof OnboardingRoute
+  '/plan': typeof PlanRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
+  '/trips/$id': typeof TripsIdRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
+  '/trips/': typeof TripsIndexRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
 }
@@ -141,13 +168,16 @@ export interface FileRouteTypes {
     | '/auth'
     | '/concierge'
     | '/onboarding'
+    | '/plan'
     | '/api/chat'
     | '/concierge/passport'
     | '/concierge/profile'
     | '/events/$eventId'
     | '/ideas/$slug'
+    | '/trips/$id'
     | '/concierge/'
     | '/events/'
+    | '/trips/'
     | '/concierge/chat/$threadId'
     | '/concierge/chat/'
   fileRoutesByTo: FileRoutesByTo
@@ -155,13 +185,16 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/onboarding'
+    | '/plan'
     | '/api/chat'
     | '/concierge/passport'
     | '/concierge/profile'
     | '/events/$eventId'
     | '/ideas/$slug'
+    | '/trips/$id'
     | '/concierge'
     | '/events'
+    | '/trips'
     | '/concierge/chat/$threadId'
     | '/concierge/chat'
   id:
@@ -170,13 +203,16 @@ export interface FileRouteTypes {
     | '/auth'
     | '/concierge'
     | '/onboarding'
+    | '/plan'
     | '/api/chat'
     | '/concierge/passport'
     | '/concierge/profile'
     | '/events/$eventId'
     | '/ideas/$slug'
+    | '/trips/$id'
     | '/concierge/'
     | '/events/'
+    | '/trips/'
     | '/concierge/chat/$threadId'
     | '/concierge/chat/'
   fileRoutesById: FileRoutesById
@@ -186,14 +222,24 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   ConciergeRoute: typeof ConciergeRouteWithChildren
   OnboardingRoute: typeof OnboardingRoute
+  PlanRoute: typeof PlanRoute
   ApiChatRoute: typeof ApiChatRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   IdeasSlugRoute: typeof IdeasSlugRoute
+  TripsIdRoute: typeof TripsIdRoute
   EventsIndexRoute: typeof EventsIndexRoute
+  TripsIndexRoute: typeof TripsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/plan': {
+      id: '/plan'
+      path: '/plan'
+      fullPath: '/plan'
+      preLoaderRoute: typeof PlanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/onboarding': {
       id: '/onboarding'
       path: '/onboarding'
@@ -222,6 +268,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trips/': {
+      id: '/trips/'
+      path: '/trips'
+      fullPath: '/trips/'
+      preLoaderRoute: typeof TripsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/events/': {
       id: '/events/'
       path: '/events'
@@ -235,6 +288,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/concierge/'
       preLoaderRoute: typeof ConciergeIndexRouteImport
       parentRoute: typeof ConciergeRoute
+    }
+    '/trips/$id': {
+      id: '/trips/$id'
+      path: '/trips/$id'
+      fullPath: '/trips/$id'
+      preLoaderRoute: typeof TripsIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/ideas/$slug': {
       id: '/ideas/$slug'
@@ -313,10 +373,13 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   ConciergeRoute: ConciergeRouteWithChildren,
   OnboardingRoute: OnboardingRoute,
+  PlanRoute: PlanRoute,
   ApiChatRoute: ApiChatRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   IdeasSlugRoute: IdeasSlugRoute,
+  TripsIdRoute: TripsIdRoute,
   EventsIndexRoute: EventsIndexRoute,
+  TripsIndexRoute: TripsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

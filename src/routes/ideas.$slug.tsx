@@ -1,8 +1,9 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, Bookmark, Clock, DollarSign, Heart, RotateCw, Sparkles, X } from "lucide-react";
+import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { ArrowLeft, Bookmark, CalendarPlus, Clock, DollarSign, Heart, Loader2, RotateCw, Sparkles, X } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { supabase } from "@/integrations/supabase/client";
+import { buildAndSaveItinerary } from "@/lib/itineraries";
 import {
   getOccasion, getSeedIdeas, type Idea, type IdeaFormat,
 } from "@/lib/occasions";
@@ -48,7 +49,27 @@ function IdeasPage() {
   const [index, setIndex] = useState(0);
   const [saved, setSaved] = useState<Idea[]>([]);
   const [loading, setLoading] = useState(false);
+  const [planning, setPlanning] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  async function buildDay(idea: Idea) {
+    setError(null);
+    setPlanning(idea.id);
+    try {
+      const { id } = await buildAndSaveItinerary({
+        occasion: occasion!.title,
+        vibe: occasion!.tagline,
+        occasionSlug: occasion!.slug,
+        seedIdea: { title: idea.title, hook: idea.hook, description: idea.description, vibeTags: idea.vibeTags },
+      });
+      void navigate({ to: "/trips/$id", params: { id } });
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setPlanning(null);
+    }
+  }
 
   // Load saved from localStorage
   useEffect(() => {
@@ -193,6 +214,20 @@ function IdeasPage() {
                 <Heart className="h-7 w-7" />
               </button>
             </div>
+          )}
+
+          {current && (
+            <button
+              onClick={() => buildDay(current)}
+              disabled={planning === current.id}
+              className="mt-4 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background shadow-card transition-pop hover:scale-105 disabled:opacity-60"
+            >
+              {planning === current.id ? (
+                <><Loader2 className="h-4 w-4 animate-spin" /> Building your day...</>
+              ) : (
+                <><CalendarPlus className="h-4 w-4" /> Build full day from this</>
+              )}
+            </button>
           )}
 
           {error && (

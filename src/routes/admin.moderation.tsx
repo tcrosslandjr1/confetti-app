@@ -158,6 +158,7 @@ function AdminModerationPage() {
   const [tab, setTab] = useState<"pending" | "approved" | "removed" | "all">("pending");
   const [typeFilter, setTypeFilter] = useState<"all" | ItemType>("all");
   const [severityFilter, setSeverityFilter] = useState<"all" | Severity>("all");
+  const [query, setQuery] = useState("");
 
   const counts = useMemo(
     () => ({

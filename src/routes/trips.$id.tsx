@@ -236,7 +236,7 @@ function TripDetail() {
       </section>
 
       {/* Notification history */}
-      <section className="mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-4xl px-4 pb-32 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
           <header className="flex items-center justify-between gap-3 border-b border-border bg-muted/40 p-4 sm:px-5">
             <div className="flex items-center gap-2">

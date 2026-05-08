@@ -19,7 +19,9 @@ export const Route = createFileRoute("/plan")({
 function PlanPage() {
   const { user, loading } = useAuth();
   const nav = useNavigate();
-  const [occasionSlug, setOccasionSlug] = useState(OCCASIONS[0].slug);
+  const [occasionSlug, setOccasionSlug] = useState<string>(OCCASIONS[0].slug);
+  const [customVibe, setCustomVibe] = useState("");
+  const isCustom = occasionSlug === "__custom__";
   const [city, setCity] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
   const [date, setDate] = useState("");
@@ -40,11 +42,15 @@ function PlanPage() {
     setErr(null);
     setBusy(true);
     try {
-      const occ = OCCASIONS.find((o) => o.slug === occasionSlug)!;
+      const occ = OCCASIONS.find((o) => o.slug === occasionSlug);
+      const customText = customVibe.trim();
+      if (isCustom && !customText) {
+        throw new Error("Tell us your vibe — type a few words to describe your day.");
+      }
       const { id } = await buildAndSaveItinerary({
-        occasion: occ.title,
-        vibe: occ.tagline,
-        occasionSlug: occ.slug,
+        occasion: occ ? occ.title : customText,
+        vibe: occ ? occ.tagline : customText,
+        occasionSlug: occ ? occ.slug : "spontaneous",
         city: city || undefined,
         neighborhood: neighborhood || undefined,
         date: date || undefined,
@@ -65,7 +71,7 @@ function PlanPage() {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             <Sparkles className="h-3.5 w-3.5 text-primary" /> AI day planner
@@ -77,10 +83,52 @@ function PlanPage() {
         </div>
 
         <form onSubmit={submit} className="space-y-5 rounded-3xl border border-border bg-card p-6 shadow-card sm:p-8">
-          <Field label="Occasion">
-            <select value={occasionSlug} onChange={(e) => setOccasionSlug(e.target.value)} className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
-              {OCCASIONS.map((o) => (<option key={o.slug} value={o.slug}>{o.emoji} {o.title}</option>))}
-            </select>
+          <Field label="Pick your vibe">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
+              {OCCASIONS.map((o) => {
+                const active = occasionSlug === o.slug;
+                return (
+                  <button
+                    key={o.slug}
+                    type="button"
+                    onClick={() => setOccasionSlug(o.slug)}
+                    className={`group relative overflow-hidden rounded-2xl border p-3 text-left transition-all ${
+                      active
+                        ? "border-primary bg-primary/5 shadow-pop scale-[1.02]"
+                        : "border-border bg-background hover:border-primary/40 hover:scale-[1.01]"
+                    }`}
+                  >
+                    <div className={`mb-1.5 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${o.gradient} text-lg`}>
+                      {o.emoji}
+                    </div>
+                    <div className="text-sm font-semibold leading-tight">{o.title}</div>
+                    <div className="mt-0.5 text-[11px] leading-tight text-muted-foreground line-clamp-2">{o.tagline}</div>
+                  </button>
+                );
+              })}
+              <button
+                type="button"
+                onClick={() => setOccasionSlug("__custom__")}
+                className={`group relative overflow-hidden rounded-2xl border-2 border-dashed p-3 text-left transition-all ${
+                  isCustom
+                    ? "border-primary bg-primary/5 shadow-pop scale-[1.02]"
+                    : "border-border bg-background hover:border-primary/40 hover:scale-[1.01]"
+                }`}
+              >
+                <div className="mb-1.5 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-muted text-lg">✏️</div>
+                <div className="text-sm font-semibold leading-tight">Something else</div>
+                <div className="mt-0.5 text-[11px] leading-tight text-muted-foreground">Type your own vibe</div>
+              </button>
+            </div>
+            {isCustom && (
+              <input
+                autoFocus
+                value={customVibe}
+                onChange={(e) => setCustomVibe(e.target.value)}
+                placeholder="e.g. Rainy-day bookstore crawl, late-night ramen..."
+                className="mt-3 w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+              />
+            )}
           </Field>
 
           <div className="grid gap-5 sm:grid-cols-2">

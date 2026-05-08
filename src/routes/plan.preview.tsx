@@ -51,6 +51,7 @@ const CAT_TONE: Record<Stop["category"], string> = {
 function PreviewPage() {
   const [variant, setVariant] = useState(0);
   const [saved, setSaved] = useState(false);
+  const nav = useNavigate();
   const stops = useMemo(() => VARIANTS[variant % VARIANTS.length], [variant]);
 
   function regenerate() {

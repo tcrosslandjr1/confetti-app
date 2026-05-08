@@ -85,16 +85,34 @@ const FAQS = [
 ];
 
 function Landing() {
+  // Subtle hero parallax
+  const heroBgRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const el = heroBgRef.current;
+    if (!el) return;
+    let raf = 0;
+    function update() {
+      const y = window.scrollY;
+      if (el) el.style.transform = `translate3d(0, ${y * 0.18}px, 0)`;
+      raf = 0;
+    }
+    function onScroll() { if (!raf) raf = requestAnimationFrame(update); }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => { window.removeEventListener("scroll", onScroll); if (raf) cancelAnimationFrame(raf); };
+  }, []);
+
   return (
     <div className="min-h-screen bg-cream text-ink">
       <SiteHeader />
 
       {/* ============================ HERO ============================ */}
       <section className="relative overflow-hidden border-b-2 border-ink">
-        <div className="hero-gradient absolute inset-0 -z-20" />
-        <div className="grid-paper absolute inset-0 -z-10 opacity-50" />
-        <div className="absolute -right-24 -top-24 -z-10 h-96 w-96 animate-blob bg-gradient-warm opacity-70" />
-        <div className="absolute -bottom-32 -left-24 -z-10 h-96 w-96 animate-blob bg-gradient-cool opacity-50" style={{ animationDelay: "-7s" }} />
+        <div ref={heroBgRef} className="absolute inset-0 -z-20 will-change-transform">
+          <div className="hero-gradient absolute inset-0" />
+          <div className="grid-paper absolute inset-0 opacity-50" />
+          <div className="absolute -right-24 -top-24 h-96 w-96 animate-blob bg-gradient-warm opacity-70" />
+          <div className="absolute -bottom-32 -left-24 h-96 w-96 animate-blob bg-gradient-cool opacity-50" style={{ animationDelay: "-7s" }} />
+        </div>
 
         <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-24 pt-16 sm:px-6 lg:grid-cols-12 lg:px-8 lg:pb-32 lg:pt-20">
           {/* left — type */}

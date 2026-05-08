@@ -24,6 +24,8 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import { logAudit } from "@/lib/audit-log";
+import { useAuth } from "@/lib/auth-context";
 
 export const Route = createFileRoute("/admin/venues")({
   component: AdminVenuesPage,
@@ -81,6 +83,8 @@ function PriceLevel({ level }: { level: number }) {
 }
 
 function AdminVenuesPage() {
+  const { user } = useAuth();
+  const adminEmail = user?.email ?? "admin";
   const [venues, setVenues] = useState<Venue[]>(SEED);
   const [tab, setTab] = useState<"all" | Status>("all");
   const [query, setQuery] = useState("");
@@ -113,16 +117,31 @@ function AdminVenuesPage() {
   }, [venues, tab, query]);
 
   const setStatus = (id: string, status: Status) => {
-    setVenues((prev) => prev.map((v) => (v.id === id ? { ...v, status } : v)));
+    const v = venues.find((x) => x.id === id);
+    setVenues((prev) => prev.map((x) => (x.id === id ? { ...x, status } : x)));
     toast.success(
       status === "approved" ? `Approved ${id}` : status === "rejected" ? `Rejected ${id}` : `Updated ${id}`,
     );
+    logAudit({
+      admin: adminEmail,
+      action: status === "approved" ? "approve" : status === "rejected" ? "reject" : "status",
+      entity: "venue",
+      targetId: id,
+      summary: `${status === "approved" ? "Approved" : status === "rejected" ? "Rejected" : "Updated"}${v ? ` venue "${v.name}"` : ""}`,
+    });
   };
 
   const saveEdit = (next: Venue) => {
     setVenues((prev) => prev.map((v) => (v.id === next.id ? next : v)));
     setEditing(null);
     toast.success(`Saved changes to ${next.name}`);
+    logAudit({
+      admin: adminEmail,
+      action: "edit",
+      entity: "venue",
+      targetId: next.id,
+      summary: `Edited venue "${next.name}"`,
+    });
   };
 
   return (

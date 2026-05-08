@@ -36,6 +36,7 @@ import { Route as AdminVenuesRouteImport } from './routes/admin.venues'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminModerationRouteImport } from './routes/admin.moderation'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
+import { Route as AdminAuditRouteImport } from './routes/admin.audit'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
@@ -176,6 +177,11 @@ const AdminBookingsRoute = AdminBookingsRouteImport.update({
   path: '/bookings',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminAuditRoute = AdminAuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
   id: '/analytics',
   path: '/analytics',
@@ -212,6 +218,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/users': typeof AdminUsersRoute
@@ -243,6 +250,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/users': typeof AdminUsersRoute
@@ -277,6 +285,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/users': typeof AdminUsersRoute
@@ -312,6 +321,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/reservations'
     | '/admin/analytics'
+    | '/admin/audit'
     | '/admin/bookings'
     | '/admin/moderation'
     | '/admin/users'
@@ -343,6 +353,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/reservations'
     | '/admin/analytics'
+    | '/admin/audit'
     | '/admin/bookings'
     | '/admin/moderation'
     | '/admin/users'
@@ -376,6 +387,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/reservations'
     | '/admin/analytics'
+    | '/admin/audit'
     | '/admin/bookings'
     | '/admin/moderation'
     | '/admin/users'
@@ -608,6 +620,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminBookingsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/audit': {
+      id: '/admin/audit'
+      path: '/audit'
+      fullPath: '/admin/audit'
+      preLoaderRoute: typeof AdminAuditRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/analytics': {
       id: '/admin/analytics'
       path: '/analytics'
@@ -641,6 +660,7 @@ declare module '@tanstack/react-router' {
 
 interface AdminRouteChildren {
   AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminAuditRoute: typeof AdminAuditRoute
   AdminBookingsRoute: typeof AdminBookingsRoute
   AdminModerationRoute: typeof AdminModerationRoute
   AdminUsersRoute: typeof AdminUsersRoute
@@ -650,6 +670,7 @@ interface AdminRouteChildren {
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminAuditRoute: AdminAuditRoute,
   AdminBookingsRoute: AdminBookingsRoute,
   AdminModerationRoute: AdminModerationRoute,
   AdminUsersRoute: AdminUsersRoute,

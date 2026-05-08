@@ -16,6 +16,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
+import { logAudit } from "@/lib/audit-log";
+import { useAuth } from "@/lib/auth-context";
 
 export const Route = createFileRoute("/admin/moderation")({
   component: AdminModerationPage,
@@ -154,6 +156,8 @@ function StatusBadge({ status }: { status: Status }) {
 }
 
 function AdminModerationPage() {
+  const { user } = useAuth();
+  const adminEmail = user?.email ?? "admin";
   const [reports, setReports] = useState<Report[]>(SEED);
   const [tab, setTab] = useState<"pending" | "approved" | "removed" | "all">("pending");
   const [typeFilter, setTypeFilter] = useState<"all" | ItemType>("all");
@@ -185,8 +189,16 @@ function AdminModerationPage() {
   }, [reports, tab, typeFilter, severityFilter, query]);
 
   const decide = (id: string, status: "approved" | "removed") => {
-    setReports((prev) => prev.map((r) => (r.id === id ? { ...r, status } : r)));
+    const r = reports.find((x) => x.id === id);
+    setReports((prev) => prev.map((x) => (x.id === id ? { ...x, status } : x)));
     toast.success(status === "approved" ? `Approved ${id}` : `Removed ${id}`);
+    logAudit({
+      admin: adminEmail,
+      action: status === "approved" ? "approve" : "remove",
+      entity: "report",
+      targetId: id,
+      summary: `${status === "approved" ? "Approved" : "Removed"}${r ? ` ${r.type} report (${r.reason}) on ${r.target}` : ""}`,
+    });
   };
 
   return (

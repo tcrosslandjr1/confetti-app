@@ -13,6 +13,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { toast } from "sonner";
+import { logAudit } from "@/lib/audit-log";
+import { useAuth } from "@/lib/auth-context";
 
 export const Route = createFileRoute("/admin/bookings")({
   component: AdminBookingsPage,
@@ -58,6 +60,8 @@ function StatusBadge({ status }: { status: Status }) {
 }
 
 function AdminBookingsPage() {
+  const { user } = useAuth();
+  const adminEmail = user?.email ?? "admin";
   const [bookings, setBookings] = useState<Booking[]>(SEED);
   const [tab, setTab] = useState<"all" | Status>("all");
   const [query, setQuery] = useState("");
@@ -94,9 +98,17 @@ function AdminBookingsPage() {
   );
 
   const updateStatus = (id: string, status: Status) => {
-    setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, status } : b)));
+    const b = bookings.find((x) => x.id === id);
+    setBookings((prev) => prev.map((x) => (x.id === id ? { ...x, status } : x)));
     const action = status === "confirmed" ? "Confirmed" : "Cancelled";
     toast.success(`${action} ${id}`);
+    logAudit({
+      admin: adminEmail,
+      action: status === "confirmed" ? "confirm" : "cancel",
+      entity: "booking",
+      targetId: id,
+      summary: `${action} booking${b ? ` for ${b.guest} at ${b.venue}` : ""}`,
+    });
   };
 
   return (

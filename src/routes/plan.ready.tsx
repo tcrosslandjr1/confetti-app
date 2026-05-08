@@ -526,7 +526,14 @@ function ReadyPage() {
         </section>
 
         {/* Recap card */}
-        <section className="mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+        <section className="relative mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+          {status?.cancelled && (
+            <div className="pointer-events-none absolute inset-0 z-10 grid place-items-center bg-rose-500/15 backdrop-blur-[1px]">
+              <span className="-rotate-6 rounded-2xl border-[3px] border-rose-700 bg-rose-100 px-6 py-2 text-2xl font-black uppercase tracking-widest text-rose-700 shadow-[6px_6px_0_0_hsl(var(--foreground))]">
+                Cancelled
+              </span>
+            </div>
+          )}
           <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-gradient-to-r from-primary/5 to-coral/5 p-5 sm:p-6">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Saturday · Date night</p>

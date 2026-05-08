@@ -18,6 +18,7 @@ export function SiteHeader() {
           <Link to="/" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-muted text-foreground" }}>Occasions</Link>
           <Link to="/plan" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-muted text-foreground" }}>Plan a day</Link>
           <Link to="/trips" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-muted text-foreground" }}>My trips</Link>
+          <Link to="/reservations" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-muted text-foreground" }}>Reservations</Link>
           <Link to="/me" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-muted text-foreground" }}>My vibe</Link>
         </nav>
 

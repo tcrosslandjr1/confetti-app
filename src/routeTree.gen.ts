@@ -32,6 +32,7 @@ import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile'
 import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as AdminModerationRouteImport } from './routes/admin.moderation'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
@@ -153,6 +154,11 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminModerationRoute = AdminModerationRouteImport.update({
+  id: '/moderation',
+  path: '/moderation',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminBookingsRoute = AdminBookingsRouteImport.update({
   id: '/bookings',
   path: '/bookings',
@@ -195,6 +201,7 @@ export interface FileRoutesByFullPath {
   '/reservations': typeof ReservationsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/moderation': typeof AdminModerationRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
@@ -223,6 +230,7 @@ export interface FileRoutesByTo {
   '/reservations': typeof ReservationsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/moderation': typeof AdminModerationRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
@@ -254,6 +262,7 @@ export interface FileRoutesById {
   '/reservations': typeof ReservationsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/moderation': typeof AdminModerationRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
@@ -286,6 +295,7 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/admin/analytics'
     | '/admin/bookings'
+    | '/admin/moderation'
     | '/api/chat'
     | '/concierge/passport'
     | '/concierge/profile'
@@ -314,6 +324,7 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/admin/analytics'
     | '/admin/bookings'
+    | '/admin/moderation'
     | '/api/chat'
     | '/concierge/passport'
     | '/concierge/profile'
@@ -344,6 +355,7 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/admin/analytics'
     | '/admin/bookings'
+    | '/admin/moderation'
     | '/api/chat'
     | '/concierge/passport'
     | '/concierge/profile'
@@ -544,6 +556,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/moderation': {
+      id: '/admin/moderation'
+      path: '/moderation'
+      fullPath: '/admin/moderation'
+      preLoaderRoute: typeof AdminModerationRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/bookings': {
       id: '/admin/bookings'
       path: '/bookings'
@@ -585,12 +604,14 @@ declare module '@tanstack/react-router' {
 interface AdminRouteChildren {
   AdminAnalyticsRoute: typeof AdminAnalyticsRoute
   AdminBookingsRoute: typeof AdminBookingsRoute
+  AdminModerationRoute: typeof AdminModerationRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminAnalyticsRoute: AdminAnalyticsRoute,
   AdminBookingsRoute: AdminBookingsRoute,
+  AdminModerationRoute: AdminModerationRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 

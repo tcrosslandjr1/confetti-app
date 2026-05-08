@@ -96,7 +96,7 @@ function BrowseEvents() {
                   key={c}
                   onClick={() =>
                     navigate({
-                      search: (p) => ({ ...p, cat: active ? undefined : c }),
+                      search: (p: any) => ({ ...p, cat: active ? undefined : c }),
                     })
                   }
                   className={`rounded-full px-4 py-2 text-sm font-semibold transition-pop ${

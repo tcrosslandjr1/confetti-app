@@ -211,6 +211,18 @@ function AdminModerationPage() {
         </div>
       </header>
 
+      <div className="rounded-2xl border border-border bg-card p-3 shadow-card">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by report ID, target, reason, or content…"
+            className="pl-9"
+          />
+        </div>
+      </div>
+
       <div className="flex flex-wrap items-center gap-2">
         {TABS.map((t) => {
           const active = tab === t.key;

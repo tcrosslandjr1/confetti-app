@@ -115,7 +115,28 @@ function PlanPage() {
             </div>
           </Field>
 
-          <Field label="Anything special? (optional)">
+          <Field label="How are you getting around?">
+            <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
+              {([
+                { k: "auto", label: "Auto", emoji: "✨" },
+                { k: "car", label: "Car", emoji: "🚗" },
+                { k: "transit", label: "Transit", emoji: "🚇" },
+                { k: "lyft", label: "Lyft", emoji: "🩷" },
+                { k: "uber", label: "Uber", emoji: "🖤" },
+                { k: "walk", label: "Walk", emoji: "🚶" },
+              ] as const).map((m) => (
+                <button key={m.k} type="button" onClick={() => setTransportMode(m.k)}
+                  className={`rounded-xl border px-2 py-2 text-xs font-semibold transition-colors ${
+                    transportMode === m.k ? "border-primary bg-primary text-primary-foreground" : "border-border bg-background text-muted-foreground hover:text-foreground"
+                  }`}>
+                  <span className="mr-1">{m.emoji}</span>{m.label}
+                </button>
+              ))}
+            </div>
+            <p className="mt-1.5 text-xs text-muted-foreground">Auto = AI picks the best mode for each leg (walk short hops, rideshare when drinking, transit downtown).</p>
+          </Field>
+
+
             <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3}
               placeholder="Allergies, can't drink, want it walkable, kids in tow..." className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
           </Field>

@@ -78,7 +78,7 @@ const SAMPLE_STOPS: Stop[][] = [
 ];
 
 export function BuildMyNightWizard() {
-  const { open, closeWizard } = useWizard();
+  const { open, preset, closeWizard } = useWizard();
   const [step, setStep] = useState(0); // 0..4 questions, 5 loading, 6 result
   const [vibe, setVibe] = useState<string[]>([]);
   const [crew, setCrew] = useState<string | null>(null);
@@ -90,8 +90,24 @@ export function BuildMyNightWizard() {
   const [variant, setVariant] = useState(0);
   const { burst, layer } = useConfettiBurst();
 
-  const stops = useMemo(() => SAMPLE_STOPS[variant % SAMPLE_STOPS.length], [variant]);
+  const fallbackTones = ["bg-coral", "bg-purple", "bg-gold", "bg-emerald-400", "bg-pink-300", "bg-amber-300"];
+  const presetStops = useMemo(
+    () => preset?.stops.map((s, i) => ({
+      time: s.time,
+      venue: s.venue,
+      vibe: s.vibe ?? "Curated pick",
+      tone: s.tone ?? fallbackTones[i % fallbackTones.length],
+      walk: s.walk,
+    })),
+    [preset]
+  );
+  const stops = presetStops ?? SAMPLE_STOPS[variant % SAMPLE_STOPS.length];
   const totalSteps = 5;
+
+  // If preset supplied, jump straight to result
+  useEffect(() => {
+    if (open && preset) setStep(6);
+  }, [open, preset]);
 
   // Lock body scroll while open
   useEffect(() => {
@@ -333,10 +349,13 @@ export function BuildMyNightWizard() {
           {step === 6 && (
             <div>
               <h2 className="font-display text-3xl font-extrabold leading-tight sm:text-4xl">
-                Your night's <span className="font-serif italic font-normal text-coral">locked in.</span>
+                {preset ? preset.title : "Your night's "}
+                {!preset && <span className="font-serif italic font-normal text-coral">locked in.</span>}
               </h2>
               <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-ink/60">
-                {vibe.map((k) => VIBES.find((v) => v.k === k)?.label).filter(Boolean).join(" + ")} · {CREW.find((c) => c.k === crew)?.label} · {budget}
+                {preset
+                  ? [preset.vibeLabel, preset.crewLabel, preset.budgetLabel].filter(Boolean).join(" · ") || "Curated pick · ready to roll"
+                  : `${vibe.map((k) => VIBES.find((v) => v.k === k)?.label).filter(Boolean).join(" + ")} · ${CREW.find((c) => c.k === crew)?.label} · ${budget}`}
               </p>
 
               <ol className="mt-6 space-y-3">

@@ -449,14 +449,16 @@ function Landing() {
             </h2>
           </div>
           <div className="space-y-3 lg:col-span-8">
-            {FAQS.map((f) => (
-              <details key={f.q} className="group rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut transition-pop open:bg-gold [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer items-center justify-between gap-4 font-display text-xl font-extrabold">
-                  {f.q}
-                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink bg-cream font-mono text-lg transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-4 text-base leading-relaxed">{f.a}</p>
-              </details>
+            {FAQS.map((f, i) => (
+              <Reveal key={f.q} delay={i * 70}>
+                <details className="faq-item group rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut transition-pop open:bg-gold open:-translate-y-0.5 open:shadow-brut-lg [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer items-center justify-between gap-4 font-display text-xl font-extrabold">
+                    {f.q}
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink bg-cream font-mono text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-4 text-base leading-relaxed" style={{ animation: "faq-open 0.32s cubic-bezier(0.22,1,0.36,1) both" }}>{f.a}</p>
+                </details>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -467,20 +469,40 @@ function Landing() {
         <div className="absolute -right-20 -top-20 h-72 w-72 animate-blob bg-purple/40" />
         <div className="absolute -bottom-16 -left-16 h-64 w-64 animate-blob bg-gold/60" style={{ animationDelay: "-4s" }} />
         <div className="relative mx-auto max-w-5xl px-4 py-28 text-center sm:px-6">
-          <Sparkles className="mx-auto h-10 w-10" />
-          <h2 className="mt-6 font-display text-7xl font-extrabold leading-[0.85] tracking-tight sm:text-[140px]">
-            Stop scrolling.<br />
-            <span className="font-serif italic font-normal">Start showing up.</span>
-          </h2>
-          <div className="mt-12 flex flex-wrap justify-center gap-4">
-            <Link to="/plan" className="inline-flex h-14 items-center gap-2 rounded-full border-2 border-cream bg-cream px-8 font-bold text-ink shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg">
-              Build my night <ArrowUpRight className="h-5 w-5" />
-            </Link>
-            <Link to="/features" className="inline-flex h-14 items-center rounded-full border-2 border-cream px-8 font-bold transition-pop hover:bg-cream hover:text-ink">
-              Tour the features
-            </Link>
+          <Reveal>
+            <Sparkles className="mx-auto h-10 w-10" />
+            <h2 className="mt-6 font-display text-7xl font-extrabold leading-[0.85] tracking-tight sm:text-[140px]">
+              Stop scrolling.<br />
+              <span className="font-serif italic font-normal">Start showing up.</span>
+            </h2>
+            <div className="mt-12 flex flex-wrap justify-center gap-4">
+              <WizardButton
+                ariaLabel="Build my night"
+                className="inline-flex h-14 items-center gap-2 rounded-full border-2 border-cream bg-cream px-8 font-bold text-ink shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
+              >
+                Build my night <ArrowUpRight className="h-5 w-5" />
+              </WizardButton>
+              <Link to="/features" className="inline-flex h-14 items-center rounded-full border-2 border-cream px-8 font-bold transition-pop hover:-translate-y-0.5 hover:bg-cream hover:text-ink">
+                Tour the features
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ============================ TICKER (hover speeds up) ============================ */}
+      <section className="marquee-hover border-b-2 border-ink bg-gold py-3 text-ink">
+        <div className="flex overflow-hidden">
+          <div className="flex shrink-0 animate-marquee gap-8 whitespace-nowrap pr-8 font-mono text-xs font-bold uppercase tracking-widest" style={{ transition: "animation-duration 0.4s ease" }}>
+            {[...MARQUEE, ...MARQUEE, ...MARQUEE].map((m, i) => (
+              <span key={i} className="inline-flex items-center gap-3">
+                {m}
+                <span className="opacity-40">/</span>
+              </span>
+            ))}
           </div>
         </div>
+        <p className="mt-1 text-center font-mono text-[9px] uppercase tracking-[0.3em] text-ink/50">hover to speed it up ↗</p>
       </section>
 
       <SiteFooter />

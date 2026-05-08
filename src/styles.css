@@ -226,6 +226,25 @@
   .animate-float-card { animation: float-card 6s ease-in-out infinite; }
   .animate-dot-pulse  { animation: dot-pulse 1.8s ease-in-out infinite; }
   .animate-confetti-fall { animation: confetti-fall 2.4s cubic-bezier(.3,.7,.4,1) forwards; }
+  .animate-wiggle-attention { animation: wiggle-attention 5s ease-in-out infinite; transform-origin: 50% 80%; }
+  .animate-pulse-glow { animation: pulse-glow 2.4s ease-in-out infinite; }
+  .reveal { opacity: 0; will-change: transform, opacity; }
+  .reveal.in { animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+  .reveal-scale.in { animation: reveal-scale 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+  .nav-underline { position: relative; }
+  .nav-underline::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 4px; height: 2px;
+    background: var(--ink); transform: scaleX(0); transform-origin: left center;
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .nav-underline:hover::after { transform: scaleX(1); }
+  .marquee-hover:hover .animate-marquee { animation-duration: 8s; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal.in, .reveal-scale.in { animation: none !important; opacity: 1 !important; transform: none !important; }
+    .animate-wiggle-attention, .animate-pulse-glow, .animate-marquee, .animate-blob, .animate-float-card, .animate-wiggle { animation: none !important; }
+    html { scroll-behavior: auto; }
+  }
   .hero-gradient {
     background: linear-gradient(120deg,
       oklch(0.97 0.022 88) 0%,

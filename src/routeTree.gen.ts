@@ -16,8 +16,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
+import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile'
+import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
+import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
 
 const OnboardingRoute = OnboardingRouteImport.update({
   id: '/onboarding',
@@ -54,6 +57,16 @@ const EventsEventIdRoute = EventsEventIdRouteImport.update({
   path: '/events/$eventId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConciergeProfileRoute = ConciergeProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => ConciergeRoute,
+} as any)
+const ConciergePassportRoute = ConciergePassportRouteImport.update({
+  id: '/passport',
+  path: '/passport',
+  getParentRoute: () => ConciergeRoute,
+} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -64,6 +77,11 @@ const ConciergeChatIndexRoute = ConciergeChatIndexRouteImport.update({
   path: '/chat/',
   getParentRoute: () => ConciergeRoute,
 } as any)
+const ConciergeChatThreadIdRoute = ConciergeChatThreadIdRouteImport.update({
+  id: '/chat/$threadId',
+  path: '/chat/$threadId',
+  getParentRoute: () => ConciergeRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -71,9 +89,12 @@ export interface FileRoutesByFullPath {
   '/concierge': typeof ConciergeRouteWithChildren
   '/onboarding': typeof OnboardingRoute
   '/api/chat': typeof ApiChatRoute
+  '/concierge/passport': typeof ConciergePassportRoute
+  '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
+  '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
 }
 export interface FileRoutesByTo {
@@ -81,9 +102,12 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/onboarding': typeof OnboardingRoute
   '/api/chat': typeof ApiChatRoute
+  '/concierge/passport': typeof ConciergePassportRoute
+  '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/concierge': typeof ConciergeIndexRoute
   '/events': typeof EventsIndexRoute
+  '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/concierge/chat': typeof ConciergeChatIndexRoute
 }
 export interface FileRoutesById {
@@ -93,9 +117,12 @@ export interface FileRoutesById {
   '/concierge': typeof ConciergeRouteWithChildren
   '/onboarding': typeof OnboardingRoute
   '/api/chat': typeof ApiChatRoute
+  '/concierge/passport': typeof ConciergePassportRoute
+  '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
+  '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
 }
 export interface FileRouteTypes {
@@ -106,9 +133,12 @@ export interface FileRouteTypes {
     | '/concierge'
     | '/onboarding'
     | '/api/chat'
+    | '/concierge/passport'
+    | '/concierge/profile'
     | '/events/$eventId'
     | '/concierge/'
     | '/events/'
+    | '/concierge/chat/$threadId'
     | '/concierge/chat/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -116,9 +146,12 @@ export interface FileRouteTypes {
     | '/auth'
     | '/onboarding'
     | '/api/chat'
+    | '/concierge/passport'
+    | '/concierge/profile'
     | '/events/$eventId'
     | '/concierge'
     | '/events'
+    | '/concierge/chat/$threadId'
     | '/concierge/chat'
   id:
     | '__root__'
@@ -127,9 +160,12 @@ export interface FileRouteTypes {
     | '/concierge'
     | '/onboarding'
     | '/api/chat'
+    | '/concierge/passport'
+    | '/concierge/profile'
     | '/events/$eventId'
     | '/concierge/'
     | '/events/'
+    | '/concierge/chat/$threadId'
     | '/concierge/chat/'
   fileRoutesById: FileRoutesById
 }
@@ -194,6 +230,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsEventIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/concierge/profile': {
+      id: '/concierge/profile'
+      path: '/profile'
+      fullPath: '/concierge/profile'
+      preLoaderRoute: typeof ConciergeProfileRouteImport
+      parentRoute: typeof ConciergeRoute
+    }
+    '/concierge/passport': {
+      id: '/concierge/passport'
+      path: '/passport'
+      fullPath: '/concierge/passport'
+      preLoaderRoute: typeof ConciergePassportRouteImport
+      parentRoute: typeof ConciergeRoute
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -208,16 +258,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConciergeChatIndexRouteImport
       parentRoute: typeof ConciergeRoute
     }
+    '/concierge/chat/$threadId': {
+      id: '/concierge/chat/$threadId'
+      path: '/chat/$threadId'
+      fullPath: '/concierge/chat/$threadId'
+      preLoaderRoute: typeof ConciergeChatThreadIdRouteImport
+      parentRoute: typeof ConciergeRoute
+    }
   }
 }
 
 interface ConciergeRouteChildren {
+  ConciergePassportRoute: typeof ConciergePassportRoute
+  ConciergeProfileRoute: typeof ConciergeProfileRoute
   ConciergeIndexRoute: typeof ConciergeIndexRoute
+  ConciergeChatThreadIdRoute: typeof ConciergeChatThreadIdRoute
   ConciergeChatIndexRoute: typeof ConciergeChatIndexRoute
 }
 
 const ConciergeRouteChildren: ConciergeRouteChildren = {
+  ConciergePassportRoute: ConciergePassportRoute,
+  ConciergeProfileRoute: ConciergeProfileRoute,
   ConciergeIndexRoute: ConciergeIndexRoute,
+  ConciergeChatThreadIdRoute: ConciergeChatThreadIdRoute,
   ConciergeChatIndexRoute: ConciergeChatIndexRoute,
 }
 

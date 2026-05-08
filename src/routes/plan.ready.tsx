@@ -194,13 +194,15 @@ function ReadyPage() {
     setVideoUrl(loadInviteVideo(TRIP.id));
     setVotes(loadVotes(TRIP.id));
     setStatus(loadStatus(TRIP.id));
+    setNotifications(loadNotifications(TRIP.id));
     const unsub = subscribeInvites(TRIP.id, () => {
       setInvitesState(loadInvites(TRIP.id));
       setVideoUrl(loadInviteVideo(TRIP.id));
     });
     const unsubVotes = subscribeVotes(TRIP.id, () => setVotes(loadVotes(TRIP.id)));
     const unsubStatus = subscribeStatus(TRIP.id, () => setStatus(loadStatus(TRIP.id)));
-    return () => { unsub(); unsubVotes(); unsubStatus(); };
+    const unsubNotif = subscribeNotifications(TRIP.id, () => setNotifications(loadNotifications(TRIP.id)));
+    return () => { unsub(); unsubVotes(); unsubStatus(); unsubNotif(); };
   }, []);
 
   function applyLate(minutes: number) {

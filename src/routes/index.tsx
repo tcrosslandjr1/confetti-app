@@ -1,10 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
 import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { TypingCounter } from "@/components/TypingCounter";
 import { StepsShowcase } from "@/components/StepsShowcase";
 import { OCCASIONS } from "@/lib/occasions";
+import { Reveal } from "@/components/Reveal";
+import { WizardButton } from "@/components/wizard/WizardButton";
+import { QuickPicks } from "@/components/QuickPicks";
 
 export const Route = createFileRoute("/")({
   head: () => ({

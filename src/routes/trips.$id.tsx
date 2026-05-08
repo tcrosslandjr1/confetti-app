@@ -1,9 +1,13 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, CalendarDays, Check, ExternalLink, MapPin, Pencil, Trash2, Utensils, Wine, Camera, Activity, Car, Sparkles, ParkingCircle, Lightbulb, Quote, Stamp, Bus, Footprints, Bike, Navigation, Ticket, Hash, Users, Phone, Mail, Clock, FileText, ChevronDown } from "lucide-react";
+import { ArrowLeft, CalendarDays, Check, ExternalLink, MapPin, Pencil, Trash2, Utensils, Wine, Camera, Activity, Car, Sparkles, ParkingCircle, Lightbulb, Quote, Stamp, Bus, Footprints, Bike, Navigation, Ticket, Hash, Users, Phone, Mail, Clock, FileText, ChevronDown, History, RotateCcw, Timer, Calendar, AlertTriangle, X } from "lucide-react";
+import { toast } from "sonner";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
 import { completeItinerary, deleteItinerary, getItinerary, updateStop, type Itinerary, type Stop, type TravelLeg } from "@/lib/itineraries";
+import { LateRescheduleFab } from "@/components/LateRescheduleFab";
+import { LiveElapsed } from "@/components/LiveElapsed";
+import { clearNotifications, formatUpdatedAt, loadNotifications, loadStatus, subscribeNotifications, subscribeStatus, type SentNotification, type TripStatus } from "@/lib/trip-status";
 
 export const Route = createFileRoute("/trips/$id")({
   component: TripDetail,

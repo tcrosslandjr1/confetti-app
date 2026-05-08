@@ -189,8 +189,16 @@ function AdminModerationPage() {
   }, [reports, tab, typeFilter, severityFilter, query]);
 
   const decide = (id: string, status: "approved" | "removed") => {
-    setReports((prev) => prev.map((r) => (r.id === id ? { ...r, status } : r)));
+    const r = reports.find((x) => x.id === id);
+    setReports((prev) => prev.map((x) => (x.id === id ? { ...x, status } : x)));
     toast.success(status === "approved" ? `Approved ${id}` : `Removed ${id}`);
+    logAudit({
+      admin: adminEmail,
+      action: status === "approved" ? "approve" : "remove",
+      entity: "report",
+      targetId: id,
+      summary: `${status === "approved" ? "Approved" : "Removed"}${r ? ` ${r.type} report (${r.reason}) on ${r.target}` : ""}`,
+    });
   };
 
   return (

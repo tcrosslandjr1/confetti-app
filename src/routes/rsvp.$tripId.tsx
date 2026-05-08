@@ -135,8 +135,25 @@ function RsvpPage() {
           )}
         </div>
 
-        {/* Trip preview */}
-        <section className="mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+        {/* Personal video from the host */}
+        {videoUrl && (
+          <section className="mt-8 overflow-hidden rounded-3xl border border-border bg-black shadow-card animate-rsvp-rise">
+            <div className="flex items-center gap-2 bg-gradient-to-r from-primary/20 to-coral/20 px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground">
+              <Play className="h-3.5 w-3.5" /> A note from your host
+            </div>
+            <video
+              src={videoUrl}
+              controls
+              autoPlay
+              muted
+              playsInline
+              className="aspect-video w-full bg-black object-cover"
+            />
+          </section>
+        )}
+
+        {/* Animated trip preview */}
+        <section className="mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card animate-rsvp-rise" style={{ animationDelay: "120ms" }}>
           <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-gradient-to-r from-primary/5 to-coral/5 p-5 sm:p-6">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{TRIP_PREVIEW.date}</p>
@@ -147,20 +164,42 @@ function RsvpPage() {
               <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {TRIP_PREVIEW.city}</span>
             </div>
           </header>
-          <ol className="divide-y divide-border">
-            {TRIP_PREVIEW.stops.map((s, i) => (
-              <li key={i} className="flex items-center gap-4 p-4 sm:px-6">
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-primary/10 text-xs font-bold text-primary">
-                  {i + 1}
-                </span>
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-semibold">{s.name}</p>
-                  <p className="text-xs text-muted-foreground">{s.neighborhood}</p>
-                </div>
-                <span className="shrink-0 text-sm font-semibold text-muted-foreground">{s.time}</span>
-              </li>
-            ))}
-          </ol>
+
+          <div className="relative p-4 sm:p-6">
+            {/* Animated progress spine */}
+            <div className="absolute bottom-6 left-8 top-6 w-0.5 overflow-hidden rounded-full bg-border sm:left-10">
+              <div
+                className="w-full bg-gradient-to-b from-primary to-coral transition-all duration-700 ease-out"
+                style={{ height: `${(revealedStops / TRIP_PREVIEW.stops.length) * 100}%` }}
+              />
+            </div>
+
+            <ol className="relative space-y-4">
+              {TRIP_PREVIEW.stops.map((s, i) => {
+                const shown = i < revealedStops;
+                return (
+                  <li
+                    key={i}
+                    className={`flex items-center gap-4 transition-all duration-500 ease-out ${shown ? "translate-x-0 opacity-100" : "translate-x-3 opacity-0"}`}
+                  >
+                    <span
+                      className={`relative grid h-9 w-9 shrink-0 place-items-center rounded-full text-xs font-bold transition-all duration-500 ${shown ? "bg-gradient-to-br from-primary to-coral text-primary-foreground shadow-pop" : "bg-muted text-muted-foreground"}`}
+                    >
+                      {i + 1}
+                      {shown && i === revealedStops - 1 && (
+                        <span className="absolute inset-0 -z-10 animate-rsvp-ping rounded-full bg-primary/40" />
+                      )}
+                    </span>
+                    <div className="min-w-0 flex-1 rounded-xl border border-border bg-background/60 p-3">
+                      <p className="truncate text-sm font-semibold">{s.name}</p>
+                      <p className="text-xs text-muted-foreground">{s.neighborhood}</p>
+                    </div>
+                    <span className="shrink-0 text-sm font-semibold text-muted-foreground">{s.time}</span>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
         </section>
 
         {/* Actions */}

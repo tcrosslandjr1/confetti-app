@@ -63,6 +63,7 @@ function PreviewPage() {
   function save() {
     setSaved(true);
     toast.success("Plan saved to your trips");
+    setTimeout(() => nav({ to: "/plan/ready" }), 350);
   }
 
   return (

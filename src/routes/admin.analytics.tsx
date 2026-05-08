@@ -20,7 +20,7 @@ import {
 import { BarChart3, DollarSign, CalendarCheck, TrendingUp, Users } from "lucide-react";
 
 export const Route = createFileRoute("/admin/analytics")({
-  component: AdminAnalyticsPage;
+  component: AdminAnalyticsPage,
 });
 
 type Range = "7d" | "30d" | "90d";

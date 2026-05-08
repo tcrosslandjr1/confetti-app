@@ -22,6 +22,15 @@ export type Stop = {
   user_rating?: number | null;
   user_review?: string | null;
   completed_at?: string | null;
+  travel_from_prev?: TravelLeg | null;
+};
+
+export type TravelLeg = {
+  mode: "walk" | "car" | "transit" | "lyft" | "uber" | "rideshare" | "bike" | string;
+  durationMinutes: number;
+  distance?: string;
+  instructions: string;
+  estCost?: string;
 };
 
 export type Itinerary = {

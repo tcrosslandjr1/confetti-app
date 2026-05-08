@@ -76,29 +76,29 @@ function PlanPage() {
 
         <form onSubmit={submit} className="space-y-5 rounded-3xl border border-border bg-card p-6 shadow-card sm:p-8">
           <Field label="Occasion">
-            <select value={occasionSlug} onChange={(e) => setOccasionSlug(e.target.value)} className="input">
+            <select value={occasionSlug} onChange={(e) => setOccasionSlug(e.target.value)} className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
               {OCCASIONS.map((o) => (<option key={o.slug} value={o.slug}>{o.emoji} {o.title}</option>))}
             </select>
           </Field>
 
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label="City">
-              <input value={city} onChange={(e) => setCity(e.target.value)} placeholder="e.g. Austin" className="input" />
+              <input value={city} onChange={(e) => setCity(e.target.value)} placeholder="e.g. Austin" className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
             </Field>
             <Field label="Neighborhood (optional)">
-              <input value={neighborhood} onChange={(e) => setNeighborhood(e.target.value)} placeholder="e.g. East Side" className="input" />
+              <input value={neighborhood} onChange={(e) => setNeighborhood(e.target.value)} placeholder="e.g. East Side" className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
             </Field>
           </div>
 
           <div className="grid gap-5 sm:grid-cols-3">
             <Field label="Date">
-              <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="input" />
+              <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
             </Field>
             <Field label="Start time">
-              <input type="time" value={startTime} onChange={(e) => setStartTime(e.target.value)} className="input" />
+              <input type="time" value={startTime} onChange={(e) => setStartTime(e.target.value)} className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
             </Field>
             <Field label="Length (hrs)">
-              <input type="number" min={2} max={14} value={durationHours} onChange={(e) => setDurationHours(Number(e.target.value))} className="input" />
+              <input type="number" min={2} max={14} value={durationHours} onChange={(e) => setDurationHours(Number(e.target.value))} className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
             </Field>
           </div>
 
@@ -115,7 +115,7 @@ function PlanPage() {
 
           <Field label="Anything special? (optional)">
             <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3}
-              placeholder="Allergies, can't drink, want it walkable, kids in tow..." className="input" />
+              placeholder="Allergies, can't drink, want it walkable, kids in tow..." className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
           </Field>
 
           {err && <p className="rounded-lg bg-destructive/10 px-4 py-2 text-sm text-destructive">{err}</p>}

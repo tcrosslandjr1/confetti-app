@@ -237,20 +237,23 @@ function Landing() {
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {STEPS.map((s, i) => (
-              <div
-                key={s.n}
-                className={`group relative overflow-hidden rounded-3xl border-2 border-ink ${s.color} p-7 text-ink shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg`}
-                style={{ transform: `rotate(${i === 1 ? "1deg" : i === 2 ? "-1deg" : "-0.5deg"})` }}
-              >
-                <div className="flex items-baseline justify-between">
-                  <span className="font-display text-7xl font-extrabold leading-none">{s.n}</span>
-                  <span className="font-mono text-[11px] uppercase tracking-widest">{s.kicker}</span>
+            {STEPS.map((s, i) => {
+              const glow = i === 0 ? "glow-coral" : i === 1 ? "glow-purple" : "glow-gold";
+              return (
+                <div
+                  key={s.n}
+                  className={`group tilt-3d grain ${glow} relative overflow-hidden rounded-3xl border-2 border-ink ${s.color} p-7 text-ink shadow-brut`}
+                  style={{ transform: `rotate(${i === 1 ? "1deg" : i === 2 ? "-1deg" : "-0.5deg"})` }}
+                >
+                  <div className="flex items-baseline justify-between">
+                    <span className="font-display text-7xl font-extrabold leading-none">{s.n}</span>
+                    <span className="font-mono text-[11px] uppercase tracking-widest">{s.kicker}</span>
+                  </div>
+                  <h3 className="mt-8 font-display text-2xl font-extrabold leading-tight">{s.title}</h3>
+                  <p className="mt-3 text-base leading-snug">{s.body}</p>
                 </div>
-                <h3 className="mt-8 font-display text-2xl font-extrabold leading-tight">{s.title}</h3>
-                <p className="mt-3 text-base leading-snug">{s.body}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

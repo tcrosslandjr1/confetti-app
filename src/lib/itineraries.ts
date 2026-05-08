@@ -183,3 +183,26 @@ export async function updateItinerary(id: string, patch: Partial<Itinerary>): Pr
 export async function completeItinerary(id: string): Promise<void> {
   await updateItinerary(id, { completed_at: new Date().toISOString() });
 }
+
+export type Reservation = Stop & {
+  itinerary_id: string;
+  itinerary_title: string;
+  itinerary_date: string | null;
+  itinerary_city: string | null;
+};
+
+export async function listReservations(): Promise<Reservation[]> {
+  const { data, error } = await supabase
+    .from("itinerary_stops")
+    .select("*, itineraries!inner(id, title, date, city, user_id)")
+    .in("booking_status", ["pending", "confirmed"])
+    .order("position");
+  if (error) throw new Error(error.message);
+  return (data ?? []).map((r: any) => ({
+    ...r,
+    itinerary_id: r.itineraries.id,
+    itinerary_title: r.itineraries.title,
+    itinerary_date: r.itineraries.date,
+    itinerary_city: r.itineraries.city,
+  })) as Reservation[];
+}

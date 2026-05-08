@@ -142,7 +142,7 @@ function Landing() {
               vibe<br/>locked<br/>in
             </div>
 
-            <div className="rotate-2 rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut-lg">
+            <div className="animate-float-card rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut-lg">
               <div className="flex items-center justify-between border-b-2 border-dashed border-ink pb-3">
                 <span className="font-mono text-[11px] uppercase tracking-widest">CONFETTI · plan #A7K2</span>
                 <span className="font-mono text-[11px]">SAT · 6:00p</span>
@@ -154,13 +154,17 @@ function Landing() {
 
               <div className="mt-5 space-y-3">
                 {[
-                  { t: "6:30", title: "Lila’s Patio", sub: "small plates · 12 min walk", chip: "RESY", color: "bg-coral" },
-                  { t: "8:15", title: "Mason St. record bar", sub: "vinyl + nat wine · 6 min walk", chip: "WALK-IN", color: "bg-purple" },
-                  { t: "10:00", title: "Aera rooftop", sub: "nightcap · 9 min Lyft", chip: "LYFT", color: "bg-gold" },
-                ].map((s) => (
+                  { t: "6:30", title: "Lila’s Patio", sub: "small plates · 12 min walk", chip: "RESY", color: "bg-coral", dot: "text-coral" },
+                  { t: "8:15", title: "Mason St. record bar", sub: "vinyl + nat wine · 6 min walk", chip: "WALK-IN", color: "bg-purple", dot: "text-purple" },
+                  { t: "10:00", title: "Aera rooftop", sub: "nightcap · 9 min Lyft", chip: "LYFT", color: "bg-gold", dot: "text-gold" },
+                ].map((s, i) => (
                   <div key={s.t} className="flex items-center gap-3 rounded-xl border-2 border-ink bg-background p-3">
-                    <div className={`grid h-14 w-14 shrink-0 place-items-center rounded-lg border-2 border-ink ${s.color} font-display text-base font-extrabold text-ink`}>
+                    <div className={`relative grid h-14 w-14 shrink-0 place-items-center rounded-lg border-2 border-ink ${s.color} font-display text-base font-extrabold text-ink`}>
                       {s.t}
+                      <span
+                        className={`absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-current animate-dot-pulse ${s.dot}`}
+                        style={{ animationDelay: `${i * 0.4}s` }}
+                      />
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="truncate font-display text-base font-bold">{s.title}</div>

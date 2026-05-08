@@ -45,6 +45,7 @@ const NAV: NavItem[] = [
   { to: "/admin/bookings", label: "Bookings", icon: CalendarCheck },
   { to: "/admin/moderation", label: "Moderation", icon: ShieldCheck },
   { to: "/admin/analytics", label: "Analytics", icon: BarChart3 },
+  { to: "/admin/audit", label: "Audit log", icon: ScrollText },
 ];
 
 function AdminLayout() {

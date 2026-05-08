@@ -11,8 +11,8 @@ export type StopVote = {
   at: string; // ISO timestamp
 };
 
-// tripId -> stopIndex -> voterId -> StopVote
-type TripVotes = Record<string, Record<string, StopVote>>;
+// stopIndex -> voterId -> StopVote (votes for a single trip)
+export type TripVotes = Record<string, Record<string, StopVote>>;
 
 const STORAGE_PREFIX = "confetti.votes.";
 const VOTER_KEY = "confetti.voter";
@@ -43,13 +43,13 @@ export function setVoterName(name: string) {
   else window.localStorage.removeItem(VOTER_KEY + ".name");
 }
 
-export function loadVotes(tripId: string): TripVotes[string] {
+export function loadVotes(tripId: string): TripVotes {
   if (typeof window === "undefined") return {};
   try {
     const raw = window.localStorage.getItem(key(tripId));
     if (!raw) return {};
     const parsed = JSON.parse(raw);
-    return parsed && typeof parsed === "object" ? parsed : {};
+    return parsed && typeof parsed === "object" ? (parsed as TripVotes) : {};
   } catch {
     return {};
   }
@@ -86,7 +86,7 @@ export function clearVote(tripId: string, stopIndex: number) {
   }
 }
 
-export function tallyStop(votes: TripVotes[string], stopIndex: number) {
+export function tallyStop(votes: TripVotes, stopIndex: number) {
   const stop = votes[String(stopIndex)] ?? {};
   const list = Object.values(stop);
   return {

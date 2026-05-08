@@ -16,6 +16,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
+import { logAudit } from "@/lib/audit-log";
+import { useAuth } from "@/lib/auth-context";
 
 export const Route = createFileRoute("/admin/moderation")({
   component: AdminModerationPage,

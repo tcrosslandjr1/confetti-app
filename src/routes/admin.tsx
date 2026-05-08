@@ -4,6 +4,7 @@ import {
   BarChart3,
   CalendarCheck,
   LayoutDashboard,
+  ScrollText,
   ShieldCheck,
   Sparkles,
   Star,

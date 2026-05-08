@@ -147,6 +147,35 @@
   10%  { opacity: 1; }
   100% { transform: translateY(360px) rotate(540deg); opacity: 0; }
 }
+@keyframes confetti-burst {
+  0%   { transform: translate(0,0) scale(1) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--bx,0), var(--by,-160px)) scale(0.4) rotate(var(--br,540deg)); opacity: 0; }
+}
+@keyframes wiggle-attention {
+  0%, 92%, 100% { transform: rotate(0deg); }
+  93% { transform: rotate(-6deg); }
+  94% { transform: rotate(5deg); }
+  95% { transform: rotate(-4deg); }
+  96% { transform: rotate(3deg); }
+  97% { transform: rotate(-2deg); }
+  98% { transform: rotate(1deg); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 6px 6px 0 0 var(--ink), 0 0 0 0 oklch(0.78 0.18 70 / 0.6); }
+  50%      { box-shadow: 6px 6px 0 0 var(--ink), 0 0 0 16px oklch(0.78 0.18 70 / 0); }
+}
+@keyframes reveal-up {
+  0%   { opacity: 0; transform: translateY(28px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes reveal-scale {
+  0%   { opacity: 0; transform: scale(0.92); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes faq-open {
+  0%   { opacity: 0; transform: translateY(-6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 
 @layer base {
   * { border-color: var(--color-border); }

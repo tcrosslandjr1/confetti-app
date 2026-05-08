@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { Apple, Calendar, Check, CheckCircle2, Clock, Copy, Link as LinkIcon, Mail, MapPin, PartyPopper, Plus, Send, Sparkles, UserPlus, X } from "lucide-react";
+import { Apple, Calendar, Check, CheckCircle2, Clock, Copy, Link as LinkIcon, Mail, MapPin, PartyPopper, Plus, Send, Sparkles, Upload, UserPlus, Video, X } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { toast } from "sonner";
 
@@ -139,7 +139,8 @@ function buildGoogleUrl() {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
-import { loadInvites, saveInvites, subscribeInvites, type Invite } from "@/lib/invites";
+import { loadInvites, loadInviteVideo, saveInvites, saveInviteVideo, subscribeInvites, type Invite } from "@/lib/invites";
+import { supabase } from "@/integrations/supabase/client";
 
 function makeToken() {
   const bytes = new Uint8Array(8);
@@ -155,6 +156,9 @@ function ReadyPage() {
   const [emailInput, setEmailInput] = useState("");
   const [invites, setInvitesState] = useState<Invite[]>([]);
   const [emailError, setEmailError] = useState<string | null>(null);
+  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const [videoUploading, setVideoUploading] = useState(false);
+  const [videoProgress, setVideoProgress] = useState<number | null>(null);
 
   const shareUrl = useMemo(() => {
     if (typeof window === "undefined") return `https://confetti.app/trips/${TRIP.id}`;
@@ -167,15 +171,63 @@ function ReadyPage() {
   }, []);
 
   function inviteUrl(token: string) {
-    return `${rsvpOrigin}/rsvp/${TRIP.id}?invite=${token}`;
+    const base = `${rsvpOrigin}/rsvp/${TRIP.id}?invite=${token}`;
+    return videoUrl ? `${base}&v=${encodeURIComponent(videoUrl)}` : base;
   }
 
   // Hydrate from localStorage + subscribe to RSVP updates from the rsvp route.
   useEffect(() => {
     setInvitesState(loadInvites(TRIP.id));
-    const unsub = subscribeInvites(TRIP.id, () => setInvitesState(loadInvites(TRIP.id)));
+    setVideoUrl(loadInviteVideo(TRIP.id));
+    const unsub = subscribeInvites(TRIP.id, () => {
+      setInvitesState(loadInvites(TRIP.id));
+      setVideoUrl(loadInviteVideo(TRIP.id));
+    });
     return unsub;
   }, []);
+
+  async function handleVideoUpload(file: File) {
+    if (!file.type.startsWith("video/")) {
+      toast.error("That's not a video file.");
+      return;
+    }
+    if (file.size > 100 * 1024 * 1024) {
+      toast.error("Video too large", { description: "Max 100 MB." });
+      return;
+    }
+    setVideoUploading(true);
+    setVideoProgress(5);
+    try {
+      const ext = (file.name.split(".").pop() || "mp4").toLowerCase();
+      const path = `${TRIP.id}/${crypto.randomUUID()}.${ext}`;
+      // Fake-progress ticker for UX (Supabase JS SDK doesn't expose upload progress yet)
+      const ticker = setInterval(() => setVideoProgress((p) => (p === null ? p : Math.min(p + 7, 90))), 250);
+      const { error } = await supabase.storage.from("invite-videos").upload(path, file, {
+        cacheControl: "3600",
+        contentType: file.type,
+        upsert: false,
+      });
+      clearInterval(ticker);
+      if (error) throw error;
+      const { data } = supabase.storage.from("invite-videos").getPublicUrl(path);
+      setVideoUrl(data.publicUrl);
+      saveInviteVideo(TRIP.id, data.publicUrl);
+      setVideoProgress(100);
+      toast.success("Video added", { description: "Guests will see it on their invite link." });
+    } catch (err) {
+      console.error("Video upload failed", err);
+      toast.error("Couldn't upload video. Try again.");
+    } finally {
+      setVideoUploading(false);
+      setTimeout(() => setVideoProgress(null), 800);
+    }
+  }
+
+  function removeVideo() {
+    setVideoUrl(null);
+    saveInviteVideo(TRIP.id, null);
+    toast.success("Video removed");
+  }
 
   function persist(next: Invite[]) {
     setInvitesState(next);
@@ -410,6 +462,84 @@ function ReadyPage() {
             <span className="text-[11px] text-muted-foreground">Share via system sheet</span>
           </button>
         </div>
+
+        {/* Personal invite video */}
+        <section className="mt-6 rounded-3xl border border-border bg-card p-4 shadow-card sm:p-5">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+              <Video className="h-3.5 w-3.5 text-primary" /> Personal invite video
+            </div>
+            {videoUrl && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
+                <Check className="h-3 w-3" /> Attached
+              </span>
+            )}
+          </div>
+
+          {!videoUrl && !videoUploading && (
+            <label className="mt-3 flex cursor-pointer flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-border bg-muted/30 px-4 py-6 text-center transition-colors hover:border-primary hover:bg-primary/5">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary">
+                <Upload className="h-5 w-5" />
+              </span>
+              <span className="text-sm font-semibold">Upload a short video</span>
+              <span className="text-[11px] text-muted-foreground">MP4, MOV or WebM · up to 100 MB</span>
+              <input
+                type="file"
+                accept="video/mp4,video/quicktime,video/webm,video/ogg"
+                className="hidden"
+                onChange={(e) => { const f = e.target.files?.[0]; if (f) handleVideoUpload(f); e.currentTarget.value = ""; }}
+              />
+            </label>
+          )}
+
+          {videoUploading && (
+            <div className="mt-3 rounded-2xl border border-border bg-muted/30 p-4">
+              <div className="flex items-center gap-2 text-sm font-semibold">
+                <span className="inline-block h-3 w-3 animate-pulse rounded-full bg-primary" />
+                Uploading your invite video…
+              </div>
+              <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-border">
+                <div
+                  className="h-full bg-gradient-to-r from-primary to-coral transition-[width] duration-200"
+                  style={{ width: `${videoProgress ?? 0}%` }}
+                />
+              </div>
+            </div>
+          )}
+
+          {videoUrl && !videoUploading && (
+            <div className="mt-3 space-y-2">
+              <video
+                src={videoUrl}
+                controls
+                playsInline
+                className="aspect-video w-full overflow-hidden rounded-2xl border border-border bg-black object-cover"
+              />
+              <div className="flex flex-col gap-2 sm:flex-row">
+                <label className="inline-flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 py-2 text-xs font-semibold transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary hover:shadow-pop">
+                  <Upload className="h-3.5 w-3.5" /> Replace video
+                  <input
+                    type="file"
+                    accept="video/mp4,video/quicktime,video/webm,video/ogg"
+                    className="hidden"
+                    onChange={(e) => { const f = e.target.files?.[0]; if (f) handleVideoUpload(f); e.currentTarget.value = ""; }}
+                  />
+                </label>
+                <button
+                  type="button"
+                  onClick={removeVideo}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-destructive hover:text-destructive"
+                >
+                  <X className="h-3.5 w-3.5" /> Remove
+                </button>
+              </div>
+            </div>
+          )}
+
+          <p className="mt-2 text-[11px] text-muted-foreground">
+            Plays at the top of every invite link, before the animated walkthrough of your day.
+          </p>
+        </section>
 
         {/* Invite the crew */}
         <section className="mt-6 rounded-3xl border border-border bg-card p-4 shadow-card sm:p-5">

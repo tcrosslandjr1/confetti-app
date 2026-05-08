@@ -13,10 +13,27 @@ export type Invite = {
 };
 
 const STORAGE_PREFIX = "confetti.invites.";
+const VIDEO_PREFIX = "confetti.invite-video.";
 const STORAGE_EVENT = "confetti.invites.changed";
 
 function key(tripId: string) {
   return STORAGE_PREFIX + tripId;
+}
+
+function videoKey(tripId: string) {
+  return VIDEO_PREFIX + tripId;
+}
+
+export function loadInviteVideo(tripId: string): string | null {
+  if (typeof window === "undefined") return null;
+  return window.localStorage.getItem(videoKey(tripId));
+}
+
+export function saveInviteVideo(tripId: string, url: string | null) {
+  if (typeof window === "undefined") return;
+  if (url) window.localStorage.setItem(videoKey(tripId), url);
+  else window.localStorage.removeItem(videoKey(tripId));
+  window.dispatchEvent(new CustomEvent(STORAGE_EVENT, { detail: { tripId } }));
 }
 
 export function loadInvites(tripId: string): Invite[] {

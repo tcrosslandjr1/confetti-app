@@ -49,7 +49,27 @@ function IdeasPage() {
   const [index, setIndex] = useState(0);
   const [saved, setSaved] = useState<Idea[]>([]);
   const [loading, setLoading] = useState(false);
+  const [planning, setPlanning] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  async function buildDay(idea: Idea) {
+    setError(null);
+    setPlanning(idea.id);
+    try {
+      const { id } = await buildAndSaveItinerary({
+        occasion: occasion!.title,
+        vibe: occasion!.tagline,
+        occasionSlug: occasion!.slug,
+        seedIdea: { title: idea.title, hook: idea.hook, description: idea.description, vibeTags: idea.vibeTags },
+      });
+      void navigate({ to: "/trips/$id", params: { id } });
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setPlanning(null);
+    }
+  }
 
   // Load saved from localStorage
   useEffect(() => {

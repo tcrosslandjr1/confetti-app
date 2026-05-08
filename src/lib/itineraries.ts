@@ -50,6 +50,7 @@ export type Itinerary = {
   completed_at?: string | null;
   overall_rating?: number | null;
   overall_review?: string | null;
+  transport_mode?: string | null;
 };
 
 type AiStop = {

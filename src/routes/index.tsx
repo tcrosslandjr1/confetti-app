@@ -277,24 +277,27 @@ function Landing() {
           <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {OCCASIONS.map((o, i) => {
               const Icon = o.icon;
+              const glows = ["glow-coral", "glow-gold", "glow-purple", "glow-teal", "glow-pink"];
+              const glow = glows[i % glows.length];
+              const rot = (i % 4 - 1.5) * 0.4;
               return (
-                <Link
-                  key={o.slug}
-                  to="/ideas/$slug"
-                  params={{ slug: o.slug }}
-                  className="group relative flex h-44 flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-cream/[0.03] p-5 transition-pop hover:border-cream hover:bg-cream hover:text-ink"
-                  style={{ transform: `rotate(${(i % 4 - 1.5) * 0.4}deg)` }}
-                >
-                  <div className="flex items-start justify-between">
-                    <Icon className="h-6 w-6" />
-                    <span className="text-3xl">{o.emoji}</span>
-                  </div>
-                  <div>
-                    <div className="font-display text-2xl font-extrabold leading-tight">{o.title}</div>
-                    <div className="mt-1 font-mono text-[11px] uppercase tracking-wider opacity-70">{o.tagline}</div>
-                  </div>
-                  <ArrowUpRight className="absolute right-4 top-4 h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
-                </Link>
+                <div key={o.slug} style={{ transform: `rotate(${rot}deg)` }}>
+                  <Link
+                    to="/ideas/$slug"
+                    params={{ slug: o.slug }}
+                    className={`group tilt-3d grain ${glow} relative flex h-44 flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-cream/[0.03] p-5 hover:border-cream hover:bg-cream hover:text-ink`}
+                  >
+                    <div className="flex items-start justify-between">
+                      <Icon className="h-6 w-6" />
+                      <span className="text-3xl">{o.emoji}</span>
+                    </div>
+                    <div>
+                      <div className="font-display text-2xl font-extrabold leading-tight">{o.title}</div>
+                      <div className="mt-1 font-mono text-[11px] uppercase tracking-wider opacity-70">{o.tagline}</div>
+                    </div>
+                    <ArrowUpRight className="absolute right-4 top-4 h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
+                  </Link>
+                </div>
               );
             })}
           </div>

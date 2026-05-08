@@ -55,9 +55,8 @@ export function TypingCounter({
 
   return (
     <span
-      className={`typing-caret font-mono tabular-nums ${className}`}
+      className={`${done ? "" : "typing-caret"} font-mono tabular-nums ${className}`}
       aria-label={full}
-      style={done ? { animation: "none" } : undefined}
     >
       {shown}
     </span>

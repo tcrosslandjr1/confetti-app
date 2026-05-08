@@ -51,7 +51,12 @@ ${seedBlock}
 Return a tight 3-6 stop plan that flows naturally — no backtracking, sensible drive/walk times between stops.
 Each stop must include a category, a clear "what to do" or "what to order", and a likely booking provider when relevant (opentable, resy, eventbrite, ticketmaster, or "website").
 Use realistic-sounding but generic venue names if exact names aren't known — never invent fake addresses; leave address as a neighborhood / cross-streets hint.
-For booking_url, provide a SEARCH URL (e.g. https://www.opentable.com/s?term=...&covers=2 or https://www.google.com/maps/search/...) so the user can confirm the real spot.`;
+For booking_url, provide a SEARCH URL (e.g. https://www.opentable.com/s?term=...&covers=2 or https://www.google.com/maps/search/...) so the user can confirm the real spot.
+
+For each stop also produce:
+- 2-3 short reviewSnippets — one sentence each, what real visitors typically say (varied tone). These are AI-summarized, not real quotes.
+- A parking object: type (lot|street|valet|garage|transit), cost ("$5-10/hr" or "free"), access (1 short sentence on how to access).
+- 2-3 tips: insider advice like best time to arrive, what to skip, dress code, kid-friendly notes.`;
 
     const tool = {
       type: "function",
@@ -81,8 +86,26 @@ For booking_url, provide a SEARCH URL (e.g. https://www.opentable.com/s?term=...
                   whatToDo: { type: "string", description: "Specific recommendation: what to order, what to see, etc." },
                   bookingUrl: { type: "string", description: "Search URL the user can use to find/book this stop" },
                   bookingProvider: { type: "string", description: "opentable | resy | eventbrite | ticketmaster | google-maps | website" },
+                  reviewSnippets: {
+                    type: "array",
+                    minItems: 2, maxItems: 3,
+                    items: { type: "string", description: "1 sentence, what visitors typically say" },
+                  },
+                  parking: {
+                    type: "object",
+                    properties: {
+                      type: { type: "string", enum: ["lot", "street", "valet", "garage", "transit"] },
+                      cost: { type: "string" },
+                      access: { type: "string", description: "1 short sentence on how to access it" },
+                    },
+                    required: ["type", "cost", "access"],
+                  },
+                  tips: {
+                    type: "array", minItems: 2, maxItems: 3,
+                    items: { type: "string" },
+                  },
                 },
-                required: ["name", "category", "description", "address", "startTime", "durationMinutes", "estCost", "whatToDo", "bookingUrl", "bookingProvider"],
+                required: ["name", "category", "description", "address", "startTime", "durationMinutes", "estCost", "whatToDo", "bookingUrl", "bookingProvider", "reviewSnippets", "parking", "tips"],
               },
             },
           },

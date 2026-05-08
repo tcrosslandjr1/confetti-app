@@ -16,6 +16,12 @@ export type Stop = {
   booking_status?: "unbooked" | "pending" | "confirmed";
   booking_ref?: string | null;
   user_notes?: string | null;
+  review_snippets?: string[] | null;
+  parking?: { type: string; cost: string; access: string } | null;
+  tips?: string[] | null;
+  user_rating?: number | null;
+  user_review?: string | null;
+  completed_at?: string | null;
 };
 
 export type Itinerary = {
@@ -32,12 +38,18 @@ export type Itinerary = {
   source: "planner" | "card" | "ai" | string;
   created_at: string;
   updated_at: string;
+  completed_at?: string | null;
+  overall_rating?: number | null;
+  overall_review?: string | null;
 };
 
 type AiStop = {
   name: string; category: string; description: string; address: string;
   startTime: string; durationMinutes: number; estCost: string; whatToDo: string;
   bookingUrl: string; bookingProvider: string;
+  reviewSnippets?: string[];
+  parking?: { type: string; cost: string; access: string };
+  tips?: string[];
 };
 type AiItinerary = {
   title: string; summary: string; estTotalCost: string; stops: AiStop[];
@@ -100,6 +112,9 @@ export async function buildAndSaveItinerary(payload: BuildPayload): Promise<{ id
     what_to_do: s.whatToDo,
     booking_url: s.bookingUrl,
     booking_provider: s.bookingProvider,
+    review_snippets: s.reviewSnippets ?? [],
+    parking: s.parking ?? null,
+    tips: s.tips ?? [],
   }));
   const { error: stopsErr } = await supabase.from("itinerary_stops").insert(stops);
   if (stopsErr) throw new Error(stopsErr.message);
@@ -134,4 +149,13 @@ export async function updateStop(stopId: string, patch: Partial<Stop>): Promise<
 export async function deleteItinerary(id: string): Promise<void> {
   const { error } = await supabase.from("itineraries").delete().eq("id", id);
   if (error) throw new Error(error.message);
+}
+
+export async function updateItinerary(id: string, patch: Partial<Itinerary>): Promise<void> {
+  const { error } = await supabase.from("itineraries").update(patch).eq("id", id);
+  if (error) throw new Error(error.message);
+}
+
+export async function completeItinerary(id: string): Promise<void> {
+  await updateItinerary(id, { completed_at: new Date().toISOString() });
 }

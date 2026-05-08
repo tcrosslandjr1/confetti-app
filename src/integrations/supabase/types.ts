@@ -44,11 +44,14 @@ export type Database = {
       itineraries: {
         Row: {
           city: string | null
+          completed_at: string | null
           created_at: string
           date: string | null
           est_total_cost: string | null
           id: string
           occasion_slug: string | null
+          overall_rating: number | null
+          overall_review: string | null
           source: string
           start_time: string | null
           summary: string | null
@@ -59,11 +62,14 @@ export type Database = {
         }
         Insert: {
           city?: string | null
+          completed_at?: string | null
           created_at?: string
           date?: string | null
           est_total_cost?: string | null
           id?: string
           occasion_slug?: string | null
+          overall_rating?: number | null
+          overall_review?: string | null
           source?: string
           start_time?: string | null
           summary?: string | null
@@ -74,11 +80,14 @@ export type Database = {
         }
         Update: {
           city?: string | null
+          completed_at?: string | null
           created_at?: string
           date?: string | null
           est_total_cost?: string | null
           id?: string
           occasion_slug?: string | null
+          overall_rating?: number | null
+          overall_review?: string | null
           source?: string
           start_time?: string | null
           summary?: string | null
@@ -97,6 +106,7 @@ export type Database = {
           booking_status: string
           booking_url: string | null
           category: string | null
+          completed_at: string | null
           created_at: string
           description: string | null
           duration_minutes: number | null
@@ -104,9 +114,14 @@ export type Database = {
           id: string
           itinerary_id: string
           name: string
+          parking: Json | null
           position: number
+          review_snippets: Json | null
           start_time: string | null
+          tips: Json | null
           user_notes: string | null
+          user_rating: number | null
+          user_review: string | null
           what_to_do: string | null
         }
         Insert: {
@@ -116,6 +131,7 @@ export type Database = {
           booking_status?: string
           booking_url?: string | null
           category?: string | null
+          completed_at?: string | null
           created_at?: string
           description?: string | null
           duration_minutes?: number | null
@@ -123,9 +139,14 @@ export type Database = {
           id?: string
           itinerary_id: string
           name: string
+          parking?: Json | null
           position: number
+          review_snippets?: Json | null
           start_time?: string | null
+          tips?: Json | null
           user_notes?: string | null
+          user_rating?: number | null
+          user_review?: string | null
           what_to_do?: string | null
         }
         Update: {
@@ -135,6 +156,7 @@ export type Database = {
           booking_status?: string
           booking_url?: string | null
           category?: string | null
+          completed_at?: string | null
           created_at?: string
           description?: string | null
           duration_minutes?: number | null
@@ -142,9 +164,14 @@ export type Database = {
           id?: string
           itinerary_id?: string
           name?: string
+          parking?: Json | null
           position?: number
+          review_snippets?: Json | null
           start_time?: string | null
+          tips?: Json | null
           user_notes?: string | null
+          user_rating?: number | null
+          user_review?: string | null
           what_to_do?: string | null
         }
         Relationships: [

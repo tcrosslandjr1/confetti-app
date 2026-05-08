@@ -482,6 +482,79 @@ function ReadyPage() {
           </button>
         </div>
 
+        {/* Build the night together — collaborative voting */}
+        <section className="mt-6 rounded-3xl border border-border bg-card p-4 shadow-card sm:p-5">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+              <Users className="h-3.5 w-3.5 text-primary" /> Build the night together
+            </div>
+            {(() => {
+              const ids = new Set<string>();
+              Object.values(votes).forEach((s) => Object.keys(s).forEach((id) => ids.add(id)));
+              return ids.size > 0 ? (
+                <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
+                  {ids.size} {ids.size === 1 ? "voter" : "voters"}
+                </span>
+              ) : null;
+            })()}
+          </div>
+
+          <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">
+            <div className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-border bg-muted/40 px-3 py-2.5">
+              <span className="truncate font-mono text-xs text-foreground">{collabUrl}</span>
+            </div>
+            <button
+              onClick={copyCollabLink}
+              className={`inline-flex items-center justify-center gap-2 rounded-xl border border-border px-4 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary hover:shadow-pop ${collabCopied ? "border-primary text-primary" : ""}`}
+            >
+              {collabCopied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+              {collabCopied ? "Copied" : "Copy collab link"}
+            </button>
+          </div>
+
+          <ul className="mt-4 divide-y divide-border overflow-hidden rounded-xl border border-border">
+            {STOPS.map((s, i) => {
+              const t = tallyStop(votes, i);
+              const total = t.in + t.maybe + t.out;
+              const inPct = total ? (t.in / total) * 100 : 0;
+              const maybePct = total ? (t.maybe / total) * 100 : 0;
+              const outPct = total ? (t.out / total) * 100 : 0;
+              return (
+                <li key={i} className="space-y-2 bg-muted/20 p-3">
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-primary/10 text-[11px] font-bold text-primary">{i + 1}</span>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-semibold">{s.name}</p>
+                      <p className="truncate text-[11px] text-muted-foreground">{s.neighborhood}</p>
+                    </div>
+                    <span className="shrink-0 text-[11px] font-semibold text-muted-foreground">{total} vote{total === 1 ? "" : "s"}</span>
+                  </div>
+                  {total > 0 ? (
+                    <>
+                      <div className="flex h-1.5 w-full overflow-hidden rounded-full bg-muted">
+                        <div className="h-full bg-emerald-500 transition-all duration-300" style={{ width: `${inPct}%` }} />
+                        <div className="h-full bg-amber-400 transition-all duration-300" style={{ width: `${maybePct}%` }} />
+                        <div className="h-full bg-muted-foreground transition-all duration-300" style={{ width: `${outPct}%` }} />
+                      </div>
+                      <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-[10px] text-muted-foreground">
+                        <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> {t.in} in</span>
+                        <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-amber-400" /> {t.maybe} maybe</span>
+                        <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-muted-foreground" /> {t.out} out</span>
+                      </div>
+                    </>
+                  ) : (
+                    <p className="text-[11px] text-muted-foreground">No votes yet — share the link to get the crew involved.</p>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+
+          <p className="mt-3 text-[11px] text-muted-foreground">
+            Anyone with the link can weigh in on each stop. Tallies update live so you can swap what's not landing.
+          </p>
+        </section>
+
         {/* Personal invite video */}
         <section className="mt-6 rounded-3xl border border-border bg-card p-4 shadow-card sm:p-5">
           <div className="flex items-center justify-between gap-2">

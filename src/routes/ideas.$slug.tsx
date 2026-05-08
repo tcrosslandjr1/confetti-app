@@ -95,6 +95,8 @@ function IdeasPage() {
     setLoading(true);
     setError(null);
     try {
+      const { loadPrefs, tasteSummary } = await import("@/lib/taste");
+      const prefs = await loadPrefs();
       const { data, error } = await supabase.functions.invoke("generate-ideas", {
         body: {
           occasion: occasion!.title,
@@ -102,6 +104,7 @@ function IdeasPage() {
           format,
           count: 6,
           excludeTitles: ideas.map((i) => i.title),
+          tasteSummary: tasteSummary(prefs),
         },
       });
       if (error) throw error;

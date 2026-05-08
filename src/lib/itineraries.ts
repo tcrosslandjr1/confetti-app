@@ -74,7 +74,12 @@ export async function buildAndSaveItinerary(payload: BuildPayload): Promise<{ id
   const user = userRes.user;
   if (!user) throw new Error("Sign in required to save itineraries.");
 
-  const { data, error } = await supabase.functions.invoke("build-itinerary", { body: payload });
+  const { loadPrefs, tasteSummary } = await import("@/lib/taste");
+  const prefs = await loadPrefs();
+
+  const { data, error } = await supabase.functions.invoke("build-itinerary", {
+    body: { ...payload, tasteSummary: tasteSummary(prefs) },
+  });
   if (error) throw new Error(error.message);
   const it = data?.itinerary as AiItinerary;
   if (!it?.stops?.length) throw new Error("AI returned no stops. Try again.");

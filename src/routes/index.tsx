@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Wand2, Car, Calendar, Heart, Star, Check } from "lucide-react";
+import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { OCCASIONS } from "@/lib/occasions";
@@ -7,172 +7,289 @@ import { OCCASIONS } from "@/lib/occasions";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Confetti — The joyful planner for outings worth showing up for" },
+      { title: "Confetti — Plans with a pulse. Outings worth showing up for." },
       {
         name: "description",
         content:
-          "Confetti turns 'what should we do?' into a full plan. AI itineraries, multi-stop routing, saved reservations — for date night, family time, friends and every vibe in between.",
+          "Confetti is the loud, opinionated planner that turns 'I'm bored' into a whole night. AI itineraries, door-to-door routing, reservations on lock.",
       },
-      { property: "og:title", content: "Confetti — The joyful planner for outings" },
+      { property: "og:title", content: "Confetti — Plans with a pulse." },
       { property: "og:description", content: "From vibe to door-to-door plan in under a minute." },
     ],
   }),
   component: Landing,
 });
 
-const VALUE_PROPS = [
-  { icon: Wand2, title: "AI itineraries", body: "A full schedule from one prompt." },
-  { icon: Car, title: "Door-to-door routing", body: "Car, transit, Uber or Lyft, sorted." },
-  { icon: Calendar, title: "Saved reservations", body: "Confirmations live in one vault." },
-  { icon: Heart, title: "Tuned to you", body: "A taste profile that learns what you love." },
+const MARQUEE = [
+  "date night ✦",
+  "girls trip ✦",
+  "Sunday slow ✦",
+  "in-laws weekend ✦",
+  "kids day-out ✦",
+  "rooftop o'clock ✦",
+  "noodle crawl ✦",
+  "first date energy ✦",
+  "anniversary ✦",
+  "guys' afternoon ✦",
 ];
 
-const TESTIMONIALS = [
-  { name: "Mara K.", role: "Mom of two", quote: "Saturdays used to be a stalemate. Now we have a plan before breakfast." },
-  { name: "Devin R.", role: "Date-night believer", quote: "It found a rooftop, a noodle spot and a vinyl bar — all in walking distance. Felt like a concierge." },
-  { name: "Priya S.", role: "Group-text MVP", quote: "The shared trip killed our 47-message group chat. Everyone just voted." },
+const STEPS = [
+  {
+    n: "01",
+    kicker: "drop the vibe",
+    title: "Tell us what kind of night you want.",
+    body: "Pick a vibe — or type one in your own words. ‘Cute, slow, walkable, under $80.’ We get it.",
+    color: "bg-coral",
+  },
+  {
+    n: "02",
+    kicker: "we plot the path",
+    title: "An AI agent builds the whole evening.",
+    body: "Three to five real stops, timed to the minute, routed by car, transit, Uber or Lyft. No tabs. No spirals.",
+    color: "bg-purple",
+  },
+  {
+    n: "03",
+    kicker: "you just show up",
+    title: "Reservations and rides land in one place.",
+    body: "Confirmations, addresses, dress code, parking notes — all in your trip vault. Share it. Send it. Save it.",
+    color: "bg-gold",
+  },
+];
+
+const PROOF = [
+  {
+    quote: "It planned a Friday night that ended in a dive bar I’d driven past 100 times. New favorite.",
+    name: "Mara K.",
+    role: "Brooklyn",
+    tilt: "-rotate-2",
+  },
+  {
+    quote: "Killed our 47-message group chat dead. Sent everyone the trip link, voted, done.",
+    name: "Devin R.",
+    role: "Atlanta",
+    tilt: "rotate-1",
+  },
+  {
+    quote: "I’m the planner friend. This is the first thing that out-planned me.",
+    name: "Priya S.",
+    role: "Chicago",
+    tilt: "-rotate-1",
+  },
 ];
 
 const FAQS = [
-  { q: "Is Confetti free?", a: "Yes — start free with up to 3 AI itineraries a month. Plus unlocks unlimited plans and the saved reservations vault." },
-  { q: "What kinds of outings does it plan?", a: "Date nights, kids' day-outs, guys' afternoons, girls' nights, in-laws weekends, elder-friendly museum days, small-town adventures — pick a vibe or describe it." },
-  { q: "How does the routing work?", a: "Confetti picks the best mode between stops (car, transit, walking, Uber, Lyft) and gives you one-tap directions or rideshare deep links." },
-  { q: "Do I need to connect social media?", a: "No. Connecting is optional and helps the AI learn your taste faster. You can also chat with the concierge to share what you like." },
+  { q: "Is this just a list of restaurants?", a: "Nope. It’s a full timed plan — first stop, second stop, how you get between them, what to wear, what to book. The list-of-restaurants era is over." },
+  { q: "Free?", a: "Yes — three full plans a month, on the house. Plus is $8 for unlimited and the reservations vault." },
+  { q: "Does it actually book stuff?", a: "It hands you straight-to-checkout links for OpenTable, Resy, Eventbrite, and rideshare deep links. One-tap, no copy/paste." },
+  { q: "How does it know what we like?", a: "Tell the concierge in plain English, or paste in a Spotify playlist link, IG handle, anything. The taste profile gets sharper every plan." },
 ];
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-cream text-ink">
       <SiteHeader />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border">
-        <div className="absolute inset-0 -z-10 bg-gradient-warm opacity-10" />
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:py-28 lg:px-8">
-          <div className="flex flex-col justify-center">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              <Sparkles className="h-3.5 w-3.5 text-primary" /> Outings worth showing up for
+      {/* ============================ HERO ============================ */}
+      <section className="relative overflow-hidden border-b-2 border-ink">
+        <div className="grid-paper absolute inset-0 -z-10 opacity-60" />
+        <div className="absolute -right-24 -top-24 -z-10 h-96 w-96 animate-blob bg-gradient-warm opacity-70" />
+        <div className="absolute -bottom-32 -left-24 -z-10 h-96 w-96 animate-blob bg-gradient-cool opacity-50" style={{ animationDelay: "-7s" }} />
+
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-24 pt-16 sm:px-6 lg:grid-cols-12 lg:px-8 lg:pb-32 lg:pt-20">
+          {/* left — type */}
+          <div className="lg:col-span-7">
+            <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]">
+              <span className="h-2 w-2 rounded-full bg-coral" /> 04:32 PM • 17 plans built right now
             </span>
-            <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              Plan the day. <span className="text-gradient">Skip the group chat.</span>
+
+            <h1 className="mt-6 font-display text-[14vw] font-extrabold leading-[0.85] tracking-[-0.04em] sm:text-[120px] lg:text-[148px]">
+              Plans
+              <br />
+              with a <span className="font-serif italic font-normal text-coral">pulse.</span>
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-              Confetti turns "what should we do?" into a full plan — multi-stop, timed, routed and reservation-ready. For every vibe, every crew, every weekend.
+
+            <p className="mt-8 max-w-xl text-lg leading-snug">
+              Confetti is the loud, opinionated planner. Tell it the vibe — it builds the night.
+              Real stops, real timings, real reservations. <span className="font-serif italic">No more group-chat purgatory.</span>
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/plan" className="inline-flex h-12 items-center gap-2 rounded-full bg-foreground px-6 text-sm font-semibold text-background transition-pop hover:scale-105">
-                Plan my day <ArrowRight className="h-4 w-4" />
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link
+                to="/plan"
+                className="inline-flex h-14 items-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
+              >
+                Build my night <ArrowUpRight className="h-5 w-5" />
               </Link>
-              <Link to="/how-it-works" className="inline-flex h-12 items-center rounded-full border border-border bg-card px-6 text-sm font-semibold transition-colors hover:bg-muted">
-                See how it works
+              <Link
+                to="/how-it-works"
+                className="inline-flex h-14 items-center rounded-full border-2 border-ink bg-cream px-7 text-base font-bold transition-pop hover:bg-gold"
+              >
+                How it works
               </Link>
-            </div>
-            <div className="mt-8 flex items-center gap-4 text-xs text-muted-foreground">
-              <div className="flex -space-x-2">
-                {[0, 1, 2, 3].map((i) => (
-                  <div key={i} className={`h-7 w-7 rounded-full border-2 border-background bg-gradient-to-br ${["from-pink-400 to-orange-300", "from-violet-400 to-indigo-300", "from-emerald-400 to-teal-300", "from-amber-400 to-rose-300"][i]}`} />
-                ))}
-              </div>
-              <div className="flex items-center gap-1">
-                <Star className="h-3.5 w-3.5 fill-current text-amber-500" />
-                <Star className="h-3.5 w-3.5 fill-current text-amber-500" />
-                <Star className="h-3.5 w-3.5 fill-current text-amber-500" />
-                <Star className="h-3.5 w-3.5 fill-current text-amber-500" />
-                <Star className="h-3.5 w-3.5 fill-current text-amber-500" />
-                <span className="ml-1">Loved by early planners</span>
-              </div>
+              <span className="font-mono text-xs uppercase tracking-widest text-ink/60">
+                no signup to try ↗
+              </span>
             </div>
           </div>
 
-          {/* Mock preview card */}
-          <div className="relative">
-            <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-vibe opacity-20 blur-2xl" />
-            <div className="rounded-[2rem] border border-border bg-card p-5 shadow-pop">
-              <div className="flex items-center justify-between text-xs text-muted-foreground">
-                <span className="rounded-full bg-muted px-2 py-1 font-semibold uppercase tracking-wider">Saturday plan</span>
-                <span>3 stops · 6h · ~$84</span>
+          {/* right — receipt-style mock plan */}
+          <div className="relative lg:col-span-5">
+            <div className="absolute -left-6 -top-6 z-20 grid h-20 w-20 -rotate-12 animate-wiggle place-items-center rounded-full border-2 border-ink bg-gold text-center font-display text-xs font-extrabold uppercase leading-tight">
+              vibe<br/>locked<br/>in
+            </div>
+
+            <div className="rotate-2 rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut-lg">
+              <div className="flex items-center justify-between border-b-2 border-dashed border-ink pb-3">
+                <span className="font-mono text-[11px] uppercase tracking-widest">CONFETTI · plan #A7K2</span>
+                <span className="font-mono text-[11px]">SAT · 6:00p</span>
               </div>
-              <div className="mt-4 space-y-3">
+
+              <h3 className="mt-4 font-serif text-3xl italic leading-tight">
+                "cute, walkable, ends with a slow drink"
+              </h3>
+
+              <div className="mt-5 space-y-3">
                 {[
-                  { t: "11:00", title: "Brunch at Lila's Patio", sub: "12 min · walk", color: "from-pink-400 to-rose-300" },
-                  { t: "1:30", title: "Vinyl crawl on Mason St.", sub: "8 min · car", color: "from-violet-400 to-indigo-300" },
-                  { t: "5:00", title: "Sunset rooftop at Aera", sub: "10 min · Lyft", color: "from-amber-400 to-orange-300" },
+                  { t: "6:30", title: "Lila’s Patio", sub: "small plates · 12 min walk", chip: "RESY", color: "bg-coral" },
+                  { t: "8:15", title: "Mason St. record bar", sub: "vinyl + nat wine · 6 min walk", chip: "WALK-IN", color: "bg-purple" },
+                  { t: "10:00", title: "Aera rooftop", sub: "nightcap · 9 min Lyft", chip: "LYFT", color: "bg-gold" },
                 ].map((s) => (
-                  <div key={s.t} className="flex items-center gap-3 rounded-2xl border border-border bg-background p-3">
-                    <div className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br ${s.color} text-sm font-bold text-white`}>
+                  <div key={s.t} className="flex items-center gap-3 rounded-xl border-2 border-ink bg-background p-3">
+                    <div className={`grid h-14 w-14 shrink-0 place-items-center rounded-lg border-2 border-ink ${s.color} font-display text-base font-extrabold text-ink`}>
                       {s.t}
                     </div>
-                    <div>
-                      <div className="text-sm font-semibold">{s.title}</div>
-                      <div className="text-xs text-muted-foreground">{s.sub}</div>
+                    <div className="min-w-0 flex-1">
+                      <div className="truncate font-display text-base font-bold">{s.title}</div>
+                      <div className="truncate text-xs text-ink/60">{s.sub}</div>
                     </div>
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-widest">{s.chip}</span>
                   </div>
                 ))}
               </div>
-              <div className="mt-4 flex items-center justify-between rounded-2xl bg-muted/60 p-3 text-xs">
-                <span className="font-semibold">Reservation saved</span>
-                <span className="text-muted-foreground">Confirmation #A7K2</span>
+
+              <div className="mt-5 flex items-center justify-between border-t-2 border-dashed border-ink pt-3 font-mono text-[11px] uppercase tracking-widest">
+                <span>3 stops · 4h · ~$92</span>
+                <span className="rounded-full bg-ink px-2 py-1 text-cream">booked ✓</span>
               </div>
+            </div>
+
+            <div className="absolute -bottom-5 -right-2 z-20 -rotate-6 rounded-md border-2 border-ink bg-coral px-3 py-1 font-mono text-[11px] font-bold uppercase text-cream shadow-brut">
+              feels like a friend planned it
             </div>
           </div>
         </div>
       </section>
 
-      {/* Value props strip */}
-      <section className="border-b border-border">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {VALUE_PROPS.map((v) => {
-            const Icon = v.icon;
-            return (
-              <div key={v.title} className="rounded-2xl border border-border bg-card p-5">
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-vibe text-primary-foreground">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 font-display text-lg font-bold">{v.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{v.body}</p>
-              </div>
-            );
-          })}
+      {/* ============================ MARQUEE ============================ */}
+      <section className="border-b-2 border-ink bg-ink py-4 text-cream">
+        <div className="flex overflow-hidden">
+          <div className="flex shrink-0 animate-marquee gap-10 whitespace-nowrap pr-10 font-display text-3xl font-extrabold uppercase tracking-tight">
+            {[...MARQUEE, ...MARQUEE].map((m, i) => (
+              <span key={i} className={i % 3 === 1 ? "font-serif italic font-normal text-gold" : i % 3 === 2 ? "text-coral" : ""}>
+                {m}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Occasions */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-                What's the <span className="text-gradient">occasion?</span>
-              </h2>
-              <p className="mt-2 max-w-xl text-muted-foreground">
-                Tap a vibe to see ideas. Or jump straight into the planner.
-              </p>
+      {/* ============================ MANIFESTO / WHY ============================ */}
+      <section className="border-b-2 border-ink">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:px-8">
+          <div className="lg:col-span-5">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">/ the manifesto</span>
+            <h2 className="mt-3 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
+              We are <span className="font-serif italic font-normal">tired</span> of the group chat.
+            </h2>
+          </div>
+          <div className="space-y-6 text-lg leading-relaxed lg:col-span-7">
+            <p>
+              You know the loop. Someone says "we should do something." Three days pass. Yelp gets opened, then closed.
+              Someone screenshots a TikTok. Friday becomes pizza on the couch. <span className="font-serif italic">Again.</span>
+            </p>
+            <p>
+              Confetti kills that loop. One vibe in — one full evening out. Stops, times, routes, reservations,
+              the dress code, the cost, the conversation starter. The whole damn night, in under a minute.
+            </p>
+            <div className="flex flex-wrap gap-2 pt-2">
+              {["less scrolling", "more showing up", "chef's-kiss timing", "real reservations", "made for the way you actually go out"].map((t) => (
+                <span key={t} className="rounded-full border-2 border-ink bg-cream px-3 py-1 text-sm font-semibold">
+                  {t}
+                </span>
+              ))}
             </div>
-            <Link to="/plan" className="hidden h-11 items-center rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-pop hover:scale-105 sm:inline-flex">
-              Plan a day
+          </div>
+        </div>
+      </section>
+
+      {/* ============================ HOW IT WORKS — color blocks ============================ */}
+      <section className="border-b-2 border-ink">
+        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between gap-6">
+            <h2 className="font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
+              Three steps.<br />
+              <span className="font-serif italic font-normal">Zero spirals.</span>
+            </h2>
+            <Link to="/how-it-works" className="hidden items-center gap-1 font-mono text-xs uppercase tracking-widest underline underline-offset-4 sm:inline-flex">
+              full walkthrough <ArrowUpRight className="h-3 w-3" />
             </Link>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {OCCASIONS.map((o) => {
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {STEPS.map((s, i) => (
+              <div
+                key={s.n}
+                className={`group relative overflow-hidden rounded-3xl border-2 border-ink ${s.color} p-7 text-ink shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg`}
+                style={{ transform: `rotate(${i === 1 ? "1deg" : i === 2 ? "-1deg" : "-0.5deg"})` }}
+              >
+                <div className="flex items-baseline justify-between">
+                  <span className="font-display text-7xl font-extrabold leading-none">{s.n}</span>
+                  <span className="font-mono text-[11px] uppercase tracking-widest">{s.kicker}</span>
+                </div>
+                <h3 className="mt-8 font-display text-2xl font-extrabold leading-tight">{s.title}</h3>
+                <p className="mt-3 text-base leading-snug">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================ OCCASIONS GRID ============================ */}
+      <section className="border-b-2 border-ink bg-ink text-cream">
+        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-cream/60">/ pick a vibe</span>
+              <h2 className="mt-2 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
+                What's the <span className="font-serif italic font-normal text-gold">occasion?</span>
+              </h2>
+            </div>
+            <Link to="/plan" className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-cream px-5 font-mono text-xs font-bold uppercase tracking-widest transition-pop hover:bg-cream hover:text-ink">
+              skip — just plan something <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {OCCASIONS.map((o, i) => {
               const Icon = o.icon;
               return (
                 <Link
                   key={o.slug}
                   to="/ideas/$slug"
                   params={{ slug: o.slug }}
-                  className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${o.gradient} p-6 text-white shadow-card transition-pop hover:-translate-y-1 hover:shadow-pop`}
+                  className="group relative flex h-44 flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-cream/[0.03] p-5 transition-pop hover:border-cream hover:bg-cream hover:text-ink"
+                  style={{ transform: `rotate(${(i % 4 - 1.5) * 0.4}deg)` }}
                 >
                   <div className="flex items-start justify-between">
-                    <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white/20 backdrop-blur">
-                      <Icon className="h-6 w-6" />
-                    </div>
+                    <Icon className="h-6 w-6" />
                     <span className="text-3xl">{o.emoji}</span>
                   </div>
-                  <div className="mt-12">
-                    <h3 className="font-display text-2xl font-bold leading-tight">{o.title}</h3>
-                    <p className="mt-1 text-sm opacity-90">{o.tagline}</p>
+                  <div>
+                    <div className="font-display text-2xl font-extrabold leading-tight">{o.title}</div>
+                    <div className="mt-1 font-mono text-[11px] uppercase tracking-wider opacity-70">{o.tagline}</div>
                   </div>
-                  <ArrowRight className="absolute bottom-6 right-6 h-5 w-5 opacity-60 transition-transform group-hover:translate-x-1 group-hover:opacity-100" />
+                  <ArrowUpRight className="absolute right-4 top-4 h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
                 </Link>
               );
             })}
@@ -180,44 +297,45 @@ function Landing() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="border-b border-border bg-muted/40">
-        <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
-          <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            How Confetti works
-          </h2>
-          <div className="mt-12 grid gap-8 sm:grid-cols-3">
+      {/* ============================ FEATURE STRIP — three big claims ============================ */}
+      <section className="border-b-2 border-ink">
+        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+          <div className="grid gap-px bg-ink lg:grid-cols-3">
             {[
-              { n: "01", t: "Pick the occasion", d: "From low-key Sunday to first-time-meeting-the-parents." },
-              { n: "02", t: "Swipe the cards", d: "Like Tinder for plans. Right to save, left to skip, tap to plan." },
-              { n: "03", t: "Make it happen", d: "Every card is ready-to-go: timeline, cost, what to wear." },
-            ].map((s) => (
-              <div key={s.n} className="space-y-3">
-                <div className="font-display text-4xl font-bold text-gradient">{s.n}</div>
-                <h3 className="font-display text-xl font-bold">{s.t}</h3>
-                <p className="text-sm text-muted-foreground">{s.d}</p>
+              { icon: Clock, k: "timing", t: "Down to the minute.", b: "Reservations, sunset, last call — Confetti backs into the schedule so you’re never early or stranded." },
+              { icon: Car, k: "routing", t: "Door to door.", b: "Walk, drive, transit, Uber, Lyft — chosen per leg. One tap launches the right app." },
+              { icon: MapPin, k: "taste", t: "Knows your taste.", b: "A live taste profile that learns from chats, playlists, even pasted social posts. Skips the basics." },
+            ].map((f) => (
+              <div key={f.k} className="bg-cream p-8">
+                <f.icon className="h-8 w-8" />
+                <span className="mt-4 block font-mono text-[11px] uppercase tracking-[0.25em] text-ink/60">/ {f.k}</span>
+                <h3 className="mt-2 font-display text-3xl font-extrabold leading-tight">{f.t}</h3>
+                <p className="mt-3 text-base leading-snug">{f.b}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            People love <span className="text-gradient">going out again</span>
+      {/* ============================ TESTIMONIALS — sticky notes ============================ */}
+      <section className="border-b-2 border-ink bg-gradient-warm/40">
+        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+          <h2 className="font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
+            People are <span className="font-serif italic font-normal">leaving the house</span> again.
           </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {TESTIMONIALS.map((t) => (
-              <figure key={t.name} className="rounded-3xl border border-border bg-card p-6 shadow-card">
-                <div className="flex gap-1 text-amber-500">
-                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+
+          <div className="mt-14 grid gap-10 md:grid-cols-3">
+            {PROOF.map((p) => (
+              <figure key={p.name} className={`${p.tilt} rounded-2xl border-2 border-ink bg-cream p-7 shadow-brut`}>
+                <div className="flex gap-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-coral stroke-ink" />
+                  ))}
                 </div>
-                <blockquote className="mt-4 text-base">"{t.quote}"</blockquote>
-                <figcaption className="mt-5 text-sm">
-                  <div className="font-semibold">{t.name}</div>
-                  <div className="text-muted-foreground">{t.role}</div>
+                <blockquote className="mt-4 font-serif text-2xl italic leading-snug">"{p.quote}"</blockquote>
+                <figcaption className="mt-6 flex items-center justify-between font-mono text-[11px] uppercase tracking-widest">
+                  <span className="font-bold">{p.name}</span>
+                  <span className="text-ink/60">{p.role}</span>
                 </figcaption>
               </figure>
             ))}
@@ -225,67 +343,86 @@ function Landing() {
         </div>
       </section>
 
-      {/* Pricing teaser */}
-      <section className="border-b border-border bg-muted/40">
-        <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
-          <div className="grid gap-10 md:grid-cols-2 md:items-center">
-            <div>
-              <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-                Free to start. <span className="text-gradient">Plus when you're hooked.</span>
-              </h2>
-              <p className="mt-3 text-muted-foreground">
-                Three AI itineraries a month, on the house. Upgrade for unlimited plans, the reservations vault and a taste profile that keeps learning.
-              </p>
-              <Link to="/pricing" className="mt-6 inline-flex h-11 items-center rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-pop hover:scale-105">
-                See pricing
-              </Link>
-            </div>
-            <ul className="space-y-3 rounded-3xl border border-border bg-card p-6 text-sm">
-              {["Unlimited AI itineraries", "Multi-stop routing & transit", "Saved reservations vault", "Full taste profile"].map((f) => (
-                <li key={f} className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-primary" /> {f}
-                </li>
+      {/* ============================ PRICING TEASER ============================ */}
+      <section className="border-b-2 border-ink">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:px-8">
+          <div className="lg:col-span-5">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">/ pricing</span>
+            <h2 className="mt-3 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
+              Free to start.<br />
+              <span className="font-serif italic font-normal text-coral">Plus when you're hooked.</span>
+            </h2>
+            <p className="mt-5 max-w-md text-lg">
+              Three full plans a month, on the house. Upgrade for unlimited, the reservations vault, and a taste profile that gets sharper every week.
+            </p>
+            <Link to="/pricing" className="mt-7 inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 font-bold text-cream shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg">
+              See the tiers <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="lg:col-span-7">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                { name: "Free", price: "$0", note: "first taste", items: ["3 plans / month", "Multi-stop routing", "Save trips"], cls: "bg-cream" },
+                { name: "Plus", price: "$8", note: "the upgrade", items: ["Unlimited plans", "Reservations vault", "Full taste profile"], cls: "bg-gold" },
+              ].map((t) => (
+                <div key={t.name} className="flex flex-col rounded-3xl border-2 border-ink p-6 shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg" style={{ background: `var(--${t.cls === "bg-gold" ? "gold" : "cream"})` }}>
+                  <div className="flex items-baseline justify-between">
+                    <h3 className="font-display text-3xl font-extrabold">{t.name}</h3>
+                    <span className="font-mono text-[10px] uppercase tracking-widest opacity-70">/ {t.note}</span>
+                  </div>
+                  <div className="mt-2 font-display text-5xl font-extrabold">{t.price}<span className="font-mono text-sm font-normal">/mo</span></div>
+                  <ul className="mt-6 space-y-2 text-sm">
+                    {t.items.map((i) => (
+                      <li key={i} className="flex gap-2"><span className="font-bold">✦</span>{i}</li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6">
-          <h2 className="text-center font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            Questions, answered
-          </h2>
-          <div className="mt-10 space-y-3">
+      {/* ============================ FAQ ============================ */}
+      <section className="border-b-2 border-ink">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:px-8">
+          <div className="lg:col-span-4">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">/ FAQ</span>
+            <h2 className="mt-3 font-display text-5xl font-extrabold leading-[0.95] tracking-tight">
+              Quick<br />questions.
+            </h2>
+          </div>
+          <div className="space-y-3 lg:col-span-8">
             {FAQS.map((f) => (
-              <details key={f.q} className="group rounded-2xl border border-border bg-card p-5 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer items-center justify-between gap-4 font-semibold">
+              <details key={f.q} className="group rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut transition-pop open:bg-gold [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 font-display text-xl font-extrabold">
                   {f.q}
-                  <span className="text-muted-foreground transition-transform group-open:rotate-45">+</span>
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink bg-cream font-mono text-lg transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
+                <p className="mt-4 text-base leading-relaxed">{f.a}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Big CTA */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6">
-          <h2 className="font-display text-4xl font-bold tracking-tight sm:text-5xl">
-            Your next outing <span className="text-gradient">starts here.</span>
+      {/* ============================ BIG CTA ============================ */}
+      <section className="relative overflow-hidden border-b-2 border-ink bg-coral text-cream">
+        <div className="absolute -right-20 -top-20 h-72 w-72 animate-blob bg-purple/40" />
+        <div className="absolute -bottom-16 -left-16 h-64 w-64 animate-blob bg-gold/60" style={{ animationDelay: "-4s" }} />
+        <div className="relative mx-auto max-w-5xl px-4 py-28 text-center sm:px-6">
+          <Sparkles className="mx-auto h-10 w-10" />
+          <h2 className="mt-6 font-display text-7xl font-extrabold leading-[0.85] tracking-tight sm:text-[140px]">
+            Stop scrolling.<br />
+            <span className="font-serif italic font-normal">Start showing up.</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Tell Confetti the vibe. Get a real plan in under a minute.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link to="/plan" className="inline-flex h-12 items-center gap-2 rounded-full bg-foreground px-6 text-sm font-semibold text-background transition-pop hover:scale-105">
-              Plan my day <ArrowRight className="h-4 w-4" />
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
+            <Link to="/plan" className="inline-flex h-14 items-center gap-2 rounded-full border-2 border-cream bg-cream px-8 font-bold text-ink shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg">
+              Build my night <ArrowUpRight className="h-5 w-5" />
             </Link>
-            <Link to="/features" className="inline-flex h-12 items-center rounded-full border border-border bg-card px-6 text-sm font-semibold transition-colors hover:bg-muted">
-              Explore features
+            <Link to="/features" className="inline-flex h-14 items-center rounded-full border-2 border-cream px-8 font-bold transition-pop hover:bg-cream hover:text-ink">
+              Tour the features
             </Link>
           </div>
         </div>

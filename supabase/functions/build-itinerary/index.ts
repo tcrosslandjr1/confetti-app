@@ -60,6 +60,8 @@ OCCASION PLAYBOOK — match every stop to who's actually going. Do NOT default t
 
 • Meet-the-parents / in-laws: classy and safe — quiet upscale restaurant, wine tasting, scenic drive, brunch at a country club, garden walk, light comedy, museum exhibit, afternoon tea.
 
+• Mature married couple (40s-60s, settled): grown-up scenes — wine country day, chef's-table dinner, jazz/blues club, supper club, theater, gallery opening, distillery tour, neighborhood food walk, B&B getaway, clean comedy, historic-district stroll, cooking class for two, private boat charter. Avoid loud/college-coded venues unless the profile says otherwise.
+
 • Elders / multigenerational: botanical gardens, art museums, historic walking tours, scenic train rides, classical concerts, matinees, garden-restaurant lunch, tea rooms, riverside parks. Keep walking distances short and venues accessible.
 
 • Anniversary / romantic: prix-fixe tasting menu, sunset spot, couples spa, harbor cruise, jazz, hidden speakeasy.

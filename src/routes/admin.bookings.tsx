@@ -60,6 +60,8 @@ function StatusBadge({ status }: { status: Status }) {
 }
 
 function AdminBookingsPage() {
+  const { user } = useAuth();
+  const adminEmail = user?.email ?? "admin";
   const [bookings, setBookings] = useState<Booking[]>(SEED);
   const [tab, setTab] = useState<"all" | Status>("all");
   const [query, setQuery] = useState("");

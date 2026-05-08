@@ -156,6 +156,9 @@ function ReadyPage() {
   const [emailInput, setEmailInput] = useState("");
   const [invites, setInvitesState] = useState<Invite[]>([]);
   const [emailError, setEmailError] = useState<string | null>(null);
+  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const [videoUploading, setVideoUploading] = useState(false);
+  const [videoProgress, setVideoProgress] = useState<number | null>(null);
 
   const shareUrl = useMemo(() => {
     if (typeof window === "undefined") return `https://confetti.app/trips/${TRIP.id}`;
@@ -168,15 +171,63 @@ function ReadyPage() {
   }, []);
 
   function inviteUrl(token: string) {
-    return `${rsvpOrigin}/rsvp/${TRIP.id}?invite=${token}`;
+    const base = `${rsvpOrigin}/rsvp/${TRIP.id}?invite=${token}`;
+    return videoUrl ? `${base}&v=${encodeURIComponent(videoUrl)}` : base;
   }
 
   // Hydrate from localStorage + subscribe to RSVP updates from the rsvp route.
   useEffect(() => {
     setInvitesState(loadInvites(TRIP.id));
-    const unsub = subscribeInvites(TRIP.id, () => setInvitesState(loadInvites(TRIP.id)));
+    setVideoUrl(loadInviteVideo(TRIP.id));
+    const unsub = subscribeInvites(TRIP.id, () => {
+      setInvitesState(loadInvites(TRIP.id));
+      setVideoUrl(loadInviteVideo(TRIP.id));
+    });
     return unsub;
   }, []);
+
+  async function handleVideoUpload(file: File) {
+    if (!file.type.startsWith("video/")) {
+      toast.error("That's not a video file.");
+      return;
+    }
+    if (file.size > 100 * 1024 * 1024) {
+      toast.error("Video too large", { description: "Max 100 MB." });
+      return;
+    }
+    setVideoUploading(true);
+    setVideoProgress(5);
+    try {
+      const ext = (file.name.split(".").pop() || "mp4").toLowerCase();
+      const path = `${TRIP.id}/${crypto.randomUUID()}.${ext}`;
+      // Fake-progress ticker for UX (Supabase JS SDK doesn't expose upload progress yet)
+      const ticker = setInterval(() => setVideoProgress((p) => (p === null ? p : Math.min(p + 7, 90))), 250);
+      const { error } = await supabase.storage.from("invite-videos").upload(path, file, {
+        cacheControl: "3600",
+        contentType: file.type,
+        upsert: false,
+      });
+      clearInterval(ticker);
+      if (error) throw error;
+      const { data } = supabase.storage.from("invite-videos").getPublicUrl(path);
+      setVideoUrl(data.publicUrl);
+      saveInviteVideo(TRIP.id, data.publicUrl);
+      setVideoProgress(100);
+      toast.success("Video added", { description: "Guests will see it on their invite link." });
+    } catch (err) {
+      console.error("Video upload failed", err);
+      toast.error("Couldn't upload video. Try again.");
+    } finally {
+      setVideoUploading(false);
+      setTimeout(() => setVideoProgress(null), 800);
+    }
+  }
+
+  function removeVideo() {
+    setVideoUrl(null);
+    saveInviteVideo(TRIP.id, null);
+    toast.success("Video removed");
+  }
 
   function persist(next: Invite[]) {
     setInvitesState(next);

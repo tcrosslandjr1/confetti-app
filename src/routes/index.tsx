@@ -93,15 +93,17 @@ function Landing() {
 
       {/* ============================ HERO ============================ */}
       <section className="relative overflow-hidden border-b-2 border-ink">
-        <div className="grid-paper absolute inset-0 -z-10 opacity-60" />
+        <div className="hero-gradient absolute inset-0 -z-20" />
+        <div className="grid-paper absolute inset-0 -z-10 opacity-50" />
         <div className="absolute -right-24 -top-24 -z-10 h-96 w-96 animate-blob bg-gradient-warm opacity-70" />
         <div className="absolute -bottom-32 -left-24 -z-10 h-96 w-96 animate-blob bg-gradient-cool opacity-50" style={{ animationDelay: "-7s" }} />
 
         <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-24 pt-16 sm:px-6 lg:grid-cols-12 lg:px-8 lg:pb-32 lg:pt-20">
           {/* left — type */}
           <div className="lg:col-span-7">
-            <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]">
-              <span className="h-2 w-2 rounded-full bg-coral" /> 04:32 PM • 17 plans built right now
+            <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream/90 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-coral text-coral animate-dot-pulse" />
+              <TypingCounter target={2847} suffix=" plans built today" className="text-[11px]" />
             </span>
 
             <h1 className="mt-6 font-display text-[14vw] font-extrabold leading-[0.85] tracking-[-0.04em] sm:text-[120px] lg:text-[148px]">

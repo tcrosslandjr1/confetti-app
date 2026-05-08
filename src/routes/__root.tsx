@@ -11,6 +11,7 @@ import {
 import appCss from "../styles.css?url";
 import { AuthProvider } from "@/lib/auth-context";
 import { RoleSwitcher } from "@/components/RoleSwitcher";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -122,6 +123,7 @@ function RootComponent() {
       <AuthProvider>
         <Outlet />
         <RoleSwitcher />
+        <Toaster />
       </AuthProvider>
     </QueryClientProvider>
   );

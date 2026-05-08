@@ -6,6 +6,7 @@ import { AlertTriangle, Calendar, Check, CheckCircle2, Clock, MapPin, PartyPoppe
 import { SiteHeader } from "@/components/SiteHeader";
 import { findInviteByToken, loadInviteVideo, setInviteStatus, type Invite } from "@/lib/invites";
 import { checkStopFits } from "@/lib/hours";
+import { formatUpdatedAt, loadStatus, shiftTimeLabel, subscribeStatus, type TripStatus } from "@/lib/trip-status";
 
 const rsvpSearchSchema = z.object({
   invite: fallback(z.string(), "").default(""),
@@ -47,12 +48,19 @@ function RsvpPage() {
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [videoProgress, setVideoProgress] = useState(0);
   const [videoDone, setVideoDone] = useState(false);
+  const [tripStatus, setTripStatus] = useState<TripStatus | null>(null);
 
   useEffect(() => {
     if (!token) { setLoaded(true); return; }
     setInvite(findInviteByToken(tripId, token));
     setLoaded(true);
   }, [tripId, token]);
+
+  // Live host status (running late / on time) — synced via storage events.
+  useEffect(() => {
+    setTripStatus(loadStatus(tripId));
+    return subscribeStatus(tripId, () => setTripStatus(loadStatus(tripId)));
+  }, [tripId]);
 
   // Resolve video URL: prefer the one in the link (works cross-device), fall back to localStorage.
   useEffect(() => {
@@ -191,7 +199,16 @@ function RsvpPage() {
               <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{TRIP_PREVIEW.date}</p>
               <p className="mt-0.5 font-display text-xl font-semibold">{TRIP_PREVIEW.title}</p>
             </div>
-            <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+              {tripStatus && tripStatus.minutesLate > 0 && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 px-2.5 py-1 font-semibold text-amber-700">
+                  <span className="relative inline-flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
+                  </span>
+                  Running ~{tripStatus.minutesLate} min late · {formatUpdatedAt(tripStatus.updatedAt)}
+                </span>
+              )}
               <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {TRIP_PREVIEW.window}</span>
               <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {TRIP_PREVIEW.city}</span>
             </div>
@@ -231,7 +248,14 @@ function RsvpPage() {
                       </p>
                     </div>
                     <div className="flex shrink-0 flex-col items-end gap-1">
-                      <span className="text-sm font-semibold text-muted-foreground">{s.time}</span>
+                      {tripStatus && tripStatus.minutesLate > 0 ? (
+                        <span className="flex items-baseline gap-1.5">
+                          <span className="text-[11px] text-muted-foreground line-through">{s.time}</span>
+                          <span className="text-sm font-semibold text-amber-700">{shiftTimeLabel(s.time, tripStatus.minutesLate)}</span>
+                        </span>
+                      ) : (
+                        <span className="text-sm font-semibold text-muted-foreground">{s.time}</span>
+                      )}
                       {fit.state === "open" && (
                         <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
                           <Check className="h-3 w-3" /> Open

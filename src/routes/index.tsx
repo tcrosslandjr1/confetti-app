@@ -3,6 +3,7 @@ import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { TypingCounter } from "@/components/TypingCounter";
+import { StepsShowcase } from "@/components/StepsShowcase";
 import { OCCASIONS } from "@/lib/occasions";
 
 export const Route = createFileRoute("/")({
@@ -34,29 +35,6 @@ const MARQUEE = [
   "guys' afternoon ✦",
 ];
 
-const STEPS = [
-  {
-    n: "01",
-    kicker: "drop the vibe",
-    title: "Tell us what kind of night you want.",
-    body: "Pick a vibe — or type one in your own words. ‘Cute, slow, walkable, under $80.’ We get it.",
-    color: "bg-coral",
-  },
-  {
-    n: "02",
-    kicker: "we plot the path",
-    title: "An AI agent builds the whole evening.",
-    body: "Three to five real stops, timed to the minute, routed by car, transit, Uber or Lyft. No tabs. No spirals.",
-    color: "bg-purple",
-  },
-  {
-    n: "03",
-    kicker: "you just show up",
-    title: "Reservations and rides land in one place.",
-    body: "Confirmations, addresses, dress code, parking notes — all in your trip vault. Share it. Send it. Save it.",
-    color: "bg-gold",
-  },
-];
 
 const PROOF = [
   {
@@ -243,26 +221,7 @@ function Landing() {
             </Link>
           </div>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {STEPS.map((s, i) => {
-              const glow = i === 0 ? "glow-coral" : i === 1 ? "glow-purple" : "glow-gold";
-              const rot = i === 1 ? "1deg" : i === 2 ? "-1deg" : "-0.5deg";
-              return (
-                <div key={s.n} style={{ transform: `rotate(${rot})` }}>
-                  <div
-                    className={`group tilt-3d grain ${glow} relative overflow-hidden rounded-3xl border-2 border-ink ${s.color} p-7 text-ink shadow-brut`}
-                  >
-                    <div className="flex items-baseline justify-between">
-                      <span className="font-display text-7xl font-extrabold leading-none">{s.n}</span>
-                      <span className="font-mono text-[11px] uppercase tracking-widest">{s.kicker}</span>
-                    </div>
-                    <h3 className="mt-8 font-display text-2xl font-extrabold leading-tight">{s.title}</h3>
-                    <p className="mt-3 text-base leading-snug">{s.body}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <StepsShowcase />
         </div>
       </section>
 

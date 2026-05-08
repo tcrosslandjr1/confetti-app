@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { TypingCounter } from "@/components/TypingCounter";
 import { OCCASIONS } from "@/lib/occasions";
 
 export const Route = createFileRoute("/")({
@@ -92,15 +93,17 @@ function Landing() {
 
       {/* ============================ HERO ============================ */}
       <section className="relative overflow-hidden border-b-2 border-ink">
-        <div className="grid-paper absolute inset-0 -z-10 opacity-60" />
+        <div className="hero-gradient absolute inset-0 -z-20" />
+        <div className="grid-paper absolute inset-0 -z-10 opacity-50" />
         <div className="absolute -right-24 -top-24 -z-10 h-96 w-96 animate-blob bg-gradient-warm opacity-70" />
         <div className="absolute -bottom-32 -left-24 -z-10 h-96 w-96 animate-blob bg-gradient-cool opacity-50" style={{ animationDelay: "-7s" }} />
 
         <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-24 pt-16 sm:px-6 lg:grid-cols-12 lg:px-8 lg:pb-32 lg:pt-20">
           {/* left — type */}
           <div className="lg:col-span-7">
-            <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]">
-              <span className="h-2 w-2 rounded-full bg-coral" /> 04:32 PM • 17 plans built right now
+            <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream/90 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-coral text-coral animate-dot-pulse" />
+              <TypingCounter target={2847} suffix=" plans built today" className="text-[11px]" />
             </span>
 
             <h1 className="mt-6 font-display text-[14vw] font-extrabold leading-[0.85] tracking-[-0.04em] sm:text-[120px] lg:text-[148px]">
@@ -139,7 +142,7 @@ function Landing() {
               vibe<br/>locked<br/>in
             </div>
 
-            <div className="rotate-2 rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut-lg">
+            <div className="animate-float-card rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut-lg">
               <div className="flex items-center justify-between border-b-2 border-dashed border-ink pb-3">
                 <span className="font-mono text-[11px] uppercase tracking-widest">CONFETTI · plan #A7K2</span>
                 <span className="font-mono text-[11px]">SAT · 6:00p</span>
@@ -151,13 +154,17 @@ function Landing() {
 
               <div className="mt-5 space-y-3">
                 {[
-                  { t: "6:30", title: "Lila’s Patio", sub: "small plates · 12 min walk", chip: "RESY", color: "bg-coral" },
-                  { t: "8:15", title: "Mason St. record bar", sub: "vinyl + nat wine · 6 min walk", chip: "WALK-IN", color: "bg-purple" },
-                  { t: "10:00", title: "Aera rooftop", sub: "nightcap · 9 min Lyft", chip: "LYFT", color: "bg-gold" },
-                ].map((s) => (
+                  { t: "6:30", title: "Lila’s Patio", sub: "small plates · 12 min walk", chip: "RESY", color: "bg-coral", dot: "text-coral" },
+                  { t: "8:15", title: "Mason St. record bar", sub: "vinyl + nat wine · 6 min walk", chip: "WALK-IN", color: "bg-purple", dot: "text-purple" },
+                  { t: "10:00", title: "Aera rooftop", sub: "nightcap · 9 min Lyft", chip: "LYFT", color: "bg-gold", dot: "text-gold" },
+                ].map((s, i) => (
                   <div key={s.t} className="flex items-center gap-3 rounded-xl border-2 border-ink bg-background p-3">
-                    <div className={`grid h-14 w-14 shrink-0 place-items-center rounded-lg border-2 border-ink ${s.color} font-display text-base font-extrabold text-ink`}>
+                    <div className={`relative grid h-14 w-14 shrink-0 place-items-center rounded-lg border-2 border-ink ${s.color} font-display text-base font-extrabold text-ink`}>
                       {s.t}
+                      <span
+                        className={`absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-current animate-dot-pulse ${s.dot}`}
+                        style={{ animationDelay: `${i * 0.4}s` }}
+                      />
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="truncate font-display text-base font-bold">{s.title}</div>

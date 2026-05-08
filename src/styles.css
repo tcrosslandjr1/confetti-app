@@ -125,7 +125,23 @@
   100% { transform: perspective(900px) rotateX(4deg) rotateY(-6deg) scale(1.04); }
 }
 
-@layer base {
+@keyframes hero-shift {
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
+}
+@keyframes float-card {
+  0%, 100% { transform: rotate(2deg) translateY(0); }
+  50%      { transform: rotate(2deg) translateY(-10px); }
+}
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
+  50%      { box-shadow: 0 0 0 6px transparent; opacity: 0.85; }
+}
+@keyframes blink-caret {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
   * { border-color: var(--color-border); }
   html { font-family: var(--font-sans); }
   body {
@@ -171,6 +187,24 @@
   .animate-marquee { animation: marquee 38s linear infinite; }
   .animate-wiggle { animation: wiggle 4s ease-in-out infinite; }
   .animate-blob { animation: blob 14s ease-in-out infinite; }
+  .animate-float-card { animation: float-card 6s ease-in-out infinite; }
+  .animate-dot-pulse  { animation: dot-pulse 1.8s ease-in-out infinite; }
+  .hero-gradient {
+    background: linear-gradient(120deg,
+      oklch(0.97 0.022 88) 0%,
+      oklch(0.93 0.06 65) 30%,
+      oklch(0.88 0.11 45) 55%,
+      oklch(0.92 0.08 70) 80%,
+      oklch(0.97 0.022 88) 100%);
+    background-size: 300% 300%;
+    animation: hero-shift 18s ease-in-out infinite;
+  }
+  .typing-caret::after {
+    content: "▍";
+    margin-left: 2px;
+    animation: blink-caret 1s step-end infinite;
+    color: var(--coral);
+  }
   .grid-paper {
     background-image:
       linear-gradient(to right, oklch(0.16 0.02 50 / 0.06) 1px, transparent 1px),

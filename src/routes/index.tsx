@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { TypingCounter } from "@/components/TypingCounter";
 import { StepsShowcase } from "@/components/StepsShowcase";
-import { OCCASIONS } from "@/lib/occasions";
+import { OCCASIONS, SEED_IDEAS } from "@/lib/occasions";
 import { Reveal } from "@/components/Reveal";
 import { WizardButton } from "@/components/wizard/WizardButton";
 import { QuickPicks } from "@/components/QuickPicks";
@@ -263,55 +263,126 @@ function Landing() {
         </div>
       </section>
 
-      {/* ============================ OCCASIONS GRID ============================ */}
-      <section className="border-b-2 border-ink bg-ink text-cream">
-        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      {/* ============================ OCCASIONS BENTO ============================ */}
+      <section className="relative overflow-hidden border-b-2 border-ink bg-ink text-cream">
+        {/* ambient glow */}
+        <div aria-hidden className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-coral/30 blur-3xl" />
+        <div aria-hidden className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-purple/30 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-cream/60">/ pick a vibe</span>
+              <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-cream/60">
+                <Sparkles className="h-3 w-3 text-gold" /> / pick a vibe
+              </span>
               <h2 className="mt-2 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
                 What's the <span className="font-serif italic font-normal text-gold">occasion?</span>
               </h2>
+              <p className="mt-3 max-w-md font-mono text-sm text-cream/60">
+                Tap any vibe — we generate a full night around it in seconds.
+              </p>
             </div>
-            <Link to="/plan" className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-cream px-5 font-mono text-xs font-bold uppercase tracking-widest transition-pop hover:bg-cream hover:text-ink">
+            <Link to="/plan" className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-cream px-5 font-mono text-xs font-bold uppercase tracking-widest transition-pop hover:-translate-y-0.5 hover:bg-cream hover:text-ink">
               skip — just plan something <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="mt-12 -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3 xl:grid-cols-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {OCCASIONS.map((o, i) => {
+          {/* mobile snap rail */}
+          <div className="mt-12 -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 sm:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {OCCASIONS.map((o) => {
               const Icon = o.icon;
-              const glows = ["glow-coral", "glow-gold", "glow-purple", "glow-teal", "glow-pink"];
-              const glow = glows[i % glows.length];
-              const rot = (i % 4 - 1.5) * 0.4;
+              const ideaCount = SEED_IDEAS[o.slug]?.length ?? 0;
               return (
-                <div
+                <Link
                   key={o.slug}
-                  className="w-[78%] shrink-0 snap-center sm:w-auto sm:shrink"
-                  style={{ transform: `rotate(${rot}deg)` }}
+                  to="/ideas/$slug"
+                  params={{ slug: o.slug }}
+                  className={`group relative flex h-48 w-[78%] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-gradient-to-br ${o.gradient} p-5 shadow-brut`}
                 >
-                  <Link
-                    to="/ideas/$slug"
-                    params={{ slug: o.slug }}
-                    className={`group tilt-3d grain ${glow} relative flex h-44 flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-cream/[0.03] p-5 transition-pop hover:-translate-y-1 hover:rotate-[-1deg] hover:scale-[1.04] hover:border-cream hover:bg-cream hover:text-ink hover:shadow-brut-lg`}
-                  >
-                    <div className="flex items-start justify-between">
-                      <Icon className="h-6 w-6" />
-                      <span className="text-3xl">{o.emoji}</span>
-                    </div>
-                    <div>
-                      <div className="font-display text-2xl font-extrabold leading-tight">{o.title}</div>
-                      <div className="mt-1 font-mono text-[11px] uppercase tracking-wider opacity-70">{o.tagline}</div>
-                    </div>
-                    <ArrowUpRight className="absolute right-4 top-4 h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
-                  </Link>
-                </div>
+                  <div className="flex items-start justify-between">
+                    <Icon className="h-6 w-6 drop-shadow" />
+                    <span className="text-4xl drop-shadow-md">{o.emoji}</span>
+                  </div>
+                  <div>
+                    <div className="font-display text-2xl font-extrabold leading-tight drop-shadow">{o.title}</div>
+                    <div className="mt-1 font-mono text-[11px] uppercase tracking-wider text-cream/85">{o.tagline}</div>
+                    {ideaCount > 0 && (
+                      <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-ink/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest backdrop-blur">
+                        {ideaCount} idea{ideaCount === 1 ? "" : "s"}
+                      </span>
+                    )}
+                  </div>
+                </Link>
               );
             })}
           </div>
-          <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-cream/50 sm:hidden">
+          <p className="text-center font-mono text-[10px] uppercase tracking-widest text-cream/50 sm:hidden">
             ← swipe vibes →
           </p>
+
+          {/* desktop bento grid */}
+          <div className="mt-12 hidden gap-3 sm:grid sm:grid-cols-4 lg:grid-cols-6 lg:auto-rows-[150px]">
+            {OCCASIONS.map((o, i) => {
+              const Icon = o.icon;
+              const ideaCount = SEED_IDEAS[o.slug]?.length ?? 0;
+              // bento sizing: feature a few tiles
+              const featured = i === 0 || i === 4 || i === 7;
+              const wide = i === 2 || i === 9;
+              const span = featured
+                ? "lg:col-span-2 lg:row-span-2"
+                : wide
+                ? "lg:col-span-2"
+                : "lg:col-span-1";
+              const isPopular = i === 0;
+              const tilt = ((i % 3) - 1) * 0.25;
+
+              return (
+                <Reveal key={o.slug} delay={i * 50} className={`${span} sm:col-span-2 lg:col-auto`}>
+                  <Link
+                    to="/ideas/$slug"
+                    params={{ slug: o.slug }}
+                    style={{ transform: `rotate(${tilt}deg)` }}
+                    className={`group relative flex h-full min-h-[150px] flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-gradient-to-br ${o.gradient} p-5 shadow-brut transition-pop hover:-translate-y-1 hover:rotate-0 hover:scale-[1.02] hover:border-cream hover:shadow-brut-lg`}
+                  >
+                    {/* shimmer sweep on hover */}
+                    <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-cream/25 to-transparent transition-transform duration-[1100ms] ease-out group-hover:translate-x-full" />
+                    {/* grain */}
+                    <span aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)", backgroundSize: "3px 3px" }} />
+
+                    <div className="relative flex items-start justify-between">
+                      <Icon className={`drop-shadow ${featured ? "h-7 w-7" : "h-5 w-5"}`} />
+                      <span className={`drop-shadow-md transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110 ${featured ? "text-6xl" : "text-3xl"}`}>
+                        {o.emoji}
+                      </span>
+                    </div>
+
+                    {isPopular && (
+                      <span className="absolute left-4 top-12 inline-flex items-center gap-1 rounded-full border border-ink/40 bg-ink/60 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream backdrop-blur">
+                        <Sparkles className="h-2.5 w-2.5 text-gold" /> popular
+                      </span>
+                    )}
+
+                    <div className="relative">
+                      <div className={`font-display font-extrabold leading-tight drop-shadow ${featured ? "text-3xl" : "text-xl"}`}>
+                        {o.title}
+                      </div>
+                      <div className={`mt-1 font-mono uppercase tracking-wider text-cream/85 ${featured ? "text-xs" : "text-[10px]"}`}>
+                        {o.tagline}
+                      </div>
+                      <div className="mt-3 flex items-center justify-between">
+                        {ideaCount > 0 ? (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-ink/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest backdrop-blur">
+                            <Star className="h-2.5 w-2.5 text-gold" /> {ideaCount} idea{ideaCount === 1 ? "" : "s"}
+                          </span>
+                        ) : <span />}
+                        <ArrowUpRight className="h-4 w-4 -translate-x-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+                      </div>
+                    </div>
+                  </Link>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 

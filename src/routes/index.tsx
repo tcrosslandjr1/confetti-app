@@ -35,29 +35,6 @@ const MARQUEE = [
   "guys' afternoon ✦",
 ];
 
-const STEPS = [
-  {
-    n: "01",
-    kicker: "drop the vibe",
-    title: "Tell us what kind of night you want.",
-    body: "Pick a vibe — or type one in your own words. ‘Cute, slow, walkable, under $80.’ We get it.",
-    color: "bg-coral",
-  },
-  {
-    n: "02",
-    kicker: "we plot the path",
-    title: "An AI agent builds the whole evening.",
-    body: "Three to five real stops, timed to the minute, routed by car, transit, Uber or Lyft. No tabs. No spirals.",
-    color: "bg-purple",
-  },
-  {
-    n: "03",
-    kicker: "you just show up",
-    title: "Reservations and rides land in one place.",
-    body: "Confirmations, addresses, dress code, parking notes — all in your trip vault. Share it. Send it. Save it.",
-    color: "bg-gold",
-  },
-];
 
 const PROOF = [
   {

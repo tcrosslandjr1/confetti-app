@@ -32,6 +32,7 @@ import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile'
 import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
 import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
@@ -151,6 +152,11 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminBookingsRoute = AdminBookingsRouteImport.update({
+  id: '/bookings',
+  path: '/bookings',
+  getParentRoute: () => AdminRoute,
+} as any)
 const ConciergeChatIndexRoute = ConciergeChatIndexRouteImport.update({
   id: '/chat/',
   path: '/chat/',
@@ -181,6 +187,7 @@ export interface FileRoutesByFullPath {
   '/plan': typeof PlanRoute
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
+  '/admin/bookings': typeof AdminBookingsRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
@@ -207,6 +214,7 @@ export interface FileRoutesByTo {
   '/plan': typeof PlanRoute
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
+  '/admin/bookings': typeof AdminBookingsRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
@@ -236,6 +244,7 @@ export interface FileRoutesById {
   '/plan': typeof PlanRoute
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
+  '/admin/bookings': typeof AdminBookingsRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
@@ -266,6 +275,7 @@ export interface FileRouteTypes {
     | '/plan'
     | '/pricing'
     | '/reservations'
+    | '/admin/bookings'
     | '/api/chat'
     | '/concierge/passport'
     | '/concierge/profile'
@@ -292,6 +302,7 @@ export interface FileRouteTypes {
     | '/plan'
     | '/pricing'
     | '/reservations'
+    | '/admin/bookings'
     | '/api/chat'
     | '/concierge/passport'
     | '/concierge/profile'
@@ -320,6 +331,7 @@ export interface FileRouteTypes {
     | '/plan'
     | '/pricing'
     | '/reservations'
+    | '/admin/bookings'
     | '/api/chat'
     | '/concierge/passport'
     | '/concierge/profile'
@@ -520,6 +532,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/bookings': {
+      id: '/admin/bookings'
+      path: '/bookings'
+      fullPath: '/admin/bookings'
+      preLoaderRoute: typeof AdminBookingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/concierge/chat/': {
       id: '/concierge/chat/'
       path: '/chat'
@@ -545,10 +564,12 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminBookingsRoute: typeof AdminBookingsRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminBookingsRoute: AdminBookingsRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
@@ -609,3 +630,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -43,16 +43,18 @@ function Onboarding() {
   const toggle = (arr: string[], setArr: (v: string[]) => void, v: string) =>
     setArr(arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
 
-  const finish = async () => {
+  const finish = async (skip = false) => {
     if (!user) return;
     setSaving(true);
-    await supabase.from("user_preferences").upsert({
-      user_id: user.id,
-      cuisines,
-      activities,
-      budget_min: budget[0],
-      budget_max: budget[1],
-    });
+    if (!skip) {
+      await supabase.from("user_preferences").upsert({
+        user_id: user.id,
+        cuisines,
+        activities,
+        budget_min: budget[0],
+        budget_max: budget[1],
+      });
+    }
     await supabase.from("profiles").update({ onboarding_complete: true }).eq("id", user.id);
     setSaving(false);
     navigate({ to: "/concierge" });
@@ -132,6 +134,14 @@ function Onboarding() {
             <Sparkles className="h-4 w-4 text-primary-foreground" />
           </div>
           <div className="text-xs text-muted-foreground">Step {step + 1} of {steps.length}</div>
+          <button
+            type="button"
+            onClick={() => finish(true)}
+            disabled={saving}
+            className="ml-auto text-xs font-semibold text-muted-foreground underline-offset-4 hover:text-foreground hover:underline disabled:opacity-50"
+          >
+            Skip all
+          </button>
         </div>
 
         <div className="mt-3 flex gap-1.5">
@@ -163,11 +173,21 @@ function Onboarding() {
               </>
             )}
           </button>
-          {step > 0 && (
-            <button onClick={() => setStep(step - 1)} className="mt-3 w-full text-center text-sm text-muted-foreground">
-              Back
+          <div className="mt-3 flex items-center justify-between text-sm">
+            {step > 0 ? (
+              <button onClick={() => setStep(step - 1)} className="text-muted-foreground hover:text-foreground">
+                Back
+              </button>
+            ) : <span />}
+            <button
+              type="button"
+              onClick={() => finish(true)}
+              disabled={saving}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              Skip for now
             </button>
-          )}
+          </div>
         </div>
       </div>
     </div>

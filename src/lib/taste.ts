@@ -36,7 +36,7 @@ export async function loadPrefs(): Promise<Prefs> {
   if (!u.user) return empty();
   const { data } = await supabase
     .from("user_preferences")
-    .select("taste_profile, about_me, cuisines, activities, budget_min, budget_max")
+    .select("taste_profile, about_me, cuisines, activities, budget_min, budget_max, social_handles, social_signals")
     .eq("user_id", u.user.id)
     .maybeSingle();
   if (!data) return empty();
@@ -47,11 +47,13 @@ export async function loadPrefs(): Promise<Prefs> {
     activities: data.activities ?? [],
     budget_min: data.budget_min ?? 0,
     budget_max: data.budget_max ?? 100,
+    social_handles: ((data as { social_handles?: SocialHandles }).social_handles) ?? {},
+    social_signals: (data as { social_signals?: string }).social_signals ?? "",
   };
 }
 
 function empty(): Prefs {
-  return { taste_profile: {}, about_me: "", cuisines: [], activities: [], budget_min: 0, budget_max: 100 };
+  return { taste_profile: {}, about_me: "", cuisines: [], activities: [], budget_min: 0, budget_max: 100, social_handles: {}, social_signals: "" };
 }
 
 export async function saveTasteProfile(profile: TasteProfile): Promise<void> {

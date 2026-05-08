@@ -41,6 +41,122 @@ export type Database = {
         }
         Relationships: []
       }
+      itineraries: {
+        Row: {
+          city: string | null
+          created_at: string
+          date: string | null
+          est_total_cost: string | null
+          id: string
+          occasion_slug: string | null
+          source: string
+          start_time: string | null
+          summary: string | null
+          title: string
+          updated_at: string
+          user_id: string
+          vibe: string | null
+        }
+        Insert: {
+          city?: string | null
+          created_at?: string
+          date?: string | null
+          est_total_cost?: string | null
+          id?: string
+          occasion_slug?: string | null
+          source?: string
+          start_time?: string | null
+          summary?: string | null
+          title: string
+          updated_at?: string
+          user_id: string
+          vibe?: string | null
+        }
+        Update: {
+          city?: string | null
+          created_at?: string
+          date?: string | null
+          est_total_cost?: string | null
+          id?: string
+          occasion_slug?: string | null
+          source?: string
+          start_time?: string | null
+          summary?: string | null
+          title?: string
+          updated_at?: string
+          user_id?: string
+          vibe?: string | null
+        }
+        Relationships: []
+      }
+      itinerary_stops: {
+        Row: {
+          address: string | null
+          booking_provider: string | null
+          booking_ref: string | null
+          booking_status: string
+          booking_url: string | null
+          category: string | null
+          created_at: string
+          description: string | null
+          duration_minutes: number | null
+          est_cost: string | null
+          id: string
+          itinerary_id: string
+          name: string
+          position: number
+          start_time: string | null
+          user_notes: string | null
+          what_to_do: string | null
+        }
+        Insert: {
+          address?: string | null
+          booking_provider?: string | null
+          booking_ref?: string | null
+          booking_status?: string
+          booking_url?: string | null
+          category?: string | null
+          created_at?: string
+          description?: string | null
+          duration_minutes?: number | null
+          est_cost?: string | null
+          id?: string
+          itinerary_id: string
+          name: string
+          position: number
+          start_time?: string | null
+          user_notes?: string | null
+          what_to_do?: string | null
+        }
+        Update: {
+          address?: string | null
+          booking_provider?: string | null
+          booking_ref?: string | null
+          booking_status?: string
+          booking_url?: string | null
+          category?: string | null
+          created_at?: string
+          description?: string | null
+          duration_minutes?: number | null
+          est_cost?: string | null
+          id?: string
+          itinerary_id?: string
+          name?: string
+          position?: number
+          start_time?: string | null
+          user_notes?: string | null
+          what_to_do?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "itinerary_stops_itinerary_id_fkey"
+            columns: ["itinerary_id"]
+            isOneToOne: false
+            referencedRelation: "itineraries"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       messages: {
         Row: {
           content: string

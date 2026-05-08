@@ -260,64 +260,60 @@ function EditDialogBody({
   };
 
   return (
-    <Dialog open={!!venue} onOpenChange={(o) => !o && onClose()}>
-      <DialogContent className="max-w-lg">
-        <DialogHeader>
-          <DialogTitle>Edit venue</DialogTitle>
-          <DialogDescription>Update venue details. Changes save instantly.</DialogDescription>
-        </DialogHeader>
-        {draft && (
-          <div className="grid gap-3">
-            <div className="grid gap-1.5">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" value={draft.name} onChange={(e) => update("name", e.target.value)} />
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="grid gap-1.5">
-                <Label htmlFor="category">Category</Label>
-                <Input id="category" value={draft.category} onChange={(e) => update("category", e.target.value)} />
-              </div>
-              <div className="grid gap-1.5">
-                <Label htmlFor="price">Price level</Label>
-                <select
-                  id="price"
-                  value={draft.priceLevel}
-                  onChange={(e) => update("priceLevel", Number(e.target.value) as Venue["priceLevel"])}
-                  className="h-9 rounded-md border border-border bg-background px-3 text-sm"
-                >
-                  <option value={1}>$</option>
-                  <option value={2}>$$</option>
-                  <option value={3}>$$$</option>
-                  <option value={4}>$$$$</option>
-                </select>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="grid gap-1.5">
-                <Label htmlFor="hood">Neighborhood</Label>
-                <Input id="hood" value={draft.neighborhood} onChange={(e) => update("neighborhood", e.target.value)} />
-              </div>
-              <div className="grid gap-1.5">
-                <Label htmlFor="city">City</Label>
-                <Input id="city" value={draft.city} onChange={(e) => update("city", e.target.value)} />
-              </div>
-            </div>
-            <div className="grid gap-1.5">
-              <Label htmlFor="desc">Description</Label>
-              <Textarea
-                id="desc"
-                value={draft.description}
-                onChange={(e) => update("description", e.target.value)}
-                rows={4}
-              />
-            </div>
+    <DialogContent className="max-w-lg">
+      <DialogHeader>
+        <DialogTitle>Edit venue</DialogTitle>
+        <DialogDescription>Update venue details. Changes save instantly.</DialogDescription>
+      </DialogHeader>
+      <div className="grid gap-3">
+        <div className="grid gap-1.5">
+          <Label htmlFor="name">Name</Label>
+          <Input id="name" value={draft.name} onChange={(e) => update("name", e.target.value)} />
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div className="grid gap-1.5">
+            <Label htmlFor="category">Category</Label>
+            <Input id="category" value={draft.category} onChange={(e) => update("category", e.target.value)} />
           </div>
-        )}
-        <DialogFooter>
-          <Button variant="ghost" onClick={onClose}>Cancel</Button>
-          <Button onClick={() => draft && onSave(draft)}>Save changes</Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+          <div className="grid gap-1.5">
+            <Label htmlFor="price">Price level</Label>
+            <select
+              id="price"
+              value={draft.priceLevel}
+              onChange={(e) => update("priceLevel", Number(e.target.value) as Venue["priceLevel"])}
+              className="h-9 rounded-md border border-border bg-background px-3 text-sm"
+            >
+              <option value={1}>$</option>
+              <option value={2}>$$</option>
+              <option value={3}>$$$</option>
+              <option value={4}>$$$$</option>
+            </select>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div className="grid gap-1.5">
+            <Label htmlFor="hood">Neighborhood</Label>
+            <Input id="hood" value={draft.neighborhood} onChange={(e) => update("neighborhood", e.target.value)} />
+          </div>
+          <div className="grid gap-1.5">
+            <Label htmlFor="city">City</Label>
+            <Input id="city" value={draft.city} onChange={(e) => update("city", e.target.value)} />
+          </div>
+        </div>
+        <div className="grid gap-1.5">
+          <Label htmlFor="desc">Description</Label>
+          <Textarea
+            id="desc"
+            value={draft.description}
+            onChange={(e) => update("description", e.target.value)}
+            rows={4}
+          />
+        </div>
+      </div>
+      <DialogFooter>
+        <Button variant="ghost" onClick={onClose}>Cancel</Button>
+        <Button onClick={() => onSave(draft)}>Save changes</Button>
+      </DialogFooter>
+    </DialogContent>
   );
 }

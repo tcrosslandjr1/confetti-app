@@ -78,6 +78,8 @@ function Avatar({ name }: { name: string }) {
 }
 
 function AdminUsersPage() {
+  const { user: me } = useAuth();
+  const adminEmail = me?.email ?? "admin";
   const [users, setUsers] = useState<User[]>(SEED);
   const [query, setQuery] = useState("");
   const [roleFilter, setRoleFilter] = useState<"all" | Role>("all");

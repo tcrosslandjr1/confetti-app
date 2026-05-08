@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PlanRouteImport } from './routes/plan'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as MeRouteImport } from './routes/me'
 import { Route as ConciergeRouteImport } from './routes/concierge'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
@@ -35,6 +36,11 @@ const PlanRoute = PlanRouteImport.update({
 const OnboardingRoute = OnboardingRouteImport.update({
   id: '/onboarding',
   path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeRoute = MeRouteImport.update({
+  id: '/me',
+  path: '/me',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConciergeRoute = ConciergeRouteImport.update({
@@ -117,6 +123,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/concierge': typeof ConciergeRouteWithChildren
+  '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRoute
   '/api/chat': typeof ApiChatRoute
@@ -135,6 +142,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRoute
   '/api/chat': typeof ApiChatRoute
@@ -155,6 +163,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/concierge': typeof ConciergeRouteWithChildren
+  '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRoute
   '/api/chat': typeof ApiChatRoute
@@ -176,6 +185,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/concierge'
+    | '/me'
     | '/onboarding'
     | '/plan'
     | '/api/chat'
@@ -194,6 +204,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
+    | '/me'
     | '/onboarding'
     | '/plan'
     | '/api/chat'
@@ -213,6 +224,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/concierge'
+    | '/me'
     | '/onboarding'
     | '/plan'
     | '/api/chat'
@@ -233,6 +245,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthRoute: typeof AuthRoute
   ConciergeRoute: typeof ConciergeRouteWithChildren
+  MeRoute: typeof MeRoute
   OnboardingRoute: typeof OnboardingRoute
   PlanRoute: typeof PlanRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -257,6 +270,13 @@ declare module '@tanstack/react-router' {
       path: '/onboarding'
       fullPath: '/onboarding'
       preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/me': {
+      id: '/me'
+      path: '/me'
+      fullPath: '/me'
+      preLoaderRoute: typeof MeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/concierge': {
@@ -402,6 +422,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRoute: AuthRoute,
   ConciergeRoute: ConciergeRouteWithChildren,
+  MeRoute: MeRoute,
   OnboardingRoute: OnboardingRoute,
   PlanRoute: PlanRoute,
   ApiChatRoute: ApiChatRoute,
@@ -414,3 +435,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

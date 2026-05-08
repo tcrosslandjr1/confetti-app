@@ -239,18 +239,19 @@ function Landing() {
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {STEPS.map((s, i) => {
               const glow = i === 0 ? "glow-coral" : i === 1 ? "glow-purple" : "glow-gold";
+              const rot = i === 1 ? "1deg" : i === 2 ? "-1deg" : "-0.5deg";
               return (
-                <div
-                  key={s.n}
-                  className={`group tilt-3d grain ${glow} relative overflow-hidden rounded-3xl border-2 border-ink ${s.color} p-7 text-ink shadow-brut`}
-                  style={{ transform: `rotate(${i === 1 ? "1deg" : i === 2 ? "-1deg" : "-0.5deg"})` }}
-                >
-                  <div className="flex items-baseline justify-between">
-                    <span className="font-display text-7xl font-extrabold leading-none">{s.n}</span>
-                    <span className="font-mono text-[11px] uppercase tracking-widest">{s.kicker}</span>
+                <div key={s.n} style={{ transform: `rotate(${rot})` }}>
+                  <div
+                    className={`group tilt-3d grain ${glow} relative overflow-hidden rounded-3xl border-2 border-ink ${s.color} p-7 text-ink shadow-brut`}
+                  >
+                    <div className="flex items-baseline justify-between">
+                      <span className="font-display text-7xl font-extrabold leading-none">{s.n}</span>
+                      <span className="font-mono text-[11px] uppercase tracking-widest">{s.kicker}</span>
+                    </div>
+                    <h3 className="mt-8 font-display text-2xl font-extrabold leading-tight">{s.title}</h3>
+                    <p className="mt-3 text-base leading-snug">{s.body}</p>
                   </div>
-                  <h3 className="mt-8 font-display text-2xl font-extrabold leading-tight">{s.title}</h3>
-                  <p className="mt-3 text-base leading-snug">{s.body}</p>
                 </div>
               );
             })}

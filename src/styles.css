@@ -142,6 +142,8 @@
   0%, 100% { opacity: 1; }
   50%      { opacity: 0; }
 }
+
+@layer base {
   * { border-color: var(--color-border); }
   html { font-family: var(--font-sans); }
   body {

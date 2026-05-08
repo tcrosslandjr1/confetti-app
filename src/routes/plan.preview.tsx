@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ArrowLeft, Bookmark, Camera, Clock, MapPin, RefreshCw, Sparkles, Utensils, Wine } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";

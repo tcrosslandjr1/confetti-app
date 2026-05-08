@@ -111,7 +111,7 @@ function getDetails(venue: string, vibe: string) {
     `${venue} nails the ${vibe.toLowerCase()} brief. Tight menu, sharp drinks, and lighting that makes everyone look good.`,
   ];
   // Dietary + allergen flags — deterministic per venue
-  const ALL_DIETARY = ["Gluten-free menu", "Vegan options", "Vegetarian", "Dairy-free", "Nut-free kitchen"] as const;
+  const ALL_DIETARY = ["Gluten-free menu", "Vegan options", "Vegetarian", "Pescatarian", "Dairy-free", "Nut-free kitchen"] as const;
   const ALL_ALLERGENS = ["peanuts", "tree nuts", "shellfish", "dairy", "eggs", "soy", "sesame", "wheat/gluten"] as const;
   const dietary = ALL_DIETARY.filter((_, i) => ((h >> (i + 1)) & 1) === 1);
   // Always surface the big three so guests can plan

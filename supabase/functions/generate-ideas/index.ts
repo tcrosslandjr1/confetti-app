@@ -12,6 +12,7 @@ type Body = {
   count?: number;
   city?: string;
   excludeTitles?: string[];
+  tasteSummary?: string;
 };
 
 const FORMAT_PROMPT: Record<Body["format"], string> = {
@@ -25,16 +26,21 @@ Deno.serve(async (req) => {
 
   try {
     const body = (await req.json()) as Body;
-    const { occasion, vibe, format, count = 6, city = "your city", excludeTitles = [] } = body;
+    const { occasion, vibe, format, count = 6, city = "your city", excludeTitles = [], tasteSummary } = body;
     if (!occasion || !format) return json({ error: "occasion and format required" }, 400);
 
     const apiKey = Deno.env.get("LOVABLE_API_KEY");
     if (!apiKey) return json({ error: "missing LOVABLE_API_KEY" }, 500);
 
+    const tasteBlock = tasteSummary
+      ? `\nUSER TASTE PROFILE (use this to personalize every idea — match age/life-stage/energy/scenes/music/cities/budget; honor "avoid" strictly): ${tasteSummary}\n`
+      : "";
+
     const sys = `You are a creative outing-planner for an app called Confetti.
 Generate ${count} fresh, specific, evocative outing IDEAS for: "${occasion}"${vibe ? ` (vibe: ${vibe})` : ""} in ${city}.
 ${FORMAT_PROMPT[format]}
 Avoid these titles already shown: ${excludeTitles.slice(0, 20).join(" | ") || "(none)"}.
+${tasteBlock}
 
 OCCASION PLAYBOOK — match the suggestions to who's going. Think outside the box; do not default to "dinner + drinks" for everything.
 
@@ -47,6 +53,8 @@ OCCASION PLAYBOOK — match the suggestions to who's going. Think outside the bo
 • Date night: depends on vibe — romantic (low-light, wine bar, jazz), adventurous (rooftop, unusual food, live music), chill (board game café, dessert + walk).
 
 • Meet-the-parents / in-laws: classy and safe — quiet upscale restaurants, wine tasting, scenic drives, brunch at a country club, garden walks, light comedy, museum exhibits, afternoon tea.
+
+• Mature married couple (40s-60s, settled): grown-up scenes — wine country day trips, chef's-table dinners, jazz/blues clubs, supper clubs, Broadway/regional theater, art-gallery openings, distillery tours, neighborhood walking food tours, weekend B&B getaways, comedy clubs (clean), historic-district strolls, cooking class for two, private boat charter. Skip loud/college-coded venues unless the profile says otherwise.
 
 • Elders / multigenerational: botanical gardens, art museums (especially special exhibits), historic walking tours, scenic train rides, classical concerts, matinees, garden-restaurant lunch, tea rooms, riverside parks, low-walking outings, comfortable accessible venues.
 

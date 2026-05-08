@@ -24,6 +24,8 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import { logAudit } from "@/lib/audit-log";
+import { useAuth } from "@/lib/auth-context";
 
 export const Route = createFileRoute("/admin/venues")({
   component: AdminVenuesPage,

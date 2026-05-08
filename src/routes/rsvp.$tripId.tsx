@@ -60,14 +60,15 @@ function RsvpPage() {
     setVideoUrl(loadInviteVideo(tripId));
   }, [tripId, videoFromUrl]);
 
-  // Staggered timeline reveal — runs once after the page mounts.
+  // Staggered timeline reveal — waits until the host's video has played (if present).
   useEffect(() => {
+    if (videoUrl && !videoDone) return;
     setRevealedStops(0);
     const timers = TRIP_PREVIEW.stops.map((_, i) =>
       setTimeout(() => setRevealedStops((n) => Math.max(n, i + 1)), 600 + i * 550)
     );
     return () => timers.forEach(clearTimeout);
-  }, []);
+  }, [videoUrl, videoDone]);
 
   const status = invite?.status ?? null;
   const accepted = status === "accepted";

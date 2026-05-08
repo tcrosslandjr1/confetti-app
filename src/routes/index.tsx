@@ -409,10 +409,19 @@ function Landing() {
           <div className="lg:col-span-7">
             <div className="grid gap-4 sm:grid-cols-2">
               {[
-                { name: "Free", price: "$0", note: "first taste", items: ["3 plans / month", "Multi-stop routing", "Save trips"], cls: "bg-cream" },
-                { name: "Plus", price: "$8", note: "the upgrade", items: ["Unlimited plans", "Reservations vault", "Full taste profile"], cls: "bg-gold" },
+                { name: "Free", price: "$0", note: "first taste", items: ["3 plans / month", "Multi-stop routing", "Save trips"], cls: "bg-cream", glow: false },
+                { name: "Plus", price: "$8", note: "the upgrade", items: ["Unlimited plans", "Reservations vault", "Full taste profile"], cls: "bg-gold", glow: true },
               ].map((t) => (
-                <div key={t.name} className="flex flex-col rounded-3xl border-2 border-ink p-6 shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg" style={{ background: `var(--${t.cls === "bg-gold" ? "gold" : "cream"})` }}>
+                <div
+                  key={t.name}
+                  className={`flex flex-col rounded-3xl border-2 border-ink p-6 shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg ${t.glow ? "animate-pulse-glow relative" : ""}`}
+                  style={{ background: `var(--${t.cls === "bg-gold" ? "gold" : "cream"})` }}
+                >
+                  {t.glow && (
+                    <span className="absolute -top-3 right-5 rounded-full border-2 border-ink bg-coral px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut">
+                      most popular
+                    </span>
+                  )}
                   <div className="flex items-baseline justify-between">
                     <h3 className="font-display text-3xl font-extrabold">{t.name}</h3>
                     <span className="font-mono text-[10px] uppercase tracking-widest opacity-70">/ {t.note}</span>

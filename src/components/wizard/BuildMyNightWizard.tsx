@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowUpRight, Check, Loader2, RefreshCw, Save, Sparkles, X } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, Loader2, MapPin, RefreshCw, Save, Sparkles, X } from "lucide-react";
 import { useWizard } from "./wizard-context";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
 import { toast } from "sonner";
@@ -57,23 +57,23 @@ const LOADING_LINES = [
   "Plating it up…",
 ];
 
-type Stop = { time: string; venue: string; vibe: string; tone: string; walk?: string };
+type Stop = { time: string; venue: string; vibe: string; tone: string; walk?: string; address?: string; neighborhood?: string };
 
 const SAMPLE_STOPS: Stop[][] = [
   [
-    { time: "7:00 PM", venue: "Lila's Patio",      vibe: "Small plates",   tone: "bg-coral",   walk: "12 min walk" },
-    { time: "8:30 PM", venue: "Mason St. Records", vibe: "Vinyl + nat wine", tone: "bg-purple", walk: "6 min walk" },
-    { time: "10:15 PM",venue: "Aera Rooftop",      vibe: "Nightcap views", tone: "bg-gold" },
+    { time: "7:00 PM", venue: "Lila's Patio",      vibe: "Small plates",     tone: "bg-coral",       walk: "12 min walk", address: "418 W 14th St",     neighborhood: "Meatpacking" },
+    { time: "8:30 PM", venue: "Mason St. Records", vibe: "Vinyl + nat wine", tone: "bg-purple",      walk: "6 min walk",  address: "210 Mason St",      neighborhood: "Lower East Side" },
+    { time: "10:15 PM",venue: "Aera Rooftop",      vibe: "Nightcap views",   tone: "bg-gold",                              address: "77 Pearl St, 22F",  neighborhood: "Financial District" },
   ],
   [
-    { time: "6:30 PM", venue: "Kettle & Char",     vibe: "Bougie dinner",  tone: "bg-emerald-400", walk: "8 min walk" },
-    { time: "8:45 PM", venue: "The Velvet Door",   vibe: "Speakeasy",      tone: "bg-gold",        walk: "4 min walk" },
-    { time: "10:30 PM",venue: "Saturn Lounge",     vibe: "Late dance",     tone: "bg-purple" },
+    { time: "6:30 PM", venue: "Kettle & Char",     vibe: "Bougie dinner",    tone: "bg-emerald-400", walk: "8 min walk",  address: "55 Hudson St",      neighborhood: "Tribeca" },
+    { time: "8:45 PM", venue: "The Velvet Door",   vibe: "Speakeasy",        tone: "bg-gold",        walk: "4 min walk",  address: "12 Crosby St",      neighborhood: "SoHo" },
+    { time: "10:30 PM",venue: "Saturn Lounge",     vibe: "Late dance",       tone: "bg-purple",                            address: "388 Bowery",        neighborhood: "NoHo" },
   ],
   [
-    { time: "8:00 PM", venue: "Marigold Pizza",    vibe: "Slice + spritz", tone: "bg-coral",   walk: "5 min walk" },
-    { time: "9:30 PM", venue: "Loose Leaf Live",   vibe: "Live jazz trio", tone: "bg-pink-300", walk: "7 min walk" },
-    { time: "11:15 PM",venue: "Mama's Noodle Bar", vibe: "Late night eats", tone: "bg-amber-300" },
+    { time: "8:00 PM", venue: "Marigold Pizza",    vibe: "Slice + spritz",   tone: "bg-coral",       walk: "5 min walk",  address: "94 Orchard St",     neighborhood: "Lower East Side" },
+    { time: "9:30 PM", venue: "Loose Leaf Live",   vibe: "Live jazz trio",   tone: "bg-pink-300",    walk: "7 min walk",  address: "311 Bleecker St",   neighborhood: "West Village" },
+    { time: "11:15 PM",venue: "Mama's Noodle Bar", vibe: "Late night eats",  tone: "bg-amber-300",                         address: "27 St Marks Pl",    neighborhood: "East Village" },
   ],
 ];
 
@@ -98,6 +98,8 @@ export function BuildMyNightWizard() {
       vibe: s.vibe ?? "Curated pick",
       tone: s.tone ?? fallbackTones[i % fallbackTones.length],
       walk: s.walk,
+      address: s.address,
+      neighborhood: s.neighborhood,
     })),
     [preset]
   );
@@ -373,7 +375,18 @@ export function BuildMyNightWizard() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="font-display text-lg font-extrabold leading-tight">{s.venue}</div>
-                      <div className="mt-0.5 flex flex-wrap items-center gap-2 text-xs">
+                      {(s.address || s.neighborhood) && (
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="mt-0.5 inline-flex items-center gap-1 font-mono text-[11px] text-ink/70 underline-offset-4 hover:text-coral hover:underline"
+                        >
+                          <MapPin className="h-3 w-3" />
+                          {s.address ? s.address : ""}{s.address && s.neighborhood ? " · " : ""}{s.neighborhood ?? ""}
+                        </a>
+                      )}
+                      <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
                         <span className="rounded-full border border-ink bg-cream px-2 py-0.5 font-mono uppercase tracking-widest">{s.vibe}</span>
                         {s.walk && <span className="font-mono text-[11px] text-ink/60">↳ {s.walk}</span>}
                       </div>

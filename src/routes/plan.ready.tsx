@@ -142,8 +142,9 @@ function buildGoogleUrl() {
 import { loadInvites, loadInviteVideo, saveInvites, saveInviteVideo, subscribeInvites, type Invite } from "@/lib/invites";
 import { loadVotes, subscribeVotes, tallyStop, type TripVotes } from "@/lib/votes";
 import { supabase } from "@/integrations/supabase/client";
-import { Users, AlertTriangle } from "lucide-react";
+import { Users, AlertTriangle, Timer, Zap } from "lucide-react";
 import { checkStopFits, dayKeyFromDate } from "@/lib/hours";
+import { clearStatus, formatUpdatedAt, loadStatus, setMinutesLate, shiftTimeLabel, subscribeStatus, type TripStatus } from "@/lib/trip-status";
 
 function makeToken() {
   const bytes = new Uint8Array(8);

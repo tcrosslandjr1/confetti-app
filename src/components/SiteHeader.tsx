@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { WizardButton } from "@/components/wizard/WizardButton";
 
 const marketingLinks = [
   { to: "/features", label: "Features" },
@@ -27,8 +28,8 @@ export function SiteHeader() {
             <Link
               key={l.to}
               to={l.to}
-              className="rounded-full px-3 py-2 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink"
-              activeProps={{ className: "text-ink underline underline-offset-4" }}
+              className="nav-underline rounded-full px-3 py-2 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink"
+              activeProps={{ className: "text-ink" }}
             >
               {l.label}
             </Link>
@@ -42,12 +43,12 @@ export function SiteHeader() {
           >
             Sign in
           </Link>
-          <Link
-            to="/plan"
-            className="inline-flex h-10 items-center gap-1 rounded-full border-2 border-ink bg-ink px-4 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5"
+          <WizardButton
+            ariaLabel="Build a night"
+            className="animate-wiggle-attention inline-flex h-10 items-center gap-1 rounded-full border-2 border-ink bg-ink px-4 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
           >
             Build a night ↗
-          </Link>
+          </WizardButton>
         </div>
       </div>
     </header>

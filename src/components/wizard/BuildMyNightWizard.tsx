@@ -375,7 +375,18 @@ export function BuildMyNightWizard() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="font-display text-lg font-extrabold leading-tight">{s.venue}</div>
-                      <div className="mt-0.5 flex flex-wrap items-center gap-2 text-xs">
+                      {(s.address || s.neighborhood) && (
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="mt-0.5 inline-flex items-center gap-1 font-mono text-[11px] text-ink/70 underline-offset-4 hover:text-coral hover:underline"
+                        >
+                          <MapPin className="h-3 w-3" />
+                          {s.address ? s.address : ""}{s.address && s.neighborhood ? " · " : ""}{s.neighborhood ?? ""}
+                        </a>
+                      )}
+                      <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
                         <span className="rounded-full border border-ink bg-cream px-2 py-0.5 font-mono uppercase tracking-widest">{s.vibe}</span>
                         {s.walk && <span className="font-mono text-[11px] text-ink/60">↳ {s.walk}</span>}
                       </div>

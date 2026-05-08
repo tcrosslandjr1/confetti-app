@@ -34,6 +34,7 @@ import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile'
 import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
+import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdminVenuesRouteImport } from './routes/admin.venues'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
@@ -170,6 +171,11 @@ const ConciergePassportRoute = ConciergePassportRouteImport.update({
   path: '/passport',
   getParentRoute: () => ConciergeRoute,
 } as any)
+const CollabTripIdRoute = CollabTripIdRouteImport.update({
+  id: '/collab/$tripId',
+  path: '/collab/$tripId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -242,6 +248,7 @@ export interface FileRoutesByFullPath {
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
   '/api/chat': typeof ApiChatRoute
+  '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
@@ -277,6 +284,7 @@ export interface FileRoutesByTo {
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
   '/api/chat': typeof ApiChatRoute
+  '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
@@ -315,6 +323,7 @@ export interface FileRoutesById {
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
   '/api/chat': typeof ApiChatRoute
+  '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
@@ -354,6 +363,7 @@ export interface FileRouteTypes {
     | '/admin/users'
     | '/admin/venues'
     | '/api/chat'
+    | '/collab/$tripId'
     | '/concierge/passport'
     | '/concierge/profile'
     | '/events/$eventId'
@@ -389,6 +399,7 @@ export interface FileRouteTypes {
     | '/admin/users'
     | '/admin/venues'
     | '/api/chat'
+    | '/collab/$tripId'
     | '/concierge/passport'
     | '/concierge/profile'
     | '/events/$eventId'
@@ -426,6 +437,7 @@ export interface FileRouteTypes {
     | '/admin/users'
     | '/admin/venues'
     | '/api/chat'
+    | '/collab/$tripId'
     | '/concierge/passport'
     | '/concierge/profile'
     | '/events/$eventId'
@@ -458,6 +470,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   ReservationsRoute: typeof ReservationsRoute
   ApiChatRoute: typeof ApiChatRoute
+  CollabTripIdRoute: typeof CollabTripIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   IdeasSlugRoute: typeof IdeasSlugRoute
   RsvpTripIdRoute: typeof RsvpTripIdRoute
@@ -643,6 +656,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConciergePassportRouteImport
       parentRoute: typeof ConciergeRoute
     }
+    '/collab/$tripId': {
+      id: '/collab/$tripId'
+      path: '/collab/$tripId'
+      fullPath: '/collab/$tripId'
+      preLoaderRoute: typeof CollabTripIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -796,6 +816,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   ReservationsRoute: ReservationsRoute,
   ApiChatRoute: ApiChatRoute,
+  CollabTripIdRoute: CollabTripIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   IdeasSlugRoute: IdeasSlugRoute,
   RsvpTripIdRoute: RsvpTripIdRoute,

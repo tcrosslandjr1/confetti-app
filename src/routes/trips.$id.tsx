@@ -1,6 +1,6 @@
-import { createFileRoute, Link, useNavigate, useRouter } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, CalendarDays, Check, Clock, ExternalLink, MapPin, Pencil, Trash2, Utensils, Wine, Camera, Activity, Car, Sparkles } from "lucide-react";
+import { ArrowLeft, CalendarDays, Check, ExternalLink, MapPin, Pencil, Trash2, Utensils, Wine, Camera, Activity, Car, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
 import { deleteItinerary, getItinerary, updateStop, type Itinerary, type Stop } from "@/lib/itineraries";
@@ -20,7 +20,6 @@ function TripDetail() {
   const { id } = Route.useParams();
   const { user, loading: authLoading } = useAuth();
   const nav = useNavigate();
-  const router = useRouter();
   const [data, setData] = useState<{ itinerary: Itinerary; stops: Stop[] } | null>(null);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);

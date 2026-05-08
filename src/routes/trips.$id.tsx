@@ -232,3 +232,55 @@ function NotesEditor({ initial, onSave }: { initial: string; onSave: (v: string)
     </div>
   );
 }
+
+const MODE_META: Record<string, { Icon: typeof Car; label: string; cls: string }> = {
+  walk: { Icon: Footprints, label: "Walk", cls: "bg-emerald-100 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200" },
+  bike: { Icon: Bike, label: "Bike", cls: "bg-emerald-100 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200" },
+  car: { Icon: Car, label: "Drive", cls: "bg-blue-100 text-blue-900 dark:bg-blue-950/40 dark:text-blue-200" },
+  transit: { Icon: Bus, label: "Transit", cls: "bg-violet-100 text-violet-900 dark:bg-violet-950/40 dark:text-violet-200" },
+  lyft: { Icon: Car, label: "Lyft", cls: "bg-pink-100 text-pink-900 dark:bg-pink-950/40 dark:text-pink-200" },
+  uber: { Icon: Car, label: "Uber", cls: "bg-foreground text-background" },
+  rideshare: { Icon: Car, label: "Rideshare", cls: "bg-foreground text-background" },
+};
+
+function TravelLegCard({ leg, from, to }: { leg: TravelLeg; from: Stop; to: Stop }) {
+  const meta = MODE_META[leg.mode] ?? MODE_META.car;
+  const Icon = meta.Icon;
+  const fromQ = encodeURIComponent(from.address ?? from.name);
+  const toQ = encodeURIComponent(to.address ?? to.name);
+
+  // Deep links
+  const links: Array<{ label: string; href: string }> = [];
+  if (leg.mode === "uber" || leg.mode === "rideshare") {
+    links.push({ label: "Open Uber", href: `https://m.uber.com/ul/?action=setPickup&pickup[formatted_address]=${fromQ}&dropoff[formatted_address]=${toQ}` });
+  }
+  if (leg.mode === "lyft" || leg.mode === "rideshare") {
+    links.push({ label: "Open Lyft", href: `https://ride.lyft.com/ridetype?destination[address]=${toQ}` });
+  }
+  const gmapsMode = leg.mode === "transit" ? "transit" : leg.mode === "walk" ? "walking" : leg.mode === "bike" ? "bicycling" : "driving";
+  links.push({ label: "Maps", href: `https://www.google.com/maps/dir/?api=1&origin=${fromQ}&destination=${toQ}&travelmode=${gmapsMode}` });
+
+  return (
+    <div className="mb-4 ml-2 flex items-start gap-3 rounded-xl border border-dashed border-border/70 bg-muted/30 p-3 text-sm">
+      <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-full ${meta.cls}`}>
+        <Icon className="h-4 w-4" />
+      </span>
+      <div className="min-w-0 flex-1">
+        <p className="font-semibold">
+          {meta.label} · {leg.durationMinutes} min
+          {leg.distance && <span className="text-muted-foreground"> · {leg.distance}</span>}
+          {leg.estCost && <span className="text-muted-foreground"> · {leg.estCost}</span>}
+        </p>
+        <p className="mt-0.5 text-muted-foreground">{leg.instructions}</p>
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          {links.map((l) => (
+            <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-1 text-[11px] font-semibold hover:bg-muted">
+              <Navigation className="h-3 w-3" /> {l.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

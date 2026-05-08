@@ -196,6 +196,7 @@
   .animate-blob { animation: blob 14s ease-in-out infinite; }
   .animate-float-card { animation: float-card 6s ease-in-out infinite; }
   .animate-dot-pulse  { animation: dot-pulse 1.8s ease-in-out infinite; }
+  .animate-confetti-fall { animation: confetti-fall 2.4s cubic-bezier(.3,.7,.4,1) forwards; }
   .hero-gradient {
     background: linear-gradient(120deg,
       oklch(0.97 0.022 88) 0%,

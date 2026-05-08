@@ -105,7 +105,7 @@ function AdminBookingsPage() {
   );
 
   const updateStatus = async (b: Booking, status: Status) => {
-    const patch: Record<string, unknown> = { status };
+    const patch: { status: Status; cancelled_at?: string } = { status };
     if (status === "cancelled") patch.cancelled_at = new Date().toISOString();
     const { error } = await supabase.from("bookings").update(patch).eq("id", b.id);
     if (error) { toast.error(error.message); return; }

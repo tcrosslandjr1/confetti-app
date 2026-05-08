@@ -165,6 +165,8 @@ function ReadyPage() {
   const [videoProgress, setVideoProgress] = useState<number | null>(null);
   const [votes, setVotes] = useState<TripVotes>({});
   const [collabCopied, setCollabCopied] = useState(false);
+  const [status, setStatus] = useState<TripStatus | null>(null);
+  const [customLate, setCustomLate] = useState("");
 
   const shareUrl = useMemo(() => {
     if (typeof window === "undefined") return `https://confetti.app/trips/${TRIP.id}`;
@@ -188,13 +190,38 @@ function ReadyPage() {
     setInvitesState(loadInvites(TRIP.id));
     setVideoUrl(loadInviteVideo(TRIP.id));
     setVotes(loadVotes(TRIP.id));
+    setStatus(loadStatus(TRIP.id));
     const unsub = subscribeInvites(TRIP.id, () => {
       setInvitesState(loadInvites(TRIP.id));
       setVideoUrl(loadInviteVideo(TRIP.id));
     });
     const unsubVotes = subscribeVotes(TRIP.id, () => setVotes(loadVotes(TRIP.id)));
-    return () => { unsub(); unsubVotes(); };
+    const unsubStatus = subscribeStatus(TRIP.id, () => setStatus(loadStatus(TRIP.id)));
+    return () => { unsub(); unsubVotes(); unsubStatus(); };
   }, []);
+
+  function applyLate(minutes: number) {
+    const next = setMinutesLate(TRIP.id, minutes);
+    setStatus(next);
+    if (minutes === 0) toast.success("Marked back on time ✓");
+    else toast.success(`Running ~${minutes} min late ✓`, { description: "Guests will see the updated status on their invite." });
+  }
+
+  function applyCustomLate() {
+    const n = parseInt(customLate, 10);
+    if (!Number.isFinite(n) || n <= 0) {
+      toast.error("Enter a number of minutes.");
+      return;
+    }
+    applyLate(n);
+    setCustomLate("");
+  }
+
+  function resetStatus() {
+    clearStatus(TRIP.id);
+    setStatus(null);
+    toast.success("Status cleared");
+  }
 
   async function copyCollabLink() {
     try {

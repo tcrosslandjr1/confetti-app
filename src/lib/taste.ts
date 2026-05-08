@@ -74,6 +74,24 @@ export async function saveAboutMe(about_me: string): Promise<void> {
   if (error) throw new Error(error.message);
 }
 
+export async function saveSocialHandles(handles: SocialHandles): Promise<void> {
+  const { data: u } = await supabase.auth.getUser();
+  if (!u.user) return;
+  const { error } = await supabase
+    .from("user_preferences")
+    .upsert({ user_id: u.user.id, social_handles: handles }, { onConflict: "user_id" });
+  if (error) throw new Error(error.message);
+}
+
+export async function saveSocialSignals(social_signals: string): Promise<void> {
+  const { data: u } = await supabase.auth.getUser();
+  if (!u.user) return;
+  const { error } = await supabase
+    .from("user_preferences")
+    .upsert({ user_id: u.user.id, social_signals }, { onConflict: "user_id" });
+  if (error) throw new Error(error.message);
+}
+
 /** Compact one-paragraph profile to inject into AI prompts. */
 export function tasteSummary(p: Prefs): string {
   const t = p.taste_profile ?? {};

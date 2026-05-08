@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Sparkles, MapPin, Car, Ticket } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
 type Step = {
   n: string;

@@ -74,92 +74,119 @@ function Profile() {
   const level = levelFromXp(xp);
 
   return (
-    <div className="px-5 pt-10">
-      <div className="text-xs uppercase tracking-wider text-muted-foreground">Profile</div>
-      <h1 className="mt-1 font-display text-3xl font-bold">You</h1>
+    <div>
+      <div className="text-xs uppercase tracking-wider text-muted-foreground">Account center</div>
+      <h1 className="mt-1 font-display text-5xl font-bold tracking-tight">Your profile</h1>
+      <p className="mt-3 max-w-2xl text-muted-foreground">
+        Keep your tastes, budget, and outing preferences current so Confetti can plan better days and nights out.
+      </p>
 
-      <div className="mt-5 flex items-center gap-4 rounded-3xl border border-border bg-card p-4 shadow-card">
-        <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-vibe text-primary-foreground">
-          <UserIcon className="h-6 w-6" />
-        </div>
-        <div className="min-w-0 flex-1">
-          <div className="truncate font-display text-lg font-bold">{name || user?.email}</div>
-          <div className="truncate text-xs text-muted-foreground">{user?.email}</div>
-          <div className="mt-1 inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider">
-            <Sparkles className="h-3 w-3" /> Lvl {level} · {rankName(level)}
+      <div className="mt-8 grid gap-8 xl:grid-cols-[minmax(0,1fr)_320px]">
+        <section className="rounded-3xl border border-border bg-card p-6 shadow-card sm:p-8">
+          <div className="flex flex-col gap-5 border-b border-border pb-6 sm:flex-row sm:items-center">
+            <div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-vibe text-primary-foreground">
+              <UserIcon className="h-7 w-7" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="truncate font-display text-2xl font-bold">{name || user?.email}</div>
+              <div className="truncate text-sm text-muted-foreground">{user?.email}</div>
+              <div className="mt-2 inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1 text-[10px] font-semibold uppercase tracking-wider">
+                <Sparkles className="h-3 w-3" /> Lvl {level} · {rankName(level)}
+              </div>
+            </div>
           </div>
-        </div>
+
+          <div className="mt-8 grid gap-7 lg:grid-cols-2">
+            <div className="lg:col-span-2">
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Display name</label>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="mt-2 w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm outline-none ring-ring/30 focus:ring-2"
+              />
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Favorite cuisines</label>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {CUISINES.map((c) => (
+                  <Chip key={c} active={cuisines.includes(c)} onClick={() => toggle(cuisines, setCuisines, c)}>{c}</Chip>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Activities you like</label>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {ACTIVITIES.map((a) => (
+                  <Chip key={a} active={activities.includes(a)} onClick={() => toggle(activities, setActivities, a)}>{a}</Chip>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-2">
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Budget</label>
+              <div className="mt-3 grid gap-3 sm:grid-cols-4">
+                {[
+                  { label: "Easy", min: 0, max: 40 },
+                  { label: "Mid", min: 25, max: 75 },
+                  { label: "Treat", min: 50, max: 150 },
+                  { label: "Splurge", min: 100, max: 400 },
+                ].map((b) => {
+                  const active = budget[0] === b.min && budget[1] === b.max;
+                  return (
+                    <button
+                      key={b.label}
+                      onClick={() => setBudget([b.min, b.max])}
+                      className={`rounded-2xl border p-4 text-left text-sm font-semibold transition-pop ${
+                        active ? "border-transparent bg-gradient-cool text-primary-foreground shadow-pop" : "border-border bg-background hover:bg-muted"
+                      }`}
+                    >
+                      <div>{b.label}</div>
+                      <div className="text-xs opacity-80">${b.min}–${b.max} per person</div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <button
+              onClick={save}
+              disabled={saving}
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-vibe px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-pop disabled:opacity-60"
+            >
+              <Save className="h-4 w-4" /> {saved ? "Saved!" : saving ? "Saving..." : "Save changes"}
+            </button>
+
+            <button
+              onClick={async () => { await signOut(); navigate({ to: "/auth" }); }}
+              className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-background px-6 py-3.5 text-sm font-semibold hover:bg-muted"
+            >
+              <LogOut className="h-4 w-4" /> Sign out
+            </button>
+          </div>
+        </section>
+
+        <aside className="rounded-3xl border border-border bg-card p-6 shadow-card">
+          <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Taste snapshot</div>
+          <div className="mt-4 space-y-4 text-sm">
+            <div>
+              <div className="font-semibold">Budget range</div>
+              <div className="text-muted-foreground">${budget[0]}–${budget[1]} per person</div>
+            </div>
+            <div>
+              <div className="font-semibold">Cuisine picks</div>
+              <div className="text-muted-foreground">{cuisines.length ? cuisines.join(", ") : "Choose a few favorites"}</div>
+            </div>
+            <div>
+              <div className="font-semibold">Activity signals</div>
+              <div className="text-muted-foreground">{activities.length ? activities.slice(0, 5).join(", ") : "Add the outings you like"}</div>
+            </div>
+          </div>
+        </aside>
       </div>
-
-      <div className="mt-6 space-y-5">
-        <div>
-          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Display name</label>
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="mt-2 w-full rounded-2xl border border-border bg-card px-4 py-3 text-sm outline-none ring-ring/30 focus:ring-2"
-          />
-        </div>
-
-        <div>
-          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Favorite cuisines</label>
-          <div className="mt-2 flex flex-wrap gap-2">
-            {CUISINES.map((c) => (
-              <Chip key={c} active={cuisines.includes(c)} onClick={() => toggle(cuisines, setCuisines, c)}>{c}</Chip>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Activities you like</label>
-          <div className="mt-2 flex flex-wrap gap-2">
-            {ACTIVITIES.map((a) => (
-              <Chip key={a} active={activities.includes(a)} onClick={() => toggle(activities, setActivities, a)}>{a}</Chip>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Budget</label>
-          <div className="mt-2 grid grid-cols-4 gap-2">
-            {[
-              { label: "Easy", min: 0, max: 40 },
-              { label: "Mid", min: 25, max: 75 },
-              { label: "Treat", min: 50, max: 150 },
-              { label: "Splurge", min: 100, max: 400 },
-            ].map((b) => {
-              const active = budget[0] === b.min && budget[1] === b.max;
-              return (
-                <button
-                  key={b.label}
-                  onClick={() => setBudget([b.min, b.max])}
-                  className={`rounded-2xl border p-3 text-xs font-semibold transition-pop ${
-                    active ? "border-transparent bg-gradient-cool text-primary-foreground shadow-pop" : "border-border bg-card"
-                  }`}
-                >
-                  <div>{b.label}</div>
-                  <div className="text-[10px] opacity-80">${b.min}–${b.max}</div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      <button
-        onClick={save}
-        disabled={saving}
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-vibe py-3.5 text-sm font-semibold text-primary-foreground shadow-pop disabled:opacity-60"
-      >
-        <Save className="h-4 w-4" /> {saved ? "Saved!" : saving ? "Saving..." : "Save changes"}
-      </button>
-
-      <button
-        onClick={async () => { await signOut(); navigate({ to: "/auth" }); }}
-        className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-border bg-card py-3.5 text-sm font-semibold"
-      >
-        <LogOut className="h-4 w-4" /> Sign out
-      </button>
     </div>
   );
 }

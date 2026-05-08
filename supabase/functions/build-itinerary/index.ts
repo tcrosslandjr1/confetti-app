@@ -135,6 +135,18 @@ The first stop has no travelFromPrev. Make the schedule realistic — startTime 
                     type: "array", minItems: 2, maxItems: 3,
                     items: { type: "string" },
                   },
+                  travelFromPrev: {
+                    type: "object",
+                    description: "How to get here from the previous stop. Omit/null on the first stop.",
+                    properties: {
+                      mode: { type: "string", enum: ["walk", "car", "transit", "lyft", "uber", "rideshare", "bike"] },
+                      durationMinutes: { type: "integer" },
+                      distance: { type: "string" },
+                      instructions: { type: "string" },
+                      estCost: { type: "string" },
+                    },
+                    required: ["mode", "durationMinutes", "instructions"],
+                  },
                 },
                 required: ["name", "category", "description", "address", "startTime", "durationMinutes", "estCost", "whatToDo", "bookingUrl", "bookingProvider", "reviewSnippets", "parking", "tips"],
               },

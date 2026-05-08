@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { Apple, Calendar, Check, CheckCircle2, Clock, Copy, Link as LinkIcon, MapPin, PartyPopper, Send, Sparkles } from "lucide-react";
+import { Apple, Calendar, Check, CheckCircle2, Clock, Copy, Link as LinkIcon, Mail, MapPin, PartyPopper, Plus, Send, Sparkles, UserPlus, X } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { toast } from "sonner";
 

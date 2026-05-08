@@ -240,6 +240,97 @@ function NotesEditor({ initial, onSave }: { initial: string; onSave: (v: string)
   );
 }
 
+function ReservationEditor({ stop, onSave }: { stop: Stop; onSave: (patch: Partial<Stop>) => void }) {
+  const [open, setOpen] = useState(false);
+  const [ref, setRef] = useState(stop.booking_ref ?? "");
+  const [party, setParty] = useState<string>(stop.party_size ? String(stop.party_size) : "");
+  const [time, setTime] = useState(stop.reservation_time?.slice(0, 5) ?? "");
+  const [phone, setPhone] = useState(stop.contact_phone ?? "");
+  const [email, setEmail] = useState(stop.contact_email ?? "");
+  const [note, setNote] = useState(stop.confirmation_note ?? "");
+
+  const filled = stop.booking_ref || stop.party_size || stop.reservation_time || stop.contact_phone || stop.contact_email || stop.confirmation_note;
+
+  function save() {
+    onSave({
+      booking_ref: ref || null,
+      party_size: party ? Number(party) : null,
+      reservation_time: time ? `${time}:00` : null,
+      contact_phone: phone || null,
+      contact_email: email || null,
+      confirmation_note: note || null,
+      booking_status: stop.booking_status === "unbooked" ? "pending" : stop.booking_status,
+    });
+    setOpen(false);
+  }
+
+  return (
+    <div className="mt-3 rounded-xl border border-border/70 bg-background">
+      <button onClick={() => setOpen((v) => !v)} className="flex w-full items-center justify-between gap-2 px-3 py-2 text-left">
+        <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          <Ticket className="h-3.5 w-3.5 text-primary" /> Reservation details
+          {filled ? <span className="ml-1 rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-900 normal-case">Saved</span>
+                  : <span className="ml-1 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-bold normal-case">Add</span>}
+        </span>
+        <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {!open && filled && (
+        <div className="grid gap-1 px-3 pb-3 text-sm text-muted-foreground sm:grid-cols-2">
+          {stop.booking_ref && <span className="inline-flex items-center gap-1.5"><Hash className="h-3.5 w-3.5" /> <span className="font-mono text-foreground">{stop.booking_ref}</span></span>}
+          {stop.party_size && <span className="inline-flex items-center gap-1.5"><Users className="h-3.5 w-3.5" /> Party of {stop.party_size}</span>}
+          {stop.reservation_time && <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {stop.reservation_time.slice(0, 5)}</span>}
+          {stop.contact_phone && <span className="inline-flex items-center gap-1.5"><Phone className="h-3.5 w-3.5" /> {stop.contact_phone}</span>}
+          {stop.contact_email && <span className="inline-flex items-center gap-1.5"><Mail className="h-3.5 w-3.5" /> {stop.contact_email}</span>}
+          {stop.confirmation_note && <span className="inline-flex items-center gap-1.5 sm:col-span-2"><FileText className="h-3.5 w-3.5" /> {stop.confirmation_note}</span>}
+        </div>
+      )}
+      {open && (
+        <div className="space-y-3 border-t border-border/70 p-3">
+          <div className="grid gap-2 sm:grid-cols-2">
+            <ResField label="Confirmation #" icon={<Hash className="h-3.5 w-3.5" />}>
+              <input value={ref} onChange={(e) => setRef(e.target.value)} placeholder="ABC-12345"
+                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 font-mono text-sm outline-none focus:border-primary" />
+            </ResField>
+            <ResField label="Party size" icon={<Users className="h-3.5 w-3.5" />}>
+              <input type="number" min={1} value={party} onChange={(e) => setParty(e.target.value)} placeholder="2"
+                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary" />
+            </ResField>
+            <ResField label="Reservation time" icon={<Clock className="h-3.5 w-3.5" />}>
+              <input type="time" value={time} onChange={(e) => setTime(e.target.value)}
+                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary" />
+            </ResField>
+            <ResField label="Phone" icon={<Phone className="h-3.5 w-3.5" />}>
+              <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="(555) 123-4567"
+                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary" />
+            </ResField>
+            <ResField label="Email" icon={<Mail className="h-3.5 w-3.5" />}>
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="confirmations@..."
+                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary" />
+            </ResField>
+          </div>
+          <ResField label="Note" icon={<FileText className="h-3.5 w-3.5" />}>
+            <textarea value={note} onChange={(e) => setNote(e.target.value)} rows={2} placeholder="Special requests, dress code, allergies..."
+              className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary" />
+          </ResField>
+          <div className="flex gap-2">
+            <button onClick={save} className="rounded-full bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground">Save reservation</button>
+            <button onClick={() => setOpen(false)} className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold">Cancel</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ResField({ label, icon, children }: { label: string; icon: React.ReactNode; children: React.ReactNode }) {
+  return (
+    <label className="block">
+      <span className="mb-1 inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{icon} {label}</span>
+      {children}
+    </label>
+  );
+}
+
 const MODE_META: Record<string, { Icon: typeof Car; label: string; cls: string }> = {
   walk: { Icon: Footprints, label: "Walk", cls: "bg-emerald-100 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200" },
   bike: { Icon: Bike, label: "Bike", cls: "bg-emerald-100 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200" },

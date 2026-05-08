@@ -33,6 +33,7 @@ import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile
 import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdminVenuesRouteImport } from './routes/admin.venues'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminModerationRouteImport } from './routes/admin.moderation'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
@@ -160,6 +161,11 @@ const AdminVenuesRoute = AdminVenuesRouteImport.update({
   path: '/venues',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminModerationRoute = AdminModerationRouteImport.update({
   id: '/moderation',
   path: '/moderation',
@@ -208,6 +214,7 @@ export interface FileRoutesByFullPath {
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/moderation': typeof AdminModerationRoute
+  '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -238,6 +245,7 @@ export interface FileRoutesByTo {
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/moderation': typeof AdminModerationRoute
+  '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -271,6 +279,7 @@ export interface FileRoutesById {
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/moderation': typeof AdminModerationRoute
+  '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -305,6 +314,7 @@ export interface FileRouteTypes {
     | '/admin/analytics'
     | '/admin/bookings'
     | '/admin/moderation'
+    | '/admin/users'
     | '/admin/venues'
     | '/api/chat'
     | '/concierge/passport'
@@ -335,6 +345,7 @@ export interface FileRouteTypes {
     | '/admin/analytics'
     | '/admin/bookings'
     | '/admin/moderation'
+    | '/admin/users'
     | '/admin/venues'
     | '/api/chat'
     | '/concierge/passport'
@@ -367,6 +378,7 @@ export interface FileRouteTypes {
     | '/admin/analytics'
     | '/admin/bookings'
     | '/admin/moderation'
+    | '/admin/users'
     | '/admin/venues'
     | '/api/chat'
     | '/concierge/passport'
@@ -575,6 +587,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminVenuesRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/moderation': {
       id: '/admin/moderation'
       path: '/moderation'
@@ -624,6 +643,7 @@ interface AdminRouteChildren {
   AdminAnalyticsRoute: typeof AdminAnalyticsRoute
   AdminBookingsRoute: typeof AdminBookingsRoute
   AdminModerationRoute: typeof AdminModerationRoute
+  AdminUsersRoute: typeof AdminUsersRoute
   AdminVenuesRoute: typeof AdminVenuesRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
@@ -632,6 +652,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminAnalyticsRoute: AdminAnalyticsRoute,
   AdminBookingsRoute: AdminBookingsRoute,
   AdminModerationRoute: AdminModerationRoute,
+  AdminUsersRoute: AdminUsersRoute,
   AdminVenuesRoute: AdminVenuesRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
@@ -693,3 +714,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

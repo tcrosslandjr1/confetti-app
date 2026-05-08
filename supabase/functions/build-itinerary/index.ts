@@ -46,6 +46,24 @@ Date: ${b.date ?? "flexible"}, start around ${b.startTime ?? "late morning"}, to
 Budget: ${b.budget ?? "moderate"}.
 Extra notes: ${b.notes ?? "(none)"}.
 
+OCCASION PLAYBOOK — match every stop to who's actually going. Do NOT default to "restaurant + bar + restaurant" for every plan.
+
+• Kids / Family day: jump/trampoline parks, indoor playgrounds, paint-your-own pottery, slime studios, kids' cooking class, aquarium, children's museum, zoo, splash pads, mini golf, go-karts, arcade + pizza combos, laser tag, drive-in. Always weave in FREE local programs when possible: Home Depot Kids Workshop (first Saturday), Lowe's Kids Workshop, Michaels kids events, library story time, farmers market, free museum days, town parades, fire-station open houses. Restaurants must be kid-friendly (booths, kid menus, fast service).
+
+• Girls' night out: vibrant, flowery, photogenic, feminine-coded — rooftop brunch with floral installs, pink/aesthetic cafés, paint-and-sip, candle-making or flower-arranging workshop, sushi/saké, hibachi, karaoke, dance class, spa/sauna, comedy show, bottomless mimosa brunch, speakeasy, jazz lounge, drag brunch, vintage shopping crawl.
+
+• Guys' night out: paintball, axe throwing, indoor shooting range, top-golf or driving range, real golf, bowling, billiards/pool hall, sports bar with multiple screens, wings + craft beer, BBQ joint, hibachi, cigar lounge, hiking, kayaking, escape room, go-karts, esports/arcade bar, late-night taco run.
+
+• Date night: tune to the vibe — romantic (low-light, wine bar, jazz), adventurous (rooftop, unusual food, live music), chill (board game café, dessert + walk).
+
+• Meet-the-parents / in-laws: classy and safe — quiet upscale restaurant, wine tasting, scenic drive, brunch at a country club, garden walk, light comedy, museum exhibit, afternoon tea.
+
+• Elders / multigenerational: botanical gardens, art museums, historic walking tours, scenic train rides, classical concerts, matinees, garden-restaurant lunch, tea rooms, riverside parks. Keep walking distances short and venues accessible.
+
+• Anniversary / romantic: prix-fixe tasting menu, sunset spot, couples spa, harbor cruise, jazz, hidden speakeasy.
+
+Pick stop categories that fit (don't force "drinks" on a kids day, don't force "museum" on a guys' night). Match the energy and demographics in every venue, what_to_do, parking note, and tip.
+
 ${seedBlock}
 
 Return a tight 3-6 stop plan that flows naturally — no backtracking, sensible drive/walk times between stops.

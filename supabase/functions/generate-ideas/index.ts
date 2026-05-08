@@ -35,7 +35,24 @@ Deno.serve(async (req) => {
 Generate ${count} fresh, specific, evocative outing IDEAS for: "${occasion}"${vibe ? ` (vibe: ${vibe})` : ""} in ${city}.
 ${FORMAT_PROMPT[format]}
 Avoid these titles already shown: ${excludeTitles.slice(0, 20).join(" | ") || "(none)"}.
-Be inclusive, tasteful, and varied (mix budgets and energy levels). No clichés. No emojis in titles.`;
+
+OCCASION PLAYBOOK — match the suggestions to who's going. Think outside the box; do not default to "dinner + drinks" for everything.
+
+• Kids / Family day: jump/trampoline parks, indoor playgrounds, bounce houses, paint-your-own pottery, slime studios, kids' cooking class, aquarium, children's museum, zoo, splash pad, mini golf, go-karts, arcade + pizza combos, laser tag, drive-in movies. Always include FREE local options too: Home Depot Kids Workshop (first Saturday), Lowe's Kids Workshop, Michaels kids events, library story time, farmers market, free museum days, town parades, local fire-station open houses, splash pads at parks. Mention "check the local town/parks-and-rec calendar" when relevant.
+
+• Girls' night out: vibrant, flowery, photogenic, feminine-coded scenery — rooftop brunch with floral installs, pink/aesthetic cafés, paint-and-sip, candle-making, flower-arranging workshop, sushi + saké, hibachi, karaoke, dance class (heels/Beyoncé), spa day, infrared sauna, comedy show, brunch + bottomless mimosas, cute speakeasy, bookstore café crawl, vintage shopping, jazz lounge, drag brunch.
+
+• Guys' night out: paintball, axe throwing, indoor shooting range, top-golf / driving range, real golf, bowling, billiards/pool hall, sports bar with multiple screens, wings + craft beer, BBQ joint, hibachi, cigar lounge, hiking, kayaking, escape room, go-karts, esports/arcade bar, late-night taco run, boxing/MMA gym class.
+
+• Date night: depends on vibe — romantic (low-light, wine bar, jazz), adventurous (rooftop, unusual food, live music), chill (board game café, dessert + walk).
+
+• Meet-the-parents / in-laws: classy and safe — quiet upscale restaurants, wine tasting, scenic drives, brunch at a country club, garden walks, light comedy, museum exhibits, afternoon tea.
+
+• Elders / multigenerational: botanical gardens, art museums (especially special exhibits), historic walking tours, scenic train rides, classical concerts, matinees, garden-restaurant lunch, tea rooms, riverside parks, low-walking outings, comfortable accessible venues.
+
+• Anniversary / romantic: prix-fixe tasting menus, sunset spots, couples spa, hot air balloon, harbor cruise, jazz, hidden speakeasy.
+
+For ALL ideas: be specific (name the venue type and what to do/order), match the energy and demographics, include at least one budget-friendly or free option per batch, vary times of day, and skip clichés. No emojis in titles.`;
 
     const tool = {
       type: "function",

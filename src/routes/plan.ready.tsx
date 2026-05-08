@@ -44,25 +44,88 @@ function fmtUTC(d: Date) {
   return d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
 }
 
+// RFC 5545 text escaping: backslash, semicolon, comma, newline.
+function icsEscape(v: string) {
+  return v
+    .replace(/\\/g, "\\\\")
+    .replace(/;/g, "\\;")
+    .replace(/,/g, "\\,")
+    .replace(/\r?\n/g, "\\n");
+}
+
+// RFC 5545 line folding at 75 octets (CRLF + single space continuation).
+function foldLine(line: string) {
+  if (line.length <= 75) return line;
+  const out: string[] = [];
+  let i = 0;
+  while (i < line.length) {
+    const chunk = line.slice(i, i + (i === 0 ? 75 : 74));
+    out.push((i === 0 ? "" : " ") + chunk);
+    i += i === 0 ? 75 : 74;
+  }
+  return out.join("\r\n");
+}
+
+// Parse "11:30 AM" into hours/minutes on the trip's start date.
+function stopDate(label: string, base: Date) {
+  const m = label.match(/(\d+):(\d+)\s*(AM|PM)/i);
+  if (!m) return new Date(base);
+  let h = parseInt(m[1], 10) % 12;
+  if (m[3].toUpperCase() === "PM") h += 12;
+  const d = new Date(base);
+  d.setHours(h, parseInt(m[2], 10), 0, 0);
+  return d;
+}
+
 function buildIcs() {
-  const stopLines = STOPS.map((s) => `${s.time} — ${s.name} (${s.neighborhood})`).join("\\n");
-  return [
+  const stamp = fmtUTC(new Date());
+  const lines: string[] = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
     "PRODID:-//Confetti//Plan//EN",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
+    `X-WR-CALNAME:${icsEscape(TRIP.title)}`,
+  ];
+
+  // Umbrella event covering the full day
+  const summaryLines = STOPS.map((s) => `${s.time} — ${s.name} (${s.neighborhood})`).join("\n");
+  lines.push(
     "BEGIN:VEVENT",
     `UID:${TRIP.id}@confetti.app`,
-    `DTSTAMP:${fmtUTC(new Date())}`,
+    `DTSTAMP:${stamp}`,
     `DTSTART:${fmtUTC(TRIP.start)}`,
     `DTEND:${fmtUTC(TRIP.end)}`,
-    `SUMMARY:${TRIP.title}`,
-    `DESCRIPTION:${TRIP.description}\\n\\nItinerary:\\n${stopLines}`,
-    `LOCATION:${TRIP.location}`,
+    `SUMMARY:${icsEscape(TRIP.title)}`,
+    `DESCRIPTION:${icsEscape(`${TRIP.description}\n\nItinerary:\n${summaryLines}`)}`,
+    `LOCATION:${icsEscape(TRIP.location)}`,
     "END:VEVENT",
-    "END:VCALENDAR",
-  ].join("\r\n");
+  );
+
+  // One sub-event per stop so each shows up on the calendar
+  STOPS.forEach((s, i) => {
+    const start = stopDate(s.time, TRIP.start);
+    const end = new Date(start.getTime() + s.durationMin * 60_000);
+    lines.push(
+      "BEGIN:VEVENT",
+      `UID:${TRIP.id}-${i + 1}@confetti.app`,
+      `DTSTAMP:${stamp}`,
+      `DTSTART:${fmtUTC(start)}`,
+      `DTEND:${fmtUTC(end)}`,
+      `SUMMARY:${icsEscape(`${i + 1}. ${s.name}`)}`,
+      `DESCRIPTION:${icsEscape(`${s.note}\n\nPart of ${TRIP.title}.`)}`,
+      `LOCATION:${icsEscape(`${s.name}, ${s.neighborhood}`)}`,
+      "BEGIN:VALARM",
+      "ACTION:DISPLAY",
+      `DESCRIPTION:${icsEscape(`Heads up — ${s.name} in 15 min`)}`,
+      "TRIGGER:-PT15M",
+      "END:VALARM",
+      "END:VEVENT",
+    );
+  });
+
+  lines.push("END:VCALENDAR");
+  return lines.map(foldLine).join("\r\n");
 }
 
 function buildGoogleUrl() {

@@ -139,7 +139,8 @@ function buildGoogleUrl() {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
-import { loadInvites, saveInvites, subscribeInvites, type Invite } from "@/lib/invites";
+import { loadInvites, loadInviteVideo, saveInvites, saveInviteVideo, subscribeInvites, type Invite } from "@/lib/invites";
+import { supabase } from "@/integrations/supabase/client";
 
 function makeToken() {
   const bytes = new Uint8Array(8);

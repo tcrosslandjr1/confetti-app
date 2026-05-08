@@ -105,7 +105,7 @@ export function BuildMyNightWizard() {
   useEffect(() => {
     if (open) return;
     const t = setTimeout(() => {
-      setStep(0); setVibe(null); setCrew(null); setWhen(null); setPickedDate("");
+      setStep(0); setVibe([]); setCrew(null); setWhen(null); setPickedDate("");
       setBudget(null); setMusts([]); setLoadingIdx(0); setVariant(0);
     }, 220);
     return () => clearTimeout(t);
@@ -131,7 +131,7 @@ export function BuildMyNightWizard() {
   if (!open) return null;
 
   const canAdvance =
-    (step === 0 && !!vibe) ||
+    (step === 0 && vibe.length > 0) ||
     (step === 1 && !!crew) ||
     (step === 2 && !!when && (when !== "pick" || !!pickedDate)) ||
     (step === 3 && !!budget) ||

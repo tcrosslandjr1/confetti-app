@@ -330,6 +330,8 @@ export type Database = {
           budget_max: number
           budget_min: number
           cuisines: string[]
+          social_handles: Json
+          social_signals: string | null
           taste_profile: Json
           updated_at: string
           user_id: string
@@ -340,6 +342,8 @@ export type Database = {
           budget_max?: number
           budget_min?: number
           cuisines?: string[]
+          social_handles?: Json
+          social_signals?: string | null
           taste_profile?: Json
           updated_at?: string
           user_id: string
@@ -350,6 +354,8 @@ export type Database = {
           budget_max?: number
           budget_min?: number
           cuisines?: string[]
+          social_handles?: Json
+          social_signals?: string | null
           taste_profile?: Json
           updated_at?: string
           user_id?: string

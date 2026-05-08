@@ -42,11 +42,15 @@ function PlanPage() {
     setErr(null);
     setBusy(true);
     try {
-      const occ = OCCASIONS.find((o) => o.slug === occasionSlug)!;
+      const occ = OCCASIONS.find((o) => o.slug === occasionSlug);
+      const customText = customVibe.trim();
+      if (isCustom && !customText) {
+        throw new Error("Tell us your vibe — type a few words to describe your day.");
+      }
       const { id } = await buildAndSaveItinerary({
-        occasion: occ.title,
-        vibe: occ.tagline,
-        occasionSlug: occ.slug,
+        occasion: occ ? occ.title : customText,
+        vibe: occ ? occ.tagline : customText,
+        occasionSlug: occ ? occ.slug : "spontaneous",
         city: city || undefined,
         neighborhood: neighborhood || undefined,
         date: date || undefined,

@@ -510,6 +510,11 @@ export function BuildMyNightWizard() {
                                 Vegetarian
                               </span>
                             )}
+                            {d.pescatarian && (
+                              <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint/70 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+                                🐟 Pescatarian
+                              </span>
+                            )}
                           </div>
 
                           <div className="mt-3 rounded-xl border-2 border-ink/15 bg-cream/60 p-3">

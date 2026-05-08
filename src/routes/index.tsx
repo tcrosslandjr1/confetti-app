@@ -1,10 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
 import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { TypingCounter } from "@/components/TypingCounter";
 import { StepsShowcase } from "@/components/StepsShowcase";
 import { OCCASIONS } from "@/lib/occasions";
+import { Reveal } from "@/components/Reveal";
+import { WizardButton } from "@/components/wizard/WizardButton";
+import { QuickPicks } from "@/components/QuickPicks";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -81,16 +85,34 @@ const FAQS = [
 ];
 
 function Landing() {
+  // Subtle hero parallax
+  const heroBgRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const el = heroBgRef.current;
+    if (!el) return;
+    let raf = 0;
+    function update() {
+      const y = window.scrollY;
+      if (el) el.style.transform = `translate3d(0, ${y * 0.18}px, 0)`;
+      raf = 0;
+    }
+    function onScroll() { if (!raf) raf = requestAnimationFrame(update); }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => { window.removeEventListener("scroll", onScroll); if (raf) cancelAnimationFrame(raf); };
+  }, []);
+
   return (
     <div className="min-h-screen bg-cream text-ink">
       <SiteHeader />
 
       {/* ============================ HERO ============================ */}
       <section className="relative overflow-hidden border-b-2 border-ink">
-        <div className="hero-gradient absolute inset-0 -z-20" />
-        <div className="grid-paper absolute inset-0 -z-10 opacity-50" />
-        <div className="absolute -right-24 -top-24 -z-10 h-96 w-96 animate-blob bg-gradient-warm opacity-70" />
-        <div className="absolute -bottom-32 -left-24 -z-10 h-96 w-96 animate-blob bg-gradient-cool opacity-50" style={{ animationDelay: "-7s" }} />
+        <div ref={heroBgRef} className="absolute inset-0 -z-20 will-change-transform">
+          <div className="hero-gradient absolute inset-0" />
+          <div className="grid-paper absolute inset-0 opacity-50" />
+          <div className="absolute -right-24 -top-24 h-96 w-96 animate-blob bg-gradient-warm opacity-70" />
+          <div className="absolute -bottom-32 -left-24 h-96 w-96 animate-blob bg-gradient-cool opacity-50" style={{ animationDelay: "-7s" }} />
+        </div>
 
         <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-24 pt-16 sm:px-6 lg:grid-cols-12 lg:px-8 lg:pb-32 lg:pt-20">
           {/* left — type */}
@@ -112,15 +134,15 @@ function Landing() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link
-                to="/plan"
+              <WizardButton
+                ariaLabel="Build my night"
                 className="inline-flex h-14 items-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
               >
                 Build my night <ArrowUpRight className="h-5 w-5" />
-              </Link>
+              </WizardButton>
               <Link
                 to="/how-it-works"
-                className="inline-flex h-14 items-center rounded-full border-2 border-ink bg-cream px-7 text-base font-bold transition-pop hover:bg-gold"
+                className="inline-flex h-14 items-center rounded-full border-2 border-ink bg-cream px-7 text-base font-bold transition-pop hover:-translate-y-1 hover:bg-gold hover:shadow-brut"
               >
                 How it works
               </Link>
@@ -198,13 +220,13 @@ function Landing() {
       {/* ============================ MANIFESTO / WHY ============================ */}
       <section className="border-b-2 border-ink">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:px-8">
-          <div className="lg:col-span-5">
+          <Reveal className="lg:col-span-5">
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">/ the manifesto</span>
             <h2 className="mt-3 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
               We are <span className="font-serif italic font-normal">tired</span> of the group chat.
             </h2>
-          </div>
-          <div className="space-y-6 text-lg leading-relaxed lg:col-span-7">
+          </Reveal>
+          <Reveal className="space-y-6 text-lg leading-relaxed lg:col-span-7" delay={120}>
             <p>
               You know the loop. Someone says "we should do something." Three days pass. Yelp gets opened, then closed.
               Someone screenshots a TikTok. Friday becomes pizza on the couch. <span className="font-serif italic">Again.</span>
@@ -215,12 +237,12 @@ function Landing() {
             </p>
             <div className="flex flex-wrap gap-2 pt-2">
               {["less scrolling", "more showing up", "chef's-kiss timing", "real reservations", "made for the way you actually go out"].map((t) => (
-                <span key={t} className="rounded-full border-2 border-ink bg-cream px-3 py-1 text-sm font-semibold">
+                <span key={t} className="rounded-full border-2 border-ink bg-cream px-3 py-1 text-sm font-semibold transition-pop hover:-translate-y-0.5 hover:bg-gold">
                   {t}
                 </span>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -271,7 +293,7 @@ function Landing() {
                   <Link
                     to="/ideas/$slug"
                     params={{ slug: o.slug }}
-                    className={`group tilt-3d grain ${glow} relative flex h-44 flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-cream/[0.03] p-5 hover:border-cream hover:bg-cream hover:text-ink`}
+                    className={`group tilt-3d grain ${glow} relative flex h-44 flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-cream/[0.03] p-5 transition-pop hover:-translate-y-1 hover:rotate-[-1deg] hover:scale-[1.04] hover:border-cream hover:bg-cream hover:text-ink hover:shadow-brut-lg`}
                   >
                     <div className="flex items-start justify-between">
                       <Icon className="h-6 w-6" />
@@ -292,6 +314,9 @@ function Landing() {
           </p>
         </div>
       </section>
+
+      {/* ============================ QUICK PICKS — Steal a night ============================ */}
+      <QuickPicks />
 
       {/* ============================ FEATURE STRIP — three big claims ============================ */}
       <section className="border-b-2 border-ink">
@@ -384,10 +409,19 @@ function Landing() {
           <div className="lg:col-span-7">
             <div className="grid gap-4 sm:grid-cols-2">
               {[
-                { name: "Free", price: "$0", note: "first taste", items: ["3 plans / month", "Multi-stop routing", "Save trips"], cls: "bg-cream" },
-                { name: "Plus", price: "$8", note: "the upgrade", items: ["Unlimited plans", "Reservations vault", "Full taste profile"], cls: "bg-gold" },
+                { name: "Free", price: "$0", note: "first taste", items: ["3 plans / month", "Multi-stop routing", "Save trips"], cls: "bg-cream", glow: false },
+                { name: "Plus", price: "$8", note: "the upgrade", items: ["Unlimited plans", "Reservations vault", "Full taste profile"], cls: "bg-gold", glow: true },
               ].map((t) => (
-                <div key={t.name} className="flex flex-col rounded-3xl border-2 border-ink p-6 shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg" style={{ background: `var(--${t.cls === "bg-gold" ? "gold" : "cream"})` }}>
+                <div
+                  key={t.name}
+                  className={`flex flex-col rounded-3xl border-2 border-ink p-6 shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg ${t.glow ? "animate-pulse-glow relative" : ""}`}
+                  style={{ background: `var(--${t.cls === "bg-gold" ? "gold" : "cream"})` }}
+                >
+                  {t.glow && (
+                    <span className="absolute -top-3 right-5 rounded-full border-2 border-ink bg-coral px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut">
+                      most popular
+                    </span>
+                  )}
                   <div className="flex items-baseline justify-between">
                     <h3 className="font-display text-3xl font-extrabold">{t.name}</h3>
                     <span className="font-mono text-[10px] uppercase tracking-widest opacity-70">/ {t.note}</span>
@@ -415,14 +449,16 @@ function Landing() {
             </h2>
           </div>
           <div className="space-y-3 lg:col-span-8">
-            {FAQS.map((f) => (
-              <details key={f.q} className="group rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut transition-pop open:bg-gold [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer items-center justify-between gap-4 font-display text-xl font-extrabold">
-                  {f.q}
-                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink bg-cream font-mono text-lg transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-4 text-base leading-relaxed">{f.a}</p>
-              </details>
+            {FAQS.map((f, i) => (
+              <Reveal key={f.q} delay={i * 70}>
+                <details className="faq-item group rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut transition-pop open:bg-gold open:-translate-y-0.5 open:shadow-brut-lg [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer items-center justify-between gap-4 font-display text-xl font-extrabold">
+                    {f.q}
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink bg-cream font-mono text-lg transition-transform duration-300 group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-4 text-base leading-relaxed" style={{ animation: "faq-open 0.32s cubic-bezier(0.22,1,0.36,1) both" }}>{f.a}</p>
+                </details>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -433,20 +469,40 @@ function Landing() {
         <div className="absolute -right-20 -top-20 h-72 w-72 animate-blob bg-purple/40" />
         <div className="absolute -bottom-16 -left-16 h-64 w-64 animate-blob bg-gold/60" style={{ animationDelay: "-4s" }} />
         <div className="relative mx-auto max-w-5xl px-4 py-28 text-center sm:px-6">
-          <Sparkles className="mx-auto h-10 w-10" />
-          <h2 className="mt-6 font-display text-7xl font-extrabold leading-[0.85] tracking-tight sm:text-[140px]">
-            Stop scrolling.<br />
-            <span className="font-serif italic font-normal">Start showing up.</span>
-          </h2>
-          <div className="mt-12 flex flex-wrap justify-center gap-4">
-            <Link to="/plan" className="inline-flex h-14 items-center gap-2 rounded-full border-2 border-cream bg-cream px-8 font-bold text-ink shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg">
-              Build my night <ArrowUpRight className="h-5 w-5" />
-            </Link>
-            <Link to="/features" className="inline-flex h-14 items-center rounded-full border-2 border-cream px-8 font-bold transition-pop hover:bg-cream hover:text-ink">
-              Tour the features
-            </Link>
+          <Reveal>
+            <Sparkles className="mx-auto h-10 w-10" />
+            <h2 className="mt-6 font-display text-7xl font-extrabold leading-[0.85] tracking-tight sm:text-[140px]">
+              Stop scrolling.<br />
+              <span className="font-serif italic font-normal">Start showing up.</span>
+            </h2>
+            <div className="mt-12 flex flex-wrap justify-center gap-4">
+              <WizardButton
+                ariaLabel="Build my night"
+                className="inline-flex h-14 items-center gap-2 rounded-full border-2 border-cream bg-cream px-8 font-bold text-ink shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
+              >
+                Build my night <ArrowUpRight className="h-5 w-5" />
+              </WizardButton>
+              <Link to="/features" className="inline-flex h-14 items-center rounded-full border-2 border-cream px-8 font-bold transition-pop hover:-translate-y-0.5 hover:bg-cream hover:text-ink">
+                Tour the features
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ============================ TICKER (hover speeds up) ============================ */}
+      <section className="marquee-hover border-b-2 border-ink bg-gold py-3 text-ink">
+        <div className="flex overflow-hidden">
+          <div className="flex shrink-0 animate-marquee gap-8 whitespace-nowrap pr-8 font-mono text-xs font-bold uppercase tracking-widest" style={{ transition: "animation-duration 0.4s ease" }}>
+            {[...MARQUEE, ...MARQUEE, ...MARQUEE].map((m, i) => (
+              <span key={i} className="inline-flex items-center gap-3">
+                {m}
+                <span className="opacity-40">/</span>
+              </span>
+            ))}
           </div>
         </div>
+        <p className="mt-1 text-center font-mono text-[9px] uppercase tracking-[0.3em] text-ink/50">hover to speed it up ↗</p>
       </section>
 
       <SiteFooter />

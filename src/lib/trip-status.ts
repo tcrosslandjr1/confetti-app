@@ -6,6 +6,8 @@ export type TripStatus = {
   minutesLate: number;          // 0 = on time
   updatedAt: string;            // ISO timestamp
   note?: string;                // optional host message
+  rescheduledAt?: string;       // ISO datetime if host picked a new date/time
+  cancelled?: boolean;          // true if host cancelled the plan
 };
 
 const STORAGE_PREFIX = "confetti.status.";

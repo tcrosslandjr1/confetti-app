@@ -27,6 +27,7 @@ import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
+import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
 import { Route as PlanReadyRouteImport } from './routes/plan.ready'
 import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
 import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
@@ -132,6 +133,11 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
 const TripsIdRoute = TripsIdRouteImport.update({
   id: '/trips/$id',
   path: '/trips/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RsvpTripIdRoute = RsvpTripIdRouteImport.update({
+  id: '/rsvp/$tripId',
+  path: '/rsvp/$tripId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlanReadyRoute = PlanReadyRouteImport.update({
@@ -242,6 +248,7 @@ export interface FileRoutesByFullPath {
   '/ideas/$slug': typeof IdeasSlugRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
+  '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/admin/': typeof AdminIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
@@ -276,6 +283,7 @@ export interface FileRoutesByTo {
   '/ideas/$slug': typeof IdeasSlugRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
+  '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/admin': typeof AdminIndexRoute
   '/concierge': typeof ConciergeIndexRoute
@@ -313,6 +321,7 @@ export interface FileRoutesById {
   '/ideas/$slug': typeof IdeasSlugRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
+  '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/admin/': typeof AdminIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
@@ -351,6 +360,7 @@ export interface FileRouteTypes {
     | '/ideas/$slug'
     | '/plan/preview'
     | '/plan/ready'
+    | '/rsvp/$tripId'
     | '/trips/$id'
     | '/admin/'
     | '/concierge/'
@@ -385,6 +395,7 @@ export interface FileRouteTypes {
     | '/ideas/$slug'
     | '/plan/preview'
     | '/plan/ready'
+    | '/rsvp/$tripId'
     | '/trips/$id'
     | '/admin'
     | '/concierge'
@@ -421,6 +432,7 @@ export interface FileRouteTypes {
     | '/ideas/$slug'
     | '/plan/preview'
     | '/plan/ready'
+    | '/rsvp/$tripId'
     | '/trips/$id'
     | '/admin/'
     | '/concierge/'
@@ -448,6 +460,7 @@ export interface RootRouteChildren {
   ApiChatRoute: typeof ApiChatRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   IdeasSlugRoute: typeof IdeasSlugRoute
+  RsvpTripIdRoute: typeof RsvpTripIdRoute
   TripsIdRoute: typeof TripsIdRouteWithChildren
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
@@ -579,6 +592,13 @@ declare module '@tanstack/react-router' {
       path: '/trips/$id'
       fullPath: '/trips/$id'
       preLoaderRoute: typeof TripsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rsvp/$tripId': {
+      id: '/rsvp/$tripId'
+      path: '/rsvp/$tripId'
+      fullPath: '/rsvp/$tripId'
+      preLoaderRoute: typeof RsvpTripIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/plan/ready': {
@@ -778,6 +798,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiChatRoute: ApiChatRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   IdeasSlugRoute: IdeasSlugRoute,
+  RsvpTripIdRoute: RsvpTripIdRoute,
   TripsIdRoute: TripsIdRouteWithChildren,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,

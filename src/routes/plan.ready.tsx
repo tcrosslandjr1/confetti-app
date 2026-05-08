@@ -139,7 +139,7 @@ function buildGoogleUrl() {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
-type Invite = { id: string; email: string; token: string; status: "pending" | "sent" };
+import { loadInvites, saveInvites, subscribeInvites, type Invite } from "@/lib/invites";
 
 function makeToken() {
   const bytes = new Uint8Array(8);
@@ -153,7 +153,7 @@ function ReadyPage() {
   const [showConfetti, setShowConfetti] = useState(true);
   const [copied, setCopied] = useState(false);
   const [emailInput, setEmailInput] = useState("");
-  const [invites, setInvites] = useState<Invite[]>([]);
+  const [invites, setInvitesState] = useState<Invite[]>([]);
   const [emailError, setEmailError] = useState<string | null>(null);
 
   const shareUrl = useMemo(() => {
@@ -161,8 +161,25 @@ function ReadyPage() {
     return `${window.location.origin}/trips/${TRIP.id}`;
   }, []);
 
+  const rsvpOrigin = useMemo(() => {
+    if (typeof window === "undefined") return "https://confetti.app";
+    return window.location.origin;
+  }, []);
+
   function inviteUrl(token: string) {
-    return `${shareUrl}?invite=${token}`;
+    return `${rsvpOrigin}/rsvp/${TRIP.id}?invite=${token}`;
+  }
+
+  // Hydrate from localStorage + subscribe to RSVP updates from the rsvp route.
+  useEffect(() => {
+    setInvitesState(loadInvites(TRIP.id));
+    const unsub = subscribeInvites(TRIP.id, () => setInvitesState(loadInvites(TRIP.id)));
+    return unsub;
+  }, []);
+
+  function persist(next: Invite[]) {
+    setInvitesState(next);
+    saveInvites(TRIP.id, next);
   }
 
   useEffect(() => {
@@ -182,13 +199,13 @@ function ReadyPage() {
       setEmailError("Already on the list.");
       return;
     }
-    setInvites((prev) => [...prev, { id: crypto.randomUUID(), email: value, token: makeToken(), status: "pending" }]);
+    persist([...invites, { id: crypto.randomUUID(), email: value, token: makeToken(), status: "pending" }]);
     setEmailInput("");
     setEmailError(null);
   }
 
   function removeInvite(id: string) {
-    setInvites((prev) => prev.filter((i) => i.id !== id));
+    persist(invites.filter((i) => i.id !== id));
   }
 
   async function copyInvite(token: string) {
@@ -219,10 +236,9 @@ function ReadyPage() {
     const body = invites.map((i) => `• ${i.email}\n  ${inviteUrl(i.token)}`).join("\n\n");
     const url = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(intro + "\n" + body)}`;
     window.location.href = url;
-    setInvites((prev) => prev.map((i) => ({ ...i, status: "sent" as const })));
+    persist(invites.map((i) => (i.status === "pending" ? { ...i, status: "sent" as const } : i)));
     toast.success("Opening your email app…", { description: `${invites.length} invite${invites.length > 1 ? "s" : ""} ready to send.` });
   }
-
   async function copyLink() {
     try {
       await navigator.clipboard.writeText(shareUrl);
@@ -401,11 +417,14 @@ function ReadyPage() {
             <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
               <UserPlus className="h-3.5 w-3.5 text-primary" /> Invite the crew
             </div>
-            {invites.length > 0 && (
-              <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
-                {invites.length} invited
-              </span>
-            )}
+            {invites.length > 0 && (() => {
+              const going = invites.filter((i) => i.status === "accepted").length;
+              return (
+                <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
+                  {going > 0 ? `${going} going · ${invites.length} invited` : `${invites.length} invited`}
+                </span>
+              );
+            })()}
           </div>
 
           <form onSubmit={addInvite} className="mt-3 flex flex-col gap-2 sm:flex-row">
@@ -446,8 +465,16 @@ function ReadyPage() {
                       <p className="truncate text-sm font-semibold">{i.email}</p>
                       <p className="truncate font-mono text-[11px] text-muted-foreground">{inviteUrl(i.token)}</p>
                     </div>
-                    {i.status === "sent" ? (
-                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-600">
+                    {i.status === "accepted" ? (
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
+                        <Check className="h-3 w-3" /> Going
+                      </span>
+                    ) : i.status === "declined" ? (
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-destructive/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-destructive">
+                        <X className="h-3 w-3" /> Can't make it
+                      </span>
+                    ) : i.status === "sent" ? (
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
                         <Check className="h-3 w-3" /> Sent
                       </span>
                     ) : (

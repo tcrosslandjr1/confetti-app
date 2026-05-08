@@ -188,6 +188,7 @@ function TripDetail() {
                     )}
                   </div>
 
+                  <ReservationEditor stop={s} onSave={(p) => s.id && saveReservation(s.id, p)} />
                   <NotesEditor initial={s.user_notes ?? ""} onSave={(v) => s.id && saveNotes(s.id, v)} />
                 </article>
               </li>

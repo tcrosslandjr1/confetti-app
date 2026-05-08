@@ -63,36 +63,45 @@ function PricingPage() {
       </section>
 
       <section className="border-b border-border">
-        <div className="mx-auto grid max-w-6xl gap-6 px-4 py-16 sm:px-6 md:grid-cols-3">
-          {tiers.map((t) => (
-            <div
-              key={t.name}
-              className={`rounded-3xl border p-6 shadow-card ${t.highlight ? "border-primary bg-card ring-2 ring-primary/30" : "border-border bg-card"}`}
-            >
-              <h3 className="font-display text-2xl font-bold">{t.name}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{t.blurb}</p>
-              <div className="mt-5 flex items-baseline gap-1">
-                <span className="font-display text-4xl font-bold">{t.price}</span>
-                {t.suffix && <span className="text-sm text-muted-foreground">{t.suffix}</span>}
-              </div>
-              <ul className="mt-6 space-y-2 text-sm">
-                {t.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                to={t.to}
-                className={`mt-6 inline-flex h-11 w-full items-center justify-center rounded-full text-sm font-semibold transition-pop hover:scale-[1.02] ${
-                  t.highlight ? "bg-foreground text-background" : "border border-border bg-background text-foreground hover:bg-muted"
-                }`}
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {tiers.map((t) => (
+              <div
+                key={t.name}
+                className={`w-[85%] shrink-0 snap-center rounded-3xl border p-6 shadow-card md:w-auto md:shrink ${t.highlight ? "border-primary bg-card ring-2 ring-primary/30" : "border-border bg-card"}`}
               >
-                {t.cta}
-              </Link>
-            </div>
-          ))}
+                <h3 className="font-display text-2xl font-bold">{t.name}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{t.blurb}</p>
+                <div className="mt-5 flex items-baseline gap-1">
+                  <span className="font-display text-4xl font-bold">{t.price}</span>
+                  {t.suffix && <span className="text-sm text-muted-foreground">{t.suffix}</span>}
+                </div>
+                <ul className="mt-6 space-y-2 text-sm">
+                  {t.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  to={t.to}
+                  className={`mt-6 inline-flex h-11 w-full items-center justify-center rounded-full text-sm font-semibold transition-pop hover:scale-[1.02] ${
+                    t.highlight ? "bg-foreground text-background" : "border border-border bg-background text-foreground hover:bg-muted"
+                  }`}
+                >
+                  {t.cta}
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 flex items-center justify-center gap-2 md:hidden">
+            {tiers.map((t) => (
+              <span key={t.name} className={`h-1.5 w-6 rounded-full ${t.highlight ? "bg-primary" : "bg-border"}`} />
+            ))}
+            <span className="ml-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">swipe to compare</span>
+          </div>
         </div>
       </section>
 

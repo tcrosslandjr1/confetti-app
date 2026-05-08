@@ -462,8 +462,16 @@ function ReadyPage() {
                       <p className="truncate text-sm font-semibold">{i.email}</p>
                       <p className="truncate font-mono text-[11px] text-muted-foreground">{inviteUrl(i.token)}</p>
                     </div>
-                    {i.status === "sent" ? (
-                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-600">
+                    {i.status === "accepted" ? (
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
+                        <Check className="h-3 w-3" /> Going
+                      </span>
+                    ) : i.status === "declined" ? (
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-destructive/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-destructive">
+                        <X className="h-3 w-3" /> Can't make it
+                      </span>
+                    ) : i.status === "sent" ? (
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
                         <Check className="h-3 w-3" /> Sent
                       </span>
                     ) : (

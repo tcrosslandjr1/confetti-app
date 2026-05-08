@@ -77,6 +77,51 @@ const SAMPLE_STOPS: Stop[][] = [
   ],
 ];
 
+// Deterministic mock detail generator — keeps results stable per venue name.
+function hashStr(s: string) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  return h;
+}
+const KNOWN_FOR = [
+  "tasting menu", "natural wine list", "house cocktails", "wood-fired pies",
+  "raw bar", "live jazz nights", "rooftop sunsets", "vinyl listening room",
+  "small plates", "late-night ramen", "espresso martinis", "garden patio",
+];
+const REVIEWS = [
+  "“Hands down our new go-to. Vibe is unreal.”",
+  "“The bartender remembered our drink from last time.”",
+  "“Came for one round, stayed three hours.”",
+  "“Worth the wait. Bring a date.”",
+  "“Loud, packed, exactly what we wanted.”",
+  "“Tucked away — felt like a secret.”",
+];
+function getDetails(venue: string, vibe: string) {
+  const h = hashStr(venue);
+  const rating = (4.2 + ((h % 8) / 10)).toFixed(1); // 4.2 - 4.9
+  const reviewCount = 180 + (h % 1820);
+  const priceLevel = (h % 4) + 1; // 1..4
+  const knownFor = KNOWN_FOR[h % KNOWN_FOR.length];
+  const review = REVIEWS[(h >> 3) % REVIEWS.length];
+  const phone = `(${200 + (h % 700)}) ${100 + ((h >> 4) % 900)}-${1000 + ((h >> 8) % 9000)}`;
+  const hours = `Open until ${10 + (h % 3)}:${["00", "30"][h % 2]} PM`;
+  const blurbs = [
+    `${venue} pulls a regular crowd for its ${knownFor}. Cozy without trying, the kind of place you end up texting friends about.`,
+    `Locals swear by ${venue} for its ${knownFor} and unhurried pace — built for the kind of night that bleeds into the next.`,
+    `${venue} nails the ${vibe.toLowerCase()} brief. Tight menu, sharp drinks, and lighting that makes everyone look good.`,
+  ];
+  return {
+    rating,
+    reviewCount,
+    priceLevel,
+    knownFor,
+    review,
+    phone,
+    hours,
+    blurb: blurbs[h % blurbs.length],
+  };
+}
+
 export function BuildMyNightWizard() {
   const { open, preset, closeWizard } = useWizard();
   const [step, setStep] = useState(0); // 0..4 questions, 5 loading, 6 result

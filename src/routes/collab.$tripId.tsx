@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { Check, Clock, MapPin, Sparkles, ThumbsDown, ThumbsUp, Users, HelpCircle } from "lucide-react";
+import { AlertTriangle, Check, Clock, MapPin, Sparkles, ThumbsDown, ThumbsUp, Users, HelpCircle } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import {
   castVote,

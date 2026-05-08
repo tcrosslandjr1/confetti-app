@@ -23,6 +23,7 @@ type Body = {
   neighborhood?: string;
   seedIdea?: SeedIdea;       // expand a flashcard into a day
   notes?: string;
+  tasteSummary?: string;
 };
 
 Deno.serve(async (req) => {
@@ -45,6 +46,7 @@ City: ${b.city ?? "user's city"} ${b.neighborhood ? `(focus near ${b.neighborhoo
 Date: ${b.date ?? "flexible"}, start around ${b.startTime ?? "late morning"}, total length ~${b.durationHours ?? 6} hours.
 Budget: ${b.budget ?? "moderate"}.
 Extra notes: ${b.notes ?? "(none)"}.
+${b.tasteSummary ? `\nUSER TASTE PROFILE (use this to personalize every stop — match age/life-stage/energy/scenes/music/cities/budget; honor "avoid" strictly): ${b.tasteSummary}\n` : ""}
 
 OCCASION PLAYBOOK — match every stop to who's actually going. Do NOT default to "restaurant + bar + restaurant" for every plan.
 

@@ -315,6 +315,9 @@ function Landing() {
         </div>
       </section>
 
+      {/* ============================ QUICK PICKS — Steal a night ============================ */}
+      <QuickPicks />
+
       {/* ============================ FEATURE STRIP — three big claims ============================ */}
       <section className="border-b-2 border-ink">
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">

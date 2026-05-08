@@ -27,6 +27,7 @@ import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
+import { Route as PlanReadyRouteImport } from './routes/plan.ready'
 import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
 import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
@@ -133,6 +134,11 @@ const TripsIdRoute = TripsIdRouteImport.update({
   path: '/trips/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlanReadyRoute = PlanReadyRouteImport.update({
+  id: '/ready',
+  path: '/ready',
+  getParentRoute: () => PlanRoute,
+} as any)
 const PlanPreviewRoute = PlanPreviewRouteImport.update({
   id: '/preview',
   path: '/preview',
@@ -235,6 +241,7 @@ export interface FileRoutesByFullPath {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/plan/preview': typeof PlanPreviewRoute
+  '/plan/ready': typeof PlanReadyRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/admin/': typeof AdminIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
@@ -268,6 +275,7 @@ export interface FileRoutesByTo {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/plan/preview': typeof PlanPreviewRoute
+  '/plan/ready': typeof PlanReadyRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/admin': typeof AdminIndexRoute
   '/concierge': typeof ConciergeIndexRoute
@@ -304,6 +312,7 @@ export interface FileRoutesById {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/plan/preview': typeof PlanPreviewRoute
+  '/plan/ready': typeof PlanReadyRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/admin/': typeof AdminIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
@@ -341,6 +350,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/plan/preview'
+    | '/plan/ready'
     | '/trips/$id'
     | '/admin/'
     | '/concierge/'
@@ -374,6 +384,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/plan/preview'
+    | '/plan/ready'
     | '/trips/$id'
     | '/admin'
     | '/concierge'
@@ -409,6 +420,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/plan/preview'
+    | '/plan/ready'
     | '/trips/$id'
     | '/admin/'
     | '/concierge/'
@@ -569,6 +581,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TripsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/plan/ready': {
+      id: '/plan/ready'
+      path: '/ready'
+      fullPath: '/plan/ready'
+      preLoaderRoute: typeof PlanReadyRouteImport
+      parentRoute: typeof PlanRoute
+    }
     '/plan/preview': {
       id: '/plan/preview'
       path: '/preview'
@@ -721,10 +740,12 @@ const ConciergeRouteWithChildren = ConciergeRoute._addFileChildren(
 
 interface PlanRouteChildren {
   PlanPreviewRoute: typeof PlanPreviewRoute
+  PlanReadyRoute: typeof PlanReadyRoute
 }
 
 const PlanRouteChildren: PlanRouteChildren = {
   PlanPreviewRoute: PlanPreviewRoute,
+  PlanReadyRoute: PlanReadyRoute,
 }
 
 const PlanRouteWithChildren = PlanRoute._addFileChildren(PlanRouteChildren)
@@ -764,3 +785,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -557,7 +557,14 @@ function ReadyPage() {
                     </p>
                   </div>
                   <div className="flex shrink-0 flex-col items-end gap-1">
-                    <span className="text-sm font-semibold text-muted-foreground">{s.time}</span>
+                    {status && status.minutesLate > 0 ? (
+                      <span className="flex items-baseline gap-1.5">
+                        <span className="text-xs text-muted-foreground line-through">{s.time}</span>
+                        <span className="text-sm font-semibold text-amber-700">{shiftTimeLabel(s.time, status.minutesLate)}</span>
+                      </span>
+                    ) : (
+                      <span className="text-sm font-semibold text-muted-foreground">{s.time}</span>
+                    )}
                     {fit.state === "open" && (
                       <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
                         <Check className="h-3 w-3" /> Open

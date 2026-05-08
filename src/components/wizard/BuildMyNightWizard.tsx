@@ -110,6 +110,14 @@ function getDetails(venue: string, vibe: string) {
     `Locals swear by ${venue} for its ${knownFor} and unhurried pace — built for the kind of night that bleeds into the next.`,
     `${venue} nails the ${vibe.toLowerCase()} brief. Tight menu, sharp drinks, and lighting that makes everyone look good.`,
   ];
+  // Dietary + allergen flags — deterministic per venue
+  const ALL_DIETARY = ["Gluten-free menu", "Vegan options", "Vegetarian", "Dairy-free", "Nut-free kitchen"] as const;
+  const ALL_ALLERGENS = ["peanuts", "tree nuts", "shellfish", "dairy", "eggs", "soy", "sesame", "wheat/gluten"] as const;
+  const dietary = ALL_DIETARY.filter((_, i) => ((h >> (i + 1)) & 1) === 1);
+  if (dietary.length === 0) dietary.push("Gluten-free menu");
+  const glutenFree = dietary.includes("Gluten-free menu");
+  // Allergens the kitchen can accommodate (request ahead)
+  const allergens = ALL_ALLERGENS.filter((_, i) => ((h >> (i + 2)) & 1) === 1).slice(0, 4);
   return {
     rating,
     reviewCount,
@@ -119,6 +127,9 @@ function getDetails(venue: string, vibe: string) {
     phone,
     hours,
     blurb: blurbs[h % blurbs.length],
+    dietary,
+    glutenFree,
+    allergens,
   };
 }
 

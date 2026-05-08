@@ -23,6 +23,11 @@ export type Stop = {
   user_review?: string | null;
   completed_at?: string | null;
   travel_from_prev?: TravelLeg | null;
+  party_size?: number | null;
+  reservation_time?: string | null;
+  contact_phone?: string | null;
+  contact_email?: string | null;
+  confirmation_note?: string | null;
 };
 
 export type TravelLeg = {

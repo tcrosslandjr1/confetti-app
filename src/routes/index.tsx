@@ -237,20 +237,24 @@ function Landing() {
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {STEPS.map((s, i) => (
-              <div
-                key={s.n}
-                className={`group relative overflow-hidden rounded-3xl border-2 border-ink ${s.color} p-7 text-ink shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg`}
-                style={{ transform: `rotate(${i === 1 ? "1deg" : i === 2 ? "-1deg" : "-0.5deg"})` }}
-              >
-                <div className="flex items-baseline justify-between">
-                  <span className="font-display text-7xl font-extrabold leading-none">{s.n}</span>
-                  <span className="font-mono text-[11px] uppercase tracking-widest">{s.kicker}</span>
+            {STEPS.map((s, i) => {
+              const glow = i === 0 ? "glow-coral" : i === 1 ? "glow-purple" : "glow-gold";
+              const rot = i === 1 ? "1deg" : i === 2 ? "-1deg" : "-0.5deg";
+              return (
+                <div key={s.n} style={{ transform: `rotate(${rot})` }}>
+                  <div
+                    className={`group tilt-3d grain ${glow} relative overflow-hidden rounded-3xl border-2 border-ink ${s.color} p-7 text-ink shadow-brut`}
+                  >
+                    <div className="flex items-baseline justify-between">
+                      <span className="font-display text-7xl font-extrabold leading-none">{s.n}</span>
+                      <span className="font-mono text-[11px] uppercase tracking-widest">{s.kicker}</span>
+                    </div>
+                    <h3 className="mt-8 font-display text-2xl font-extrabold leading-tight">{s.title}</h3>
+                    <p className="mt-3 text-base leading-snug">{s.body}</p>
+                  </div>
                 </div>
-                <h3 className="mt-8 font-display text-2xl font-extrabold leading-tight">{s.title}</h3>
-                <p className="mt-3 text-base leading-snug">{s.body}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -273,24 +277,27 @@ function Landing() {
           <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {OCCASIONS.map((o, i) => {
               const Icon = o.icon;
+              const glows = ["glow-coral", "glow-gold", "glow-purple", "glow-teal", "glow-pink"];
+              const glow = glows[i % glows.length];
+              const rot = (i % 4 - 1.5) * 0.4;
               return (
-                <Link
-                  key={o.slug}
-                  to="/ideas/$slug"
-                  params={{ slug: o.slug }}
-                  className="group relative flex h-44 flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-cream/[0.03] p-5 transition-pop hover:border-cream hover:bg-cream hover:text-ink"
-                  style={{ transform: `rotate(${(i % 4 - 1.5) * 0.4}deg)` }}
-                >
-                  <div className="flex items-start justify-between">
-                    <Icon className="h-6 w-6" />
-                    <span className="text-3xl">{o.emoji}</span>
-                  </div>
-                  <div>
-                    <div className="font-display text-2xl font-extrabold leading-tight">{o.title}</div>
-                    <div className="mt-1 font-mono text-[11px] uppercase tracking-wider opacity-70">{o.tagline}</div>
-                  </div>
-                  <ArrowUpRight className="absolute right-4 top-4 h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
-                </Link>
+                <div key={o.slug} style={{ transform: `rotate(${rot}deg)` }}>
+                  <Link
+                    to="/ideas/$slug"
+                    params={{ slug: o.slug }}
+                    className={`group tilt-3d grain ${glow} relative flex h-44 flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-cream/[0.03] p-5 hover:border-cream hover:bg-cream hover:text-ink`}
+                  >
+                    <div className="flex items-start justify-between">
+                      <Icon className="h-6 w-6" />
+                      <span className="text-3xl">{o.emoji}</span>
+                    </div>
+                    <div>
+                      <div className="font-display text-2xl font-extrabold leading-tight">{o.title}</div>
+                      <div className="mt-1 font-mono text-[11px] uppercase tracking-wider opacity-70">{o.tagline}</div>
+                    </div>
+                    <ArrowUpRight className="absolute right-4 top-4 h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
+                  </Link>
+                </div>
               );
             })}
           </div>

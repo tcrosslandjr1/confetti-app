@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as PlanRouteImport } from './routes/plan'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MeRouteImport } from './routes/me'
@@ -28,6 +29,11 @@ import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
 import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
 
+const ReservationsRoute = ReservationsRouteImport.update({
+  id: '/reservations',
+  path: '/reservations',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PlanRoute = PlanRouteImport.update({
   id: '/plan',
   path: '/plan',
@@ -126,6 +132,7 @@ export interface FileRoutesByFullPath {
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRoute
+  '/reservations': typeof ReservationsRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
@@ -145,6 +152,7 @@ export interface FileRoutesByTo {
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRoute
+  '/reservations': typeof ReservationsRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
@@ -166,6 +174,7 @@ export interface FileRoutesById {
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRoute
+  '/reservations': typeof ReservationsRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
@@ -188,6 +197,7 @@ export interface FileRouteTypes {
     | '/me'
     | '/onboarding'
     | '/plan'
+    | '/reservations'
     | '/api/chat'
     | '/concierge/passport'
     | '/concierge/profile'
@@ -207,6 +217,7 @@ export interface FileRouteTypes {
     | '/me'
     | '/onboarding'
     | '/plan'
+    | '/reservations'
     | '/api/chat'
     | '/concierge/passport'
     | '/concierge/profile'
@@ -227,6 +238,7 @@ export interface FileRouteTypes {
     | '/me'
     | '/onboarding'
     | '/plan'
+    | '/reservations'
     | '/api/chat'
     | '/concierge/passport'
     | '/concierge/profile'
@@ -248,6 +260,7 @@ export interface RootRouteChildren {
   MeRoute: typeof MeRoute
   OnboardingRoute: typeof OnboardingRoute
   PlanRoute: typeof PlanRoute
+  ReservationsRoute: typeof ReservationsRoute
   ApiChatRoute: typeof ApiChatRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   IdeasSlugRoute: typeof IdeasSlugRoute
@@ -258,6 +271,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/reservations': {
+      id: '/reservations'
+      path: '/reservations'
+      fullPath: '/reservations'
+      preLoaderRoute: typeof ReservationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/plan': {
       id: '/plan'
       path: '/plan'
@@ -425,6 +445,7 @@ const rootRouteChildren: RootRouteChildren = {
   MeRoute: MeRoute,
   OnboardingRoute: OnboardingRoute,
   PlanRoute: PlanRoute,
+  ReservationsRoute: ReservationsRoute,
   ApiChatRoute: ApiChatRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   IdeasSlugRoute: IdeasSlugRoute,

@@ -118,9 +118,11 @@ function getDetails(venue: string, vibe: string) {
   if (!dietary.includes("Gluten-free menu")) dietary.push("Gluten-free menu");
   if (!dietary.includes("Vegan options")) dietary.push("Vegan options");
   if (!dietary.includes("Vegetarian")) dietary.push("Vegetarian");
+  if (!dietary.includes("Pescatarian")) dietary.push("Pescatarian");
   const glutenFree = dietary.includes("Gluten-free menu");
   const vegan = dietary.includes("Vegan options");
   const vegetarian = dietary.includes("Vegetarian");
+  const pescatarian = dietary.includes("Pescatarian");
   // Allergens the kitchen can accommodate (request ahead)
   const allergens = ALL_ALLERGENS.filter((_, i) => ((h >> (i + 2)) & 1) === 1).slice(0, 4);
   return {

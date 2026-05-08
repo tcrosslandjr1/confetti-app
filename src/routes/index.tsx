@@ -27,6 +27,18 @@ function Gate() {
     }
     let cancelled = false;
     (async () => {
+      // Admins skip onboarding entirely
+      const { data: roleRow } = await supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", user.id)
+        .eq("role", "admin")
+        .maybeSingle();
+      if (cancelled) return;
+      if (roleRow) {
+        void navigate({ to: "/concierge" });
+        return;
+      }
       const { data } = await supabase
         .from("profiles")
         .select("onboarding_complete")

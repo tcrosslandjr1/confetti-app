@@ -98,3 +98,94 @@ export function shiftTimeLabel(label: string, minutesLate: number): string {
   const h12 = ((h24 + 11) % 12) + 1;
   return `${h12}:${mm.toString().padStart(2, "0")} ${outMer}`;
 }
+
+export function setRescheduled(tripId: string, isoDateTime: string): TripStatus {
+  const prev = loadStatus(tripId) ?? { minutesLate: 0, updatedAt: new Date().toISOString() };
+  const next: TripStatus = {
+    ...prev,
+    minutesLate: 0,
+    cancelled: false,
+    rescheduledAt: isoDateTime,
+    updatedAt: new Date().toISOString(),
+  };
+  saveStatus(tripId, next);
+  return next;
+}
+
+export function setCancelled(tripId: string): TripStatus {
+  const next: TripStatus = {
+    minutesLate: 0,
+    cancelled: true,
+    updatedAt: new Date().toISOString(),
+  };
+  saveStatus(tripId, next);
+  return next;
+}
+
+// ───────────────────────────── Notification history ─────────────────────────────
+
+export type NotificationKind = "late" | "reschedule" | "cancel";
+
+export type SentNotification = {
+  id: string;
+  tripId: string;
+  kind: NotificationKind;
+  venue: string;       // venue name OR "Guests" for guest broadcast
+  message: string;
+  sentAt: string;      // ISO
+};
+
+const NOTIF_PREFIX = "confetti.notifications.";
+const NOTIF_EVENT = "confetti.notifications.changed";
+
+function notifKey(tripId: string) { return NOTIF_PREFIX + tripId; }
+
+export function loadNotifications(tripId: string): SentNotification[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = window.localStorage.getItem(notifKey(tripId));
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed as SentNotification[] : [];
+  } catch { return []; }
+}
+
+export function appendNotifications(tripId: string, items: Omit<SentNotification, "id" | "tripId" | "sentAt">[]): SentNotification[] {
+  const now = new Date().toISOString();
+  const existing = loadNotifications(tripId);
+  const added: SentNotification[] = items.map((it) => ({
+    ...it,
+    id: (crypto.randomUUID?.() ?? Math.random().toString(36).slice(2)),
+    tripId,
+    sentAt: now,
+  }));
+  const next = [...added, ...existing].slice(0, 200);
+  try {
+    window.localStorage.setItem(notifKey(tripId), JSON.stringify(next));
+    window.dispatchEvent(new CustomEvent(NOTIF_EVENT, { detail: { tripId } }));
+  } catch { /* ignore */ }
+  return next;
+}
+
+export function clearNotifications(tripId: string) {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.removeItem(notifKey(tripId));
+    window.dispatchEvent(new CustomEvent(NOTIF_EVENT, { detail: { tripId } }));
+  } catch { /* ignore */ }
+}
+
+export function subscribeNotifications(tripId: string, onChange: () => void): () => void {
+  if (typeof window === "undefined") return () => {};
+  const onStorage = (e: StorageEvent) => { if (e.key === notifKey(tripId)) onChange(); };
+  const onCustom = (e: Event) => {
+    const detail = (e as CustomEvent<{ tripId?: string }>).detail;
+    if (!detail?.tripId || detail.tripId === tripId) onChange();
+  };
+  window.addEventListener("storage", onStorage);
+  window.addEventListener(NOTIF_EVENT, onCustom);
+  return () => {
+    window.removeEventListener("storage", onStorage);
+    window.removeEventListener(NOTIF_EVENT, onCustom);
+  };
+}

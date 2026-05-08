@@ -88,45 +88,46 @@ export function StepsShowcase() {
         {STEPS.map((s, i) => {
           const isOpen = open === i;
           return (
-            <div
-              key={s.n}
-              style={{ transform: `rotate(${s.rot})` }}
-              onMouseEnter={() => setOpen(i)}
-              onFocus={() => setOpen(i)}
-            >
-              <button
-                type="button"
-                onClick={() => setOpen(isOpen ? null : i)}
-                aria-expanded={isOpen}
-                className={`tilt-3d grain ${s.glow} group relative w-full overflow-hidden rounded-3xl border-2 border-ink ${s.color} p-7 text-left text-ink shadow-brut`}
+            <Reveal key={s.n} delay={i * 160} variant="scale">
+              <div
+                style={{ transform: `rotate(${s.rot})` }}
+                onMouseEnter={() => setOpen(i)}
+                onFocus={() => setOpen(i)}
               >
-                <div className="flex items-baseline justify-between">
-                  <span className="font-display text-7xl font-extrabold leading-none">{s.n}</span>
-                  <span className="font-mono text-[11px] uppercase tracking-widest">{s.kicker}</span>
-                </div>
-                <h3 className="mt-8 font-display text-2xl font-extrabold leading-tight">{s.title}</h3>
-                <p className="mt-3 text-base leading-snug">{s.body}</p>
-
-                {/* mini animated preview */}
-                <div
-                  className={`mt-5 grid overflow-hidden transition-all duration-500 ease-out ${
-                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                  }`}
+                <button
+                  type="button"
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  aria-expanded={isOpen}
+                  className={`tilt-3d grain ${s.glow} group relative w-full overflow-hidden rounded-3xl border-2 border-ink ${s.color} p-7 text-left text-ink shadow-brut transition-pop hover:-translate-y-1 hover:shadow-brut-lg`}
                 >
-                  <div className="min-h-0">
-                    <div className="rounded-2xl border-2 border-ink bg-cream/70 p-4">
-                      {i === 0 && <PreviewVibe active={isOpen} />}
-                      {i === 1 && <PreviewRoute active={isOpen} />}
-                      {i === 2 && <PreviewVault active={isOpen} />}
+                  <div className="flex items-baseline justify-between">
+                    <span className="font-display text-7xl font-extrabold leading-none">{s.n}</span>
+                    <span className="font-mono text-[11px] uppercase tracking-widest">{s.kicker}</span>
+                  </div>
+                  <h3 className="mt-8 font-display text-2xl font-extrabold leading-tight">{s.title}</h3>
+                  <p className="mt-3 text-base leading-snug">{s.body}</p>
+
+                  {/* mini animated preview */}
+                  <div
+                    className={`mt-5 grid overflow-hidden transition-all duration-500 ease-out ${
+                      isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="min-h-0">
+                      <div className="rounded-2xl border-2 border-ink bg-cream/70 p-4">
+                        {i === 0 && <PreviewVibe active={isOpen} />}
+                        {i === 1 && <PreviewRoute active={isOpen} />}
+                        {i === 2 && <PreviewVault active={isOpen} />}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <span className="mt-4 inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-widest opacity-70">
-                  {isOpen ? "tap to collapse" : "tap to peek inside"}
-                </span>
-              </button>
-            </div>
+                  <span className="mt-4 inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-widest opacity-70">
+                    {isOpen ? "tap to collapse" : "tap to peek inside"}
+                  </span>
+                </button>
+              </div>
+            </Reveal>
           );
         })}
       </div>

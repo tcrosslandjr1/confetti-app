@@ -2,12 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { zodValidator, fallback } from "@tanstack/zod-adapter";
 import { z } from "zod";
 import { useEffect, useMemo, useState } from "react";
-import { Calendar, Check, CheckCircle2, Clock, MapPin, PartyPopper, Sparkles, X } from "lucide-react";
+import { Calendar, Check, CheckCircle2, Clock, MapPin, PartyPopper, Play, Sparkles, X } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
-import { findInviteByToken, setInviteStatus, type Invite } from "@/lib/invites";
+import { findInviteByToken, loadInviteVideo, setInviteStatus, type Invite } from "@/lib/invites";
 
 const rsvpSearchSchema = z.object({
   invite: fallback(z.string(), "").default(""),
+  v: fallback(z.string(), "").default(""),
 });
 
 export const Route = createFileRoute("/rsvp/$tripId")({

@@ -185,12 +185,25 @@ function ReadyPage() {
   useEffect(() => {
     setInvitesState(loadInvites(TRIP.id));
     setVideoUrl(loadInviteVideo(TRIP.id));
+    setVotes(loadVotes(TRIP.id));
     const unsub = subscribeInvites(TRIP.id, () => {
       setInvitesState(loadInvites(TRIP.id));
       setVideoUrl(loadInviteVideo(TRIP.id));
     });
-    return unsub;
+    const unsubVotes = subscribeVotes(TRIP.id, () => setVotes(loadVotes(TRIP.id)));
+    return () => { unsub(); unsubVotes(); };
   }, []);
+
+  async function copyCollabLink() {
+    try {
+      await navigator.clipboard.writeText(collabUrl);
+      setCollabCopied(true);
+      toast.success("Collab link copied", { description: "Anyone with the link can vote on each stop." });
+      setTimeout(() => setCollabCopied(false), 2000);
+    } catch {
+      toast.error("Couldn't copy — long-press the link instead.");
+    }
+  }
 
   async function handleVideoUpload(file: File) {
     if (!file.type.startsWith("video/")) {

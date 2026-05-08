@@ -56,6 +56,12 @@ function RsvpPage() {
     setLoaded(true);
   }, [tripId, token]);
 
+  // Live host status (running late / on time) — synced via storage events.
+  useEffect(() => {
+    setTripStatus(loadStatus(tripId));
+    return subscribeStatus(tripId, () => setTripStatus(loadStatus(tripId)));
+  }, [tripId]);
+
   // Resolve video URL: prefer the one in the link (works cross-device), fall back to localStorage.
   useEffect(() => {
     if (videoFromUrl) {

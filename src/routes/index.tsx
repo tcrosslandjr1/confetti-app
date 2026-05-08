@@ -1,4 +1,4 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
@@ -16,28 +16,33 @@ export const Route = createFileRoute("/")({
 
 function Gate() {
   const { user, loading } = useAuth();
+  const navigate = useNavigate();
   const [checking, setChecking] = useState(true);
 
   useEffect(() => {
     if (loading) return;
     if (!user) {
-      throw redirect({ to: "/auth" });
+      void navigate({ to: "/auth" });
+      return;
     }
+    let cancelled = false;
     (async () => {
       const { data } = await supabase
         .from("profiles")
         .select("onboarding_complete")
         .eq("id", user.id)
         .maybeSingle();
+      if (cancelled) return;
       if (!data?.onboarding_complete) {
-        throw redirect({ to: "/onboarding" });
+        void navigate({ to: "/onboarding" });
+      } else {
+        void navigate({ to: "/concierge" });
       }
-      throw redirect({ to: "/concierge" });
-    })().catch((r) => {
-      if (r && typeof r === "object" && "to" in r) throw r;
-      setChecking(false);
+    })().catch(() => {
+      if (!cancelled) setChecking(false);
     });
-  }, [user, loading]);
+    return () => { cancelled = true; };
+  }, [user, loading, navigate]);
 
   return (
     <div className="grid min-h-screen place-items-center bg-background px-6">

@@ -98,6 +98,8 @@ export function BuildMyNightWizard() {
       vibe: s.vibe ?? "Curated pick",
       tone: s.tone ?? fallbackTones[i % fallbackTones.length],
       walk: s.walk,
+      address: s.address,
+      neighborhood: s.neighborhood,
     })),
     [preset]
   );

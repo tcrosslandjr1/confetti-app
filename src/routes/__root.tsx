@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { AuthProvider } from "@/lib/auth-context";
+import { RoleSwitcher } from "@/components/RoleSwitcher";
 
 function NotFoundComponent() {
   return (
@@ -117,6 +118,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <Outlet />
+        <RoleSwitcher />
       </AuthProvider>
     </QueryClientProvider>
   );

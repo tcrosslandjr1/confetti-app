@@ -156,6 +156,8 @@ function StatusBadge({ status }: { status: Status }) {
 }
 
 function AdminModerationPage() {
+  const { user } = useAuth();
+  const adminEmail = user?.email ?? "admin";
   const [reports, setReports] = useState<Report[]>(SEED);
   const [tab, setTab] = useState<"pending" | "approved" | "removed" | "all">("pending");
   const [typeFilter, setTypeFilter] = useState<"all" | ItemType>("all");

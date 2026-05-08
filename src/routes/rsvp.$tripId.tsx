@@ -37,16 +37,35 @@ const TRIP_PREVIEW = {
 
 function RsvpPage() {
   const { tripId } = Route.useParams();
-  const { invite: token } = Route.useSearch();
+  const { invite: token, v: videoFromUrl } = Route.useSearch();
   const [invite, setInvite] = useState<Invite | null>(null);
   const [loaded, setLoaded] = useState(false);
   const [pulse, setPulse] = useState(false);
+  const [revealedStops, setRevealedStops] = useState(0);
+  const [videoUrl, setVideoUrl] = useState<string | null>(null);
 
   useEffect(() => {
     if (!token) { setLoaded(true); return; }
     setInvite(findInviteByToken(tripId, token));
     setLoaded(true);
   }, [tripId, token]);
+
+  // Resolve video URL: prefer the one in the link (works cross-device), fall back to localStorage.
+  useEffect(() => {
+    if (videoFromUrl) {
+      try { setVideoUrl(decodeURIComponent(videoFromUrl)); return; } catch { /* ignore */ }
+    }
+    setVideoUrl(loadInviteVideo(tripId));
+  }, [tripId, videoFromUrl]);
+
+  // Staggered timeline reveal — runs once after the page mounts.
+  useEffect(() => {
+    setRevealedStops(0);
+    const timers = TRIP_PREVIEW.stops.map((_, i) =>
+      setTimeout(() => setRevealedStops((n) => Math.max(n, i + 1)), 600 + i * 550)
+    );
+    return () => timers.forEach(clearTimeout);
+  }, []);
 
   const status = invite?.status ?? null;
   const accepted = status === "accepted";

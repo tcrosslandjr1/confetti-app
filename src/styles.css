@@ -119,6 +119,12 @@
   50%      { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }
 
+@keyframes card-pop-in {
+  0%   { transform: perspective(900px) rotateX(0) rotateY(0) scale(1); }
+  60%  { transform: perspective(900px) rotateX(6deg) rotateY(-8deg) scale(1.06); }
+  100% { transform: perspective(900px) rotateX(4deg) rotateY(-6deg) scale(1.04); }
+}
+
 @layer base {
   * { border-color: var(--color-border); }
   html { font-family: var(--font-sans); }

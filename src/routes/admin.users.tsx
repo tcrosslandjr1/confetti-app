@@ -114,15 +114,31 @@ function AdminUsersPage() {
   }, [users, query, roleFilter, statusFilter]);
 
   const setRole = (id: string, role: Role) => {
-    setUsers((prev) => prev.map((u) => (u.id === id ? { ...u, role } : u)));
+    const u = users.find((x) => x.id === id);
+    setUsers((prev) => prev.map((x) => (x.id === id ? { ...x, role } : x)));
     toast.success(`Role updated to ${role}`);
+    logAudit({
+      admin: adminEmail,
+      action: "role",
+      entity: "user",
+      targetId: id,
+      summary: `Set role to ${role}${u ? ` for ${u.name}` : ""}`,
+    });
   };
 
   const setStatus = (id: string, status: Status) => {
-    setUsers((prev) => prev.map((u) => (u.id === id ? { ...u, status } : u)));
+    const u = users.find((x) => x.id === id);
+    setUsers((prev) => prev.map((x) => (x.id === id ? { ...x, status } : x)));
     toast.success(
       status === "active" ? "Account reactivated" : status === "suspended" ? "Account suspended" : "Invite re-sent",
     );
+    logAudit({
+      admin: adminEmail,
+      action: "status",
+      entity: "user",
+      targetId: id,
+      summary: `${status === "active" ? "Activated" : status === "suspended" ? "Suspended" : "Re-invited"}${u ? ` ${u.name}` : ""}`,
+    });
   };
 
   return (

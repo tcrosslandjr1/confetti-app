@@ -125,7 +125,23 @@
   100% { transform: perspective(900px) rotateX(4deg) rotateY(-6deg) scale(1.04); }
 }
 
-@layer base {
+@keyframes hero-shift {
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
+}
+@keyframes float-card {
+  0%, 100% { transform: rotate(2deg) translateY(0); }
+  50%      { transform: rotate(2deg) translateY(-10px); }
+}
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
+  50%      { box-shadow: 0 0 0 6px transparent; opacity: 0.85; }
+}
+@keyframes blink-caret {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
   * { border-color: var(--color-border); }
   html { font-family: var(--font-sans); }
   body {

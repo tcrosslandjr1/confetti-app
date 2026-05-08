@@ -79,7 +79,15 @@ For booking_url, provide a SEARCH URL (e.g. https://www.opentable.com/s?term=...
 For each stop also produce:
 - 2-3 short reviewSnippets — one sentence each, what real visitors typically say (varied tone). These are AI-summarized, not real quotes.
 - A parking object: type (lot|street|valet|garage|transit), cost ("$5-10/hr" or "free"), access (1 short sentence on how to access).
-- 2-3 tips: insider advice like best time to arrive, what to skip, dress code, kid-friendly notes.`;
+- 2-3 tips: insider advice like best time to arrive, what to skip, dress code, kid-friendly notes.
+
+TRAVEL PLANNING — for EVERY stop AFTER the first one, include a travelFromPrev object describing how to get from the previous stop to this one:
+- mode: pick the BEST mode for this leg given user preference "${b.transportMode ?? "auto"}". If "auto", choose realistically: walk (<0.5mi), transit (dense urban + good transit city), car (suburban / multi-stop with gear), rideshare (drinking involved, no parking, late night).
+- durationMinutes: realistic travel time (account for traffic / typical wait).
+- distance: e.g. "0.4 mi" or "3.2 mi".
+- instructions: 1 short sentence ("Hop on the Red Line northbound 4 stops" / "Quick 8-min drive up Lamar" / "Grab a Lyft — surge unlikely at this hour").
+- estCost: e.g. "free", "$2.50 fare", "$12-18 Uber". Use null for walking.
+The first stop has no travelFromPrev. Make the schedule realistic — startTime of stop N+1 must be roughly stop N's startTime + durationMinutes + travel time.
 
     const tool = {
       type: "function",

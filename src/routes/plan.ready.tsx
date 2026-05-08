@@ -139,7 +139,7 @@ function buildGoogleUrl() {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
-type Invite = { id: string; email: string; token: string; status: "pending" | "sent" };
+import { loadInvites, saveInvites, subscribeInvites, type Invite } from "@/lib/invites";
 
 function makeToken() {
   const bytes = new Uint8Array(8);
@@ -153,7 +153,7 @@ function ReadyPage() {
   const [showConfetti, setShowConfetti] = useState(true);
   const [copied, setCopied] = useState(false);
   const [emailInput, setEmailInput] = useState("");
-  const [invites, setInvites] = useState<Invite[]>([]);
+  const [invites, setInvitesState] = useState<Invite[]>([]);
   const [emailError, setEmailError] = useState<string | null>(null);
 
   const shareUrl = useMemo(() => {
@@ -161,8 +161,25 @@ function ReadyPage() {
     return `${window.location.origin}/trips/${TRIP.id}`;
   }, []);
 
+  const rsvpOrigin = useMemo(() => {
+    if (typeof window === "undefined") return "https://confetti.app";
+    return window.location.origin;
+  }, []);
+
   function inviteUrl(token: string) {
-    return `${shareUrl}?invite=${token}`;
+    return `${rsvpOrigin}/rsvp/${TRIP.id}?invite=${token}`;
+  }
+
+  // Hydrate from localStorage + subscribe to RSVP updates from the rsvp route.
+  useEffect(() => {
+    setInvitesState(loadInvites(TRIP.id));
+    const unsub = subscribeInvites(TRIP.id, () => setInvitesState(loadInvites(TRIP.id)));
+    return unsub;
+  }, []);
+
+  function persist(next: Invite[]) {
+    setInvitesState(next);
+    saveInvites(TRIP.id, next);
   }
 
   useEffect(() => {
@@ -182,13 +199,13 @@ function ReadyPage() {
       setEmailError("Already on the list.");
       return;
     }
-    setInvites((prev) => [...prev, { id: crypto.randomUUID(), email: value, token: makeToken(), status: "pending" }]);
+    persist([...invites, { id: crypto.randomUUID(), email: value, token: makeToken(), status: "pending" }]);
     setEmailInput("");
     setEmailError(null);
   }
 
   function removeInvite(id: string) {
-    setInvites((prev) => prev.filter((i) => i.id !== id));
+    persist(invites.filter((i) => i.id !== id));
   }
 
   async function copyInvite(token: string) {
@@ -219,10 +236,9 @@ function ReadyPage() {
     const body = invites.map((i) => `• ${i.email}\n  ${inviteUrl(i.token)}`).join("\n\n");
     const url = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(intro + "\n" + body)}`;
     window.location.href = url;
-    setInvites((prev) => prev.map((i) => ({ ...i, status: "sent" as const })));
+    persist(invites.map((i) => (i.status === "pending" ? { ...i, status: "sent" as const } : i)));
     toast.success("Opening your email app…", { description: `${invites.length} invite${invites.length > 1 ? "s" : ""} ready to send.` });
   }
-
   async function copyLink() {
     try {
       await navigator.clipboard.writeText(shareUrl);

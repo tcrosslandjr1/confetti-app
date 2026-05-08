@@ -42,6 +42,12 @@ function TripDetail() {
     try { await updateStop(stopId, { user_notes }); } catch (e) { setErr((e as Error).message); }
   }
 
+  async function saveReservation(stopId: string, patch: Partial<Stop>) {
+    if (!data) return;
+    setData({ ...data, stops: data.stops.map((s) => s.id === stopId ? { ...s, ...patch } : s) });
+    try { await updateStop(stopId, patch); } catch (e) { setErr((e as Error).message); }
+  }
+
   async function removeTrip() {
     if (!confirm("Delete this trip?")) return;
     try { await deleteItinerary(id); nav({ to: "/trips" }); } catch (e) { setErr((e as Error).message); }

@@ -28,11 +28,22 @@ function TripDetail() {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
 
+  const [status, setStatus] = useState<TripStatus | null>(null);
+  const [notifications, setNotifications] = useState<SentNotification[]>([]);
+
   useEffect(() => {
     if (authLoading) return;
     if (!user) { nav({ to: "/auth" }); return; }
     getItinerary(id).then(setData).catch((e) => setErr(e.message)).finally(() => setLoading(false));
   }, [id, user, authLoading, nav]);
+
+  useEffect(() => {
+    setStatus(loadStatus(id));
+    setNotifications(loadNotifications(id));
+    const u1 = subscribeStatus(id, () => setStatus(loadStatus(id)));
+    const u2 = subscribeNotifications(id, () => setNotifications(loadNotifications(id)));
+    return () => { u1(); u2(); };
+  }, [id]);
 
   async function setStatus(stopId: string, status: Stop["booking_status"]) {
     if (!data) return;

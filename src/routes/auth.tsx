@@ -6,6 +6,7 @@ import { useAuth } from "@/lib/auth-context";
 import { useEffect } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { seedDemoAccounts } from "@/lib/seed-demo.functions";
+import { lovable } from "@/integrations/lovable";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({ meta: [{ title: "Sign in — Concierge" }] }),
@@ -102,7 +103,26 @@ function AuthPage() {
           </p>
         </div>
 
-        <form onSubmit={onSubmit} className="mt-8 space-y-3">
+        <button
+          type="button"
+          onClick={async () => {
+            setError(null);
+            const { error } = await lovable.auth.signInWithOAuth("google", {
+              redirect_uri: `${window.location.origin}/`,
+            });
+            if (error) setError(error.message);
+          }}
+          className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-border bg-card py-4 text-sm font-semibold transition hover:bg-accent"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 4.5c1.7 0 3.2.6 4.4 1.6l3.3-3.3C17.5 1.1 14.9 0 12 0 7.3 0 3.3 2.7 1.3 6.6l3.9 3C6.2 6.7 8.9 4.5 12 4.5z"/><path fill="#34A853" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.4c-.3 1.5-1.1 2.7-2.4 3.5l3.7 2.9c2.2-2 3.8-5 3.8-8.5z"/><path fill="#4A90E2" d="M5.2 14.4c-.2-.6-.4-1.3-.4-2s.1-1.4.4-2l-3.9-3C.5 9 0 10.5 0 12s.5 3 1.3 4.6l3.9-3.2z"/><path fill="#FBBC05" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.7-2.9c-1 .7-2.4 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5l-3.9 3C3.3 21.3 7.3 24 12 24z"/></svg>
+          Continue with Google
+        </button>
+
+        <div className="my-5 flex items-center gap-3 text-[10px] uppercase tracking-wider text-muted-foreground">
+          <div className="h-px flex-1 bg-border" /> or email <div className="h-px flex-1 bg-border" />
+        </div>
+
+        <form onSubmit={onSubmit} className="space-y-3">
           {mode === "signup" && (
             <input
               value={name}

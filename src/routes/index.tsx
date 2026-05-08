@@ -281,14 +281,18 @@ function Landing() {
             </Link>
           </div>
 
-          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mt-12 -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3 xl:grid-cols-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {OCCASIONS.map((o, i) => {
               const Icon = o.icon;
               const glows = ["glow-coral", "glow-gold", "glow-purple", "glow-teal", "glow-pink"];
               const glow = glows[i % glows.length];
               const rot = (i % 4 - 1.5) * 0.4;
               return (
-                <div key={o.slug} style={{ transform: `rotate(${rot}deg)` }}>
+                <div
+                  key={o.slug}
+                  className="w-[78%] shrink-0 snap-center sm:w-auto sm:shrink"
+                  style={{ transform: `rotate(${rot}deg)` }}
+                >
                   <Link
                     to="/ideas/$slug"
                     params={{ slug: o.slug }}
@@ -308,6 +312,9 @@ function Landing() {
               );
             })}
           </div>
+          <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-cream/50 sm:hidden">
+            ← swipe vibes →
+          </p>
         </div>
       </section>
 

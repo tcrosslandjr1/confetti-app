@@ -2,9 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { zodValidator, fallback } from "@tanstack/zod-adapter";
 import { z } from "zod";
 import { useEffect, useMemo, useState } from "react";
-import { Calendar, Check, CheckCircle2, Clock, MapPin, PartyPopper, Play, Sparkles, X } from "lucide-react";
+import { AlertTriangle, Calendar, Check, CheckCircle2, Clock, MapPin, PartyPopper, Play, Sparkles, X } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { findInviteByToken, loadInviteVideo, setInviteStatus, type Invite } from "@/lib/invites";
+import { checkStopFits } from "@/lib/hours";
 
 const rsvpSearchSchema = z.object({
   invite: fallback(z.string(), "").default(""),
@@ -27,11 +28,12 @@ const TRIP_PREVIEW = {
   date: "This Saturday",
   window: "11:30 AM – 7:30 PM",
   city: "Old Market & East Side",
+  day: "sat" as const,
   stops: [
-    { time: "11:30 AM", name: "Bluebird Coffee Social", neighborhood: "East Side" },
-    { time: "1:15 PM",  name: "The Marigold Rooftop",   neighborhood: "Warehouse District" },
-    { time: "3:15 PM",  name: "Lantern Hill Overlook",  neighborhood: "Riverbend" },
-    { time: "5:30 PM",  name: "Osteria di Pesca",       neighborhood: "Old Market" },
+    { time: "11:30 AM", durationMin: 75,  name: "Bluebird Coffee Social", neighborhood: "East Side" },
+    { time: "1:15 PM",  durationMin: 90,  name: "The Marigold Rooftop",   neighborhood: "Warehouse District" },
+    { time: "3:15 PM",  durationMin: 90,  name: "Lantern Hill Overlook",  neighborhood: "Riverbend" },
+    { time: "5:30 PM",  durationMin: 120, name: "Osteria di Pesca",       neighborhood: "Old Market" },
   ],
 };
 
@@ -207,6 +209,7 @@ function RsvpPage() {
             <ol className="relative space-y-4">
               {TRIP_PREVIEW.stops.map((s, i) => {
                 const shown = i < revealedStops;
+                const fit = checkStopFits(s.name, s.time, s.durationMin, TRIP_PREVIEW.day);
                 return (
                   <li
                     key={i}
@@ -222,9 +225,29 @@ function RsvpPage() {
                     </span>
                     <div className="min-w-0 flex-1 rounded-xl border border-border bg-background/60 p-3">
                       <p className="truncate text-sm font-semibold">{s.name}</p>
-                      <p className="text-xs text-muted-foreground">{s.neighborhood}</p>
+                      <p className="truncate text-xs text-muted-foreground">
+                        {s.neighborhood}
+                        {fit.state !== "unknown" && <> · {fit.hoursLabel}</>}
+                      </p>
                     </div>
-                    <span className="shrink-0 text-sm font-semibold text-muted-foreground">{s.time}</span>
+                    <div className="flex shrink-0 flex-col items-end gap-1">
+                      <span className="text-sm font-semibold text-muted-foreground">{s.time}</span>
+                      {fit.state === "open" && (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
+                          <Check className="h-3 w-3" /> Open
+                        </span>
+                      )}
+                      {fit.state === "tight" && (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
+                          <AlertTriangle className="h-3 w-3" /> Tight
+                        </span>
+                      )}
+                      {fit.state === "closed" && (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-destructive/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-destructive">
+                          <AlertTriangle className="h-3 w-3" /> {fit.reason}
+                        </span>
+                      )}
+                    </div>
                   </li>
                 );
               })}

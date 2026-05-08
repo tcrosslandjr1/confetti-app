@@ -43,6 +43,8 @@ function RsvpPage() {
   const [pulse, setPulse] = useState(false);
   const [revealedStops, setRevealedStops] = useState(0);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const [videoProgress, setVideoProgress] = useState(0);
+  const [videoDone, setVideoDone] = useState(false);
 
   useEffect(() => {
     if (!token) { setLoaded(true); return; }

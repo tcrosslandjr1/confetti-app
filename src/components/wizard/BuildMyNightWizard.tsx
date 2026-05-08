@@ -349,10 +349,13 @@ export function BuildMyNightWizard() {
           {step === 6 && (
             <div>
               <h2 className="font-display text-3xl font-extrabold leading-tight sm:text-4xl">
-                Your night's <span className="font-serif italic font-normal text-coral">locked in.</span>
+                {preset ? preset.title : "Your night's "}
+                {!preset && <span className="font-serif italic font-normal text-coral">locked in.</span>}
               </h2>
               <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-ink/60">
-                {vibe.map((k) => VIBES.find((v) => v.k === k)?.label).filter(Boolean).join(" + ")} · {CREW.find((c) => c.k === crew)?.label} · {budget}
+                {preset
+                  ? [preset.vibeLabel, preset.crewLabel, preset.budgetLabel].filter(Boolean).join(" · ") || "Curated pick · ready to roll"
+                  : `${vibe.map((k) => VIBES.find((v) => v.k === k)?.label).filter(Boolean).join(" + ")} · ${CREW.find((c) => c.k === crew)?.label} · ${budget}`}
               </p>
 
               <ol className="mt-6 space-y-3">

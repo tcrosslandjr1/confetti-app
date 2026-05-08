@@ -1,8 +1,9 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, Bookmark, Clock, DollarSign, Heart, RotateCw, Sparkles, X } from "lucide-react";
+import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { ArrowLeft, Bookmark, CalendarPlus, Clock, DollarSign, Heart, Loader2, RotateCw, Sparkles, X } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { supabase } from "@/integrations/supabase/client";
+import { buildAndSaveItinerary } from "@/lib/itineraries";
 import {
   getOccasion, getSeedIdeas, type Idea, type IdeaFormat,
 } from "@/lib/occasions";

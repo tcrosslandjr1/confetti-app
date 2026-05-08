@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { findInviteByToken, loadInviteVideo, setInviteStatus, type Invite } from "@/lib/invites";
 import { checkStopFits } from "@/lib/hours";
 import { formatUpdatedAt, loadStatus, shiftTimeLabel, subscribeStatus, type TripStatus } from "@/lib/trip-status";
+import { LiveElapsed } from "@/components/LiveElapsed";
 
 const rsvpSearchSchema = z.object({
   invite: fallback(z.string(), "").default(""),
@@ -206,7 +207,7 @@ function RsvpPage() {
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
                   </span>
-                  Running ~{tripStatus.minutesLate} min late · {formatUpdatedAt(tripStatus.updatedAt)}
+                  Running ~{tripStatus.minutesLate} min late · {formatUpdatedAt(tripStatus.updatedAt)} · <LiveElapsed since={tripStatus.updatedAt} />
                 </span>
               )}
               <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {TRIP_PREVIEW.window}</span>

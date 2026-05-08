@@ -145,8 +145,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Users, AlertTriangle, Timer, Zap } from "lucide-react";
 import { checkStopFits, dayKeyFromDate } from "@/lib/hours";
 import { clearStatus, formatUpdatedAt, loadStatus, setMinutesLate, shiftTimeLabel, subscribeStatus, type TripStatus, loadNotifications, subscribeNotifications, clearNotifications, type SentNotification } from "@/lib/trip-status";
-import { LateRescheduleFab } from "@/components/LateRescheduleFab";
-import { History, RotateCcw } from "lucide-react";
+import { LiveElapsed } from "@/components/LiveElapsed";
 
 function makeToken() {
   const bytes = new Uint8Array(8);
@@ -465,7 +464,7 @@ function ReadyPage() {
             </div>
             {status && (
               <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
-                <span>{formatUpdatedAt(status.updatedAt)}</span>
+                <span>{formatUpdatedAt(status.updatedAt)} · <LiveElapsed since={status.updatedAt} /></span>
                 <button
                   type="button"
                   onClick={resetStatus}
@@ -556,7 +555,7 @@ function ReadyPage() {
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
                   </span>
-                  Running ~{status.minutesLate} min late · {formatUpdatedAt(status.updatedAt)}
+                  Running ~{status.minutesLate} min late · {formatUpdatedAt(status.updatedAt)} · <LiveElapsed since={status.updatedAt} />
                 </span>
               )}
               <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> 11:30 AM – 7:30 PM</span>

@@ -12,6 +12,9 @@ import appCss from "../styles.css?url";
 import { AuthProvider } from "@/lib/auth-context";
 import { RoleSwitcher } from "@/components/RoleSwitcher";
 import { Toaster } from "@/components/ui/sonner";
+import { WizardProvider } from "@/components/wizard/wizard-context";
+import { BuildMyNightWizard } from "@/components/wizard/BuildMyNightWizard";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 function NotFoundComponent() {
   return (

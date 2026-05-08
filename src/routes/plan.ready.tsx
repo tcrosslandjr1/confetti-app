@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { CalendarPlus, CheckCircle2, Clock, MapPin, PartyPopper, Share2, Sparkles, Users } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { Apple, Calendar, Check, CheckCircle2, Clock, Copy, Link as LinkIcon, MapPin, PartyPopper, Send, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { toast } from "sonner";
 
@@ -16,29 +16,125 @@ export const Route = createFileRoute("/plan/ready")({
 
 const STOPS = [
   { time: "11:30 AM", name: "Bluebird Coffee Social", neighborhood: "East Side" },
-  { time: "1:15 PM", name: "The Marigold Rooftop", neighborhood: "Warehouse District" },
-  { time: "3:15 PM", name: "Lantern Hill Overlook", neighborhood: "Riverbend" },
-  { time: "5:30 PM", name: "Osteria di Pesca", neighborhood: "Old Market" },
+  { time: "1:15 PM",  name: "The Marigold Rooftop", neighborhood: "Warehouse District" },
+  { time: "3:15 PM",  name: "Lantern Hill Overlook", neighborhood: "Riverbend" },
+  { time: "5:30 PM",  name: "Osteria di Pesca",     neighborhood: "Old Market" },
 ];
+
+const TRIP = {
+  id: "PLN-A7K2",
+  title: "Confetti — Date Night Day",
+  description: "A little romance, end-to-end. 4 stops curated by Confetti.",
+  // Saturday 11:30 AM – 7:30 PM (next Saturday)
+  start: nextSaturdayAt(11, 30),
+  end:   nextSaturdayAt(19, 30),
+  location: "Old Market & East Side",
+};
+
+function nextSaturdayAt(h: number, m: number) {
+  const d = new Date();
+  const delta = (6 - d.getDay() + 7) % 7 || 7;
+  d.setDate(d.getDate() + delta);
+  d.setHours(h, m, 0, 0);
+  return d;
+}
+
+function fmtUTC(d: Date) {
+  // YYYYMMDDTHHmmssZ
+  return d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+}
+
+function buildIcs() {
+  const stopLines = STOPS.map((s) => `${s.time} — ${s.name} (${s.neighborhood})`).join("\\n");
+  return [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Confetti//Plan//EN",
+    "CALSCALE:GREGORIAN",
+    "METHOD:PUBLISH",
+    "BEGIN:VEVENT",
+    `UID:${TRIP.id}@confetti.app`,
+    `DTSTAMP:${fmtUTC(new Date())}`,
+    `DTSTART:${fmtUTC(TRIP.start)}`,
+    `DTEND:${fmtUTC(TRIP.end)}`,
+    `SUMMARY:${TRIP.title}`,
+    `DESCRIPTION:${TRIP.description}\\n\\nItinerary:\\n${stopLines}`,
+    `LOCATION:${TRIP.location}`,
+    "END:VEVENT",
+    "END:VCALENDAR",
+  ].join("\r\n");
+}
+
+function buildGoogleUrl() {
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: TRIP.title,
+    dates: `${fmtUTC(TRIP.start)}/${fmtUTC(TRIP.end)}`,
+    details: `${TRIP.description}\n\n` + STOPS.map((s) => `${s.time} — ${s.name} (${s.neighborhood})`).join("\n"),
+    location: TRIP.location,
+  });
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
 
 function ReadyPage() {
   const [showConfetti, setShowConfetti] = useState(true);
+  const [copied, setCopied] = useState(false);
+
+  const shareUrl = useMemo(() => {
+    if (typeof window === "undefined") return `https://confetti.app/trips/${TRIP.id}`;
+    return `${window.location.origin}/trips/${TRIP.id}`;
+  }, []);
+
   useEffect(() => {
     const t = setTimeout(() => setShowConfetti(false), 2500);
     return () => clearTimeout(t);
   }, []);
 
-  function copyLink() {
-    navigator.clipboard?.writeText(window.location.origin + "/plan/preview");
-    toast.success("Link copied", { description: "Send it to whoever's coming along." });
+  async function copyLink() {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      toast.success("Link copied", { description: "Send it to whoever's coming along." });
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      toast.error("Couldn't copy — long-press the link instead.");
+    }
   }
 
-  function addToCalendar() {
-    toast.success("Added to your calendar", { description: "Saturday, 11:30 AM – 7:30 PM" });
+  function downloadIcs() {
+    const blob = new Blob([buildIcs()], { type: "text/calendar;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "confetti-plan.ics";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1500);
+    toast.success("Apple Calendar file ready", { description: "Open the .ics to add it." });
   }
 
-  function invite() {
-    toast.success("Invite sheet ready", { description: "Pick people to bring along." });
+  function openGoogle() {
+    window.open(buildGoogleUrl(), "_blank", "noopener,noreferrer");
+    toast.success("Opening Google Calendar…");
+  }
+
+  async function appleInvites() {
+    const text = `${TRIP.title}\n${TRIP.description}\n\n${shareUrl}`;
+    if (typeof navigator !== "undefined" && "share" in navigator) {
+      try {
+        await (navigator as Navigator & { share: (d: ShareData) => Promise<void> }).share({
+          title: TRIP.title,
+          text,
+          url: shareUrl,
+        });
+        return;
+      } catch {
+        // user cancelled or unsupported — fall through
+      }
+    }
+    await navigator.clipboard?.writeText(text);
+    toast.success("Invite text copied", { description: "Paste it into Apple Invites or Messages." });
   }
 
   return (
@@ -73,7 +169,7 @@ function ReadyPage() {
             <CheckCircle2 className="h-8 w-8" strokeWidth={2.5} />
           </div>
           <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-            <Sparkles className="h-3 w-3 text-primary" /> Plan saved
+            <Sparkles className="h-3 w-3 text-primary" /> Plan saved · {TRIP.id}
           </span>
           <h1 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
             You're <span className="text-gradient">ready to roll.</span>
@@ -111,16 +207,50 @@ function ReadyPage() {
           </ol>
         </section>
 
-        {/* Actions */}
-        <div className="mt-6 grid gap-3 sm:grid-cols-3">
-          <button onClick={addToCalendar} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-card p-4 text-sm font-semibold transition-all hover:border-primary hover:text-primary hover:shadow-pop">
-            <CalendarPlus className="h-4 w-4" /> Add to calendar
+        {/* Shareable link */}
+        <section className="mt-6 rounded-3xl border border-border bg-card p-4 shadow-card sm:p-5">
+          <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+            <LinkIcon className="h-3.5 w-3.5 text-primary" /> Shareable trip link
+          </div>
+          <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center">
+            <div className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-border bg-muted/40 px-3 py-2.5">
+              <span className="truncate font-mono text-xs text-foreground">{shareUrl}</span>
+            </div>
+            <button
+              onClick={copyLink}
+              className={`inline-flex items-center justify-center gap-2 rounded-xl border border-border px-4 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary hover:shadow-pop ${copied ? "border-primary text-primary" : ""}`}
+            >
+              {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+              {copied ? "Copied" : "Copy link"}
+            </button>
+          </div>
+          <p className="mt-2 text-[11px] text-muted-foreground">
+            Anyone with the link can view the plan. They don't need an account.
+          </p>
+        </section>
+
+        {/* Calendar + invites */}
+        <div className="mt-4 grid gap-3 sm:grid-cols-3">
+          <button onClick={downloadIcs} className="group inline-flex flex-col items-start gap-1.5 rounded-2xl border border-border bg-card p-4 text-left transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-pop">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-foreground text-background">
+              <Apple className="h-4 w-4" />
+            </span>
+            <span className="text-sm font-semibold">Apple Calendar</span>
+            <span className="text-[11px] text-muted-foreground">Downloads a .ics file</span>
           </button>
-          <button onClick={copyLink} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-card p-4 text-sm font-semibold transition-all hover:border-primary hover:text-primary hover:shadow-pop">
-            <Share2 className="h-4 w-4" /> Share the plan
+          <button onClick={openGoogle} className="group inline-flex flex-col items-start gap-1.5 rounded-2xl border border-border bg-card p-4 text-left transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-pop">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 via-emerald-500 to-amber-500 text-white">
+              <Calendar className="h-4 w-4" />
+            </span>
+            <span className="text-sm font-semibold">Google Calendar</span>
+            <span className="text-[11px] text-muted-foreground">Opens a pre-filled event</span>
           </button>
-          <button onClick={invite} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-card p-4 text-sm font-semibold transition-all hover:border-primary hover:text-primary hover:shadow-pop">
-            <Users className="h-4 w-4" /> Invite the crew
+          <button onClick={appleInvites} className="group inline-flex flex-col items-start gap-1.5 rounded-2xl border border-border bg-card p-4 text-left transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-pop">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-purple-500 text-white">
+              <Send className="h-4 w-4" />
+            </span>
+            <span className="text-sm font-semibold">Apple Invites</span>
+            <span className="text-[11px] text-muted-foreground">Share via system sheet</span>
           </button>
         </div>
 

@@ -80,7 +80,7 @@ function BrowseEvents() {
 
           <div className="mt-5 flex flex-wrap gap-2">
             <button
-              onClick={() => navigate({ search: (p) => ({ ...p, cat: undefined }) })}
+              onClick={() => navigate({ search: (p: any) => ({ ...p, cat: undefined }) })}
               className={`rounded-full px-4 py-2 text-sm font-semibold transition-pop ${
                 !search.cat
                   ? "bg-foreground text-background"

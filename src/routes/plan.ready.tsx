@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { Apple, Calendar, Check, CheckCircle2, Clock, Copy, Link as LinkIcon, MapPin, PartyPopper, Send, Sparkles } from "lucide-react";
+import { Apple, Calendar, Check, CheckCircle2, Clock, Copy, Link as LinkIcon, Mail, MapPin, PartyPopper, Plus, Send, Sparkles, UserPlus, X } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { toast } from "sonner";
 
@@ -139,19 +139,89 @@ function buildGoogleUrl() {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
+type Invite = { id: string; email: string; token: string; status: "pending" | "sent" };
+
+function makeToken() {
+  const bytes = new Uint8Array(8);
+  crypto.getRandomValues(bytes);
+  return Array.from(bytes, (b) => b.toString(36).padStart(2, "0")).join("").slice(0, 10);
+}
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 function ReadyPage() {
   const [showConfetti, setShowConfetti] = useState(true);
   const [copied, setCopied] = useState(false);
+  const [emailInput, setEmailInput] = useState("");
+  const [invites, setInvites] = useState<Invite[]>([]);
+  const [emailError, setEmailError] = useState<string | null>(null);
 
   const shareUrl = useMemo(() => {
     if (typeof window === "undefined") return `https://confetti.app/trips/${TRIP.id}`;
     return `${window.location.origin}/trips/${TRIP.id}`;
   }, []);
 
+  function inviteUrl(token: string) {
+    return `${shareUrl}?invite=${token}`;
+  }
+
   useEffect(() => {
     const t = setTimeout(() => setShowConfetti(false), 2500);
     return () => clearTimeout(t);
   }, []);
+
+  function addInvite(e?: React.FormEvent) {
+    e?.preventDefault();
+    const value = emailInput.trim().toLowerCase();
+    if (!value) return;
+    if (!EMAIL_RE.test(value)) {
+      setEmailError("That doesn't look like a valid email.");
+      return;
+    }
+    if (invites.some((i) => i.email === value)) {
+      setEmailError("Already on the list.");
+      return;
+    }
+    setInvites((prev) => [...prev, { id: crypto.randomUUID(), email: value, token: makeToken(), status: "pending" }]);
+    setEmailInput("");
+    setEmailError(null);
+  }
+
+  function removeInvite(id: string) {
+    setInvites((prev) => prev.filter((i) => i.id !== id));
+  }
+
+  async function copyInvite(token: string) {
+    try {
+      await navigator.clipboard.writeText(inviteUrl(token));
+      toast.success("Invite link copied");
+    } catch {
+      toast.error("Couldn't copy. Long-press the link instead.");
+    }
+  }
+
+  async function copyAllInvites() {
+    if (!invites.length) return;
+    const lines = invites.map((i) => `${i.email} → ${inviteUrl(i.token)}`).join("\n");
+    try {
+      await navigator.clipboard.writeText(lines);
+      toast.success(`Copied ${invites.length} invite link${invites.length > 1 ? "s" : ""}`);
+    } catch {
+      toast.error("Couldn't copy the list.");
+    }
+  }
+
+  function sendInvites() {
+    if (!invites.length) return;
+    const subject = `You're invited: ${TRIP.title}`;
+    const intro = `Hey — I just locked in plans and want you in.\n\n${TRIP.title}\n${TRIP.description}\n`;
+    const to = invites.map((i) => i.email).join(",");
+    const body = invites.map((i) => `• ${i.email}\n  ${inviteUrl(i.token)}`).join("\n\n");
+    const url = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(intro + "\n" + body)}`;
+    window.location.href = url;
+    setInvites((prev) => prev.map((i) => ({ ...i, status: "sent" as const })));
+    toast.success("Opening your email app…", { description: `${invites.length} invite${invites.length > 1 ? "s" : ""} ready to send.` });
+  }
 
   async function copyLink() {
     try {
@@ -324,6 +394,110 @@ function ReadyPage() {
             <span className="text-[11px] text-muted-foreground">Share via system sheet</span>
           </button>
         </div>
+
+        {/* Invite the crew */}
+        <section className="mt-6 rounded-3xl border border-border bg-card p-4 shadow-card sm:p-5">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+              <UserPlus className="h-3.5 w-3.5 text-primary" /> Invite the crew
+            </div>
+            {invites.length > 0 && (
+              <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
+                {invites.length} invited
+              </span>
+            )}
+          </div>
+
+          <form onSubmit={addInvite} className="mt-3 flex flex-col gap-2 sm:flex-row">
+            <div className="relative flex-1">
+              <Mail className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <input
+                type="email"
+                inputMode="email"
+                autoComplete="email"
+                placeholder="friend@email.com"
+                value={emailInput}
+                onChange={(e) => { setEmailInput(e.target.value); if (emailError) setEmailError(null); }}
+                aria-invalid={!!emailError}
+                aria-describedby={emailError ? "invite-email-error" : undefined}
+                className={`w-full rounded-xl border bg-background py-2.5 pl-9 pr-3 text-sm outline-none transition-colors focus:border-primary ${emailError ? "border-destructive" : "border-border"}`}
+              />
+            </div>
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-border bg-foreground px-4 py-2.5 text-sm font-semibold text-background transition-all hover:-translate-y-0.5 hover:shadow-pop"
+            >
+              <Plus className="h-4 w-4" /> Add
+            </button>
+          </form>
+          {emailError && (
+            <p id="invite-email-error" className="mt-1.5 text-[11px] font-medium text-destructive">{emailError}</p>
+          )}
+
+          {invites.length > 0 ? (
+            <>
+              <ul className="mt-3 divide-y divide-border overflow-hidden rounded-xl border border-border">
+                {invites.map((i) => (
+                  <li key={i.id} className="flex items-center gap-3 bg-muted/30 px-3 py-2.5">
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-primary/10 text-[11px] font-bold uppercase text-primary">
+                      {i.email[0]}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-semibold">{i.email}</p>
+                      <p className="truncate font-mono text-[11px] text-muted-foreground">{inviteUrl(i.token)}</p>
+                    </div>
+                    {i.status === "sent" ? (
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-600">
+                        <Check className="h-3 w-3" /> Sent
+                      </span>
+                    ) : (
+                      <span className="inline-flex shrink-0 rounded-full bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-600">
+                        Pending
+                      </span>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => copyInvite(i.token)}
+                      title="Copy this invite link"
+                      className="shrink-0 rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-background hover:text-primary"
+                    >
+                      <Copy className="h-3.5 w-3.5" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => removeInvite(i.id)}
+                      title="Remove"
+                      className="shrink-0 rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-background hover:text-destructive"
+                    >
+                      <X className="h-3.5 w-3.5" />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+                <button
+                  type="button"
+                  onClick={sendInvites}
+                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-pop transition-all hover:-translate-y-0.5"
+                >
+                  <Send className="h-4 w-4" /> Send {invites.length} invite{invites.length > 1 ? "s" : ""}
+                </button>
+                <button
+                  type="button"
+                  onClick={copyAllInvites}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary hover:shadow-pop"
+                >
+                  <Copy className="h-4 w-4" /> Copy all links
+                </button>
+              </div>
+            </>
+          ) : (
+            <p className="mt-3 text-[11px] text-muted-foreground">
+              Add anyone you want to invite. Each gets a unique link they can RSVP with — no account needed.
+            </p>
+          )}
+        </section>
 
         {/* Primary CTAs */}
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">

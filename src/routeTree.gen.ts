@@ -25,6 +25,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
@@ -115,6 +116,11 @@ const ConciergeIndexRoute = ConciergeIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ConciergeRoute,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
 const TripsIdRoute = TripsIdRouteImport.update({
   id: '/trips/$id',
   path: '/trips/$id',
@@ -164,7 +170,7 @@ const ConciergeChatThreadIdRoute = ConciergeChatThreadIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/contact': typeof ContactRoute
@@ -181,6 +187,7 @@ export interface FileRoutesByFullPath {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
+  '/admin/': typeof AdminIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/trips/': typeof TripsIndexRoute
@@ -191,7 +198,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
   '/features': typeof FeaturesRoute
@@ -207,6 +213,7 @@ export interface FileRoutesByTo {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
+  '/admin': typeof AdminIndexRoute
   '/concierge': typeof ConciergeIndexRoute
   '/events': typeof EventsIndexRoute
   '/trips': typeof TripsIndexRoute
@@ -218,7 +225,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/contact': typeof ContactRoute
@@ -235,6 +242,7 @@ export interface FileRoutesById {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
+  '/admin/': typeof AdminIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/trips/': typeof TripsIndexRoute
@@ -264,6 +272,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/trips/$id'
+    | '/admin/'
     | '/concierge/'
     | '/events/'
     | '/trips/'
@@ -274,7 +283,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
-    | '/admin'
     | '/auth'
     | '/contact'
     | '/features'
@@ -290,6 +298,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/trips/$id'
+    | '/admin'
     | '/concierge'
     | '/events'
     | '/trips'
@@ -317,6 +326,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/trips/$id'
+    | '/admin/'
     | '/concierge/'
     | '/events/'
     | '/trips/'
@@ -328,7 +338,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  AdminRoute: typeof AdminRoute
+  AdminRoute: typeof AdminRouteWithChildren
   AuthRoute: typeof AuthRoute
   ConciergeRoute: typeof ConciergeRouteWithChildren
   ContactRoute: typeof ContactRoute
@@ -461,6 +471,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConciergeIndexRouteImport
       parentRoute: typeof ConciergeRoute
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/trips/$id': {
       id: '/trips/$id'
       path: '/trips/$id'
@@ -527,6 +544,16 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AdminRouteChildren {
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 interface ConciergeRouteChildren {
   ConciergePassportRoute: typeof ConciergePassportRoute
   ConciergeProfileRoute: typeof ConciergeProfileRoute
@@ -561,7 +588,7 @@ const TripsIdRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  AdminRoute: AdminRoute,
+  AdminRoute: AdminRouteWithChildren,
   AuthRoute: AuthRoute,
   ConciergeRoute: ConciergeRouteWithChildren,
   ContactRoute: ContactRoute,
@@ -582,3 +609,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

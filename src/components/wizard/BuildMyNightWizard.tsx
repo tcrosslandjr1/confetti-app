@@ -88,6 +88,7 @@ export function BuildMyNightWizard() {
   const [musts, setMusts] = useState<string[]>([]);
   const [loadingIdx, setLoadingIdx] = useState(0);
   const [variant, setVariant] = useState(0);
+  const [openStop, setOpenStop] = useState<number | null>(0);
   const { burst, layer } = useConfettiBurst();
 
   const fallbackTones = ["bg-coral", "bg-purple", "bg-gold", "bg-emerald-400", "bg-pink-300", "bg-amber-300"];

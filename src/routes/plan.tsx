@@ -127,7 +127,6 @@ function PlanPage() {
         </form>
       </div>
 
-      <style>{`.input{width:100%;border-radius:0.75rem;border:1px solid hsl(var(--border));background:hsl(var(--background));padding:0.625rem 0.875rem;font-size:0.875rem;outline:none}.input:focus{border-color:hsl(var(--primary))}`}</style>
     </div>
   );
 }

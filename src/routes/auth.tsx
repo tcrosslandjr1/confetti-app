@@ -1,9 +1,11 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Sparkles, Loader2 } from "lucide-react";
+import { Sparkles, Loader2, Wand2 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { useEffect } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { seedDemoAccounts } from "@/lib/seed-demo.functions";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({ meta: [{ title: "Sign in — Concierge" }] }),
@@ -19,6 +21,28 @@ function AuthPage() {
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [seeding, setSeeding] = useState(false);
+  const [seedMsg, setSeedMsg] = useState<string | null>(null);
+  const seedFn = useServerFn(seedDemoAccounts);
+
+  const fillDemo = (which: "admin" | "customer") => {
+    setMode("signin");
+    setEmail(which === "admin" ? "admin@demo.local" : "customer@demo.local");
+    setPassword("Demo1234!");
+  };
+
+  const onSeed = async () => {
+    setSeeding(true);
+    setSeedMsg(null);
+    try {
+      await seedFn({});
+      setSeedMsg("Demo accounts ready. Click Admin or Customer below to fill the form.");
+    } catch (e: any) {
+      setSeedMsg(e?.message ?? "Seed failed");
+    } finally {
+      setSeeding(false);
+    }
+  };
 
   useEffect(() => {
     if (user) navigate({ to: "/" });
@@ -124,6 +148,44 @@ function AuthPage() {
             {mode === "signin" ? "Sign up" : "Sign in"}
           </span>
         </button>
+
+        <div className="mt-8 rounded-2xl border border-dashed border-border bg-card/50 p-4">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <Wand2 className="h-3.5 w-3.5" /> Dev quick start
+          </div>
+          <p className="mt-1 text-xs text-muted-foreground">
+            One-click seed two demo accounts so you can test the admin and customer views.
+          </p>
+          <button
+            type="button"
+            onClick={onSeed}
+            disabled={seeding}
+            className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-background py-2.5 text-xs font-semibold transition hover:bg-accent disabled:opacity-60"
+          >
+            {seeding && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
+            {seeding ? "Creating…" : "Seed demo accounts"}
+          </button>
+          {seedMsg && <p className="mt-2 text-xs text-muted-foreground">{seedMsg}</p>}
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            <button
+              type="button"
+              onClick={() => fillDemo("admin")}
+              className="rounded-xl bg-primary/10 py-2 text-xs font-semibold text-primary hover:bg-primary/20"
+            >
+              Use Admin
+            </button>
+            <button
+              type="button"
+              onClick={() => fillDemo("customer")}
+              className="rounded-xl bg-secondary py-2 text-xs font-semibold text-secondary-foreground hover:bg-secondary/80"
+            >
+              Use Customer
+            </button>
+          </div>
+          <p className="mt-2 text-[10px] text-muted-foreground">
+            Password for both: <span className="font-mono">Demo1234!</span>
+          </p>
+        </div>
 
         <div className="mt-auto pt-10 text-center text-xs text-muted-foreground">
           By continuing you agree to our terms.{" "}

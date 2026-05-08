@@ -5,6 +5,7 @@ import { WizardButton } from "@/components/wizard/WizardButton";
 type Pick = {
   title: string;
   vibe: string;
+  vibeKeys: string[];
   vibeTone: string;
   bg: string;
   duration: string;
@@ -16,6 +17,7 @@ const PICKS: Pick[] = [
   {
     title: "The Rooftop Crawl",
     vibe: "Skyline · golden hour",
+    vibeKeys: ["rooftop"],
     vibeTone: "bg-coral text-cream",
     bg: "bg-cream",
     duration: "4h",
@@ -29,6 +31,7 @@ const PICKS: Pick[] = [
   {
     title: "Speakeasy Date Night",
     vibe: "Low-lit · slow burn",
+    vibeKeys: ["speakeasy"],
     vibeTone: "bg-purple text-cream",
     bg: "bg-gold/70",
     duration: "3.5h",
@@ -42,6 +45,7 @@ const PICKS: Pick[] = [
   {
     title: "Bougie Birthday Dinner",
     vibe: "Tasting menu · champagne",
+    vibeKeys: ["bougie"],
     vibeTone: "bg-gold text-ink",
     bg: "bg-cream",
     duration: "4.5h",
@@ -55,6 +59,7 @@ const PICKS: Pick[] = [
   {
     title: "Dance Floor Saturday",
     vibe: "Hi-energy · late night",
+    vibeKeys: ["dance", "late"],
     vibeTone: "bg-pink-400 text-ink",
     bg: "bg-purple/15",
     duration: "5h",
@@ -68,6 +73,7 @@ const PICKS: Pick[] = [
   {
     title: "Sunday Slow",
     vibe: "Lazy brunch · garden walk",
+    vibeKeys: ["bougie"],
     vibeTone: "bg-emerald-400 text-ink",
     bg: "bg-cream",
     duration: "5h",
@@ -81,6 +87,7 @@ const PICKS: Pick[] = [
   {
     title: "Live Music Wander",
     vibe: "Jazz, soul, vinyl",
+    vibeKeys: ["live"],
     vibeTone: "bg-amber-400 text-ink",
     bg: "bg-coral/20",
     duration: "4h",
@@ -144,6 +151,7 @@ export function QuickPicks() {
                   ariaLabel={`Steal ${p.title}`}
                   preset={{
                     title: p.title,
+                    vibeKeys: p.vibeKeys,
                     vibeLabel: p.vibe,
                     budgetLabel: p.cost,
                     crewLabel: p.duration,

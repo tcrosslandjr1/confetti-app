@@ -104,9 +104,12 @@ export function BuildMyNightWizard() {
   const stops = presetStops ?? SAMPLE_STOPS[variant % SAMPLE_STOPS.length];
   const totalSteps = 5;
 
-  // If preset supplied, jump straight to result
+  // If preset supplied, jump straight to result and seed vibe multi-select
   useEffect(() => {
-    if (open && preset) setStep(6);
+    if (open && preset) {
+      setVibe(preset.vibeKeys ?? []);
+      setStep(6);
+    }
   }, [open, preset]);
 
   // Lock body scroll while open

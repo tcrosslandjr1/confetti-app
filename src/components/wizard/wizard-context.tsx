@@ -3,6 +3,7 @@ import { createContext, useCallback, useContext, useState, type ReactNode } from
 export type WizardPresetStop = { time: string; venue: string; vibe?: string; tone?: string; walk?: string };
 export type WizardPreset = {
   title: string;
+  vibeKeys?: string[];
   vibeLabel?: string;
   crewLabel?: string;
   budgetLabel?: string;

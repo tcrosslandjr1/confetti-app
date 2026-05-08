@@ -173,6 +173,8 @@ function MyVibe() {
               <Save className="h-3.5 w-3.5" /> {savedAbout ? "Saved ✓" : "Save"}
             </button>
           </div>
+
+          <SocialsCard prefs={prefs} onProfile={(p) => setPrefs({ ...prefs, taste_profile: p })} onPrefs={(np) => setPrefs(np)} />
         </aside>
       </div>
     </div>

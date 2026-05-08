@@ -81,8 +81,26 @@ For booking_url, provide a SEARCH URL (e.g. https://www.opentable.com/s?term=...
                   whatToDo: { type: "string", description: "Specific recommendation: what to order, what to see, etc." },
                   bookingUrl: { type: "string", description: "Search URL the user can use to find/book this stop" },
                   bookingProvider: { type: "string", description: "opentable | resy | eventbrite | ticketmaster | google-maps | website" },
+                  reviewSnippets: {
+                    type: "array",
+                    minItems: 2, maxItems: 3,
+                    items: { type: "string", description: "1 sentence, what visitors typically say" },
+                  },
+                  parking: {
+                    type: "object",
+                    properties: {
+                      type: { type: "string", enum: ["lot", "street", "valet", "garage", "transit"] },
+                      cost: { type: "string" },
+                      access: { type: "string", description: "1 short sentence on how to access it" },
+                    },
+                    required: ["type", "cost", "access"],
+                  },
+                  tips: {
+                    type: "array", minItems: 2, maxItems: 3,
+                    items: { type: "string" },
+                  },
                 },
-                required: ["name", "category", "description", "address", "startTime", "durationMinutes", "estCost", "whatToDo", "bookingUrl", "bookingProvider"],
+                required: ["name", "category", "description", "address", "startTime", "durationMinutes", "estCost", "whatToDo", "bookingUrl", "bookingProvider", "reviewSnippets", "parking", "tips"],
               },
             },
           },

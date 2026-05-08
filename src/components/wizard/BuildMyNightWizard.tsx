@@ -57,23 +57,23 @@ const LOADING_LINES = [
   "Plating it up…",
 ];
 
-type Stop = { time: string; venue: string; vibe: string; tone: string; walk?: string };
+type Stop = { time: string; venue: string; vibe: string; tone: string; walk?: string; address?: string; neighborhood?: string };
 
 const SAMPLE_STOPS: Stop[][] = [
   [
-    { time: "7:00 PM", venue: "Lila's Patio",      vibe: "Small plates",   tone: "bg-coral",   walk: "12 min walk" },
-    { time: "8:30 PM", venue: "Mason St. Records", vibe: "Vinyl + nat wine", tone: "bg-purple", walk: "6 min walk" },
-    { time: "10:15 PM",venue: "Aera Rooftop",      vibe: "Nightcap views", tone: "bg-gold" },
+    { time: "7:00 PM", venue: "Lila's Patio",      vibe: "Small plates",     tone: "bg-coral",       walk: "12 min walk", address: "418 W 14th St",     neighborhood: "Meatpacking" },
+    { time: "8:30 PM", venue: "Mason St. Records", vibe: "Vinyl + nat wine", tone: "bg-purple",      walk: "6 min walk",  address: "210 Mason St",      neighborhood: "Lower East Side" },
+    { time: "10:15 PM",venue: "Aera Rooftop",      vibe: "Nightcap views",   tone: "bg-gold",                              address: "77 Pearl St, 22F",  neighborhood: "Financial District" },
   ],
   [
-    { time: "6:30 PM", venue: "Kettle & Char",     vibe: "Bougie dinner",  tone: "bg-emerald-400", walk: "8 min walk" },
-    { time: "8:45 PM", venue: "The Velvet Door",   vibe: "Speakeasy",      tone: "bg-gold",        walk: "4 min walk" },
-    { time: "10:30 PM",venue: "Saturn Lounge",     vibe: "Late dance",     tone: "bg-purple" },
+    { time: "6:30 PM", venue: "Kettle & Char",     vibe: "Bougie dinner",    tone: "bg-emerald-400", walk: "8 min walk",  address: "55 Hudson St",      neighborhood: "Tribeca" },
+    { time: "8:45 PM", venue: "The Velvet Door",   vibe: "Speakeasy",        tone: "bg-gold",        walk: "4 min walk",  address: "12 Crosby St",      neighborhood: "SoHo" },
+    { time: "10:30 PM",venue: "Saturn Lounge",     vibe: "Late dance",       tone: "bg-purple",                            address: "388 Bowery",        neighborhood: "NoHo" },
   ],
   [
-    { time: "8:00 PM", venue: "Marigold Pizza",    vibe: "Slice + spritz", tone: "bg-coral",   walk: "5 min walk" },
-    { time: "9:30 PM", venue: "Loose Leaf Live",   vibe: "Live jazz trio", tone: "bg-pink-300", walk: "7 min walk" },
-    { time: "11:15 PM",venue: "Mama's Noodle Bar", vibe: "Late night eats", tone: "bg-amber-300" },
+    { time: "8:00 PM", venue: "Marigold Pizza",    vibe: "Slice + spritz",   tone: "bg-coral",       walk: "5 min walk",  address: "94 Orchard St",     neighborhood: "Lower East Side" },
+    { time: "9:30 PM", venue: "Loose Leaf Live",   vibe: "Live jazz trio",   tone: "bg-pink-300",    walk: "7 min walk",  address: "311 Bleecker St",   neighborhood: "West Village" },
+    { time: "11:15 PM",venue: "Mama's Noodle Bar", vibe: "Late night eats",  tone: "bg-amber-300",                         address: "27 St Marks Pl",    neighborhood: "East Village" },
   ],
 ];
 

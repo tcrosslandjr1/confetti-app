@@ -161,6 +161,8 @@ function ReadyPage() {
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [videoUploading, setVideoUploading] = useState(false);
   const [videoProgress, setVideoProgress] = useState<number | null>(null);
+  const [votes, setVotes] = useState<TripVotes>({});
+  const [collabCopied, setCollabCopied] = useState(false);
 
   const shareUrl = useMemo(() => {
     if (typeof window === "undefined") return `https://confetti.app/trips/${TRIP.id}`;
@@ -171,6 +173,8 @@ function ReadyPage() {
     if (typeof window === "undefined") return "https://confetti.app";
     return window.location.origin;
   }, []);
+
+  const collabUrl = useMemo(() => `${rsvpOrigin}/collab/${TRIP.id}`, [rsvpOrigin]);
 
   function inviteUrl(token: string) {
     const base = `${rsvpOrigin}/rsvp/${TRIP.id}?invite=${token}`;

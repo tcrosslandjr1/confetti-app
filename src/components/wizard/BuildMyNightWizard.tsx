@@ -110,6 +110,14 @@ function getDetails(venue: string, vibe: string) {
     `Locals swear by ${venue} for its ${knownFor} and unhurried pace — built for the kind of night that bleeds into the next.`,
     `${venue} nails the ${vibe.toLowerCase()} brief. Tight menu, sharp drinks, and lighting that makes everyone look good.`,
   ];
+  // Dietary + allergen flags — deterministic per venue
+  const ALL_DIETARY = ["Gluten-free menu", "Vegan options", "Vegetarian", "Dairy-free", "Nut-free kitchen"] as const;
+  const ALL_ALLERGENS = ["peanuts", "tree nuts", "shellfish", "dairy", "eggs", "soy", "sesame", "wheat/gluten"] as const;
+  const dietary = ALL_DIETARY.filter((_, i) => ((h >> (i + 1)) & 1) === 1);
+  if (dietary.length === 0) dietary.push("Gluten-free menu");
+  const glutenFree = dietary.includes("Gluten-free menu");
+  // Allergens the kitchen can accommodate (request ahead)
+  const allergens = ALL_ALLERGENS.filter((_, i) => ((h >> (i + 2)) & 1) === 1).slice(0, 4);
   return {
     rating,
     reviewCount,
@@ -119,6 +127,9 @@ function getDetails(venue: string, vibe: string) {
     phone,
     hours,
     blurb: blurbs[h % blurbs.length],
+    dietary,
+    glutenFree,
+    allergens,
   };
 }
 
@@ -474,7 +485,36 @@ export function BuildMyNightWizard() {
                             <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-cream px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest">
                               <Utensils className="h-3 w-3" /> Known for {d.knownFor}
                             </span>
+                            {d.glutenFree && (
+                              <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+                                GF available
+                              </span>
+                            )}
                           </div>
+
+                          <div className="mt-3 rounded-xl border-2 border-ink/15 bg-cream/60 p-3">
+                            <p className="font-mono text-[10px] uppercase tracking-widest text-ink/60">Dietary options</p>
+                            <div className="mt-1.5 flex flex-wrap gap-1.5">
+                              {d.dietary.map((opt) => (
+                                <span key={opt} className="inline-flex items-center gap-1 rounded-full border border-ink/30 bg-cream px-2 py-0.5 text-[11px] text-ink/85">
+                                  ✓ {opt}
+                                </span>
+                              ))}
+                            </div>
+                            <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-ink/60">Allergens — notify ahead</p>
+                            <div className="mt-1.5 flex flex-wrap gap-1.5">
+                              {d.allergens.length > 0 ? (
+                                d.allergens.map((a) => (
+                                  <span key={a} className="inline-flex items-center gap-1 rounded-full border border-coral/50 bg-coral/10 px-2 py-0.5 text-[11px] text-ink/85">
+                                    ⚠ {a}
+                                  </span>
+                                ))
+                              ) : (
+                                <span className="text-[11px] text-ink/60">Kitchen accommodates most allergens — call ahead.</span>
+                              )}
+                            </div>
+                          </div>
+
 
                           <blockquote className="mt-3 rounded-xl border-2 border-ink/15 bg-cream px-3 py-2 font-serif text-sm italic text-ink/80">
                             {d.review}

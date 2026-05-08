@@ -513,6 +513,8 @@ export function BuildMyNightWizard() {
                                 <span className="text-[11px] text-ink/60">Kitchen accommodates most allergens — call ahead.</span>
                               )}
                             </div>
+                          </div>
+
 
                           <blockquote className="mt-3 rounded-xl border-2 border-ink/15 bg-cream px-3 py-2 font-serif text-sm italic text-ink/80">
                             {d.review}

@@ -15,10 +15,10 @@ export const Route = createFileRoute("/plan/ready")({
 });
 
 const STOPS = [
-  { time: "11:30 AM", name: "Bluebird Coffee Social", neighborhood: "East Side" },
-  { time: "1:15 PM",  name: "The Marigold Rooftop", neighborhood: "Warehouse District" },
-  { time: "3:15 PM",  name: "Lantern Hill Overlook", neighborhood: "Riverbend" },
-  { time: "5:30 PM",  name: "Osteria di Pesca",     neighborhood: "Old Market" },
+  { time: "11:30 AM", durationMin: 75,  name: "Bluebird Coffee Social", neighborhood: "East Side",          note: "Slow brews, sunlit corner table." },
+  { time: "1:15 PM",  durationMin: 90,  name: "The Marigold Rooftop",   neighborhood: "Warehouse District", note: "Aperitivo with skyline views." },
+  { time: "3:15 PM",  durationMin: 90,  name: "Lantern Hill Overlook",  neighborhood: "Riverbend",          note: "Golden-hour walk + photos." },
+  { time: "5:30 PM",  durationMin: 120, name: "Osteria di Pesca",       neighborhood: "Old Market",         note: "Hand-rolled pasta, cozy booth." },
 ];
 
 const TRIP = {

@@ -238,18 +238,25 @@ function EditDialog({
   onClose: () => void;
   onSave: (v: Venue) => void;
 }) {
-  const [draft, setDraft] = useState<Venue | null>(venue);
+  return (
+    <Dialog open={!!venue} onOpenChange={(o) => !o && onClose()}>
+      {venue && <EditDialogBody key={venue.id} venue={venue} onClose={onClose} onSave={onSave} />}
+    </Dialog>
+  );
+}
 
-  // Sync when a new venue is selected
-  if (venue && (!draft || draft.id !== venue.id)) {
-    setDraft(venue);
-  }
-  if (!venue && draft) {
-    setDraft(null);
-  }
-
+function EditDialogBody({
+  venue,
+  onClose,
+  onSave,
+}: {
+  venue: Venue;
+  onClose: () => void;
+  onSave: (v: Venue) => void;
+}) {
+  const [draft, setDraft] = useState<Venue>(venue);
   const update = <K extends keyof Venue>(key: K, value: Venue[K]) => {
-    setDraft((d) => (d ? { ...d, [key]: value } : d));
+    setDraft((d) => ({ ...d, [key]: value }));
   };
 
   return (

@@ -41,6 +41,106 @@ export type Database = {
         }
         Relationships: []
       }
+      bookings: {
+        Row: {
+          cancelled_at: string | null
+          created_at: string
+          id: string
+          notes: string | null
+          party_size: number
+          starts_at: string
+          status: string
+          stripe_session_id: string | null
+          total_cents: number
+          updated_at: string
+          user_id: string
+          venue_id: string | null
+          venue_name: string
+        }
+        Insert: {
+          cancelled_at?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          party_size?: number
+          starts_at: string
+          status?: string
+          stripe_session_id?: string | null
+          total_cents?: number
+          updated_at?: string
+          user_id: string
+          venue_id?: string | null
+          venue_name: string
+        }
+        Update: {
+          cancelled_at?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          party_size?: number
+          starts_at?: string
+          status?: string
+          stripe_session_id?: string | null
+          total_cents?: number
+          updated_at?: string
+          user_id?: string
+          venue_id?: string | null
+          venue_name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bookings_venue_id_fkey"
+            columns: ["venue_id"]
+            isOneToOne: false
+            referencedRelation: "venues"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      featured_content: {
+        Row: {
+          active: boolean
+          collection_slug: string | null
+          created_at: string
+          id: string
+          kind: string
+          position: number
+          subtitle: string | null
+          title: string | null
+          venue_id: string | null
+        }
+        Insert: {
+          active?: boolean
+          collection_slug?: string | null
+          created_at?: string
+          id?: string
+          kind?: string
+          position?: number
+          subtitle?: string | null
+          title?: string | null
+          venue_id?: string | null
+        }
+        Update: {
+          active?: boolean
+          collection_slug?: string | null
+          created_at?: string
+          id?: string
+          kind?: string
+          position?: number
+          subtitle?: string | null
+          title?: string | null
+          venue_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "featured_content_venue_id_fkey"
+            columns: ["venue_id"]
+            isOneToOne: false
+            referencedRelation: "venues"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       itineraries: {
         Row: {
           city: string | null
@@ -269,6 +369,38 @@ export type Database = {
           xp?: number
         }
         Relationships: []
+      }
+      saved_venues: {
+        Row: {
+          created_at: string
+          id: string
+          notes: string | null
+          user_id: string
+          venue_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          notes?: string | null
+          user_id: string
+          venue_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          notes?: string | null
+          user_id?: string
+          venue_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "saved_venues_venue_id_fkey"
+            columns: ["venue_id"]
+            isOneToOne: false
+            referencedRelation: "venues"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       threads: {
         Row: {

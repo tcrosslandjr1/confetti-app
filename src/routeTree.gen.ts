@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PortalRouteImport } from './routes/portal'
 import { Route as PlanRouteImport } from './routes/plan'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MeRouteImport } from './routes/me'
@@ -23,11 +24,15 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
+import { Route as PortalIndexRouteImport } from './routes/portal.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
+import { Route as PortalSavedRouteImport } from './routes/portal.saved'
+import { Route as PortalProfileRouteImport } from './routes/portal.profile'
+import { Route as PortalBookingsRouteImport } from './routes/portal.bookings'
 import { Route as PlanReadyRouteImport } from './routes/plan.ready'
 import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
 import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
@@ -54,6 +59,11 @@ const ReservationsRoute = ReservationsRouteImport.update({
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalRoute = PortalRouteImport.update({
+  id: '/portal',
+  path: '/portal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlanRoute = PlanRouteImport.update({
@@ -116,6 +126,11 @@ const TripsIndexRoute = TripsIndexRouteImport.update({
   path: '/trips/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortalIndexRoute = PortalIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PortalRoute,
+} as any)
 const EventsIndexRoute = EventsIndexRouteImport.update({
   id: '/events/',
   path: '/events/',
@@ -140,6 +155,21 @@ const RsvpTripIdRoute = RsvpTripIdRouteImport.update({
   id: '/rsvp/$tripId',
   path: '/rsvp/$tripId',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PortalSavedRoute = PortalSavedRouteImport.update({
+  id: '/saved',
+  path: '/saved',
+  getParentRoute: () => PortalRoute,
+} as any)
+const PortalProfileRoute = PortalProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => PortalRoute,
+} as any)
+const PortalBookingsRoute = PortalBookingsRouteImport.update({
+  id: '/bookings',
+  path: '/bookings',
+  getParentRoute: () => PortalRoute,
 } as any)
 const PlanReadyRoute = PlanReadyRouteImport.update({
   id: '/ready',
@@ -239,6 +269,7 @@ export interface FileRoutesByFullPath {
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRouteWithChildren
+  '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -255,11 +286,15 @@ export interface FileRoutesByFullPath {
   '/ideas/$slug': typeof IdeasSlugRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
+  '/portal/bookings': typeof PortalBookingsRoute
+  '/portal/profile': typeof PortalProfileRoute
+  '/portal/saved': typeof PortalSavedRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/admin/': typeof AdminIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
+  '/portal/': typeof PortalIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
@@ -291,11 +326,15 @@ export interface FileRoutesByTo {
   '/ideas/$slug': typeof IdeasSlugRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
+  '/portal/bookings': typeof PortalBookingsRoute
+  '/portal/profile': typeof PortalProfileRoute
+  '/portal/saved': typeof PortalSavedRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/admin': typeof AdminIndexRoute
   '/concierge': typeof ConciergeIndexRoute
   '/events': typeof EventsIndexRoute
+  '/portal': typeof PortalIndexRoute
   '/trips': typeof TripsIndexRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
@@ -314,6 +353,7 @@ export interface FileRoutesById {
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRouteWithChildren
+  '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -330,11 +370,15 @@ export interface FileRoutesById {
   '/ideas/$slug': typeof IdeasSlugRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
+  '/portal/bookings': typeof PortalBookingsRoute
+  '/portal/profile': typeof PortalProfileRoute
+  '/portal/saved': typeof PortalSavedRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/admin/': typeof AdminIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
+  '/portal/': typeof PortalIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
@@ -354,6 +398,7 @@ export interface FileRouteTypes {
     | '/me'
     | '/onboarding'
     | '/plan'
+    | '/portal'
     | '/pricing'
     | '/reservations'
     | '/admin/analytics'
@@ -370,11 +415,15 @@ export interface FileRouteTypes {
     | '/ideas/$slug'
     | '/plan/preview'
     | '/plan/ready'
+    | '/portal/bookings'
+    | '/portal/profile'
+    | '/portal/saved'
     | '/rsvp/$tripId'
     | '/trips/$id'
     | '/admin/'
     | '/concierge/'
     | '/events/'
+    | '/portal/'
     | '/trips/'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
@@ -406,11 +455,15 @@ export interface FileRouteTypes {
     | '/ideas/$slug'
     | '/plan/preview'
     | '/plan/ready'
+    | '/portal/bookings'
+    | '/portal/profile'
+    | '/portal/saved'
     | '/rsvp/$tripId'
     | '/trips/$id'
     | '/admin'
     | '/concierge'
     | '/events'
+    | '/portal'
     | '/trips'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
@@ -428,6 +481,7 @@ export interface FileRouteTypes {
     | '/me'
     | '/onboarding'
     | '/plan'
+    | '/portal'
     | '/pricing'
     | '/reservations'
     | '/admin/analytics'
@@ -444,11 +498,15 @@ export interface FileRouteTypes {
     | '/ideas/$slug'
     | '/plan/preview'
     | '/plan/ready'
+    | '/portal/bookings'
+    | '/portal/profile'
+    | '/portal/saved'
     | '/rsvp/$tripId'
     | '/trips/$id'
     | '/admin/'
     | '/concierge/'
     | '/events/'
+    | '/portal/'
     | '/trips/'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
@@ -467,6 +525,7 @@ export interface RootRouteChildren {
   MeRoute: typeof MeRoute
   OnboardingRoute: typeof OnboardingRoute
   PlanRoute: typeof PlanRouteWithChildren
+  PortalRoute: typeof PortalRouteWithChildren
   PricingRoute: typeof PricingRoute
   ReservationsRoute: typeof ReservationsRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -493,6 +552,13 @@ declare module '@tanstack/react-router' {
       path: '/pricing'
       fullPath: '/pricing'
       preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal': {
+      id: '/portal'
+      path: '/portal'
+      fullPath: '/portal'
+      preLoaderRoute: typeof PortalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/plan': {
@@ -579,6 +645,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TripsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portal/': {
+      id: '/portal/'
+      path: '/'
+      fullPath: '/portal/'
+      preLoaderRoute: typeof PortalIndexRouteImport
+      parentRoute: typeof PortalRoute
+    }
     '/events/': {
       id: '/events/'
       path: '/events'
@@ -613,6 +686,27 @@ declare module '@tanstack/react-router' {
       fullPath: '/rsvp/$tripId'
       preLoaderRoute: typeof RsvpTripIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/portal/saved': {
+      id: '/portal/saved'
+      path: '/saved'
+      fullPath: '/portal/saved'
+      preLoaderRoute: typeof PortalSavedRouteImport
+      parentRoute: typeof PortalRoute
+    }
+    '/portal/profile': {
+      id: '/portal/profile'
+      path: '/profile'
+      fullPath: '/portal/profile'
+      preLoaderRoute: typeof PortalProfileRouteImport
+      parentRoute: typeof PortalRoute
+    }
+    '/portal/bookings': {
+      id: '/portal/bookings'
+      path: '/bookings'
+      fullPath: '/portal/bookings'
+      preLoaderRoute: typeof PortalBookingsRouteImport
+      parentRoute: typeof PortalRoute
     }
     '/plan/ready': {
       id: '/plan/ready'
@@ -790,6 +884,23 @@ const PlanRouteChildren: PlanRouteChildren = {
 
 const PlanRouteWithChildren = PlanRoute._addFileChildren(PlanRouteChildren)
 
+interface PortalRouteChildren {
+  PortalBookingsRoute: typeof PortalBookingsRoute
+  PortalProfileRoute: typeof PortalProfileRoute
+  PortalSavedRoute: typeof PortalSavedRoute
+  PortalIndexRoute: typeof PortalIndexRoute
+}
+
+const PortalRouteChildren: PortalRouteChildren = {
+  PortalBookingsRoute: PortalBookingsRoute,
+  PortalProfileRoute: PortalProfileRoute,
+  PortalSavedRoute: PortalSavedRoute,
+  PortalIndexRoute: PortalIndexRoute,
+}
+
+const PortalRouteWithChildren =
+  PortalRoute._addFileChildren(PortalRouteChildren)
+
 interface TripsIdRouteChildren {
   TripsIdPassportRoute: typeof TripsIdPassportRoute
 }
@@ -813,6 +924,7 @@ const rootRouteChildren: RootRouteChildren = {
   MeRoute: MeRoute,
   OnboardingRoute: OnboardingRoute,
   PlanRoute: PlanRouteWithChildren,
+  PortalRoute: PortalRouteWithChildren,
   PricingRoute: PricingRoute,
   ReservationsRoute: ReservationsRoute,
   ApiChatRoute: ApiChatRoute,

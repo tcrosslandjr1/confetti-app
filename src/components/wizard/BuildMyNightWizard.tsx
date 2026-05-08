@@ -80,7 +80,7 @@ const SAMPLE_STOPS: Stop[][] = [
 export function BuildMyNightWizard() {
   const { open, closeWizard } = useWizard();
   const [step, setStep] = useState(0); // 0..4 questions, 5 loading, 6 result
-  const [vibe, setVibe] = useState<string | null>(null);
+  const [vibe, setVibe] = useState<string[]>([]);
   const [crew, setCrew] = useState<string | null>(null);
   const [when, setWhen] = useState<string | null>(null);
   const [pickedDate, setPickedDate] = useState<string>("");
@@ -105,7 +105,7 @@ export function BuildMyNightWizard() {
   useEffect(() => {
     if (open) return;
     const t = setTimeout(() => {
-      setStep(0); setVibe(null); setCrew(null); setWhen(null); setPickedDate("");
+      setStep(0); setVibe([]); setCrew(null); setWhen(null); setPickedDate("");
       setBudget(null); setMusts([]); setLoadingIdx(0); setVariant(0);
     }, 220);
     return () => clearTimeout(t);
@@ -131,7 +131,7 @@ export function BuildMyNightWizard() {
   if (!open) return null;
 
   const canAdvance =
-    (step === 0 && !!vibe) ||
+    (step === 0 && vibe.length > 0) ||
     (step === 1 && !!crew) ||
     (step === 2 && !!when && (when !== "pick" || !!pickedDate)) ||
     (step === 3 && !!budget) ||
@@ -205,11 +205,11 @@ export function BuildMyNightWizard() {
             <StepShell title="What's the vibe?" sub="Pick the energy. We'll do the rest.">
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                 {VIBES.map((v) => {
-                  const active = vibe === v.k;
+                  const active = vibe.includes(v.k);
                   return (
                     <button
                       key={v.k}
-                      onClick={() => setVibe(v.k)}
+                      onClick={() => setVibe((prev) => prev.includes(v.k) ? prev.filter((x) => x !== v.k) : [...prev, v.k])}
                       className={`group relative overflow-hidden rounded-2xl border-2 border-ink p-4 text-left shadow-brut transition-pop ${v.tone} ${active ? "-translate-x-1 -translate-y-1 shadow-brut-lg ring-4 ring-ink/15" : "hover:-translate-x-0.5 hover:-translate-y-0.5"}`}
                     >
                       <div className="text-3xl">{v.emoji}</div>
@@ -336,7 +336,7 @@ export function BuildMyNightWizard() {
                 Your night's <span className="font-serif italic font-normal text-coral">locked in.</span>
               </h2>
               <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-ink/60">
-                {VIBES.find((v) => v.k === vibe)?.label} · {CREW.find((c) => c.k === crew)?.label} · {budget}
+                {vibe.map((k) => VIBES.find((v) => v.k === k)?.label).filter(Boolean).join(" + ")} · {CREW.find((c) => c.k === crew)?.label} · {budget}
               </p>
 
               <ol className="mt-6 space-y-3">

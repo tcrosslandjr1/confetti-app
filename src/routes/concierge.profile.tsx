@@ -10,7 +10,7 @@ export const Route = createFileRoute("/concierge/profile")({
   component: Profile,
 });
 
-export default function _Profile() { return null; }
+
 
 function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
   return (

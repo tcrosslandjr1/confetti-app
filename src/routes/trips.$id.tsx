@@ -28,7 +28,7 @@ function TripDetail() {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
 
-  const [status, setStatus] = useState<TripStatus | null>(null);
+  const [tripStatus, setTripStatus] = useState<TripStatus | null>(null);
   const [notifications, setNotifications] = useState<SentNotification[]>([]);
 
   useEffect(() => {
@@ -38,9 +38,9 @@ function TripDetail() {
   }, [id, user, authLoading, nav]);
 
   useEffect(() => {
-    setStatus(loadStatus(id));
+    setTripStatus(loadStatus(id));
     setNotifications(loadNotifications(id));
-    const u1 = subscribeStatus(id, () => setStatus(loadStatus(id)));
+    const u1 = subscribeStatus(id, () => setTripStatus(loadStatus(id)));
     const u2 = subscribeNotifications(id, () => setNotifications(loadNotifications(id)));
     return () => { u1(); u2(); };
   }, [id]);

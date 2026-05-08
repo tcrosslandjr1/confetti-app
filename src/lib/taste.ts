@@ -11,6 +11,15 @@ export type TasteProfile = {
   cities?: string[];
 };
 
+export type SocialHandles = {
+  instagram?: string;
+  tiktok?: string;
+  pinterest?: string;
+  youtube?: string;
+  spotify?: string;
+  x?: string;
+};
+
 export type Prefs = {
   taste_profile: TasteProfile;
   about_me: string;
@@ -18,6 +27,8 @@ export type Prefs = {
   activities: string[];
   budget_min: number;
   budget_max: number;
+  social_handles: SocialHandles;
+  social_signals: string;
 };
 
 export async function loadPrefs(): Promise<Prefs> {

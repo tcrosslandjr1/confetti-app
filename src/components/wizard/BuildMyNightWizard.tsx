@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowUpRight, Check, Loader2, MapPin, RefreshCw, Save, Sparkles, X } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, ChevronDown, Clock, DollarSign, Globe, Loader2, MapPin, Phone, RefreshCw, Save, Sparkles, Star, Utensils, X } from "lucide-react";
 import { useWizard } from "./wizard-context";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
 import { toast } from "sonner";
@@ -77,6 +77,51 @@ const SAMPLE_STOPS: Stop[][] = [
   ],
 ];
 
+// Deterministic mock detail generator — keeps results stable per venue name.
+function hashStr(s: string) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  return h;
+}
+const KNOWN_FOR = [
+  "tasting menu", "natural wine list", "house cocktails", "wood-fired pies",
+  "raw bar", "live jazz nights", "rooftop sunsets", "vinyl listening room",
+  "small plates", "late-night ramen", "espresso martinis", "garden patio",
+];
+const REVIEWS = [
+  "“Hands down our new go-to. Vibe is unreal.”",
+  "“The bartender remembered our drink from last time.”",
+  "“Came for one round, stayed three hours.”",
+  "“Worth the wait. Bring a date.”",
+  "“Loud, packed, exactly what we wanted.”",
+  "“Tucked away — felt like a secret.”",
+];
+function getDetails(venue: string, vibe: string) {
+  const h = hashStr(venue);
+  const rating = (4.2 + ((h % 8) / 10)).toFixed(1); // 4.2 - 4.9
+  const reviewCount = 180 + (h % 1820);
+  const priceLevel = (h % 4) + 1; // 1..4
+  const knownFor = KNOWN_FOR[h % KNOWN_FOR.length];
+  const review = REVIEWS[(h >> 3) % REVIEWS.length];
+  const phone = `(${200 + (h % 700)}) ${100 + ((h >> 4) % 900)}-${1000 + ((h >> 8) % 9000)}`;
+  const hours = `Open until ${10 + (h % 3)}:${["00", "30"][h % 2]} PM`;
+  const blurbs = [
+    `${venue} pulls a regular crowd for its ${knownFor}. Cozy without trying, the kind of place you end up texting friends about.`,
+    `Locals swear by ${venue} for its ${knownFor} and unhurried pace — built for the kind of night that bleeds into the next.`,
+    `${venue} nails the ${vibe.toLowerCase()} brief. Tight menu, sharp drinks, and lighting that makes everyone look good.`,
+  ];
+  return {
+    rating,
+    reviewCount,
+    priceLevel,
+    knownFor,
+    review,
+    phone,
+    hours,
+    blurb: blurbs[h % blurbs.length],
+  };
+}
+
 export function BuildMyNightWizard() {
   const { open, preset, closeWizard } = useWizard();
   const [step, setStep] = useState(0); // 0..4 questions, 5 loading, 6 result
@@ -88,6 +133,7 @@ export function BuildMyNightWizard() {
   const [musts, setMusts] = useState<string[]>([]);
   const [loadingIdx, setLoadingIdx] = useState(0);
   const [variant, setVariant] = useState(0);
+  const [openStop, setOpenStop] = useState<number | null>(0);
   const { burst, layer } = useConfettiBurst();
 
   const fallbackTones = ["bg-coral", "bg-purple", "bg-gold", "bg-emerald-400", "bg-pink-300", "bg-amber-300"];
@@ -364,36 +410,105 @@ export function BuildMyNightWizard() {
               </p>
 
               <ol className="mt-6 space-y-3">
-                {stops.map((s, i) => (
-                  <li
-                    key={`${variant}-${i}`}
-                    className="flex items-stretch gap-3 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut"
-                    style={{ animation: `reveal-up 0.5s ${i * 110}ms cubic-bezier(0.22,1,0.36,1) backwards` }}
-                  >
-                    <div className={`grid w-20 shrink-0 place-items-center rounded-xl border-2 border-ink ${s.tone} font-display text-sm font-extrabold leading-tight text-ink`}>
-                      {s.time}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="font-display text-lg font-extrabold leading-tight">{s.venue}</div>
-                      {(s.address || s.neighborhood) && (
-                        <a
-                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="mt-0.5 inline-flex items-center gap-1 font-mono text-[11px] text-ink/70 underline-offset-4 hover:text-coral hover:underline"
+                {stops.map((s, i) => {
+                  const isOpen = openStop === i;
+                  const d = getDetails(s.venue, s.vibe);
+                  const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`;
+                  return (
+                    <li
+                      key={`${variant}-${i}`}
+                      className="overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut"
+                      style={{ animation: `reveal-up 0.5s ${i * 110}ms cubic-bezier(0.22,1,0.36,1) backwards` }}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setOpenStop(isOpen ? null : i)}
+                        aria-expanded={isOpen}
+                        className="flex w-full items-stretch gap-3 p-3 text-left transition-colors hover:bg-ink/[0.03]"
+                      >
+                        <div className={`grid w-20 shrink-0 place-items-center rounded-xl border-2 border-ink ${s.tone} font-display text-sm font-extrabold leading-tight text-ink`}>
+                          {s.time}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center gap-2">
+                            <div className="font-display text-lg font-extrabold leading-tight">{s.venue}</div>
+                            <span className="inline-flex items-center gap-1 rounded-full bg-gold px-2 py-0.5 font-mono text-[10px] font-bold">
+                              <Star className="h-2.5 w-2.5 fill-current" /> {d.rating}
+                            </span>
+                          </div>
+                          {(s.address || s.neighborhood) && (
+                            <div className="mt-0.5 inline-flex items-center gap-1 font-mono text-[11px] text-ink/70">
+                              <MapPin className="h-3 w-3" />
+                              {s.address ? s.address : ""}{s.address && s.neighborhood ? " · " : ""}{s.neighborhood ?? ""}
+                            </div>
+                          )}
+                          <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
+                            <span className="rounded-full border border-ink bg-cream px-2 py-0.5 font-mono uppercase tracking-widest">{s.vibe}</span>
+                            <span className="font-mono text-[11px] text-ink/60">{"$".repeat(d.priceLevel)}</span>
+                            {s.walk && <span className="font-mono text-[11px] text-ink/60">↳ {s.walk}</span>}
+                          </div>
+                        </div>
+                        <div className="flex flex-col items-center justify-between self-stretch">
+                          <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">{i + 1}</span>
+                          <ChevronDown className={`h-4 w-4 text-ink/60 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                        </div>
+                      </button>
+
+                      {isOpen && (
+                        <div
+                          className="border-t-2 border-dashed border-ink/30 bg-cream/60 p-4"
+                          style={{ animation: "reveal-up 0.3s ease-out forwards" }}
                         >
-                          <MapPin className="h-3 w-3" />
-                          {s.address ? s.address : ""}{s.address && s.neighborhood ? " · " : ""}{s.neighborhood ?? ""}
-                        </a>
+                          <p className="text-sm leading-relaxed text-ink/85">{d.blurb}</p>
+
+                          <div className="mt-3 flex flex-wrap items-center gap-2">
+                            <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-cream px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest">
+                              <Star className="h-3 w-3 fill-gold text-gold" /> {d.rating} <span className="text-ink/50">({d.reviewCount.toLocaleString()})</span>
+                            </span>
+                            <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-cream px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest">
+                              <DollarSign className="h-3 w-3" /> {"$".repeat(d.priceLevel)}
+                            </span>
+                            <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-cream px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest">
+                              <Clock className="h-3 w-3" /> {d.hours}
+                            </span>
+                            <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-cream px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest">
+                              <Utensils className="h-3 w-3" /> Known for {d.knownFor}
+                            </span>
+                          </div>
+
+                          <blockquote className="mt-3 rounded-xl border-2 border-ink/15 bg-cream px-3 py-2 font-serif text-sm italic text-ink/80">
+                            {d.review}
+                          </blockquote>
+
+                          <div className="mt-3 flex flex-wrap items-center gap-2">
+                            <a
+                              href={mapsHref}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+                            >
+                              <MapPin className="h-3.5 w-3.5" /> Directions
+                            </a>
+                            <a
+                              href={`tel:${d.phone.replace(/[^\d]/g, "")}`}
+                              className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5"
+                            >
+                              <Phone className="h-3.5 w-3.5" /> {d.phone}
+                            </a>
+                            <a
+                              href={`https://www.google.com/search?q=${encodeURIComponent(s.venue + " " + (s.neighborhood ?? ""))}`}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5"
+                            >
+                              <Globe className="h-3.5 w-3.5" /> Website
+                            </a>
+                          </div>
+                        </div>
                       )}
-                      <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
-                        <span className="rounded-full border border-ink bg-cream px-2 py-0.5 font-mono uppercase tracking-widest">{s.vibe}</span>
-                        {s.walk && <span className="font-mono text-[11px] text-ink/60">↳ {s.walk}</span>}
-                      </div>
-                    </div>
-                    <span className="grid h-7 w-7 self-center place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">{i + 1}</span>
-                  </li>
-                ))}
+                    </li>
+                  );
+                })}
               </ol>
 
               <div className="mt-6 flex flex-wrap items-center justify-end gap-3 border-t-2 border-dashed border-ink pt-5">

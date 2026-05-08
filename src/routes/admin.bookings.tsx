@@ -58,20 +58,25 @@ function AdminBookingsPage() {
   const [query, setQuery] = useState("");
   const [venueFilter, setVenueFilter] = useState<string>("all");
 
-  const load = () => {
+  const load = async () => {
     setLoading(true);
-    supabase
+    const { data, error } = await supabase
       .from("bookings")
-      .select("id,user_id,venue_name,starts_at,party_size,status,cancelled_at,notes,profiles(display_name)")
-      .order("starts_at", { ascending: false })
-      .then(({ data, error }) => {
-        if (error) toast.error(error.message);
-        setBookings((data as unknown as Booking[]) ?? []);
-        setLoading(false);
-      });
+      .select("id,user_id,venue_name,starts_at,party_size,status,cancelled_at,notes")
+      .order("starts_at", { ascending: false });
+    if (error) toast.error(error.message);
+    const rows = (data ?? []) as Omit<Booking, "profiles">[];
+    const userIds = Array.from(new Set(rows.map((r) => r.user_id)));
+    let profileMap = new Map<string, { display_name: string | null }>();
+    if (userIds.length) {
+      const { data: profs } = await supabase.from("profiles").select("id,display_name").in("id", userIds);
+      profileMap = new Map((profs ?? []).map((p) => [p.id, { display_name: p.display_name }]));
+    }
+    setBookings(rows.map((r) => ({ ...r, profiles: profileMap.get(r.user_id) ?? null })));
+    setLoading(false);
   };
 
-  useEffect(load, []);
+  useEffect(() => { load(); }, []);
 
   const venues = useMemo(() => Array.from(new Set(bookings.map((b) => b.venue_name))), [bookings]);
 

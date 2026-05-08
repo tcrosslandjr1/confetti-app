@@ -27,6 +27,7 @@ function PlanPage() {
   const [durationHours, setDurationHours] = useState(6);
   const [budget, setBudget] = useState("$$");
   const [notes, setNotes] = useState("");
+  const [transportMode, setTransportMode] = useState<"auto" | "car" | "transit" | "lyft" | "uber" | "walk">("auto");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 

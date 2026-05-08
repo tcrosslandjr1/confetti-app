@@ -141,17 +141,44 @@ function RsvpPage() {
         {/* Personal video from the host */}
         {videoUrl && (
           <section className="mt-8 overflow-hidden rounded-3xl border border-border bg-black shadow-card animate-rsvp-rise">
-            <div className="flex items-center gap-2 bg-gradient-to-r from-primary/20 to-coral/20 px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground">
-              <Play className="h-3.5 w-3.5" /> A note from your host
+            <div className="flex items-center justify-between gap-2 bg-gradient-to-r from-primary/20 to-coral/20 px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground">
+              <span className="inline-flex items-center gap-2"><Play className="h-3.5 w-3.5" /> A note from your host</span>
+              <span className="text-[10px] opacity-80">{videoDone ? "Walkthrough ready" : "Intro playing…"}</span>
             </div>
-            <video
-              src={videoUrl}
-              controls
-              autoPlay
-              muted
-              playsInline
-              className="aspect-video w-full bg-black object-cover"
-            />
+            <div className="relative">
+              <video
+                src={videoUrl}
+                controls
+                autoPlay
+                muted
+                playsInline
+                onTimeUpdate={(e) => {
+                  const v = e.currentTarget;
+                  if (v.duration > 0) setVideoProgress((v.currentTime / v.duration) * 100);
+                }}
+                onEnded={() => { setVideoProgress(100); setVideoDone(true); }}
+                className="aspect-video w-full bg-black object-cover"
+              />
+              {/* Lightweight playback progress indicator */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-white/15">
+                <div
+                  className="h-full bg-gradient-to-r from-primary to-coral transition-[width] duration-200 ease-linear"
+                  style={{ width: `${videoProgress}%` }}
+                />
+              </div>
+            </div>
+            {!videoDone && (
+              <div className="flex items-center justify-between gap-3 px-4 py-2 text-[11px] text-primary-foreground/80">
+                <span className="opacity-80">Walkthrough unlocks when the intro finishes</span>
+                <button
+                  type="button"
+                  onClick={() => { setVideoProgress(100); setVideoDone(true); }}
+                  className="rounded-full border border-white/20 px-2.5 py-1 font-semibold text-white/90 transition-colors hover:border-white/60 hover:text-white"
+                >
+                  Skip intro
+                </button>
+              </div>
+            )}
           </section>
         )}
 

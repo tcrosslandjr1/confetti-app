@@ -19,7 +19,9 @@ export const Route = createFileRoute("/plan")({
 function PlanPage() {
   const { user, loading } = useAuth();
   const nav = useNavigate();
-  const [occasionSlug, setOccasionSlug] = useState(OCCASIONS[0].slug);
+  const [occasionSlug, setOccasionSlug] = useState<string>(OCCASIONS[0].slug);
+  const [customVibe, setCustomVibe] = useState("");
+  const isCustom = occasionSlug === "__custom__";
   const [city, setCity] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
   const [date, setDate] = useState("");

@@ -59,6 +59,7 @@ type AiStop = {
   reviewSnippets?: string[];
   parking?: { type: string; cost: string; access: string };
   tips?: string[];
+  travelFromPrev?: TravelLeg | null;
 };
 type AiItinerary = {
   title: string; summary: string; estTotalCost: string; stops: AiStop[];
@@ -76,6 +77,7 @@ export type BuildPayload = {
   notes?: string;
   seedIdea?: { title: string; hook?: string; description?: string; vibeTags?: string[] };
   occasionSlug?: string;
+  transportMode?: "auto" | "car" | "transit" | "lyft" | "uber" | "walk";
 };
 
 export async function buildAndSaveItinerary(payload: BuildPayload): Promise<{ id: string }> {

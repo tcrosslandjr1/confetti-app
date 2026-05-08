@@ -52,7 +52,6 @@ export function Reveal({
     className,
   ].filter(Boolean).join(" ");
 
-  // @ts-expect-error dynamic tag
   return <Tag ref={ref} className={cls} style={{ animationDelay: `${delay}ms` }}>{children}</Tag>;
 }
 

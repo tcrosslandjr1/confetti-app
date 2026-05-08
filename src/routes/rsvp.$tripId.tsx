@@ -6,6 +6,7 @@ import { AlertTriangle, Calendar, Check, CheckCircle2, Clock, MapPin, PartyPoppe
 import { SiteHeader } from "@/components/SiteHeader";
 import { findInviteByToken, loadInviteVideo, setInviteStatus, type Invite } from "@/lib/invites";
 import { checkStopFits } from "@/lib/hours";
+import { formatUpdatedAt, loadStatus, shiftTimeLabel, subscribeStatus, type TripStatus } from "@/lib/trip-status";
 
 const rsvpSearchSchema = z.object({
   invite: fallback(z.string(), "").default(""),
@@ -47,6 +48,7 @@ function RsvpPage() {
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [videoProgress, setVideoProgress] = useState(0);
   const [videoDone, setVideoDone] = useState(false);
+  const [tripStatus, setTripStatus] = useState<TripStatus | null>(null);
 
   useEffect(() => {
     if (!token) { setLoaded(true); return; }

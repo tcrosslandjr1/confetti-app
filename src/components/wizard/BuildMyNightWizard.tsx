@@ -114,8 +114,13 @@ function getDetails(venue: string, vibe: string) {
   const ALL_DIETARY = ["Gluten-free menu", "Vegan options", "Vegetarian", "Dairy-free", "Nut-free kitchen"] as const;
   const ALL_ALLERGENS = ["peanuts", "tree nuts", "shellfish", "dairy", "eggs", "soy", "sesame", "wheat/gluten"] as const;
   const dietary = ALL_DIETARY.filter((_, i) => ((h >> (i + 1)) & 1) === 1);
-  if (dietary.length === 0) dietary.push("Gluten-free menu");
+  // Always surface the big three so guests can plan
+  if (!dietary.includes("Gluten-free menu")) dietary.push("Gluten-free menu");
+  if (!dietary.includes("Vegan options")) dietary.push("Vegan options");
+  if (!dietary.includes("Vegetarian")) dietary.push("Vegetarian");
   const glutenFree = dietary.includes("Gluten-free menu");
+  const vegan = dietary.includes("Vegan options");
+  const vegetarian = dietary.includes("Vegetarian");
   // Allergens the kitchen can accommodate (request ahead)
   const allergens = ALL_ALLERGENS.filter((_, i) => ((h >> (i + 2)) & 1) === 1).slice(0, 4);
   return {
@@ -129,6 +134,8 @@ function getDetails(venue: string, vibe: string) {
     blurb: blurbs[h % blurbs.length],
     dietary,
     glutenFree,
+    vegan,
+    vegetarian,
     allergens,
   };
 }

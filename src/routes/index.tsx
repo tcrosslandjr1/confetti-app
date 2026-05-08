@@ -220,13 +220,13 @@ function Landing() {
       {/* ============================ MANIFESTO / WHY ============================ */}
       <section className="border-b-2 border-ink">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:px-8">
-          <div className="lg:col-span-5">
+          <Reveal className="lg:col-span-5">
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">/ the manifesto</span>
             <h2 className="mt-3 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
               We are <span className="font-serif italic font-normal">tired</span> of the group chat.
             </h2>
-          </div>
-          <div className="space-y-6 text-lg leading-relaxed lg:col-span-7">
+          </Reveal>
+          <Reveal className="space-y-6 text-lg leading-relaxed lg:col-span-7" delay={120}>
             <p>
               You know the loop. Someone says "we should do something." Three days pass. Yelp gets opened, then closed.
               Someone screenshots a TikTok. Friday becomes pizza on the couch. <span className="font-serif italic">Again.</span>
@@ -237,12 +237,12 @@ function Landing() {
             </p>
             <div className="flex flex-wrap gap-2 pt-2">
               {["less scrolling", "more showing up", "chef's-kiss timing", "real reservations", "made for the way you actually go out"].map((t) => (
-                <span key={t} className="rounded-full border-2 border-ink bg-cream px-3 py-1 text-sm font-semibold">
+                <span key={t} className="rounded-full border-2 border-ink bg-cream px-3 py-1 text-sm font-semibold transition-pop hover:-translate-y-0.5 hover:bg-gold">
                   {t}
                 </span>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 

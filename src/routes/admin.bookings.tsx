@@ -13,6 +13,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { toast } from "sonner";
+import { logAudit } from "@/lib/audit-log";
+import { useAuth } from "@/lib/auth-context";
 
 export const Route = createFileRoute("/admin/bookings")({
   component: AdminBookingsPage,

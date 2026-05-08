@@ -151,6 +151,7 @@ export function QuickPicks() {
                   ariaLabel={`Steal ${p.title}`}
                   preset={{
                     title: p.title,
+                    vibeKeys: p.vibeKeys,
                     vibeLabel: p.vibe,
                     budgetLabel: p.cost,
                     crewLabel: p.duration,

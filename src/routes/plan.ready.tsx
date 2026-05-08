@@ -144,7 +144,7 @@ import { loadVotes, subscribeVotes, tallyStop, type TripVotes } from "@/lib/vote
 import { supabase } from "@/integrations/supabase/client";
 import { Users, AlertTriangle, Timer, Zap } from "lucide-react";
 import { checkStopFits, dayKeyFromDate } from "@/lib/hours";
-import { clearStatus, formatUpdatedAt, loadStatus, setMinutesLate, shiftTimeLabel, subscribeStatus, type TripStatus, loadNotifications, subscribeNotifications, clearNotifications, type SentNotification } from "@/lib/trip-status";
+import { clearStatus, formatUpdatedAt, loadStatus, setMinutesLate, shiftTimeLabel, subscribeStatus, type TripStatus } from "@/lib/trip-status";
 import { LiveElapsed } from "@/components/LiveElapsed";
 
 function makeToken() {
@@ -168,7 +168,7 @@ function ReadyPage() {
   const [collabCopied, setCollabCopied] = useState(false);
   const [status, setStatus] = useState<TripStatus | null>(null);
   const [customLate, setCustomLate] = useState("");
-  const [notifications, setNotifications] = useState<SentNotification[]>([]);
+  
 
   const shareUrl = useMemo(() => {
     if (typeof window === "undefined") return `https://confetti.app/trips/${TRIP.id}`;
@@ -193,15 +193,14 @@ function ReadyPage() {
     setVideoUrl(loadInviteVideo(TRIP.id));
     setVotes(loadVotes(TRIP.id));
     setStatus(loadStatus(TRIP.id));
-    setNotifications(loadNotifications(TRIP.id));
+    
     const unsub = subscribeInvites(TRIP.id, () => {
       setInvitesState(loadInvites(TRIP.id));
       setVideoUrl(loadInviteVideo(TRIP.id));
     });
     const unsubVotes = subscribeVotes(TRIP.id, () => setVotes(loadVotes(TRIP.id)));
     const unsubStatus = subscribeStatus(TRIP.id, () => setStatus(loadStatus(TRIP.id)));
-    const unsubNotif = subscribeNotifications(TRIP.id, () => setNotifications(loadNotifications(TRIP.id)));
-    return () => { unsub(); unsubVotes(); unsubStatus(); unsubNotif(); };
+    return () => { unsub(); unsubVotes(); unsubStatus(); };
   }, []);
 
   function applyLate(minutes: number) {

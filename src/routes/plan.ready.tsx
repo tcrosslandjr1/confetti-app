@@ -436,6 +436,90 @@ function ReadyPage() {
           </p>
         </div>
 
+        {/* Running late / reschedule */}
+        <section className="mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+          <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-gradient-to-r from-amber-500/10 to-coral/10 p-4 sm:px-5">
+            <div className="flex items-center gap-2">
+              <span className={`relative grid h-9 w-9 place-items-center rounded-xl ${status && status.minutesLate > 0 ? "bg-amber-500/20 text-amber-700" : "bg-emerald-500/15 text-emerald-700"}`}>
+                {status && status.minutesLate > 0 ? <Timer className="h-4 w-4" /> : <Zap className="h-4 w-4" />}
+                {status && status.minutesLate > 0 && (
+                  <>
+                    <span aria-hidden className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-amber-500" />
+                    <span aria-hidden className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 animate-ping rounded-full bg-amber-500/70" />
+                  </>
+                )}
+              </span>
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Day-of status</p>
+                <p className="mt-0.5 text-sm font-semibold">
+                  {status && status.minutesLate > 0
+                    ? `Running ~${status.minutesLate} min late`
+                    : "On time — everything is on schedule"}
+                </p>
+              </div>
+            </div>
+            {status && (
+              <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
+                <span>{formatUpdatedAt(status.updatedAt)}</span>
+                <button
+                  type="button"
+                  onClick={resetStatus}
+                  className="rounded-full border border-border bg-card px-2.5 py-1 font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  Clear
+                </button>
+              </div>
+            )}
+          </header>
+
+          <div className="space-y-3 p-4 sm:p-5">
+            <p className="text-xs text-muted-foreground">
+              Tap a delay — guests on the shareable link see a live status badge and the times shift automatically.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {[0, 15, 30, 45, 60].map((m) => {
+                const active = (status?.minutesLate ?? 0) === m;
+                return (
+                  <button
+                    key={m}
+                    type="button"
+                    onClick={() => applyLate(m)}
+                    className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-all hover:-translate-y-0.5 ${
+                      active
+                        ? "border-transparent bg-gradient-to-br from-amber-500 to-coral text-primary-foreground shadow-pop"
+                        : "border-border bg-card text-foreground hover:border-primary"
+                    }`}
+                  >
+                    {m === 0 ? "On time" : `+${m} min`}
+                    {active && <Check className="h-3 w-3" />}
+                  </button>
+                );
+              })}
+              <div className="flex items-center gap-1.5 rounded-full border border-border bg-card px-2 py-1">
+                <input
+                  type="number"
+                  inputMode="numeric"
+                  min={1}
+                  max={240}
+                  placeholder="Custom"
+                  value={customLate}
+                  onChange={(e) => setCustomLate(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); applyCustomLate(); } }}
+                  className="w-16 bg-transparent text-xs outline-none placeholder:text-muted-foreground"
+                />
+                <span className="text-[10px] text-muted-foreground">min</span>
+                <button
+                  type="button"
+                  onClick={applyCustomLate}
+                  className="rounded-full bg-foreground px-2.5 py-1 text-[11px] font-semibold text-background transition-colors hover:opacity-90"
+                >
+                  Set
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Recap card */}
         <section className="mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
           <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-gradient-to-r from-primary/5 to-coral/5 p-5 sm:p-6">

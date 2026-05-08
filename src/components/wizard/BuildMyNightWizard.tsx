@@ -1,0 +1,424 @@
+import { useEffect, useMemo, useState } from "react";
+import { ArrowLeft, ArrowUpRight, Check, Loader2, RefreshCw, Save, Sparkles, X } from "lucide-react";
+import { useWizard } from "./wizard-context";
+import { useConfettiBurst } from "@/components/ConfettiBurst";
+import { toast } from "sonner";
+
+type Vibe = { k: string; label: string; emoji: string; tone: string };
+type Crew = { k: string; label: string; sub: string };
+type When = { k: string; label: string };
+type Budget = { k: string; label: string; sub: string };
+type MustHave = { k: string; label: string };
+
+const VIBES: Vibe[] = [
+  { k: "rooftop",   label: "Rooftop Chill",   emoji: "🌇", tone: "bg-coral" },
+  { k: "dance",     label: "Dance Floor",     emoji: "💃", tone: "bg-purple" },
+  { k: "speakeasy", label: "Speakeasy",       emoji: "🥃", tone: "bg-gold" },
+  { k: "live",      label: "Live Music",      emoji: "🎷", tone: "bg-pink-300" },
+  { k: "bougie",    label: "Bougie Dinner",   emoji: "🥂", tone: "bg-emerald-400" },
+  { k: "dive",      label: "Dive Bar",        emoji: "🍻", tone: "bg-amber-300" },
+  { k: "late",      label: "Late Night Eats", emoji: "🍜", tone: "bg-sky-300" },
+];
+
+const CREW: Crew[] = [
+  { k: "solo",  label: "Just me",          sub: "1" },
+  { k: "date",  label: "Date night",       sub: "2" },
+  { k: "small", label: "Small group",      sub: "3–5" },
+  { k: "squad", label: "Squad",            sub: "6+" },
+];
+
+const WHEN: When[] = [
+  { k: "tonight",  label: "Tonight" },
+  { k: "weekend",  label: "This weekend" },
+  { k: "pick",     label: "Pick a date" },
+];
+
+const BUDGETS: Budget[] = [
+  { k: "$",    label: "$",    sub: "cheap eats" },
+  { k: "$$",   label: "$$",   sub: "comfortable" },
+  { k: "$$$",  label: "$$$",  sub: "treat yourself" },
+  { k: "$$$$", label: "$$$$", sub: "no ceiling" },
+];
+
+const MUSTS: MustHave[] = [
+  { k: "live",    label: "Live music" },
+  { k: "outdoor", label: "Outdoor seating" },
+  { k: "late",    label: "Late-night" },
+  { k: "kids",    label: "Kid-friendly" },
+  { k: "walk",    label: "Walkable" },
+  { k: "ig",      label: "Instagram-worthy" },
+];
+
+const LOADING_LINES = [
+  "Scanning the city…",
+  "Filtering out boring spots…",
+  "Cross-checking reservations…",
+  "Curating your night…",
+  "Plating it up…",
+];
+
+type Stop = { time: string; venue: string; vibe: string; tone: string; walk?: string };
+
+const SAMPLE_STOPS: Stop[][] = [
+  [
+    { time: "7:00 PM", venue: "Lila's Patio",      vibe: "Small plates",   tone: "bg-coral",   walk: "12 min walk" },
+    { time: "8:30 PM", venue: "Mason St. Records", vibe: "Vinyl + nat wine", tone: "bg-purple", walk: "6 min walk" },
+    { time: "10:15 PM",venue: "Aera Rooftop",      vibe: "Nightcap views", tone: "bg-gold" },
+  ],
+  [
+    { time: "6:30 PM", venue: "Kettle & Char",     vibe: "Bougie dinner",  tone: "bg-emerald-400", walk: "8 min walk" },
+    { time: "8:45 PM", venue: "The Velvet Door",   vibe: "Speakeasy",      tone: "bg-gold",        walk: "4 min walk" },
+    { time: "10:30 PM",venue: "Saturn Lounge",     vibe: "Late dance",     tone: "bg-purple" },
+  ],
+  [
+    { time: "8:00 PM", venue: "Marigold Pizza",    vibe: "Slice + spritz", tone: "bg-coral",   walk: "5 min walk" },
+    { time: "9:30 PM", venue: "Loose Leaf Live",   vibe: "Live jazz trio", tone: "bg-pink-300", walk: "7 min walk" },
+    { time: "11:15 PM",venue: "Mama's Noodle Bar", vibe: "Late night eats", tone: "bg-amber-300" },
+  ],
+];
+
+export function BuildMyNightWizard() {
+  const { open, closeWizard } = useWizard();
+  const [step, setStep] = useState(0); // 0..4 questions, 5 loading, 6 result
+  const [vibe, setVibe] = useState<string | null>(null);
+  const [crew, setCrew] = useState<string | null>(null);
+  const [when, setWhen] = useState<string | null>(null);
+  const [pickedDate, setPickedDate] = useState<string>("");
+  const [budget, setBudget] = useState<string | null>(null);
+  const [musts, setMusts] = useState<string[]>([]);
+  const [loadingIdx, setLoadingIdx] = useState(0);
+  const [variant, setVariant] = useState(0);
+  const { burst, layer } = useConfettiBurst();
+
+  const stops = useMemo(() => SAMPLE_STOPS[variant % SAMPLE_STOPS.length], [variant]);
+  const totalSteps = 5;
+
+  // Lock body scroll while open
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, [open]);
+
+  // Reset on close
+  useEffect(() => {
+    if (open) return;
+    const t = setTimeout(() => {
+      setStep(0); setVibe(null); setCrew(null); setWhen(null); setPickedDate("");
+      setBudget(null); setMusts([]); setLoadingIdx(0); setVariant(0);
+    }, 220);
+    return () => clearTimeout(t);
+  }, [open]);
+
+  // Loading text rotation
+  useEffect(() => {
+    if (step !== 5) return;
+    setLoadingIdx(0);
+    const interval = setInterval(() => setLoadingIdx((i) => i + 1), 700);
+    const done = setTimeout(() => setStep(6), 3600);
+    return () => { clearInterval(interval); clearTimeout(done); };
+  }, [step]);
+
+  // Esc to close
+  useEffect(() => {
+    if (!open) return;
+    function onKey(e: KeyboardEvent) { if (e.key === "Escape") closeWizard(); }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, closeWizard]);
+
+  if (!open) return null;
+
+  const canAdvance =
+    (step === 0 && !!vibe) ||
+    (step === 1 && !!crew) ||
+    (step === 2 && !!when && (when !== "pick" || !!pickedDate)) ||
+    (step === 3 && !!budget) ||
+    (step === 4); // musts optional
+
+  function next() { setStep((s) => Math.min(s + 1, 5)); }
+  function back() { setStep((s) => Math.max(s - 1, 0)); }
+  function toggleMust(k: string) {
+    setMusts((m) => m.includes(k) ? m.filter((x) => x !== k) : [...m, k]);
+  }
+  function build(e: React.MouseEvent) {
+    burst(e.clientX, e.clientY);
+    next();
+  }
+  function regenerate(e: React.MouseEvent) {
+    burst(e.clientX, e.clientY);
+    setVariant((v) => v + 1);
+    setStep(5);
+  }
+  function savePlan(e: React.MouseEvent) {
+    burst(e.clientX, e.clientY);
+    toast.success("Plan saved", { description: "Find it under My trips." });
+    setTimeout(closeWizard, 350);
+  }
+
+  return (
+    <div className="fixed inset-0 z-[70] grid place-items-center p-3 sm:p-6">
+      {/* Backdrop */}
+      <div
+        className="absolute inset-0 bg-ink/70 backdrop-blur-md"
+        style={{ animation: "reveal-up 0.25s ease-out forwards" }}
+        onClick={closeWizard}
+        aria-hidden
+      />
+      {/* Modal */}
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Build my night"
+        className="relative w-full max-w-3xl overflow-hidden rounded-3xl border-2 border-ink bg-cream text-ink shadow-brut-lg"
+        style={{ animation: "reveal-scale 0.35s cubic-bezier(0.22,1,0.36,1) forwards" }}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between border-b-2 border-ink bg-cream/80 px-5 py-3 backdrop-blur">
+          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest">
+            <Sparkles className="h-3.5 w-3.5 text-coral" />
+            {step <= 4 ? `Step ${step + 1} / ${totalSteps}` : step === 5 ? "Building your night" : "Your night, ready"}
+          </div>
+          <button
+            onClick={closeWizard}
+            className="grid h-9 w-9 place-items-center rounded-full border-2 border-ink bg-cream transition-pop hover:-translate-y-0.5 hover:bg-coral hover:text-cream"
+            aria-label="Close"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+
+        {/* Progress bar */}
+        {step <= 4 && (
+          <div className="h-1.5 w-full bg-ink/10">
+            <div
+              className="h-full bg-gradient-to-r from-coral via-gold to-purple transition-[width] duration-500 ease-out"
+              style={{ width: `${((step + 1) / totalSteps) * 100}%` }}
+            />
+          </div>
+        )}
+
+        {/* Body */}
+        <div className="max-h-[72vh] overflow-y-auto px-5 py-7 sm:px-8 sm:py-9">
+          {step === 0 && (
+            <StepShell title="What's the vibe?" sub="Pick the energy. We'll do the rest.">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {VIBES.map((v) => {
+                  const active = vibe === v.k;
+                  return (
+                    <button
+                      key={v.k}
+                      onClick={() => setVibe(v.k)}
+                      className={`group relative overflow-hidden rounded-2xl border-2 border-ink p-4 text-left shadow-brut transition-pop ${v.tone} ${active ? "-translate-x-1 -translate-y-1 shadow-brut-lg ring-4 ring-ink/15" : "hover:-translate-x-0.5 hover:-translate-y-0.5"}`}
+                    >
+                      <div className="text-3xl">{v.emoji}</div>
+                      <div className="mt-2 font-display text-lg font-extrabold leading-tight">{v.label}</div>
+                      {active && (
+                        <span className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-cream">
+                          <Check className="h-4 w-4" />
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </StepShell>
+          )}
+
+          {step === 1 && (
+            <StepShell title="Who's coming?" sub="Group size shapes the spots.">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {CREW.map((c) => {
+                  const active = crew === c.k;
+                  return (
+                    <button
+                      key={c.k}
+                      onClick={() => setCrew(c.k)}
+                      className={`rounded-2xl border-2 border-ink bg-cream p-5 text-left shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-gold shadow-brut-lg" : ""}`}
+                    >
+                      <div className="font-display text-3xl font-extrabold">{c.sub}</div>
+                      <div className="mt-1 font-mono text-[11px] uppercase tracking-widest">{c.label}</div>
+                    </button>
+                  );
+                })}
+              </div>
+            </StepShell>
+          )}
+
+          {step === 2 && (
+            <StepShell title="When?" sub="We'll lock the schedule around it.">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {WHEN.map((w) => {
+                  const active = when === w.k;
+                  return (
+                    <button
+                      key={w.k}
+                      onClick={() => setWhen(w.k)}
+                      className={`rounded-2xl border-2 border-ink bg-cream p-5 text-left shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-coral text-cream shadow-brut-lg" : ""}`}
+                    >
+                      <div className="font-display text-2xl font-extrabold">{w.label}</div>
+                    </button>
+                  );
+                })}
+              </div>
+              {when === "pick" && (
+                <div className="mt-5">
+                  <label className="mb-2 block font-mono text-[11px] font-bold uppercase tracking-widest">Pick a date</label>
+                  <input
+                    type="date"
+                    value={pickedDate}
+                    onChange={(e) => setPickedDate(e.target.value)}
+                    className="w-full rounded-xl border-2 border-ink bg-cream px-4 py-3 font-display text-lg font-bold shadow-brut outline-none focus:-translate-y-0.5 focus:shadow-brut-lg"
+                  />
+                </div>
+              )}
+            </StepShell>
+          )}
+
+          {step === 3 && (
+            <StepShell title="Budget?" sub="No judgement either way.">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {BUDGETS.map((b) => {
+                  const active = budget === b.k;
+                  return (
+                    <button
+                      key={b.k}
+                      onClick={() => setBudget(b.k)}
+                      className={`rounded-2xl border-2 border-ink bg-cream p-5 text-center shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-purple text-cream shadow-brut-lg" : ""}`}
+                    >
+                      <div className="font-display text-3xl font-extrabold">{b.label}</div>
+                      <div className="mt-1 font-mono text-[10px] uppercase tracking-widest opacity-80">{b.sub}</div>
+                    </button>
+                  );
+                })}
+              </div>
+            </StepShell>
+          )}
+
+          {step === 4 && (
+            <StepShell title="Must-haves?" sub="Tap any that matter. Skip if you're easy.">
+              <div className="flex flex-wrap gap-2">
+                {MUSTS.map((m) => {
+                  const active = musts.includes(m.k);
+                  return (
+                    <button
+                      key={m.k}
+                      onClick={() => toggleMust(m.k)}
+                      className={`rounded-full border-2 border-ink px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-0.5 bg-ink text-cream shadow-brut-lg" : "bg-cream"}`}
+                    >
+                      {active && <Check className="-mt-0.5 mr-1 inline h-3.5 w-3.5" />}
+                      {m.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </StepShell>
+          )}
+
+          {step === 5 && (
+            <div className="flex min-h-[260px] flex-col items-center justify-center gap-5 py-8">
+              <Loader2 className="h-12 w-12 animate-spin text-coral" />
+              <div key={loadingIdx} className="font-display text-2xl font-extrabold" style={{ animation: "reveal-up 0.4s ease-out forwards" }}>
+                {LOADING_LINES[Math.min(loadingIdx, LOADING_LINES.length - 1)]}
+              </div>
+              <div className="flex gap-1.5">
+                {LOADING_LINES.map((_, i) => (
+                  <span key={i} className={`h-1.5 w-6 rounded-full ${i <= loadingIdx ? "bg-ink" : "bg-ink/20"}`} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {step === 6 && (
+            <div>
+              <h2 className="font-display text-3xl font-extrabold leading-tight sm:text-4xl">
+                Your night's <span className="font-serif italic font-normal text-coral">locked in.</span>
+              </h2>
+              <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-ink/60">
+                {VIBES.find((v) => v.k === vibe)?.label} · {CREW.find((c) => c.k === crew)?.label} · {budget}
+              </p>
+
+              <ol className="mt-6 space-y-3">
+                {stops.map((s, i) => (
+                  <li
+                    key={`${variant}-${i}`}
+                    className="flex items-stretch gap-3 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut"
+                    style={{ animation: `reveal-up 0.5s ${i * 110}ms cubic-bezier(0.22,1,0.36,1) backwards` }}
+                  >
+                    <div className={`grid w-20 shrink-0 place-items-center rounded-xl border-2 border-ink ${s.tone} font-display text-sm font-extrabold leading-tight text-ink`}>
+                      {s.time}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="font-display text-lg font-extrabold leading-tight">{s.venue}</div>
+                      <div className="mt-0.5 flex flex-wrap items-center gap-2 text-xs">
+                        <span className="rounded-full border border-ink bg-cream px-2 py-0.5 font-mono uppercase tracking-widest">{s.vibe}</span>
+                        {s.walk && <span className="font-mono text-[11px] text-ink/60">↳ {s.walk}</span>}
+                      </div>
+                    </div>
+                    <span className="grid h-7 w-7 self-center place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">{i + 1}</span>
+                  </li>
+                ))}
+              </ol>
+
+              <div className="mt-6 flex flex-wrap items-center justify-end gap-3 border-t-2 border-dashed border-ink pt-5">
+                <button
+                  onClick={regenerate}
+                  className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-cream px-5 font-mono text-xs font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5"
+                >
+                  <RefreshCw className="h-4 w-4" /> Regenerate
+                </button>
+                <button
+                  onClick={savePlan}
+                  className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
+                >
+                  <Save className="h-4 w-4" /> Save plan
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Footer nav */}
+        {step <= 4 && (
+          <div className="flex items-center justify-between gap-3 border-t-2 border-ink bg-cream/80 px-5 py-4 backdrop-blur">
+            <button
+              onClick={back}
+              disabled={step === 0}
+              className="inline-flex h-11 items-center gap-2 rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-40 disabled:hover:translate-y-0"
+            >
+              <ArrowLeft className="h-4 w-4" /> Back
+            </button>
+            {step < 4 ? (
+              <button
+                onClick={next}
+                disabled={!canAdvance}
+                className="inline-flex h-11 items-center gap-2 rounded-full border-2 border-ink bg-ink px-5 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg disabled:opacity-40 disabled:hover:translate-x-0 disabled:hover:translate-y-0"
+              >
+                Continue <ArrowUpRight className="h-4 w-4" />
+              </button>
+            ) : (
+              <button
+                onClick={build}
+                className="inline-flex h-11 items-center gap-2 rounded-full border-2 border-ink bg-coral px-5 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
+              >
+                Build it <Sparkles className="h-4 w-4" />
+              </button>
+            )}
+          </div>
+        )}
+      </div>
+      {layer}
+    </div>
+  );
+}
+
+function StepShell({ title, sub, children }: { title: string; sub: string; children: React.ReactNode }) {
+  return (
+    <div style={{ animation: "reveal-up 0.4s ease-out forwards" }}>
+      <h2 className="font-display text-3xl font-extrabold leading-tight sm:text-4xl">{title}</h2>
+      <p className="mt-1 text-sm text-ink/70">{sub}</p>
+      <div className="mt-6">{children}</div>
+    </div>
+  );
+}

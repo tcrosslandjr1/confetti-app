@@ -10,7 +10,7 @@ type Pick = {
   bg: string;
   duration: string;
   cost: string;
-  stops: { time: string; venue: string }[];
+  stops: { time: string; venue: string; address?: string; neighborhood?: string }[];
 };
 
 const PICKS: Pick[] = [
@@ -23,9 +23,9 @@ const PICKS: Pick[] = [
     duration: "4h",
     cost: "$80–$120 pp",
     stops: [
-      { time: "6:30p", venue: "Aera Terrace" },
-      { time: "8:15p", venue: "Twelve Story" },
-      { time: "10:00p", venue: "Halo Skybar" },
+      { time: "6:30p", venue: "Aera Terrace",  address: "77 Pearl St, 22F",  neighborhood: "Financial District" },
+      { time: "8:15p", venue: "Twelve Story",  address: "1201 Broadway, R", neighborhood: "NoMad" },
+      { time: "10:00p", venue: "Halo Skybar",  address: "230 5th Ave, R",   neighborhood: "Flatiron" },
     ],
   },
   {
@@ -37,9 +37,9 @@ const PICKS: Pick[] = [
     duration: "3.5h",
     cost: "$95–$140 pp",
     stops: [
-      { time: "7:00p", venue: "Lila's Patio" },
-      { time: "8:45p", venue: "The Velvet Door" },
-      { time: "10:15p", venue: "Mason St. Records" },
+      { time: "7:00p", venue: "Lila's Patio",      address: "418 W 14th St", neighborhood: "Meatpacking" },
+      { time: "8:45p", venue: "The Velvet Door",   address: "12 Crosby St",  neighborhood: "SoHo" },
+      { time: "10:15p", venue: "Mason St. Records", address: "210 Mason St", neighborhood: "Lower East Side" },
     ],
   },
   {
@@ -51,9 +51,9 @@ const PICKS: Pick[] = [
     duration: "4.5h",
     cost: "$160–$240 pp",
     stops: [
-      { time: "6:00p", venue: "Kettle & Char" },
-      { time: "8:30p", venue: "Suite 9 Lounge" },
-      { time: "10:30p", venue: "Aera Rooftop" },
+      { time: "6:00p", venue: "Kettle & Char",  address: "55 Hudson St",     neighborhood: "Tribeca" },
+      { time: "8:30p", venue: "Suite 9 Lounge", address: "9 Great Jones St", neighborhood: "NoHo" },
+      { time: "10:30p", venue: "Aera Rooftop",  address: "77 Pearl St, 22F", neighborhood: "Financial District" },
     ],
   },
   {
@@ -65,9 +65,9 @@ const PICKS: Pick[] = [
     duration: "5h",
     cost: "$60–$110 pp",
     stops: [
-      { time: "9:00p", venue: "Marigold Pizza" },
-      { time: "10:45p", venue: "Saturn Lounge" },
-      { time: "12:30a", venue: "Basement 47" },
+      { time: "9:00p", venue: "Marigold Pizza", address: "94 Orchard St",  neighborhood: "Lower East Side" },
+      { time: "10:45p", venue: "Saturn Lounge", address: "388 Bowery",     neighborhood: "NoHo" },
+      { time: "12:30a", venue: "Basement 47",   address: "47 Canal St",    neighborhood: "Chinatown" },
     ],
   },
   {
@@ -79,9 +79,9 @@ const PICKS: Pick[] = [
     duration: "5h",
     cost: "$45–$75 pp",
     stops: [
-      { time: "11:00a", venue: "Six Spoons" },
-      { time: "1:30p",  venue: "Glasshouse Gallery" },
-      { time: "3:15p",  venue: "Harbor Promenade" },
+      { time: "11:00a", venue: "Six Spoons",         address: "162 Wythe Ave",   neighborhood: "Williamsburg" },
+      { time: "1:30p",  venue: "Glasshouse Gallery", address: "548 W 22nd St",   neighborhood: "Chelsea" },
+      { time: "3:15p",  venue: "Harbor Promenade",   address: "Pier 17, South St", neighborhood: "Seaport" },
     ],
   },
   {
@@ -93,9 +93,9 @@ const PICKS: Pick[] = [
     duration: "4h",
     cost: "$55–$95 pp",
     stops: [
-      { time: "7:30p", venue: "Loose Leaf Live" },
-      { time: "9:15p", venue: "Mason St. Records" },
-      { time: "10:45p", venue: "Underline Club" },
+      { time: "7:30p", venue: "Loose Leaf Live",    address: "311 Bleecker St", neighborhood: "West Village" },
+      { time: "9:15p", venue: "Mason St. Records",  address: "210 Mason St",    neighborhood: "Lower East Side" },
+      { time: "10:45p", venue: "Underline Club",    address: "199 Bowery",      neighborhood: "NoHo" },
     ],
   },
 ];

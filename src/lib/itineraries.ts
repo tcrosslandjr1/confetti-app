@@ -109,6 +109,7 @@ export async function buildAndSaveItinerary(payload: BuildPayload): Promise<{ id
       city: payload.city ?? null,
       est_total_cost: it.estTotalCost,
       source: payload.seedIdea ? "card" : "planner",
+      transport_mode: payload.transportMode ?? "auto",
     })
     .select("id")
     .single();

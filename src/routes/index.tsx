@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { TypingCounter } from "@/components/TypingCounter";
 import { OCCASIONS } from "@/lib/occasions";
 
 export const Route = createFileRoute("/")({

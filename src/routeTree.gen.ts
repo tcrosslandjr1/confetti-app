@@ -17,6 +17,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
+import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile'
@@ -65,6 +66,11 @@ const ConciergeIndexRoute = ConciergeIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ConciergeRoute,
 } as any)
+const TripsIdRoute = TripsIdRouteImport.update({
+  id: '/trips/$id',
+  path: '/trips/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IdeasSlugRoute = IdeasSlugRouteImport.update({
   id: '/ideas/$slug',
   path: '/ideas/$slug',
@@ -112,6 +118,7 @@ export interface FileRoutesByFullPath {
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
+  '/trips/$id': typeof TripsIdRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/trips/': typeof TripsIndexRoute
@@ -128,6 +135,7 @@ export interface FileRoutesByTo {
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
+  '/trips/$id': typeof TripsIdRoute
   '/concierge': typeof ConciergeIndexRoute
   '/events': typeof EventsIndexRoute
   '/trips': typeof TripsIndexRoute
@@ -146,6 +154,7 @@ export interface FileRoutesById {
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
+  '/trips/$id': typeof TripsIdRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/trips/': typeof TripsIndexRoute
@@ -165,6 +174,7 @@ export interface FileRouteTypes {
     | '/concierge/profile'
     | '/events/$eventId'
     | '/ideas/$slug'
+    | '/trips/$id'
     | '/concierge/'
     | '/events/'
     | '/trips/'
@@ -181,6 +191,7 @@ export interface FileRouteTypes {
     | '/concierge/profile'
     | '/events/$eventId'
     | '/ideas/$slug'
+    | '/trips/$id'
     | '/concierge'
     | '/events'
     | '/trips'
@@ -198,6 +209,7 @@ export interface FileRouteTypes {
     | '/concierge/profile'
     | '/events/$eventId'
     | '/ideas/$slug'
+    | '/trips/$id'
     | '/concierge/'
     | '/events/'
     | '/trips/'
@@ -214,6 +226,7 @@ export interface RootRouteChildren {
   ApiChatRoute: typeof ApiChatRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   IdeasSlugRoute: typeof IdeasSlugRoute
+  TripsIdRoute: typeof TripsIdRoute
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
 }
@@ -275,6 +288,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/concierge/'
       preLoaderRoute: typeof ConciergeIndexRouteImport
       parentRoute: typeof ConciergeRoute
+    }
+    '/trips/$id': {
+      id: '/trips/$id'
+      path: '/trips/$id'
+      fullPath: '/trips/$id'
+      preLoaderRoute: typeof TripsIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/ideas/$slug': {
       id: '/ideas/$slug'
@@ -357,6 +377,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiChatRoute: ApiChatRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   IdeasSlugRoute: IdeasSlugRoute,
+  TripsIdRoute: TripsIdRoute,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
 }

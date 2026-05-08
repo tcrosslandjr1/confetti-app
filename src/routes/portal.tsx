@@ -15,14 +15,15 @@ export const Route = createFileRoute("/portal")({
   component: PortalLayout,
 });
 
-const NAV = [
+type NavItem = { to: string; label: string; icon: typeof Compass; exact?: boolean };
+const NAV: NavItem[] = [
   { to: "/portal", label: "Discover", icon: Compass, exact: true },
   { to: "/concierge/chat", label: "Concierge", icon: MessageCircle },
   { to: "/portal/bookings", label: "Bookings", icon: CalendarCheck },
   { to: "/concierge/passport", label: "Passport", icon: BookMarked },
   { to: "/portal/saved", label: "Saved", icon: Bookmark },
   { to: "/portal/profile", label: "Profile", icon: User },
-] as const;
+];
 
 function PortalLayout() {
   const { user, loading } = useAuth();

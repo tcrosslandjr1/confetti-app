@@ -144,7 +144,9 @@ import { loadVotes, subscribeVotes, tallyStop, type TripVotes } from "@/lib/vote
 import { supabase } from "@/integrations/supabase/client";
 import { Users, AlertTriangle, Timer, Zap } from "lucide-react";
 import { checkStopFits, dayKeyFromDate } from "@/lib/hours";
-import { clearStatus, formatUpdatedAt, loadStatus, setMinutesLate, shiftTimeLabel, subscribeStatus, type TripStatus } from "@/lib/trip-status";
+import { clearStatus, formatUpdatedAt, loadStatus, setMinutesLate, shiftTimeLabel, subscribeStatus, type TripStatus, loadNotifications, subscribeNotifications, clearNotifications, type SentNotification } from "@/lib/trip-status";
+import { LateRescheduleFab } from "@/components/LateRescheduleFab";
+import { History, RotateCcw } from "lucide-react";
 
 function makeToken() {
   const bytes = new Uint8Array(8);
@@ -167,6 +169,7 @@ function ReadyPage() {
   const [collabCopied, setCollabCopied] = useState(false);
   const [status, setStatus] = useState<TripStatus | null>(null);
   const [customLate, setCustomLate] = useState("");
+  const [notifications, setNotifications] = useState<SentNotification[]>([]);
 
   const shareUrl = useMemo(() => {
     if (typeof window === "undefined") return `https://confetti.app/trips/${TRIP.id}`;
@@ -191,13 +194,15 @@ function ReadyPage() {
     setVideoUrl(loadInviteVideo(TRIP.id));
     setVotes(loadVotes(TRIP.id));
     setStatus(loadStatus(TRIP.id));
+    setNotifications(loadNotifications(TRIP.id));
     const unsub = subscribeInvites(TRIP.id, () => {
       setInvitesState(loadInvites(TRIP.id));
       setVideoUrl(loadInviteVideo(TRIP.id));
     });
     const unsubVotes = subscribeVotes(TRIP.id, () => setVotes(loadVotes(TRIP.id)));
     const unsubStatus = subscribeStatus(TRIP.id, () => setStatus(loadStatus(TRIP.id)));
-    return () => { unsub(); unsubVotes(); unsubStatus(); };
+    const unsubNotif = subscribeNotifications(TRIP.id, () => setNotifications(loadNotifications(TRIP.id)));
+    return () => { unsub(); unsubVotes(); unsubStatus(); unsubNotif(); };
   }, []);
 
   function applyLate(minutes: number) {
@@ -521,14 +526,31 @@ function ReadyPage() {
         </section>
 
         {/* Recap card */}
-        <section className="mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+        <section className="relative mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+          {status?.cancelled && (
+            <div className="pointer-events-none absolute inset-0 z-10 grid place-items-center bg-rose-500/15 backdrop-blur-[1px]">
+              <span className="-rotate-6 rounded-2xl border-[3px] border-rose-700 bg-rose-100 px-6 py-2 text-2xl font-black uppercase tracking-widest text-rose-700 shadow-[6px_6px_0_0_hsl(var(--foreground))]">
+                Cancelled
+              </span>
+            </div>
+          )}
           <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-gradient-to-r from-primary/5 to-coral/5 p-5 sm:p-6">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Saturday · Date night</p>
               <p className="mt-0.5 font-display text-xl font-semibold">A little romance, end-to-end</p>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-              {status && status.minutesLate > 0 && (
+              {status?.cancelled && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 px-2.5 py-1 font-semibold text-rose-700">
+                  <X className="h-3 w-3" /> Cancelled · {formatUpdatedAt(status.updatedAt)}
+                </span>
+              )}
+              {status?.rescheduledAt && !status.cancelled && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/15 px-2.5 py-1 font-semibold text-sky-700">
+                  <Calendar className="h-3 w-3" /> Rescheduled · {new Date(status.rescheduledAt).toLocaleDateString([], { month: "short", day: "numeric" })}
+                </span>
+              )}
+              {status && status.minutesLate > 0 && !status.cancelled && (
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 px-2.5 py-1 font-semibold text-amber-700">
                   <span className="relative inline-flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" />
@@ -909,7 +931,73 @@ function ReadyPage() {
             Plan another day
           </Link>
         </div>
+
+        {/* Notification history */}
+        <section className="mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
+          <header className="flex items-center justify-between gap-3 border-b border-border bg-muted/40 p-4 sm:px-5">
+            <div className="flex items-center gap-2">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-foreground/10 text-foreground">
+                <History className="h-4 w-4" />
+              </span>
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Notification history</p>
+                <p className="mt-0.5 text-sm font-semibold">
+                  {notifications.length === 0
+                    ? "Nothing sent yet"
+                    : `${notifications.length} message${notifications.length === 1 ? "" : "s"} sent`}
+                </p>
+              </div>
+            </div>
+            {notifications.length > 0 && (
+              <button
+                type="button"
+                onClick={() => { clearNotifications(TRIP.id); toast.success("History cleared"); }}
+                className="inline-flex items-center gap-1 rounded-full border border-border bg-card px-2.5 py-1 text-[11px] font-semibold text-muted-foreground transition-colors hover:border-destructive hover:text-destructive"
+              >
+                <RotateCcw className="h-3 w-3" /> Clear
+              </button>
+            )}
+          </header>
+          {notifications.length === 0 ? (
+            <p className="p-5 text-xs text-muted-foreground">
+              Use the floating button to notify venues when you're running late, rescheduling, or cancelling. Every message lands here with a timestamp.
+            </p>
+          ) : (
+            <ol className="divide-y divide-border">
+              {notifications.map((n) => {
+                const tone =
+                  n.kind === "late" ? "bg-amber-500/15 text-amber-700"
+                  : n.kind === "reschedule" ? "bg-sky-500/15 text-sky-700"
+                  : "bg-rose-500/15 text-rose-700";
+                const Icon = n.kind === "late" ? Timer : n.kind === "reschedule" ? Calendar : AlertTriangle;
+                return (
+                  <li key={n.id} className="flex items-start gap-3 p-4 sm:px-5">
+                    <span className={`mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg ${tone}`}>
+                      <Icon className="h-3.5 w-3.5" />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-baseline justify-between gap-2">
+                        <p className="text-sm font-semibold">{n.venue}</p>
+                        <span className="text-[11px] text-muted-foreground">
+                          {new Date(n.sentAt).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}
+                        </span>
+                      </div>
+                      <p className="text-xs text-muted-foreground">{n.message}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          )}
+        </section>
       </div>
+
+      <LateRescheduleFab
+        tripId={TRIP.id}
+        partyName={TRIP.title}
+        groupSize={Math.max(1, invites.filter((i) => i.status === "accepted").length + 1)}
+        stops={STOPS.map((s) => ({ time: s.time, name: s.name, durationMin: s.durationMin }))}
+      />
     </div>
   );
 }

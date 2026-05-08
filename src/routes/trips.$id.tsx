@@ -167,6 +167,9 @@ function TripDetail() {
                       </ul>
                     </div>
                   )}
+
+                  <div className="mt-4 flex flex-wrap items-center gap-2">
+                    {s.booking_url && (
                       <a href={s.booking_url} target="_blank" rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-xs font-semibold text-background hover:scale-105 transition-pop">
                         Book on {s.booking_provider ?? "site"} <ExternalLink className="h-3.5 w-3.5" />

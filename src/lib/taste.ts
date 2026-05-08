@@ -108,5 +108,8 @@ export function tasteSummary(p: Prefs): string {
   if (p.activities.length) parts.push(`favorite activities: ${p.activities.join(", ")}`);
   if (p.budget_min || p.budget_max) parts.push(`budget $${p.budget_min}-${p.budget_max}`);
   if (p.about_me) parts.push(`about: "${p.about_me.slice(0, 280)}"`);
+  const handles = Object.entries(p.social_handles ?? {}).filter(([, v]) => v).map(([k, v]) => `${k}:@${v}`);
+  if (handles.length) parts.push(`socials: ${handles.join(", ")}`);
+  if (p.social_signals) parts.push(`social signals: "${p.social_signals.slice(0, 280)}"`);
   return parts.length ? parts.join(" · ") : "";
 }

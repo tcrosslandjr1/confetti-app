@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ArrowLeft, Bookmark, Camera, Clock, MapPin, RefreshCw, Sparkles, Utensils, Wine } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -51,6 +51,7 @@ const CAT_TONE: Record<Stop["category"], string> = {
 function PreviewPage() {
   const [variant, setVariant] = useState(0);
   const [saved, setSaved] = useState(false);
+  const nav = useNavigate();
   const stops = useMemo(() => VARIANTS[variant % VARIANTS.length], [variant]);
 
   function regenerate() {
@@ -62,6 +63,7 @@ function PreviewPage() {
   function save() {
     setSaved(true);
     toast.success("Plan saved to your trips");
+    setTimeout(() => nav({ to: "/plan/ready" }), 350);
   }
 
   return (

@@ -12,6 +12,7 @@ import {
   getVoterId,
   type VoteValue,
 } from "@/lib/votes";
+import { checkStopFits } from "@/lib/hours";
 
 export const Route = createFileRoute("/collab/$tripId")({
   head: () => ({
@@ -28,11 +29,13 @@ const TRIP_PREVIEW = {
   date: "This Saturday",
   window: "11:30 AM – 7:30 PM",
   city: "Old Market & East Side",
+  // Saturday demo trip — `day` keyed off the saved plan's start date.
+  day: "sat" as const,
   stops: [
-    { time: "11:30 AM", name: "Bluebird Coffee Social", neighborhood: "East Side",          note: "Slow brews, sunlit corner table." },
-    { time: "1:15 PM",  name: "The Marigold Rooftop",   neighborhood: "Warehouse District", note: "Aperitivo with skyline views." },
-    { time: "3:15 PM",  name: "Lantern Hill Overlook",  neighborhood: "Riverbend",          note: "Golden-hour walk + photos." },
-    { time: "5:30 PM",  name: "Osteria di Pesca",       neighborhood: "Old Market",         note: "Hand-rolled pasta, cozy booth." },
+    { time: "11:30 AM", durationMin: 75,  name: "Bluebird Coffee Social", neighborhood: "East Side",          note: "Slow brews, sunlit corner table." },
+    { time: "1:15 PM",  durationMin: 90,  name: "The Marigold Rooftop",   neighborhood: "Warehouse District", note: "Aperitivo with skyline views." },
+    { time: "3:15 PM",  durationMin: 90,  name: "Lantern Hill Overlook",  neighborhood: "Riverbend",          note: "Golden-hour walk + photos." },
+    { time: "5:30 PM",  durationMin: 120, name: "Osteria di Pesca",       neighborhood: "Old Market",         note: "Hand-rolled pasta, cozy booth." },
   ],
 };
 

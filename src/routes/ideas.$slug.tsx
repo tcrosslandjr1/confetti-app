@@ -216,6 +216,20 @@ function IdeasPage() {
             </div>
           )}
 
+          {current && (
+            <button
+              onClick={() => buildDay(current)}
+              disabled={planning === current.id}
+              className="mt-4 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background shadow-card transition-pop hover:scale-105 disabled:opacity-60"
+            >
+              {planning === current.id ? (
+                <><Loader2 className="h-4 w-4 animate-spin" /> Building your day...</>
+              ) : (
+                <><CalendarPlus className="h-4 w-4" /> Build full day from this</>
+              )}
+            </button>
+          )}
+
           {error && (
             <p className="mt-4 rounded-lg bg-destructive/10 px-4 py-2 text-sm text-destructive">{error}</p>
           )}

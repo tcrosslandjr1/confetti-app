@@ -417,11 +417,14 @@ function ReadyPage() {
             <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
               <UserPlus className="h-3.5 w-3.5 text-primary" /> Invite the crew
             </div>
-            {invites.length > 0 && (
-              <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
-                {invites.length} invited
-              </span>
-            )}
+            {invites.length > 0 && (() => {
+              const going = invites.filter((i) => i.status === "accepted").length;
+              return (
+                <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
+                  {going > 0 ? `${going} going · ${invites.length} invited` : `${invites.length} invited`}
+                </span>
+              );
+            })()}
           </div>
 
           <form onSubmit={addInvite} className="mt-3 flex flex-col gap-2 sm:flex-row">

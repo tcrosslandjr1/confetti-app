@@ -293,7 +293,7 @@ function Landing() {
                   <Link
                     to="/ideas/$slug"
                     params={{ slug: o.slug }}
-                    className={`group tilt-3d grain ${glow} relative flex h-44 flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-cream/[0.03] p-5 hover:border-cream hover:bg-cream hover:text-ink`}
+                    className={`group tilt-3d grain ${glow} relative flex h-44 flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-cream/[0.03] p-5 transition-pop hover:-translate-y-1 hover:rotate-[-1deg] hover:scale-[1.04] hover:border-cream hover:bg-cream hover:text-ink hover:shadow-brut-lg`}
                   >
                     <div className="flex items-start justify-between">
                       <Icon className="h-6 w-6" />

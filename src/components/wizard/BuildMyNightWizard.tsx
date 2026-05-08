@@ -138,6 +138,7 @@ function getDetails(venue: string, vibe: string) {
     glutenFree,
     vegan,
     vegetarian,
+    pescatarian,
     allergens,
   };
 }

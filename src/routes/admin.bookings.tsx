@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CalendarCheck, CheckCircle2, Search, XCircle, Clock, Filter } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ import {
 import { toast } from "sonner";
 import { logAudit } from "@/lib/audit-log";
 import { useAuth } from "@/lib/auth-context";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/admin/bookings")({
   component: AdminBookingsPage,
@@ -23,26 +24,15 @@ export const Route = createFileRoute("/admin/bookings")({
 type Status = "pending" | "confirmed" | "cancelled";
 type Booking = {
   id: string;
-  guest: string;
-  email: string;
-  venue: string;
-  neighborhood: string;
-  date: string;
-  time: string;
-  party: number;
-  status: Status;
+  user_id: string;
+  venue_name: string;
+  starts_at: string;
+  party_size: number;
+  status: string;
+  cancelled_at: string | null;
+  notes: string | null;
+  profiles: { display_name: string | null } | null;
 };
-
-const SEED: Booking[] = [
-  { id: "BK-1042", guest: "Sarah Klein", email: "sarah@k.co", venue: "Maydan", neighborhood: "14th St", date: "2026-05-12", time: "19:30", party: 4, status: "pending" },
-  { id: "BK-1041", guest: "Marcus Tate", email: "m.tate@mail.com", venue: "Albi", neighborhood: "Navy Yard", date: "2026-05-11", time: "20:00", party: 2, status: "confirmed" },
-  { id: "BK-1040", guest: "Priya Rao", email: "priya@r.io", venue: "Le Diplomate", neighborhood: "Logan Circle", date: "2026-05-11", time: "18:45", party: 6, status: "pending" },
-  { id: "BK-1039", guest: "Jordan Liu", email: "jliu@mail.com", venue: "Rose's Luxury", neighborhood: "Barracks Row", date: "2026-05-10", time: "21:15", party: 3, status: "cancelled" },
-  { id: "BK-1038", guest: "Ana Ferreira", email: "ana.f@mail.com", venue: "Bresca", neighborhood: "14th St", date: "2026-05-10", time: "19:00", party: 2, status: "confirmed" },
-  { id: "BK-1037", guest: "Devon Hale", email: "devon@h.dev", venue: "Maydan", neighborhood: "14th St", date: "2026-05-09", time: "20:30", party: 5, status: "pending" },
-  { id: "BK-1036", guest: "Mia Chen", email: "mia@c.co", venue: "Albi", neighborhood: "Navy Yard", date: "2026-05-09", time: "18:00", party: 2, status: "confirmed" },
-  { id: "BK-1035", guest: "Tomas Reid", email: "tomas@r.dev", venue: "Le Diplomate", neighborhood: "Logan Circle", date: "2026-05-08", time: "19:45", party: 4, status: "cancelled" },
-];
 
 const STATUS_TABS: { key: "all" | Status; label: string }[] = [
   { key: "all", label: "All" },
@@ -51,7 +41,7 @@ const STATUS_TABS: { key: "all" | Status; label: string }[] = [
   { key: "cancelled", label: "Cancelled" },
 ];
 
-function StatusBadge({ status }: { status: Status }) {
+function StatusBadge({ status }: { status: string }) {
   if (status === "confirmed")
     return <Badge className="bg-emerald-500/15 text-emerald-700 hover:bg-emerald-500/20"><CheckCircle2 className="mr-1 h-3 w-3" />Confirmed</Badge>;
   if (status === "cancelled")
@@ -62,24 +52,41 @@ function StatusBadge({ status }: { status: Status }) {
 function AdminBookingsPage() {
   const { user } = useAuth();
   const adminEmail = user?.email ?? "admin";
-  const [bookings, setBookings] = useState<Booking[]>(SEED);
+  const [bookings, setBookings] = useState<Booking[]>([]);
+  const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState<"all" | Status>("all");
   const [query, setQuery] = useState("");
   const [venueFilter, setVenueFilter] = useState<string>("all");
 
-  const venues = useMemo(() => Array.from(new Set(SEED.map((b) => b.venue))), []);
+  const load = () => {
+    setLoading(true);
+    supabase
+      .from("bookings")
+      .select("id,user_id,venue_name,starts_at,party_size,status,cancelled_at,notes,profiles(display_name)")
+      .order("starts_at", { ascending: false })
+      .then(({ data, error }) => {
+        if (error) toast.error(error.message);
+        setBookings((data as unknown as Booking[]) ?? []);
+        setLoading(false);
+      });
+  };
+
+  useEffect(load, []);
+
+  const venues = useMemo(() => Array.from(new Set(bookings.map((b) => b.venue_name))), [bookings]);
 
   const filtered = useMemo(() => {
     return bookings.filter((b) => {
-      if (tab !== "all" && b.status !== tab) return false;
-      if (venueFilter !== "all" && b.venue !== venueFilter) return false;
+      const status = b.cancelled_at ? "cancelled" : b.status;
+      if (tab !== "all" && status !== tab) return false;
+      if (venueFilter !== "all" && b.venue_name !== venueFilter) return false;
       if (query) {
         const q = query.toLowerCase();
+        const guest = b.profiles?.display_name ?? "";
         if (
-          !b.guest.toLowerCase().includes(q) &&
-          !b.email.toLowerCase().includes(q) &&
+          !guest.toLowerCase().includes(q) &&
           !b.id.toLowerCase().includes(q) &&
-          !b.venue.toLowerCase().includes(q)
+          !b.venue_name.toLowerCase().includes(q)
         )
           return false;
       }
@@ -90,25 +97,28 @@ function AdminBookingsPage() {
   const counts = useMemo(
     () => ({
       all: bookings.length,
-      pending: bookings.filter((b) => b.status === "pending").length,
-      confirmed: bookings.filter((b) => b.status === "confirmed").length,
-      cancelled: bookings.filter((b) => b.status === "cancelled").length,
+      pending: bookings.filter((b) => !b.cancelled_at && b.status === "pending").length,
+      confirmed: bookings.filter((b) => !b.cancelled_at && b.status === "confirmed").length,
+      cancelled: bookings.filter((b) => b.cancelled_at || b.status === "cancelled").length,
     }),
     [bookings],
   );
 
-  const updateStatus = (id: string, status: Status) => {
-    const b = bookings.find((x) => x.id === id);
-    setBookings((prev) => prev.map((x) => (x.id === id ? { ...x, status } : x)));
+  const updateStatus = async (b: Booking, status: Status) => {
+    const patch: Record<string, unknown> = { status };
+    if (status === "cancelled") patch.cancelled_at = new Date().toISOString();
+    const { error } = await supabase.from("bookings").update(patch).eq("id", b.id);
+    if (error) { toast.error(error.message); return; }
     const action = status === "confirmed" ? "Confirmed" : "Cancelled";
-    toast.success(`${action} ${id}`);
+    toast.success(`${action} ${b.id.slice(0, 8)}`);
     logAudit({
       admin: adminEmail,
       action: status === "confirmed" ? "confirm" : "cancel",
       entity: "booking",
-      targetId: id,
-      summary: `${action} booking${b ? ` for ${b.guest} at ${b.venue}` : ""}`,
+      targetId: b.id,
+      summary: `${action} booking for ${b.profiles?.display_name ?? "guest"} at ${b.venue_name}`,
     });
+    load();
   };
 
   return (
@@ -119,7 +129,7 @@ function AdminBookingsPage() {
           <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
             <CalendarCheck className="h-7 w-7" /> Bookings
           </h1>
-          <p className="text-sm text-muted-foreground">Review, confirm, or cancel reservations across venues.</p>
+          <p className="text-sm text-muted-foreground">Review, confirm, or cancel reservations across venues. Live data.</p>
         </div>
       </header>
 
@@ -151,7 +161,7 @@ function AdminBookingsPage() {
           <Input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search guest, email, venue, or booking ID…"
+            placeholder="Search guest, venue, or booking ID…"
             className="pl-9"
           />
         </div>
@@ -184,53 +194,59 @@ function AdminBookingsPage() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {filtered.length === 0 ? (
+            {loading ? (
+              <TableRow><TableCell colSpan={7} className="py-12 text-center text-sm text-muted-foreground">Loading…</TableCell></TableRow>
+            ) : filtered.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={7} className="py-12 text-center text-sm text-muted-foreground">
                   No bookings match your filters.
                 </TableCell>
               </TableRow>
             ) : (
-              filtered.map((b) => (
-                <TableRow key={b.id}>
-                  <TableCell className="font-mono text-xs">{b.id}</TableCell>
-                  <TableCell>
-                    <div className="font-semibold">{b.guest}</div>
-                    <div className="text-xs text-muted-foreground">{b.email}</div>
-                  </TableCell>
-                  <TableCell>
-                    <div className="font-semibold">{b.venue}</div>
-                    <div className="text-xs text-muted-foreground">{b.neighborhood}</div>
-                  </TableCell>
-                  <TableCell className="text-sm">
-                    {b.date}
-                    <div className="text-xs text-muted-foreground">{b.time}</div>
-                  </TableCell>
-                  <TableCell>{b.party}</TableCell>
-                  <TableCell><StatusBadge status={b.status} /></TableCell>
-                  <TableCell className="text-right">
-                    <div className="inline-flex gap-2">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        disabled={b.status === "confirmed"}
-                        onClick={() => updateStatus(b.id, "confirmed")}
-                      >
-                        <CheckCircle2 className="mr-1 h-3.5 w-3.5" /> Confirm
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        disabled={b.status === "cancelled"}
-                        onClick={() => updateStatus(b.id, "cancelled")}
-                        className="text-destructive hover:text-destructive"
-                      >
-                        <XCircle className="mr-1 h-3.5 w-3.5" /> Cancel
-                      </Button>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))
+              filtered.map((b) => {
+                const dt = new Date(b.starts_at);
+                const status = b.cancelled_at ? "cancelled" : b.status;
+                return (
+                  <TableRow key={b.id}>
+                    <TableCell className="font-mono text-xs">{b.id.slice(0, 8)}</TableCell>
+                    <TableCell>
+                      <div className="font-semibold">{b.profiles?.display_name ?? "Guest"}</div>
+                      <div className="text-xs text-muted-foreground font-mono">{b.user_id.slice(0, 8)}</div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="font-semibold">{b.venue_name}</div>
+                      {b.notes && <div className="text-xs text-muted-foreground line-clamp-1">{b.notes}</div>}
+                    </TableCell>
+                    <TableCell className="text-sm">
+                      {dt.toLocaleDateString()}
+                      <div className="text-xs text-muted-foreground">{dt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</div>
+                    </TableCell>
+                    <TableCell>{b.party_size}</TableCell>
+                    <TableCell><StatusBadge status={status} /></TableCell>
+                    <TableCell className="text-right">
+                      <div className="inline-flex gap-2">
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          disabled={status === "confirmed" || status === "cancelled"}
+                          onClick={() => updateStatus(b, "confirmed")}
+                        >
+                          <CheckCircle2 className="mr-1 h-3.5 w-3.5" /> Confirm
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          disabled={status === "cancelled"}
+                          onClick={() => updateStatus(b, "cancelled")}
+                          className="text-destructive hover:text-destructive"
+                        >
+                          <XCircle className="mr-1 h-3.5 w-3.5" /> Cancel
+                        </Button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                );
+              })
             )}
           </TableBody>
         </Table>

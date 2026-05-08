@@ -56,6 +56,7 @@ export type Database = {
           start_time: string | null
           summary: string | null
           title: string
+          transport_mode: string | null
           updated_at: string
           user_id: string
           vibe: string | null
@@ -74,6 +75,7 @@ export type Database = {
           start_time?: string | null
           summary?: string | null
           title: string
+          transport_mode?: string | null
           updated_at?: string
           user_id: string
           vibe?: string | null
@@ -92,6 +94,7 @@ export type Database = {
           start_time?: string | null
           summary?: string | null
           title?: string
+          transport_mode?: string | null
           updated_at?: string
           user_id?: string
           vibe?: string | null
@@ -119,6 +122,7 @@ export type Database = {
           review_snippets: Json | null
           start_time: string | null
           tips: Json | null
+          travel_from_prev: Json | null
           user_notes: string | null
           user_rating: number | null
           user_review: string | null
@@ -144,6 +148,7 @@ export type Database = {
           review_snippets?: Json | null
           start_time?: string | null
           tips?: Json | null
+          travel_from_prev?: Json | null
           user_notes?: string | null
           user_rating?: number | null
           user_review?: string | null
@@ -169,6 +174,7 @@ export type Database = {
           review_snippets?: Json | null
           start_time?: string | null
           tips?: Json | null
+          travel_from_prev?: Json | null
           user_notes?: string | null
           user_rating?: number | null
           user_review?: string | null

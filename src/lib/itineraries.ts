@@ -22,6 +22,15 @@ export type Stop = {
   user_rating?: number | null;
   user_review?: string | null;
   completed_at?: string | null;
+  travel_from_prev?: TravelLeg | null;
+};
+
+export type TravelLeg = {
+  mode: "walk" | "car" | "transit" | "lyft" | "uber" | "rideshare" | "bike" | string;
+  durationMinutes: number;
+  distance?: string;
+  instructions: string;
+  estCost?: string;
 };
 
 export type Itinerary = {
@@ -41,6 +50,7 @@ export type Itinerary = {
   completed_at?: string | null;
   overall_rating?: number | null;
   overall_review?: string | null;
+  transport_mode?: string | null;
 };
 
 type AiStop = {
@@ -50,6 +60,7 @@ type AiStop = {
   reviewSnippets?: string[];
   parking?: { type: string; cost: string; access: string };
   tips?: string[];
+  travelFromPrev?: TravelLeg | null;
 };
 type AiItinerary = {
   title: string; summary: string; estTotalCost: string; stops: AiStop[];
@@ -67,6 +78,7 @@ export type BuildPayload = {
   notes?: string;
   seedIdea?: { title: string; hook?: string; description?: string; vibeTags?: string[] };
   occasionSlug?: string;
+  transportMode?: "auto" | "car" | "transit" | "lyft" | "uber" | "walk";
 };
 
 export async function buildAndSaveItinerary(payload: BuildPayload): Promise<{ id: string }> {
@@ -98,6 +110,7 @@ export async function buildAndSaveItinerary(payload: BuildPayload): Promise<{ id
       city: payload.city ?? null,
       est_total_cost: it.estTotalCost,
       source: payload.seedIdea ? "card" : "planner",
+      transport_mode: payload.transportMode ?? "auto",
     })
     .select("id")
     .single();
@@ -120,6 +133,7 @@ export async function buildAndSaveItinerary(payload: BuildPayload): Promise<{ id
     review_snippets: s.reviewSnippets ?? [],
     parking: s.parking ?? null,
     tips: s.tips ?? [],
+    travel_from_prev: idx === 0 ? null : (s.travelFromPrev ?? null),
   }));
   const { error: stopsErr } = await supabase.from("itinerary_stops").insert(stops);
   if (stopsErr) throw new Error(stopsErr.message);

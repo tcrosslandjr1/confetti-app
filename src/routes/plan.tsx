@@ -27,6 +27,7 @@ function PlanPage() {
   const [durationHours, setDurationHours] = useState(6);
   const [budget, setBudget] = useState("$$");
   const [notes, setNotes] = useState("");
+  const [transportMode, setTransportMode] = useState<"auto" | "car" | "transit" | "lyft" | "uber" | "walk">("auto");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
@@ -51,6 +52,7 @@ function PlanPage() {
         durationHours,
         budget,
         notes: notes || undefined,
+        transportMode,
       });
       nav({ to: "/trips/$id", params: { id } });
     } catch (e) {
@@ -111,6 +113,27 @@ function PlanPage() {
                   }`}>{b}</button>
               ))}
             </div>
+          </Field>
+
+          <Field label="How are you getting around?">
+            <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
+              {([
+                { k: "auto", label: "Auto", emoji: "✨" },
+                { k: "car", label: "Car", emoji: "🚗" },
+                { k: "transit", label: "Transit", emoji: "🚇" },
+                { k: "lyft", label: "Lyft", emoji: "🩷" },
+                { k: "uber", label: "Uber", emoji: "🖤" },
+                { k: "walk", label: "Walk", emoji: "🚶" },
+              ] as const).map((m) => (
+                <button key={m.k} type="button" onClick={() => setTransportMode(m.k)}
+                  className={`rounded-xl border px-2 py-2 text-xs font-semibold transition-colors ${
+                    transportMode === m.k ? "border-primary bg-primary text-primary-foreground" : "border-border bg-background text-muted-foreground hover:text-foreground"
+                  }`}>
+                  <span className="mr-1">{m.emoji}</span>{m.label}
+                </button>
+              ))}
+            </div>
+            <p className="mt-1.5 text-xs text-muted-foreground">Auto = AI picks the best mode for each leg (walk short hops, rideshare when drinking, transit downtown).</p>
           </Field>
 
           <Field label="Anything special? (optional)">

@@ -83,6 +83,8 @@ function PriceLevel({ level }: { level: number }) {
 }
 
 function AdminVenuesPage() {
+  const { user } = useAuth();
+  const adminEmail = user?.email ?? "admin";
   const [venues, setVenues] = useState<Venue[]>(SEED);
   const [tab, setTab] = useState<"all" | Status>("all");
   const [query, setQuery] = useState("");

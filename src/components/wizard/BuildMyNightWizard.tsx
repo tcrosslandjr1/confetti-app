@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowUpRight, Check, Loader2, MapPin, RefreshCw, Save, Sparkles, X } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, ChevronDown, Clock, DollarSign, Globe, Loader2, MapPin, Phone, RefreshCw, Save, Sparkles, Star, Utensils, X } from "lucide-react";
 import { useWizard } from "./wizard-context";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
 import { toast } from "sonner";

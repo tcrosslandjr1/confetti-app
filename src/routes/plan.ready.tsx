@@ -165,16 +165,24 @@ function ReadyPage() {
   }
 
   function downloadIcs() {
-    const blob = new Blob([buildIcs()], { type: "text/calendar;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "confetti-plan.ics";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1500);
-    toast.success("Apple Calendar file ready", { description: "Open the .ics to add it." });
+    try {
+      const ics = buildIcs();
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `confetti-${TRIP.id}.ics`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1500);
+      toast.success("Calendar file downloaded", {
+        description: "Open confetti-" + TRIP.id + ".ics to add all 4 stops.",
+      });
+    } catch (err) {
+      console.error("ICS export failed", err);
+      toast.error("Couldn't build the calendar file. Try again.");
+    }
   }
 
   function openGoogle() {

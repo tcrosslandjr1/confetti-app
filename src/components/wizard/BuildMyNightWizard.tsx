@@ -80,7 +80,7 @@ const SAMPLE_STOPS: Stop[][] = [
 export function BuildMyNightWizard() {
   const { open, closeWizard } = useWizard();
   const [step, setStep] = useState(0); // 0..4 questions, 5 loading, 6 result
-  const [vibe, setVibe] = useState<string | null>(null);
+  const [vibe, setVibe] = useState<string[]>([]);
   const [crew, setCrew] = useState<string | null>(null);
   const [when, setWhen] = useState<string | null>(null);
   const [pickedDate, setPickedDate] = useState<string>("");

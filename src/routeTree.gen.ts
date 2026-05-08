@@ -10,11 +10,16 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReservationsRouteImport } from './routes/reservations'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PlanRouteImport } from './routes/plan'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MeRouteImport } from './routes/me'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as FeaturesRouteImport } from './routes/features'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConciergeRouteImport } from './routes/concierge'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
@@ -34,6 +39,11 @@ const ReservationsRoute = ReservationsRouteImport.update({
   path: '/reservations',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PlanRoute = PlanRouteImport.update({
   id: '/plan',
   path: '/plan',
@@ -49,6 +59,21 @@ const MeRoute = MeRouteImport.update({
   path: '/me',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesRoute = FeaturesRouteImport.update({
+  id: '/features',
+  path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ConciergeRoute = ConciergeRouteImport.update({
   id: '/concierge',
   path: '/concierge',
@@ -57,6 +82,11 @@ const ConciergeRoute = ConciergeRouteImport.update({
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -127,11 +157,16 @@ const ConciergeChatThreadIdRoute = ConciergeChatThreadIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/concierge': typeof ConciergeRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/features': typeof FeaturesRoute
+  '/how-it-works': typeof HowItWorksRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRoute
+  '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -148,10 +183,15 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
+  '/contact': typeof ContactRoute
+  '/features': typeof FeaturesRoute
+  '/how-it-works': typeof HowItWorksRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRoute
+  '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -169,11 +209,16 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/concierge': typeof ConciergeRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/features': typeof FeaturesRoute
+  '/how-it-works': typeof HowItWorksRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRoute
+  '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
   '/api/chat': typeof ApiChatRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -192,11 +237,16 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/auth'
     | '/concierge'
+    | '/contact'
+    | '/features'
+    | '/how-it-works'
     | '/me'
     | '/onboarding'
     | '/plan'
+    | '/pricing'
     | '/reservations'
     | '/api/chat'
     | '/concierge/passport'
@@ -213,10 +263,15 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/auth'
+    | '/contact'
+    | '/features'
+    | '/how-it-works'
     | '/me'
     | '/onboarding'
     | '/plan'
+    | '/pricing'
     | '/reservations'
     | '/api/chat'
     | '/concierge/passport'
@@ -233,11 +288,16 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/auth'
     | '/concierge'
+    | '/contact'
+    | '/features'
+    | '/how-it-works'
     | '/me'
     | '/onboarding'
     | '/plan'
+    | '/pricing'
     | '/reservations'
     | '/api/chat'
     | '/concierge/passport'
@@ -255,11 +315,16 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AuthRoute: typeof AuthRoute
   ConciergeRoute: typeof ConciergeRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  FeaturesRoute: typeof FeaturesRoute
+  HowItWorksRoute: typeof HowItWorksRoute
   MeRoute: typeof MeRoute
   OnboardingRoute: typeof OnboardingRoute
   PlanRoute: typeof PlanRoute
+  PricingRoute: typeof PricingRoute
   ReservationsRoute: typeof ReservationsRoute
   ApiChatRoute: typeof ApiChatRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
@@ -276,6 +341,13 @@ declare module '@tanstack/react-router' {
       path: '/reservations'
       fullPath: '/reservations'
       preLoaderRoute: typeof ReservationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/plan': {
@@ -299,6 +371,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features': {
+      id: '/features'
+      path: '/features'
+      fullPath: '/features'
+      preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/concierge': {
       id: '/concierge'
       path: '/concierge'
@@ -311,6 +404,13 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -440,11 +540,16 @@ const TripsIdRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AuthRoute: AuthRoute,
   ConciergeRoute: ConciergeRouteWithChildren,
+  ContactRoute: ContactRoute,
+  FeaturesRoute: FeaturesRoute,
+  HowItWorksRoute: HowItWorksRoute,
   MeRoute: MeRoute,
   OnboardingRoute: OnboardingRoute,
   PlanRoute: PlanRoute,
+  PricingRoute: PricingRoute,
   ReservationsRoute: ReservationsRoute,
   ApiChatRoute: ApiChatRoute,
   EventsEventIdRoute: EventsEventIdRoute,

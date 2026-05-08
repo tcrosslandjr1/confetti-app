@@ -1,5 +1,13 @@
 import { Link } from "@tanstack/react-router";
-import { Search, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
+
+const marketingLinks = [
+  { to: "/features", label: "Features" },
+  { to: "/how-it-works", label: "How it works" },
+  { to: "/pricing", label: "Pricing" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
+] as const;
 
 export function SiteHeader() {
   return (
@@ -15,27 +23,31 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
-          <Link to="/" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-muted text-foreground" }}>Occasions</Link>
-          <Link to="/plan" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-muted text-foreground" }}>Plan a day</Link>
-          <Link to="/trips" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-muted text-foreground" }}>My trips</Link>
-          <Link to="/reservations" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-muted text-foreground" }}>Reservations</Link>
-          <Link to="/me" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-muted text-foreground" }}>My vibe</Link>
+          {marketingLinks.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              activeProps={{ className: "bg-muted text-foreground" }}
+            >
+              {l.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
           <Link
-            to="/events"
-            className="hidden h-10 items-center gap-2 rounded-full border border-border bg-card px-4 text-sm text-muted-foreground transition-colors hover:bg-muted sm:flex"
+            to="/auth"
+            className="hidden h-10 items-center rounded-full px-4 text-sm font-semibold text-foreground transition-colors hover:bg-muted sm:flex"
           >
-            <Search className="h-4 w-4" />
-            Search events
-          </Link>
-          <button className="h-10 rounded-full px-4 text-sm font-semibold text-foreground transition-colors hover:bg-muted">
             Sign in
-          </button>
-          <button className="h-10 rounded-full bg-foreground px-4 text-sm font-semibold text-background transition-pop hover:scale-105">
-            Create event
-          </button>
+          </Link>
+          <Link
+            to="/plan"
+            className="inline-flex h-10 items-center rounded-full bg-foreground px-4 text-sm font-semibold text-background transition-pop hover:scale-105"
+          >
+            Launch app
+          </Link>
         </div>
       </div>
     </header>

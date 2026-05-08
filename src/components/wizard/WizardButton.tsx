@@ -1,4 +1,4 @@
-import { useWizard } from "@/components/wizard/wizard-context";
+import { useWizard, type WizardPreset } from "@/components/wizard/wizard-context";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
 import { type ReactNode } from "react";
 
@@ -6,10 +6,11 @@ type Props = {
   children: ReactNode;
   className?: string;
   ariaLabel?: string;
+  preset?: WizardPreset;
 };
 
 /** Button that fires a confetti burst then opens the Build-My-Night wizard. */
-export function WizardButton({ children, className, ariaLabel }: Props) {
+export function WizardButton({ children, className, ariaLabel, preset }: Props) {
   const { openWizard } = useWizard();
   const { burst, layer } = useConfettiBurst();
   return (
@@ -20,7 +21,7 @@ export function WizardButton({ children, className, ariaLabel }: Props) {
         className={className}
         onClick={(e) => {
           burst(e.clientX, e.clientY);
-          setTimeout(openWizard, 120);
+          setTimeout(() => openWizard(preset), 120);
         }}
       >
         {children}

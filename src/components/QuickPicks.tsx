@@ -142,6 +142,13 @@ export function QuickPicks() {
 
                 <WizardButton
                   ariaLabel={`Steal ${p.title}`}
+                  preset={{
+                    title: p.title,
+                    vibeLabel: p.vibe,
+                    budgetLabel: p.cost,
+                    crewLabel: p.duration,
+                    stops: p.stops,
+                  }}
                   className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
                 >
                   Steal this plan <ArrowUpRight className="h-4 w-4" />

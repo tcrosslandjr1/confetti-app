@@ -1,10 +1,10 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Send, Sparkles, RefreshCw, Save } from "lucide-react";
+import { Send, Sparkles, RefreshCw, Save, Instagram, Music2, Youtube, Loader2, Wand2 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/integrations/supabase/client";
-import { loadPrefs, saveAboutMe, saveTasteProfile, type Prefs, type TasteProfile } from "@/lib/taste";
+import { loadPrefs, saveAboutMe, saveSocialHandles, saveSocialSignals, saveTasteProfile, type Prefs, type SocialHandles, type TasteProfile } from "@/lib/taste";
 
 export const Route = createFileRoute("/me")({ component: MyVibe });
 

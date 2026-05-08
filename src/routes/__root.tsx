@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { AuthProvider } from "@/lib/auth-context";
 
 function NotFoundComponent() {
   return (
@@ -72,11 +73,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Confetti — Find events worth showing up for" },
-      { name: "description", content: "Discover concerts, festivals, talks, and meetups near you." },
-      { name: "author", content: "Confetti" },
-      { property: "og:title", content: "Confetti" },
-      { property: "og:description", content: "Discover events worth showing up for." },
+      { title: "Concierge — Your AI guide to dining & nightlife in the DMV" },
+      { name: "description", content: "AI-powered personal guide for dining, nightlife, and curated experiences across DC, Maryland, and Virginia." },
+      { name: "author", content: "Concierge" },
+      { name: "theme-color", content: "#1c1024" },
+      { property: "og:title", content: "Concierge — Your DMV Insider" },
+      { property: "og:description", content: "Personalized dining, nightlife & experiences across DC, MD, VA." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
@@ -113,7 +115,9 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <AuthProvider>
+        <Outlet />
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

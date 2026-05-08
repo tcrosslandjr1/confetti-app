@@ -180,3 +180,113 @@ function MyVibe() {
     </div>
   );
 }
+
+const PLATFORMS: Array<{ key: keyof SocialHandles; label: string; placeholder: string; Icon: typeof Instagram }> = [
+  { key: "instagram", label: "Instagram", placeholder: "your.handle", Icon: Instagram },
+  { key: "tiktok",    label: "TikTok",    placeholder: "yourhandle",  Icon: Music2 },
+  { key: "youtube",   label: "YouTube",   placeholder: "@channel",    Icon: Youtube },
+  { key: "pinterest", label: "Pinterest", placeholder: "yourboard",   Icon: Sparkles },
+  { key: "spotify",   label: "Spotify",   placeholder: "username",    Icon: Music2 },
+  { key: "x",         label: "X / Twitter", placeholder: "yourhandle", Icon: Sparkles },
+];
+
+function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (p: TasteProfile) => void; onPrefs: (p: Prefs) => void }) {
+  const [handles, setHandles] = useState<SocialHandles>(prefs.social_handles ?? {});
+  const [pasted, setPasted] = useState(prefs.social_signals ?? "");
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
+
+  function update(k: keyof SocialHandles, v: string) {
+    const clean = v.trim().replace(/^@/, "");
+    setHandles({ ...handles, [k]: clean });
+  }
+
+  async function saveHandles() {
+    await saveSocialHandles(handles);
+    onPrefs({ ...prefs, social_handles: handles });
+    setMsg("Handles saved ✓");
+    setTimeout(() => setMsg(null), 1800);
+  }
+
+  async function learn() {
+    if (!pasted.trim()) { setMsg("Paste your bio, top hashtags, or favorite creators first."); return; }
+    setBusy(true);
+    setMsg(null);
+    try {
+      await saveSocialHandles(handles);
+      await saveSocialSignals(pasted);
+      const { data, error } = await supabase.functions.invoke("social-learn", {
+        body: { current: prefs.taste_profile, handles, pasted },
+      });
+      if (error) throw new Error(error.message);
+      if (data?.profile) {
+        await saveTasteProfile(data.profile);
+        onProfile(data.profile);
+      }
+      onPrefs({ ...prefs, social_handles: handles, social_signals: pasted, taste_profile: data?.profile ?? prefs.taste_profile });
+      setMsg(data?.summary ? `✨ ${data.summary}` : "Profile updated ✓");
+    } catch (e) {
+      setMsg(`Hmm, ${(e as Error).message}`);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <div className="rounded-3xl border border-border bg-card p-5 shadow-card">
+      <h2 className="font-display text-lg font-bold">Connect your socials</h2>
+      <p className="mt-1 text-xs text-muted-foreground">
+        We'll learn your aesthetic from your handles + what you actually post and like.
+      </p>
+
+      <div className="mt-4 grid gap-2 sm:grid-cols-2">
+        {PLATFORMS.map(({ key, label, placeholder, Icon }) => (
+          <label key={key} className="flex items-center gap-2 rounded-xl border border-border bg-background px-2.5 py-1.5">
+            <Icon className="h-4 w-4 shrink-0 text-muted-foreground" />
+            <span className="text-xs font-semibold text-muted-foreground">{label}</span>
+            <span className="text-muted-foreground/60">@</span>
+            <input
+              value={handles[key] ?? ""}
+              onChange={(e) => update(key, e.target.value)}
+              placeholder={placeholder}
+              className="min-w-0 flex-1 bg-transparent text-sm outline-none"
+            />
+          </label>
+        ))}
+      </div>
+
+      <button onClick={saveHandles} className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground">
+        <Save className="h-3 w-3" /> Save handles
+      </button>
+
+      <div className="mt-5 rounded-xl border border-dashed border-border bg-muted/40 p-3">
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Help the AI learn faster
+        </p>
+        <p className="mt-1 text-xs text-muted-foreground">
+          Paste your bio, top 10 hashtags, favorite creators, or recent captions. The more honest, the better the suggestions.
+        </p>
+        <textarea
+          value={pasted}
+          onChange={(e) => setPasted(e.target.value)}
+          rows={5}
+          placeholder={"Bio: 'NYC · matcha addict · book girlies'\nHashtags: #cottagecore #naturalwine #slowliving\nCreators I follow: @camillerowe, @claireptak\nRecent post: weekend at a farm-to-table spot in the Hudson Valley..."}
+          className="mt-2 w-full rounded-lg border border-border bg-background p-2.5 text-sm outline-none focus:border-primary"
+        />
+        <button
+          onClick={learn}
+          disabled={busy}
+          className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-pop hover:scale-105 transition-pop disabled:opacity-60"
+        >
+          {busy ? <><Loader2 className="h-3.5 w-3.5 animate-spin" /> Learning…</> : <><Wand2 className="h-3.5 w-3.5" /> Learn my vibe</>}
+        </button>
+      </div>
+
+      {msg && <p className="mt-3 rounded-lg bg-muted px-3 py-2 text-xs text-foreground/80">{msg}</p>}
+
+      <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
+        Direct OAuth into Instagram / TikTok requires their app review. For now, your handles are saved and the AI learns from what you paste here.
+      </p>
+    </div>
+  );
+}

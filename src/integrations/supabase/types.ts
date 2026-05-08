@@ -304,26 +304,32 @@ export type Database = {
       }
       user_preferences: {
         Row: {
+          about_me: string | null
           activities: string[]
           budget_max: number
           budget_min: number
           cuisines: string[]
+          taste_profile: Json
           updated_at: string
           user_id: string
         }
         Insert: {
+          about_me?: string | null
           activities?: string[]
           budget_max?: number
           budget_min?: number
           cuisines?: string[]
+          taste_profile?: Json
           updated_at?: string
           user_id: string
         }
         Update: {
+          about_me?: string | null
           activities?: string[]
           budget_max?: number
           budget_min?: number
           cuisines?: string[]
+          taste_profile?: Json
           updated_at?: string
           user_id?: string
         }

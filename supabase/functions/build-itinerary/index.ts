@@ -23,6 +23,7 @@ type Body = {
   neighborhood?: string;
   seedIdea?: SeedIdea;       // expand a flashcard into a day
   notes?: string;
+  tasteSummary?: string;
 };
 
 Deno.serve(async (req) => {
@@ -45,6 +46,7 @@ City: ${b.city ?? "user's city"} ${b.neighborhood ? `(focus near ${b.neighborhoo
 Date: ${b.date ?? "flexible"}, start around ${b.startTime ?? "late morning"}, total length ~${b.durationHours ?? 6} hours.
 Budget: ${b.budget ?? "moderate"}.
 Extra notes: ${b.notes ?? "(none)"}.
+${b.tasteSummary ? `\nUSER TASTE PROFILE (use this to personalize every stop — match age/life-stage/energy/scenes/music/cities/budget; honor "avoid" strictly): ${b.tasteSummary}\n` : ""}
 
 OCCASION PLAYBOOK — match every stop to who's actually going. Do NOT default to "restaurant + bar + restaurant" for every plan.
 
@@ -57,6 +59,8 @@ OCCASION PLAYBOOK — match every stop to who's actually going. Do NOT default t
 • Date night: tune to the vibe — romantic (low-light, wine bar, jazz), adventurous (rooftop, unusual food, live music), chill (board game café, dessert + walk).
 
 • Meet-the-parents / in-laws: classy and safe — quiet upscale restaurant, wine tasting, scenic drive, brunch at a country club, garden walk, light comedy, museum exhibit, afternoon tea.
+
+• Mature married couple (40s-60s, settled): grown-up scenes — wine country day, chef's-table dinner, jazz/blues club, supper club, theater, gallery opening, distillery tour, neighborhood food walk, B&B getaway, clean comedy, historic-district stroll, cooking class for two, private boat charter. Avoid loud/college-coded venues unless the profile says otherwise.
 
 • Elders / multigenerational: botanical gardens, art museums, historic walking tours, scenic train rides, classical concerts, matinees, garden-restaurant lunch, tea rooms, riverside parks. Keep walking distances short and venues accessible.
 

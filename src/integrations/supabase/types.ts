@@ -110,6 +110,9 @@ export type Database = {
           booking_url: string | null
           category: string | null
           completed_at: string | null
+          confirmation_note: string | null
+          contact_email: string | null
+          contact_phone: string | null
           created_at: string
           description: string | null
           duration_minutes: number | null
@@ -118,7 +121,9 @@ export type Database = {
           itinerary_id: string
           name: string
           parking: Json | null
+          party_size: number | null
           position: number
+          reservation_time: string | null
           review_snippets: Json | null
           start_time: string | null
           tips: Json | null
@@ -136,6 +141,9 @@ export type Database = {
           booking_url?: string | null
           category?: string | null
           completed_at?: string | null
+          confirmation_note?: string | null
+          contact_email?: string | null
+          contact_phone?: string | null
           created_at?: string
           description?: string | null
           duration_minutes?: number | null
@@ -144,7 +152,9 @@ export type Database = {
           itinerary_id: string
           name: string
           parking?: Json | null
+          party_size?: number | null
           position: number
+          reservation_time?: string | null
           review_snippets?: Json | null
           start_time?: string | null
           tips?: Json | null
@@ -162,6 +172,9 @@ export type Database = {
           booking_url?: string | null
           category?: string | null
           completed_at?: string | null
+          confirmation_note?: string | null
+          contact_email?: string | null
+          contact_phone?: string | null
           created_at?: string
           description?: string | null
           duration_minutes?: number | null
@@ -170,7 +183,9 @@ export type Database = {
           itinerary_id?: string
           name?: string
           parking?: Json | null
+          party_size?: number | null
           position?: number
+          reservation_time?: string | null
           review_snippets?: Json | null
           start_time?: string | null
           tips?: Json | null

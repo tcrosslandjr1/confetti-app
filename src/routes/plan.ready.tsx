@@ -169,6 +169,7 @@ function ReadyPage() {
   const [collabCopied, setCollabCopied] = useState(false);
   const [status, setStatus] = useState<TripStatus | null>(null);
   const [customLate, setCustomLate] = useState("");
+  const [notifications, setNotifications] = useState<SentNotification[]>([]);
 
   const shareUrl = useMemo(() => {
     if (typeof window === "undefined") return `https://confetti.app/trips/${TRIP.id}`;

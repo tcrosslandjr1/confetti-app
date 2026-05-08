@@ -15,31 +15,9 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
-          <Link
-            to="/events"
-            className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-            activeProps={{ className: "bg-muted text-foreground" }}
-          >
-            Browse
-          </Link>
-          <a
-            href="/events?cat=Music"
-            className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-          >
-            Music
-          </a>
-          <a
-            href="/events?cat=Tech"
-            className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-          >
-            Tech
-          </a>
-          <a
-            href="/events?cat=Food"
-            className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-          >
-            Food
-          </a>
+          <Link to="/" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-muted text-foreground" }}>Occasions</Link>
+          <Link to="/plan" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-muted text-foreground" }}>Plan a day</Link>
+          <Link to="/trips" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-muted text-foreground" }}>My trips</Link>
         </nav>
 
         <div className="ml-auto flex items-center gap-2">

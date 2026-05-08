@@ -9,11 +9,31 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as ConciergeRouteImport } from './routes/concierge'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
+import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
 
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConciergeRoute = ConciergeRouteImport.update({
+  id: '/concierge',
+  path: '/concierge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -23,6 +43,11 @@ const EventsIndexRoute = EventsIndexRouteImport.update({
   id: '/events/',
   path: '/events/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ConciergeIndexRoute = ConciergeIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ConciergeRoute,
 } as any)
 const EventsEventIdRoute = EventsEventIdRouteImport.update({
   id: '/events/$eventId',
@@ -34,36 +59,85 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConciergeChatIndexRoute = ConciergeChatIndexRouteImport.update({
+  id: '/chat/',
+  path: '/chat/',
+  getParentRoute: () => ConciergeRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/concierge': typeof ConciergeRouteWithChildren
+  '/onboarding': typeof OnboardingRoute
   '/api/chat': typeof ApiChatRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
+  '/concierge/chat/': typeof ConciergeChatIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/onboarding': typeof OnboardingRoute
   '/api/chat': typeof ApiChatRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/concierge': typeof ConciergeIndexRoute
   '/events': typeof EventsIndexRoute
+  '/concierge/chat': typeof ConciergeChatIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/concierge': typeof ConciergeRouteWithChildren
+  '/onboarding': typeof OnboardingRoute
   '/api/chat': typeof ApiChatRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
+  '/concierge/chat/': typeof ConciergeChatIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/chat' | '/events/$eventId' | '/events/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/concierge'
+    | '/onboarding'
+    | '/api/chat'
+    | '/events/$eventId'
+    | '/concierge/'
+    | '/events/'
+    | '/concierge/chat/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/chat' | '/events/$eventId' | '/events'
-  id: '__root__' | '/' | '/api/chat' | '/events/$eventId' | '/events/'
+  to:
+    | '/'
+    | '/auth'
+    | '/onboarding'
+    | '/api/chat'
+    | '/events/$eventId'
+    | '/concierge'
+    | '/events'
+    | '/concierge/chat'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/concierge'
+    | '/onboarding'
+    | '/api/chat'
+    | '/events/$eventId'
+    | '/concierge/'
+    | '/events/'
+    | '/concierge/chat/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
+  ConciergeRoute: typeof ConciergeRouteWithChildren
+  OnboardingRoute: typeof OnboardingRoute
   ApiChatRoute: typeof ApiChatRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   EventsIndexRoute: typeof EventsIndexRoute
@@ -71,6 +145,27 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/concierge': {
+      id: '/concierge'
+      path: '/concierge'
+      fullPath: '/concierge'
+      preLoaderRoute: typeof ConciergeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -84,6 +179,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/events/'
       preLoaderRoute: typeof EventsIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/concierge/': {
+      id: '/concierge/'
+      path: '/'
+      fullPath: '/concierge/'
+      preLoaderRoute: typeof ConciergeIndexRouteImport
+      parentRoute: typeof ConciergeRoute
     }
     '/events/$eventId': {
       id: '/events/$eventId'
@@ -99,11 +201,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/concierge/chat/': {
+      id: '/concierge/chat/'
+      path: '/chat'
+      fullPath: '/concierge/chat/'
+      preLoaderRoute: typeof ConciergeChatIndexRouteImport
+      parentRoute: typeof ConciergeRoute
+    }
   }
 }
 
+interface ConciergeRouteChildren {
+  ConciergeIndexRoute: typeof ConciergeIndexRoute
+  ConciergeChatIndexRoute: typeof ConciergeChatIndexRoute
+}
+
+const ConciergeRouteChildren: ConciergeRouteChildren = {
+  ConciergeIndexRoute: ConciergeIndexRoute,
+  ConciergeChatIndexRoute: ConciergeChatIndexRoute,
+}
+
+const ConciergeRouteWithChildren = ConciergeRoute._addFileChildren(
+  ConciergeRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
+  ConciergeRoute: ConciergeRouteWithChildren,
+  OnboardingRoute: OnboardingRoute,
   ApiChatRoute: ApiChatRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   EventsIndexRoute: EventsIndexRoute,

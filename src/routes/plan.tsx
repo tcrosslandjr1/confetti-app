@@ -52,6 +52,7 @@ function PlanPage() {
         durationHours,
         budget,
         notes: notes || undefined,
+        transportMode,
       });
       nav({ to: "/trips/$id", params: { id } });
     } catch (e) {

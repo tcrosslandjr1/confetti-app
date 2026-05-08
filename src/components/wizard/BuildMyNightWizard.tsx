@@ -497,6 +497,16 @@ export function BuildMyNightWizard() {
                                 GF available
                               </span>
                             )}
+                            {d.vegan && (
+                              <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+                                🌱 Vegan
+                              </span>
+                            )}
+                            {d.vegetarian && !d.vegan && (
+                              <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-mint/70 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+                                Vegetarian
+                              </span>
+                            )}
                           </div>
 
                           <div className="mt-3 rounded-xl border-2 border-ink/15 bg-cream/60 p-3">

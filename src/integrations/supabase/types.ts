@@ -41,6 +41,157 @@ export type Database = {
         }
         Relationships: []
       }
+      ad_campaigns: {
+        Row: {
+          admin_note: string | null
+          advertiser_id: string
+          blurb: string | null
+          category: string | null
+          city: string | null
+          created_at: string
+          cta_label: string | null
+          cta_url: string | null
+          headline: string
+          id: string
+          image_url: string | null
+          package_tier: string
+          placement: string
+          runs_from: string | null
+          runs_until: string | null
+          status: string
+          updated_at: string
+          venue_id: string | null
+        }
+        Insert: {
+          admin_note?: string | null
+          advertiser_id: string
+          blurb?: string | null
+          category?: string | null
+          city?: string | null
+          created_at?: string
+          cta_label?: string | null
+          cta_url?: string | null
+          headline: string
+          id?: string
+          image_url?: string | null
+          package_tier?: string
+          placement?: string
+          runs_from?: string | null
+          runs_until?: string | null
+          status?: string
+          updated_at?: string
+          venue_id?: string | null
+        }
+        Update: {
+          admin_note?: string | null
+          advertiser_id?: string
+          blurb?: string | null
+          category?: string | null
+          city?: string | null
+          created_at?: string
+          cta_label?: string | null
+          cta_url?: string | null
+          headline?: string
+          id?: string
+          image_url?: string | null
+          package_tier?: string
+          placement?: string
+          runs_from?: string | null
+          runs_until?: string | null
+          status?: string
+          updated_at?: string
+          venue_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ad_campaigns_advertiser_id_fkey"
+            columns: ["advertiser_id"]
+            isOneToOne: false
+            referencedRelation: "advertisers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ad_events: {
+        Row: {
+          campaign_id: string
+          created_at: string
+          id: string
+          kind: string
+          surface: string | null
+          user_id: string | null
+        }
+        Insert: {
+          campaign_id: string
+          created_at?: string
+          id?: string
+          kind: string
+          surface?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          campaign_id?: string
+          created_at?: string
+          id?: string
+          kind?: string
+          surface?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ad_events_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "ad_campaigns"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      advertisers: {
+        Row: {
+          business_name: string
+          category: string | null
+          city: string | null
+          contact_email: string
+          contact_phone: string | null
+          created_at: string
+          id: string
+          notes: string | null
+          owner_id: string
+          status: string
+          updated_at: string
+          website: string | null
+        }
+        Insert: {
+          business_name: string
+          category?: string | null
+          city?: string | null
+          contact_email: string
+          contact_phone?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          owner_id: string
+          status?: string
+          updated_at?: string
+          website?: string | null
+        }
+        Update: {
+          business_name?: string
+          category?: string | null
+          city?: string | null
+          contact_email?: string
+          contact_phone?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          owner_id?: string
+          status?: string
+          updated_at?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
       bookings: {
         Row: {
           admin_notes: string | null

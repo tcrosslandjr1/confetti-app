@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { GatedAction } from "@/components/GatedAction";
 import { Sparkles, Calendar, MapPin, Heart, Compass, Users, Wand2, Car } from "lucide-react";
 
 export const Route = createFileRoute("/features")({
@@ -64,9 +65,9 @@ function FeaturesPage() {
           <Compass className="mx-auto h-10 w-10 text-primary" />
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight sm:text-4xl">Ready to try it?</h2>
           <p className="mt-3 text-muted-foreground">Plan your first outing in under a minute.</p>
-          <Link to="/plan" className="mt-6 inline-flex h-12 items-center rounded-full bg-foreground px-6 text-sm font-semibold text-background transition-pop hover:scale-105">
+          <GatedAction to="/plan" feature="planning" className="mt-6 inline-flex h-12 items-center rounded-full bg-foreground px-6 text-sm font-semibold text-background transition-pop hover:scale-105">
             Launch the app
-          </Link>
+          </GatedAction>
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { GatedAction } from "@/components/GatedAction";
 
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
@@ -47,9 +48,9 @@ function HowItWorksPage() {
             ))}
           </div>
           <div className="mt-14 text-center">
-            <Link to="/plan" className="inline-flex h-12 items-center rounded-full bg-foreground px-6 text-sm font-semibold text-background transition-pop hover:scale-105">
+            <GatedAction to="/plan" feature="planning" className="inline-flex h-12 items-center rounded-full bg-foreground px-6 text-sm font-semibold text-background transition-pop hover:scale-105">
               Plan my day
-            </Link>
+            </GatedAction>
           </div>
         </div>
       </section>

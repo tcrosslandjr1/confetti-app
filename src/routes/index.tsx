@@ -10,6 +10,7 @@ import { OCCASIONS, SEED_IDEAS } from "@/lib/occasions";
 import { Reveal } from "@/components/Reveal";
 import { WizardButton } from "@/components/wizard/WizardButton";
 import { QuickPicks } from "@/components/QuickPicks";
+import { GatedAction } from "@/components/GatedAction";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -292,9 +293,9 @@ function Landing() {
                 Tap any vibe — we generate a full night around it in seconds.
               </p>
             </div>
-            <Link to="/plan" className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-cream px-5 font-mono text-xs font-bold uppercase tracking-widest transition-pop hover:-translate-y-0.5 hover:bg-cream hover:text-ink">
+            <GatedAction to="/plan" feature="planning" className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-cream px-5 font-mono text-xs font-bold uppercase tracking-widest transition-pop hover:-translate-y-0.5 hover:bg-cream hover:text-ink">
               skip — just plan something <ArrowUpRight className="h-4 w-4" />
-            </Link>
+            </GatedAction>
           </div>
 
           {/* mobile snap rail */}

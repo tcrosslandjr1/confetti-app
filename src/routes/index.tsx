@@ -722,8 +722,8 @@ function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }:
   return (
     <Link
       ref={ref}
-      to={sponsored.href}
-      onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href: sponsored.href })}
+      to={href}
+      onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href })}
       className="group inline-flex items-center gap-3 rounded-full border-2 border-gold bg-ink px-4 py-1.5 transition hover:bg-gold hover:text-ink"
       data-ad-slot={slot}
     >

@@ -179,6 +179,19 @@ function AuthPage() {
             />
           )}
           {error && <p className="text-xs text-destructive">{error}</p>}
+          {mode === "signup" && locationBlocked && (
+            <label className="flex items-start gap-2 rounded-xl border border-border bg-card/50 p-3 text-xs text-muted-foreground">
+              <input
+                type="checkbox"
+                checked={allowWithoutLocation}
+                onChange={(e) => setAllowWithoutLocation(e.target.checked)}
+                className="mt-0.5"
+              />
+              <span>
+                Continue without location. Recommendations won't be tailored to your area until you enable it later.
+              </span>
+            </label>
+          )}
           <button
             disabled={loading}
             className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-vibe py-4 text-sm font-semibold text-primary-foreground shadow-pop transition-pop active:scale-95 disabled:opacity-60"

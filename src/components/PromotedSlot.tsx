@@ -7,11 +7,8 @@ import { Megaphone, Sparkles, ArrowRight } from "lucide-react";
 function ctaHref(c: Campaign, surface: string): string {
   return withUtm(c.cta_url ?? null, {
     surface,
-    brand: (c as unknown as { advertiser_name?: string; brand?: string }).advertiser_name
-      ?? (c as unknown as { brand?: string }).brand
-      ?? c.headline
-      ?? "promoted",
-    occasion: c.headline,
+    brand: c.headline ?? "promoted",
+    occasion: c.category ?? c.headline ?? surface,
   });
 }
 

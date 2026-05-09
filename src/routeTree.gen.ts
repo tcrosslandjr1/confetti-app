@@ -18,6 +18,7 @@ import { Route as MeRouteImport } from './routes/me'
 import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as FeaturesRouteImport } from './routes/features'
+import { Route as DataTermsRouteImport } from './routes/data-terms'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConciergeRouteImport } from './routes/concierge'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -103,6 +104,11 @@ const HowItWorksRoute = HowItWorksRouteImport.update({
 const FeaturesRoute = FeaturesRouteImport.update({
   id: '/features',
   path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataTermsRoute = DataTermsRouteImport.update({
+  id: '/data-terms',
+  path: '/data-terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -319,6 +325,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/contact': typeof ContactRoute
+  '/data-terms': typeof DataTermsRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
@@ -368,6 +375,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
+  '/data-terms': typeof DataTermsRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
@@ -420,6 +428,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/contact': typeof ContactRoute
+  '/data-terms': typeof DataTermsRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
@@ -474,6 +483,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/concierge'
     | '/contact'
+    | '/data-terms'
     | '/features'
     | '/how-it-works'
     | '/investors'
@@ -523,6 +533,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/auth'
     | '/contact'
+    | '/data-terms'
     | '/features'
     | '/how-it-works'
     | '/investors'
@@ -574,6 +585,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/concierge'
     | '/contact'
+    | '/data-terms'
     | '/features'
     | '/how-it-works'
     | '/investors'
@@ -627,6 +639,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   ConciergeRoute: typeof ConciergeRouteWithChildren
   ContactRoute: typeof ContactRoute
+  DataTermsRoute: typeof DataTermsRoute
   FeaturesRoute: typeof FeaturesRoute
   HowItWorksRoute: typeof HowItWorksRoute
   InvestorsRoute: typeof InvestorsRoute
@@ -709,6 +722,13 @@ declare module '@tanstack/react-router' {
       path: '/features'
       fullPath: '/features'
       preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data-terms': {
+      id: '/data-terms'
+      path: '/data-terms'
+      fullPath: '/data-terms'
+      preLoaderRoute: typeof DataTermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -1115,6 +1135,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   ConciergeRoute: ConciergeRouteWithChildren,
   ContactRoute: ContactRoute,
+  DataTermsRoute: DataTermsRoute,
   FeaturesRoute: FeaturesRoute,
   HowItWorksRoute: HowItWorksRoute,
   InvestorsRoute: InvestorsRoute,

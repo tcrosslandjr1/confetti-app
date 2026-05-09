@@ -514,7 +514,7 @@ export function BuildMyNightWizard() {
                           </div>
                         </div>
                         <div className="flex flex-col items-center justify-between self-stretch">
-                          <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">{i + 1}</span>
+                          <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">{displayIdx + 1}</span>
                           <ChevronDown className={`h-4 w-4 text-ink/60 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                         </div>
                       </button>

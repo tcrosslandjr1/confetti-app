@@ -315,8 +315,8 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
         />
         <button
           onClick={learn}
-          disabled={busy}
-          className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-pop hover:scale-105 transition-pop disabled:opacity-60"
+          disabled={busy || !consent}
+          className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-pop hover:scale-105 transition-pop disabled:cursor-not-allowed disabled:opacity-60"
         >
           {busy ? <><Loader2 className="h-3.5 w-3.5 animate-spin" /> Learning…</> : <><Wand2 className="h-3.5 w-3.5" /> Learn my vibe</>}
         </button>

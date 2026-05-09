@@ -31,6 +31,7 @@ import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
 import { Route as PortalSavedRouteImport } from './routes/portal.saved'
+import { Route as PortalReferRouteImport } from './routes/portal.refer'
 import { Route as PortalProfileRouteImport } from './routes/portal.profile'
 import { Route as PortalBookingsRouteImport } from './routes/portal.bookings'
 import { Route as PlanReadyRouteImport } from './routes/plan.ready'
@@ -161,6 +162,11 @@ const PortalSavedRoute = PortalSavedRouteImport.update({
   path: '/saved',
   getParentRoute: () => PortalRoute,
 } as any)
+const PortalReferRoute = PortalReferRouteImport.update({
+  id: '/refer',
+  path: '/refer',
+  getParentRoute: () => PortalRoute,
+} as any)
 const PortalProfileRoute = PortalProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
@@ -288,6 +294,7 @@ export interface FileRoutesByFullPath {
   '/plan/ready': typeof PlanReadyRoute
   '/portal/bookings': typeof PortalBookingsRoute
   '/portal/profile': typeof PortalProfileRoute
+  '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
@@ -328,6 +335,7 @@ export interface FileRoutesByTo {
   '/plan/ready': typeof PlanReadyRoute
   '/portal/bookings': typeof PortalBookingsRoute
   '/portal/profile': typeof PortalProfileRoute
+  '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
@@ -372,6 +380,7 @@ export interface FileRoutesById {
   '/plan/ready': typeof PlanReadyRoute
   '/portal/bookings': typeof PortalBookingsRoute
   '/portal/profile': typeof PortalProfileRoute
+  '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
@@ -417,6 +426,7 @@ export interface FileRouteTypes {
     | '/plan/ready'
     | '/portal/bookings'
     | '/portal/profile'
+    | '/portal/refer'
     | '/portal/saved'
     | '/rsvp/$tripId'
     | '/trips/$id'
@@ -457,6 +467,7 @@ export interface FileRouteTypes {
     | '/plan/ready'
     | '/portal/bookings'
     | '/portal/profile'
+    | '/portal/refer'
     | '/portal/saved'
     | '/rsvp/$tripId'
     | '/trips/$id'
@@ -500,6 +511,7 @@ export interface FileRouteTypes {
     | '/plan/ready'
     | '/portal/bookings'
     | '/portal/profile'
+    | '/portal/refer'
     | '/portal/saved'
     | '/rsvp/$tripId'
     | '/trips/$id'
@@ -692,6 +704,13 @@ declare module '@tanstack/react-router' {
       path: '/saved'
       fullPath: '/portal/saved'
       preLoaderRoute: typeof PortalSavedRouteImport
+      parentRoute: typeof PortalRoute
+    }
+    '/portal/refer': {
+      id: '/portal/refer'
+      path: '/refer'
+      fullPath: '/portal/refer'
+      preLoaderRoute: typeof PortalReferRouteImport
       parentRoute: typeof PortalRoute
     }
     '/portal/profile': {
@@ -887,6 +906,7 @@ const PlanRouteWithChildren = PlanRoute._addFileChildren(PlanRouteChildren)
 interface PortalRouteChildren {
   PortalBookingsRoute: typeof PortalBookingsRoute
   PortalProfileRoute: typeof PortalProfileRoute
+  PortalReferRoute: typeof PortalReferRoute
   PortalSavedRoute: typeof PortalSavedRoute
   PortalIndexRoute: typeof PortalIndexRoute
 }
@@ -894,6 +914,7 @@ interface PortalRouteChildren {
 const PortalRouteChildren: PortalRouteChildren = {
   PortalBookingsRoute: PortalBookingsRoute,
   PortalProfileRoute: PortalProfileRoute,
+  PortalReferRoute: PortalReferRoute,
   PortalSavedRoute: PortalSavedRoute,
   PortalIndexRoute: PortalIndexRoute,
 }

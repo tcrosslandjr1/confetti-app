@@ -106,12 +106,22 @@ function PortalDiscoverPage() {
 
   return (
     <div className="space-y-10">
-      <header>
-        <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">My Portal</p>
-        <h1 className="mt-1 font-display text-4xl font-bold leading-tight">{greeting} — here's your night out, all in one place.</h1>
-        <p className="mt-2 max-w-xl text-muted-foreground">
-          Upcoming bookings, referral rewards, badges you've earned, and fresh picks from the city.
-        </p>
+      <header className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">My Portal</p>
+          <h1 className="mt-1 font-display text-4xl font-bold leading-tight">{greeting} — here's your night out, all in one place.</h1>
+          <p className="mt-2 max-w-xl text-muted-foreground">
+            Upcoming bookings, referral rewards, badges you've earned, and fresh picks from the city.
+          </p>
+        </div>
+        <Link
+          to="/plan"
+          className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-vibe px-6 py-3 font-display text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-pop transition-pop hover:scale-[1.03]"
+        >
+          <Sparkles className="h-4 w-4" />
+          Create plan now
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </Link>
       </header>
 
       {/* Top stats strip */}

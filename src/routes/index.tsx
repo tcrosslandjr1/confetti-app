@@ -133,6 +133,16 @@ function Landing() {
     return () => { window.removeEventListener("scroll", onScroll); if (raf) cancelAnimationFrame(raf); };
   }, []);
 
+  // Log impressions for sponsored marquee items once per mount/session.
+  useEffect(() => {
+    const sponsored = MARQUEE.filter((m) => m.sponsored);
+    sponsored.forEach((m) => {
+      if (!m.sponsored) return;
+      logAdImpression({ surface: "marquee_top", brand: m.sponsored.brand, occasion: m.text, href: m.sponsored.href });
+      logAdImpression({ surface: "marquee_bottom", brand: m.sponsored.brand, occasion: m.text, href: m.sponsored.href });
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-cream text-ink">
       <SiteHeader />

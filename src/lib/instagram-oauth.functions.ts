@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { getRequestHost } from "@tanstack/react-start/server";
 import { z } from "zod";
+import { buildCallbackUrl, OAUTH_PROVIDERS, readProviderCredentials } from "./oauth-providers";
 
 /**
  * Instagram (Instagram Login API) — start the OAuth flow.

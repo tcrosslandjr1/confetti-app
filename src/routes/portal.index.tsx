@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { getMyReferralStats, getOrCreateMyReferralCode, buildReferralLink, type MyReferralStats } from "@/lib/referrals";
 import { useAuth } from "@/lib/auth-context";
 import { NearbyVenues } from "@/components/NearbyVenues";
+import { PromotedSlot } from "@/components/PromotedSlot";
 
 export const Route = createFileRoute("/portal/")({
   head: () => ({

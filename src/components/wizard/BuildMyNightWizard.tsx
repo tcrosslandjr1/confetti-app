@@ -527,13 +527,53 @@ export function BuildMyNightWizard() {
                     </button>
                   );
                 })}
+                <button
+                  type="button"
+                  onClick={() => setShowFavorites((v) => !v)}
+                  className={`ml-auto inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors ${showFavorites ? "bg-coral text-cream" : "bg-cream text-ink hover:bg-ink/5"}`}
+                  aria-expanded={showFavorites}
+                >
+                  <Heart className={`h-3 w-3 ${Object.keys(favorites).length > 0 ? "fill-coral text-coral" : ""} ${showFavorites ? "fill-cream text-cream" : ""}`} />
+                  Favorites ({Object.keys(favorites).length})
+                </button>
               </div>
+
+              {showFavorites && (
+                <div className="mt-3 rounded-2xl border-2 border-ink bg-cream/80 p-3" style={{ animation: "reveal-up 0.3s ease-out forwards" }}>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink/60">Your saved spots</p>
+                  {Object.keys(favorites).length === 0 ? (
+                    <p className="mt-2 text-sm text-ink/70">Tap the ♥ on any stop to save it here for later.</p>
+                  ) : (
+                    <ul className="mt-2 grid gap-2 sm:grid-cols-2">
+                      {Object.values(favorites).map((f) => (
+                        <li key={f.venue_name} className="flex items-start justify-between gap-2 rounded-xl border border-ink/20 bg-cream p-2">
+                          <div className="min-w-0">
+                            <div className="truncate font-display text-sm font-extrabold">{f.venue_name}</div>
+                            <div className="truncate font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                              {[f.vibe, f.neighborhood].filter(Boolean).join(" · ") || "Saved"}
+                            </div>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => toggleFavorite({ time: "", venue: f.venue_name, vibe: f.vibe ?? "", tone: f.tone ?? "", address: f.address ?? undefined, neighborhood: f.neighborhood ?? undefined })}
+                            className="shrink-0 rounded-full border border-ink/20 p-1 text-coral transition-colors hover:bg-coral/10"
+                            aria-label={`Remove ${f.venue_name} from favorites`}
+                          >
+                            <Heart className="h-3.5 w-3.5 fill-coral" />
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
 
               <ol className="mt-4 space-y-3">
                 {sortedStops.map(({ s, i: origIdx }, displayIdx) => {
                   const i = origIdx;
                   const isOpen = openStop === i;
                   const d = getDetails(s.venue, s.vibe);
+                  const isFav = !!favorites[s.venue];
                   const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`;
                   return (
                     <li
@@ -541,11 +581,13 @@ export function BuildMyNightWizard() {
                       className="overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut"
                       style={{ animation: `reveal-up 0.5s ${i * 110}ms cubic-bezier(0.22,1,0.36,1) backwards` }}
                     >
-                      <button
-                        type="button"
+                      <div
+                        role="button"
+                        tabIndex={0}
                         onClick={() => setOpenStop(isOpen ? null : i)}
+                        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpenStop(isOpen ? null : i); } }}
                         aria-expanded={isOpen}
-                        className="flex w-full items-stretch gap-3 p-3 text-left transition-colors hover:bg-ink/[0.03]"
+                        className="flex w-full items-stretch gap-3 p-3 text-left transition-colors hover:bg-ink/[0.03] cursor-pointer"
                       >
                         <div className={`grid w-20 shrink-0 place-items-center rounded-xl border-2 border-ink ${s.tone} font-display text-sm font-extrabold leading-tight text-ink`}>
                           {s.time}
@@ -569,11 +611,21 @@ export function BuildMyNightWizard() {
                             {s.walk && <span className="font-mono text-[11px] text-ink/60">↳ {s.walk}</span>}
                           </div>
                         </div>
-                        <div className="flex flex-col items-center justify-between self-stretch">
+                        <div className="flex flex-col items-center justify-between self-stretch gap-1">
+                          <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); toggleFavorite(s); }}
+                            aria-pressed={isFav}
+                            aria-label={isFav ? `Remove ${s.venue} from favorites` : `Save ${s.venue} to favorites`}
+                            title={isFav ? "Remove from favorites" : "Save to favorites"}
+                            className={`grid h-7 w-7 place-items-center rounded-full border-2 border-ink transition-pop hover:-translate-y-0.5 ${isFav ? "bg-coral text-cream" : "bg-cream text-ink hover:bg-coral/10"}`}
+                          >
+                            <Heart className={`h-3.5 w-3.5 ${isFav ? "fill-cream" : ""}`} />
+                          </button>
                           <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">{displayIdx + 1}</span>
                           <ChevronDown className={`h-4 w-4 text-ink/60 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                         </div>
-                      </button>
+                      </div>
 
                       {isOpen && (
                         <div

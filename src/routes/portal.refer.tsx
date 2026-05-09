@@ -10,15 +10,26 @@ import {
   Loader2,
   Ticket,
   Users,
+  Trophy,
+  Flame,
+  Star,
+  Crown,
+  Lock,
+  Medal,
 } from "lucide-react";
+import { useAuth } from "@/lib/auth-context";
 import {
   buildReferralLink,
+  getMyReferralBadges,
   getMyReferralStats,
   getOrCreateMyReferralCode,
+  getReferralLeaderboard,
   inviteByEmail,
   listMyInvites,
   listMyRewards,
+  type LeaderboardRow,
   type MyReferralStats,
+  type ReferralBadge,
 } from "@/lib/referrals";
 
 export const Route = createFileRoute("/portal/refer")({

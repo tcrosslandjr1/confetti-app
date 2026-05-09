@@ -177,15 +177,8 @@ function Landing() {
     return { topItems: inject("top"), bottomItems: inject("bottom") };
   }, [dbSponsors]);
 
-  // Log impressions for sponsored marquee items once per mount/session (static + DB).
-  useEffect(() => {
-    topItems.forEach((m) => {
-      if (m.sponsored) logAdImpression({ surface: "marquee_top", brand: m.sponsored.brand, occasion: m.text, href: m.sponsored.href });
-    });
-    bottomItems.forEach((m) => {
-      if (m.sponsored) logAdImpression({ surface: "marquee_bottom", brand: m.sponsored.brand, occasion: m.text, href: m.sponsored.href });
-    });
-  }, [topItems, bottomItems]);
+  // Impressions are now logged per rendered slot when it enters the viewport.
+  // See <SponsoredTopSlot /> and <SponsoredBottomSlot /> below.
 
   return (
     <div className="min-h-screen bg-cream text-ink">

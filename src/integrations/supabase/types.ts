@@ -811,6 +811,19 @@ export type Database = {
         }
         Returns: boolean
       }
+      referral_leaderboard: {
+        Args: { _limit?: number }
+        Returns: {
+          completed: number
+          display_name: string
+          earned_cents: number
+          invited: number
+          level: number
+          signed_up: number
+          tier: string
+          user_id: string
+        }[]
+      }
     }
     Enums: {
       app_role: "admin" | "customer"

@@ -57,6 +57,7 @@ import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as AdminAuditRouteImport } from './routes/admin.audit'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 import { Route as AdminAdvertisersRouteImport } from './routes/admin.advertisers'
+import { Route as AdminAdAnalyticsRouteImport } from './routes/admin.ad-analytics'
 import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
 import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
@@ -301,6 +302,11 @@ const AdminAdvertisersRoute = AdminAdvertisersRouteImport.update({
   path: '/advertisers',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminAdAnalyticsRoute = AdminAdAnalyticsRouteImport.update({
+  id: '/ad-analytics',
+  path: '/ad-analytics',
+  getParentRoute: () => AdminRoute,
+} as any)
 const ConciergeChatIndexRoute = ConciergeChatIndexRouteImport.update({
   id: '/chat/',
   path: '/chat/',
@@ -335,6 +341,7 @@ export interface FileRoutesByFullPath {
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
+  '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
@@ -384,6 +391,7 @@ export interface FileRoutesByTo {
   '/plan': typeof PlanRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
+  '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
@@ -438,6 +446,7 @@ export interface FileRoutesById {
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
+  '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
@@ -493,6 +502,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/pricing'
     | '/reservations'
+    | '/admin/ad-analytics'
     | '/admin/advertisers'
     | '/admin/analytics'
     | '/admin/audit'
@@ -542,6 +552,7 @@ export interface FileRouteTypes {
     | '/plan'
     | '/pricing'
     | '/reservations'
+    | '/admin/ad-analytics'
     | '/admin/advertisers'
     | '/admin/analytics'
     | '/admin/audit'
@@ -595,6 +606,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/pricing'
     | '/reservations'
+    | '/admin/ad-analytics'
     | '/admin/advertisers'
     | '/admin/analytics'
     | '/admin/audit'
@@ -997,6 +1009,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAdvertisersRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/ad-analytics': {
+      id: '/admin/ad-analytics'
+      path: '/ad-analytics'
+      fullPath: '/admin/ad-analytics'
+      preLoaderRoute: typeof AdminAdAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/concierge/chat/': {
       id: '/concierge/chat/'
       path: '/chat'
@@ -1022,6 +1041,7 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminAdAnalyticsRoute: typeof AdminAdAnalyticsRoute
   AdminAdvertisersRoute: typeof AdminAdvertisersRoute
   AdminAnalyticsRoute: typeof AdminAnalyticsRoute
   AdminAuditRoute: typeof AdminAuditRoute
@@ -1036,6 +1056,7 @@ interface AdminRouteChildren {
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminAdAnalyticsRoute: AdminAdAnalyticsRoute,
   AdminAdvertisersRoute: AdminAdvertisersRoute,
   AdminAnalyticsRoute: AdminAnalyticsRoute,
   AdminAuditRoute: AdminAuditRoute,

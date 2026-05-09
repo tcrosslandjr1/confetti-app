@@ -1,12 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { User, LogOut, Settings, Sparkles, Mail } from "lucide-react";
+import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { getStoredLocation, requestUserLocation, clearStoredLocation, type UserLocation } from "@/lib/location";
 
 export const Route = createFileRoute("/portal/profile")({
   component: ProfilePage,

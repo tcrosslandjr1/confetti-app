@@ -622,7 +622,15 @@ export function BuildMyNightWizard() {
                 {sortedStops.map(({ s, i: origIdx }, displayIdx) => {
                   const i = origIdx;
                   const isOpen = openStop === i;
-                  const d = getDetails(s.venue, s.vibe);
+                  const mock = getDetails(s.venue, s.vibe);
+                  const live = placesData[s.venue];
+                  const d = {
+                    ...mock,
+                    rating: typeof live?.rating === "number" ? live.rating.toFixed(1) : mock.rating,
+                    reviewCount: typeof live?.userRatingCount === "number" ? live.userRatingCount : mock.reviewCount,
+                    priceLevel: typeof live?.priceLevel === "number" && live.priceLevel > 0 ? live.priceLevel : mock.priceLevel,
+                  };
+                  const openNow = live?.openNow;
                   const isFav = !!favorites[s.venue];
                   const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`;
                   return (

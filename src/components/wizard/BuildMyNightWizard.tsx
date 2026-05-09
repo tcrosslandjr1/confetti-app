@@ -666,6 +666,12 @@ export function BuildMyNightWizard() {
                           <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
                             <span className="rounded-full border border-ink bg-cream px-2 py-0.5 font-mono uppercase tracking-widest">{s.vibe}</span>
                             <span className="font-mono text-[11px] text-ink/60">{"$".repeat(d.priceLevel)}</span>
+                            {openNow === true && (
+                              <span className="rounded-full border border-ink bg-mint px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest">Open now</span>
+                            )}
+                            {openNow === false && (
+                              <span className="rounded-full border border-ink bg-coral/20 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest">Closed</span>
+                            )}
                             {s.walk && <span className="font-mono text-[11px] text-ink/60">↳ {s.walk}</span>}
                           </div>
                         </div>

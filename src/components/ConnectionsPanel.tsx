@@ -266,7 +266,20 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
         {PROVIDERS.map((p) => {
           const connected = isConnected(p);
           const busy = busyKey === p.key;
-          const blockedByConsent = !connected && !consent && p.source === "linked_social_accounts";
+          // Custom OAuth providers (TikTok/IG) need credentials configured.
+          // Native providers (Google/Apple) are managed by Lovable Cloud.
+          const cfg = configByProvider[p.key];
+          const notConfigured =
+            p.source === "linked_social_accounts" && cfg && !cfg.configured;
+          const blockedByConsent =
+            !connected && !consent && p.source === "linked_social_accounts";
+          const connectDisabled = busy || blockedByConsent || Boolean(notConfigured);
+          const connectTitle = notConfigured
+            ? `Missing credentials: ${cfg!.missing.join(", ")}`
+            : blockedByConsent
+              ? "Accept the data sharing terms first"
+              : undefined;
+
           return (
             <li
               key={p.key}
@@ -284,9 +297,18 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
                     {connected && (
                       <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
                     )}
+                    {notConfigured && !connected && (
+                      <span className="rounded-full bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-800">
+                        Not configured
+                      </span>
+                    )}
                   </div>
                   <div className="truncate text-[11px] text-muted-foreground">
-                    {loading ? "Checking…" : connectionLabel(p)}
+                    {loading
+                      ? "Checking…"
+                      : notConfigured && !connected
+                        ? `Add ${cfg!.missing.join(" + ")} in Lovable Cloud secrets`
+                        : connectionLabel(p)}
                   </div>
                 </div>
               </div>
@@ -313,12 +335,8 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
                     setError(null);
                     connectMut.mutate(p);
                   }}
-                  disabled={busy || blockedByConsent}
-                  title={
-                    blockedByConsent
-                      ? "Accept the data sharing terms first"
-                      : undefined
-                  }
+                  disabled={connectDisabled}
+                  title={connectTitle}
                   className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold disabled:cursor-not-allowed disabled:opacity-50 ${p.buttonClass}`}
                 >
                   {busy ? (

@@ -49,6 +49,7 @@ import { Route as AdvertisePortalRouteImport } from './routes/advertise.portal'
 import { Route as AdminVenuesRouteImport } from './routes/admin.venues'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminModerationRouteImport } from './routes/admin.moderation'
+import { Route as AdminMarqueeRouteImport } from './routes/admin.marquee'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminIntegrationsRouteImport } from './routes/admin.integrations'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
@@ -259,6 +260,11 @@ const AdminModerationRoute = AdminModerationRouteImport.update({
   path: '/moderation',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminMarqueeRoute = AdminMarqueeRouteImport.update({
+  id: '/marquee',
+  path: '/marquee',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -328,6 +334,7 @@ export interface FileRoutesByFullPath {
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
@@ -375,6 +382,7 @@ export interface FileRoutesByTo {
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
@@ -427,6 +435,7 @@ export interface FileRoutesById {
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
@@ -480,6 +489,7 @@ export interface FileRouteTypes {
     | '/admin/bookings'
     | '/admin/integrations'
     | '/admin/login'
+    | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/users'
     | '/admin/venues'
@@ -527,6 +537,7 @@ export interface FileRouteTypes {
     | '/admin/bookings'
     | '/admin/integrations'
     | '/admin/login'
+    | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/users'
     | '/admin/venues'
@@ -578,6 +589,7 @@ export interface FileRouteTypes {
     | '/admin/bookings'
     | '/admin/integrations'
     | '/admin/login'
+    | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/users'
     | '/admin/venues'
@@ -916,6 +928,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminModerationRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/marquee': {
+      id: '/admin/marquee'
+      path: '/marquee'
+      fullPath: '/admin/marquee'
+      preLoaderRoute: typeof AdminMarqueeRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/login'
@@ -989,6 +1008,7 @@ interface AdminRouteChildren {
   AdminBookingsRoute: typeof AdminBookingsRoute
   AdminIntegrationsRoute: typeof AdminIntegrationsRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  AdminMarqueeRoute: typeof AdminMarqueeRoute
   AdminModerationRoute: typeof AdminModerationRoute
   AdminUsersRoute: typeof AdminUsersRoute
   AdminVenuesRoute: typeof AdminVenuesRoute
@@ -1002,6 +1022,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminBookingsRoute: AdminBookingsRoute,
   AdminIntegrationsRoute: AdminIntegrationsRoute,
   AdminLoginRoute: AdminLoginRoute,
+  AdminMarqueeRoute: AdminMarqueeRoute,
   AdminModerationRoute: AdminModerationRoute,
   AdminUsersRoute: AdminUsersRoute,
   AdminVenuesRoute: AdminVenuesRoute,

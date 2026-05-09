@@ -134,15 +134,57 @@ function Landing() {
     return () => { window.removeEventListener("scroll", onScroll); if (raf) cancelAnimationFrame(raf); };
   }, []);
 
-  // Log impressions for sponsored marquee items once per mount/session.
+  // Load admin-managed sponsored marquee items.
+  type DbSponsorship = {
+    id: string;
+    brand: string;
+    occasion: string;
+    cta_label: string;
+    cta_url: string;
+    surface: "top" | "bottom" | "both";
+    position: number;
+  };
+  const [dbSponsors, setDbSponsors] = useState<DbSponsorship[]>([]);
   useEffect(() => {
-    const sponsored = MARQUEE.filter((m) => m.sponsored);
-    sponsored.forEach((m) => {
-      if (!m.sponsored) return;
-      logAdImpression({ surface: "marquee_top", brand: m.sponsored.brand, occasion: m.text, href: m.sponsored.href });
-      logAdImpression({ surface: "marquee_bottom", brand: m.sponsored.brand, occasion: m.text, href: m.sponsored.href });
-    });
+    let cancelled = false;
+    supabase
+      .from("marquee_sponsorships")
+      .select("id,brand,occasion,cta_label,cta_url,surface,position")
+      .order("position", { ascending: true })
+      .then(({ data }) => {
+        if (!cancelled && data) setDbSponsors(data as DbSponsorship[]);
+      });
+    return () => {
+      cancelled = true;
+    };
   }, []);
+
+  // Build per-surface marquee lists by inserting DB sponsors into the static list.
+  const { topItems, bottomItems } = useMemo(() => {
+    function inject(surface: "top" | "bottom") {
+      const items: MarqueeItem[] = [...MARQUEE];
+      const insertable = dbSponsors.filter((s) => s.surface === surface || s.surface === "both");
+      insertable.forEach((s, idx) => {
+        const pos = Math.min(items.length, Math.max(0, s.position || (idx + 1) * 3));
+        items.splice(pos, 0, {
+          text: s.occasion,
+          sponsored: { brand: s.brand, cta: s.cta_label, href: s.cta_url },
+        });
+      });
+      return items;
+    }
+    return { topItems: inject("top"), bottomItems: inject("bottom") };
+  }, [dbSponsors]);
+
+  // Log impressions for sponsored marquee items once per mount/session (static + DB).
+  useEffect(() => {
+    topItems.forEach((m) => {
+      if (m.sponsored) logAdImpression({ surface: "marquee_top", brand: m.sponsored.brand, occasion: m.text, href: m.sponsored.href });
+    });
+    bottomItems.forEach((m) => {
+      if (m.sponsored) logAdImpression({ surface: "marquee_bottom", brand: m.sponsored.brand, occasion: m.text, href: m.sponsored.href });
+    });
+  }, [topItems, bottomItems]);
 
   return (
     <div className="min-h-screen bg-cream text-ink">

@@ -504,6 +504,57 @@ export type Database = {
           },
         ]
       }
+      linked_social_accounts: {
+        Row: {
+          access_token: string | null
+          avatar_url: string | null
+          created_at: string
+          display_name: string | null
+          expires_at: string | null
+          id: string
+          provider: string
+          provider_user_id: string
+          raw: Json | null
+          refresh_token: string | null
+          scope: string | null
+          updated_at: string
+          user_id: string
+          username: string | null
+        }
+        Insert: {
+          access_token?: string | null
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          expires_at?: string | null
+          id?: string
+          provider: string
+          provider_user_id: string
+          raw?: Json | null
+          refresh_token?: string | null
+          scope?: string | null
+          updated_at?: string
+          user_id: string
+          username?: string | null
+        }
+        Update: {
+          access_token?: string | null
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          expires_at?: string | null
+          id?: string
+          provider?: string
+          provider_user_id?: string
+          raw?: Json | null
+          refresh_token?: string | null
+          scope?: string | null
+          updated_at?: string
+          user_id?: string
+          username?: string | null
+        }
+        Relationships: []
+      }
       marquee_sponsorships: {
         Row: {
           active: boolean
@@ -776,6 +827,33 @@ export type Database = {
           id?: string
           last_message_at?: string
           title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      tiktok_oauth_states: {
+        Row: {
+          consumed_at: string | null
+          created_at: string
+          expires_at: string
+          redirect_to: string | null
+          state: string
+          user_id: string
+        }
+        Insert: {
+          consumed_at?: string | null
+          created_at?: string
+          expires_at?: string
+          redirect_to?: string | null
+          state: string
+          user_id: string
+        }
+        Update: {
+          consumed_at?: string | null
+          created_at?: string
+          expires_at?: string
+          redirect_to?: string | null
+          state?: string
           user_id?: string
         }
         Relationships: []

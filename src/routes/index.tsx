@@ -17,6 +17,7 @@ import { withUtm } from "@/lib/utm";
 import { isAdDebugEnabled, recordAdDebug } from "@/lib/ad-debug";
 import { AdDebugPanel } from "@/components/AdDebugPanel";
 import { useViewportImpression } from "@/hooks/useViewportImpression";
+import { getAdImpressionConfig } from "@/lib/ad-impression-config";
 
 export const Route = createFileRoute("/")({
   head: () => ({

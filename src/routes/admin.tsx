@@ -7,7 +7,6 @@ import {
   ScrollText,
   ShieldCheck,
   Sparkles,
-  Star,
   Store,
   Users,
 } from "lucide-react";

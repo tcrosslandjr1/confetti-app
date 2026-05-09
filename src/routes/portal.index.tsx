@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Sparkles, MapPin, ArrowRight, Star, Bookmark, CalendarCheck, MessageCircle, Trophy, Users, Gift, Lock, Crown, Flame, Medal, Calendar as CalendarIcon } from "lucide-react";
+import { Sparkles, MapPin, ArrowRight, Star, Bookmark, CalendarCheck, MessageCircle, Trophy, Users, Gift, Lock, Crown, Flame, Medal, Calendar as CalendarIcon, Target, Zap, TrendingUp, CheckCircle2, Clock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { getMyReferralStats, getOrCreateMyReferralCode, buildReferralLink, type MyReferralStats } from "@/lib/referrals";
 import { useAuth } from "@/lib/auth-context";

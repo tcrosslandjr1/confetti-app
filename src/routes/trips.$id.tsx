@@ -8,6 +8,7 @@ import { completeItinerary, deleteItinerary, getItinerary, updateStop, type Itin
 import { LateRescheduleFab } from "@/components/LateRescheduleFab";
 import { LiveElapsed } from "@/components/LiveElapsed";
 import { BoardingPass } from "@/components/BoardingPass";
+import { PromotedSlot } from "@/components/PromotedSlot";
 import { clearNotifications, formatUpdatedAt, loadNotifications, loadStatus, subscribeNotifications, subscribeStatus, type SentNotification, type TripStatus } from "@/lib/trip-status";
 
 export const Route = createFileRoute("/trips/$id")({
@@ -98,6 +99,8 @@ function TripDetail() {
             onChange={(patch) => setData({ ...data, itinerary: { ...it, ...patch } as Itinerary })}
           />
         </div>
+
+        <PromotedSlot placement="itinerary_boost" surface={`trip_${id}`} variant="boost" className="mt-4" />
 
         {it.summary && (
           <p className="mt-5 max-w-2xl text-sm text-muted-foreground">{it.summary}</p>

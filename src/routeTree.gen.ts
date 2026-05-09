@@ -20,6 +20,7 @@ import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConciergeRouteImport } from './routes/concierge'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AdvertiseRouteImport } from './routes/advertise'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -27,6 +28,7 @@ import { Route as TripsIndexRouteImport } from './routes/trips.index'
 import { Route as PortalIndexRouteImport } from './routes/portal.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
+import { Route as AdvertiseIndexRouteImport } from './routes/advertise.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
@@ -42,6 +44,7 @@ import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile
 import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
 import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as AdvertisePortalRouteImport } from './routes/advertise.portal'
 import { Route as AdminVenuesRouteImport } from './routes/admin.venues'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminModerationRouteImport } from './routes/admin.moderation'
@@ -50,6 +53,7 @@ import { Route as AdminIntegrationsRouteImport } from './routes/admin.integratio
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as AdminAuditRouteImport } from './routes/admin.audit'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AdminAdvertisersRouteImport } from './routes/admin.advertisers'
 import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
 import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
@@ -109,6 +113,11 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdvertiseRoute = AdvertiseRouteImport.update({
+  id: '/advertise',
+  path: '/advertise',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -143,6 +152,11 @@ const ConciergeIndexRoute = ConciergeIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ConciergeRoute,
+} as any)
+const AdvertiseIndexRoute = AdvertiseIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdvertiseRoute,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
@@ -219,6 +233,11 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdvertisePortalRoute = AdvertisePortalRouteImport.update({
+  id: '/portal',
+  path: '/portal',
+  getParentRoute: () => AdvertiseRoute,
+} as any)
 const AdminVenuesRoute = AdminVenuesRouteImport.update({
   id: '/venues',
   path: '/venues',
@@ -259,6 +278,11 @@ const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
   path: '/analytics',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminAdvertisersRoute = AdminAdvertisersRouteImport.update({
+  id: '/advertisers',
+  path: '/advertisers',
+  getParentRoute: () => AdminRoute,
+} as any)
 const ConciergeChatIndexRoute = ConciergeChatIndexRouteImport.update({
   id: '/chat/',
   path: '/chat/',
@@ -279,6 +303,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/advertise': typeof AdvertiseRouteWithChildren
   '/auth': typeof AuthRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/contact': typeof ContactRoute
@@ -290,6 +315,7 @@ export interface FileRoutesByFullPath {
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
+  '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
@@ -298,6 +324,7 @@ export interface FileRoutesByFullPath {
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
+  '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -313,6 +340,7 @@ export interface FileRoutesByFullPath {
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/admin/': typeof AdminIndexRoute
+  '/advertise/': typeof AdvertiseIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/portal/': typeof PortalIndexRoute
@@ -333,6 +361,7 @@ export interface FileRoutesByTo {
   '/plan': typeof PlanRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
+  '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
@@ -341,6 +370,7 @@ export interface FileRoutesByTo {
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
+  '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -356,6 +386,7 @@ export interface FileRoutesByTo {
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/admin': typeof AdminIndexRoute
+  '/advertise': typeof AdvertiseIndexRoute
   '/concierge': typeof ConciergeIndexRoute
   '/events': typeof EventsIndexRoute
   '/portal': typeof PortalIndexRoute
@@ -369,6 +400,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/advertise': typeof AdvertiseRouteWithChildren
   '/auth': typeof AuthRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/contact': typeof ContactRoute
@@ -380,6 +412,7 @@ export interface FileRoutesById {
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
+  '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
@@ -388,6 +421,7 @@ export interface FileRoutesById {
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
+  '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -403,6 +437,7 @@ export interface FileRoutesById {
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/admin/': typeof AdminIndexRoute
+  '/advertise/': typeof AdvertiseIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/portal/': typeof PortalIndexRoute
@@ -417,6 +452,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/admin'
+    | '/advertise'
     | '/auth'
     | '/concierge'
     | '/contact'
@@ -428,6 +464,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/pricing'
     | '/reservations'
+    | '/admin/advertisers'
     | '/admin/analytics'
     | '/admin/audit'
     | '/admin/bookings'
@@ -436,6 +473,7 @@ export interface FileRouteTypes {
     | '/admin/moderation'
     | '/admin/users'
     | '/admin/venues'
+    | '/advertise/portal'
     | '/api/chat'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -451,6 +489,7 @@ export interface FileRouteTypes {
     | '/rsvp/$tripId'
     | '/trips/$id'
     | '/admin/'
+    | '/advertise/'
     | '/concierge/'
     | '/events/'
     | '/portal/'
@@ -471,6 +510,7 @@ export interface FileRouteTypes {
     | '/plan'
     | '/pricing'
     | '/reservations'
+    | '/admin/advertisers'
     | '/admin/analytics'
     | '/admin/audit'
     | '/admin/bookings'
@@ -479,6 +519,7 @@ export interface FileRouteTypes {
     | '/admin/moderation'
     | '/admin/users'
     | '/admin/venues'
+    | '/advertise/portal'
     | '/api/chat'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -494,6 +535,7 @@ export interface FileRouteTypes {
     | '/rsvp/$tripId'
     | '/trips/$id'
     | '/admin'
+    | '/advertise'
     | '/concierge'
     | '/events'
     | '/portal'
@@ -506,6 +548,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/admin'
+    | '/advertise'
     | '/auth'
     | '/concierge'
     | '/contact'
@@ -517,6 +560,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/pricing'
     | '/reservations'
+    | '/admin/advertisers'
     | '/admin/analytics'
     | '/admin/audit'
     | '/admin/bookings'
@@ -525,6 +569,7 @@ export interface FileRouteTypes {
     | '/admin/moderation'
     | '/admin/users'
     | '/admin/venues'
+    | '/advertise/portal'
     | '/api/chat'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -540,6 +585,7 @@ export interface FileRouteTypes {
     | '/rsvp/$tripId'
     | '/trips/$id'
     | '/admin/'
+    | '/advertise/'
     | '/concierge/'
     | '/events/'
     | '/portal/'
@@ -553,6 +599,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRouteWithChildren
+  AdvertiseRoute: typeof AdvertiseRouteWithChildren
   AuthRoute: typeof AuthRoute
   ConciergeRoute: typeof ConciergeRouteWithChildren
   ContactRoute: typeof ContactRoute
@@ -653,6 +700,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/advertise': {
+      id: '/advertise'
+      path: '/advertise'
+      fullPath: '/advertise'
+      preLoaderRoute: typeof AdvertiseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin': {
       id: '/admin'
       path: '/admin'
@@ -701,6 +755,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/concierge/'
       preLoaderRoute: typeof ConciergeIndexRouteImport
       parentRoute: typeof ConciergeRoute
+    }
+    '/advertise/': {
+      id: '/advertise/'
+      path: '/'
+      fullPath: '/advertise/'
+      preLoaderRoute: typeof AdvertiseIndexRouteImport
+      parentRoute: typeof AdvertiseRoute
     }
     '/admin/': {
       id: '/admin/'
@@ -807,6 +868,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/advertise/portal': {
+      id: '/advertise/portal'
+      path: '/portal'
+      fullPath: '/advertise/portal'
+      preLoaderRoute: typeof AdvertisePortalRouteImport
+      parentRoute: typeof AdvertiseRoute
+    }
     '/admin/venues': {
       id: '/admin/venues'
       path: '/venues'
@@ -863,6 +931,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAnalyticsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/advertisers': {
+      id: '/admin/advertisers'
+      path: '/advertisers'
+      fullPath: '/admin/advertisers'
+      preLoaderRoute: typeof AdminAdvertisersRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/concierge/chat/': {
       id: '/concierge/chat/'
       path: '/chat'
@@ -888,6 +963,7 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminAdvertisersRoute: typeof AdminAdvertisersRoute
   AdminAnalyticsRoute: typeof AdminAnalyticsRoute
   AdminAuditRoute: typeof AdminAuditRoute
   AdminBookingsRoute: typeof AdminBookingsRoute
@@ -900,6 +976,7 @@ interface AdminRouteChildren {
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminAdvertisersRoute: AdminAdvertisersRoute,
   AdminAnalyticsRoute: AdminAnalyticsRoute,
   AdminAuditRoute: AdminAuditRoute,
   AdminBookingsRoute: AdminBookingsRoute,
@@ -912,6 +989,20 @@ const AdminRouteChildren: AdminRouteChildren = {
 }
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface AdvertiseRouteChildren {
+  AdvertisePortalRoute: typeof AdvertisePortalRoute
+  AdvertiseIndexRoute: typeof AdvertiseIndexRoute
+}
+
+const AdvertiseRouteChildren: AdvertiseRouteChildren = {
+  AdvertisePortalRoute: AdvertisePortalRoute,
+  AdvertiseIndexRoute: AdvertiseIndexRoute,
+}
+
+const AdvertiseRouteWithChildren = AdvertiseRoute._addFileChildren(
+  AdvertiseRouteChildren,
+)
 
 interface ConciergeRouteChildren {
   ConciergePassportRoute: typeof ConciergePassportRoute
@@ -979,6 +1070,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AdminRoute: AdminRouteWithChildren,
+  AdvertiseRoute: AdvertiseRouteWithChildren,
   AuthRoute: AuthRoute,
   ConciergeRoute: ConciergeRouteWithChildren,
   ContactRoute: ContactRoute,

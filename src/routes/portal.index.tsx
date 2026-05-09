@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { getMyReferralStats, getOrCreateMyReferralCode, buildReferralLink, type MyReferralStats } from "@/lib/referrals";
 import { useAuth } from "@/lib/auth-context";
 import { NearbyVenues } from "@/components/NearbyVenues";
+import { PromotedSlot } from "@/components/PromotedSlot";
 
 export const Route = createFileRoute("/portal/")({
   head: () => ({
@@ -246,7 +247,11 @@ function PortalDiscoverPage() {
         </section>
       )}
 
+      <PromotedSlot placement="home_spotlight" surface="portal_home" variant="spotlight" />
+
       <NearbyVenues />
+
+      <PromotedSlot placement="featured_card" surface="portal_promoted_rail" variant="rail" title="Promoted picks near you" />
 
       {featured.length > 0 && (
         <section>

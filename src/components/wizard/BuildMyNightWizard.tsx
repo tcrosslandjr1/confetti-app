@@ -244,6 +244,55 @@ export function BuildMyNightWizard() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, closeWizard]);
 
+  // Load favorites when wizard opens (or user changes)
+  useEffect(() => {
+    if (!open || !user) { setFavorites({}); return; }
+    let cancelled = false;
+    supabase
+      .from("favorite_stops")
+      .select("venue_name,vibe,tone,address,neighborhood")
+      .order("created_at", { ascending: false })
+      .then(({ data }) => {
+        if (cancelled) return;
+        const map: Record<string, FavRow> = {};
+        (data ?? []).forEach((r) => { map[r.venue_name] = r as FavRow; });
+        setFavorites(map);
+      });
+    return () => { cancelled = true; };
+  }, [open, user]);
+
+  const toggleFavorite = useCallback(async (s: Stop) => {
+    if (!user) {
+      toast.error("Sign in to save favorites");
+      return;
+    }
+    const key = s.venue;
+    const isFav = !!favorites[key];
+    // Optimistic update
+    setFavorites((prev) => {
+      const next = { ...prev };
+      if (isFav) delete next[key];
+      else next[key] = { venue_name: s.venue, vibe: s.vibe ?? null, tone: s.tone ?? null, address: s.address ?? null, neighborhood: s.neighborhood ?? null };
+      return next;
+    });
+    if (isFav) {
+      const { error } = await supabase.from("favorite_stops").delete().eq("user_id", user.id).eq("venue_name", key);
+      if (error) { toast.error("Couldn't remove favorite"); }
+      else toast.success(`Removed ${s.venue}`);
+    } else {
+      const { error } = await supabase.from("favorite_stops").insert({
+        user_id: user.id,
+        venue_name: s.venue,
+        vibe: s.vibe ?? null,
+        tone: s.tone ?? null,
+        address: s.address ?? null,
+        neighborhood: s.neighborhood ?? null,
+      });
+      if (error && !error.message.includes("duplicate")) { toast.error("Couldn't save favorite"); }
+      else toast.success(`Saved ${s.venue} ★`);
+    }
+  }, [user, favorites]);
+
   if (!open) return null;
 
   const canAdvance =

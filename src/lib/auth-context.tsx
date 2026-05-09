@@ -9,6 +9,7 @@ import {
 } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
+import { consumePendingReferralOnSignup } from "@/lib/referrals";
 
 export type ViewAs = "admin" | "customer" | "visitor";
 const VIEW_KEY = "concierge.viewAs";
@@ -58,9 +59,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   // Auth state
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, s) => {
+    const { data: sub } = supabase.auth.onAuthStateChange((event, s) => {
       setSession(s);
       setLoading(false);
+      if (event === "SIGNED_IN") {
+        // Fire-and-forget: link any pending ?ref= code to this account
+        void consumePendingReferralOnSignup();
+      }
     });
     supabase.auth.getSession().then(({ data }) => {
       setSession(data.session);

@@ -324,8 +324,10 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
 
       {msg && <p className="mt-3 rounded-lg bg-muted px-3 py-2 text-xs text-foreground/80">{msg}</p>}
 
+      <TiktokConnect consent={consent} />
+
       <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
-        Direct OAuth into Instagram / TikTok requires their app review. For now, your handles are saved and the AI learns from what you paste here.
+        Instagram OAuth is still pending Meta app review. For Instagram, your handle and pasted signals are what the AI uses for now.
       </p>
     </div>
   );

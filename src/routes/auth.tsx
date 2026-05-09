@@ -174,7 +174,7 @@ function AuthPage() {
 
           <button
             type="button"
-            onClick={() => setError("Instagram sign-in is launching soon — Meta requires app review before we can flip it on. Use email or Google in the meantime.")}
+            onClick={() => setError("Sign in with email/Google/Apple first, then connect Instagram from your profile to link the two accounts. (Requires an Instagram Business or Creator account.)")}
             className="inline-flex w-full items-center justify-between gap-2 rounded-2xl border border-dashed border-border bg-card/60 px-4 py-3.5 text-sm font-semibold text-muted-foreground transition hover:bg-accent"
           >
             <span className="inline-flex items-center gap-2">

@@ -180,7 +180,6 @@ function MyVibe() {
             </button>
           </div>
 
-          <ConnectionsPanel consent={consent} />
           <SocialsCard prefs={prefs} onProfile={(p) => setPrefs({ ...prefs, taste_profile: p })} onPrefs={(np) => setPrefs(np)} />
         </aside>
       </div>

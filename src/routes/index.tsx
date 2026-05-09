@@ -14,6 +14,8 @@ import { QuickPicks } from "@/components/QuickPicks";
 import { GatedAction } from "@/components/GatedAction";
 import { logAdViewImpression, logAdClick } from "@/lib/ad-tracking";
 import { withUtm } from "@/lib/utm";
+import { isAdDebugEnabled, recordAdDebug } from "@/lib/ad-debug";
+import { AdDebugPanel } from "@/components/AdDebugPanel";
 import { useViewportImpression } from "@/hooks/useViewportImpression";
 
 export const Route = createFileRoute("/")({

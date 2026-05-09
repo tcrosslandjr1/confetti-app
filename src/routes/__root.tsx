@@ -15,6 +15,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { WizardProvider } from "@/components/wizard/wizard-context";
 import { BuildMyNightWizard } from "@/components/wizard/BuildMyNightWizard";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { ReferralCapture } from "@/components/ReferralCapture";
 
 function NotFoundComponent() {
   return (
@@ -126,6 +127,7 @@ function RootComponent() {
       <AuthProvider>
         <WizardProvider>
           <ScrollProgress />
+          <ReferralCapture />
           <Outlet />
           <BuildMyNightWizard />
           <RoleSwitcher />

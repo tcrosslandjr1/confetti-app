@@ -95,9 +95,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       .maybeSingle()
       .then(({ data }) => {
         if (!cancelled) setIsAdmin(!!data);
-      })
-      .finally(() => {
         if (!cancelled) setRoleLoading(false);
+      }, () => {
+        if (!cancelled) {
+          setIsAdmin(false);
+          setRoleLoading(false);
+        }
       });
     return () => {
       cancelled = true;

@@ -8,6 +8,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { seedDemoAccounts } from "@/lib/seed-demo.functions";
 import { lovable } from "@/integrations/lovable";
 import { rememberReferralCode, getPendingReferralCode } from "@/lib/referrals";
+import { requestUserLocation } from "@/lib/location";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({ meta: [{ title: "Sign in — Concierge" }] }),
@@ -58,18 +59,32 @@ function AuthPage() {
     try {
       if (mode === "signup") {
         if (refCode.trim()) rememberReferralCode(refCode);
+        // Ask for location BEFORE creating the account so the user sees
+        // the native browser permission prompt as part of signing up.
+        // We don't block signup if they decline.
+        const loc = await requestUserLocation();
+        if (!loc) {
+          setError(
+            "Heads up: location access is off. We use it to recommend nearby spots — you can enable it later in your browser settings.",
+          );
+        }
         const { error } = await supabase.auth.signUp({
           email,
           password,
           options: {
             emailRedirectTo: `${window.location.origin}/`,
-            data: { display_name: name || email.split("@")[0] },
+            data: {
+              display_name: name || email.split("@")[0],
+              ...(loc ? { signup_lat: loc.lat, signup_lng: loc.lng } : {}),
+            },
           },
         });
         if (error) throw error;
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
+        // Refresh location opportunistically on sign-in too.
+        void requestUserLocation();
       }
       navigate({ to: "/" });
     } catch (err: any) {

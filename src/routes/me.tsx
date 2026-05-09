@@ -1,14 +1,11 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Send, Sparkles, RefreshCw, Save, Instagram, Music2, Youtube, Loader2, Wand2, ShieldCheck, Link2, Unlink, CheckCircle2, AlertTriangle } from "lucide-react";
+import { Send, Sparkles, RefreshCw, Save, Instagram, Music2, Youtube, Loader2, Wand2, ShieldCheck } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/integrations/supabase/client";
 import { loadPrefs, saveAboutMe, saveSocialHandles, saveSocialSignals, saveTasteProfile, type Prefs, type SocialHandles, type TasteProfile } from "@/lib/taste";
-import { useServerFn } from "@tanstack/react-start";
-import { startTiktokLink, disconnectTiktok, getMyLinkedAccounts } from "@/lib/tiktok-oauth.functions";
-import { startInstagramLink, disconnectInstagram } from "@/lib/instagram-oauth.functions";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { ConnectionsPanel } from "@/components/ConnectionsPanel";
 
 const DATA_CONSENT_KEY = "confetti.dataSharingConsent.v1";
 

@@ -558,6 +558,11 @@ export function BuildMyNightWizard() {
 
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">Sort by</span>
+                {placesLoading && (
+                  <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                    <Loader2 className="h-3 w-3 animate-spin" /> live data…
+                  </span>
+                )}
                 {([
                   { k: "order", label: "Night order" },
                   { k: "rating", label: "★ Highest rated" },

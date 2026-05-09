@@ -1,107 +1,104 @@
-# Build Plan — Admin Console, Customer Portal, Role Switcher
+# Plan: Three distinct experiences — Visitor, Customer, Admin
 
-We'll ship this in 4 phases so each one is testable on its own. You can review and tweak between phases.
-
----
-
-## Phase 1 — Foundation: Roles, Seed Accounts, Brand Assets
-
-**Goal:** You can log in as Admin, Customer, or Visitor and switch between them instantly.
-
-**Database**
-- New `app_role` enum: `admin`, `customer`
-- New `user_roles` table (user_id, role) with RLS — roles stored separately to prevent privilege escalation
-- `has_role(user_id, role)` security-definer function for safe RLS checks
-- Trigger: every new signup auto-gets `customer` role
-
-**Seed accounts** (created by you on first run via a one-click button)
-- `admin@demo.local` / `Demo1234!` — full admin
-- `customer@demo.local` / `Demo1234!` — regular customer
-- Visitor = signed-out browsing
-
-**Role Switcher (dev-only impersonation)**
-- Floating pill in the top-right, visible **only to admins**
-- Three buttons: Admin / Customer / Visitor
-- "Customer" view = sets a session flag that hides admin UI and treats you as a customer (real RLS still applies — you see admin's own data, but with the customer chrome)
-- "Visitor" view = same flag + hides authenticated UI, shows public landing
-- Persistent "Exit impersonation" banner across the top of the screen when active
-- Stored in `sessionStorage` so refresh keeps the view, but logout clears it
-
-**Brand integration**
-- Logo, colors, and fonts you upload get wired into `src/styles.css` design tokens
-- Tailwind classes (`bg-primary`, `text-foreground`, etc.) automatically pick them up
-
-**Responsive editing (web / tablet / mobile)**
-- All new screens built mobile-first with `sm:` / `md:` / `lg:` breakpoints so they look right at 375px, 768px (iPad), and 1280px+ (desktop) without separate codepaths
-- You can switch the preview between viewports with the device toggle above the preview
+The current "role switcher" only flips a label — every view ends up identical. This plan locks down visitor capabilities, gives customers a real personalized portal, and ships a separate admin login plus the four admin tools you picked.
 
 ---
 
-## Phase 2 — Admin Console (Full Ops)
+## 1. Visitor experience (no auth) — read-only marketing
 
-**New section at `/admin`** (protected by `has_role(uid, 'admin')`)
+**Goal:** A visitor can understand what Confetti does, browse, and is invited to sign up — but cannot book, save, or see real itineraries.
 
-Sidebar layout with these sections:
+- **Landing page (/)** — keep marketing copy, add a clearer "Sign up to plan a real night" CTA. Hide the "Build a night" wizard behind a sign-up gate when called by a visitor.
+- **Wizard preview gate** — first 1–2 wizard steps run free; on "Build", visitors see a blurred preview of the result with a "Sign up to unlock your itinerary" overlay. Customers/admins see the real result.
+- **Booking buttons** — anywhere a "Book / Reserve" button exists, replace its handler for visitors with a sign-up prompt + redirect to `/auth`.
+- **Save / heart buttons** — same: `toast` saying "Sign in to save favorites" and route to `/auth`.
+- **Portal & Concierge routes** — already gated; keep redirect to `/auth` (not silently to `/`) so the user lands on sign-up.
+- **Header** — visitors see only marketing links + prominent "Sign up free".
 
-1. **Dashboard** — KPI cards (total users, active bookings, revenue MTD, top venues), recent activity feed
-2. **Users** — list, search, filter by role, view profile, promote to admin / demote, deactivate
-3. **Venues & Experiences** — full CRUD, image upload to storage, set price level, neighborhood, category, featured toggle
-4. **Curated Content** — manage homepage featured spots, mood collections (Date Night, Late Eats, etc.), editorial lists
-5. **Bookings** — table of all reservations, filter by status (pending / confirmed / cancelled / completed), cancel, refund
-6. **Visits & Moderation** — review user-submitted check-ins, hide inappropriate notes, approve photos
-7. **Analytics** — signups over time, bookings funnel, top-searched neighborhoods/cuisines, AI chat volume
+## 2. Customer experience (signed in, role = customer)
 
-**Bookings & visits-moderation are stubbed in Phase 2** with mock data; they go live in Phase 3.
+**Goal:** A personalized hub. Real bookings, saved spots, AI concierge, referrals.
 
----
+- **Personalized home** — when a logged-in customer visits `/`, redirect to `/portal` (their dashboard). The marketing landing stays for visitors.
+- **Portal dashboard** — already exists at `/portal`. Audit it to surface: upcoming bookings, recent saved spots, active referral progress, unlocked achievements (using existing tables).
+- **Full booking flow** — wizard results show real venues with working "Reserve" button → writes to `bookings` table.
+- **Concierge & wizard** — full results unlocked, photo galleries, real Google Places data.
+- **Referrals + achievements** — already wired in DB; ensure portal home shows them.
 
-## Phase 3 — Customer Portal Buildout + Bookings
+## 3. Admin experience (separate login + console)
 
-**New customer area at `/portal`** with bottom-nav (mobile) and sidebar (desktop):
+**Goal:** A distinct admin surface. Admin signs in via `/admin/login`, lands directly in `/admin`, never sees customer chrome.
 
-1. **Discover** — refined home with curated rails, mood picker (already partly built)
-2. **Concierge** — existing AI chat, polished
-3. **Bookings** — browse bookable venues/experiences, pick date+time+party size, confirm reservation; view upcoming + past bookings, cancel
-4. **Passport** — XP / level / achievements (already built, polished)
-5. **Saved** — favorite venues, wishlists
-6. **Profile** — preferences, payment methods, account settings
+### a. Separate `/admin/login` route
+- New page, brutalist dark theme to feel different from customer auth.
+- Email + password sign-in only (no Google OAuth, no signup form — admins are invite-only).
+- After successful sign-in, query `user_roles` for `admin`. If not admin → sign out + show "This account does not have admin access." If admin → redirect to `/admin`.
+- The customer `/auth` page rejects admin-only accounts? No — admins can also sign in there, but `/admin/login` is the documented entry. Admin role is what gates `/admin`.
 
-**Database additions**
-- `bookings` table (user_id, venue_id, starts_at, party_size, status, total_cents, stripe_session_id)
-- `saved_venues` table
-- `featured_content` table (for admin curation)
-- All with RLS
+### b. Admin console layout
+- Already has sidebar shell. Confirm and polish the four tools below.
 
-**Admin bookings/moderation views go live** — wired to real data.
+### c. Admin tools (build / wire up)
 
----
+1. **Venues management** (`/admin/venues`)
+   - Table view of `venues` rows. "Add venue" dialog → insert into `venues` (name, category, neighborhood, city, price_level, image_url, description). Edit/delete inline.
+   - **Migration needed:** add admin INSERT/UPDATE/DELETE RLS policies on `venues` (currently locked).
 
-## Phase 4 — Payments (Stripe)
+2. **User support** (`/admin/users`)
+   - List recent users from `profiles`. Per-user drawer: bookings, referrals, achievements, role.
+   - Actions: promote to admin (insert into `user_roles`), demote, send password reset email (`supabase.auth.admin` via server fn).
+   - Server function `getUserOverview(userId)` using `requireSupabaseAuth` + verify caller `has_role('admin')`.
 
-We run `recommend_payment_provider` first to confirm Stripe fits the lifestyle/dining/experiences product type. Then:
+3. **Billing / payment issues** (`/admin/bookings`)
+   - Already exists as a route — extend it: filter by status (pending/confirmed/cancelled), show `total_cents`, `stripe_session_id`. Actions: mark refunded, cancel, add admin note.
+   - **Migration needed:** add `admin_notes text` column to `bookings`; admin UPDATE policy already exists via `has_role('admin')` on the existing select policy — add explicit ADMIN UPDATE policy.
 
-- Enable Lovable's built-in Stripe (no account setup needed for testing — test mode works immediately)
-- You decide tax handling: full compliance (Stripe is merchant of record) vs. tax calculation only vs. none
-- Create products for paid experiences (curated dinner reservations, ticketed events, premium concierge tier)
-- Stripe Checkout for one-time bookings; optional subscription for premium tier
-- Webhook at `/api/public/stripe-webhook` updates booking status on payment success
+4. **Integrations panel** (`/admin/integrations` — new route)
+   - List the integrations the platform uses (Google Places, Lovable AI, Resend if added). Each shows: status (key configured? last call OK?), test button, link to docs.
+   - Status checks call lightweight server functions that ping the upstream and return `ok / error`.
+   - Adding/rotating actual secrets stays in Lovable Cloud → Secrets (linked from the panel) — we don't store keys in the DB.
 
----
-
-## Technical Details
-
-- Stack stays: TanStack Start + React + Tailwind + Lovable Cloud (Supabase)
-- Existing `/concierge`, `/auth`, `/onboarding` routes stay; admin lives at `/admin`, portal at `/portal`
-- Role checks happen in `beforeLoad` (TanStack route guards) AND in RLS policies — defense in depth
-- Impersonation is purely UI-level (it does NOT actually log you in as another user — that would be a security hole). Real RLS enforces server-side.
-- All forms validated client-side with Zod and server-side via RLS + DB constraints
-- Image uploads go to a public `brand-assets` bucket and a private `venue-images` bucket
+### d. Role switcher
+- Keep it for admins only (already works). Useful for previewing customer/visitor UI, but the **real** difference is now driven by actual auth state, not just the switcher.
 
 ---
 
-## What I need from you to start Phase 1
+## Technical details
 
-1. **Brand assets**: upload logo (PNG/SVG, transparent bg ideal), 3–5 brand colors (hex), and font names (Google Fonts work easily)
-2. **Confirm the plan** — or tell me what to add/cut
+### Files to add
+- `src/routes/admin.login.tsx` — separate admin sign-in page.
+- `src/routes/admin.integrations.tsx` — integrations panel.
+- `src/lib/admin.functions.ts` — `getUserOverview`, `promoteToAdmin`, `demoteAdmin`, `pingIntegration`, `sendPasswordReset` (all guarded by `has_role('admin')`).
+- `src/components/VisitorGate.tsx` — small helper that wraps a button/handler and redirects visitors to `/auth` with a toast.
 
-Once you reply with brand assets + 👍, I'll build Phase 1 end-to-end (database + seed + switcher + brand) in one go.
+### Files to edit
+- `src/routes/index.tsx` — redirect signed-in customers to `/portal`.
+- `src/routes/auth.tsx` — keep as customer signup/signin; add link "Are you an admin? Sign in here →".
+- `src/components/SiteHeader.tsx` — show "Sign up free" instead of "Sign in" for visitors; hide Wizard CTA's full power behind gate.
+- `src/components/wizard/BuildMyNightWizard.tsx` — for visitors, after step 4, show preview-blur + "Sign up to see your real plan".
+- `src/routes/portal.bookings.tsx` — already real; verify visitor flow can't reach it.
+- `src/routes/admin.venues.tsx` — full CRUD UI.
+- `src/routes/admin.users.tsx` — user drawer + role + reset actions.
+- `src/routes/admin.bookings.tsx` — status filters + admin actions.
+- `src/routes/admin.tsx` — add "Integrations" nav item.
+
+### Database migration
+```text
+- venues: add admin INSERT/UPDATE/DELETE policies (has_role admin)
+- bookings: add admin_notes text column + admin UPDATE policy
+```
+
+### Out of scope (next iteration)
+- Real Stripe refund integration (we'll mark refunded in DB only; show the Stripe dashboard link).
+- Granular admin permissions (super-admin vs support). Single `admin` role for now.
+- Visitor wizard "preview" copy/imagery — first pass uses blur + sign-up CTA.
+
+---
+
+## Order of work
+1. Migration (venues admin policies, bookings.admin_notes).
+2. Visitor gating: header, wizard, booking/save buttons.
+3. Customer redirect from `/` → `/portal` when signed in.
+4. Admin login page + redirect logic.
+5. Admin tools: venues CRUD → users tools → bookings billing → integrations.
+6. Smoke test all three roles on `/`, wizard, `/portal`, `/admin`.

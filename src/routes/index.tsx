@@ -11,6 +11,7 @@ import { Reveal } from "@/components/Reveal";
 import { WizardButton } from "@/components/wizard/WizardButton";
 import { QuickPicks } from "@/components/QuickPicks";
 import { GatedAction } from "@/components/GatedAction";
+import { logAdImpression, logAdClick } from "@/lib/ad-tracking";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -132,6 +133,16 @@ function Landing() {
     return () => { window.removeEventListener("scroll", onScroll); if (raf) cancelAnimationFrame(raf); };
   }, []);
 
+  // Log impressions for sponsored marquee items once per mount/session.
+  useEffect(() => {
+    const sponsored = MARQUEE.filter((m) => m.sponsored);
+    sponsored.forEach((m) => {
+      if (!m.sponsored) return;
+      logAdImpression({ surface: "marquee_top", brand: m.sponsored.brand, occasion: m.text, href: m.sponsored.href });
+      logAdImpression({ surface: "marquee_bottom", brand: m.sponsored.brand, occasion: m.text, href: m.sponsored.href });
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-cream text-ink">
       <SiteHeader />
@@ -242,18 +253,20 @@ function Landing() {
             {[...MARQUEE, ...MARQUEE].map((m, i) => {
               const tone = i % 3 === 1 ? "font-serif italic font-normal text-gold" : i % 3 === 2 ? "text-coral" : "";
               if (m.sponsored) {
+                const s = m.sponsored;
                 return (
                   <Link
                     key={i}
-                    to={m.sponsored.href}
+                    to={s.href}
+                    onClick={() => logAdClick({ surface: "marquee_top", brand: s.brand, occasion: m.text, href: s.href })}
                     className="group inline-flex items-center gap-3 rounded-full border-2 border-gold bg-ink px-4 py-1.5 transition hover:bg-gold hover:text-ink"
                   >
                     <span className="rounded-full bg-gold px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink group-hover:bg-ink group-hover:text-gold">
-                      Sponsored · {m.sponsored.brand}
+                      Sponsored · {s.brand}
                     </span>
                     <span className={tone}>{m.text}</span>
                     <span className="font-mono text-xs uppercase tracking-widest underline underline-offset-4">
-                      {m.sponsored.cta} ↗
+                      {s.cta} ↗
                     </span>
                     <span aria-hidden>✦</span>
                   </Link>
@@ -619,7 +632,12 @@ function Landing() {
           <div className="flex shrink-0 animate-marquee gap-8 whitespace-nowrap pr-8 font-mono text-xs font-bold uppercase tracking-widest" style={{ transition: "animation-duration 0.4s ease" }}>
             {[...MARQUEE, ...MARQUEE, ...MARQUEE].map((m, i) =>
               m.sponsored ? (
-                <Link key={i} to={m.sponsored.href} className="inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink">
+                <Link
+                  key={i}
+                  to={m.sponsored.href}
+                  onClick={() => logAdClick({ surface: "marquee_bottom", brand: m.sponsored!.brand, occasion: m.text, href: m.sponsored!.href })}
+                  className="inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink"
+                >
                   <span className="rounded-sm bg-gold px-1.5 py-0.5 text-[9px] text-ink">AD · {m.sponsored.brand}</span>
                   <span>{m.text}</span>
                   <span className="underline">{m.sponsored.cta} ↗</span>

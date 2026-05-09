@@ -4,6 +4,7 @@ import { Sparkles, MapPin, ArrowRight, Star, Bookmark, CalendarCheck, MessageCir
 import { supabase } from "@/integrations/supabase/client";
 import { getMyReferralStats, getOrCreateMyReferralCode, buildReferralLink, type MyReferralStats } from "@/lib/referrals";
 import { useAuth } from "@/lib/auth-context";
+import { NearbyVenues } from "@/components/NearbyVenues";
 
 export const Route = createFileRoute("/portal/")({
   head: () => ({
@@ -244,6 +245,8 @@ function PortalDiscoverPage() {
           </DashCard>
         </section>
       )}
+
+      <NearbyVenues />
 
       {featured.length > 0 && (
         <section>

@@ -247,7 +247,11 @@ function PortalDiscoverPage() {
         </section>
       )}
 
+      <PromotedSlot placement="home_spotlight" surface="portal_home" variant="spotlight" />
+
       <NearbyVenues />
+
+      <PromotedSlot placement="featured_card" surface="portal_promoted_rail" variant="rail" title="Promoted picks near you" />
 
       {featured.length > 0 && (
         <section>

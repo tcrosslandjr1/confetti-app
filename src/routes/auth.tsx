@@ -25,6 +25,8 @@ function AuthPage() {
   const [refCode, setRefCode] = useState(() => getPendingReferralCode() ?? "");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [locationBlocked, setLocationBlocked] = useState(false);
+  const [allowWithoutLocation, setAllowWithoutLocation] = useState(false);
   const [seeding, setSeeding] = useState(false);
   const [seedMsg, setSeedMsg] = useState<string | null>(null);
   const seedFn = useServerFn(seedDemoAccounts);
@@ -59,14 +61,16 @@ function AuthPage() {
     try {
       if (mode === "signup") {
         if (refCode.trim()) rememberReferralCode(refCode);
-        // Ask for location BEFORE creating the account so the user sees
-        // the native browser permission prompt as part of signing up.
-        // We don't block signup if they decline.
+        // Require location access by default. The user can opt out with
+        // an explicit "continue without location" toggle.
         const loc = await requestUserLocation();
-        if (!loc) {
+        if (!loc && !allowWithoutLocation) {
+          setLocationBlocked(true);
           setError(
-            "Heads up: location access is off. We use it to recommend nearby spots — you can enable it later in your browser settings.",
+            "Location access is required to create your account. Enable location in your browser, then try again — or choose 'Continue without location' below.",
           );
+          setLoading(false);
+          return;
         }
         const { error } = await supabase.auth.signUp({
           email,
@@ -175,6 +179,19 @@ function AuthPage() {
             />
           )}
           {error && <p className="text-xs text-destructive">{error}</p>}
+          {mode === "signup" && locationBlocked && (
+            <label className="flex items-start gap-2 rounded-xl border border-border bg-card/50 p-3 text-xs text-muted-foreground">
+              <input
+                type="checkbox"
+                checked={allowWithoutLocation}
+                onChange={(e) => setAllowWithoutLocation(e.target.checked)}
+                className="mt-0.5"
+              />
+              <span>
+                Continue without location. Recommendations won't be tailored to your area until you enable it later.
+              </span>
+            </label>
+          )}
           <button
             disabled={loading}
             className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-vibe py-4 text-sm font-semibold text-primary-foreground shadow-pop transition-pop active:scale-95 disabled:opacity-60"

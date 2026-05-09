@@ -70,67 +70,78 @@ function AdminLayout() {
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen w-full bg-background">
-        <Sidebar collapsible="icon">
-          <SidebarContent>
-            <div className="flex items-center gap-2 px-3 py-4">
-              <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-vibe shadow-pop">
-                <Sparkles className="h-4 w-4 text-primary-foreground" />
-              </div>
-              <div className="text-sm">
-                <div className="font-display font-bold leading-none">Concierge</div>
-                <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Admin</div>
-              </div>
-            </div>
-            <SidebarGroup>
-              <SidebarGroupLabel>Operations</SidebarGroupLabel>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  {NAV.map((item) => {
-                    const active = item.exact ? pathname === item.to : pathname.startsWith(item.to);
-                    return (
-                      <SidebarMenuItem key={item.to}>
-                        <SidebarMenuButton asChild isActive={active}>
-                          <Link to={item.to as string as "/"} className="flex items-center gap-2">
-                            <item.icon className="h-4 w-4" />
-                            <span>{item.label}</span>
-                          </Link>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    );
-                  })}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
-            <SidebarGroup>
-              <SidebarGroupLabel>Shortcuts</SidebarGroupLabel>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <Link to="/" className="flex items-center gap-2">
-                        <Sparkles className="h-4 w-4" />
-                        <span>View site</span>
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
-          </SidebarContent>
-        </Sidebar>
-
-        <div className="flex min-w-0 flex-1 flex-col">
-          <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-border bg-background/80 px-4 backdrop-blur-xl">
-            <SidebarTrigger />
-            <div className="text-sm font-semibold">Admin Console</div>
-            <div className="ml-auto text-xs text-muted-foreground">{user?.email}</div>
-          </header>
-          <main className="min-w-0 flex-1 p-6">
-            <Outlet />
-          </main>
-        </div>
-      </div>
+      <AdminShell user={user} pathname={pathname} />
     </SidebarProvider>
+  );
+}
+
+function AdminShell({ user, pathname }: { user: ReturnType<typeof useAuth>["user"]; pathname: string }) {
+  const { isMobile, setOpenMobile } = useSidebar();
+  const handleNav = () => {
+    if (isMobile) setOpenMobile(false);
+  };
+
+  return (
+    <div className="flex min-h-screen w-full bg-background">
+      <Sidebar collapsible="icon">
+        <SidebarContent>
+          <div className="flex items-center gap-2 px-3 py-4">
+            <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-vibe shadow-pop">
+              <Sparkles className="h-4 w-4 text-primary-foreground" />
+            </div>
+            <div className="text-sm">
+              <div className="font-display font-bold leading-none">Concierge</div>
+              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Admin</div>
+            </div>
+          </div>
+          <SidebarGroup>
+            <SidebarGroupLabel>Operations</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {NAV.map((item) => {
+                  const active = item.exact ? pathname === item.to : pathname.startsWith(item.to);
+                  return (
+                    <SidebarMenuItem key={item.to}>
+                      <SidebarMenuButton asChild isActive={active}>
+                        <Link to={item.to as string as "/"} onClick={handleNav} className="flex items-center gap-2">
+                          <item.icon className="h-4 w-4" />
+                          <span>{item.label}</span>
+                        </Link>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  );
+                })}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+          <SidebarGroup>
+            <SidebarGroupLabel>Shortcuts</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                    <Link to="/" onClick={handleNav} className="flex items-center gap-2">
+                      <Sparkles className="h-4 w-4" />
+                      <span>View site</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </SidebarContent>
+      </Sidebar>
+
+      <div className="flex min-w-0 flex-1 flex-col">
+        <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-border bg-background/80 px-4 backdrop-blur-xl">
+          <SidebarTrigger />
+          <div className="text-sm font-semibold">Admin Console</div>
+          <div className="ml-auto truncate text-xs text-muted-foreground">{user?.email}</div>
+        </header>
+        <main className="min-w-0 flex-1 p-4 sm:p-6">
+          <Outlet />
+        </main>
+      </div>
+    </div>
   );
 }

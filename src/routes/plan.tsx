@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CalendarPlus, Loader2, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
+import { logAccessDenial } from "@/lib/access-denials";
 import { OCCASIONS } from "@/lib/occasions";
 import { buildAndSaveItinerary } from "@/lib/itineraries";
 

@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import { getMyPendingFirstBookingDiscount } from "@/lib/referrals";
+import { Gift } from "lucide-react";
 
 export const Route = createFileRoute("/portal/bookings")({
   component: PortalBookingsPage,
@@ -30,6 +32,7 @@ function PortalBookingsPage() {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [venues, setVenues] = useState<Venue[]>([]);
   const [loading, setLoading] = useState(true);
+  const [pendingDiscountCents, setPendingDiscountCents] = useState(0);
 
   const load = () => {
     supabase
@@ -47,6 +50,7 @@ function PortalBookingsPage() {
     supabase.from("venues").select("id,name,category,neighborhood,price_level,image_url").order("name").then(({ data }) => {
       setVenues((data as Venue[]) ?? []);
     });
+    getMyPendingFirstBookingDiscount().then((d) => setPendingDiscountCents(d?.amount_cents ?? 0));
   }, []);
 
   const { upcoming, past } = useMemo(() => {
@@ -77,6 +81,22 @@ function PortalBookingsPage() {
         </div>
         <BookDialog venues={venues} userId={user?.id} onBooked={load} />
       </header>
+
+      {pendingDiscountCents > 0 && (
+        <div className="flex items-center gap-3 rounded-2xl border border-primary/30 bg-primary/10 p-4">
+          <div className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground">
+            <Gift className="h-5 w-5" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <div className="text-sm font-bold">
+              ${(pendingDiscountCents / 100).toFixed(0)} off your first booking
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Applied automatically when you book — courtesy of your friend's invite.
+            </p>
+          </div>
+        </div>
+      )}
 
       {loading ? (
         <p className="text-sm text-muted-foreground">Loading…</p>

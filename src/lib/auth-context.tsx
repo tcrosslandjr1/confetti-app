@@ -45,15 +45,15 @@ const Ctx = createContext<AuthCtx>({
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [sessionLoading, setSessionLoading] = useState(true);
+  const [roleLoading, setRoleLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [viewAsState, setViewAsState] = useState<ViewAs>("visitor");
+  const [viewAsState, setViewAsState] = useState<ViewAs | null>(null);
 
-  // Load persisted impersonation flag
+  // Clear any stale impersonation from older sessions; role previews should not survive reloads.
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const v = sessionStorage.getItem(VIEW_KEY);
-    if (v === "admin" || v === "customer" || v === "visitor") setViewAsState(v);
+    sessionStorage.removeItem(VIEW_KEY);
   }, []);
 
   // Auth state
@@ -61,15 +61,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (typeof window === "undefined") return;
     const { data: sub } = supabase.auth.onAuthStateChange((event, s) => {
       setSession(s);
-      setLoading(false);
+      setSessionLoading(false);
       if (event === "SIGNED_IN") {
+        setViewAsState(null);
         // Fire-and-forget: link any pending ?ref= code to this account
         void consumePendingReferralOnSignup();
+      } else if (event === "SIGNED_OUT") {
+        setViewAsState(null);
       }
     });
     supabase.auth.getSession().then(({ data }) => {
       setSession(data.session);
-      setLoading(false);
+      setSessionLoading(false);
     });
     return () => sub.subscription.unsubscribe();
   }, []);
@@ -80,8 +83,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const uid = session?.user?.id;
     if (!uid) {
       setIsAdmin(false);
+      setRoleLoading(false);
       return;
     }
+    setRoleLoading(true);
     supabase
       .from("user_roles")
       .select("role")
@@ -90,6 +95,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       .maybeSingle()
       .then(({ data }) => {
         if (!cancelled) setIsAdmin(!!data);
+      })
+      .finally(() => {
+        if (!cancelled) setRoleLoading(false);
       });
     return () => {
       cancelled = true;
@@ -98,21 +106,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const setViewAs = useCallback((v: ViewAs) => {
     setViewAsState(v);
-    if (typeof window !== "undefined") sessionStorage.setItem(VIEW_KEY, v);
+    if (typeof window !== "undefined") sessionStorage.removeItem(VIEW_KEY);
   }, []);
 
   const exitImpersonation = useCallback(() => {
-    setViewAsState("admin");
+    setViewAsState(null);
     if (typeof window !== "undefined") sessionStorage.removeItem(VIEW_KEY);
   }, []);
 
   const signOut = useCallback(async () => {
     if (typeof window !== "undefined") sessionStorage.removeItem(VIEW_KEY);
-    setViewAsState("visitor");
+    setViewAsState(null);
     await supabase.auth.signOut();
   }, []);
 
   const value = useMemo<AuthCtx>(() => {
+    const loading = sessionLoading || roleLoading;
     const realRole: ViewAs = !session?.user
       ? "visitor"
       : isAdmin
@@ -120,7 +129,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       : "customer";
 
     // Only admins can impersonate. For everyone else, viewAs = their real role.
-    const effective: ViewAs = isAdmin ? viewAsState || "admin" : realRole;
+    const effective: ViewAs = isAdmin ? viewAsState ?? "admin" : realRole;
     const impersonating = isAdmin && effective !== "admin";
 
     return {
@@ -135,7 +144,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       exitImpersonation,
       signOut,
     };
-  }, [session, loading, isAdmin, viewAsState, setViewAs, exitImpersonation, signOut]);
+  }, [session, sessionLoading, roleLoading, isAdmin, viewAsState, setViewAs, exitImpersonation, signOut]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

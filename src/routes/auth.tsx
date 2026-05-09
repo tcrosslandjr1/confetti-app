@@ -8,6 +8,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { seedDemoAccounts } from "@/lib/seed-demo.functions";
 import { lovable } from "@/integrations/lovable";
 import { rememberReferralCode, getPendingReferralCode } from "@/lib/referrals";
+import { requestUserLocation } from "@/lib/location";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({ meta: [{ title: "Sign in — Concierge" }] }),

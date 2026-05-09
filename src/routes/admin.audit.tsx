@@ -224,6 +224,190 @@ function AdminAuditPage() {
           </TableBody>
         </Table>
       </div>
+
+      <AccessDenialsSection />
+    </div>
+  );
+}
+
+function formatRelAbs(iso: string) {
+  const d = new Date(iso);
+  const diffMin = Math.round((Date.now() - d.getTime()) / 60_000);
+  let rel: string;
+  if (diffMin < 1) rel = "just now";
+  else if (diffMin < 60) rel = `${diffMin}m ago`;
+  else if (diffMin < 60 * 24) rel = `${Math.round(diffMin / 60)}h ago`;
+  else rel = `${Math.round(diffMin / (60 * 24))}d ago`;
+  return { rel, abs: d.toLocaleString() };
+}
+
+function AccessDenialsSection() {
+  const denials = useAccessDenials();
+  const [q, setQ] = useState("");
+  const [feature, setFeature] = useState<"all" | DenialEntry["feature"]>("all");
+
+  const filtered = useMemo(() => {
+    const s = q.trim().toLowerCase();
+    return denials.filter((d) => {
+      if (feature !== "all" && d.feature !== feature) return false;
+      if (s) {
+        const hay = `${d.id} ${d.attemptedPath} ${d.fromPath} ${d.viewerRole} ${d.userId ?? ""} ${d.note ?? ""} ${d.feature}`.toLowerCase();
+        if (!hay.includes(s)) return false;
+      }
+      return true;
+    });
+  }, [denials, q, feature]);
+
+  const last24h = useMemo(
+    () => denials.filter((d) => Date.now() - new Date(d.at).getTime() < 24 * 60 * 60 * 1000).length,
+    [denials],
+  );
+  const visitorCount = useMemo(() => denials.filter((d) => d.viewerRole === "visitor").length, [denials]);
+
+  const exportCsv = () => {
+    const rows = [
+      ["id", "timestamp", "source", "feature", "attempted_path", "from_path", "viewer_role", "user_id", "note"],
+      ...filtered.map((d) => [d.id, d.at, d.source, d.feature, d.attemptedPath, d.fromPath, d.viewerRole, d.userId ?? "", d.note ?? ""]),
+    ];
+    const csv = rows
+      .map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(","))
+      .join("\n");
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `access-denials-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    toast.success(`Exported ${filtered.length} denials`);
+  };
+
+  const FEATURES: DenialEntry["feature"][] = ["planning", "booking", "portal", "concierge", "trips", "reservations", "other"];
+
+  return (
+    <section className="space-y-4">
+      <header className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Access monitoring</p>
+          <h2 className="font-display text-2xl font-bold leading-tight flex items-center gap-2">
+            <ShieldAlert className="h-6 w-6 text-amber-600" /> Denied access attempts
+          </h2>
+          <p className="text-sm text-muted-foreground">
+            Visitors and signed-out users blocked from planning, bookings, and portal pages.
+          </p>
+        </div>
+        <div className="flex gap-2">
+          <Button variant="outline" size="sm" onClick={exportCsv} disabled={filtered.length === 0}>
+            <Download className="mr-1 h-3.5 w-3.5" /> Export CSV
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => {
+              clearAccessDenials();
+              toast.success("Denial log cleared");
+            }}
+            className="text-destructive hover:text-destructive"
+          >
+            <Eraser className="mr-1 h-3.5 w-3.5" /> Clear
+          </Button>
+        </div>
+      </header>
+
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <StatCard label="Total denials" value={denials.length} />
+        <StatCard label="Last 24 hours" value={last24h} />
+        <StatCard label="Visitor view" value={visitorCount} />
+      </div>
+
+      <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-border bg-card p-3 shadow-card">
+        <div className="relative flex-1 min-w-[260px]">
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="Search by path, user ID, role, or note…"
+            className="pl-9"
+          />
+        </div>
+        <select
+          value={feature}
+          onChange={(e) => setFeature(e.target.value as typeof feature)}
+          className="rounded-md border border-border bg-background px-3 py-2 text-sm"
+        >
+          <option value="all">All features</option>
+          {FEATURES.map((f) => (
+            <option key={f} value={f}>{f}</option>
+          ))}
+        </select>
+      </div>
+
+      <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Entry</TableHead>
+              <TableHead>When</TableHead>
+              <TableHead>Viewer</TableHead>
+              <TableHead>Feature</TableHead>
+              <TableHead>Attempted</TableHead>
+              <TableHead>Note</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {filtered.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={6} className="py-12 text-center text-sm text-muted-foreground">
+                  No denied attempts recorded yet. Visitors blocked from gated pages will appear here.
+                </TableCell>
+              </TableRow>
+            ) : (
+              filtered.map((d) => {
+                const w = formatRelAbs(d.at);
+                return (
+                  <TableRow key={d.id}>
+                    <TableCell className="font-mono text-xs">{d.id}</TableCell>
+                    <TableCell>
+                      <div className="text-sm">{w.rel}</div>
+                      <div className="text-xs text-muted-foreground">{w.abs}</div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="text-sm capitalize">{d.viewerRole}</div>
+                      {d.userId ? (
+                        <div className="font-mono text-[11px] text-muted-foreground">{d.userId.slice(0, 8)}…</div>
+                      ) : (
+                        <div className="text-[11px] text-muted-foreground">no session</div>
+                      )}
+                    </TableCell>
+                    <TableCell>
+                      <Badge className="bg-amber-500/15 text-amber-700 hover:opacity-90 capitalize">
+                        {d.feature}
+                      </Badge>
+                      <div className="mt-1 text-[11px] text-muted-foreground">{d.source}</div>
+                    </TableCell>
+                    <TableCell className="font-mono text-xs">
+                      <div>{d.attemptedPath}</div>
+                      <div className="text-muted-foreground">from {d.fromPath}</div>
+                    </TableCell>
+                    <TableCell className="max-w-[320px] text-sm text-foreground/85">
+                      {d.note ?? "—"}
+                    </TableCell>
+                  </TableRow>
+                );
+              })
+            )}
+          </TableBody>
+        </Table>
+      </div>
+    </section>
+  );
+}
+
+function StatCard({ label, value }: { label: string; value: number }) {
+  return (
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-card">
+      <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">{label}</p>
+      <p className="mt-1 font-display text-2xl font-bold">{value}</p>
     </div>
   );
 }

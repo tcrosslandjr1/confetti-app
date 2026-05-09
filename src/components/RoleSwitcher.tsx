@@ -1,4 +1,5 @@
 import { useAuth, type ViewAs } from "@/lib/auth-context";
+import { useNavigate } from "@tanstack/react-router";
 import { Shield, User as UserIcon, Eye, X } from "lucide-react";
 import { useState } from "react";
 
@@ -14,9 +15,20 @@ const OPTIONS: { value: ViewAs; label: string; Icon: typeof Shield }[] = [
  */
 export function RoleSwitcher() {
   const { isAdmin, viewAs, setViewAs, isImpersonating, exitImpersonation } = useAuth();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(true);
 
   if (!isAdmin) return null;
+
+  const goToRole = (value: ViewAs) => {
+    setViewAs(value);
+    navigate({ to: value === "admin" ? "/admin" : value === "customer" ? "/portal" : "/" });
+  };
+
+  const exitAndReturn = () => {
+    exitImpersonation();
+    navigate({ to: "/admin" });
+  };
 
   return (
     <>
@@ -26,7 +38,7 @@ export function RoleSwitcher() {
             Viewing as <span className="uppercase">{viewAs}</span> — UI only, your admin permissions still apply.
           </span>
           <button
-            onClick={exitImpersonation}
+            onClick={exitAndReturn}
             className="inline-flex items-center gap-1 rounded-full bg-amber-950/10 px-3 py-1 transition hover:bg-amber-950/20"
           >
             <X className="h-3 w-3" /> Exit
@@ -46,7 +58,7 @@ export function RoleSwitcher() {
               return (
                 <button
                   key={value}
-                  onClick={() => setViewAs(value)}
+                  onClick={() => goToRole(value)}
                   className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-semibold transition ${
                     active
                       ? "bg-primary text-primary-foreground shadow-pop"

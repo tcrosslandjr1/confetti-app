@@ -24,12 +24,8 @@ export const startTiktokLink = createServerFn({ method: "POST" })
       .parse(input ?? {}),
   )
   .handler(async ({ data, context }) => {
-    const clientKey = process.env.TIKTOK_CLIENT_KEY;
-    if (!clientKey) {
-      throw new Error(
-        "TikTok is not configured yet. Add TIKTOK_CLIENT_KEY and TIKTOK_CLIENT_SECRET in Lovable Cloud secrets.",
-      );
-    }
+    // Validates env vars are present + non-empty; throws a UI-friendly error.
+    const { clientId: clientKey } = readProviderCredentials("tiktok");
 
     const url = process.env.SUPABASE_URL!;
     const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -50,16 +46,14 @@ export const startTiktokLink = createServerFn({ method: "POST" })
     });
     if (insErr) throw new Error(`Could not start TikTok flow: ${insErr.message}`);
 
-    // Determine callback origin from the incoming request so it matches the
+    // Build the callback URL from the request host so it matches whatever
     // domain the user is currently on (custom domain vs lovable.app).
-    const host = getRequestHost();
-    const proto = host?.includes("localhost") ? "http" : "https";
-    const redirectUri = `${proto}://${host}/api/public/tiktok/callback`;
+    const redirectUri = buildCallbackUrl("tiktok", getRequestHost());
 
     const params = new URLSearchParams({
       client_key: clientKey,
       response_type: "code",
-      scope: "user.info.basic,user.info.profile",
+      scope: OAUTH_PROVIDERS.tiktok.defaultScope,
       redirect_uri: redirectUri,
       state,
     });

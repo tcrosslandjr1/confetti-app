@@ -159,7 +159,10 @@ export function BuildMyNightWizard() {
   const [loadingIdx, setLoadingIdx] = useState(0);
   const [variant, setVariant] = useState(0);
   const [openStop, setOpenStop] = useState<number | null>(0);
-  const [sortBy, setSortBy] = useState<"order" | "rating" | "distance" | "availability">("order");
+  const [sortBy, setSortBy] = useState<"order" | "rating" | "price" | "distance" | "availability">("order");
+  type PlaceInfo = { rating?: number; userRatingCount?: number; priceLevel?: number; openNow?: boolean; businessStatus?: string; found: boolean };
+  const [placesData, setPlacesData] = useState<Record<string, PlaceInfo>>({});
+  const [placesLoading, setPlacesLoading] = useState(false);
   const [favorites, setFavorites] = useState<Record<string, FavRow>>({});
   const [showFavorites, setShowFavorites] = useState(false);
   const { user } = useAuth();

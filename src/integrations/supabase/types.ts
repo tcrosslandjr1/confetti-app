@@ -370,6 +370,113 @@ export type Database = {
         }
         Relationships: []
       }
+      referral_codes: {
+        Row: {
+          code: string
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      referral_rewards: {
+        Row: {
+          amount_cents: number
+          created_at: string
+          id: string
+          issued_at: string | null
+          redeem_code: string | null
+          redeemed_at: string | null
+          referral_id: string | null
+          status: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          amount_cents?: number
+          created_at?: string
+          id?: string
+          issued_at?: string | null
+          redeem_code?: string | null
+          redeemed_at?: string | null
+          referral_id?: string | null
+          status?: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          amount_cents?: number
+          created_at?: string
+          id?: string
+          issued_at?: string | null
+          redeem_code?: string | null
+          redeemed_at?: string | null
+          referral_id?: string | null
+          status?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "referral_rewards_referral_id_fkey"
+            columns: ["referral_id"]
+            isOneToOne: false
+            referencedRelation: "referrals"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      referrals: {
+        Row: {
+          channel: string
+          code: string
+          completed_at: string | null
+          created_at: string
+          id: string
+          referee_email: string | null
+          referee_id: string | null
+          referrer_id: string
+          signed_up_at: string | null
+          status: string
+        }
+        Insert: {
+          channel?: string
+          code: string
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          referee_email?: string | null
+          referee_id?: string | null
+          referrer_id: string
+          signed_up_at?: string | null
+          status?: string
+        }
+        Update: {
+          channel?: string
+          code?: string
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          referee_email?: string | null
+          referee_id?: string | null
+          referrer_id?: string
+          signed_up_at?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
       saved_venues: {
         Row: {
           created_at: string
@@ -597,6 +704,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      gen_referral_code: { Args: never; Returns: string }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]

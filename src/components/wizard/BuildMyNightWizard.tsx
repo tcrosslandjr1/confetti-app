@@ -172,6 +172,26 @@ export function BuildMyNightWizard() {
     [preset]
   );
   const stops = presetStops ?? SAMPLE_STOPS[variant % SAMPLE_STOPS.length];
+  const sortedStops = useMemo(() => {
+    const parseWalk = (w?: string) => {
+      const m = w?.match(/(\d+)/); return m ? parseInt(m[1], 10) : Number.POSITIVE_INFINITY;
+    };
+    const parseTime = (t: string) => {
+      const m = t.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+      if (!m) return Number.POSITIVE_INFINITY;
+      let h = parseInt(m[1], 10) % 12; if (/PM/i.test(m[3])) h += 12;
+      return h * 60 + parseInt(m[2], 10);
+    };
+    const arr = stops.map((s, i) => ({ s, i }));
+    if (sortBy === "rating") {
+      arr.sort((a, b) => parseFloat(getDetails(b.s.venue, b.s.vibe).rating) - parseFloat(getDetails(a.s.venue, a.s.vibe).rating));
+    } else if (sortBy === "distance") {
+      arr.sort((a, b) => parseWalk(a.s.walk) - parseWalk(b.s.walk));
+    } else if (sortBy === "availability") {
+      arr.sort((a, b) => parseTime(a.s.time) - parseTime(b.s.time));
+    }
+    return arr;
+  }, [stops, sortBy]);
   const totalSteps = 5;
 
   // If preset supplied, jump straight to result and seed vibe multi-select

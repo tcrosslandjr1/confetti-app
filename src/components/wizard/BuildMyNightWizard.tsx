@@ -259,6 +259,32 @@ export function BuildMyNightWizard() {
     return () => { clearInterval(interval); clearTimeout(done); };
   }, [step]);
 
+  // Fetch live Google Places data for the current stops as soon as results show.
+  useEffect(() => {
+    if (step !== 6 || !stops?.length) return;
+    let cancelled = false;
+    const queries = stops.map((s) => ({ venue: s.venue, address: s.address, neighborhood: s.neighborhood }));
+    setPlacesLoading(true);
+    setPlacesData({});
+    (async () => {
+      try {
+        const { data, error } = await supabase.functions.invoke("google-places", { body: { queries } });
+        if (cancelled) return;
+        if (error) { console.warn("[google-places]", error); return; }
+        const map: Record<string, PlaceInfo> = {};
+        for (const r of (data?.results ?? []) as Array<PlaceInfo & { venue: string }>) {
+          map[r.venue] = r;
+        }
+        setPlacesData(map);
+      } catch (e) {
+        console.warn("[google-places] fetch failed", e);
+      } finally {
+        if (!cancelled) setPlacesLoading(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [step, stops]);
+
   // Esc to close
   useEffect(() => {
     if (!open) return;

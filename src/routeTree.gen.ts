@@ -15,6 +15,7 @@ import { Route as PortalRouteImport } from './routes/portal'
 import { Route as PlanRouteImport } from './routes/plan'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MeRouteImport } from './routes/me'
+import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -86,6 +87,11 @@ const OnboardingRoute = OnboardingRouteImport.update({
 const MeRoute = MeRouteImport.update({
   id: '/me',
   path: '/me',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvestorsRoute = InvestorsRouteImport.update({
+  id: '/investors',
+  path: '/investors',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
@@ -309,6 +315,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRouteWithChildren
@@ -356,6 +363,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRouteWithChildren
@@ -406,6 +414,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRouteWithChildren
@@ -458,6 +467,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/features'
     | '/how-it-works'
+    | '/investors'
     | '/me'
     | '/onboarding'
     | '/plan'
@@ -505,6 +515,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/features'
     | '/how-it-works'
+    | '/investors'
     | '/me'
     | '/onboarding'
     | '/plan'
@@ -554,6 +565,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/features'
     | '/how-it-works'
+    | '/investors'
     | '/me'
     | '/onboarding'
     | '/plan'
@@ -605,6 +617,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   FeaturesRoute: typeof FeaturesRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  InvestorsRoute: typeof InvestorsRoute
   MeRoute: typeof MeRoute
   OnboardingRoute: typeof OnboardingRoute
   PlanRoute: typeof PlanRouteWithChildren
@@ -663,6 +676,13 @@ declare module '@tanstack/react-router' {
       path: '/me'
       fullPath: '/me'
       preLoaderRoute: typeof MeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/investors': {
+      id: '/investors'
+      path: '/investors'
+      fullPath: '/investors'
+      preLoaderRoute: typeof InvestorsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-it-works': {
@@ -1076,6 +1096,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   FeaturesRoute: FeaturesRoute,
   HowItWorksRoute: HowItWorksRoute,
+  InvestorsRoute: InvestorsRoute,
   MeRoute: MeRoute,
   OnboardingRoute: OnboardingRoute,
   PlanRoute: PlanRouteWithChildren,

@@ -48,6 +48,7 @@ const NAV: NavItem[] = [
   { to: "/admin/integrations", label: "Integrations", icon: Sparkles },
   { to: "/admin/moderation", label: "Moderation", icon: ShieldCheck },
   { to: "/admin/analytics", label: "Analytics", icon: BarChart3 },
+  { to: "/admin/ad-analytics", label: "Ad analytics", icon: BarChart3 },
   { to: "/admin/audit", label: "Audit log", icon: ScrollText },
 ];
 

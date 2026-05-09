@@ -160,7 +160,7 @@ export function BuildMyNightWizard() {
   const [variant, setVariant] = useState(0);
   const [openStop, setOpenStop] = useState<number | null>(0);
   const [sortBy, setSortBy] = useState<"order" | "rating" | "price" | "distance" | "availability">("order");
-  type PlaceInfo = { rating?: number; userRatingCount?: number; priceLevel?: number; openNow?: boolean; businessStatus?: string; found: boolean };
+  type PlaceInfo = { rating?: number; userRatingCount?: number; priceLevel?: number; openNow?: boolean; businessStatus?: string; displayName?: string; formattedAddress?: string; websiteUri?: string; googleMapsUri?: string; photos?: string[]; found: boolean };
   const [placesData, setPlacesData] = useState<Record<string, PlaceInfo>>({});
   const [placesLoading, setPlacesLoading] = useState(false);
   const [favorites, setFavorites] = useState<Record<string, FavRow>>({});
@@ -637,7 +637,10 @@ export function BuildMyNightWizard() {
                   };
                   const openNow = live?.openNow;
                   const isFav = !!favorites[s.venue];
-                  const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`;
+                  const photos = live?.photos ?? [];
+                  const heroPhoto = photos[0];
+                  const displayAddress = live?.formattedAddress ?? [s.address, s.neighborhood].filter(Boolean).join(" · ");
+                  const mapsHref = live?.googleMapsUri ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`;
                   return (
                     <li
                       key={`${variant}-${i}`}
@@ -652,20 +655,29 @@ export function BuildMyNightWizard() {
                         aria-expanded={isOpen}
                         className="flex w-full items-stretch gap-3 p-3 text-left transition-colors hover:bg-ink/[0.03] cursor-pointer"
                       >
-                        <div className={`grid w-20 shrink-0 place-items-center rounded-xl border-2 border-ink ${s.tone} font-display text-sm font-extrabold leading-tight text-ink`}>
-                          {s.time}
-                        </div>
+                        {heroPhoto ? (
+                          <div className="relative w-24 shrink-0 overflow-hidden rounded-xl border-2 border-ink">
+                            <img src={heroPhoto} alt={s.venue} loading="lazy" className="h-full w-full object-cover" />
+                            <div className={`absolute inset-x-0 bottom-0 ${s.tone} border-t-2 border-ink px-1 py-0.5 text-center font-display text-[11px] font-extrabold leading-tight text-ink`}>
+                              {s.time}
+                            </div>
+                          </div>
+                        ) : (
+                          <div className={`grid w-20 shrink-0 place-items-center rounded-xl border-2 border-ink ${s.tone} font-display text-sm font-extrabold leading-tight text-ink`}>
+                            {s.time}
+                          </div>
+                        )}
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-2">
-                            <div className="font-display text-lg font-extrabold leading-tight">{s.venue}</div>
+                            <div className="font-display text-lg font-extrabold leading-tight">{live?.displayName ?? s.venue}</div>
                             <span className="inline-flex items-center gap-1 rounded-full bg-gold px-2 py-0.5 font-mono text-[10px] font-bold">
                               <Star className="h-2.5 w-2.5 fill-current" /> {d.rating}
                             </span>
                           </div>
-                          {(s.address || s.neighborhood) && (
+                          {displayAddress && (
                             <div className="mt-0.5 inline-flex items-center gap-1 font-mono text-[11px] text-ink/70">
                               <MapPin className="h-3 w-3" />
-                              {s.address ? s.address : ""}{s.address && s.neighborhood ? " · " : ""}{s.neighborhood ?? ""}
+                              {displayAddress}
                             </div>
                           )}
                           <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
@@ -701,6 +713,21 @@ export function BuildMyNightWizard() {
                           className="border-t-2 border-dashed border-ink/30 bg-cream/60 p-4"
                           style={{ animation: "reveal-up 0.3s ease-out forwards" }}
                         >
+                          {photos.length > 0 && (
+                            <div className="-mx-1 mb-3 flex gap-2 overflow-x-auto px-1 pb-1">
+                              {photos.map((src, pi) => (
+                                <a
+                                  key={pi}
+                                  href={src}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="relative block h-32 w-48 shrink-0 overflow-hidden rounded-xl border-2 border-ink shadow-brut transition-pop hover:-translate-y-0.5"
+                                >
+                                  <img src={src} alt={`${s.venue} photo ${pi + 1}`} loading="lazy" className="h-full w-full object-cover" />
+                                </a>
+                              ))}
+                            </div>
+                          )}
                           <p className="text-sm leading-relaxed text-ink/85">{d.blurb}</p>
 
                           <div className="mt-3 flex flex-wrap items-center gap-2">

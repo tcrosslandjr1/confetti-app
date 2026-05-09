@@ -637,7 +637,10 @@ export function BuildMyNightWizard() {
                   };
                   const openNow = live?.openNow;
                   const isFav = !!favorites[s.venue];
-                  const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`;
+                  const photos = live?.photos ?? [];
+                  const heroPhoto = photos[0];
+                  const displayAddress = live?.formattedAddress ?? [s.address, s.neighborhood].filter(Boolean).join(" · ");
+                  const mapsHref = live?.googleMapsUri ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`;
                   return (
                     <li
                       key={`${variant}-${i}`}

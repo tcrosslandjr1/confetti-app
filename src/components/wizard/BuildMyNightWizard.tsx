@@ -160,6 +160,9 @@ export function BuildMyNightWizard() {
   const [variant, setVariant] = useState(0);
   const [openStop, setOpenStop] = useState<number | null>(0);
   const [sortBy, setSortBy] = useState<"order" | "rating" | "distance" | "availability">("order");
+  const [favorites, setFavorites] = useState<Record<string, FavRow>>({});
+  const [showFavorites, setShowFavorites] = useState(false);
+  const { user } = useAuth();
   const { burst, layer } = useConfettiBurst();
 
   const fallbackTones = ["bg-coral", "bg-purple", "bg-gold", "bg-emerald-400", "bg-pink-300", "bg-amber-300"];

@@ -52,7 +52,7 @@ export function PromotedSlot({ placement, surface, variant = "rail", title, clas
     const c = items[0];
     return (
       <a
-        href={c.cta_url ?? "#"}
+        href={c.cta_url ? ctaHref(c, surface) : "#"}
         target={c.cta_url ? "_blank" : undefined}
         rel="noreferrer"
         onClick={() => onClick(c)}
@@ -81,7 +81,7 @@ export function PromotedSlot({ placement, surface, variant = "rail", title, clas
     const c = items[0];
     return (
       <a
-        href={c.cta_url ?? "#"}
+        href={c.cta_url ? ctaHref(c, surface) : "#"}
         target={c.cta_url ? "_blank" : undefined}
         rel="noreferrer"
         onClick={() => onClick(c)}
@@ -109,7 +109,7 @@ export function PromotedSlot({ placement, surface, variant = "rail", title, clas
         {items.map((c) => (
           <a
             key={c.id}
-            href={c.cta_url ?? "#"}
+            href={c.cta_url ? ctaHref(c, surface) : "#"}
             target={c.cta_url ? "_blank" : undefined}
             rel="noreferrer"
             onClick={() => onClick(c)}

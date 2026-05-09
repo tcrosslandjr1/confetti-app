@@ -43,6 +43,7 @@ const NAV: NavItem[] = [
   { to: "/admin/venues", label: "Venues", icon: Store },
   { to: "/admin/curated", label: "Curated", icon: Star },
   { to: "/admin/bookings", label: "Bookings", icon: CalendarCheck },
+  { to: "/admin/integrations", label: "Integrations", icon: Sparkles },
   { to: "/admin/moderation", label: "Moderation", icon: ShieldCheck },
   { to: "/admin/analytics", label: "Analytics", icon: BarChart3 },
   { to: "/admin/audit", label: "Audit log", icon: ScrollText },
@@ -55,7 +56,7 @@ function AdminLayout() {
 
   useEffect(() => {
     if (loading) return;
-    if (!user) navigate({ to: "/auth" });
+    if (!user) navigate({ to: "/admin/login" });
     else if (!isAdmin) navigate({ to: "/" });
     else if (viewAs !== "admin") navigate({ to: viewAs === "customer" ? "/portal" : "/" });
   }, [loading, user, isAdmin, viewAs, navigate]);

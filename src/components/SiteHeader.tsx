@@ -14,7 +14,7 @@ export function SiteHeader() {
   const { viewAs, signOut, user } = useAuth();
   const showPortal = viewAs === "customer" || viewAs === "admin";
   const showAdmin = viewAs === "admin";
-  const showSignIn = viewAs === "visitor" && !user;
+  const isVisitor = viewAs === "visitor" || !user;
 
   return (
     <header className="sticky top-0 z-40 border-b-2 border-ink bg-cream/85 backdrop-blur-xl">
@@ -61,21 +61,21 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          {showSignIn ? (
+          {isVisitor ? (
             <Link
               to="/auth"
-              className="hidden h-10 items-center rounded-full px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink sm:flex"
+              className="hidden h-10 items-center rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg sm:inline-flex"
             >
-              Sign in
+              Sign up free
             </Link>
-          ) : user ? (
+          ) : (
             <button
               onClick={() => void signOut()}
               className="hidden h-10 items-center rounded-full px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink sm:flex"
             >
               Sign out
             </button>
-          ) : null}
+          )}
           <WizardButton
             ariaLabel="Build a night"
             className="animate-wiggle-attention inline-flex h-10 items-center gap-1 rounded-full border-2 border-ink bg-ink px-4 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"

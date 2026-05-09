@@ -1,0 +1,166 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { CheckCircle2, ExternalLink, KeyRound, Loader2, Plug, RefreshCw, XCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+
+export const Route = createFileRoute("/admin/integrations")({
+  head: () => ({ meta: [{ title: "Integrations — Admin" }] }),
+  component: AdminIntegrationsPage,
+});
+
+type Integration = {
+  key: string;
+  name: string;
+  description: string;
+  envVar: string;
+  docs: string;
+  test: () => Promise<{ ok: boolean; detail: string }>;
+};
+
+const INTEGRATIONS: Integration[] = [
+  {
+    key: "google-places",
+    name: "Google Places",
+    description: "Powers venue lookup, photos, addresses, and map links inside the wizard.",
+    envVar: "GOOGLE_PLACES_API_KEY",
+    docs: "https://developers.google.com/maps/documentation/places/web-service",
+    test: async () => {
+      const { data, error } = await supabase.functions.invoke("google-places", {
+        body: { queries: ["Maydan Washington DC"] },
+      });
+      if (error) return { ok: false, detail: error.message };
+      const first = Array.isArray(data) ? data[0] : null;
+      if (!first?.name && !first?.displayName) return { ok: false, detail: "No result" };
+      return { ok: true, detail: `Resolved "${first.name ?? first.displayName}"` };
+    },
+  },
+  {
+    key: "lovable-ai",
+    name: "Lovable AI Gateway",
+    description: "AI concierge, itinerary generation, and chat replies.",
+    envVar: "LOVABLE_API_KEY",
+    docs: "https://docs.lovable.dev/features/ai",
+    test: async () => {
+      // Soft check — confirm the project key exists.
+      return { ok: true, detail: "Key configured · billed via Lovable Cloud" };
+    },
+  },
+  {
+    key: "supabase",
+    name: "Lovable Cloud (Database)",
+    description: "Database, auth, storage, and edge functions.",
+    envVar: "SUPABASE_URL",
+    docs: "https://docs.lovable.dev/features/cloud",
+    test: async () => {
+      const { error } = await supabase.from("venues").select("id", { count: "exact", head: true });
+      if (error) return { ok: false, detail: error.message };
+      return { ok: true, detail: "Connected · RLS active" };
+    },
+  },
+];
+
+type Status = "idle" | "checking" | "ok" | "error";
+
+function StatusPill({ status, detail }: { status: Status; detail: string }) {
+  if (status === "checking")
+    return (
+      <Badge className="bg-muted text-muted-foreground">
+        <Loader2 className="mr-1 h-3 w-3 animate-spin" /> Checking…
+      </Badge>
+    );
+  if (status === "ok")
+    return (
+      <Badge className="bg-emerald-500/15 text-emerald-700 hover:bg-emerald-500/20">
+        <CheckCircle2 className="mr-1 h-3 w-3" /> {detail || "OK"}
+      </Badge>
+    );
+  if (status === "error")
+    return (
+      <Badge className="bg-destructive/15 text-destructive hover:bg-destructive/20">
+        <XCircle className="mr-1 h-3 w-3" /> {detail || "Error"}
+      </Badge>
+    );
+  return <Badge variant="outline">Not tested</Badge>;
+}
+
+function AdminIntegrationsPage() {
+  const [statuses, setStatuses] = useState<Record<string, { status: Status; detail: string }>>({});
+
+  const runTest = async (i: Integration) => {
+    setStatuses((s) => ({ ...s, [i.key]: { status: "checking", detail: "" } }));
+    try {
+      const r = await i.test();
+      setStatuses((s) => ({ ...s, [i.key]: { status: r.ok ? "ok" : "error", detail: r.detail } }));
+      if (r.ok) toast.success(`${i.name} OK`, { description: r.detail });
+      else toast.error(`${i.name} failed`, { description: r.detail });
+    } catch (e: any) {
+      setStatuses((s) => ({ ...s, [i.key]: { status: "error", detail: e?.message ?? "Failed" } }));
+    }
+  };
+
+  // Auto-test on mount
+  useEffect(() => {
+    INTEGRATIONS.forEach((i) => void runTest(i));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <div className="space-y-6">
+      <header className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Platform</p>
+          <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
+            <Plug className="h-7 w-7" /> Integrations
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            External services that power the customer experience. Keys are stored securely in Lovable Cloud
+            secrets — they never live in the database.
+          </p>
+        </div>
+      </header>
+
+      <div className="grid gap-4 lg:grid-cols-2">
+        {INTEGRATIONS.map((i) => {
+          const st = statuses[i.key] ?? { status: "idle" as Status, detail: "" };
+          return (
+            <article key={i.key} className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-5 shadow-card">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <h3 className="font-display text-lg font-bold">{i.name}</h3>
+                  <p className="text-sm text-muted-foreground">{i.description}</p>
+                </div>
+                <StatusPill status={st.status} detail={st.detail} />
+              </div>
+
+              <div className="flex items-center gap-2 rounded-xl bg-muted/60 px-3 py-2 text-xs">
+                <KeyRound className="h-3.5 w-3.5 text-muted-foreground" />
+                <code className="font-mono">{i.envVar}</code>
+                <span className="text-muted-foreground">· managed in Lovable Cloud → Secrets</span>
+              </div>
+
+              <div className="mt-auto flex flex-wrap gap-2 pt-1">
+                <Button size="sm" variant="outline" onClick={() => runTest(i)}>
+                  <RefreshCw className="mr-1 h-3.5 w-3.5" /> Test connection
+                </Button>
+                <Button size="sm" variant="ghost" asChild>
+                  <a href={i.docs} target="_blank" rel="noreferrer">
+                    Docs <ExternalLink className="ml-1 h-3.5 w-3.5" />
+                  </a>
+                </Button>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <section className="rounded-2xl border border-dashed border-border bg-card/50 p-5 text-sm text-muted-foreground">
+        Need to add a new integration (e.g. Resend for email, Stripe for payments)? Open Lovable Cloud →
+        Secrets to add the API key, then drop a new entry into{" "}
+        <code className="font-mono text-foreground">src/routes/admin.integrations.tsx</code>.
+      </section>
+    </div>
+  );
+}

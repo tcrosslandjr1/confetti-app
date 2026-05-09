@@ -1,10 +1,12 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Send, Sparkles, RefreshCw, Save, Instagram, Music2, Youtube, Loader2, Wand2 } from "lucide-react";
+import { Send, Sparkles, RefreshCw, Save, Instagram, Music2, Youtube, Loader2, Wand2, ShieldCheck } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/integrations/supabase/client";
 import { loadPrefs, saveAboutMe, saveSocialHandles, saveSocialSignals, saveTasteProfile, type Prefs, type SocialHandles, type TasteProfile } from "@/lib/taste";
+
+const DATA_CONSENT_KEY = "confetti.dataSharingConsent.v1";
 
 export const Route = createFileRoute("/me")({ component: MyVibe });
 

@@ -451,8 +451,31 @@ export function BuildMyNightWizard() {
                   : `${vibe.map((k) => VIBES.find((v) => v.k === k)?.label).filter(Boolean).join(" + ")} · ${CREW.find((c) => c.k === crew)?.label} · ${budget}`}
               </p>
 
-              <ol className="mt-6 space-y-3">
-                {stops.map((s, i) => {
+              <div className="mt-5 flex flex-wrap items-center gap-2">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">Sort by</span>
+                {([
+                  { k: "order", label: "Night order" },
+                  { k: "rating", label: "★ Highest rated" },
+                  { k: "distance", label: "📍 Closest" },
+                  { k: "availability", label: "⏱ Earliest" },
+                ] as const).map((opt) => {
+                  const active = sortBy === opt.k;
+                  return (
+                    <button
+                      key={opt.k}
+                      type="button"
+                      onClick={() => setSortBy(opt.k)}
+                      className={`rounded-full border-2 border-ink px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors ${active ? "bg-ink text-cream" : "bg-cream text-ink hover:bg-ink/5"}`}
+                    >
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <ol className="mt-4 space-y-3">
+                {sortedStops.map(({ s, i: origIdx }, displayIdx) => {
+                  const i = origIdx;
                   const isOpen = openStop === i;
                   const d = getDetails(s.venue, s.vibe);
                   const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`;

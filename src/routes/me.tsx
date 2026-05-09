@@ -335,3 +335,98 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
     </div>
   );
 }
+
+function TiktokConnect({ consent }: { consent: boolean }) {
+  const startFn = useServerFn(startTiktokLink);
+  const disconnectFn = useServerFn(disconnectTiktok);
+  const listFn = useServerFn(getMyLinkedAccounts);
+  const qc = useQueryClient();
+  const [error, setError] = useState<string | null>(null);
+
+  // Surface ?tiktok=connected | error from the OAuth callback redirect.
+  const [flash, setFlash] = useState<{ ok: boolean; text: string } | null>(null);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const sp = new URLSearchParams(window.location.search);
+    const t = sp.get("tiktok");
+    if (!t) return;
+    if (t === "connected") setFlash({ ok: true, text: "TikTok connected." });
+    else setFlash({ ok: false, text: `TikTok connection failed (${sp.get("reason") ?? t}).` });
+    sp.delete("tiktok"); sp.delete("reason");
+    const qs = sp.toString();
+    window.history.replaceState({}, "", window.location.pathname + (qs ? `?${qs}` : ""));
+  }, []);
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["linked-accounts"],
+    queryFn: () => listFn({}),
+  });
+  const tiktok = data?.accounts.find((a) => a.provider === "tiktok");
+
+  const startMut = useMutation({
+    mutationFn: () => startFn({ data: { redirectTo: "/me" } }),
+    onSuccess: ({ url }) => { window.location.href = url; },
+    onError: (e: Error) => setError(e.message),
+  });
+
+  const disconnectMut = useMutation({
+    mutationFn: () => disconnectFn({}),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["linked-accounts"] }),
+    onError: (e: Error) => setError(e.message),
+  });
+
+  return (
+    <div className="mt-4 rounded-xl border border-border bg-background p-3">
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-foreground text-background">
+            <Music2 className="h-4 w-4" />
+          </span>
+          <div className="min-w-0">
+            <div className="text-sm font-semibold">TikTok</div>
+            <div className="truncate text-[11px] text-muted-foreground">
+              {isLoading
+                ? "Checking…"
+                : tiktok
+                ? `Connected as @${tiktok.username ?? tiktok.display_name ?? tiktok.provider_user_id}`
+                : "Connect to let the AI learn from your favorites"}
+            </div>
+          </div>
+        </div>
+
+        {tiktok ? (
+          <button
+            onClick={() => disconnectMut.mutate()}
+            disabled={disconnectMut.isPending}
+            className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-50"
+          >
+            {disconnectMut.isPending ? <Loader2 className="h-3 w-3 animate-spin" /> : <Unlink className="h-3 w-3" />}
+            Disconnect
+          </button>
+        ) : (
+          <button
+            onClick={() => { setError(null); startMut.mutate(); }}
+            disabled={!consent || startMut.isPending}
+            title={!consent ? "Accept the data sharing terms first" : undefined}
+            className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-3 py-1.5 text-xs font-semibold text-background disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {startMut.isPending ? <Loader2 className="h-3 w-3 animate-spin" /> : <Link2 className="h-3 w-3" />}
+            Connect TikTok
+          </button>
+        )}
+      </div>
+
+      {flash && (
+        <p className={`mt-2 inline-flex items-center gap-1.5 text-[11px] ${flash.ok ? "text-emerald-600" : "text-destructive"}`}>
+          {flash.ok ? <CheckCircle2 className="h-3 w-3" /> : <AlertTriangle className="h-3 w-3" />}
+          {flash.text}
+        </p>
+      )}
+      {error && (
+        <p className="mt-2 inline-flex items-center gap-1.5 text-[11px] text-destructive">
+          <AlertTriangle className="h-3 w-3" /> {error}
+        </p>
+      )}
+    </div>
+  );
+}

@@ -293,7 +293,7 @@ function Landing() {
       <section className="border-b-2 border-ink bg-ink py-4 text-cream">
         <div className="flex overflow-hidden">
           <div className="flex shrink-0 animate-marquee items-center gap-10 whitespace-nowrap pr-10 font-display text-3xl font-extrabold uppercase tracking-tight">
-            {[...MARQUEE, ...MARQUEE].map((m, i) => {
+            {[...topItems, ...topItems].map((m, i) => {
               const tone = i % 3 === 1 ? "font-serif italic font-normal text-gold" : i % 3 === 2 ? "text-coral" : "";
               if (m.sponsored) {
                 const s = m.sponsored;

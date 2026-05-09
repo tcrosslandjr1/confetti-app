@@ -155,6 +155,7 @@ export function BuildMyNightWizard() {
   const [loadingIdx, setLoadingIdx] = useState(0);
   const [variant, setVariant] = useState(0);
   const [openStop, setOpenStop] = useState<number | null>(0);
+  const [sortBy, setSortBy] = useState<"order" | "rating" | "distance" | "availability">("order");
   const { burst, layer } = useConfettiBurst();
 
   const fallbackTones = ["bg-coral", "bg-purple", "bg-gold", "bg-emerald-400", "bg-pink-300", "bg-amber-300"];
@@ -171,6 +172,26 @@ export function BuildMyNightWizard() {
     [preset]
   );
   const stops = presetStops ?? SAMPLE_STOPS[variant % SAMPLE_STOPS.length];
+  const sortedStops = useMemo(() => {
+    const parseWalk = (w?: string) => {
+      const m = w?.match(/(\d+)/); return m ? parseInt(m[1], 10) : Number.POSITIVE_INFINITY;
+    };
+    const parseTime = (t: string) => {
+      const m = t.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+      if (!m) return Number.POSITIVE_INFINITY;
+      let h = parseInt(m[1], 10) % 12; if (/PM/i.test(m[3])) h += 12;
+      return h * 60 + parseInt(m[2], 10);
+    };
+    const arr = stops.map((s, i) => ({ s, i }));
+    if (sortBy === "rating") {
+      arr.sort((a, b) => parseFloat(getDetails(b.s.venue, b.s.vibe).rating) - parseFloat(getDetails(a.s.venue, a.s.vibe).rating));
+    } else if (sortBy === "distance") {
+      arr.sort((a, b) => parseWalk(a.s.walk) - parseWalk(b.s.walk));
+    } else if (sortBy === "availability") {
+      arr.sort((a, b) => parseTime(a.s.time) - parseTime(b.s.time));
+    }
+    return arr;
+  }, [stops, sortBy]);
   const totalSteps = 5;
 
   // If preset supplied, jump straight to result and seed vibe multi-select
@@ -430,8 +451,31 @@ export function BuildMyNightWizard() {
                   : `${vibe.map((k) => VIBES.find((v) => v.k === k)?.label).filter(Boolean).join(" + ")} · ${CREW.find((c) => c.k === crew)?.label} · ${budget}`}
               </p>
 
-              <ol className="mt-6 space-y-3">
-                {stops.map((s, i) => {
+              <div className="mt-5 flex flex-wrap items-center gap-2">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">Sort by</span>
+                {([
+                  { k: "order", label: "Night order" },
+                  { k: "rating", label: "★ Highest rated" },
+                  { k: "distance", label: "📍 Closest" },
+                  { k: "availability", label: "⏱ Earliest" },
+                ] as const).map((opt) => {
+                  const active = sortBy === opt.k;
+                  return (
+                    <button
+                      key={opt.k}
+                      type="button"
+                      onClick={() => setSortBy(opt.k)}
+                      className={`rounded-full border-2 border-ink px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-widest transition-colors ${active ? "bg-ink text-cream" : "bg-cream text-ink hover:bg-ink/5"}`}
+                    >
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <ol className="mt-4 space-y-3">
+                {sortedStops.map(({ s, i: origIdx }, displayIdx) => {
+                  const i = origIdx;
                   const isOpen = openStop === i;
                   const d = getDetails(s.venue, s.vibe);
                   const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`;
@@ -470,7 +514,7 @@ export function BuildMyNightWizard() {
                           </div>
                         </div>
                         <div className="flex flex-col items-center justify-between self-stretch">
-                          <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">{i + 1}</span>
+                          <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">{displayIdx + 1}</span>
                           <ChevronDown className={`h-4 w-4 text-ink/60 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                         </div>
                       </button>

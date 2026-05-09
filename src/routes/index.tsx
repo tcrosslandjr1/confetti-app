@@ -673,7 +673,7 @@ function Landing() {
       <section className="marquee-hover border-b-2 border-ink bg-gold py-3 text-ink">
         <div className="flex overflow-hidden">
           <div className="flex shrink-0 animate-marquee gap-8 whitespace-nowrap pr-8 font-mono text-xs font-bold uppercase tracking-widest" style={{ transition: "animation-duration 0.4s ease" }}>
-            {[...MARQUEE, ...MARQUEE, ...MARQUEE].map((m, i) =>
+            {[...bottomItems, ...bottomItems, ...bottomItems].map((m, i) =>
               m.sponsored ? (
                 <Link
                   key={i}

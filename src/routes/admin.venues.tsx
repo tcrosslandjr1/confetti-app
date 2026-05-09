@@ -333,7 +333,7 @@ function VenueDialog({
           />
         </div>
       </div>
-      <DialogFooter>
+      <DialogFooter className="border-t border-border bg-background px-6 py-4 pb-[max(env(safe-area-inset-bottom),1rem)]">
         <Button
           disabled={busy || !draft.name || !draft.category}
           onClick={async () => {

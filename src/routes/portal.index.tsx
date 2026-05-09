@@ -157,6 +157,25 @@ function PortalDiscoverPage() {
         </section>
       )}
 
+      {/* Engagement strip: level progress + weekly challenge + streak */}
+      {user && (
+        <section aria-label="Your progress" className="grid gap-4 lg:grid-cols-3">
+          <LevelProgress xp={profile?.xp ?? 0} level={profile?.level ?? 1} />
+          <WeeklyChallenge bookings={bookingTotals.upcoming} referrals={refStats.signedUp} />
+          <StreakCard pastBookings={bookingTotals.past} unlocked={unlockedCount} />
+        </section>
+      )}
+
+      {/* Personalized next-best-actions */}
+      {user && (
+        <NextSteps
+          hasUpcoming={bookingTotals.upcoming > 0}
+          hasReferred={refStats.signedUp > 0}
+          unlocked={unlockedCount}
+          totalAch={achievements.length}
+        />
+      )}
+
       <div className="grid gap-3 sm:grid-cols-3">
         <QuickAction to="/concierge/chat" icon={MessageCircle} label="Ask Concierge" hint="AI-powered planning" />
         <QuickAction to="/portal/bookings" icon={CalendarCheck} label="My Bookings" hint="Upcoming & past" />

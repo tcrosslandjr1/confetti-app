@@ -713,6 +713,21 @@ export function BuildMyNightWizard() {
                           className="border-t-2 border-dashed border-ink/30 bg-cream/60 p-4"
                           style={{ animation: "reveal-up 0.3s ease-out forwards" }}
                         >
+                          {photos.length > 0 && (
+                            <div className="-mx-1 mb-3 flex gap-2 overflow-x-auto px-1 pb-1">
+                              {photos.map((src, pi) => (
+                                <a
+                                  key={pi}
+                                  href={src}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="relative block h-32 w-48 shrink-0 overflow-hidden rounded-xl border-2 border-ink shadow-brut transition-pop hover:-translate-y-0.5"
+                                >
+                                  <img src={src} alt={`${s.venue} photo ${pi + 1}`} loading="lazy" className="h-full w-full object-cover" />
+                                </a>
+                              ))}
+                            </div>
+                          )}
                           <p className="text-sm leading-relaxed text-ink/85">{d.blurb}</p>
 
                           <div className="mt-3 flex flex-wrap items-center gap-2">

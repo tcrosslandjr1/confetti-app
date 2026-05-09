@@ -43,26 +43,33 @@ export const Route = createFileRoute("/portal/refer")({
 });
 
 function ReferPage() {
+  const { user } = useAuth();
   const [code, setCode] = useState<string | null>(null);
   const [stats, setStats] = useState<MyReferralStats | null>(null);
   const [invites, setInvites] = useState<Awaited<ReturnType<typeof listMyInvites>>>([]);
   const [rewards, setRewards] = useState<Awaited<ReturnType<typeof listMyRewards>>>([]);
+  const [leaderboard, setLeaderboard] = useState<LeaderboardRow[]>([]);
+  const [badges, setBadges] = useState<ReferralBadge[]>([]);
   const [emailsRaw, setEmailsRaw] = useState("");
   const [sending, setSending] = useState(false);
   const [sentMsg, setSentMsg] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
   const refresh = async () => {
-    const [c, s, i, r] = await Promise.all([
+    const [c, s, i, r, lb, b] = await Promise.all([
       getOrCreateMyReferralCode(),
       getMyReferralStats(),
       listMyInvites(),
       listMyRewards(),
+      getReferralLeaderboard(20),
+      getMyReferralBadges(),
     ]);
     setCode(c);
     setStats(s);
     setInvites(i);
     setRewards(r);
+    setLeaderboard(lb);
+    setBadges(b);
   };
 
   useEffect(() => {

@@ -504,6 +504,54 @@ export type Database = {
           },
         ]
       }
+      marquee_sponsorships: {
+        Row: {
+          active: boolean
+          brand: string
+          created_at: string
+          cta_label: string
+          cta_url: string
+          id: string
+          notes: string | null
+          occasion: string
+          position: number
+          runs_from: string | null
+          runs_until: string | null
+          surface: string
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          brand: string
+          created_at?: string
+          cta_label?: string
+          cta_url: string
+          id?: string
+          notes?: string | null
+          occasion: string
+          position?: number
+          runs_from?: string | null
+          runs_until?: string | null
+          surface?: string
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          brand?: string
+          created_at?: string
+          cta_label?: string
+          cta_url?: string
+          id?: string
+          notes?: string | null
+          occasion?: string
+          position?: number
+          runs_from?: string | null
+          runs_until?: string | null
+          surface?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       messages: {
         Row: {
           content: string

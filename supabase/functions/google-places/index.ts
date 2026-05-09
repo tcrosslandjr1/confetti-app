@@ -1,4 +1,4 @@
-// Google Places lookup — returns live rating, price_level, open_now per venue.
+// Google Places lookup — returns live rating, price_level, open_now, photos, address per venue.
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
@@ -11,11 +11,16 @@ type Body = { queries: Query[] };
 type PlaceResult = {
   venue: string;
   placeId?: string;
+  displayName?: string;
+  formattedAddress?: string;
   rating?: number;
   userRatingCount?: number;
   priceLevel?: number; // 0..4
   openNow?: boolean;
   businessStatus?: string;
+  websiteUri?: string;
+  googleMapsUri?: string;
+  photos?: string[]; // direct CDN URIs (short-lived)
   found: boolean;
 };
 
@@ -27,6 +32,18 @@ const PRICE_MAP: Record<string, number> = {
   PRICE_LEVEL_VERY_EXPENSIVE: 4,
 };
 
+async function resolvePhoto(name: string, key: string, maxHeightPx = 600): Promise<string | null> {
+  try {
+    const url = `https://places.googleapis.com/v1/${name}/media?maxHeightPx=${maxHeightPx}&skipHttpRedirect=true&key=${key}`;
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    const json = await res.json();
+    return json.photoUri ?? null;
+  } catch {
+    return null;
+  }
+}
+
 async function lookup(q: Query, key: string): Promise<PlaceResult> {
   const text = [q.venue, q.address, q.neighborhood].filter(Boolean).join(" ");
   try {
@@ -36,7 +53,7 @@ async function lookup(q: Query, key: string): Promise<PlaceResult> {
         "Content-Type": "application/json",
         "X-Goog-Api-Key": key,
         "X-Goog-FieldMask":
-          "places.id,places.rating,places.userRatingCount,places.priceLevel,places.currentOpeningHours.openNow,places.businessStatus",
+          "places.id,places.displayName,places.formattedAddress,places.rating,places.userRatingCount,places.priceLevel,places.currentOpeningHours.openNow,places.businessStatus,places.websiteUri,places.googleMapsUri,places.photos",
       },
       body: JSON.stringify({ textQuery: text, pageSize: 1 }),
     });
@@ -44,14 +61,25 @@ async function lookup(q: Query, key: string): Promise<PlaceResult> {
     const data = await res.json();
     const p = data.places?.[0];
     if (!p) return { venue: q.venue, found: false };
+
+    const photoNames: string[] = (p.photos ?? []).slice(0, 3).map((ph: { name: string }) => ph.name).filter(Boolean);
+    const photos = (await Promise.all(photoNames.map((n) => resolvePhoto(n, key)))).filter(
+      (u): u is string => !!u
+    );
+
     return {
       venue: q.venue,
       placeId: p.id,
+      displayName: p.displayName?.text,
+      formattedAddress: p.formattedAddress,
       rating: typeof p.rating === "number" ? p.rating : undefined,
       userRatingCount: p.userRatingCount,
       priceLevel: p.priceLevel ? PRICE_MAP[p.priceLevel] : undefined,
       openNow: p.currentOpeningHours?.openNow,
       businessStatus: p.businessStatus,
+      websiteUri: p.websiteUri,
+      googleMapsUri: p.googleMapsUri,
+      photos,
       found: true,
     };
   } catch {

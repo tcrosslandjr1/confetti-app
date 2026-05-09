@@ -238,12 +238,33 @@ function Landing() {
       {/* ============================ MARQUEE ============================ */}
       <section className="border-b-2 border-ink bg-ink py-4 text-cream">
         <div className="flex overflow-hidden">
-          <div className="flex shrink-0 animate-marquee gap-10 whitespace-nowrap pr-10 font-display text-3xl font-extrabold uppercase tracking-tight">
-            {[...MARQUEE, ...MARQUEE].map((m, i) => (
-              <span key={i} className={i % 3 === 1 ? "font-serif italic font-normal text-gold" : i % 3 === 2 ? "text-coral" : ""}>
-                {m}
-              </span>
-            ))}
+          <div className="flex shrink-0 animate-marquee items-center gap-10 whitespace-nowrap pr-10 font-display text-3xl font-extrabold uppercase tracking-tight">
+            {[...MARQUEE, ...MARQUEE].map((m, i) => {
+              const tone = i % 3 === 1 ? "font-serif italic font-normal text-gold" : i % 3 === 2 ? "text-coral" : "";
+              if (m.sponsored) {
+                return (
+                  <Link
+                    key={i}
+                    to={m.sponsored.href}
+                    className="group inline-flex items-center gap-3 rounded-full border-2 border-gold bg-ink px-4 py-1.5 transition hover:bg-gold hover:text-ink"
+                  >
+                    <span className="rounded-full bg-gold px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink group-hover:bg-ink group-hover:text-gold">
+                      Sponsored · {m.sponsored.brand}
+                    </span>
+                    <span className={tone}>{m.text}</span>
+                    <span className="font-mono text-xs uppercase tracking-widest underline underline-offset-4">
+                      {m.sponsored.cta} ↗
+                    </span>
+                    <span aria-hidden>✦</span>
+                  </Link>
+                );
+              }
+              return (
+                <span key={i} className={tone}>
+                  {m.text} ✦
+                </span>
+              );
+            })}
           </div>
         </div>
       </section>

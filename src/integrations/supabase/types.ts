@@ -97,6 +97,42 @@ export type Database = {
           },
         ]
       }
+      favorite_stops: {
+        Row: {
+          address: string | null
+          created_at: string
+          id: string
+          neighborhood: string | null
+          notes: string | null
+          tone: string | null
+          user_id: string
+          venue_name: string
+          vibe: string | null
+        }
+        Insert: {
+          address?: string | null
+          created_at?: string
+          id?: string
+          neighborhood?: string | null
+          notes?: string | null
+          tone?: string | null
+          user_id: string
+          venue_name: string
+          vibe?: string | null
+        }
+        Update: {
+          address?: string | null
+          created_at?: string
+          id?: string
+          neighborhood?: string | null
+          notes?: string | null
+          tone?: string | null
+          user_id?: string
+          venue_name?: string
+          vibe?: string | null
+        }
+        Relationships: []
+      }
       featured_content: {
         Row: {
           active: boolean
@@ -619,6 +655,69 @@ export type Database = {
           id?: string
           role?: Database["public"]["Enums"]["app_role"]
           user_id?: string
+        }
+        Relationships: []
+      }
+      venue_details_cache: {
+        Row: {
+          cache_key: string
+          created_at: string
+          fetched_at: string
+          formatted_address: string | null
+          hours_text: string | null
+          id: string
+          latitude: number | null
+          longitude: number | null
+          name: string | null
+          open_now: boolean | null
+          phone: string | null
+          place_id: string | null
+          price_level: number | null
+          query: string
+          rating: number | null
+          raw: Json | null
+          review_count: number | null
+          website: string | null
+        }
+        Insert: {
+          cache_key: string
+          created_at?: string
+          fetched_at?: string
+          formatted_address?: string | null
+          hours_text?: string | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name?: string | null
+          open_now?: boolean | null
+          phone?: string | null
+          place_id?: string | null
+          price_level?: number | null
+          query: string
+          rating?: number | null
+          raw?: Json | null
+          review_count?: number | null
+          website?: string | null
+        }
+        Update: {
+          cache_key?: string
+          created_at?: string
+          fetched_at?: string
+          formatted_address?: string | null
+          hours_text?: string | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name?: string | null
+          open_now?: boolean | null
+          phone?: string | null
+          place_id?: string | null
+          price_level?: number | null
+          query?: string
+          rating?: number | null
+          raw?: Json | null
+          review_count?: number | null
+          website?: string | null
         }
         Relationships: []
       }

@@ -329,9 +329,10 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
       {msg && <p className="mt-3 rounded-lg bg-muted px-3 py-2 text-xs text-foreground/80">{msg}</p>}
 
       <TiktokConnect consent={consent} />
+      <InstagramConnect consent={consent} />
 
       <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
-        Instagram OAuth is still pending Meta app review. For Instagram, your handle and pasted signals are what the AI uses for now.
+        Instagram requires a Business or Creator account, and Meta app review for non-test users.
       </p>
     </div>
   );

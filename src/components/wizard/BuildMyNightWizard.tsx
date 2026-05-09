@@ -1,8 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowUpRight, Check, ChevronDown, Clock, DollarSign, Globe, Loader2, MapPin, Phone, RefreshCw, Save, Sparkles, Star, Utensils, X } from "lucide-react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { ArrowLeft, ArrowUpRight, Check, ChevronDown, Clock, DollarSign, Globe, Heart, Loader2, MapPin, Phone, RefreshCw, Save, Sparkles, Star, Utensils, X } from "lucide-react";
 import { useWizard } from "./wizard-context";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/lib/auth-context";
+
+type FavRow = { venue_name: string; vibe: string | null; tone: string | null; address: string | null; neighborhood: string | null };
 
 type Vibe = { k: string; label: string; emoji: string; tone: string };
 type Crew = { k: string; label: string; sub: string };

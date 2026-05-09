@@ -662,16 +662,14 @@ function Landing() {
           <div className="flex shrink-0 animate-marquee gap-8 whitespace-nowrap pr-8 font-mono text-xs font-bold uppercase tracking-widest" style={{ transition: "animation-duration 0.4s ease" }}>
             {[...bottomItems, ...bottomItems, ...bottomItems].map((m, i) =>
               m.sponsored ? (
-                <Link
+                <SponsoredMarqueeSlot
                   key={i}
-                  to={m.sponsored.href}
-                  onClick={() => logAdClick({ surface: "marquee_bottom", brand: m.sponsored!.brand, occasion: m.text, href: m.sponsored!.href })}
-                  className="inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink"
-                >
-                  <span className="rounded-sm bg-gold px-1.5 py-0.5 text-[9px] text-ink">AD · {m.sponsored.brand}</span>
-                  <span>{m.text}</span>
-                  <span className="underline">{m.sponsored.cta} ↗</span>
-                </Link>
+                  slot={`bottom-${i}`}
+                  surface="marquee_bottom"
+                  text={m.text}
+                  sponsored={m.sponsored}
+                  variant="ticker"
+                />
               ) : (
                 <span key={i} className="inline-flex items-center gap-3">
                   {m.text}

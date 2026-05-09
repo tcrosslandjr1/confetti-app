@@ -686,6 +686,7 @@ function Landing() {
       </section>
 
       <SiteFooter />
+      <AdDebugPanel />
     </div>
   );
 }

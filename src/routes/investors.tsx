@@ -199,6 +199,42 @@ function InvestorsPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="border-t-2 border-ink bg-cream">
+        <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
+          <div className="max-w-2xl">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">/ investor faq</span>
+            <h2 className="mt-2 font-display text-4xl font-extrabold leading-[0.95] tracking-tight sm:text-5xl">
+              The questions we keep getting.
+            </h2>
+            <p className="mt-3 text-ink/70">
+              Short, direct answers. Deeper dives — model, cohort data, references — live in the data room.
+            </p>
+          </div>
+
+          <div className="mt-12 space-y-12">
+            {faq.map((group) => (
+              <div key={group.group}>
+                <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-coral">{group.group}</h3>
+                <div className="mt-4 divide-y-2 divide-ink/10 rounded-2xl border-2 border-ink bg-white shadow-brut">
+                  {group.items.map((item) => (
+                    <details key={item.q} className="group p-5 [&_summary::-webkit-details-marker]:hidden">
+                      <summary className="flex cursor-pointer items-start justify-between gap-4 font-display text-lg font-bold text-ink">
+                        <span>{item.q}</span>
+                        <span aria-hidden className="mt-1 inline-grid h-6 w-6 shrink-0 place-items-center rounded-full border-2 border-ink font-mono text-sm transition-transform group-open:rotate-45">
+                          +
+                        </span>
+                      </summary>
+                      <p className="mt-3 text-sm leading-relaxed text-ink/75">{item.a}</p>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-ink text-cream">
         <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6">

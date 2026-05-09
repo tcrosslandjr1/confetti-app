@@ -20,8 +20,9 @@ type Props = {
  * visitor-accessible (marketing) pages.
  */
 export function GatedAction({ to, children, className, feature = "planning & bookings" }: Props) {
-  const { viewAs } = useAuth();
+  const { viewAs, user } = useAuth();
   const navigate = useNavigate();
+  const fromPath = useRouterState({ select: (s) => s.location.pathname });
 
   if (viewAs !== "visitor") {
     return (
@@ -36,6 +37,15 @@ export function GatedAction({ to, children, className, feature = "planning & boo
       type="button"
       className={className}
       onClick={() => {
+        logAccessDenial({
+          source: "gated-link",
+          feature: inferFeatureFromPath(to),
+          attemptedPath: to,
+          fromPath,
+          viewerRole: "visitor",
+          userId: user?.id ?? null,
+          note: `Visitor tapped CTA for ${feature}`,
+        });
         toast(`Sign up free to unlock ${feature}`, {
           description: "Takes 10 seconds — we'll save your picks.",
         });

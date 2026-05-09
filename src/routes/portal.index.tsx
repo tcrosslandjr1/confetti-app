@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Sparkles, MapPin, ArrowRight, Star, Bookmark, CalendarCheck, MessageCircle, Trophy, Users, Gift, Lock, Crown, Flame, Medal, Calendar as CalendarIcon } from "lucide-react";
+import { Sparkles, MapPin, ArrowRight, Star, Bookmark, CalendarCheck, MessageCircle, Trophy, Users, Gift, Lock, Crown, Flame, Medal, Calendar as CalendarIcon, Target, Zap, TrendingUp, CheckCircle2, Clock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { getMyReferralStats, getOrCreateMyReferralCode, buildReferralLink, type MyReferralStats } from "@/lib/referrals";
 import { useAuth } from "@/lib/auth-context";
@@ -155,6 +155,25 @@ function PortalDiscoverPage() {
             hint={achievements.length ? `${achievements.reduce((s, a) => s + (a.unlocked ? a.xp_reward : 0), 0)} XP earned` : "Unlock by exploring"}
           />
         </section>
+      )}
+
+      {/* Engagement strip: level progress + weekly challenge + streak */}
+      {user && (
+        <section aria-label="Your progress" className="grid gap-4 lg:grid-cols-3">
+          <LevelProgress xp={profile?.xp ?? 0} level={profile?.level ?? 1} />
+          <WeeklyChallenge bookings={bookingTotals.upcoming} referrals={refStats.signedUp} />
+          <StreakCard pastBookings={bookingTotals.past} unlocked={unlockedCount} />
+        </section>
+      )}
+
+      {/* Personalized next-best-actions */}
+      {user && (
+        <NextSteps
+          hasUpcoming={bookingTotals.upcoming > 0}
+          hasReferred={refStats.signedUp > 0}
+          unlocked={unlockedCount}
+          totalAch={achievements.length}
+        />
       )}
 
       <div className="grid gap-3 sm:grid-cols-3">
@@ -427,5 +446,126 @@ function VenueCard({ v }: { v: Venue }) {
         </div>
       </div>
     </article>
+  );
+}
+
+function LevelProgress({ xp, level }: { xp: number; level: number }) {
+  const xpForNext = level * 500;
+  const xpThisLevel = xp % xpForNext;
+  const pct = Math.min(100, Math.round((xpThisLevel / xpForNext) * 100));
+  const remaining = xpForNext - xpThisLevel;
+  return (
+    <article className="rounded-2xl border border-border bg-card p-5 shadow-card">
+      <header className="mb-3 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Sparkles className="h-4 w-4 text-primary" />
+          <h3 className="font-display text-sm font-bold uppercase tracking-wider">Level {level}</h3>
+        </div>
+        <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{xp.toLocaleString()} XP</span>
+      </header>
+      <div className="h-3 w-full overflow-hidden rounded-full bg-muted">
+        <div className="h-full rounded-full bg-gradient-vibe transition-all" style={{ width: `${pct}%` }} />
+      </div>
+      <div className="mt-2 flex items-center justify-between text-xs">
+        <span className="text-muted-foreground">{pct}% to Level {level + 1}</span>
+        <span className="font-semibold text-primary">{remaining} XP to go</span>
+      </div>
+      <p className="mt-3 text-xs text-muted-foreground">Book a stop (+50), complete it (+100), refer a friend (+250).</p>
+    </article>
+  );
+}
+
+function WeeklyChallenge({ bookings, referrals }: { bookings: number; referrals: number }) {
+  const goals = [
+    { label: "Book 1 night this week", done: bookings >= 1, reward: "+100 XP" },
+    { label: "Invite a friend", done: referrals >= 1, reward: "+250 XP" },
+    { label: "Try a new neighborhood", done: false, reward: "Badge" },
+  ];
+  const completed = goals.filter((g) => g.done).length;
+  return (
+    <article className="rounded-2xl border border-border bg-card p-5 shadow-card">
+      <header className="mb-3 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Target className="h-4 w-4 text-primary" />
+          <h3 className="font-display text-sm font-bold uppercase tracking-wider">This week</h3>
+        </div>
+        <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{completed}/{goals.length}</span>
+      </header>
+      <ul className="space-y-2">
+        {goals.map((g) => (
+          <li key={g.label} className="flex items-center justify-between gap-2 text-xs">
+            <span className={`flex items-center gap-2 ${g.done ? "text-foreground line-through" : "text-foreground"}`}>
+              {g.done ? <CheckCircle2 className="h-4 w-4 text-emerald-500" /> : <span className="h-4 w-4 rounded-full border-2 border-muted-foreground/40" />}
+              {g.label}
+            </span>
+            <span className="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-primary">{g.reward}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
+  );
+}
+
+function StreakCard({ pastBookings, unlocked }: { pastBookings: number; unlocked: number }) {
+  const streak = Math.min(pastBookings, 7);
+  return (
+    <article className="rounded-2xl border border-border bg-gradient-to-br from-orange-500/10 via-amber-400/5 to-transparent p-5 shadow-card">
+      <header className="mb-3 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Flame className="h-4 w-4 text-orange-500" />
+          <h3 className="font-display text-sm font-bold uppercase tracking-wider">Going-out streak</h3>
+        </div>
+        <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{unlocked} badges</span>
+      </header>
+      <div className="flex items-baseline gap-2">
+        <span className="font-display text-4xl font-extrabold leading-none">{streak}</span>
+        <span className="text-xs text-muted-foreground">night{streak === 1 ? "" : "s"} out</span>
+      </div>
+      <div className="mt-3 grid grid-cols-7 gap-1">
+        {Array.from({ length: 7 }).map((_, i) => (
+          <div
+            key={i}
+            className={`h-2 rounded-full ${i < streak ? "bg-gradient-to-r from-orange-500 to-amber-400" : "bg-muted"}`}
+            aria-hidden
+          />
+        ))}
+      </div>
+      <p className="mt-3 text-xs text-muted-foreground">
+        {streak === 0 ? "Plan your first night to start the streak." : streak < 3 ? "Keep it rolling — 3 nights unlocks a badge." : "You're on fire. Don't let it cool."}
+      </p>
+    </article>
+  );
+}
+
+function NextSteps({ hasUpcoming, hasReferred, unlocked, totalAch }: { hasUpcoming: boolean; hasReferred: boolean; unlocked: number; totalAch: number }) {
+  const steps: { to: string; icon: typeof Sparkles; title: string; desc: string; tone: string }[] = [];
+  if (!hasUpcoming) steps.push({ to: "/plan", icon: Zap, title: "Plan your next night", desc: "Tell us the vibe — we'll build the route in 60 seconds.", tone: "from-primary/15 to-primary/5" });
+  if (!hasReferred) steps.push({ to: "/portal/refer", icon: Gift, title: "Invite a friend, earn $10", desc: "They get a free plan, you get credit on the next booking.", tone: "from-rose-500/15 to-rose-500/5" });
+  if (totalAch > 0 && unlocked < totalAch) steps.push({ to: "/portal/refer", icon: Trophy, title: `${totalAch - unlocked} badges left to unlock`, desc: "Each one is worth XP and bragging rights.", tone: "from-amber-500/15 to-amber-500/5" });
+  steps.push({ to: "/concierge/chat", icon: MessageCircle, title: "Ask the Concierge", desc: "Spitball ideas, swap a stop, or get a backup plan.", tone: "from-violet-500/15 to-violet-500/5" });
+
+  return (
+    <section aria-label="What to do next">
+      <header className="mb-3 flex items-center gap-2">
+        <TrendingUp className="h-4 w-4 text-primary" />
+        <h2 className="font-display text-lg font-bold">What to do next</h2>
+      </header>
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {steps.slice(0, 4).map((s) => (
+          <Link
+            key={s.title}
+            to={s.to as "/"}
+            className={`group rounded-2xl border border-border bg-gradient-to-br ${s.tone} p-4 shadow-card transition-pop hover:scale-[1.02] hover:shadow-pop`}
+          >
+            <s.icon className="h-5 w-5 text-primary" />
+            <div className="mt-2 font-display text-sm font-bold leading-tight">{s.title}</div>
+            <div className="mt-1 text-xs text-muted-foreground">{s.desc}</div>
+            <div className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">
+              Go <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }

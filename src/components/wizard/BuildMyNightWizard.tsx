@@ -192,16 +192,36 @@ export function BuildMyNightWizard() {
       let h = parseInt(m[1], 10) % 12; if (/PM/i.test(m[3])) h += 12;
       return h * 60 + parseInt(m[2], 10);
     };
+    // Prefer live Google Places data when loaded; fall back to deterministic mock.
+    const ratingOf = (venue: string, vibe: string) => {
+      const live = placesData[venue]?.rating;
+      return typeof live === "number" ? live : parseFloat(getDetails(venue, vibe).rating);
+    };
+    const priceOf = (venue: string, vibe: string) => {
+      const live = placesData[venue]?.priceLevel;
+      return typeof live === "number" ? live : getDetails(venue, vibe).priceLevel;
+    };
+    // Availability: open venues first, then by start time. Closed/unknown sort last.
+    const availabilityScore = (venue: string, time: string) => {
+      const info = placesData[venue];
+      const baseTime = parseTime(time);
+      if (info?.businessStatus && info.businessStatus !== "OPERATIONAL") return 1e9;
+      if (info?.openNow === true) return baseTime;
+      if (info?.openNow === false) return 1e8 + baseTime;
+      return baseTime; // unknown — use start time
+    };
     const arr = stops.map((s, i) => ({ s, i }));
     if (sortBy === "rating") {
-      arr.sort((a, b) => parseFloat(getDetails(b.s.venue, b.s.vibe).rating) - parseFloat(getDetails(a.s.venue, a.s.vibe).rating));
+      arr.sort((a, b) => ratingOf(b.s.venue, b.s.vibe) - ratingOf(a.s.venue, a.s.vibe));
+    } else if (sortBy === "price") {
+      arr.sort((a, b) => priceOf(a.s.venue, a.s.vibe) - priceOf(b.s.venue, b.s.vibe));
     } else if (sortBy === "distance") {
       arr.sort((a, b) => parseWalk(a.s.walk) - parseWalk(b.s.walk));
     } else if (sortBy === "availability") {
-      arr.sort((a, b) => parseTime(a.s.time) - parseTime(b.s.time));
+      arr.sort((a, b) => availabilityScore(a.s.venue, a.s.time) - availabilityScore(b.s.venue, b.s.time));
     }
     return arr;
-  }, [stops, sortBy]);
+  }, [stops, sortBy, placesData]);
   const totalSteps = 5;
 
   // If preset supplied, jump straight to result and seed vibe multi-select

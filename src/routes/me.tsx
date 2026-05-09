@@ -1,10 +1,12 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Send, Sparkles, RefreshCw, Save, Instagram, Music2, Youtube, Loader2, Wand2 } from "lucide-react";
+import { Send, Sparkles, RefreshCw, Save, Instagram, Music2, Youtube, Loader2, Wand2, ShieldCheck } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/integrations/supabase/client";
 import { loadPrefs, saveAboutMe, saveSocialHandles, saveSocialSignals, saveTasteProfile, type Prefs, type SocialHandles, type TasteProfile } from "@/lib/taste";
+
+const DATA_CONSENT_KEY = "confetti.dataSharingConsent.v1";
 
 export const Route = createFileRoute("/me")({ component: MyVibe });
 
@@ -195,6 +197,18 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
   const [pasted, setPasted] = useState(prefs.social_signals ?? "");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
+  const [consent, setConsent] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return window.localStorage.getItem(DATA_CONSENT_KEY) === "1";
+  });
+
+  function toggleConsent(v: boolean) {
+    setConsent(v);
+    if (typeof window !== "undefined") {
+      if (v) window.localStorage.setItem(DATA_CONSENT_KEY, "1");
+      else window.localStorage.removeItem(DATA_CONSENT_KEY);
+    }
+  }
 
   function update(k: keyof SocialHandles, v: string) {
     const clean = v.trim().replace(/^@/, "");
@@ -202,6 +216,7 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
   }
 
   async function saveHandles() {
+    if (!consent) { setMsg("Please accept the data sharing terms first."); return; }
     await saveSocialHandles(handles);
     onPrefs({ ...prefs, social_handles: handles });
     setMsg("Handles saved ✓");
@@ -209,6 +224,7 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
   }
 
   async function learn() {
+    if (!consent) { setMsg("Please accept the data sharing terms first."); return; }
     if (!pasted.trim()) { setMsg("Paste your bio, top hashtags, or favorite creators first."); return; }
     setBusy(true);
     setMsg(null);
@@ -255,7 +271,31 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
         ))}
       </div>
 
-      <button onClick={saveHandles} className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground">
+      <label className="mt-4 flex items-start gap-2 rounded-xl border border-border bg-background/60 p-3 text-xs">
+        <input
+          type="checkbox"
+          checked={consent}
+          onChange={(e) => toggleConsent(e.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0 accent-primary"
+          aria-describedby="data-consent-help"
+        />
+        <span id="data-consent-help" className="leading-relaxed text-muted-foreground">
+          <ShieldCheck className="mr-1 inline h-3.5 w-3.5 text-primary" />
+          I agree that Confettiplan's AI may use my social handles, pasted signals, photos of places I've
+          been or want to go, and inferences from my most-engaged followers to learn my taste and
+          personalize plans. I've read the{" "}
+          <Link to="/data-terms" className="font-semibold text-foreground underline">
+            data sharing terms
+          </Link>
+          .
+        </span>
+      </label>
+
+      <button
+        onClick={saveHandles}
+        disabled={!consent}
+        className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50"
+      >
         <Save className="h-3 w-3" /> Save handles
       </button>
 
@@ -275,8 +315,8 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
         />
         <button
           onClick={learn}
-          disabled={busy}
-          className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-pop hover:scale-105 transition-pop disabled:opacity-60"
+          disabled={busy || !consent}
+          className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-pop hover:scale-105 transition-pop disabled:cursor-not-allowed disabled:opacity-60"
         >
           {busy ? <><Loader2 className="h-3.5 w-3.5 animate-spin" /> Learning…</> : <><Wand2 className="h-3.5 w-3.5" /> Learn my vibe</>}
         </button>

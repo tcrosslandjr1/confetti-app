@@ -26,6 +26,7 @@ const cols = [
       { to: "/about", label: "About" },
       { to: "/contact", label: "Contact" },
       { to: "/auth", label: "Sign in" },
+      { to: "/data-terms", label: "Data terms" },
     ],
   },
 ] as const;

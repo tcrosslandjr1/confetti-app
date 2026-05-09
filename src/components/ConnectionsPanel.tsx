@@ -115,6 +115,18 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
     return m;
   }, [linkedData]);
 
+  // ----- Provider configuration status (TikTok / Instagram credentials) -----
+  const { data: configStatus } = useQuery({
+    queryKey: ["oauth-providers-status"],
+    queryFn: () => statusFn({}),
+    staleTime: 60_000,
+  });
+  const configByProvider = useMemo(() => {
+    const m: Record<string, { configured: boolean; missing: string[] }> = {};
+    for (const s of configStatus?.providers ?? []) m[s.id] = s;
+    return m;
+  }, [configStatus]);
+
   // ----- Native identities (Google / Apple) -----
   const { data: identityData, isLoading: identitiesLoading } = useQuery({
     queryKey: ["auth-identities"],

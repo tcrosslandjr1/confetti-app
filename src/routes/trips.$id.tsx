@@ -1,12 +1,13 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, CalendarDays, Check, ExternalLink, MapPin, Pencil, Trash2, Utensils, Wine, Camera, Activity, Car, Sparkles, ParkingCircle, Lightbulb, Quote, Stamp, Bus, Footprints, Bike, Navigation, Ticket, Hash, Users, Phone, Mail, Clock, FileText, ChevronDown, History, RotateCcw, Timer, Calendar, AlertTriangle, X } from "lucide-react";
+import { ArrowLeft, Check, ExternalLink, MapPin, Pencil, Trash2, Utensils, Wine, Camera, Activity, Car, Sparkles, ParkingCircle, Lightbulb, Quote, Stamp, Bus, Footprints, Bike, Navigation, Ticket, Hash, Users, Phone, Mail, Clock, FileText, ChevronDown, History, RotateCcw, Timer, Calendar, AlertTriangle, X } from "lucide-react";
 import { toast } from "sonner";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
 import { completeItinerary, deleteItinerary, getItinerary, updateStop, type Itinerary, type Stop, type TravelLeg } from "@/lib/itineraries";
 import { LateRescheduleFab } from "@/components/LateRescheduleFab";
 import { LiveElapsed } from "@/components/LiveElapsed";
+import { BoardingPass } from "@/components/BoardingPass";
 import { clearNotifications, formatUpdatedAt, loadNotifications, loadStatus, subscribeNotifications, subscribeStatus, type SentNotification, type TripStatus } from "@/lib/trip-status";
 
 export const Route = createFileRoute("/trips/$id")({
@@ -80,57 +81,59 @@ function TripDetail() {
   if (!data) return null;
 
   const { itinerary: it, stops } = data;
-  const confirmedCount = stops.filter((s) => s.booking_status === "confirmed").length;
 
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
-      {/* Hero */}
-      <section className="bg-gradient-warm/40 border-b border-border">
-        <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
-          <Link to="/trips" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
-            <ArrowLeft className="h-4 w-4" /> All trips
-          </Link>
-          <h1 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">{it.title}</h1>
-          {it.summary && <p className="mt-3 max-w-2xl text-lg text-muted-foreground">{it.summary}</p>}
-          <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-            {it.date && <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-4 w-4" /> {new Date(it.date).toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })}</span>}
-            {it.city && <span className="inline-flex items-center gap-1.5"><MapPin className="h-4 w-4" /> {it.city}</span>}
-            {it.est_total_cost && <span className="inline-flex items-center gap-1.5">💵 {it.est_total_cost}</span>}
-            <span className="inline-flex items-center gap-1.5"><Check className="h-4 w-4 text-primary" /> {confirmedCount}/{stops.length} confirmed</span>
+      {/* Boarding pass header */}
+      <section className="mx-auto max-w-4xl px-4 pt-8 sm:px-6 lg:px-8">
+        <Link to="/trips" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+          <ArrowLeft className="h-4 w-4" /> All trips
+        </Link>
+        <div className="mt-4">
+          <BoardingPass
+            itinerary={it}
+            stops={stops}
+            onChange={(patch) => setData({ ...data, itinerary: { ...it, ...patch } as Itinerary })}
+          />
+        </div>
+
+        {it.summary && (
+          <p className="mt-5 max-w-2xl text-sm text-muted-foreground">{it.summary}</p>
+        )}
+
+        {tripStatus && (tripStatus.minutesLate > 0 || tripStatus.cancelled || tripStatus.rescheduledAt) && (
+          <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
+            {tripStatus.cancelled && (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 px-2.5 py-1 font-semibold text-rose-700">
+                <X className="h-3 w-3" /> Cancelled · {formatUpdatedAt(tripStatus.updatedAt)} · <LiveElapsed since={tripStatus.updatedAt} />
+              </span>
+            )}
+            {tripStatus.rescheduledAt && !tripStatus.cancelled && (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/15 px-2.5 py-1 font-semibold text-sky-700">
+                <Calendar className="h-3 w-3" /> Rescheduled · {new Date(tripStatus.rescheduledAt).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}
+              </span>
+            )}
+            {tripStatus.minutesLate > 0 && !tripStatus.cancelled && (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 px-2.5 py-1 font-semibold text-amber-700">
+                <span className="relative inline-flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
+                </span>
+                Running ~{tripStatus.minutesLate} min late · {formatUpdatedAt(tripStatus.updatedAt)} · <LiveElapsed since={tripStatus.updatedAt} />
+              </span>
+            )}
           </div>
-          {tripStatus && (tripStatus.minutesLate > 0 || tripStatus.cancelled || tripStatus.rescheduledAt) && (
-            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
-              {tripStatus.cancelled && (
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 px-2.5 py-1 font-semibold text-rose-700">
-                  <X className="h-3 w-3" /> Cancelled · {formatUpdatedAt(tripStatus.updatedAt)} · <LiveElapsed since={tripStatus.updatedAt} />
-                </span>
-              )}
-              {tripStatus.rescheduledAt && !tripStatus.cancelled && (
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/15 px-2.5 py-1 font-semibold text-sky-700">
-                  <Calendar className="h-3 w-3" /> Rescheduled · {new Date(tripStatus.rescheduledAt).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}
-                </span>
-              )}
-              {tripStatus.minutesLate > 0 && !tripStatus.cancelled && (
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 px-2.5 py-1 font-semibold text-amber-700">
-                  <span className="relative inline-flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
-                  </span>
-                  Running ~{tripStatus.minutesLate} min late · {formatUpdatedAt(tripStatus.updatedAt)} · <LiveElapsed since={tripStatus.updatedAt} />
-                </span>
-              )}
-            </div>
-          )}
-          <div className="mt-5 flex flex-wrap gap-3">
-            <button onClick={completeDay} className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-pop hover:scale-105 transition-pop">
-              <Stamp className="h-3.5 w-3.5" /> {it.completed_at ? "View passport" : "Complete day → Passport"}
-            </button>
-            <button onClick={removeTrip} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-destructive">
-              <Trash2 className="h-3.5 w-3.5" /> Delete
-            </button>
-          </div>
+        )}
+
+        <div className="mt-5 flex flex-wrap gap-3">
+          <button onClick={completeDay} className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-pop hover:scale-105 transition-pop">
+            <Stamp className="h-3.5 w-3.5" /> {it.completed_at ? "View passport" : "Complete day → Passport"}
+          </button>
+          <button onClick={removeTrip} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-destructive">
+            <Trash2 className="h-3.5 w-3.5" /> Delete
+          </button>
         </div>
       </section>
 

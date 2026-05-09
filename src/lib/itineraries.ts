@@ -184,6 +184,62 @@ export async function completeItinerary(id: string): Promise<void> {
   await updateItinerary(id, { completed_at: new Date().toISOString() });
 }
 
+/** Duplicate an itinerary + its stops. Used to "rebook the same day" on a new date. */
+export async function cloneItinerary(
+  id: string,
+  overrides: { date?: string | null; start_time?: string | null; title?: string } = {},
+): Promise<{ id: string }> {
+  const { itinerary, stops } = await getItinerary(id);
+  const { data: userRes } = await supabase.auth.getUser();
+  const user = userRes.user;
+  if (!user) throw new Error("Sign in required.");
+
+  const { data: ins, error: insErr } = await supabase
+    .from("itineraries")
+    .insert({
+      user_id: user.id,
+      title: overrides.title ?? `${itinerary.title} (rebook)`,
+      occasion_slug: itinerary.occasion_slug ?? null,
+      vibe: itinerary.vibe ?? null,
+      summary: itinerary.summary ?? null,
+      date: overrides.date ?? null,
+      start_time: overrides.start_time ?? itinerary.start_time ?? null,
+      city: itinerary.city ?? null,
+      est_total_cost: itinerary.est_total_cost ?? null,
+      source: itinerary.source,
+      transport_mode: itinerary.transport_mode ?? null,
+    })
+    .select("id")
+    .single();
+  if (insErr || !ins) throw new Error(insErr?.message ?? "Failed to rebook");
+
+  if (stops.length) {
+    const cloned = stops.map((s, idx) => ({
+      itinerary_id: ins.id,
+      position: idx,
+      name: s.name,
+      category: s.category,
+      description: s.description ?? null,
+      address: s.address ?? null,
+      start_time: s.start_time ?? null,
+      duration_minutes: s.duration_minutes ?? null,
+      est_cost: s.est_cost ?? null,
+      what_to_do: s.what_to_do ?? null,
+      booking_url: s.booking_url ?? null,
+      booking_provider: s.booking_provider ?? null,
+      booking_status: "unbooked" as const,
+      review_snippets: s.review_snippets ?? [],
+      parking: s.parking ?? null,
+      tips: s.tips ?? [],
+      travel_from_prev: s.travel_from_prev ?? null,
+      party_size: s.party_size ?? null,
+    }));
+    const { error: e } = await supabase.from("itinerary_stops").insert(cloned);
+    if (e) throw new Error(e.message);
+  }
+  return { id: ins.id };
+}
+
 export type Reservation = Stop & {
   itinerary_id: string;
   itinerary_title: string;

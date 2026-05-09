@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { MapPin, Navigation, Loader2 } from "lucide-react";
+import { MapPin, Navigation, Loader2, RefreshCw } from "lucide-react";
+import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { getStoredLocation, requestUserLocation, type UserLocation } from "@/lib/location";
 import { Button } from "@/components/ui/button";
@@ -85,22 +86,43 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
 
   const enable = async () => {
     setRequesting(true);
-    const loc = await requestUserLocation();
+    const loc = await requestUserLocation({ enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
     setRequesting(false);
     if (loc) setLocation(loc);
+    else toast.error("Couldn't get your location. Check browser permissions.");
+  };
+
+  const refresh = async () => {
+    setRequesting(true);
+    const loc = await requestUserLocation({ enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
+    setRequesting(false);
+    if (loc) {
+      setLocation(loc);
+      toast.success("Updated to your current spot");
+    } else {
+      toast.error("Couldn't refresh location.");
+    }
   };
 
   return (
     <section aria-label="Nearby picks">
-      <div className="mb-4 flex items-baseline justify-between gap-3">
+      <div className="mb-4 flex items-center justify-between gap-3">
         <h2 className="flex items-center gap-2 font-display text-2xl font-bold">
           <Navigation className="h-5 w-5 text-primary" /> Near you right now
         </h2>
-        {location && (
-          <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-            {location.lat.toFixed(3)}, {location.lng.toFixed(3)}
-          </span>
-        )}
+        <div className="flex items-center gap-2">
+          {location && (
+            <span className="hidden font-mono text-xs uppercase tracking-wider text-muted-foreground sm:inline">
+              {location.lat.toFixed(3)}, {location.lng.toFixed(3)}
+            </span>
+          )}
+          {location && (
+            <Button variant="outline" size="sm" onClick={refresh} disabled={requesting} className="gap-1.5">
+              {requesting ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <RefreshCw className="h-3.5 w-3.5" />}
+              Refresh nearby
+            </Button>
+          )}
+        </div>
       </div>
 
       {!location ? (

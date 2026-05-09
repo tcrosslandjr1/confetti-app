@@ -697,8 +697,9 @@ type SponsoredSlotProps = {
 };
 
 function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }: SponsoredSlotProps) {
+  const href = withUtm(sponsored.href, { surface, brand: sponsored.brand, occasion: text });
   const ref = useViewportImpression<HTMLAnchorElement>(
-    () => logAdViewImpression({ surface, brand: sponsored.brand, occasion: text, href: sponsored.href }, slot),
+    () => logAdViewImpression({ surface, brand: sponsored.brand, occasion: text, href }, slot),
     { threshold: 0.5 }
   );
 
@@ -706,8 +707,8 @@ function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }:
     return (
       <Link
         ref={ref}
-        to={sponsored.href}
-        onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href: sponsored.href })}
+        to={href}
+        onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href })}
         className="inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink"
         data-ad-slot={slot}
       >

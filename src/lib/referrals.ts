@@ -192,6 +192,70 @@ export async function consumePendingReferralOnSignup() {
   clearPendingReferralCode();
 }
 
+export type LeaderboardRow = {
+  user_id: string;
+  display_name: string;
+  level: number;
+  invited: number;
+  signed_up: number;
+  completed: number;
+  earned_cents: number;
+  tier: "none" | "first" | "rising" | "super" | "legend";
+};
+
+export async function getReferralLeaderboard(limit = 20): Promise<LeaderboardRow[]> {
+  const { data, error } = await supabase.rpc("referral_leaderboard", { _limit: limit });
+  if (error) return [];
+  return (data ?? []) as LeaderboardRow[];
+}
+
+export type ReferralBadge = {
+  code: string;
+  title: string;
+  description: string;
+  icon: string;
+  xp_reward: number;
+  unlocked: boolean;
+  unlocked_at: string | null;
+};
+
+const REFERRAL_BADGE_CODES = [
+  "referral_first",
+  "referral_rising",
+  "referral_super",
+  "referral_legend",
+] as const;
+
+export async function getMyReferralBadges(): Promise<ReferralBadge[]> {
+  const { data: u } = await supabase.auth.getUser();
+  const uid = u.user?.id;
+  const { data: defs } = await supabase
+    .from("achievements")
+    .select("id,code,title,description,icon,xp_reward")
+    .in("code", REFERRAL_BADGE_CODES as unknown as string[]);
+  if (!defs) return [];
+  const order = new Map(REFERRAL_BADGE_CODES.map((c, i) => [c, i] as const));
+  let unlockedMap = new Map<string, string>();
+  if (uid) {
+    const { data: ua } = await supabase
+      .from("user_achievements")
+      .select("achievement_id,unlocked_at")
+      .eq("user_id", uid);
+    unlockedMap = new Map((ua ?? []).map((r) => [r.achievement_id, r.unlocked_at]));
+  }
+  return defs
+    .map((d) => ({
+      code: d.code,
+      title: d.title,
+      description: d.description,
+      icon: d.icon,
+      xp_reward: d.xp_reward,
+      unlocked: unlockedMap.has(d.id),
+      unlocked_at: unlockedMap.get(d.id) ?? null,
+    }))
+    .sort((a, b) => (order.get(a.code as any) ?? 0) - (order.get(b.code as any) ?? 0));
+}
+
 export async function getMyPendingFirstBookingDiscount() {
   const { data: u } = await supabase.auth.getUser();
   const uid = u.user?.id;

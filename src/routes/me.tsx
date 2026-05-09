@@ -197,6 +197,18 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
   const [pasted, setPasted] = useState(prefs.social_signals ?? "");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
+  const [consent, setConsent] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return window.localStorage.getItem(DATA_CONSENT_KEY) === "1";
+  });
+
+  function toggleConsent(v: boolean) {
+    setConsent(v);
+    if (typeof window !== "undefined") {
+      if (v) window.localStorage.setItem(DATA_CONSENT_KEY, "1");
+      else window.localStorage.removeItem(DATA_CONSENT_KEY);
+    }
+  }
 
   function update(k: keyof SocialHandles, v: string) {
     const clean = v.trim().replace(/^@/, "");
@@ -204,6 +216,7 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
   }
 
   async function saveHandles() {
+    if (!consent) { setMsg("Please accept the data sharing terms first."); return; }
     await saveSocialHandles(handles);
     onPrefs({ ...prefs, social_handles: handles });
     setMsg("Handles saved ✓");
@@ -211,6 +224,7 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
   }
 
   async function learn() {
+    if (!consent) { setMsg("Please accept the data sharing terms first."); return; }
     if (!pasted.trim()) { setMsg("Paste your bio, top hashtags, or favorite creators first."); return; }
     setBusy(true);
     setMsg(null);

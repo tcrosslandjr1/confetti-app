@@ -25,6 +25,8 @@ function AuthPage() {
   const [refCode, setRefCode] = useState(() => getPendingReferralCode() ?? "");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [locationBlocked, setLocationBlocked] = useState(false);
+  const [allowWithoutLocation, setAllowWithoutLocation] = useState(false);
   const [seeding, setSeeding] = useState(false);
   const [seedMsg, setSeedMsg] = useState<string | null>(null);
   const seedFn = useServerFn(seedDemoAccounts);
@@ -59,14 +61,16 @@ function AuthPage() {
     try {
       if (mode === "signup") {
         if (refCode.trim()) rememberReferralCode(refCode);
-        // Ask for location BEFORE creating the account so the user sees
-        // the native browser permission prompt as part of signing up.
-        // We don't block signup if they decline.
+        // Require location access by default. The user can opt out with
+        // an explicit "continue without location" toggle.
         const loc = await requestUserLocation();
-        if (!loc) {
+        if (!loc && !allowWithoutLocation) {
+          setLocationBlocked(true);
           setError(
-            "Heads up: location access is off. We use it to recommend nearby spots — you can enable it later in your browser settings.",
+            "Location access is required to create your account. Enable location in your browser, then try again — or choose 'Continue without location' below.",
           );
+          setLoading(false);
+          return;
         }
         const { error } = await supabase.auth.signUp({
           email,

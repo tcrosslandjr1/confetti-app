@@ -561,8 +561,9 @@ export function BuildMyNightWizard() {
                 {([
                   { k: "order", label: "Night order" },
                   { k: "rating", label: "★ Highest rated" },
+                  { k: "price", label: "$ Lowest price" },
                   { k: "distance", label: "📍 Closest" },
-                  { k: "availability", label: "⏱ Earliest" },
+                  { k: "availability", label: "⏱ Open now" },
                 ] as const).map((opt) => {
                   const active = sortBy === opt.k;
                   return (

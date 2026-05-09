@@ -85,6 +85,15 @@ const FAQS = [
 ];
 
 function Landing() {
+  // Signed-in customers get the personalized portal instead of the marketing landing.
+  const { user, viewAs, loading } = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (loading) return;
+    if (user && viewAs === "customer") navigate({ to: "/portal" });
+    else if (user && viewAs === "admin") navigate({ to: "/admin" });
+  }, [user, viewAs, loading, navigate]);
+
   // Subtle hero parallax
   const heroBgRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {

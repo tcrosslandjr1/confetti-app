@@ -1,7 +1,16 @@
 import { useEffect, useState } from "react";
 import { listLiveCampaignsByPlacement, trackAdEvent, type Campaign, type Placement } from "@/lib/ads";
 import { useAuth } from "@/lib/auth-context";
+import { withUtm } from "@/lib/utm";
 import { Megaphone, Sparkles, ArrowRight } from "lucide-react";
+
+function ctaHref(c: Campaign, surface: string): string {
+  return withUtm(c.cta_url ?? null, {
+    surface,
+    brand: c.headline ?? "promoted",
+    occasion: c.category ?? c.headline ?? surface,
+  });
+}
 
 type Props = {
   placement: Placement;
@@ -40,7 +49,7 @@ export function PromotedSlot({ placement, surface, variant = "rail", title, clas
     const c = items[0];
     return (
       <a
-        href={c.cta_url ?? "#"}
+        href={c.cta_url ? ctaHref(c, surface) : "#"}
         target={c.cta_url ? "_blank" : undefined}
         rel="noreferrer"
         onClick={() => onClick(c)}
@@ -69,7 +78,7 @@ export function PromotedSlot({ placement, surface, variant = "rail", title, clas
     const c = items[0];
     return (
       <a
-        href={c.cta_url ?? "#"}
+        href={c.cta_url ? ctaHref(c, surface) : "#"}
         target={c.cta_url ? "_blank" : undefined}
         rel="noreferrer"
         onClick={() => onClick(c)}
@@ -97,7 +106,7 @@ export function PromotedSlot({ placement, surface, variant = "rail", title, clas
         {items.map((c) => (
           <a
             key={c.id}
-            href={c.cta_url ?? "#"}
+            href={c.cta_url ? ctaHref(c, surface) : "#"}
             target={c.cta_url ? "_blank" : undefined}
             rel="noreferrer"
             onClick={() => onClick(c)}

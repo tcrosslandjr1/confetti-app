@@ -13,6 +13,7 @@ import { WizardButton } from "@/components/wizard/WizardButton";
 import { QuickPicks } from "@/components/QuickPicks";
 import { GatedAction } from "@/components/GatedAction";
 import { logAdViewImpression, logAdClick } from "@/lib/ad-tracking";
+import { withUtm } from "@/lib/utm";
 import { useViewportImpression } from "@/hooks/useViewportImpression";
 
 export const Route = createFileRoute("/")({
@@ -697,8 +698,9 @@ type SponsoredSlotProps = {
 };
 
 function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }: SponsoredSlotProps) {
+  const href = withUtm(sponsored.href, { surface, brand: sponsored.brand, occasion: text });
   const ref = useViewportImpression<HTMLAnchorElement>(
-    () => logAdViewImpression({ surface, brand: sponsored.brand, occasion: text, href: sponsored.href }, slot),
+    () => logAdViewImpression({ surface, brand: sponsored.brand, occasion: text, href }, slot),
     { threshold: 0.5 }
   );
 
@@ -706,8 +708,8 @@ function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }:
     return (
       <Link
         ref={ref}
-        to={sponsored.href}
-        onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href: sponsored.href })}
+        to={href}
+        onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href })}
         className="inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink"
         data-ad-slot={slot}
       >
@@ -721,8 +723,8 @@ function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }:
   return (
     <Link
       ref={ref}
-      to={sponsored.href}
-      onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href: sponsored.href })}
+      to={href}
+      onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href })}
       className="group inline-flex items-center gap-3 rounded-full border-2 border-gold bg-ink px-4 py-1.5 transition hover:bg-gold hover:text-ink"
       data-ad-slot={slot}
     >

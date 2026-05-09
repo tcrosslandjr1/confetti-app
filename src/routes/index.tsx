@@ -686,3 +686,54 @@ function Landing() {
     </div>
   );
 }
+
+type SponsoredSlotProps = {
+  slot: string;
+  surface: "marquee_top" | "marquee_bottom";
+  text: string;
+  sponsored: { brand: string; cta: string; href: string };
+  tone?: string;
+  variant: "hero" | "ticker";
+};
+
+function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }: SponsoredSlotProps) {
+  const ref = useViewportImpression<HTMLAnchorElement>(
+    () => logAdViewImpression({ surface, brand: sponsored.brand, occasion: text, href: sponsored.href }, slot),
+    { threshold: 0.5 }
+  );
+
+  if (variant === "ticker") {
+    return (
+      <Link
+        ref={ref}
+        to={sponsored.href}
+        onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href: sponsored.href })}
+        className="inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink"
+        data-ad-slot={slot}
+      >
+        <span className="rounded-sm bg-gold px-1.5 py-0.5 text-[9px] text-ink">AD · {sponsored.brand}</span>
+        <span>{text}</span>
+        <span className="underline">{sponsored.cta} ↗</span>
+      </Link>
+    );
+  }
+
+  return (
+    <Link
+      ref={ref}
+      to={sponsored.href}
+      onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href: sponsored.href })}
+      className="group inline-flex items-center gap-3 rounded-full border-2 border-gold bg-ink px-4 py-1.5 transition hover:bg-gold hover:text-ink"
+      data-ad-slot={slot}
+    >
+      <span className="rounded-full bg-gold px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink group-hover:bg-ink group-hover:text-gold">
+        Sponsored · {sponsored.brand}
+      </span>
+      <span className={tone}>{text}</span>
+      <span className="font-mono text-xs uppercase tracking-widest underline underline-offset-4">
+        {sponsored.cta} ↗
+      </span>
+      <span aria-hidden>✦</span>
+    </Link>
+  );
+}

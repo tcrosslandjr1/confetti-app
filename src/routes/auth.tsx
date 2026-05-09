@@ -160,7 +160,7 @@ function AuthPage() {
 
           <button
             type="button"
-            onClick={() => setError("TikTok sign-in is launching soon — we're waiting on TikTok Login Kit approval. Use email or Google in the meantime.")}
+            onClick={() => setError("Sign in with email/Google/Apple first, then connect TikTok from your profile to link the two accounts.")}
             className="inline-flex w-full items-center justify-between gap-2 rounded-2xl border border-dashed border-border bg-card/60 px-4 py-3.5 text-sm font-semibold text-muted-foreground transition hover:bg-accent"
           >
             <span className="inline-flex items-center gap-2">

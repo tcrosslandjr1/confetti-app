@@ -280,8 +280,142 @@ function ReferPage() {
           </ul>
         )}
       </section>
+
+      {/* Badges */}
+      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+        <h2 className="flex items-center gap-2 font-display text-xl font-bold">
+          <Medal className="h-5 w-5" /> Referral badges
+        </h2>
+        <p className="mt-1 text-xs text-muted-foreground">
+          Unlock these by getting friends to book through your link.
+        </p>
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {badges.map((b) => (
+            <BadgeCard key={b.code} badge={b} />
+          ))}
+        </div>
+      </section>
+
+      {/* Leaderboard */}
+      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+        <h2 className="flex items-center gap-2 font-display text-xl font-bold">
+          <Trophy className="h-5 w-5 text-primary" /> Top referrers
+        </h2>
+        <p className="mt-1 text-xs text-muted-foreground">
+          Ranked by friends who've made a booking. Updated live.
+        </p>
+        {leaderboard.length === 0 ? (
+          <p className="mt-4 text-sm text-muted-foreground">
+            No referrals yet — be the first on the board.
+          </p>
+        ) : (
+          <ol className="mt-4 space-y-2">
+            {leaderboard.map((row, idx) => {
+              const rank = idx + 1;
+              const isMe = user?.id === row.user_id;
+              return (
+                <li
+                  key={row.user_id}
+                  className={`flex items-center justify-between gap-3 rounded-2xl border px-4 py-3 ${
+                    isMe
+                      ? "border-primary/40 bg-primary/10"
+                      : "border-border bg-background"
+                  }`}
+                >
+                  <div className="flex min-w-0 items-center gap-3">
+                    <RankPill rank={rank} />
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="truncate text-sm font-semibold">
+                          {row.display_name}
+                          {isMe && (
+                            <span className="ml-2 rounded-full bg-primary/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
+                              You
+                            </span>
+                          )}
+                        </span>
+                        <TierIcon tier={row.tier} />
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Lv {row.level} · {row.signed_up} joined
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-display text-lg font-bold leading-none">
+                      {row.completed}
+                    </div>
+                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                      booked
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        )}
+      </section>
     </div>
   );
+}
+
+const BADGE_ICONS: Record<string, typeof Sparkles> = {
+  sparkles: Sparkles,
+  flame: Flame,
+  star: Star,
+  crown: Crown,
+};
+
+function BadgeCard({ badge }: { badge: ReferralBadge }) {
+  const Icon = BADGE_ICONS[badge.icon] ?? Medal;
+  return (
+    <div
+      className={`relative overflow-hidden rounded-2xl border p-3 text-center ${
+        badge.unlocked
+          ? "border-primary/40 bg-gradient-to-br from-primary/15 to-card"
+          : "border-border bg-background opacity-70"
+      }`}
+    >
+      <div
+        className={`mx-auto grid h-12 w-12 place-items-center rounded-full ${
+          badge.unlocked ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+        }`}
+      >
+        {badge.unlocked ? <Icon className="h-6 w-6" /> : <Lock className="h-5 w-5" />}
+      </div>
+      <div className="mt-2 text-xs font-bold leading-tight">{badge.title}</div>
+      <div className="mt-1 line-clamp-2 text-[10px] text-muted-foreground">
+        {badge.description}
+      </div>
+      <div className="mt-1 text-[10px] font-semibold text-primary">+{badge.xp_reward} XP</div>
+    </div>
+  );
+}
+
+function RankPill({ rank }: { rank: number }) {
+  const styles =
+    rank === 1
+      ? "bg-amber-400/20 text-amber-600 dark:text-amber-300 border-amber-400/40"
+      : rank === 2
+      ? "bg-slate-400/20 text-slate-600 dark:text-slate-300 border-slate-400/40"
+      : rank === 3
+      ? "bg-orange-400/20 text-orange-600 dark:text-orange-300 border-orange-400/40"
+      : "bg-muted text-muted-foreground border-border";
+  return (
+    <div
+      className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border font-display text-sm font-bold ${styles}`}
+    >
+      {rank}
+    </div>
+  );
+}
+
+function TierIcon({ tier }: { tier: LeaderboardRow["tier"] }) {
+  if (tier === "legend") return <Crown className="h-4 w-4 text-amber-500" />;
+  if (tier === "super") return <Star className="h-4 w-4 text-primary" />;
+  if (tier === "rising") return <Flame className="h-4 w-4 text-orange-500" />;
+  if (tier === "first") return <Sparkles className="h-4 w-4 text-secondary-foreground" />;
+  return null;
 }
 
 function Stat({

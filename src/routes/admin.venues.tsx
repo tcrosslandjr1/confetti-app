@@ -111,7 +111,7 @@ function AdminVenuesPage() {
     }
     setVenues((prev) => [data as Venue, ...prev]);
     toast.success(`Added ${draft.name}`);
-    logAudit({ admin: adminEmail, action: "create", entity: "venue", targetId: (data as Venue).id, summary: `Added venue "${draft.name}"` });
+    logAudit({ admin: adminEmail, action: "edit", entity: "venue", targetId: (data as Venue).id, summary: `Added venue "${draft.name}"` });
     return true;
   };
 
@@ -138,7 +138,7 @@ function AdminVenuesPage() {
     }
     setVenues((prev) => prev.filter((x) => x.id !== v.id));
     toast.success(`Deleted ${v.name}`);
-    logAudit({ admin: adminEmail, action: "delete", entity: "venue", targetId: v.id, summary: `Deleted venue "${v.name}"` });
+    logAudit({ admin: adminEmail, action: "remove", entity: "venue", targetId: v.id, summary: `Deleted venue "${v.name}"` });
   };
 
   return (

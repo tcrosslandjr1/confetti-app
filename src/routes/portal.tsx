@@ -27,15 +27,17 @@ const NAV: NavItem[] = [
 ];
 
 function PortalLayout() {
-  const { user, loading } = useAuth();
+  const { user, loading, viewAs } = useAuth();
   const nav = useNavigate();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
-    if (!loading && !user) nav({ to: "/auth" });
-  }, [user, loading, nav]);
+    if (loading) return;
+    if (!user) nav({ to: "/auth" });
+    else if (viewAs === "visitor") nav({ to: "/" });
+  }, [user, loading, viewAs, nav]);
 
-  if (loading || !user) {
+  if (loading || !user || viewAs === "visitor") {
     return <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">Loading…</div>;
   }
 

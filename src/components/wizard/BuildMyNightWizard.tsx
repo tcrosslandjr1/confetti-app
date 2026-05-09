@@ -655,20 +655,29 @@ export function BuildMyNightWizard() {
                         aria-expanded={isOpen}
                         className="flex w-full items-stretch gap-3 p-3 text-left transition-colors hover:bg-ink/[0.03] cursor-pointer"
                       >
-                        <div className={`grid w-20 shrink-0 place-items-center rounded-xl border-2 border-ink ${s.tone} font-display text-sm font-extrabold leading-tight text-ink`}>
-                          {s.time}
-                        </div>
+                        {heroPhoto ? (
+                          <div className="relative w-24 shrink-0 overflow-hidden rounded-xl border-2 border-ink">
+                            <img src={heroPhoto} alt={s.venue} loading="lazy" className="h-full w-full object-cover" />
+                            <div className={`absolute inset-x-0 bottom-0 ${s.tone} border-t-2 border-ink px-1 py-0.5 text-center font-display text-[11px] font-extrabold leading-tight text-ink`}>
+                              {s.time}
+                            </div>
+                          </div>
+                        ) : (
+                          <div className={`grid w-20 shrink-0 place-items-center rounded-xl border-2 border-ink ${s.tone} font-display text-sm font-extrabold leading-tight text-ink`}>
+                            {s.time}
+                          </div>
+                        )}
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-2">
-                            <div className="font-display text-lg font-extrabold leading-tight">{s.venue}</div>
+                            <div className="font-display text-lg font-extrabold leading-tight">{live?.displayName ?? s.venue}</div>
                             <span className="inline-flex items-center gap-1 rounded-full bg-gold px-2 py-0.5 font-mono text-[10px] font-bold">
                               <Star className="h-2.5 w-2.5 fill-current" /> {d.rating}
                             </span>
                           </div>
-                          {(s.address || s.neighborhood) && (
+                          {displayAddress && (
                             <div className="mt-0.5 inline-flex items-center gap-1 font-mono text-[11px] text-ink/70">
                               <MapPin className="h-3 w-3" />
-                              {s.address ? s.address : ""}{s.address && s.neighborhood ? " · " : ""}{s.neighborhood ?? ""}
+                              {displayAddress}
                             </div>
                           )}
                           <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">

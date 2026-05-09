@@ -49,7 +49,7 @@ const NAV: NavItem[] = [
 ];
 
 function AdminLayout() {
-  const { loading, isAdmin, user } = useAuth();
+  const { loading, isAdmin, user, viewAs } = useAuth();
   const navigate = useNavigate();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
@@ -57,9 +57,10 @@ function AdminLayout() {
     if (loading) return;
     if (!user) navigate({ to: "/auth" });
     else if (!isAdmin) navigate({ to: "/" });
-  }, [loading, user, isAdmin, navigate]);
+    else if (viewAs !== "admin") navigate({ to: viewAs === "customer" ? "/portal" : "/" });
+  }, [loading, user, isAdmin, viewAs, navigate]);
 
-  if (loading || !isAdmin) {
+  if (loading || !isAdmin || viewAs !== "admin") {
     return (
       <div className="grid min-h-screen place-items-center bg-background text-sm text-muted-foreground">
         Checking access…

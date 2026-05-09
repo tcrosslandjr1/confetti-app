@@ -44,6 +44,7 @@ const NAV: NavItem[] = [
   { to: "/admin/venues", label: "Venues", icon: Store },
   { to: "/admin/bookings", label: "Bookings", icon: CalendarCheck },
   { to: "/admin/advertisers", label: "Advertisers", icon: Megaphone },
+  { to: "/admin/marquee", label: "Sponsored marquee", icon: Megaphone },
   { to: "/admin/integrations", label: "Integrations", icon: Sparkles },
   { to: "/admin/moderation", label: "Moderation", icon: ShieldCheck },
   { to: "/admin/analytics", label: "Analytics", icon: BarChart3 },

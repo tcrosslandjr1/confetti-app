@@ -617,12 +617,20 @@ function Landing() {
       <section className="marquee-hover border-b-2 border-ink bg-gold py-3 text-ink">
         <div className="flex overflow-hidden">
           <div className="flex shrink-0 animate-marquee gap-8 whitespace-nowrap pr-8 font-mono text-xs font-bold uppercase tracking-widest" style={{ transition: "animation-duration 0.4s ease" }}>
-            {[...MARQUEE, ...MARQUEE, ...MARQUEE].map((m, i) => (
-              <span key={i} className="inline-flex items-center gap-3">
-                {m}
-                <span className="opacity-40">/</span>
-              </span>
-            ))}
+            {[...MARQUEE, ...MARQUEE, ...MARQUEE].map((m, i) =>
+              m.sponsored ? (
+                <Link key={i} to={m.sponsored.href} className="inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink">
+                  <span className="rounded-sm bg-gold px-1.5 py-0.5 text-[9px] text-ink">AD · {m.sponsored.brand}</span>
+                  <span>{m.text}</span>
+                  <span className="underline">{m.sponsored.cta} ↗</span>
+                </Link>
+              ) : (
+                <span key={i} className="inline-flex items-center gap-3">
+                  {m.text}
+                  <span className="opacity-40">/</span>
+                </span>
+              )
+            )}
           </div>
         </div>
         <p className="mt-1 text-center font-mono text-[9px] uppercase tracking-[0.3em] text-ink/50">hover to speed it up ↗</p>

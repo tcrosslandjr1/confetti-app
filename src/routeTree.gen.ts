@@ -61,6 +61,7 @@ import { Route as AdminAdAnalyticsRouteImport } from './routes/admin.ad-analytic
 import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
 import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
+import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public/tiktok.callback'
 
 const ReservationsRoute = ReservationsRouteImport.update({
   id: '/reservations',
@@ -322,6 +323,11 @@ const ConciergeChatThreadIdRoute = ConciergeChatThreadIdRouteImport.update({
   path: '/chat/$threadId',
   getParentRoute: () => ConciergeRoute,
 } as any)
+const ApiPublicTiktokCallbackRoute = ApiPublicTiktokCallbackRouteImport.update({
+  id: '/api/public/tiktok/callback',
+  path: '/api/public/tiktok/callback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -376,6 +382,7 @@ export interface FileRoutesByFullPath {
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
+  '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -426,6 +433,7 @@ export interface FileRoutesByTo {
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat': typeof ConciergeChatIndexRoute
+  '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -481,6 +489,7 @@ export interface FileRoutesById {
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
+  '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -537,6 +546,7 @@ export interface FileRouteTypes {
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat/'
+    | '/api/public/tiktok/callback'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -587,6 +597,7 @@ export interface FileRouteTypes {
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat'
+    | '/api/public/tiktok/callback'
   id:
     | '__root__'
     | '/'
@@ -641,6 +652,7 @@ export interface FileRouteTypes {
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat/'
+    | '/api/public/tiktok/callback'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -669,6 +681,7 @@ export interface RootRouteChildren {
   TripsIdRoute: typeof TripsIdRouteWithChildren
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
+  ApiPublicTiktokCallbackRoute: typeof ApiPublicTiktokCallbackRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1037,6 +1050,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConciergeChatThreadIdRouteImport
       parentRoute: typeof ConciergeRoute
     }
+    '/api/public/tiktok/callback': {
+      id: '/api/public/tiktok/callback'
+      path: '/api/public/tiktok/callback'
+      fullPath: '/api/public/tiktok/callback'
+      preLoaderRoute: typeof ApiPublicTiktokCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1174,6 +1194,7 @@ const rootRouteChildren: RootRouteChildren = {
   TripsIdRoute: TripsIdRouteWithChildren,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
+  ApiPublicTiktokCallbackRoute: ApiPublicTiktokCallbackRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

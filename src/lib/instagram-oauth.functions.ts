@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { getRequestHost } from "@tanstack/react-start/server";
 import { z } from "zod";
+import { buildCallbackUrl, OAUTH_PROVIDERS, readProviderCredentials } from "./oauth-providers";
 
 /**
  * Instagram (Instagram Login API) — start the OAuth flow.
@@ -24,12 +25,7 @@ export const startInstagramLink = createServerFn({ method: "POST" })
       .parse(input ?? {}),
   )
   .handler(async ({ data, context }) => {
-    const clientId = process.env.INSTAGRAM_CLIENT_ID;
-    if (!clientId) {
-      throw new Error(
-        "Instagram is not configured yet. Add INSTAGRAM_CLIENT_ID and INSTAGRAM_CLIENT_SECRET in Lovable Cloud secrets.",
-      );
-    }
+    const { clientId } = readProviderCredentials("instagram");
 
     const url = process.env.SUPABASE_URL!;
     const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -49,16 +45,14 @@ export const startInstagramLink = createServerFn({ method: "POST" })
     });
     if (insErr) throw new Error(`Could not start Instagram flow: ${insErr.message}`);
 
-    const host = getRequestHost();
-    const proto = host?.includes("localhost") ? "http" : "https";
-    const redirectUri = `${proto}://${host}/api/public/instagram/callback`;
+    const redirectUri = buildCallbackUrl("instagram", getRequestHost());
 
     const params = new URLSearchParams({
       client_id: clientId,
       redirect_uri: redirectUri,
       response_type: "code",
       // Read-only scopes; add more once Meta approves them in app review.
-      scope: "instagram_business_basic",
+      scope: OAUTH_PROVIDERS.instagram.defaultScope,
       state,
     });
 

@@ -114,26 +114,35 @@ export type Database = {
       }
       ad_events: {
         Row: {
-          campaign_id: string
+          brand: string | null
+          campaign_id: string | null
           created_at: string
+          href: string | null
           id: string
           kind: string
+          occasion: string | null
           surface: string | null
           user_id: string | null
         }
         Insert: {
-          campaign_id: string
+          brand?: string | null
+          campaign_id?: string | null
           created_at?: string
+          href?: string | null
           id?: string
           kind: string
+          occasion?: string | null
           surface?: string | null
           user_id?: string | null
         }
         Update: {
-          campaign_id?: string
+          brand?: string | null
+          campaign_id?: string | null
           created_at?: string
+          href?: string | null
           id?: string
           kind?: string
+          occasion?: string | null
           surface?: string | null
           user_id?: string | null
         }

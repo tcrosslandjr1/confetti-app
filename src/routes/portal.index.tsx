@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Sparkles, MapPin, ArrowRight, Star, Bookmark, CalendarCheck, MessageCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { ReferralWidget } from "@/components/ReferralWidget";
 
 export const Route = createFileRoute("/portal/")({
   component: PortalDiscoverPage,
@@ -44,6 +45,8 @@ function PortalDiscoverPage() {
         <QuickAction to="/portal/bookings" icon={CalendarCheck} label="My Bookings" hint="Upcoming & past" />
         <QuickAction to="/portal/saved" icon={Bookmark} label="Saved Spots" hint="Your wishlist" />
       </div>
+
+      <ReferralWidget />
 
       {featured.length > 0 && (
         <section>

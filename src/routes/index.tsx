@@ -28,32 +28,37 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const MARQUEE = [
-  "date night → dinner + drinks ✦",
-  "girls trip → brunch + boutiques ✦",
-  "Sunday slow → coffee + a long walk ✦",
-  "in-laws weekend → easy wins, no awkward ✦",
-  "kids day-out → museum + ice cream ✦",
-  "rooftop o'clock → sunset + spritz ✦",
-  "noodle crawl → 3 bowls, 1 night ✦",
-  "first date energy → low-key, high spark ✦",
-  "anniversary → the spot you'll remember ✦",
-  "guys' afternoon → wings + a game ✦",
-  "birthday night → dinner, drinks, dance floor ✦",
-  "bachelorette → glam + late-night karaoke ✦",
-  "proposal night → quiet view, big yes ✦",
-  "solo recharge → bookshop + a great meal ✦",
-  "double date → shared plates + a show ✦",
-  "rainy day → cozy cafés + a matinée ✦",
-  "happy hour → 2 stops, 1 hour ✦",
-  "live music → small venue, big night ✦",
-  "art crawl → galleries + a wine bar ✦",
-  "morning hike → trail + breakfast burritos ✦",
-  "beach day → towels, tacos, sunset ✦",
-  "speakeasy night → low-lit, slow burn ✦",
-  "tasting menu → all-in, no menu peeking ✦",
-  "dog-friendly day → patio + park loop ✦",
-  "out-of-towner → the 4-hour highlight reel ✦",
+type MarqueeItem = {
+  text: string;
+  sponsored?: { brand: string; cta: string; href: string };
+};
+
+const MARQUEE: MarqueeItem[] = [
+  { text: "date night → dinner + drinks" },
+  { text: "girls trip → brunch + boutiques" },
+  { text: "Sunday slow → coffee + a long walk" },
+  { text: "in-laws weekend → easy wins, no awkward" },
+  { text: "kids day-out → museum + ice cream", sponsored: { brand: "MoMA Kids", cta: "Book tickets", href: "/wizard?occasion=kids-day-out&utm_source=marquee&utm_campaign=moma_kids" } },
+  { text: "rooftop o'clock → sunset + spritz", sponsored: { brand: "Aperol", cta: "Find a rooftop", href: "/wizard?occasion=rooftop&utm_source=marquee&utm_campaign=aperol_spritz" } },
+  { text: "noodle crawl → 3 bowls, 1 night" },
+  { text: "first date energy → low-key, high spark" },
+  { text: "anniversary → the spot you'll remember" },
+  { text: "guys' afternoon → wings + a game" },
+  { text: "birthday night → dinner, drinks, dance floor" },
+  { text: "bachelorette → glam + late-night karaoke", sponsored: { brand: "Resy", cta: "Reserve the table", href: "/wizard?occasion=bachelorette&utm_source=marquee&utm_campaign=resy" } },
+  { text: "proposal night → quiet view, big yes" },
+  { text: "solo recharge → bookshop + a great meal" },
+  { text: "double date → shared plates + a show" },
+  { text: "rainy day → cozy cafés + a matinée" },
+  { text: "happy hour → 2 stops, 1 hour" },
+  { text: "live music → small venue, big night", sponsored: { brand: "DICE", cta: "Grab tickets", href: "/wizard?occasion=live-music&utm_source=marquee&utm_campaign=dice" } },
+  { text: "art crawl → galleries + a wine bar" },
+  { text: "morning hike → trail + breakfast burritos" },
+  { text: "beach day → towels, tacos, sunset" },
+  { text: "speakeasy night → low-lit, slow burn" },
+  { text: "tasting menu → all-in, no menu peeking", sponsored: { brand: "OpenTable", cta: "Book tonight", href: "/wizard?occasion=tasting-menu&utm_source=marquee&utm_campaign=opentable" } },
+  { text: "dog-friendly day → patio + park loop" },
+  { text: "out-of-towner → the 4-hour highlight reel" },
 ];
 
 
@@ -233,12 +238,33 @@ function Landing() {
       {/* ============================ MARQUEE ============================ */}
       <section className="border-b-2 border-ink bg-ink py-4 text-cream">
         <div className="flex overflow-hidden">
-          <div className="flex shrink-0 animate-marquee gap-10 whitespace-nowrap pr-10 font-display text-3xl font-extrabold uppercase tracking-tight">
-            {[...MARQUEE, ...MARQUEE].map((m, i) => (
-              <span key={i} className={i % 3 === 1 ? "font-serif italic font-normal text-gold" : i % 3 === 2 ? "text-coral" : ""}>
-                {m}
-              </span>
-            ))}
+          <div className="flex shrink-0 animate-marquee items-center gap-10 whitespace-nowrap pr-10 font-display text-3xl font-extrabold uppercase tracking-tight">
+            {[...MARQUEE, ...MARQUEE].map((m, i) => {
+              const tone = i % 3 === 1 ? "font-serif italic font-normal text-gold" : i % 3 === 2 ? "text-coral" : "";
+              if (m.sponsored) {
+                return (
+                  <Link
+                    key={i}
+                    to={m.sponsored.href}
+                    className="group inline-flex items-center gap-3 rounded-full border-2 border-gold bg-ink px-4 py-1.5 transition hover:bg-gold hover:text-ink"
+                  >
+                    <span className="rounded-full bg-gold px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink group-hover:bg-ink group-hover:text-gold">
+                      Sponsored · {m.sponsored.brand}
+                    </span>
+                    <span className={tone}>{m.text}</span>
+                    <span className="font-mono text-xs uppercase tracking-widest underline underline-offset-4">
+                      {m.sponsored.cta} ↗
+                    </span>
+                    <span aria-hidden>✦</span>
+                  </Link>
+                );
+              }
+              return (
+                <span key={i} className={tone}>
+                  {m.text} ✦
+                </span>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -591,12 +617,20 @@ function Landing() {
       <section className="marquee-hover border-b-2 border-ink bg-gold py-3 text-ink">
         <div className="flex overflow-hidden">
           <div className="flex shrink-0 animate-marquee gap-8 whitespace-nowrap pr-8 font-mono text-xs font-bold uppercase tracking-widest" style={{ transition: "animation-duration 0.4s ease" }}>
-            {[...MARQUEE, ...MARQUEE, ...MARQUEE].map((m, i) => (
-              <span key={i} className="inline-flex items-center gap-3">
-                {m}
-                <span className="opacity-40">/</span>
-              </span>
-            ))}
+            {[...MARQUEE, ...MARQUEE, ...MARQUEE].map((m, i) =>
+              m.sponsored ? (
+                <Link key={i} to={m.sponsored.href} className="inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink">
+                  <span className="rounded-sm bg-gold px-1.5 py-0.5 text-[9px] text-ink">AD · {m.sponsored.brand}</span>
+                  <span>{m.text}</span>
+                  <span className="underline">{m.sponsored.cta} ↗</span>
+                </Link>
+              ) : (
+                <span key={i} className="inline-flex items-center gap-3">
+                  {m.text}
+                  <span className="opacity-40">/</span>
+                </span>
+              )
+            )}
           </div>
         </div>
         <p className="mt-1 text-center font-mono text-[9px] uppercase tracking-[0.3em] text-ink/50">hover to speed it up ↗</p>

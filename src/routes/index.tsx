@@ -12,7 +12,8 @@ import { Reveal } from "@/components/Reveal";
 import { WizardButton } from "@/components/wizard/WizardButton";
 import { QuickPicks } from "@/components/QuickPicks";
 import { GatedAction } from "@/components/GatedAction";
-import { logAdImpression, logAdClick } from "@/lib/ad-tracking";
+import { logAdViewImpression, logAdClick } from "@/lib/ad-tracking";
+import { useViewportImpression } from "@/hooks/useViewportImpression";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -176,15 +177,8 @@ function Landing() {
     return { topItems: inject("top"), bottomItems: inject("bottom") };
   }, [dbSponsors]);
 
-  // Log impressions for sponsored marquee items once per mount/session (static + DB).
-  useEffect(() => {
-    topItems.forEach((m) => {
-      if (m.sponsored) logAdImpression({ surface: "marquee_top", brand: m.sponsored.brand, occasion: m.text, href: m.sponsored.href });
-    });
-    bottomItems.forEach((m) => {
-      if (m.sponsored) logAdImpression({ surface: "marquee_bottom", brand: m.sponsored.brand, occasion: m.text, href: m.sponsored.href });
-    });
-  }, [topItems, bottomItems]);
+  // Impressions are now logged per rendered slot when it enters the viewport.
+  // See <SponsoredTopSlot /> and <SponsoredBottomSlot /> below.
 
   return (
     <div className="min-h-screen bg-cream text-ink">
@@ -296,23 +290,16 @@ function Landing() {
             {[...topItems, ...topItems].map((m, i) => {
               const tone = i % 3 === 1 ? "font-serif italic font-normal text-gold" : i % 3 === 2 ? "text-coral" : "";
               if (m.sponsored) {
-                const s = m.sponsored;
                 return (
-                  <Link
+                  <SponsoredMarqueeSlot
                     key={i}
-                    to={s.href}
-                    onClick={() => logAdClick({ surface: "marquee_top", brand: s.brand, occasion: m.text, href: s.href })}
-                    className="group inline-flex items-center gap-3 rounded-full border-2 border-gold bg-ink px-4 py-1.5 transition hover:bg-gold hover:text-ink"
-                  >
-                    <span className="rounded-full bg-gold px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink group-hover:bg-ink group-hover:text-gold">
-                      Sponsored · {s.brand}
-                    </span>
-                    <span className={tone}>{m.text}</span>
-                    <span className="font-mono text-xs uppercase tracking-widest underline underline-offset-4">
-                      {s.cta} ↗
-                    </span>
-                    <span aria-hidden>✦</span>
-                  </Link>
+                    slot={`top-${i}`}
+                    surface="marquee_top"
+                    text={m.text}
+                    sponsored={m.sponsored}
+                    tone={tone}
+                    variant="hero"
+                  />
                 );
               }
               return (
@@ -675,16 +662,14 @@ function Landing() {
           <div className="flex shrink-0 animate-marquee gap-8 whitespace-nowrap pr-8 font-mono text-xs font-bold uppercase tracking-widest" style={{ transition: "animation-duration 0.4s ease" }}>
             {[...bottomItems, ...bottomItems, ...bottomItems].map((m, i) =>
               m.sponsored ? (
-                <Link
+                <SponsoredMarqueeSlot
                   key={i}
-                  to={m.sponsored.href}
-                  onClick={() => logAdClick({ surface: "marquee_bottom", brand: m.sponsored!.brand, occasion: m.text, href: m.sponsored!.href })}
-                  className="inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink"
-                >
-                  <span className="rounded-sm bg-gold px-1.5 py-0.5 text-[9px] text-ink">AD · {m.sponsored.brand}</span>
-                  <span>{m.text}</span>
-                  <span className="underline">{m.sponsored.cta} ↗</span>
-                </Link>
+                  slot={`bottom-${i}`}
+                  surface="marquee_bottom"
+                  text={m.text}
+                  sponsored={m.sponsored}
+                  variant="ticker"
+                />
               ) : (
                 <span key={i} className="inline-flex items-center gap-3">
                   {m.text}
@@ -699,5 +684,56 @@ function Landing() {
 
       <SiteFooter />
     </div>
+  );
+}
+
+type SponsoredSlotProps = {
+  slot: string;
+  surface: "marquee_top" | "marquee_bottom";
+  text: string;
+  sponsored: { brand: string; cta: string; href: string };
+  tone?: string;
+  variant: "hero" | "ticker";
+};
+
+function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }: SponsoredSlotProps) {
+  const ref = useViewportImpression<HTMLAnchorElement>(
+    () => logAdViewImpression({ surface, brand: sponsored.brand, occasion: text, href: sponsored.href }, slot),
+    { threshold: 0.5 }
+  );
+
+  if (variant === "ticker") {
+    return (
+      <Link
+        ref={ref}
+        to={sponsored.href}
+        onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href: sponsored.href })}
+        className="inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink"
+        data-ad-slot={slot}
+      >
+        <span className="rounded-sm bg-gold px-1.5 py-0.5 text-[9px] text-ink">AD · {sponsored.brand}</span>
+        <span>{text}</span>
+        <span className="underline">{sponsored.cta} ↗</span>
+      </Link>
+    );
+  }
+
+  return (
+    <Link
+      ref={ref}
+      to={sponsored.href}
+      onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href: sponsored.href })}
+      className="group inline-flex items-center gap-3 rounded-full border-2 border-gold bg-ink px-4 py-1.5 transition hover:bg-gold hover:text-ink"
+      data-ad-slot={slot}
+    >
+      <span className="rounded-full bg-gold px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink group-hover:bg-ink group-hover:text-gold">
+        Sponsored · {sponsored.brand}
+      </span>
+      <span className={tone}>{text}</span>
+      <span className="font-mono text-xs uppercase tracking-widest underline underline-offset-4">
+        {sponsored.cta} ↗
+      </span>
+      <span aria-hidden>✦</span>
+    </Link>
   );
 }

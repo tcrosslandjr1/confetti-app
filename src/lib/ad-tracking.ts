@@ -7,33 +7,40 @@ type LogArgs = {
   href?: string;
 };
 
-// Dedupe impressions per session so the same sponsored slot doesn't spam events
-// each render (the marquee duplicates items 2-3x for the seamless loop).
-const seenImpressions = new Set<string>();
+// Throttle rapid duplicate viewport-impressions for the SAME slot to once per ~1.5s
+// so a flickering animation can't spam events.
+const lastFired = new Map<string, number>();
+const THROTTLE_MS = 1500;
 
-function key(a: LogArgs) {
-  return `${a.surface}::${a.brand}::${a.occasion}`;
+function key(a: LogArgs, slot?: string) {
+  return `${a.surface}::${a.brand}::${a.occasion}::${slot ?? ""}`;
 }
 
-export function logAdImpression(args: LogArgs) {
-  const k = key(args);
-  if (seenImpressions.has(k)) return;
-  seenImpressions.add(k);
+function insert(kind: "impression" | "click", a: LogArgs) {
   void supabase.from("ad_events").insert({
-    kind: "impression",
-    surface: args.surface,
-    brand: args.brand,
-    occasion: args.occasion,
-    href: args.href ?? null,
+    kind,
+    surface: a.surface,
+    brand: a.brand,
+    occasion: a.occasion,
+    href: a.href ?? null,
   });
+}
+
+/**
+ * Fire-and-forget impression. Each call counts (no session dedupe), but
+ * repeats for the exact same slot within THROTTLE_MS are dropped.
+ * Pass a `slot` id (e.g. rendered index) to track distinct DOM instances
+ * independently across marquee loops.
+ */
+export function logAdViewImpression(args: LogArgs, slot?: string) {
+  const k = key(args, slot);
+  const now = Date.now();
+  const prev = lastFired.get(k) ?? 0;
+  if (now - prev < THROTTLE_MS) return;
+  lastFired.set(k, now);
+  insert("impression", args);
 }
 
 export function logAdClick(args: LogArgs) {
-  void supabase.from("ad_events").insert({
-    kind: "click",
-    surface: args.surface,
-    brand: args.brand,
-    occasion: args.occasion,
-    href: args.href ?? null,
-  });
+  insert("click", args);
 }

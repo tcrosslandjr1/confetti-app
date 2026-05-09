@@ -298,7 +298,8 @@ function AuthPage() {
         </div>
 
         <div className="mt-auto pt-10 text-center text-xs text-muted-foreground">
-          By continuing you agree to our terms.{" "}
+          By continuing you agree to our terms and{" "}
+          <Link to="/data-terms" className="underline">data sharing policy</Link>.{" "}
           <Link to="/events" className="underline">Browse events</Link>
           <div className="mt-3">
             Are you an admin?{" "}

@@ -1,6 +1,6 @@
 import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { Bookmark, CalendarCheck, Compass, MessageCircle, BookMarked, User } from "lucide-react";
+import { Bookmark, CalendarCheck, Compass, MessageCircle, BookMarked, User, Gift } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -23,6 +23,7 @@ const NAV: NavItem[] = [
   { to: "/concierge/passport", label: "Passport", icon: BookMarked },
   { to: "/portal/saved", label: "Saved", icon: Bookmark },
   { to: "/portal/profile", label: "Profile", icon: User },
+  { to: "/portal/refer", label: "Refer & earn", icon: Gift },
 ];
 
 function PortalLayout() {

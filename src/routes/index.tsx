@@ -11,6 +11,7 @@ import { Reveal } from "@/components/Reveal";
 import { WizardButton } from "@/components/wizard/WizardButton";
 import { QuickPicks } from "@/components/QuickPicks";
 import { GatedAction } from "@/components/GatedAction";
+import { logAdImpression, logAdClick } from "@/lib/ad-tracking";
 
 export const Route = createFileRoute("/")({
   head: () => ({

@@ -1,12 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { User, LogOut, Settings, Sparkles, Mail } from "lucide-react";
+import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { getStoredLocation, requestUserLocation, clearStoredLocation, type UserLocation } from "@/lib/location";
 
 export const Route = createFileRoute("/portal/profile")({
   component: ProfilePage,
@@ -18,6 +19,28 @@ function ProfilePage() {
   const { user, signOut } = useAuth();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [name, setName] = useState("");
+  const [location, setLocation] = useState<UserLocation | null>(null);
+  const [locLoading, setLocLoading] = useState(false);
+
+  useEffect(() => { setLocation(getStoredLocation()); }, []);
+
+  const refreshLocation = async () => {
+    setLocLoading(true);
+    const loc = await requestUserLocation({ enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
+    setLocLoading(false);
+    if (loc) {
+      setLocation(loc);
+      toast.success("Location updated");
+    } else {
+      toast.error("Couldn't get your location. Check browser permissions.");
+    }
+  };
+
+  const forgetLocation = () => {
+    clearStoredLocation();
+    setLocation(null);
+    toast.success("Saved location cleared");
+  };
 
   useEffect(() => {
     if (!user) return;
@@ -82,6 +105,56 @@ function ProfilePage() {
           <Link to="/concierge/passport" className="flex items-center gap-3 rounded-2xl border border-border p-3 hover:bg-muted">
             <Sparkles className="h-4 w-4" /> <span className="font-semibold">View Passport</span>
           </Link>
+        </div>
+      </section>
+
+      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+        <div className="flex items-center justify-between gap-3">
+          <h2 className="flex items-center gap-2 font-display text-xl font-bold">
+            <MapPin className="h-5 w-5" /> Location
+          </h2>
+          <span className={`text-xs font-mono uppercase tracking-wider ${location ? "text-primary" : "text-muted-foreground"}`}>
+            {location ? "Enabled" : "Not set"}
+          </span>
+        </div>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Used to recommend nearby venues and tailor your concierge picks.
+        </p>
+
+        {location ? (
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            <div className="rounded-2xl bg-muted/50 px-4 py-3">
+              <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Latitude</div>
+              <div className="mt-0.5 font-mono text-sm">{location.lat.toFixed(6)}</div>
+            </div>
+            <div className="rounded-2xl bg-muted/50 px-4 py-3">
+              <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Longitude</div>
+              <div className="mt-0.5 font-mono text-sm">{location.lng.toFixed(6)}</div>
+            </div>
+            <div className="rounded-2xl bg-muted/50 px-4 py-3">
+              <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Accuracy</div>
+              <div className="mt-0.5 font-mono text-sm">
+                {location.accuracy ? `±${Math.round(location.accuracy)} m` : "—"}
+              </div>
+            </div>
+            <div className="text-xs text-muted-foreground sm:col-span-3">
+              Last updated {new Date(location.capturedAt).toLocaleString()}
+            </div>
+          </div>
+        ) : (
+          <p className="mt-4 text-sm text-muted-foreground">
+            No saved coordinates yet. Tap below to share your location.
+          </p>
+        )}
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Button onClick={refreshLocation} disabled={locLoading} className="gap-2">
+            {locLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <MapPin className="h-4 w-4" />}
+            {location ? "Update location" : "Enable location"}
+          </Button>
+          {location && (
+            <Button variant="outline" onClick={forgetLocation}>Clear saved location</Button>
+          )}
         </div>
       </section>
 

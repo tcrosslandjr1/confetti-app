@@ -159,7 +159,10 @@ export function BuildMyNightWizard() {
   const [loadingIdx, setLoadingIdx] = useState(0);
   const [variant, setVariant] = useState(0);
   const [openStop, setOpenStop] = useState<number | null>(0);
-  const [sortBy, setSortBy] = useState<"order" | "rating" | "distance" | "availability">("order");
+  const [sortBy, setSortBy] = useState<"order" | "rating" | "price" | "distance" | "availability">("order");
+  type PlaceInfo = { rating?: number; userRatingCount?: number; priceLevel?: number; openNow?: boolean; businessStatus?: string; found: boolean };
+  const [placesData, setPlacesData] = useState<Record<string, PlaceInfo>>({});
+  const [placesLoading, setPlacesLoading] = useState(false);
   const [favorites, setFavorites] = useState<Record<string, FavRow>>({});
   const [showFavorites, setShowFavorites] = useState(false);
   const { user } = useAuth();
@@ -189,16 +192,36 @@ export function BuildMyNightWizard() {
       let h = parseInt(m[1], 10) % 12; if (/PM/i.test(m[3])) h += 12;
       return h * 60 + parseInt(m[2], 10);
     };
+    // Prefer live Google Places data when loaded; fall back to deterministic mock.
+    const ratingOf = (venue: string, vibe: string) => {
+      const live = placesData[venue]?.rating;
+      return typeof live === "number" ? live : parseFloat(getDetails(venue, vibe).rating);
+    };
+    const priceOf = (venue: string, vibe: string) => {
+      const live = placesData[venue]?.priceLevel;
+      return typeof live === "number" ? live : getDetails(venue, vibe).priceLevel;
+    };
+    // Availability: open venues first, then by start time. Closed/unknown sort last.
+    const availabilityScore = (venue: string, time: string) => {
+      const info = placesData[venue];
+      const baseTime = parseTime(time);
+      if (info?.businessStatus && info.businessStatus !== "OPERATIONAL") return 1e9;
+      if (info?.openNow === true) return baseTime;
+      if (info?.openNow === false) return 1e8 + baseTime;
+      return baseTime; // unknown — use start time
+    };
     const arr = stops.map((s, i) => ({ s, i }));
     if (sortBy === "rating") {
-      arr.sort((a, b) => parseFloat(getDetails(b.s.venue, b.s.vibe).rating) - parseFloat(getDetails(a.s.venue, a.s.vibe).rating));
+      arr.sort((a, b) => ratingOf(b.s.venue, b.s.vibe) - ratingOf(a.s.venue, a.s.vibe));
+    } else if (sortBy === "price") {
+      arr.sort((a, b) => priceOf(a.s.venue, a.s.vibe) - priceOf(b.s.venue, b.s.vibe));
     } else if (sortBy === "distance") {
       arr.sort((a, b) => parseWalk(a.s.walk) - parseWalk(b.s.walk));
     } else if (sortBy === "availability") {
-      arr.sort((a, b) => parseTime(a.s.time) - parseTime(b.s.time));
+      arr.sort((a, b) => availabilityScore(a.s.venue, a.s.time) - availabilityScore(b.s.venue, b.s.time));
     }
     return arr;
-  }, [stops, sortBy]);
+  }, [stops, sortBy, placesData]);
   const totalSteps = 5;
 
   // If preset supplied, jump straight to result and seed vibe multi-select
@@ -235,6 +258,32 @@ export function BuildMyNightWizard() {
     const done = setTimeout(() => setStep(6), 3600);
     return () => { clearInterval(interval); clearTimeout(done); };
   }, [step]);
+
+  // Fetch live Google Places data for the current stops as soon as results show.
+  useEffect(() => {
+    if (step !== 6 || !stops?.length) return;
+    let cancelled = false;
+    const queries = stops.map((s) => ({ venue: s.venue, address: s.address, neighborhood: s.neighborhood }));
+    setPlacesLoading(true);
+    setPlacesData({});
+    (async () => {
+      try {
+        const { data, error } = await supabase.functions.invoke("google-places", { body: { queries } });
+        if (cancelled) return;
+        if (error) { console.warn("[google-places]", error); return; }
+        const map: Record<string, PlaceInfo> = {};
+        for (const r of (data?.results ?? []) as Array<PlaceInfo & { venue: string }>) {
+          map[r.venue] = r;
+        }
+        setPlacesData(map);
+      } catch (e) {
+        console.warn("[google-places] fetch failed", e);
+      } finally {
+        if (!cancelled) setPlacesLoading(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [step, stops]);
 
   // Esc to close
   useEffect(() => {
@@ -509,11 +558,17 @@ export function BuildMyNightWizard() {
 
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">Sort by</span>
+                {placesLoading && (
+                  <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                    <Loader2 className="h-3 w-3 animate-spin" /> live data…
+                  </span>
+                )}
                 {([
                   { k: "order", label: "Night order" },
                   { k: "rating", label: "★ Highest rated" },
+                  { k: "price", label: "$ Lowest price" },
                   { k: "distance", label: "📍 Closest" },
-                  { k: "availability", label: "⏱ Earliest" },
+                  { k: "availability", label: "⏱ Open now" },
                 ] as const).map((opt) => {
                   const active = sortBy === opt.k;
                   return (
@@ -572,7 +627,15 @@ export function BuildMyNightWizard() {
                 {sortedStops.map(({ s, i: origIdx }, displayIdx) => {
                   const i = origIdx;
                   const isOpen = openStop === i;
-                  const d = getDetails(s.venue, s.vibe);
+                  const mock = getDetails(s.venue, s.vibe);
+                  const live = placesData[s.venue];
+                  const d = {
+                    ...mock,
+                    rating: typeof live?.rating === "number" ? live.rating.toFixed(1) : mock.rating,
+                    reviewCount: typeof live?.userRatingCount === "number" ? live.userRatingCount : mock.reviewCount,
+                    priceLevel: typeof live?.priceLevel === "number" && live.priceLevel > 0 ? live.priceLevel : mock.priceLevel,
+                  };
+                  const openNow = live?.openNow;
                   const isFav = !!favorites[s.venue];
                   const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`;
                   return (
@@ -608,6 +671,12 @@ export function BuildMyNightWizard() {
                           <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
                             <span className="rounded-full border border-ink bg-cream px-2 py-0.5 font-mono uppercase tracking-widest">{s.vibe}</span>
                             <span className="font-mono text-[11px] text-ink/60">{"$".repeat(d.priceLevel)}</span>
+                            {openNow === true && (
+                              <span className="rounded-full border border-ink bg-mint px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest">Open now</span>
+                            )}
+                            {openNow === false && (
+                              <span className="rounded-full border border-ink bg-coral/20 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest">Closed</span>
+                            )}
                             {s.walk && <span className="font-mono text-[11px] text-ink/60">↳ {s.walk}</span>}
                           </div>
                         </div>

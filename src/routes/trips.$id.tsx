@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, CalendarDays, Check, ExternalLink, MapPin, Pencil, Trash2, Utensils, Wine, Camera, Activity, Car, Sparkles, ParkingCircle, Lightbulb, Quote, Stamp, Bus, Footprints, Bike, Navigation, Ticket, Hash, Users, Phone, Mail, Clock, FileText, ChevronDown, History, RotateCcw, Timer, Calendar, AlertTriangle, X } from "lucide-react";
+import { ArrowLeft, Check, ExternalLink, MapPin, Pencil, Trash2, Utensils, Wine, Camera, Activity, Car, Sparkles, ParkingCircle, Lightbulb, Quote, Stamp, Bus, Footprints, Bike, Navigation, Ticket, Hash, Users, Phone, Mail, Clock, FileText, ChevronDown, History, RotateCcw, Timer, Calendar, AlertTriangle, X } from "lucide-react";
 import { toast } from "sonner";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
@@ -81,7 +81,6 @@ function TripDetail() {
   if (!data) return null;
 
   const { itinerary: it, stops } = data;
-  const confirmedCount = stops.filter((s) => s.booking_status === "confirmed").length;
 
   return (
     <div className="min-h-screen bg-background">

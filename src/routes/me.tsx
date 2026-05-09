@@ -271,7 +271,31 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
         ))}
       </div>
 
-      <button onClick={saveHandles} className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground">
+      <label className="mt-4 flex items-start gap-2 rounded-xl border border-border bg-background/60 p-3 text-xs">
+        <input
+          type="checkbox"
+          checked={consent}
+          onChange={(e) => toggleConsent(e.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0 accent-primary"
+          aria-describedby="data-consent-help"
+        />
+        <span id="data-consent-help" className="leading-relaxed text-muted-foreground">
+          <ShieldCheck className="mr-1 inline h-3.5 w-3.5 text-primary" />
+          I agree that Confettiplan's AI may use my social handles, pasted signals, photos of places I've
+          been or want to go, and inferences from my most-engaged followers to learn my taste and
+          personalize plans. I've read the{" "}
+          <Link to="/data-terms" className="font-semibold text-foreground underline">
+            data sharing terms
+          </Link>
+          .
+        </span>
+      </label>
+
+      <button
+        onClick={saveHandles}
+        disabled={!consent}
+        className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50"
+      >
         <Save className="h-3 w-3" /> Save handles
       </button>
 

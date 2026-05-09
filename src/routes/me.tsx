@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { loadPrefs, saveAboutMe, saveSocialHandles, saveSocialSignals, saveTasteProfile, type Prefs, type SocialHandles, type TasteProfile } from "@/lib/taste";
 import { useServerFn } from "@tanstack/react-start";
 import { startTiktokLink, disconnectTiktok, getMyLinkedAccounts } from "@/lib/tiktok-oauth.functions";
+import { startInstagramLink, disconnectInstagram } from "@/lib/instagram-oauth.functions";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 const DATA_CONSENT_KEY = "confetti.dataSharingConsent.v1";

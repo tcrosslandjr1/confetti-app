@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { seedDemoAccounts } from "@/lib/seed-demo.functions";
 import { lovable } from "@/integrations/lovable";
+import { rememberReferralCode, getPendingReferralCode } from "@/lib/referrals";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({ meta: [{ title: "Sign in — Concierge" }] }),
@@ -20,6 +21,7 @@ function AuthPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [refCode, setRefCode] = useState(() => getPendingReferralCode() ?? "");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [seeding, setSeeding] = useState(false);
@@ -55,6 +57,7 @@ function AuthPage() {
     setLoading(true);
     try {
       if (mode === "signup") {
+        if (refCode.trim()) rememberReferralCode(refCode);
         const { error } = await supabase.auth.signUp({
           email,
           password,
@@ -148,6 +151,14 @@ function AuthPage() {
             placeholder="Password"
             className="w-full rounded-2xl border border-border bg-card px-4 py-4 text-sm outline-none ring-ring/30 focus:ring-2"
           />
+          {mode === "signup" && (
+            <input
+              value={refCode}
+              onChange={(e) => setRefCode(e.target.value.toUpperCase())}
+              placeholder="Referral code (optional) — get $25 off your first booking"
+              className="w-full rounded-2xl border border-border bg-card px-4 py-4 text-sm font-mono uppercase tracking-wider outline-none ring-ring/30 focus:ring-2"
+            />
+          )}
           {error && <p className="text-xs text-destructive">{error}</p>}
           <button
             disabled={loading}

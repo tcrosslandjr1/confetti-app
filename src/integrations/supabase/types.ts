@@ -43,6 +43,7 @@ export type Database = {
       }
       bookings: {
         Row: {
+          admin_notes: string | null
           cancelled_at: string | null
           created_at: string
           id: string
@@ -58,6 +59,7 @@ export type Database = {
           venue_name: string
         }
         Insert: {
+          admin_notes?: string | null
           cancelled_at?: string | null
           created_at?: string
           id?: string
@@ -73,6 +75,7 @@ export type Database = {
           venue_name: string
         }
         Update: {
+          admin_notes?: string | null
           cancelled_at?: string | null
           created_at?: string
           id?: string

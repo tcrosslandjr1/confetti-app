@@ -1,20 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
-  CheckCircle2,
   DollarSign,
   Edit3,
+  Loader2,
   MapPin,
+  Plus,
   Search,
   Store,
-  XCircle,
-  Eye,
+  Trash2,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
@@ -22,52 +21,38 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { logAudit } from "@/lib/audit-log";
 import { useAuth } from "@/lib/auth-context";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/admin/venues")({
   component: AdminVenuesPage,
 });
 
-type Status = "pending" | "approved" | "rejected";
 type Venue = {
   id: string;
   name: string;
   category: string;
-  neighborhood: string;
-  city: string;
-  priceLevel: 1 | 2 | 3 | 4;
-  description: string;
-  status: Status;
-  submittedBy: string;
-  submittedAt: string;
+  neighborhood: string | null;
+  city: string | null;
+  price_level: number;
+  description: string | null;
+  image_url: string | null;
+  created_at: string;
 };
 
-const SEED: Venue[] = [
-  { id: "VN-301", name: "Lutèce", category: "Wine bar", neighborhood: "Georgetown", city: "Washington DC", priceLevel: 3, description: "Intimate Parisian-style wine bar with natural pours and a tight seasonal menu.", status: "pending", submittedBy: "Owner: M. Dupont", submittedAt: "2h ago" },
-  { id: "VN-300", name: "Maydan", category: "Restaurant", neighborhood: "14th St", city: "Washington DC", priceLevel: 3, description: "Live-fire Middle Eastern cooking around an open hearth.", status: "approved", submittedBy: "Internal", submittedAt: "3d ago" },
-  { id: "VN-299", name: "Service Bar", category: "Cocktail bar", neighborhood: "U Street", city: "Washington DC", priceLevel: 2, description: "Award-winning cocktails and the city's most loved fried chicken sandwich.", status: "approved", submittedBy: "Internal", submittedAt: "5d ago" },
-  { id: "VN-298", name: "The Daily Grind", category: "Cafe", neighborhood: "Clarendon", city: "Arlington VA", priceLevel: 1, description: "Generic-looking coffee shop, low-quality submission with stock photos.", status: "rejected", submittedBy: "user_8821", submittedAt: "1w ago" },
-  { id: "VN-297", name: "Albi", category: "Restaurant", neighborhood: "Navy Yard", city: "Washington DC", priceLevel: 4, description: "Michelin-starred Levantine tasting menu by Chef Michael Rafidi.", status: "approved", submittedBy: "Internal", submittedAt: "2w ago" },
-  { id: "VN-296", name: "Sushi Nakazawa", category: "Restaurant", neighborhood: "Penn Quarter", city: "Washington DC", priceLevel: 4, description: "Edomae omakase counter with seasonal nigiri flown in from Toyosu.", status: "pending", submittedBy: "Owner: K. Nakazawa", submittedAt: "6h ago" },
-];
-
-const STATUS_TABS: { key: "all" | Status; label: string }[] = [
-  { key: "all", label: "All" },
-  { key: "pending", label: "Pending review" },
-  { key: "approved", label: "Approved" },
-  { key: "rejected", label: "Rejected" },
-];
-
-function StatusBadge({ status }: { status: Status }) {
-  if (status === "approved")
-    return <Badge className="bg-emerald-500/15 text-emerald-700 hover:bg-emerald-500/20"><CheckCircle2 className="mr-1 h-3 w-3" />Approved</Badge>;
-  if (status === "rejected")
-    return <Badge className="bg-destructive/15 text-destructive hover:bg-destructive/20"><XCircle className="mr-1 h-3 w-3" />Rejected</Badge>;
-  return <Badge className="bg-gold/20 text-foreground hover:bg-gold/30"><Eye className="mr-1 h-3 w-3" />Pending</Badge>;
-}
+const EMPTY_DRAFT: Omit<Venue, "id" | "created_at"> = {
+  name: "",
+  category: "",
+  neighborhood: "",
+  city: "",
+  price_level: 2,
+  description: "",
+  image_url: "",
+};
 
 function PriceLevel({ level }: { level: number }) {
   return (
@@ -85,63 +70,75 @@ function PriceLevel({ level }: { level: number }) {
 function AdminVenuesPage() {
   const { user } = useAuth();
   const adminEmail = user?.email ?? "admin";
-  const [venues, setVenues] = useState<Venue[]>(SEED);
-  const [tab, setTab] = useState<"all" | Status>("all");
+  const [venues, setVenues] = useState<Venue[]>([]);
+  const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [editing, setEditing] = useState<Venue | null>(null);
+  const [adding, setAdding] = useState(false);
 
-  const counts = useMemo(
-    () => ({
-      all: venues.length,
-      pending: venues.filter((v) => v.status === "pending").length,
-      approved: venues.filter((v) => v.status === "approved").length,
-      rejected: venues.filter((v) => v.status === "rejected").length,
-    }),
-    [venues],
-  );
-
-  const filtered = useMemo(() => {
-    return venues.filter((v) => {
-      if (tab !== "all" && v.status !== tab) return false;
-      if (query) {
-        const q = query.toLowerCase();
-        if (
-          !v.name.toLowerCase().includes(q) &&
-          !v.neighborhood.toLowerCase().includes(q) &&
-          !v.category.toLowerCase().includes(q)
-        )
-          return false;
-      }
-      return true;
-    });
-  }, [venues, tab, query]);
-
-  const setStatus = (id: string, status: Status) => {
-    const v = venues.find((x) => x.id === id);
-    setVenues((prev) => prev.map((x) => (x.id === id ? { ...x, status } : x)));
-    toast.success(
-      status === "approved" ? `Approved ${id}` : status === "rejected" ? `Rejected ${id}` : `Updated ${id}`,
-    );
-    logAudit({
-      admin: adminEmail,
-      action: status === "approved" ? "approve" : status === "rejected" ? "reject" : "status",
-      entity: "venue",
-      targetId: id,
-      summary: `${status === "approved" ? "Approved" : status === "rejected" ? "Rejected" : "Updated"}${v ? ` venue "${v.name}"` : ""}`,
-    });
+  const load = async () => {
+    setLoading(true);
+    const { data, error } = await supabase
+      .from("venues")
+      .select("*")
+      .order("created_at", { ascending: false });
+    if (error) toast.error("Couldn't load venues", { description: error.message });
+    else setVenues((data as Venue[]) ?? []);
+    setLoading(false);
   };
 
-  const saveEdit = (next: Venue) => {
-    setVenues((prev) => prev.map((v) => (v.id === next.id ? next : v)));
-    setEditing(null);
-    toast.success(`Saved changes to ${next.name}`);
-    logAudit({
-      admin: adminEmail,
-      action: "edit",
-      entity: "venue",
-      targetId: next.id,
-      summary: `Edited venue "${next.name}"`,
-    });
+  useEffect(() => {
+    void load();
+  }, []);
+
+  const filtered = useMemo(() => {
+    if (!query) return venues;
+    const q = query.toLowerCase();
+    return venues.filter(
+      (v) =>
+        v.name.toLowerCase().includes(q) ||
+        (v.neighborhood ?? "").toLowerCase().includes(q) ||
+        (v.category ?? "").toLowerCase().includes(q) ||
+        (v.city ?? "").toLowerCase().includes(q),
+    );
+  }, [venues, query]);
+
+  const onCreate = async (draft: typeof EMPTY_DRAFT) => {
+    const { data, error } = await supabase.from("venues").insert(draft).select().single();
+    if (error) {
+      toast.error("Couldn't add venue", { description: error.message });
+      return false;
+    }
+    setVenues((prev) => [data as Venue, ...prev]);
+    toast.success(`Added ${draft.name}`);
+    logAudit({ admin: adminEmail, action: "edit", entity: "venue", targetId: (data as Venue).id, summary: `Added venue "${draft.name}"` });
+    return true;
+  };
+
+  const onSave = async (next: Venue) => {
+    const { id, created_at: _c, ...patch } = next;
+    void _c;
+    const { error } = await supabase.from("venues").update(patch).eq("id", id);
+    if (error) {
+      toast.error("Couldn't save", { description: error.message });
+      return false;
+    }
+    setVenues((prev) => prev.map((v) => (v.id === id ? next : v)));
+    toast.success(`Saved ${next.name}`);
+    logAudit({ admin: adminEmail, action: "edit", entity: "venue", targetId: id, summary: `Edited venue "${next.name}"` });
+    return true;
+  };
+
+  const onDelete = async (v: Venue) => {
+    if (!confirm(`Delete "${v.name}"? This cannot be undone.`)) return;
+    const { error } = await supabase.from("venues").delete().eq("id", v.id);
+    if (error) {
+      toast.error("Couldn't delete", { description: error.message });
+      return;
+    }
+    setVenues((prev) => prev.filter((x) => x.id !== v.id));
+    toast.success(`Deleted ${v.name}`);
+    logAudit({ admin: adminEmail, action: "remove", entity: "venue", targetId: v.id, summary: `Deleted venue "${v.name}"` });
   };
 
   return (
@@ -152,44 +149,49 @@ function AdminVenuesPage() {
           <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
             <Store className="h-7 w-7" /> Venues
           </h1>
-          <p className="text-sm text-muted-foreground">Review submissions, approve listings, and edit venue details.</p>
+          <p className="text-sm text-muted-foreground">
+            Add, edit, and delete venues that appear in the customer experience.
+          </p>
         </div>
+        <Dialog open={adding} onOpenChange={setAdding}>
+          <DialogTrigger asChild>
+            <Button>
+              <Plus className="mr-1 h-4 w-4" /> Add venue
+            </Button>
+          </DialogTrigger>
+          <VenueDialog
+            title="Add venue"
+            description="Create a new venue. Customers will see it in search and the wizard."
+            initial={EMPTY_DRAFT}
+            submitLabel="Add venue"
+            onSubmit={async (draft) => {
+              const ok = await onCreate(draft);
+              if (ok) setAdding(false);
+            }}
+          />
+        </Dialog>
       </header>
 
       <div className="flex flex-wrap items-center gap-2">
-        {STATUS_TABS.map((t) => {
-          const active = tab === t.key;
-          return (
-            <button
-              key={t.key}
-              onClick={() => setTab(t.key)}
-              className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
-                active
-                  ? "border-transparent bg-gradient-vibe text-primary-foreground shadow-pop"
-                  : "border-border bg-card hover:bg-muted"
-              }`}
-            >
-              {t.label}
-              <span className={`rounded-full px-1.5 text-[10px] ${active ? "bg-background/20" : "bg-muted"}`}>
-                {counts[t.key]}
-              </span>
-            </button>
-          );
-        })}
-        <div className="relative ml-auto min-w-[260px]">
+        <div className="relative ml-auto min-w-[260px] flex-1 sm:flex-none">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search by name, neighborhood, category…"
+            placeholder="Search by name, neighborhood, city, category…"
             className="pl-9"
           />
         </div>
       </div>
 
-      {filtered.length === 0 ? (
+      {loading ? (
+        <div className="grid place-items-center rounded-2xl border border-dashed border-border bg-card/50 p-10 text-sm text-muted-foreground">
+          <Loader2 className="mb-2 h-5 w-5 animate-spin" />
+          Loading venues…
+        </div>
+      ) : filtered.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-border bg-card/50 p-10 text-center text-sm text-muted-foreground">
-          No venues match your filters.
+          {venues.length === 0 ? "No venues yet — click Add venue to create the first one." : "No venues match your search."}
         </div>
       ) : (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -197,45 +199,33 @@ function AdminVenuesPage() {
             <article key={v.id} className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-5 shadow-card">
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
-                  <div className="text-xs font-mono text-muted-foreground">{v.id}</div>
                   <h3 className="truncate font-display text-lg font-bold">{v.name}</h3>
                   <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
-                    <span className="rounded-full bg-muted px-2 py-0.5">{v.category}</span>
+                    <span className="rounded-full bg-muted px-2 py-0.5">{v.category || "—"}</span>
                     <span className="inline-flex items-center gap-1">
-                      <MapPin className="h-3 w-3" /> {v.neighborhood} · {v.city}
+                      <MapPin className="h-3 w-3" /> {v.neighborhood || "—"}
+                      {v.city ? ` · ${v.city}` : ""}
                     </span>
-                    <PriceLevel level={v.priceLevel} />
+                    <PriceLevel level={v.price_level} />
                   </div>
                 </div>
-                <StatusBadge status={v.status} />
               </div>
 
-              <p className="line-clamp-3 text-sm text-foreground/85">{v.description}</p>
-
-              <div className="text-xs text-muted-foreground">
-                Submitted by <span className="font-semibold text-foreground">{v.submittedBy}</span> · {v.submittedAt}
-              </div>
+              {v.description && (
+                <p className="line-clamp-3 text-sm text-foreground/85">{v.description}</p>
+              )}
 
               <div className="mt-auto flex flex-wrap gap-2 pt-1">
-                <Button
-                  size="sm"
-                  variant="outline"
-                  disabled={v.status === "approved"}
-                  onClick={() => setStatus(v.id, "approved")}
-                >
-                  <CheckCircle2 className="mr-1 h-3.5 w-3.5" /> Approve
+                <Button size="sm" variant="ghost" className="ml-auto" onClick={() => setEditing(v)}>
+                  <Edit3 className="mr-1 h-3.5 w-3.5" /> Edit
                 </Button>
                 <Button
                   size="sm"
                   variant="ghost"
-                  disabled={v.status === "rejected"}
-                  onClick={() => setStatus(v.id, "rejected")}
                   className="text-destructive hover:text-destructive"
+                  onClick={() => void onDelete(v)}
                 >
-                  <XCircle className="mr-1 h-3.5 w-3.5" /> Reject
-                </Button>
-                <Button size="sm" variant="ghost" className="ml-auto" onClick={() => setEditing(v)}>
-                  <Edit3 className="mr-1 h-3.5 w-3.5" /> Edit
+                  <Trash2 className="mr-1 h-3.5 w-3.5" /> Delete
                 </Button>
               </div>
             </article>
@@ -243,46 +233,56 @@ function AdminVenuesPage() {
         </div>
       )}
 
-      <EditDialog venue={editing} onClose={() => setEditing(null)} onSave={saveEdit} />
+      <Dialog open={!!editing} onOpenChange={(o) => !o && setEditing(null)}>
+        {editing && (
+          <VenueDialog
+            key={editing.id}
+            title="Edit venue"
+            description="Update venue details. Changes save instantly."
+            initial={editing}
+            submitLabel="Save changes"
+            onSubmit={async (draft) => {
+              const ok = await onSave({ ...editing, ...draft });
+              if (ok) setEditing(null);
+            }}
+          />
+        )}
+      </Dialog>
     </div>
   );
 }
 
-function EditDialog({
-  venue,
-  onClose,
-  onSave,
+function VenueDialog({
+  title,
+  description,
+  initial,
+  submitLabel,
+  onSubmit,
 }: {
-  venue: Venue | null;
-  onClose: () => void;
-  onSave: (v: Venue) => void;
+  title: string;
+  description: string;
+  initial: typeof EMPTY_DRAFT | Venue;
+  submitLabel: string;
+  onSubmit: (draft: typeof EMPTY_DRAFT) => void | Promise<void>;
 }) {
-  return (
-    <Dialog open={!!venue} onOpenChange={(o) => !o && onClose()}>
-      {venue && <EditDialogBody key={venue.id} venue={venue} onClose={onClose} onSave={onSave} />}
-    </Dialog>
-  );
-}
-
-function EditDialogBody({
-  venue,
-  onClose,
-  onSave,
-}: {
-  venue: Venue;
-  onClose: () => void;
-  onSave: (v: Venue) => void;
-}) {
-  const [draft, setDraft] = useState<Venue>(venue);
-  const update = <K extends keyof Venue>(key: K, value: Venue[K]) => {
+  const [draft, setDraft] = useState<typeof EMPTY_DRAFT>({
+    name: initial.name ?? "",
+    category: initial.category ?? "",
+    neighborhood: initial.neighborhood ?? "",
+    city: initial.city ?? "",
+    price_level: initial.price_level ?? 2,
+    description: initial.description ?? "",
+    image_url: initial.image_url ?? "",
+  });
+  const [busy, setBusy] = useState(false);
+  const update = <K extends keyof typeof EMPTY_DRAFT>(key: K, value: (typeof EMPTY_DRAFT)[K]) =>
     setDraft((d) => ({ ...d, [key]: value }));
-  };
 
   return (
     <DialogContent className="max-w-lg">
       <DialogHeader>
-        <DialogTitle>Edit venue</DialogTitle>
-        <DialogDescription>Update venue details. Changes save instantly.</DialogDescription>
+        <DialogTitle>{title}</DialogTitle>
+        <DialogDescription>{description}</DialogDescription>
       </DialogHeader>
       <div className="grid gap-3">
         <div className="grid gap-1.5">
@@ -292,14 +292,14 @@ function EditDialogBody({
         <div className="grid grid-cols-2 gap-3">
           <div className="grid gap-1.5">
             <Label htmlFor="category">Category</Label>
-            <Input id="category" value={draft.category} onChange={(e) => update("category", e.target.value)} />
+            <Input id="category" placeholder="Restaurant, Bar…" value={draft.category} onChange={(e) => update("category", e.target.value)} />
           </div>
           <div className="grid gap-1.5">
             <Label htmlFor="price">Price level</Label>
             <select
               id="price"
-              value={draft.priceLevel}
-              onChange={(e) => update("priceLevel", Number(e.target.value) as Venue["priceLevel"])}
+              value={draft.price_level}
+              onChange={(e) => update("price_level", Number(e.target.value))}
               className="h-9 rounded-md border border-border bg-background px-3 text-sm"
             >
               <option value={1}>$</option>
@@ -312,26 +312,42 @@ function EditDialogBody({
         <div className="grid grid-cols-2 gap-3">
           <div className="grid gap-1.5">
             <Label htmlFor="hood">Neighborhood</Label>
-            <Input id="hood" value={draft.neighborhood} onChange={(e) => update("neighborhood", e.target.value)} />
+            <Input id="hood" value={draft.neighborhood ?? ""} onChange={(e) => update("neighborhood", e.target.value)} />
           </div>
           <div className="grid gap-1.5">
             <Label htmlFor="city">City</Label>
-            <Input id="city" value={draft.city} onChange={(e) => update("city", e.target.value)} />
+            <Input id="city" value={draft.city ?? ""} onChange={(e) => update("city", e.target.value)} />
           </div>
+        </div>
+        <div className="grid gap-1.5">
+          <Label htmlFor="image">Image URL</Label>
+          <Input id="image" placeholder="https://…" value={draft.image_url ?? ""} onChange={(e) => update("image_url", e.target.value)} />
         </div>
         <div className="grid gap-1.5">
           <Label htmlFor="desc">Description</Label>
           <Textarea
             id="desc"
-            value={draft.description}
+            value={draft.description ?? ""}
             onChange={(e) => update("description", e.target.value)}
             rows={4}
           />
         </div>
       </div>
       <DialogFooter>
-        <Button variant="ghost" onClick={onClose}>Cancel</Button>
-        <Button onClick={() => onSave(draft)}>Save changes</Button>
+        <Button
+          disabled={busy || !draft.name || !draft.category}
+          onClick={async () => {
+            setBusy(true);
+            try {
+              await onSubmit(draft);
+            } finally {
+              setBusy(false);
+            }
+          }}
+        >
+          {busy && <Loader2 className="mr-1 h-3.5 w-3.5 animate-spin" />}
+          {submitLabel}
+        </Button>
       </DialogFooter>
     </DialogContent>
   );

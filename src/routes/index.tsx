@@ -704,6 +704,7 @@ function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }:
   const href = withUtm(sponsored.href, { surface, brand: sponsored.brand, occasion: text });
   const debug = useMemo(() => isAdDebugEnabled(), []);
   const [flash, setFlash] = useState(0);
+  const impressionConfig = useMemo(() => getAdImpressionConfig(), []);
   const ref = useViewportImpression<HTMLAnchorElement>(
     () => {
       logAdViewImpression({ surface, brand: sponsored.brand, occasion: text, href }, slot);
@@ -713,7 +714,7 @@ function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }:
         window.setTimeout(() => setFlash((n) => Math.max(0, n - 1)), 900);
       }
     },
-    { threshold: 0.5 }
+    impressionConfig
   );
 
   const debugRing = debug

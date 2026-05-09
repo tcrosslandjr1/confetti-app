@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2 } from "lucide-react";
+import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2, Shield, Compass, Coffee, Sparkle, Eye } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
@@ -155,6 +155,51 @@ function ProfilePage() {
           {location && (
             <Button variant="outline" onClick={forgetLocation}>Clear saved location</Button>
           )}
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-border bg-muted/30 p-4">
+          <div className="flex items-center gap-2 text-sm font-semibold">
+            <Shield className="h-4 w-4 text-primary" /> How your location is used
+          </div>
+          <ul className="mt-3 space-y-2 text-xs text-muted-foreground">
+            <li className="flex gap-2">
+              <Compass className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+              <span>Sort venues and events by distance from your current spot.</span>
+            </li>
+            <li className="flex gap-2">
+              <Coffee className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+              <span>Bias concierge picks toward neighborhoods near you right now.</span>
+            </li>
+            <li className="flex gap-2">
+              <Sparkle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+              <span>Estimate travel times between stops on your itineraries.</span>
+            </li>
+            <li className="flex gap-2">
+              <Eye className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+              <span>
+                Stored only on this device (browser local storage). Never shared with third parties or
+                tied to your public profile.
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="mt-4 rounded-2xl border border-destructive/30 bg-destructive/5 p-4">
+          <div className="flex items-center gap-2 text-sm font-semibold text-destructive">
+            <Shield className="h-4 w-4" /> Privacy controls
+          </div>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Clear the saved coordinates from this device at any time. Recommendations will fall back to
+            your default city until you re-enable location.
+          </p>
+          <Button
+            variant="outline"
+            onClick={forgetLocation}
+            disabled={!location}
+            className="mt-3 border-destructive/40 text-destructive hover:bg-destructive/10 hover:text-destructive"
+          >
+            Clear stored location data
+          </Button>
         </div>
       </section>
 

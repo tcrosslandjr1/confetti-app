@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useAuth } from "@/lib/auth-context";
 import { useEffect, useRef } from "react";
 import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";

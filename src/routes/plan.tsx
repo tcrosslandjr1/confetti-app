@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CalendarPlus, Loader2, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
+import { logAccessDenial } from "@/lib/access-denials";
 import { OCCASIONS } from "@/lib/occasions";
 import { buildAndSaveItinerary } from "@/lib/itineraries";
 
@@ -34,7 +35,18 @@ function PlanPage() {
   const [err, setErr] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!loading && !user) nav({ to: "/auth" });
+    if (!loading && !user) {
+      logAccessDenial({
+        source: "route-guard",
+        feature: "planning",
+        attemptedPath: "/plan",
+        fromPath: "/plan",
+        viewerRole: "anonymous",
+        userId: null,
+        note: "Unauthenticated user blocked from /plan",
+      });
+      nav({ to: "/auth" });
+    }
   }, [user, loading, nav]);
 
   async function submit(e: React.FormEvent) {

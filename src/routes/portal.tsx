@@ -2,6 +2,7 @@ import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tan
 import { useEffect } from "react";
 import { Bookmark, CalendarCheck, Compass, MessageCircle, BookMarked, User, Gift } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
+import { inferFeatureFromPath, logAccessDenial } from "@/lib/access-denials";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
@@ -33,9 +34,30 @@ function PortalLayout() {
 
   useEffect(() => {
     if (loading) return;
-    if (!user) nav({ to: "/auth" });
-    else if (viewAs === "visitor") nav({ to: "/" });
-  }, [user, loading, viewAs, nav]);
+    if (!user) {
+      logAccessDenial({
+        source: "route-guard",
+        feature: inferFeatureFromPath(pathname),
+        attemptedPath: pathname,
+        fromPath: pathname,
+        viewerRole: "anonymous",
+        userId: null,
+        note: "Unauthenticated user blocked from portal route",
+      });
+      nav({ to: "/auth" });
+    } else if (viewAs === "visitor") {
+      logAccessDenial({
+        source: "route-guard",
+        feature: inferFeatureFromPath(pathname),
+        attemptedPath: pathname,
+        fromPath: pathname,
+        viewerRole: "visitor",
+        userId: user.id,
+        note: "Visitor view blocked from portal route",
+      });
+      nav({ to: "/" });
+    }
+  }, [user, loading, viewAs, nav, pathname]);
 
   if (loading || !user || viewAs === "visitor") {
     return <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">Loading…</div>;

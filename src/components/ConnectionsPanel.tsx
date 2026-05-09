@@ -22,6 +22,7 @@ import {
   startInstagramLink,
   disconnectInstagram,
 } from "@/lib/instagram-oauth.functions";
+import { getOAuthProvidersStatus } from "@/lib/oauth-providers.functions";
 
 /**
  * Unified account-linking panel.

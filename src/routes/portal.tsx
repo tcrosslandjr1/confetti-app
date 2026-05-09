@@ -2,6 +2,7 @@ import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tan
 import { useEffect } from "react";
 import { Bookmark, CalendarCheck, Compass, MessageCircle, BookMarked, User, Gift } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
+import { inferFeatureFromPath, logAccessDenial } from "@/lib/access-denials";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 

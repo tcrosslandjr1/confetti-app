@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { CalendarCheck, MapPin, Users, Clock, X, Plus, CheckCircle2 } from "lucide-react";
+import { CalendarCheck, MapPin, Users, Clock, X, Plus, CheckCircle2, Gift } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,6 @@ import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { getMyPendingFirstBookingDiscount } from "@/lib/referrals";
-import { Gift } from "lucide-react";
 
 export const Route = createFileRoute("/portal/bookings")({
   component: PortalBookingsPage,

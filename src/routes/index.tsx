@@ -14,6 +14,8 @@ import { QuickPicks } from "@/components/QuickPicks";
 import { GatedAction } from "@/components/GatedAction";
 import { logAdViewImpression, logAdClick } from "@/lib/ad-tracking";
 import { withUtm } from "@/lib/utm";
+import { isAdDebugEnabled, recordAdDebug } from "@/lib/ad-debug";
+import { AdDebugPanel } from "@/components/AdDebugPanel";
 import { useViewportImpression } from "@/hooks/useViewportImpression";
 
 export const Route = createFileRoute("/")({
@@ -684,6 +686,7 @@ function Landing() {
       </section>
 
       <SiteFooter />
+      <AdDebugPanel />
     </div>
   );
 }
@@ -699,10 +702,23 @@ type SponsoredSlotProps = {
 
 function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }: SponsoredSlotProps) {
   const href = withUtm(sponsored.href, { surface, brand: sponsored.brand, occasion: text });
+  const debug = useMemo(() => isAdDebugEnabled(), []);
+  const [flash, setFlash] = useState(0);
   const ref = useViewportImpression<HTMLAnchorElement>(
-    () => logAdViewImpression({ surface, brand: sponsored.brand, occasion: text, href }, slot),
+    () => {
+      logAdViewImpression({ surface, brand: sponsored.brand, occasion: text, href }, slot);
+      if (debug) {
+        recordAdDebug({ slot, surface, brand: sponsored.brand, occasion: text });
+        setFlash((n) => n + 1);
+        window.setTimeout(() => setFlash((n) => Math.max(0, n - 1)), 900);
+      }
+    },
     { threshold: 0.5 }
   );
+
+  const debugRing = debug
+    ? `outline outline-2 outline-offset-2 ${flash > 0 ? "outline-coral" : "outline-coral/40"} transition-all`
+    : "";
 
   if (variant === "ticker") {
     return (
@@ -710,12 +726,13 @@ function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }:
         ref={ref}
         to={href}
         onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href })}
-        className="inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink"
+        className={`relative inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-3 py-1 text-gold hover:bg-cream hover:text-ink ${debugRing}`}
         data-ad-slot={slot}
       >
         <span className="rounded-sm bg-gold px-1.5 py-0.5 text-[9px] text-ink">AD · {sponsored.brand}</span>
         <span>{text}</span>
         <span className="underline">{sponsored.cta} ↗</span>
+        {debug && <DebugBadge slot={slot} flash={flash > 0} />}
       </Link>
     );
   }
@@ -725,7 +742,7 @@ function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }:
       ref={ref}
       to={href}
       onClick={() => logAdClick({ surface, brand: sponsored.brand, occasion: text, href })}
-      className="group inline-flex items-center gap-3 rounded-full border-2 border-gold bg-ink px-4 py-1.5 transition hover:bg-gold hover:text-ink"
+      className={`group relative inline-flex items-center gap-3 rounded-full border-2 border-gold bg-ink px-4 py-1.5 transition hover:bg-gold hover:text-ink ${debugRing}`}
       data-ad-slot={slot}
     >
       <span className="rounded-full bg-gold px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink group-hover:bg-ink group-hover:text-gold">
@@ -736,6 +753,19 @@ function SponsoredMarqueeSlot({ slot, surface, text, sponsored, tone, variant }:
         {sponsored.cta} ↗
       </span>
       <span aria-hidden>✦</span>
+      {debug && <DebugBadge slot={slot} flash={flash > 0} />}
     </Link>
+  );
+}
+
+function DebugBadge({ slot, flash }: { slot: string; flash: boolean }) {
+  return (
+    <span
+      className={`pointer-events-none absolute -top-2 -right-2 rounded-md border border-ink px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider shadow-sm transition-colors ${
+        flash ? "bg-coral text-cream" : "bg-cream text-ink"
+      }`}
+    >
+      {slot}
+    </span>
   );
 }

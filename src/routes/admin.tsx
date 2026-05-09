@@ -138,7 +138,7 @@ function AdminShell({ user, pathname }: { user: ReturnType<typeof useAuth>["user
           <div className="text-sm font-semibold">Admin Console</div>
           <div className="ml-auto truncate text-xs text-muted-foreground">{user?.email}</div>
         </header>
-        <main className="min-w-0 flex-1 p-4 sm:p-6">
+        <main className="min-w-0 flex-1 overflow-x-hidden px-3 pb-[max(env(safe-area-inset-bottom),1.25rem)] pt-4 sm:p-6">
           <Outlet />
         </main>
       </div>

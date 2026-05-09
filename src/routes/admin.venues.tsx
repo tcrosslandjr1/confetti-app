@@ -279,12 +279,12 @@ function VenueDialog({
     setDraft((d) => ({ ...d, [key]: value }));
 
   return (
-    <DialogContent className="max-w-lg">
-      <DialogHeader>
+    <DialogContent className="flex max-h-[90dvh] w-[calc(100vw-1.5rem)] max-w-lg flex-col gap-4 overflow-hidden p-0 sm:w-full">
+      <DialogHeader className="px-6 pt-6">
         <DialogTitle>{title}</DialogTitle>
         <DialogDescription>{description}</DialogDescription>
       </DialogHeader>
-      <div className="grid gap-3">
+      <div className="grid gap-3 overflow-y-auto px-6">
         <div className="grid gap-1.5">
           <Label htmlFor="name">Name</Label>
           <Input id="name" value={draft.name} onChange={(e) => update("name", e.target.value)} />
@@ -333,7 +333,7 @@ function VenueDialog({
           />
         </div>
       </div>
-      <DialogFooter>
+      <DialogFooter className="border-t border-border bg-background px-6 py-4 pb-[max(env(safe-area-inset-bottom),1rem)]">
         <Button
           disabled={busy || !draft.name || !draft.category}
           onClick={async () => {

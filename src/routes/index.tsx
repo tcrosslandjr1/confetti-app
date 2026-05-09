@@ -28,32 +28,37 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
-const MARQUEE = [
-  "date night → dinner + drinks ✦",
-  "girls trip → brunch + boutiques ✦",
-  "Sunday slow → coffee + a long walk ✦",
-  "in-laws weekend → easy wins, no awkward ✦",
-  "kids day-out → museum + ice cream ✦",
-  "rooftop o'clock → sunset + spritz ✦",
-  "noodle crawl → 3 bowls, 1 night ✦",
-  "first date energy → low-key, high spark ✦",
-  "anniversary → the spot you'll remember ✦",
-  "guys' afternoon → wings + a game ✦",
-  "birthday night → dinner, drinks, dance floor ✦",
-  "bachelorette → glam + late-night karaoke ✦",
-  "proposal night → quiet view, big yes ✦",
-  "solo recharge → bookshop + a great meal ✦",
-  "double date → shared plates + a show ✦",
-  "rainy day → cozy cafés + a matinée ✦",
-  "happy hour → 2 stops, 1 hour ✦",
-  "live music → small venue, big night ✦",
-  "art crawl → galleries + a wine bar ✦",
-  "morning hike → trail + breakfast burritos ✦",
-  "beach day → towels, tacos, sunset ✦",
-  "speakeasy night → low-lit, slow burn ✦",
-  "tasting menu → all-in, no menu peeking ✦",
-  "dog-friendly day → patio + park loop ✦",
-  "out-of-towner → the 4-hour highlight reel ✦",
+type MarqueeItem = {
+  text: string;
+  sponsored?: { brand: string; cta: string; href: string };
+};
+
+const MARQUEE: MarqueeItem[] = [
+  { text: "date night → dinner + drinks" },
+  { text: "girls trip → brunch + boutiques" },
+  { text: "Sunday slow → coffee + a long walk" },
+  { text: "in-laws weekend → easy wins, no awkward" },
+  { text: "kids day-out → museum + ice cream", sponsored: { brand: "MoMA Kids", cta: "Book tickets", href: "/wizard?occasion=kids-day-out&utm_source=marquee&utm_campaign=moma_kids" } },
+  { text: "rooftop o'clock → sunset + spritz", sponsored: { brand: "Aperol", cta: "Find a rooftop", href: "/wizard?occasion=rooftop&utm_source=marquee&utm_campaign=aperol_spritz" } },
+  { text: "noodle crawl → 3 bowls, 1 night" },
+  { text: "first date energy → low-key, high spark" },
+  { text: "anniversary → the spot you'll remember" },
+  { text: "guys' afternoon → wings + a game" },
+  { text: "birthday night → dinner, drinks, dance floor" },
+  { text: "bachelorette → glam + late-night karaoke", sponsored: { brand: "Resy", cta: "Reserve the table", href: "/wizard?occasion=bachelorette&utm_source=marquee&utm_campaign=resy" } },
+  { text: "proposal night → quiet view, big yes" },
+  { text: "solo recharge → bookshop + a great meal" },
+  { text: "double date → shared plates + a show" },
+  { text: "rainy day → cozy cafés + a matinée" },
+  { text: "happy hour → 2 stops, 1 hour" },
+  { text: "live music → small venue, big night", sponsored: { brand: "DICE", cta: "Grab tickets", href: "/wizard?occasion=live-music&utm_source=marquee&utm_campaign=dice" } },
+  { text: "art crawl → galleries + a wine bar" },
+  { text: "morning hike → trail + breakfast burritos" },
+  { text: "beach day → towels, tacos, sunset" },
+  { text: "speakeasy night → low-lit, slow burn" },
+  { text: "tasting menu → all-in, no menu peeking", sponsored: { brand: "OpenTable", cta: "Book tonight", href: "/wizard?occasion=tasting-menu&utm_source=marquee&utm_campaign=opentable" } },
+  { text: "dog-friendly day → patio + park loop" },
+  { text: "out-of-towner → the 4-hour highlight reel" },
 ];
 
 

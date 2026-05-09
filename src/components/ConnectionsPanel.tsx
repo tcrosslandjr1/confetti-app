@@ -98,6 +98,7 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
   const startIgFn = useServerFn(startInstagramLink);
   const disconnectIgFn = useServerFn(disconnectInstagram);
   const listFn = useServerFn(getMyLinkedAccounts);
+  const statusFn = useServerFn(getOAuthProvidersStatus);
 
   const [error, setError] = useState<string | null>(null);
   const [busyKey, setBusyKey] = useState<ProviderKey | null>(null);

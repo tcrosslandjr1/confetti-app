@@ -15,7 +15,9 @@ import {
   Droplets,
   Thermometer,
   AlertTriangle,
+  ShieldAlert,
 } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -89,6 +91,68 @@ const WMO: Record<number, { label: string; Icon: typeof Sun }> = {
 
 function describe(code: number) {
   return WMO[code] ?? { label: "Unknown", Icon: Cloud };
+}
+
+export interface WeatherAlert {
+  id: string;
+  event: string;
+  severity: string;
+  headline: string | null;
+  description: string | null;
+  sender: string | null;
+  effective: string | null;
+  expires: string | null;
+}
+
+async function fetchAlerts(
+  lat: number,
+  lon: number,
+  country: string | null,
+): Promise<{ alerts: WeatherAlert[]; supported: boolean }> {
+  // Free U.S. National Weather Service API covers the United States and its
+  // territories. We don't have a unified free alerts feed for other regions.
+  const isUS =
+    !country ||
+    country === "United States" ||
+    country === "United States of America" ||
+    country === "USA";
+  if (!isUS) return { alerts: [], supported: false };
+  try {
+    const url = new URL("https://api.weather.gov/alerts/active");
+    url.searchParams.set("point", `${lat.toFixed(4)},${lon.toFixed(4)}`);
+    const r = await fetch(url, { headers: { Accept: "application/geo+json" } });
+    if (!r.ok) return { alerts: [], supported: true };
+    const j = (await r.json()) as {
+      features?: Array<{
+        id: string;
+        properties: {
+          event?: string;
+          severity?: string;
+          headline?: string;
+          description?: string;
+          senderName?: string;
+          effective?: string;
+          expires?: string;
+        };
+      }>;
+    };
+    const all: WeatherAlert[] = (j.features ?? []).map((f) => ({
+      id: f.id,
+      event: f.properties.event ?? "Weather alert",
+      severity: f.properties.severity ?? "Unknown",
+      headline: f.properties.headline ?? null,
+      description: f.properties.description ?? null,
+      sender: f.properties.senderName ?? null,
+      effective: f.properties.effective ?? null,
+      expires: f.properties.expires ?? null,
+    }));
+    const severe = all.filter((a) =>
+      ["Severe", "Extreme"].includes(a.severity),
+    );
+    return { alerts: severe.length > 0 ? severe : all, supported: true };
+  } catch {
+    return { alerts: [], supported: true };
+  }
 }
 
 async function geocode(query: string): Promise<Place[]> {
@@ -203,14 +267,23 @@ function WeatherPage() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Place[] | null>(null);
   const [searching, setSearching] = useState(false);
+  const [alerts, setAlerts] = useState<WeatherAlert[]>([]);
+  const [alertsSupported, setAlertsSupported] = useState(true);
+  const [expandedAlertId, setExpandedAlertId] = useState<string | null>(null);
 
   async function loadFor(p: Place) {
     setLoading(true);
     setError(null);
+    setAlerts([]);
     try {
-      const w = await fetchWeather(p.latitude, p.longitude);
+      const [w, a] = await Promise.all([
+        fetchWeather(p.latitude, p.longitude),
+        fetchAlerts(p.latitude, p.longitude, p.country),
+      ]);
       setPlace(p);
       setData(w);
+      setAlerts(a.alerts);
+      setAlertsSupported(a.supported);
       setResults(null);
       setQuery("");
     } catch (e) {
@@ -371,6 +444,78 @@ function WeatherPage() {
 
         {data && place && current && (
           <article className="mt-6 space-y-6">
+            {alerts.length > 0 && (
+              <section aria-label="Active weather alerts" className="space-y-2">
+                {alerts.map((a) => {
+                  const expanded = expandedAlertId === a.id;
+                  const extreme = a.severity === "Extreme";
+                  return (
+                    <Alert
+                      key={a.id}
+                      variant="destructive"
+                      className={
+                        extreme
+                          ? "border-destructive bg-destructive/10"
+                          : "border-destructive/60 bg-destructive/5"
+                      }
+                    >
+                      <ShieldAlert className="h-4 w-4" />
+                      <AlertTitle className="flex flex-wrap items-center gap-2">
+                        <span>{a.event}</span>
+                        <span className="rounded-full border border-destructive/40 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide">
+                          {a.severity}
+                        </span>
+                      </AlertTitle>
+                      <AlertDescription className="space-y-1.5">
+                        {a.headline && <p className="text-xs">{a.headline}</p>}
+                        {a.expires && (
+                          <p className="text-[11px] opacity-80">
+                            In effect until{" "}
+                            {new Date(a.expires).toLocaleString(undefined, {
+                              weekday: "short",
+                              month: "short",
+                              day: "numeric",
+                              hour: "numeric",
+                              minute: "2-digit",
+                            })}
+                            {a.sender ? ` · ${a.sender}` : ""}
+                          </p>
+                        )}
+                        {a.description && (
+                          <>
+                            {expanded && (
+                              <p className="mt-1 whitespace-pre-wrap text-xs leading-relaxed opacity-90">
+                                {a.description}
+                              </p>
+                            )}
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setExpandedAlertId(expanded ? null : a.id)
+                              }
+                              className="text-[11px] font-medium underline underline-offset-2"
+                            >
+                              {expanded ? "Hide details" : "Show details"}
+                            </button>
+                          </>
+                        )}
+                      </AlertDescription>
+                    </Alert>
+                  );
+                })}
+              </section>
+            )}
+            {alerts.length === 0 && alertsSupported && (
+              <p className="text-[11px] text-muted-foreground">
+                No active severe weather alerts for this location.
+              </p>
+            )}
+            {!alertsSupported && (
+              <p className="text-[11px] text-muted-foreground">
+                Severe weather alerts aren't available for this region yet
+                (currently U.S. only).
+              </p>
+            )}
             <div className="flex flex-col gap-4 rounded-xl bg-muted/40 p-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <div className="flex items-center gap-1.5 text-xs text-muted-foreground">

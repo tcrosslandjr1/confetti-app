@@ -441,6 +441,7 @@ export type Database = {
           contact_phone: string | null
           created_at: string
           description: string | null
+          dress_code: string | null
           duration_minutes: number | null
           est_cost: string | null
           id: string
@@ -472,6 +473,7 @@ export type Database = {
           contact_phone?: string | null
           created_at?: string
           description?: string | null
+          dress_code?: string | null
           duration_minutes?: number | null
           est_cost?: string | null
           id?: string
@@ -503,6 +505,7 @@ export type Database = {
           contact_phone?: string | null
           created_at?: string
           description?: string | null
+          dress_code?: string | null
           duration_minutes?: number | null
           est_cost?: string | null
           id?: string

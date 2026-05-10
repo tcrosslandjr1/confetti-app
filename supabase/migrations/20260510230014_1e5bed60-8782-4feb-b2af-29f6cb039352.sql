@@ -1,0 +1,1 @@
+ALTER TABLE public.itinerary_stops ADD COLUMN IF NOT EXISTS dress_code text;

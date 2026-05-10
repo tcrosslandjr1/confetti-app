@@ -146,16 +146,32 @@ export function TiktokProfileCard() {
         </div>
 
         {!confirming ? (
-          <button
-            type="button"
-            onClick={() => {
-              setError(null);
-              setConfirming(true);
-            }}
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground"
-          >
-            <Unlink className="h-3 w-3" /> Disconnect
-          </button>
+          <div className="flex shrink-0 items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => refreshMut.mutate()}
+              disabled={refreshMut.isPending}
+              title="Rotate the TikTok access token now"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-60"
+            >
+              {refreshMut.isPending ? (
+                <Loader2 className="h-3 w-3 animate-spin" />
+              ) : (
+                <RefreshCw className="h-3 w-3" />
+              )}
+              Refresh
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setError(null);
+                setConfirming(true);
+              }}
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground"
+            >
+              <Unlink className="h-3 w-3" /> Disconnect
+            </button>
+          </div>
         ) : (
           <div className="flex shrink-0 flex-col items-end gap-1.5">
             <p className="text-[11px] text-muted-foreground">Disconnect TikTok?</p>

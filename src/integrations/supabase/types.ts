@@ -209,6 +209,8 @@ export type Database = {
           id: string
           notes: string | null
           party_size: number
+          pre_order_drinks: Json
+          seating_preference: string | null
           starts_at: string
           status: string
           stripe_session_id: string | null
@@ -225,6 +227,8 @@ export type Database = {
           id?: string
           notes?: string | null
           party_size?: number
+          pre_order_drinks?: Json
+          seating_preference?: string | null
           starts_at: string
           status?: string
           stripe_session_id?: string | null
@@ -241,6 +245,8 @@ export type Database = {
           id?: string
           notes?: string | null
           party_size?: number
+          pre_order_drinks?: Json
+          seating_preference?: string | null
           starts_at?: string
           status?: string
           stripe_session_id?: string | null

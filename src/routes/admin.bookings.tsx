@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { CalendarCheck, CheckCircle2, Search, XCircle, Clock, Filter } from "lucide-react";
+import { CalendarCheck, CheckCircle2, Search, XCircle, Clock, Filter, Wine, Armchair } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -22,6 +22,7 @@ export const Route = createFileRoute("/admin/bookings")({
 });
 
 type Status = "pending" | "confirmed" | "cancelled";
+type DrinkItem = { name: string; qty: number; notes?: string };
 type Booking = {
   id: string;
   user_id: string;
@@ -31,6 +32,8 @@ type Booking = {
   status: string;
   cancelled_at: string | null;
   notes: string | null;
+  pre_order_drinks: DrinkItem[] | null;
+  seating_preference: string | null;
   profiles: { display_name: string | null } | null;
 };
 
@@ -62,7 +65,7 @@ function AdminBookingsPage() {
     setLoading(true);
     const { data, error } = await supabase
       .from("bookings")
-      .select("id,user_id,venue_name,starts_at,party_size,status,cancelled_at,notes")
+      .select("id,user_id,venue_name,starts_at,party_size,status,cancelled_at,notes,pre_order_drinks,seating_preference")
       .order("starts_at", { ascending: false });
     if (error) toast.error(error.message);
     const rows = (data ?? []) as Omit<Booking, "profiles">[];
@@ -194,16 +197,17 @@ function AdminBookingsPage() {
               <TableHead>Venue</TableHead>
               <TableHead>When</TableHead>
               <TableHead>Party</TableHead>
+              <TableHead>Pre-arrival</TableHead>
               <TableHead>Status</TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {loading ? (
-              <TableRow><TableCell colSpan={7} className="py-12 text-center text-sm text-muted-foreground">Loading…</TableCell></TableRow>
+              <TableRow><TableCell colSpan={8} className="py-12 text-center text-sm text-muted-foreground">Loading…</TableCell></TableRow>
             ) : filtered.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={7} className="py-12 text-center text-sm text-muted-foreground">
+                <TableCell colSpan={8} className="py-12 text-center text-sm text-muted-foreground">
                   No bookings match your filters.
                 </TableCell>
               </TableRow>
@@ -227,6 +231,30 @@ function AdminBookingsPage() {
                       <div className="text-xs text-muted-foreground">{dt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</div>
                     </TableCell>
                     <TableCell>{b.party_size}</TableCell>
+                    <TableCell className="max-w-[260px]">
+                      {(() => {
+                        const drinks = Array.isArray(b.pre_order_drinks) ? b.pre_order_drinks : [];
+                        if (drinks.length === 0 && !b.seating_preference) {
+                          return <span className="text-xs text-muted-foreground">—</span>;
+                        }
+                        return (
+                          <div className="space-y-1 text-xs">
+                            {drinks.length > 0 && (
+                              <div className="flex items-start gap-1">
+                                <Wine className="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground" />
+                                <span>{drinks.map((d) => `${d.qty}× ${d.name}${d.notes ? ` (${d.notes})` : ""}`).join(", ")}</span>
+                              </div>
+                            )}
+                            {b.seating_preference && (
+                              <div className="flex items-start gap-1">
+                                <Armchair className="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground" />
+                                <span>{b.seating_preference}</span>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })()}
+                    </TableCell>
                     <TableCell><StatusBadge status={status} /></TableCell>
                     <TableCell className="text-right">
                       <div className="inline-flex gap-2">

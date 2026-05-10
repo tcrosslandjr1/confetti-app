@@ -246,6 +246,18 @@ function AuthPage() {
             {loading && <Loader2 className="h-4 w-4 animate-spin" />}
             {mode === "signup" ? "Create account" : "Sign in"}
           </button>
+          {mode === "signup" && (
+            <p className="text-center text-[11px] leading-relaxed text-muted-foreground">
+              By creating an account you accept our{" "}
+              <Link
+                to="/data-terms"
+                className="font-semibold text-foreground underline underline-offset-2"
+              >
+                Data sharing terms
+              </Link>
+              .
+            </p>
+          )}
         </form>
 
         <button

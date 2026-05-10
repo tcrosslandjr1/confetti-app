@@ -267,14 +267,23 @@ function WeatherPage() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Place[] | null>(null);
   const [searching, setSearching] = useState(false);
+  const [alerts, setAlerts] = useState<WeatherAlert[]>([]);
+  const [alertsSupported, setAlertsSupported] = useState(true);
+  const [expandedAlertId, setExpandedAlertId] = useState<string | null>(null);
 
   async function loadFor(p: Place) {
     setLoading(true);
     setError(null);
+    setAlerts([]);
     try {
-      const w = await fetchWeather(p.latitude, p.longitude);
+      const [w, a] = await Promise.all([
+        fetchWeather(p.latitude, p.longitude),
+        fetchAlerts(p.latitude, p.longitude, p.country),
+      ]);
       setPlace(p);
       setData(w);
+      setAlerts(a.alerts);
+      setAlertsSupported(a.supported);
       setResults(null);
       setQuery("");
     } catch (e) {

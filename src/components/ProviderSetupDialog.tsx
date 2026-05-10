@@ -44,6 +44,13 @@ import {
 
 type ProviderKey = "tiktok" | "instagram";
 
+interface FieldFormat {
+  /** Inline hint shown under the input describing the expected format. */
+  hint: string;
+  /** Returns null when valid, otherwise a human-readable error string. */
+  validate: (value: string) => string | null;
+}
+
 interface ProviderCopy {
   label: string;
   portalLabel: string;
@@ -53,6 +60,40 @@ interface ProviderCopy {
   clientIdLabel: string;
   clientSecretLabel: string;
   scopesNote: string;
+  clientIdFormat: FieldFormat;
+  clientSecretFormat: FieldFormat;
+}
+
+/**
+ * Build a validator that checks the trimmed value against a regex and
+ * length window. We keep validators lenient — providers occasionally
+ * change their key shape, so we warn on obvious format problems rather
+ * than rejecting anything that doesn't match exactly.
+ */
+function makeValidator(opts: {
+  label: string;
+  pattern: RegExp;
+  minLen: number;
+  maxLen: number;
+  example?: string;
+}): FieldFormat["validate"] {
+  return (raw: string) => {
+    const v = raw.trim();
+    if (!v) return `${opts.label} is required.`;
+    if (v !== raw) {
+      return `${opts.label} has leading or trailing whitespace — remove it before submitting.`;
+    }
+    if (v.length < opts.minLen) {
+      return `${opts.label} looks too short (${v.length} chars). Expected at least ${opts.minLen}.`;
+    }
+    if (v.length > opts.maxLen) {
+      return `${opts.label} looks too long (${v.length} chars). Expected at most ${opts.maxLen}.`;
+    }
+    if (!opts.pattern.test(v)) {
+      return `${opts.label} contains unexpected characters.${opts.example ? ` Example shape: ${opts.example}` : ""}`;
+    }
+    return null;
+  };
 }
 
 const COPY: Record<ProviderKey, ProviderCopy> = {
@@ -71,6 +112,26 @@ const COPY: Record<ProviderKey, ProviderCopy> = {
       "Copy the Client Key and Client Secret from the app dashboard.",
       "Submit them in the form below — we'll review and enable TikTok sign-in.",
     ],
+    clientIdFormat: {
+      hint: "Usually ~18–24 characters, letters and digits only (e.g. aw1abc23defg45hij6).",
+      validate: makeValidator({
+        label: "Client Key",
+        pattern: /^[A-Za-z0-9]+$/,
+        minLen: 10,
+        maxLen: 64,
+        example: "aw1abc23defg45hij6",
+      }),
+    },
+    clientSecretFormat: {
+      hint: "Usually ~40 hex characters (0–9, a–f).",
+      validate: makeValidator({
+        label: "Client Secret",
+        pattern: /^[A-Za-z0-9]+$/,
+        minLen: 20,
+        maxLen: 128,
+        example: "a1b2c3d4e5f6...",
+      }),
+    },
   },
   instagram: {
     label: "Instagram",
@@ -87,6 +148,26 @@ const COPY: Record<ProviderKey, ProviderCopy> = {
       "Copy the Instagram App ID and App Secret from the basic settings.",
       "Submit them in the form below — we'll review and enable Instagram sign-in.",
     ],
+    clientIdFormat: {
+      hint: "Numeric only — usually 15–17 digits (e.g. 1234567890123456).",
+      validate: makeValidator({
+        label: "Instagram App ID",
+        pattern: /^[0-9]+$/,
+        minLen: 10,
+        maxLen: 32,
+        example: "1234567890123456",
+      }),
+    },
+    clientSecretFormat: {
+      hint: "32 hex characters (0–9, a–f).",
+      validate: makeValidator({
+        label: "Instagram App Secret",
+        pattern: /^[a-f0-9]+$/i,
+        minLen: 24,
+        maxLen: 64,
+        example: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
+      }),
+    },
   },
 };
 
@@ -131,6 +212,23 @@ export function ProviderSetupDialog({
   const [notes, setNotes] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  // Track whether each field has been "touched" so we don't yell at the
+  // user before they've had a chance to type.
+  const [touched, setTouched] = useState<{ id: boolean; secret: boolean }>({
+    id: false,
+    secret: false,
+  });
+
+  const clientIdError = useMemo(
+    () => (provider ? COPY[provider].clientIdFormat.validate(clientId) : null),
+    [provider, clientId],
+  );
+  const clientSecretError = useMemo(
+    () =>
+      provider ? COPY[provider].clientSecretFormat.validate(clientSecret) : null,
+    [provider, clientSecret],
+  );
+  const formValid = !clientIdError && !clientSecretError;
 
   // Reset form when dialog reopens for a new provider.
   useEffect(() => {
@@ -140,6 +238,7 @@ export function ProviderSetupDialog({
     setNotes("");
     setError(null);
     setCopied(false);
+    setTouched({ id: false, secret: false });
   }, [open, provider]);
 
   const submitMut = useMutation({
@@ -236,6 +335,14 @@ export function ProviderSetupDialog({
           onSubmit={(e) => {
             e.preventDefault();
             setError(null);
+            // Surface any pending format errors before hitting the server.
+            setTouched({ id: true, secret: true });
+            if (clientIdError || clientSecretError) {
+              setError(
+                "Fix the highlighted fields before submitting for review.",
+              );
+              return;
+            }
             submitMut.mutate();
           }}
           className="space-y-3"
@@ -249,11 +356,35 @@ export function ProviderSetupDialog({
               id="clientId"
               value={clientId}
               onChange={(e) => setClientId(e.target.value)}
+              onBlur={() => setTouched((t) => ({ ...t, id: true }))}
               required
               maxLength={512}
               autoComplete="off"
               spellCheck={false}
+              aria-invalid={touched.id && !!clientIdError}
+              aria-describedby="clientId-help"
+              className={
+                touched.id && clientIdError
+                  ? "border-destructive focus-visible:ring-destructive"
+                  : undefined
+              }
             />
+            {touched.id && clientIdError ? (
+              <p
+                id="clientId-help"
+                className="inline-flex items-start gap-1.5 text-[11px] text-destructive"
+              >
+                <AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" />
+                {clientIdError}
+              </p>
+            ) : (
+              <p
+                id="clientId-help"
+                className="text-[11px] text-muted-foreground"
+              >
+                {c.clientIdFormat.hint}
+              </p>
+            )}
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="clientSecret" className="text-xs">
@@ -264,11 +395,35 @@ export function ProviderSetupDialog({
               type="password"
               value={clientSecret}
               onChange={(e) => setClientSecret(e.target.value)}
+              onBlur={() => setTouched((t) => ({ ...t, secret: true }))}
               required
               maxLength={512}
               autoComplete="off"
               spellCheck={false}
+              aria-invalid={touched.secret && !!clientSecretError}
+              aria-describedby="clientSecret-help"
+              className={
+                touched.secret && clientSecretError
+                  ? "border-destructive focus-visible:ring-destructive"
+                  : undefined
+              }
             />
+            {touched.secret && clientSecretError ? (
+              <p
+                id="clientSecret-help"
+                className="inline-flex items-start gap-1.5 text-[11px] text-destructive"
+              >
+                <AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" />
+                {clientSecretError}
+              </p>
+            ) : (
+              <p
+                id="clientSecret-help"
+                className="text-[11px] text-muted-foreground"
+              >
+                {c.clientSecretFormat.hint}
+              </p>
+            )}
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="notes" className="text-xs">
@@ -298,7 +453,10 @@ export function ProviderSetupDialog({
             >
               Close
             </Button>
-            <Button type="submit" disabled={submitMut.isPending}>
+            <Button
+              type="submit"
+              disabled={submitMut.isPending || !formValid}
+            >
               {submitMut.isPending && (
                 <Loader2 className="mr-1.5 h-3.5 w-3.5 animate-spin" />
               )}

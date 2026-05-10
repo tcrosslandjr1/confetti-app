@@ -141,6 +141,7 @@ export async function buildAndSaveItinerary(payload: BuildPayload): Promise<{ id
     parking: s.parking ?? null,
     tips: s.tips ?? [],
     travel_from_prev: idx === 0 ? null : (s.travelFromPrev ?? null),
+    dress_code: s.dressCode ?? null,
   }));
   const { error: stopsErr } = await supabase.from("itinerary_stops").insert(stops);
   if (stopsErr) throw new Error(stopsErr.message);

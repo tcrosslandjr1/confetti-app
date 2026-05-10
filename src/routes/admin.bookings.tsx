@@ -65,7 +65,7 @@ function AdminBookingsPage() {
     setLoading(true);
     const { data, error } = await supabase
       .from("bookings")
-      .select("id,user_id,venue_name,starts_at,party_size,status,cancelled_at,notes")
+      .select("id,user_id,venue_name,starts_at,party_size,status,cancelled_at,notes,pre_order_drinks,seating_preference")
       .order("starts_at", { ascending: false });
     if (error) toast.error(error.message);
     const rows = (data ?? []) as Omit<Booking, "profiles">[];

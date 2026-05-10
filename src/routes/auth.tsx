@@ -25,11 +25,82 @@ function AuthPage() {
   const [refCode, setRefCode] = useState(() => getPendingReferralCode() ?? "");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [oauthBusy, setOauthBusy] = useState<"google" | "apple" | null>(null);
   const [locationBlocked, setLocationBlocked] = useState(false);
   const [allowWithoutLocation, setAllowWithoutLocation] = useState(false);
   const [seeding, setSeeding] = useState(false);
   const [seedMsg, setSeedMsg] = useState<string | null>(null);
   const seedFn = useServerFn(seedDemoAccounts);
+
+  // Translate OAuth provider/Supabase errors into something a user can act on.
+  function explainOAuthError(provider: "google" | "apple", raw: string): string {
+    const msg = raw.toLowerCase();
+    const label = provider === "google" ? "Google" : "Apple";
+    if (msg.includes("popup") && msg.includes("closed"))
+      return `${label} sign-in window was closed before finishing. Try again.`;
+    if (msg.includes("access_denied") || msg.includes("user cancelled") || msg.includes("user canceled"))
+      return `You cancelled the ${label} sign-in. No changes were made.`;
+    if (msg.includes("redirect") && msg.includes("uri"))
+      return `${label} rejected the redirect URL. The app's OAuth config needs the current domain whitelisted.`;
+    if (msg.includes("invalid_client") || msg.includes("client_id"))
+      return `${label} client credentials are invalid. Check the app configuration in Lovable Cloud → Auth.`;
+    if (msg.includes("network") || msg.includes("failed to fetch"))
+      return `Couldn't reach ${label}. Check your connection and try again.`;
+    if (msg.includes("token"))
+      return `${label} returned an invalid token. Try again, and if it keeps failing, sign in with email instead.`;
+    return `${label} sign-in failed: ${raw}`;
+  }
+
+  // Parse OAuth callback errors landing back on /auth (?error=… or #error=…).
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const search = new URLSearchParams(window.location.search);
+    const hash = new URLSearchParams(
+      window.location.hash.startsWith("#") ? window.location.hash.slice(1) : "",
+    );
+    const errParam =
+      search.get("error_description") ||
+      search.get("error") ||
+      hash.get("error_description") ||
+      hash.get("error");
+    const providerHint =
+      (search.get("provider") || hash.get("provider") || "").toLowerCase() === "apple"
+        ? "apple"
+        : "google";
+    if (errParam) {
+      setError(
+        explainOAuthError(
+          providerHint as "google" | "apple",
+          decodeURIComponent(errParam.replace(/\+/g, " ")),
+        ),
+      );
+      // Clean the URL so the error doesn't stick on refresh.
+      window.history.replaceState({}, "", window.location.pathname);
+    }
+  }, []);
+
+  const onOAuth = async (provider: "google" | "apple") => {
+    setError(null);
+    setOauthBusy(provider);
+    try {
+      const { error, redirected } = await lovable.auth.signInWithOAuth(provider, {
+        redirect_uri: `${window.location.origin}/auth`,
+      });
+      if (error) {
+        setError(explainOAuthError(provider, error.message));
+        setOauthBusy(null);
+        return;
+      }
+      if (!redirected) {
+        // Tokens already exchanged — auth-context will pick the session up.
+        navigate({ to: "/" });
+      }
+      // If redirected === true, the browser is navigating away; leave busy on.
+    } catch (e: any) {
+      setError(explainOAuthError(provider, e?.message ?? String(e)));
+      setOauthBusy(null);
+    }
+  };
 
   const fillDemo = (which: "admin" | "customer") => {
     setMode("signin");
@@ -128,34 +199,34 @@ function AuthPage() {
         <div className="mt-8 space-y-2.5">
           <button
             type="button"
-            onClick={async () => {
-              setError(null);
-              const { error } = await lovable.auth.signInWithOAuth("google", {
-                redirect_uri: `${window.location.origin}/`,
-              });
-              if (error) setError(error.message);
-            }}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-border bg-card py-4 text-sm font-semibold transition hover:bg-accent"
+            onClick={() => onOAuth("google")}
+            disabled={oauthBusy !== null}
+            aria-busy={oauthBusy === "google"}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-border bg-card py-4 text-sm font-semibold transition hover:bg-accent disabled:cursor-not-allowed disabled:opacity-60"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 4.5c1.7 0 3.2.6 4.4 1.6l3.3-3.3C17.5 1.1 14.9 0 12 0 7.3 0 3.3 2.7 1.3 6.6l3.9 3C6.2 6.7 8.9 4.5 12 4.5z"/><path fill="#34A853" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.4c-.3 1.5-1.1 2.7-2.4 3.5l3.7 2.9c2.2-2 3.8-5 3.8-8.5z"/><path fill="#4A90E2" d="M5.2 14.4c-.2-.6-.4-1.3-.4-2s.1-1.4.4-2l-3.9-3C.5 9 0 10.5 0 12s.5 3 1.3 4.6l3.9-3.2z"/><path fill="#FBBC05" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.7-2.9c-1 .7-2.4 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5l-3.9 3C3.3 21.3 7.3 24 12 24z"/></svg>
-            Continue with Google
+            {oauthBusy === "google" ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 4.5c1.7 0 3.2.6 4.4 1.6l3.3-3.3C17.5 1.1 14.9 0 12 0 7.3 0 3.3 2.7 1.3 6.6l3.9 3C6.2 6.7 8.9 4.5 12 4.5z"/><path fill="#34A853" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.4c-.3 1.5-1.1 2.7-2.4 3.5l3.7 2.9c2.2-2 3.8-5 3.8-8.5z"/><path fill="#4A90E2" d="M5.2 14.4c-.2-.6-.4-1.3-.4-2s.1-1.4.4-2l-3.9-3C.5 9 0 10.5 0 12s.5 3 1.3 4.6l3.9-3.2z"/><path fill="#FBBC05" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.7-2.9c-1 .7-2.4 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5l-3.9 3C3.3 21.3 7.3 24 12 24z"/></svg>
+            )}
+            {oauthBusy === "google" ? "Redirecting to Google…" : "Continue with Google"}
           </button>
 
           <button
             type="button"
-            onClick={async () => {
-              setError(null);
-              const { error } = await lovable.auth.signInWithOAuth("apple", {
-                redirect_uri: `${window.location.origin}/`,
-              });
-              if (error) setError(error.message);
-            }}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-border bg-foreground py-4 text-sm font-semibold text-background transition hover:opacity-90"
+            onClick={() => onOAuth("apple")}
+            disabled={oauthBusy !== null}
+            aria-busy={oauthBusy === "apple"}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-border bg-foreground py-4 text-sm font-semibold text-background transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            <svg width="16" height="18" viewBox="0 0 16 18" fill="currentColor" aria-hidden="true">
-              <path d="M13.3 9.5c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.4-.1-2.8.9-3.5.9-.7 0-1.9-.8-3.1-.8-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.8 2.4 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.1.8 1.3 0 2.1-1.1 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.7-1-2.7-4zM11 2.7c.6-.7 1-1.8.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.7-.9 2.6 1 .1 2-.5 2.6-1.2z"/>
-            </svg>
-            Continue with Apple
+            {oauthBusy === "apple" ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <svg width="16" height="18" viewBox="0 0 16 18" fill="currentColor" aria-hidden="true">
+                <path d="M13.3 9.5c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.4-.1-2.8.9-3.5.9-.7 0-1.9-.8-3.1-.8-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.8 2.4 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.1.8 1.3 0 2.1-1.1 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.7-1-2.7-4zM11 2.7c.6-.7 1-1.8.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.7-.9 2.6 1 .1 2-.5 2.6-1.2z"/>
+              </svg>
+            )}
+            {oauthBusy === "apple" ? "Redirecting to Apple…" : "Continue with Apple"}
           </button>
 
           <button
@@ -186,6 +257,17 @@ function AuthPage() {
             <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] uppercase tracking-wide">Soon</span>
           </button>
         </div>
+
+        {oauthBusy && (
+          <p
+            role="status"
+            className="mt-3 inline-flex items-center gap-1.5 text-[11px] text-muted-foreground"
+          >
+            <Loader2 className="h-3 w-3 animate-spin" />
+            Opening {oauthBusy === "google" ? "Google" : "Apple"}… you'll be
+            redirected back here when you're done.
+          </p>
+        )}
 
         <div className="my-5 flex items-center gap-3 text-[10px] uppercase tracking-wider text-muted-foreground">
           <div className="h-px flex-1 bg-border" /> or email <div className="h-px flex-1 bg-border" />
@@ -225,7 +307,18 @@ function AuthPage() {
               className="w-full rounded-2xl border border-border bg-card px-4 py-4 text-sm font-mono uppercase tracking-wider outline-none ring-ring/30 focus:ring-2"
             />
           )}
-          {error && <p className="text-xs text-destructive">{error}</p>}
+          {error && (
+            <div
+              role="alert"
+              className="flex items-start gap-2 rounded-xl border border-destructive/30 bg-destructive/5 p-3 text-xs text-destructive"
+            >
+              <span aria-hidden className="mt-0.5">⚠️</span>
+              <div className="space-y-1">
+                <p className="font-semibold">Something went wrong</p>
+                <p className="opacity-90">{error}</p>
+              </div>
+            </div>
+          )}
           {mode === "signup" && locationBlocked && (
             <label className="flex items-start gap-2 rounded-xl border border-border bg-card/50 p-3 text-xs text-muted-foreground">
               <input

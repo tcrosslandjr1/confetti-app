@@ -64,6 +64,18 @@ export const startTiktokLink = createServerFn({ method: "POST" })
   });
 
 /**
+ * Manually refresh the current user's TikTok access token.
+ * Useful as a "Reconnect" affordance in the UI before the cron runs.
+ */
+export const refreshMyTiktokToken = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const { refreshTiktokForUser } = await import("./tiktok-token.server");
+    const result = await refreshTiktokForUser(context.userId);
+    return { ok: true, expires_at: result.expires_at };
+  });
+
+/**
  * Disconnect a linked TikTok account for the current user.
  * RLS allows a user to delete their own row; we still go through a server fn
  * so we can later revoke the TikTok token server-side.

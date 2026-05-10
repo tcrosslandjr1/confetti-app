@@ -110,7 +110,7 @@ function PortalBookingsPage() {
         </div>
       ) : (
         <>
-          <Group title="Upcoming" rows={upcoming} onCancel={cancel} />
+          <Group title="Upcoming" rows={upcoming} onCancel={cancel} onUpdated={load} />
           <Group title="Past" rows={past} muted />
         </>
       )}

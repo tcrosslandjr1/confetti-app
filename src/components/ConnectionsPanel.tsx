@@ -317,40 +317,54 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
                 </div>
               </div>
 
-              {connected ? (
-                <button
-                  onClick={() => {
-                    setError(null);
-                    disconnectMut.mutate(p);
-                  }}
-                  disabled={busy}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-50"
-                >
-                  {busy ? (
-                    <Loader2 className="h-3 w-3 animate-spin" />
-                  ) : (
-                    <Unlink className="h-3 w-3" />
-                  )}
-                  Disconnect
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    setError(null);
-                    connectMut.mutate(p);
-                  }}
-                  disabled={connectDisabled}
-                  title={connectTitle}
-                  className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold disabled:cursor-not-allowed disabled:opacity-50 ${p.buttonClass}`}
-                >
-                  {busy ? (
-                    <Loader2 className="h-3 w-3 animate-spin" />
-                  ) : (
-                    <Link2 className="h-3 w-3" />
-                  )}
-                  Connect
-                </button>
-              )}
+              <div className="flex shrink-0 items-center gap-1.5">
+                {p.source === "linked_social_accounts" && !connected && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setError(null);
+                      setSetupProvider(p.key as "tiktok" | "instagram");
+                    }}
+                    className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground"
+                  >
+                    {notConfigured ? "Set up" : "Settings"}
+                  </button>
+                )}
+                {connected ? (
+                  <button
+                    onClick={() => {
+                      setError(null);
+                      disconnectMut.mutate(p);
+                    }}
+                    disabled={busy}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-50"
+                  >
+                    {busy ? (
+                      <Loader2 className="h-3 w-3 animate-spin" />
+                    ) : (
+                      <Unlink className="h-3 w-3" />
+                    )}
+                    Disconnect
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setError(null);
+                      connectMut.mutate(p);
+                    }}
+                    disabled={connectDisabled}
+                    title={connectTitle}
+                    className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold disabled:cursor-not-allowed disabled:opacity-50 ${p.buttonClass}`}
+                  >
+                    {busy ? (
+                      <Loader2 className="h-3 w-3 animate-spin" />
+                    ) : (
+                      <Link2 className="h-3 w-3" />
+                    )}
+                    Connect
+                  </button>
+                )}
+              </div>
             </li>
           );
         })}

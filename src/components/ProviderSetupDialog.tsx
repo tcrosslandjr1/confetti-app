@@ -238,6 +238,7 @@ export function ProviderSetupDialog({
     setNotes("");
     setError(null);
     setCopied(false);
+    setTouched({ id: false, secret: false });
   }, [open, provider]);
 
   const submitMut = useMutation({

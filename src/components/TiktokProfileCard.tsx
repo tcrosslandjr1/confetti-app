@@ -19,7 +19,9 @@ export function TiktokProfileCard() {
   const qc = useQueryClient();
   const listFn = useServerFn(getMyLinkedAccounts);
   const disconnectFn = useServerFn(disconnectTiktok);
+  const refreshFn = useServerFn(refreshMyTiktokToken);
   const [error, setError] = useState<string | null>(null);
+  const [refreshedAt, setRefreshedAt] = useState<string | null>(null);
   const [confirming, setConfirming] = useState(false);
 
   const { data, isLoading } = useQuery({

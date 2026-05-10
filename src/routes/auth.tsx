@@ -258,6 +258,17 @@ function AuthPage() {
           </button>
         </div>
 
+        {oauthBusy && (
+          <p
+            role="status"
+            className="mt-3 inline-flex items-center gap-1.5 text-[11px] text-muted-foreground"
+          >
+            <Loader2 className="h-3 w-3 animate-spin" />
+            Opening {oauthBusy === "google" ? "Google" : "Apple"}… you'll be
+            redirected back here when you're done.
+          </p>
+        )}
+
         <div className="my-5 flex items-center gap-3 text-[10px] uppercase tracking-wider text-muted-foreground">
           <div className="h-px flex-1 bg-border" /> or email <div className="h-px flex-1 bg-border" />
         </div>

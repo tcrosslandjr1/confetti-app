@@ -212,6 +212,23 @@ export function ProviderSetupDialog({
   const [notes, setNotes] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  // Track whether each field has been "touched" so we don't yell at the
+  // user before they've had a chance to type.
+  const [touched, setTouched] = useState<{ id: boolean; secret: boolean }>({
+    id: false,
+    secret: false,
+  });
+
+  const clientIdError = useMemo(
+    () => (provider ? COPY[provider].clientIdFormat.validate(clientId) : null),
+    [provider, clientId],
+  );
+  const clientSecretError = useMemo(
+    () =>
+      provider ? COPY[provider].clientSecretFormat.validate(clientSecret) : null,
+    [provider, clientSecret],
+  );
+  const formValid = !clientIdError && !clientSecretError;
 
   // Reset form when dialog reopens for a new provider.
   useEffect(() => {

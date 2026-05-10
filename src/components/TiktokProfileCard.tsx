@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { Music2, Loader2, Unlink, ExternalLink, AlertTriangle } from "lucide-react";
+import { Music2, Loader2, Unlink, ExternalLink, AlertTriangle, RefreshCw, CheckCircle2 } from "lucide-react";
 import {
   disconnectTiktok,
   getMyLinkedAccounts,
+  refreshMyTiktokToken,
 } from "@/lib/tiktok-oauth.functions";
 
 /**
@@ -18,7 +19,9 @@ export function TiktokProfileCard() {
   const qc = useQueryClient();
   const listFn = useServerFn(getMyLinkedAccounts);
   const disconnectFn = useServerFn(disconnectTiktok);
+  const refreshFn = useServerFn(refreshMyTiktokToken);
   const [error, setError] = useState<string | null>(null);
+  const [refreshedAt, setRefreshedAt] = useState<string | null>(null);
   const [confirming, setConfirming] = useState(false);
 
   const { data, isLoading } = useQuery({
@@ -33,6 +36,19 @@ export function TiktokProfileCard() {
     },
     onSuccess: () => {
       setConfirming(false);
+      qc.invalidateQueries({ queryKey: ["linked-accounts"] });
+    },
+    onError: (e: Error) => setError(e.message),
+  });
+
+  const refreshMut = useMutation({
+    mutationFn: async () => {
+      const r = await refreshFn({});
+      return r;
+    },
+    onSuccess: (r) => {
+      setError(null);
+      setRefreshedAt(r.expires_at ?? new Date().toISOString());
       qc.invalidateQueries({ queryKey: ["linked-accounts"] });
     },
     onError: (e: Error) => setError(e.message),
@@ -130,16 +146,32 @@ export function TiktokProfileCard() {
         </div>
 
         {!confirming ? (
-          <button
-            type="button"
-            onClick={() => {
-              setError(null);
-              setConfirming(true);
-            }}
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground"
-          >
-            <Unlink className="h-3 w-3" /> Disconnect
-          </button>
+          <div className="flex shrink-0 items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => refreshMut.mutate()}
+              disabled={refreshMut.isPending}
+              title="Rotate the TikTok access token now"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-60"
+            >
+              {refreshMut.isPending ? (
+                <Loader2 className="h-3 w-3 animate-spin" />
+              ) : (
+                <RefreshCw className="h-3 w-3" />
+              )}
+              Refresh
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setError(null);
+                setConfirming(true);
+              }}
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground"
+            >
+              <Unlink className="h-3 w-3" /> Disconnect
+            </button>
+          </div>
         ) : (
           <div className="flex shrink-0 flex-col items-end gap-1.5">
             <p className="text-[11px] text-muted-foreground">Disconnect TikTok?</p>
@@ -173,6 +205,12 @@ export function TiktokProfileCard() {
       {error && (
         <p className="mt-3 inline-flex items-center gap-1.5 text-[11px] text-destructive">
           <AlertTriangle className="h-3 w-3" /> {error}
+        </p>
+      )}
+      {refreshedAt && !error && (
+        <p className="mt-3 inline-flex items-center gap-1.5 text-[11px] text-muted-foreground">
+          <CheckCircle2 className="h-3 w-3 text-emerald-500" />
+          Token refreshed · valid until {new Date(refreshedAt).toLocaleString()}
         </p>
       )}
 

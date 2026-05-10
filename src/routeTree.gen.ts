@@ -63,6 +63,7 @@ import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport
 import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
 import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public/tiktok.callback'
 import { Route as ApiPublicInstagramCallbackRouteImport } from './routes/api/public/instagram.callback'
+import { Route as ApiPublicHooksTiktokRefreshRouteImport } from './routes/api/public/hooks/tiktok-refresh'
 
 const ReservationsRoute = ReservationsRouteImport.update({
   id: '/reservations',
@@ -335,6 +336,12 @@ const ApiPublicInstagramCallbackRoute =
     path: '/api/public/instagram/callback',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicHooksTiktokRefreshRoute =
+  ApiPublicHooksTiktokRefreshRouteImport.update({
+    id: '/api/public/hooks/tiktok-refresh',
+    path: '/api/public/hooks/tiktok-refresh',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -389,6 +396,7 @@ export interface FileRoutesByFullPath {
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
+  '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
 }
@@ -441,6 +449,7 @@ export interface FileRoutesByTo {
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat': typeof ConciergeChatIndexRoute
+  '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
 }
@@ -498,6 +507,7 @@ export interface FileRoutesById {
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
+  '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
 }
@@ -556,6 +566,7 @@ export interface FileRouteTypes {
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat/'
+    | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
     | '/api/public/tiktok/callback'
   fileRoutesByTo: FileRoutesByTo
@@ -608,6 +619,7 @@ export interface FileRouteTypes {
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat'
+    | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
     | '/api/public/tiktok/callback'
   id:
@@ -664,6 +676,7 @@ export interface FileRouteTypes {
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat/'
+    | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
     | '/api/public/tiktok/callback'
   fileRoutesById: FileRoutesById
@@ -694,6 +707,7 @@ export interface RootRouteChildren {
   TripsIdRoute: typeof TripsIdRouteWithChildren
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
+  ApiPublicHooksTiktokRefreshRoute: typeof ApiPublicHooksTiktokRefreshRoute
   ApiPublicInstagramCallbackRoute: typeof ApiPublicInstagramCallbackRoute
   ApiPublicTiktokCallbackRoute: typeof ApiPublicTiktokCallbackRoute
 }
@@ -1078,6 +1092,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicInstagramCallbackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/hooks/tiktok-refresh': {
+      id: '/api/public/hooks/tiktok-refresh'
+      path: '/api/public/hooks/tiktok-refresh'
+      fullPath: '/api/public/hooks/tiktok-refresh'
+      preLoaderRoute: typeof ApiPublicHooksTiktokRefreshRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1215,6 +1236,7 @@ const rootRouteChildren: RootRouteChildren = {
   TripsIdRoute: TripsIdRouteWithChildren,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
+  ApiPublicHooksTiktokRefreshRoute: ApiPublicHooksTiktokRefreshRoute,
   ApiPublicInstagramCallbackRoute: ApiPublicInstagramCallbackRoute,
   ApiPublicTiktokCallbackRoute: ApiPublicTiktokCallbackRoute,
 }

@@ -235,27 +235,6 @@ function AdminBookingsPage() {
                       })()}
                     </TableCell>
                     <TableCell><StatusBadge status={status} /></TableCell>
-                    <TableCell className="text-right">
-                      <div className="inline-flex gap-2">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          disabled={status === "confirmed" || status === "cancelled"}
-                          onClick={() => updateStatus(b, "confirmed")}
-                        >
-                          <CheckCircle2 className="mr-1 h-3.5 w-3.5" /> Confirm
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          disabled={status === "cancelled"}
-                          onClick={() => updateStatus(b, "cancelled")}
-                          className="text-destructive hover:text-destructive"
-                        >
-                          <XCircle className="mr-1 h-3.5 w-3.5" /> Cancel
-                        </Button>
-                      </div>
-                    </TableCell>
                   </TableRow>
                 );
               })

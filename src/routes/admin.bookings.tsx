@@ -22,6 +22,7 @@ export const Route = createFileRoute("/admin/bookings")({
 });
 
 type Status = "pending" | "confirmed" | "cancelled";
+type DrinkItem = { name: string; qty: number; notes?: string };
 type Booking = {
   id: string;
   user_id: string;
@@ -31,6 +32,8 @@ type Booking = {
   status: string;
   cancelled_at: string | null;
   notes: string | null;
+  pre_order_drinks: DrinkItem[] | null;
+  seating_preference: string | null;
   profiles: { display_name: string | null } | null;
 };
 

@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WeatherRouteImport } from './routes/weather'
 import { Route as TranslateRouteImport } from './routes/translate'
 import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -66,6 +67,11 @@ import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public
 import { Route as ApiPublicInstagramCallbackRouteImport } from './routes/api/public/instagram.callback'
 import { Route as ApiPublicHooksTiktokRefreshRouteImport } from './routes/api/public/hooks/tiktok-refresh'
 
+const WeatherRoute = WeatherRouteImport.update({
+  id: '/weather',
+  path: '/weather',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TranslateRoute = TranslateRouteImport.update({
   id: '/translate',
   path: '/translate',
@@ -368,6 +374,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
   '/translate': typeof TranslateRoute
+  '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -422,6 +429,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
   '/translate': typeof TranslateRoute
+  '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -481,6 +489,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
   '/translate': typeof TranslateRoute
+  '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -541,6 +550,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/reservations'
     | '/translate'
+    | '/weather'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
     | '/admin/analytics'
@@ -595,6 +605,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/reservations'
     | '/translate'
+    | '/weather'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
     | '/admin/analytics'
@@ -653,6 +664,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/reservations'
     | '/translate'
+    | '/weather'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
     | '/admin/analytics'
@@ -712,6 +724,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   ReservationsRoute: typeof ReservationsRoute
   TranslateRoute: typeof TranslateRoute
+  WeatherRoute: typeof WeatherRoute
   ApiChatRoute: typeof ApiChatRoute
   CollabTripIdRoute: typeof CollabTripIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
@@ -727,6 +740,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/weather': {
+      id: '/weather'
+      path: '/weather'
+      fullPath: '/weather'
+      preLoaderRoute: typeof WeatherRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/translate': {
       id: '/translate'
       path: '/translate'
@@ -1249,6 +1269,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   ReservationsRoute: ReservationsRoute,
   TranslateRoute: TranslateRoute,
+  WeatherRoute: WeatherRoute,
   ApiChatRoute: ApiChatRoute,
   CollabTripIdRoute: CollabTripIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,

@@ -147,6 +147,10 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
   }, [identityData]);
 
   // ----- Flash messages from OAuth callbacks -----
+  // Custom (TikTok/Instagram) callbacks set ?tiktok=connected etc.
+  // Native Supabase identity links return through OAuth with #error params
+  // in the URL hash on failure; on success they just land back on /me, in
+  // which case we re-fetch identities so the new row appears immediately.
   const [flash, setFlash] = useState<{ ok: boolean; text: string } | null>(null);
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -176,7 +180,23 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
         window.location.pathname + (qs ? `?${qs}` : ""),
       );
     }
-  }, []);
+
+    // Native identity link feedback (Google / Apple).
+    const hash = window.location.hash.startsWith("#")
+      ? window.location.hash.slice(1)
+      : "";
+    if (hash) {
+      const hp = new URLSearchParams(hash);
+      const err = hp.get("error_description") ?? hp.get("error");
+      if (err) {
+        setFlash({ ok: false, text: decodeURIComponent(err.replace(/\+/g, " ")) });
+        window.history.replaceState({}, "", window.location.pathname + window.location.search);
+      } else if (hp.get("access_token")) {
+        // Came back from a successful OAuth link — refresh identities.
+        qc.invalidateQueries({ queryKey: ["auth-identities"] });
+      }
+    }
+  }, [qc]);
 
   function isConnected(p: ProviderRow) {
     return p.source === "native"

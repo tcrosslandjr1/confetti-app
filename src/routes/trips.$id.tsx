@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, Check, ExternalLink, MapPin, Pencil, Trash2, Utensils, Wine, Camera, Activity, Car, Sparkles, ParkingCircle, Lightbulb, Quote, Stamp, Bus, Footprints, Bike, Navigation, Ticket, Hash, Users, Phone, Mail, Clock, FileText, ChevronDown, History, RotateCcw, Timer, Calendar, AlertTriangle, X } from "lucide-react";
+import { ArrowLeft, Check, ExternalLink, MapPin, Pencil, Trash2, Utensils, Wine, Camera, Activity, Car, Sparkles, ParkingCircle, Lightbulb, Quote, Stamp, Bus, Footprints, Bike, Navigation, Ticket, Hash, Users, Phone, Mail, Clock, FileText, ChevronDown, History, RotateCcw, Timer, Calendar, AlertTriangle, X, Shirt } from "lucide-react";
 import { toast } from "sonner";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
@@ -208,6 +208,16 @@ function TripDetail() {
                       <div className="text-sm">
                         <p className="font-semibold capitalize">{s.parking.type} · {s.parking.cost}</p>
                         <p className="text-muted-foreground">{s.parking.access}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {s.dress_code && (
+                    <div className="mt-3 flex gap-3 rounded-xl border border-border/60 bg-background p-3">
+                      <Shirt className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                      <div className="text-sm">
+                        <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Dress code</p>
+                        <p className="mt-0.5 font-medium">{s.dress_code}</p>
                       </div>
                     </div>
                   )}

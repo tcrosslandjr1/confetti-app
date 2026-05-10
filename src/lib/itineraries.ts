@@ -28,6 +28,7 @@ export type Stop = {
   contact_phone?: string | null;
   contact_email?: string | null;
   confirmation_note?: string | null;
+  dress_code?: string | null;
 };
 
 export type TravelLeg = {
@@ -66,6 +67,7 @@ type AiStop = {
   parking?: { type: string; cost: string; access: string };
   tips?: string[];
   travelFromPrev?: TravelLeg | null;
+  dressCode?: string;
 };
 type AiItinerary = {
   title: string; summary: string; estTotalCost: string; stops: AiStop[];
@@ -139,6 +141,7 @@ export async function buildAndSaveItinerary(payload: BuildPayload): Promise<{ id
     parking: s.parking ?? null,
     tips: s.tips ?? [],
     travel_from_prev: idx === 0 ? null : (s.travelFromPrev ?? null),
+    dress_code: s.dressCode ?? null,
   }));
   const { error: stopsErr } = await supabase.from("itinerary_stops").insert(stops);
   if (stopsErr) throw new Error(stopsErr.message);
@@ -233,6 +236,7 @@ export async function cloneItinerary(
       tips: s.tips ?? [],
       travel_from_prev: s.travel_from_prev ?? null,
       party_size: s.party_size ?? null,
+      dress_code: s.dress_code ?? null,
     }));
     const { error: e } = await supabase.from("itinerary_stops").insert(cloned);
     if (e) throw new Error(e.message);

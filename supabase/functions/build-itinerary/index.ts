@@ -79,7 +79,8 @@ For booking_url, provide a SEARCH URL (e.g. https://www.opentable.com/s?term=...
 For each stop also produce:
 - 2-3 short reviewSnippets — one sentence each, what real visitors typically say (varied tone). These are AI-summarized, not real quotes.
 - A parking object: type (lot|street|valet|garage|transit), cost ("$5-10/hr" or "free"), access (1 short sentence on how to access).
-- 2-3 tips: insider advice like best time to arrive, what to skip, dress code, kid-friendly notes.
+- 2-3 tips: insider advice like best time to arrive, what to skip, kid-friendly notes.
+- dressCode: 3-10 word note on what to wear at THIS stop. Be specific to the venue/activity (e.g. "Smart casual — no athleticwear", "Closed-toe shoes required", "Swimwear + cover-up", "Cocktail attire", "Layers — patio gets cool", "Comfy walking shoes", "Kid-friendly play clothes that can get messy"). NEVER omit — pick a sensible default if unsure.
 
 TRAVEL PLANNING — for EVERY stop AFTER the first one, include a travelFromPrev object describing how to get from the previous stop to this one:
 - mode: pick the BEST mode for this leg given user preference "${b.transportMode ?? "auto"}". If "auto", choose realistically: walk (<0.5mi), transit (dense urban + good transit city), car (suburban / multi-stop with gear), rideshare (drinking involved, no parking, late night).
@@ -135,6 +136,10 @@ The first stop has no travelFromPrev. Make the schedule realistic — startTime 
                     type: "array", minItems: 2, maxItems: 3,
                     items: { type: "string" },
                   },
+                  dressCode: {
+                    type: "string",
+                    description: "3-10 word note on what to wear at this stop, specific to the venue/activity.",
+                  },
                   travelFromPrev: {
                     type: "object",
                     description: "How to get here from the previous stop. Omit/null on the first stop.",
@@ -148,7 +153,7 @@ The first stop has no travelFromPrev. Make the schedule realistic — startTime 
                     required: ["mode", "durationMinutes", "instructions"],
                   },
                 },
-                required: ["name", "category", "description", "address", "startTime", "durationMinutes", "estCost", "whatToDo", "bookingUrl", "bookingProvider", "reviewSnippets", "parking", "tips"],
+                required: ["name", "category", "description", "address", "startTime", "durationMinutes", "estCost", "whatToDo", "bookingUrl", "bookingProvider", "reviewSnippets", "parking", "tips", "dressCode"],
               },
             },
           },

@@ -335,6 +335,14 @@ export function ProviderSetupDialog({
           onSubmit={(e) => {
             e.preventDefault();
             setError(null);
+            // Surface any pending format errors before hitting the server.
+            setTouched({ id: true, secret: true });
+            if (clientIdError || clientSecretError) {
+              setError(
+                "Fix the highlighted fields before submitting for review.",
+              );
+              return;
+            }
             submitMut.mutate();
           }}
           className="space-y-3"
@@ -348,11 +356,35 @@ export function ProviderSetupDialog({
               id="clientId"
               value={clientId}
               onChange={(e) => setClientId(e.target.value)}
+              onBlur={() => setTouched((t) => ({ ...t, id: true }))}
               required
               maxLength={512}
               autoComplete="off"
               spellCheck={false}
+              aria-invalid={touched.id && !!clientIdError}
+              aria-describedby="clientId-help"
+              className={
+                touched.id && clientIdError
+                  ? "border-destructive focus-visible:ring-destructive"
+                  : undefined
+              }
             />
+            {touched.id && clientIdError ? (
+              <p
+                id="clientId-help"
+                className="inline-flex items-start gap-1.5 text-[11px] text-destructive"
+              >
+                <AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" />
+                {clientIdError}
+              </p>
+            ) : (
+              <p
+                id="clientId-help"
+                className="text-[11px] text-muted-foreground"
+              >
+                {c.clientIdFormat.hint}
+              </p>
+            )}
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="clientSecret" className="text-xs">
@@ -363,11 +395,35 @@ export function ProviderSetupDialog({
               type="password"
               value={clientSecret}
               onChange={(e) => setClientSecret(e.target.value)}
+              onBlur={() => setTouched((t) => ({ ...t, secret: true }))}
               required
               maxLength={512}
               autoComplete="off"
               spellCheck={false}
+              aria-invalid={touched.secret && !!clientSecretError}
+              aria-describedby="clientSecret-help"
+              className={
+                touched.secret && clientSecretError
+                  ? "border-destructive focus-visible:ring-destructive"
+                  : undefined
+              }
             />
+            {touched.secret && clientSecretError ? (
+              <p
+                id="clientSecret-help"
+                className="inline-flex items-start gap-1.5 text-[11px] text-destructive"
+              >
+                <AlertTriangle className="mt-0.5 h-3 w-3 shrink-0" />
+                {clientSecretError}
+              </p>
+            ) : (
+              <p
+                id="clientSecret-help"
+                className="text-[11px] text-muted-foreground"
+              >
+                {c.clientSecretFormat.hint}
+              </p>
+            )}
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="notes" className="text-xs">

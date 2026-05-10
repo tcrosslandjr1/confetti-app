@@ -112,8 +112,26 @@ const COPY: Record<ProviderKey, ProviderCopy> = {
       "Copy the Client Key and Client Secret from the app dashboard.",
       "Submit them in the form below — we'll review and enable TikTok sign-in.",
     ],
-  },
-  instagram: {
+    clientIdFormat: {
+      hint: "Usually ~18–24 characters, letters and digits only (e.g. aw1abc23defg45hij6).",
+      validate: makeValidator({
+        label: "Client Key",
+        pattern: /^[A-Za-z0-9]+$/,
+        minLen: 10,
+        maxLen: 64,
+        example: "aw1abc23defg45hij6",
+      }),
+    },
+    clientSecretFormat: {
+      hint: "Usually ~40 hex characters (0–9, a–f).",
+      validate: makeValidator({
+        label: "Client Secret",
+        pattern: /^[A-Za-z0-9]+$/,
+        minLen: 20,
+        maxLen: 128,
+        example: "a1b2c3d4e5f6...",
+      }),
+    },
     label: "Instagram",
     portalLabel: "Meta for Developers",
     portalUrl: "https://developers.facebook.com/apps",

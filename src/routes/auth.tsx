@@ -199,34 +199,34 @@ function AuthPage() {
         <div className="mt-8 space-y-2.5">
           <button
             type="button"
-            onClick={async () => {
-              setError(null);
-              const { error } = await lovable.auth.signInWithOAuth("google", {
-                redirect_uri: `${window.location.origin}/`,
-              });
-              if (error) setError(error.message);
-            }}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-border bg-card py-4 text-sm font-semibold transition hover:bg-accent"
+            onClick={() => onOAuth("google")}
+            disabled={oauthBusy !== null}
+            aria-busy={oauthBusy === "google"}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-border bg-card py-4 text-sm font-semibold transition hover:bg-accent disabled:cursor-not-allowed disabled:opacity-60"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 4.5c1.7 0 3.2.6 4.4 1.6l3.3-3.3C17.5 1.1 14.9 0 12 0 7.3 0 3.3 2.7 1.3 6.6l3.9 3C6.2 6.7 8.9 4.5 12 4.5z"/><path fill="#34A853" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.4c-.3 1.5-1.1 2.7-2.4 3.5l3.7 2.9c2.2-2 3.8-5 3.8-8.5z"/><path fill="#4A90E2" d="M5.2 14.4c-.2-.6-.4-1.3-.4-2s.1-1.4.4-2l-3.9-3C.5 9 0 10.5 0 12s.5 3 1.3 4.6l3.9-3.2z"/><path fill="#FBBC05" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.7-2.9c-1 .7-2.4 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5l-3.9 3C3.3 21.3 7.3 24 12 24z"/></svg>
-            Continue with Google
+            {oauthBusy === "google" ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 4.5c1.7 0 3.2.6 4.4 1.6l3.3-3.3C17.5 1.1 14.9 0 12 0 7.3 0 3.3 2.7 1.3 6.6l3.9 3C6.2 6.7 8.9 4.5 12 4.5z"/><path fill="#34A853" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.4c-.3 1.5-1.1 2.7-2.4 3.5l3.7 2.9c2.2-2 3.8-5 3.8-8.5z"/><path fill="#4A90E2" d="M5.2 14.4c-.2-.6-.4-1.3-.4-2s.1-1.4.4-2l-3.9-3C.5 9 0 10.5 0 12s.5 3 1.3 4.6l3.9-3.2z"/><path fill="#FBBC05" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.7-2.9c-1 .7-2.4 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5l-3.9 3C3.3 21.3 7.3 24 12 24z"/></svg>
+            )}
+            {oauthBusy === "google" ? "Redirecting to Google…" : "Continue with Google"}
           </button>
 
           <button
             type="button"
-            onClick={async () => {
-              setError(null);
-              const { error } = await lovable.auth.signInWithOAuth("apple", {
-                redirect_uri: `${window.location.origin}/`,
-              });
-              if (error) setError(error.message);
-            }}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-border bg-foreground py-4 text-sm font-semibold text-background transition hover:opacity-90"
+            onClick={() => onOAuth("apple")}
+            disabled={oauthBusy !== null}
+            aria-busy={oauthBusy === "apple"}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-border bg-foreground py-4 text-sm font-semibold text-background transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            <svg width="16" height="18" viewBox="0 0 16 18" fill="currentColor" aria-hidden="true">
-              <path d="M13.3 9.5c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.4-.1-2.8.9-3.5.9-.7 0-1.9-.8-3.1-.8-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.8 2.4 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.1.8 1.3 0 2.1-1.1 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.7-1-2.7-4zM11 2.7c.6-.7 1-1.8.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.7-.9 2.6 1 .1 2-.5 2.6-1.2z"/>
-            </svg>
-            Continue with Apple
+            {oauthBusy === "apple" ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <svg width="16" height="18" viewBox="0 0 16 18" fill="currentColor" aria-hidden="true">
+                <path d="M13.3 9.5c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.4-.1-2.8.9-3.5.9-.7 0-1.9-.8-3.1-.8-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.8 2.4 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.1.8 1.3 0 2.1-1.1 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.7-1-2.7-4zM11 2.7c.6-.7 1-1.8.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.7-.9 2.6 1 .1 2-.5 2.6-1.2z"/>
+              </svg>
+            )}
+            {oauthBusy === "apple" ? "Redirecting to Apple…" : "Continue with Apple"}
           </button>
 
           <button

@@ -67,6 +67,7 @@ type AiStop = {
   parking?: { type: string; cost: string; access: string };
   tips?: string[];
   travelFromPrev?: TravelLeg | null;
+  dressCode?: string;
 };
 type AiItinerary = {
   title: string; summary: string; estTotalCost: string; stops: AiStop[];

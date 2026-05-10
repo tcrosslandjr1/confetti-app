@@ -23,6 +23,7 @@ import {
   disconnectInstagram,
 } from "@/lib/instagram-oauth.functions";
 import { getOAuthProvidersStatus } from "@/lib/oauth-providers.functions";
+import { ProviderSetupDialog } from "@/components/ProviderSetupDialog";
 
 /**
  * Unified account-linking panel.

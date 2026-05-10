@@ -136,6 +136,10 @@ The first stop has no travelFromPrev. Make the schedule realistic — startTime 
                     type: "array", minItems: 2, maxItems: 3,
                     items: { type: "string" },
                   },
+                  dressCode: {
+                    type: "string",
+                    description: "3-10 word note on what to wear at this stop, specific to the venue/activity.",
+                  },
                   travelFromPrev: {
                     type: "object",
                     description: "How to get here from the previous stop. Omit/null on the first stop.",
@@ -149,7 +153,7 @@ The first stop has no travelFromPrev. Make the schedule realistic — startTime 
                     required: ["mode", "durationMinutes", "instructions"],
                   },
                 },
-                required: ["name", "category", "description", "address", "startTime", "durationMinutes", "estCost", "whatToDo", "bookingUrl", "bookingProvider", "reviewSnippets", "parking", "tips"],
+                required: ["name", "category", "description", "address", "startTime", "durationMinutes", "estCost", "whatToDo", "bookingUrl", "bookingProvider", "reviewSnippets", "parking", "tips", "dressCode"],
               },
             },
           },

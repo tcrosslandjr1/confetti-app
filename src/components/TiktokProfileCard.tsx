@@ -41,6 +41,19 @@ export function TiktokProfileCard() {
     onError: (e: Error) => setError(e.message),
   });
 
+  const refreshMut = useMutation({
+    mutationFn: async () => {
+      const r = await refreshFn({});
+      return r;
+    },
+    onSuccess: (r) => {
+      setError(null);
+      setRefreshedAt(r.expires_at ?? new Date().toISOString());
+      qc.invalidateQueries({ queryKey: ["linked-accounts"] });
+    },
+    onError: (e: Error) => setError(e.message),
+  });
+
   if (isLoading) {
     return (
       <div className="rounded-3xl border border-border bg-card p-5 shadow-card">

@@ -103,6 +103,9 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
 
   const [error, setError] = useState<string | null>(null);
   const [busyKey, setBusyKey] = useState<ProviderKey | null>(null);
+  const [setupProvider, setSetupProvider] = useState<
+    "tiktok" | "instagram" | null
+  >(null);
 
   // ----- Linked accounts (TikTok / Instagram) -----
   const { data: linkedData, isLoading: linkedLoading } = useQuery({

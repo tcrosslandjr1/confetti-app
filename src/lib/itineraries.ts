@@ -236,6 +236,7 @@ export async function cloneItinerary(
       tips: s.tips ?? [],
       travel_from_prev: s.travel_from_prev ?? null,
       party_size: s.party_size ?? null,
+      dress_code: s.dress_code ?? null,
     }));
     const { error: e } = await supabase.from("itinerary_stops").insert(cloned);
     if (e) throw new Error(e.message);

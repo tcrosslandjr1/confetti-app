@@ -362,7 +362,17 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
                   <button
                     onClick={() => {
                       setError(null);
-                      disconnectMut.mutate(p);
+                      const total = (identityData ?? []).length;
+                      const onlyMethod =
+                        p.source === "native" && total <= 1;
+                      const msg = onlyMethod
+                        ? `${p.label} is your only sign-in method. Add another before disconnecting.`
+                        : `Disconnect ${p.label}? You'll need another way to sign in.`;
+                      if (onlyMethod) {
+                        setError(msg);
+                        return;
+                      }
+                      if (window.confirm(msg)) disconnectMut.mutate(p);
                     }}
                     disabled={busy}
                     className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-50"

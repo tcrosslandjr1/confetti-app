@@ -231,6 +231,30 @@ function AdminBookingsPage() {
                       <div className="text-xs text-muted-foreground">{dt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</div>
                     </TableCell>
                     <TableCell>{b.party_size}</TableCell>
+                    <TableCell className="max-w-[260px]">
+                      {(() => {
+                        const drinks = Array.isArray(b.pre_order_drinks) ? b.pre_order_drinks : [];
+                        if (drinks.length === 0 && !b.seating_preference) {
+                          return <span className="text-xs text-muted-foreground">—</span>;
+                        }
+                        return (
+                          <div className="space-y-1 text-xs">
+                            {drinks.length > 0 && (
+                              <div className="flex items-start gap-1">
+                                <Wine className="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground" />
+                                <span>{drinks.map((d) => `${d.qty}× ${d.name}${d.notes ? ` (${d.notes})` : ""}`).join(", ")}</span>
+                              </div>
+                            )}
+                            {b.seating_preference && (
+                              <div className="flex items-start gap-1">
+                                <Armchair className="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground" />
+                                <span>{b.seating_preference}</span>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })()}
+                    </TableCell>
                     <TableCell><StatusBadge status={status} /></TableCell>
                     <TableCell className="text-right">
                       <div className="inline-flex gap-2">

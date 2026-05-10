@@ -44,6 +44,13 @@ import {
 
 type ProviderKey = "tiktok" | "instagram";
 
+interface FieldFormat {
+  /** Inline hint shown under the input describing the expected format. */
+  hint: string;
+  /** Returns null when valid, otherwise a human-readable error string. */
+  validate: (value: string) => string | null;
+}
+
 interface ProviderCopy {
   label: string;
   portalLabel: string;
@@ -53,6 +60,40 @@ interface ProviderCopy {
   clientIdLabel: string;
   clientSecretLabel: string;
   scopesNote: string;
+  clientIdFormat: FieldFormat;
+  clientSecretFormat: FieldFormat;
+}
+
+/**
+ * Build a validator that checks the trimmed value against a regex and
+ * length window. We keep validators lenient — providers occasionally
+ * change their key shape, so we warn on obvious format problems rather
+ * than rejecting anything that doesn't match exactly.
+ */
+function makeValidator(opts: {
+  label: string;
+  pattern: RegExp;
+  minLen: number;
+  maxLen: number;
+  example?: string;
+}): FieldFormat["validate"] {
+  return (raw: string) => {
+    const v = raw.trim();
+    if (!v) return `${opts.label} is required.`;
+    if (v !== raw) {
+      return `${opts.label} has leading or trailing whitespace — remove it before submitting.`;
+    }
+    if (v.length < opts.minLen) {
+      return `${opts.label} looks too short (${v.length} chars). Expected at least ${opts.minLen}.`;
+    }
+    if (v.length > opts.maxLen) {
+      return `${opts.label} looks too long (${v.length} chars). Expected at most ${opts.maxLen}.`;
+    }
+    if (!opts.pattern.test(v)) {
+      return `${opts.label} contains unexpected characters.${opts.example ? ` Example shape: ${opts.example}` : ""}`;
+    }
+    return null;
+  };
 }
 
 const COPY: Record<ProviderKey, ProviderCopy> = {

@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { CalendarCheck, CheckCircle2, Search, XCircle, Clock, Filter, Wine, Armchair } from "lucide-react";
+import { CalendarCheck, CheckCircle2, Search, XCircle, Clock, Filter, Wine, Armchair, Eye } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   Table,
@@ -13,8 +12,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { toast } from "sonner";
-import { logAudit } from "@/lib/audit-log";
-import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/admin/bookings")({

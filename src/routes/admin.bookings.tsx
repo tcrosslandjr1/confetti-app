@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { CalendarCheck, CheckCircle2, Search, XCircle, Clock, Filter, Wine, Armchair } from "lucide-react";
+import { CalendarCheck, CheckCircle2, Search, XCircle, Clock, Filter, Wine, Armchair, Eye } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   Table,
@@ -13,8 +12,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { toast } from "sonner";
-import { logAudit } from "@/lib/audit-log";
-import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/admin/bookings")({
@@ -53,8 +50,6 @@ function StatusBadge({ status }: { status: string }) {
 }
 
 function AdminBookingsPage() {
-  const { user } = useAuth();
-  const adminEmail = user?.email ?? "admin";
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState<"all" | Status>("all");
@@ -112,23 +107,6 @@ function AdminBookingsPage() {
     [bookings],
   );
 
-  const updateStatus = async (b: Booking, status: Status) => {
-    const patch: { status: Status; cancelled_at?: string } = { status };
-    if (status === "cancelled") patch.cancelled_at = new Date().toISOString();
-    const { error } = await supabase.from("bookings").update(patch).eq("id", b.id);
-    if (error) { toast.error(error.message); return; }
-    const action = status === "confirmed" ? "Confirmed" : "Cancelled";
-    toast.success(`${action} ${b.id.slice(0, 8)}`);
-    logAudit({
-      admin: adminEmail,
-      action: status === "confirmed" ? "confirm" : "cancel",
-      entity: "booking",
-      targetId: b.id,
-      summary: `${action} booking for ${b.profiles?.display_name ?? "guest"} at ${b.venue_name}`,
-    });
-    load();
-  };
-
   return (
     <div className="space-y-6">
       <header className="flex flex-wrap items-end justify-between gap-3">
@@ -137,7 +115,9 @@ function AdminBookingsPage() {
           <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
             <CalendarCheck className="h-7 w-7" /> Bookings
           </h1>
-          <p className="text-sm text-muted-foreground">Review, confirm, or cancel reservations across venues. Live data.</p>
+          <p className="text-sm text-muted-foreground inline-flex items-center gap-1.5">
+            <Eye className="h-3.5 w-3.5" /> Monitor only — venues receive notifications and manage their own bookings.
+          </p>
         </div>
       </header>
 
@@ -199,15 +179,14 @@ function AdminBookingsPage() {
               <TableHead>Party</TableHead>
               <TableHead>Pre-arrival</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {loading ? (
-              <TableRow><TableCell colSpan={8} className="py-12 text-center text-sm text-muted-foreground">Loading…</TableCell></TableRow>
+              <TableRow><TableCell colSpan={7} className="py-12 text-center text-sm text-muted-foreground">Loading…</TableCell></TableRow>
             ) : filtered.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={8} className="py-12 text-center text-sm text-muted-foreground">
+                <TableCell colSpan={7} className="py-12 text-center text-sm text-muted-foreground">
                   No bookings match your filters.
                 </TableCell>
               </TableRow>
@@ -256,27 +235,6 @@ function AdminBookingsPage() {
                       })()}
                     </TableCell>
                     <TableCell><StatusBadge status={status} /></TableCell>
-                    <TableCell className="text-right">
-                      <div className="inline-flex gap-2">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          disabled={status === "confirmed" || status === "cancelled"}
-                          onClick={() => updateStatus(b, "confirmed")}
-                        >
-                          <CheckCircle2 className="mr-1 h-3.5 w-3.5" /> Confirm
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          disabled={status === "cancelled"}
-                          onClick={() => updateStatus(b, "cancelled")}
-                          className="text-destructive hover:text-destructive"
-                        >
-                          <XCircle className="mr-1 h-3.5 w-3.5" /> Cancel
-                        </Button>
-                      </div>
-                    </TableCell>
                   </TableRow>
                 );
               })

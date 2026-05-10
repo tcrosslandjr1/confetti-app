@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TranslateRouteImport } from './routes/translate'
 import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortalRouteImport } from './routes/portal'
@@ -65,6 +66,11 @@ import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public
 import { Route as ApiPublicInstagramCallbackRouteImport } from './routes/api/public/instagram.callback'
 import { Route as ApiPublicHooksTiktokRefreshRouteImport } from './routes/api/public/hooks/tiktok-refresh'
 
+const TranslateRoute = TranslateRouteImport.update({
+  id: '/translate',
+  path: '/translate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReservationsRoute = ReservationsRouteImport.update({
   id: '/reservations',
   path: '/reservations',
@@ -361,6 +367,7 @@ export interface FileRoutesByFullPath {
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
+  '/translate': typeof TranslateRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -414,6 +421,7 @@ export interface FileRoutesByTo {
   '/plan': typeof PlanRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
+  '/translate': typeof TranslateRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -472,6 +480,7 @@ export interface FileRoutesById {
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/reservations': typeof ReservationsRoute
+  '/translate': typeof TranslateRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
@@ -531,6 +540,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/pricing'
     | '/reservations'
+    | '/translate'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
     | '/admin/analytics'
@@ -584,6 +594,7 @@ export interface FileRouteTypes {
     | '/plan'
     | '/pricing'
     | '/reservations'
+    | '/translate'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
     | '/admin/analytics'
@@ -641,6 +652,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/pricing'
     | '/reservations'
+    | '/translate'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
     | '/admin/analytics'
@@ -699,6 +711,7 @@ export interface RootRouteChildren {
   PortalRoute: typeof PortalRouteWithChildren
   PricingRoute: typeof PricingRoute
   ReservationsRoute: typeof ReservationsRoute
+  TranslateRoute: typeof TranslateRoute
   ApiChatRoute: typeof ApiChatRoute
   CollabTripIdRoute: typeof CollabTripIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
@@ -714,6 +727,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/translate': {
+      id: '/translate'
+      path: '/translate'
+      fullPath: '/translate'
+      preLoaderRoute: typeof TranslateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reservations': {
       id: '/reservations'
       path: '/reservations'
@@ -1228,6 +1248,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortalRoute: PortalRouteWithChildren,
   PricingRoute: PricingRoute,
   ReservationsRoute: ReservationsRoute,
+  TranslateRoute: TranslateRoute,
   ApiChatRoute: ApiChatRoute,
   CollabTripIdRoute: CollabTripIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,

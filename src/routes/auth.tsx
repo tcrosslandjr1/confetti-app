@@ -296,7 +296,18 @@ function AuthPage() {
               className="w-full rounded-2xl border border-border bg-card px-4 py-4 text-sm font-mono uppercase tracking-wider outline-none ring-ring/30 focus:ring-2"
             />
           )}
-          {error && <p className="text-xs text-destructive">{error}</p>}
+          {error && (
+            <div
+              role="alert"
+              className="flex items-start gap-2 rounded-xl border border-destructive/30 bg-destructive/5 p-3 text-xs text-destructive"
+            >
+              <span aria-hidden className="mt-0.5">⚠️</span>
+              <div className="space-y-1">
+                <p className="font-semibold">Something went wrong</p>
+                <p className="opacity-90">{error}</p>
+              </div>
+            </div>
+          )}
           {mode === "signup" && locationBlocked && (
             <label className="flex items-start gap-2 rounded-xl border border-border bg-card/50 p-3 text-xs text-muted-foreground">
               <input

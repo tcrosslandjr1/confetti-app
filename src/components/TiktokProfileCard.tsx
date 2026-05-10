@@ -207,6 +207,12 @@ export function TiktokProfileCard() {
           <AlertTriangle className="h-3 w-3" /> {error}
         </p>
       )}
+      {refreshedAt && !error && (
+        <p className="mt-3 inline-flex items-center gap-1.5 text-[11px] text-muted-foreground">
+          <CheckCircle2 className="h-3 w-3 text-emerald-500" />
+          Token refreshed · valid until {new Date(refreshedAt).toLocaleString()}
+        </p>
+      )}
 
       <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
         Disconnecting removes the access token from your account. Your TikTok

@@ -28,6 +28,7 @@ export type Stop = {
   contact_phone?: string | null;
   contact_email?: string | null;
   confirmation_note?: string | null;
+  dress_code?: string | null;
 };
 
 export type TravelLeg = {

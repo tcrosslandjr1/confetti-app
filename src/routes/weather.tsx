@@ -93,6 +93,68 @@ function describe(code: number) {
   return WMO[code] ?? { label: "Unknown", Icon: Cloud };
 }
 
+export interface WeatherAlert {
+  id: string;
+  event: string;
+  severity: string;
+  headline: string | null;
+  description: string | null;
+  sender: string | null;
+  effective: string | null;
+  expires: string | null;
+}
+
+async function fetchAlerts(
+  lat: number,
+  lon: number,
+  country: string | null,
+): Promise<{ alerts: WeatherAlert[]; supported: boolean }> {
+  // Free U.S. National Weather Service API covers the United States and its
+  // territories. We don't have a unified free alerts feed for other regions.
+  const isUS =
+    !country ||
+    country === "United States" ||
+    country === "United States of America" ||
+    country === "USA";
+  if (!isUS) return { alerts: [], supported: false };
+  try {
+    const url = new URL("https://api.weather.gov/alerts/active");
+    url.searchParams.set("point", `${lat.toFixed(4)},${lon.toFixed(4)}`);
+    const r = await fetch(url, { headers: { Accept: "application/geo+json" } });
+    if (!r.ok) return { alerts: [], supported: true };
+    const j = (await r.json()) as {
+      features?: Array<{
+        id: string;
+        properties: {
+          event?: string;
+          severity?: string;
+          headline?: string;
+          description?: string;
+          senderName?: string;
+          effective?: string;
+          expires?: string;
+        };
+      }>;
+    };
+    const all: WeatherAlert[] = (j.features ?? []).map((f) => ({
+      id: f.id,
+      event: f.properties.event ?? "Weather alert",
+      severity: f.properties.severity ?? "Unknown",
+      headline: f.properties.headline ?? null,
+      description: f.properties.description ?? null,
+      sender: f.properties.senderName ?? null,
+      effective: f.properties.effective ?? null,
+      expires: f.properties.expires ?? null,
+    }));
+    const severe = all.filter((a) =>
+      ["Severe", "Extreme"].includes(a.severity),
+    );
+    return { alerts: severe.length > 0 ? severe : all, supported: true };
+  } catch {
+    return { alerts: [], supported: true };
+  }
+}
+
 async function geocode(query: string): Promise<Place[]> {
   const url = new URL("https://geocoding-api.open-meteo.com/v1/search");
   url.searchParams.set("name", query);

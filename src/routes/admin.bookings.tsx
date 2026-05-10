@@ -76,6 +76,37 @@ function AdminBookingsPage() {
 
   useEffect(() => { load(); }, []);
 
+  const venues = useMemo(() => Array.from(new Set(bookings.map((b) => b.venue_name))), [bookings]);
+
+  const filtered = useMemo(() => {
+    return bookings.filter((b) => {
+      const status = b.cancelled_at ? "cancelled" : b.status;
+      if (tab !== "all" && status !== tab) return false;
+      if (venueFilter !== "all" && b.venue_name !== venueFilter) return false;
+      if (query) {
+        const q = query.toLowerCase();
+        const guest = b.profiles?.display_name ?? "";
+        if (
+          !guest.toLowerCase().includes(q) &&
+          !b.id.toLowerCase().includes(q) &&
+          !b.venue_name.toLowerCase().includes(q)
+        )
+          return false;
+      }
+      return true;
+    });
+  }, [bookings, tab, venueFilter, query]);
+
+  const counts = useMemo(
+    () => ({
+      all: bookings.length,
+      pending: bookings.filter((b) => !b.cancelled_at && b.status === "pending").length,
+      confirmed: bookings.filter((b) => !b.cancelled_at && b.status === "confirmed").length,
+      cancelled: bookings.filter((b) => b.cancelled_at || b.status === "cancelled").length,
+    }),
+    [bookings],
+  );
+
   return (
     <div className="space-y-6">
       <header className="flex flex-wrap items-end justify-between gap-3">
@@ -84,7 +115,9 @@ function AdminBookingsPage() {
           <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
             <CalendarCheck className="h-7 w-7" /> Bookings
           </h1>
-          <p className="text-sm text-muted-foreground">Review, confirm, or cancel reservations across venues. Live data.</p>
+          <p className="text-sm text-muted-foreground inline-flex items-center gap-1.5">
+            <Eye className="h-3.5 w-3.5" /> Monitor only — venues receive notifications and manage their own bookings.
+          </p>
         </div>
       </header>
 

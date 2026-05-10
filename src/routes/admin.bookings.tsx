@@ -50,8 +50,6 @@ function StatusBadge({ status }: { status: string }) {
 }
 
 function AdminBookingsPage() {
-  const { user } = useAuth();
-  const adminEmail = user?.email ?? "admin";
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState<"all" | Status>("all");
@@ -77,54 +75,6 @@ function AdminBookingsPage() {
   };
 
   useEffect(() => { load(); }, []);
-
-  const venues = useMemo(() => Array.from(new Set(bookings.map((b) => b.venue_name))), [bookings]);
-
-  const filtered = useMemo(() => {
-    return bookings.filter((b) => {
-      const status = b.cancelled_at ? "cancelled" : b.status;
-      if (tab !== "all" && status !== tab) return false;
-      if (venueFilter !== "all" && b.venue_name !== venueFilter) return false;
-      if (query) {
-        const q = query.toLowerCase();
-        const guest = b.profiles?.display_name ?? "";
-        if (
-          !guest.toLowerCase().includes(q) &&
-          !b.id.toLowerCase().includes(q) &&
-          !b.venue_name.toLowerCase().includes(q)
-        )
-          return false;
-      }
-      return true;
-    });
-  }, [bookings, tab, venueFilter, query]);
-
-  const counts = useMemo(
-    () => ({
-      all: bookings.length,
-      pending: bookings.filter((b) => !b.cancelled_at && b.status === "pending").length,
-      confirmed: bookings.filter((b) => !b.cancelled_at && b.status === "confirmed").length,
-      cancelled: bookings.filter((b) => b.cancelled_at || b.status === "cancelled").length,
-    }),
-    [bookings],
-  );
-
-  const updateStatus = async (b: Booking, status: Status) => {
-    const patch: { status: Status; cancelled_at?: string } = { status };
-    if (status === "cancelled") patch.cancelled_at = new Date().toISOString();
-    const { error } = await supabase.from("bookings").update(patch).eq("id", b.id);
-    if (error) { toast.error(error.message); return; }
-    const action = status === "confirmed" ? "Confirmed" : "Cancelled";
-    toast.success(`${action} ${b.id.slice(0, 8)}`);
-    logAudit({
-      admin: adminEmail,
-      action: status === "confirmed" ? "confirm" : "cancel",
-      entity: "booking",
-      targetId: b.id,
-      summary: `${action} booking for ${b.profiles?.display_name ?? "guest"} at ${b.venue_name}`,
-    });
-    load();
-  };
 
   return (
     <div className="space-y-6">

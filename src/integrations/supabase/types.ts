@@ -665,6 +665,54 @@ export type Database = {
           },
         ]
       }
+      oauth_credential_submissions: {
+        Row: {
+          callback_url: string
+          client_id: string
+          client_secret: string
+          created_at: string
+          id: string
+          notes: string | null
+          provider: string
+          review_notes: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          status: Database["public"]["Enums"]["oauth_submission_status"]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          callback_url: string
+          client_id: string
+          client_secret: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          provider: string
+          review_notes?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: Database["public"]["Enums"]["oauth_submission_status"]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          callback_url?: string
+          client_id?: string
+          client_secret?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          provider?: string
+          review_notes?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: Database["public"]["Enums"]["oauth_submission_status"]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -1143,6 +1191,7 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "customer"
+      oauth_submission_status: "pending" | "approved" | "rejected"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -1271,6 +1320,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "customer"],
+      oauth_submission_status: ["pending", "approved", "rejected"],
     },
   },
 } as const

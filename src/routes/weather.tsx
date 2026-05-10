@@ -444,6 +444,78 @@ function WeatherPage() {
 
         {data && place && current && (
           <article className="mt-6 space-y-6">
+            {alerts.length > 0 && (
+              <section aria-label="Active weather alerts" className="space-y-2">
+                {alerts.map((a) => {
+                  const expanded = expandedAlertId === a.id;
+                  const extreme = a.severity === "Extreme";
+                  return (
+                    <Alert
+                      key={a.id}
+                      variant="destructive"
+                      className={
+                        extreme
+                          ? "border-destructive bg-destructive/10"
+                          : "border-destructive/60 bg-destructive/5"
+                      }
+                    >
+                      <ShieldAlert className="h-4 w-4" />
+                      <AlertTitle className="flex flex-wrap items-center gap-2">
+                        <span>{a.event}</span>
+                        <span className="rounded-full border border-destructive/40 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide">
+                          {a.severity}
+                        </span>
+                      </AlertTitle>
+                      <AlertDescription className="space-y-1.5">
+                        {a.headline && <p className="text-xs">{a.headline}</p>}
+                        {a.expires && (
+                          <p className="text-[11px] opacity-80">
+                            In effect until{" "}
+                            {new Date(a.expires).toLocaleString(undefined, {
+                              weekday: "short",
+                              month: "short",
+                              day: "numeric",
+                              hour: "numeric",
+                              minute: "2-digit",
+                            })}
+                            {a.sender ? ` · ${a.sender}` : ""}
+                          </p>
+                        )}
+                        {a.description && (
+                          <>
+                            {expanded && (
+                              <p className="mt-1 whitespace-pre-wrap text-xs leading-relaxed opacity-90">
+                                {a.description}
+                              </p>
+                            )}
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setExpandedAlertId(expanded ? null : a.id)
+                              }
+                              className="text-[11px] font-medium underline underline-offset-2"
+                            >
+                              {expanded ? "Hide details" : "Show details"}
+                            </button>
+                          </>
+                        )}
+                      </AlertDescription>
+                    </Alert>
+                  );
+                })}
+              </section>
+            )}
+            {alerts.length === 0 && alertsSupported && (
+              <p className="text-[11px] text-muted-foreground">
+                No active severe weather alerts for this location.
+              </p>
+            )}
+            {!alertsSupported && (
+              <p className="text-[11px] text-muted-foreground">
+                Severe weather alerts aren't available for this region yet
+                (currently U.S. only).
+              </p>
+            )}
             <div className="flex flex-col gap-4 rounded-xl bg-muted/40 p-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <div className="flex items-center gap-1.5 text-xs text-muted-foreground">

@@ -6,6 +6,7 @@ import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/integrations/supabase/client";
 import { loadPrefs, saveAboutMe, saveSocialHandles, saveSocialSignals, saveTasteProfile, type Prefs, type SocialHandles, type TasteProfile } from "@/lib/taste";
 import { ConnectionsPanel } from "@/components/ConnectionsPanel";
+import { TiktokProfileCard } from "@/components/TiktokProfileCard";
 
 const DATA_CONSENT_KEY = "confetti.dataSharingConsent.v1";
 
@@ -325,8 +326,9 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
 
       {msg && <p className="mt-3 rounded-lg bg-muted px-3 py-2 text-xs text-foreground/80">{msg}</p>}
 
-      <div className="mt-4">
+      <div className="mt-4 space-y-3">
         <ConnectionsPanel consent={consent} />
+        <TiktokProfileCard />
       </div>
     </div>
   );

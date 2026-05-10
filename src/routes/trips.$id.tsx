@@ -212,6 +212,16 @@ function TripDetail() {
                     </div>
                   )}
 
+                  {s.dress_code && (
+                    <div className="mt-3 flex gap-3 rounded-xl border border-border/60 bg-background p-3">
+                      <Shirt className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                      <div className="text-sm">
+                        <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Dress code</p>
+                        <p className="mt-0.5 font-medium">{s.dress_code}</p>
+                      </div>
+                    </div>
+                  )}
+
                   {Array.isArray(s.tips) && s.tips.length > 0 && (
                     <div className="mt-3 rounded-xl bg-amber-50 dark:bg-amber-950/30 p-3">
                       <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-amber-900 dark:text-amber-200">

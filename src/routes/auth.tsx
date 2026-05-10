@@ -25,11 +25,82 @@ function AuthPage() {
   const [refCode, setRefCode] = useState(() => getPendingReferralCode() ?? "");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [oauthBusy, setOauthBusy] = useState<"google" | "apple" | null>(null);
   const [locationBlocked, setLocationBlocked] = useState(false);
   const [allowWithoutLocation, setAllowWithoutLocation] = useState(false);
   const [seeding, setSeeding] = useState(false);
   const [seedMsg, setSeedMsg] = useState<string | null>(null);
   const seedFn = useServerFn(seedDemoAccounts);
+
+  // Translate OAuth provider/Supabase errors into something a user can act on.
+  function explainOAuthError(provider: "google" | "apple", raw: string): string {
+    const msg = raw.toLowerCase();
+    const label = provider === "google" ? "Google" : "Apple";
+    if (msg.includes("popup") && msg.includes("closed"))
+      return `${label} sign-in window was closed before finishing. Try again.`;
+    if (msg.includes("access_denied") || msg.includes("user cancelled") || msg.includes("user canceled"))
+      return `You cancelled the ${label} sign-in. No changes were made.`;
+    if (msg.includes("redirect") && msg.includes("uri"))
+      return `${label} rejected the redirect URL. The app's OAuth config needs the current domain whitelisted.`;
+    if (msg.includes("invalid_client") || msg.includes("client_id"))
+      return `${label} client credentials are invalid. Check the app configuration in Lovable Cloud → Auth.`;
+    if (msg.includes("network") || msg.includes("failed to fetch"))
+      return `Couldn't reach ${label}. Check your connection and try again.`;
+    if (msg.includes("token"))
+      return `${label} returned an invalid token. Try again, and if it keeps failing, sign in with email instead.`;
+    return `${label} sign-in failed: ${raw}`;
+  }
+
+  // Parse OAuth callback errors landing back on /auth (?error=… or #error=…).
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const search = new URLSearchParams(window.location.search);
+    const hash = new URLSearchParams(
+      window.location.hash.startsWith("#") ? window.location.hash.slice(1) : "",
+    );
+    const errParam =
+      search.get("error_description") ||
+      search.get("error") ||
+      hash.get("error_description") ||
+      hash.get("error");
+    const providerHint =
+      (search.get("provider") || hash.get("provider") || "").toLowerCase() === "apple"
+        ? "apple"
+        : "google";
+    if (errParam) {
+      setError(
+        explainOAuthError(
+          providerHint as "google" | "apple",
+          decodeURIComponent(errParam.replace(/\+/g, " ")),
+        ),
+      );
+      // Clean the URL so the error doesn't stick on refresh.
+      window.history.replaceState({}, "", window.location.pathname);
+    }
+  }, []);
+
+  const onOAuth = async (provider: "google" | "apple") => {
+    setError(null);
+    setOauthBusy(provider);
+    try {
+      const { error, redirected } = await lovable.auth.signInWithOAuth(provider, {
+        redirect_uri: `${window.location.origin}/auth`,
+      });
+      if (error) {
+        setError(explainOAuthError(provider, error.message));
+        setOauthBusy(null);
+        return;
+      }
+      if (!redirected) {
+        // Tokens already exchanged — auth-context will pick the session up.
+        navigate({ to: "/" });
+      }
+      // If redirected === true, the browser is navigating away; leave busy on.
+    } catch (e: any) {
+      setError(explainOAuthError(provider, e?.message ?? String(e)));
+      setOauthBusy(null);
+    }
+  };
 
   const fillDemo = (which: "admin" | "customer") => {
     setMode("signin");

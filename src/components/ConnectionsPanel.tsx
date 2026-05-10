@@ -393,6 +393,14 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
         linked_social_accounts and never exposed to the browser. Your AI agent
         reads from this table to personalize plans.
       </p>
+
+      <ProviderSetupDialog
+        provider={setupProvider}
+        open={setupProvider !== null}
+        onOpenChange={(o) => {
+          if (!o) setSetupProvider(null);
+        }}
+      />
     </div>
   );
 }

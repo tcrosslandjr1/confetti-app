@@ -453,7 +453,10 @@ export function ProviderSetupDialog({
             >
               Close
             </Button>
-            <Button type="submit" disabled={submitMut.isPending}>
+            <Button
+              type="submit"
+              disabled={submitMut.isPending || !formValid}
+            >
               {submitMut.isPending && (
                 <Loader2 className="mr-1.5 h-3.5 w-3.5 animate-spin" />
               )}

@@ -468,19 +468,59 @@ function WeatherPage() {
                       </AlertTitle>
                       <AlertDescription className="space-y-1.5">
                         {a.headline && <p className="text-xs">{a.headline}</p>}
-                        {a.expires && (
-                          <p className="text-[11px] opacity-80">
-                            In effect until{" "}
-                            {new Date(a.expires).toLocaleString(undefined, {
+                        {(() => {
+                          const now = Date.now();
+                          const eff = a.effective ? new Date(a.effective) : null;
+                          const exp = a.expires ? new Date(a.expires) : null;
+                          if (!eff && !exp) return null;
+                          const fmt = (d: Date) =>
+                            d.toLocaleString(undefined, {
                               weekday: "short",
                               month: "short",
                               day: "numeric",
                               hour: "numeric",
                               minute: "2-digit",
-                            })}
-                            {a.sender ? ` · ${a.sender}` : ""}
-                          </p>
-                        )}
+                            });
+                          const inEffect =
+                            (!eff || eff.getTime() <= now) &&
+                            (!exp || exp.getTime() > now);
+                          const upcoming = !!eff && eff.getTime() > now;
+                          const ended = !!exp && exp.getTime() <= now;
+                          return (
+                            <div className="space-y-1">
+                              <div className="flex flex-wrap items-center gap-1.5 text-[11px]">
+                                {inEffect && (
+                                  <span className="inline-flex items-center gap-1 rounded-full bg-destructive/20 px-2 py-0.5 font-semibold uppercase tracking-wide">
+                                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-destructive" />
+                                    Currently in effect
+                                  </span>
+                                )}
+                                {upcoming && (
+                                  <span className="rounded-full border border-current px-2 py-0.5 font-semibold uppercase tracking-wide opacity-80">
+                                    Upcoming
+                                  </span>
+                                )}
+                                {ended && (
+                                  <span className="rounded-full border border-current px-2 py-0.5 font-semibold uppercase tracking-wide opacity-70">
+                                    Ended
+                                  </span>
+                                )}
+                              </div>
+                              <p className="text-[11px] opacity-80">
+                                {eff && exp
+                                  ? `From ${fmt(eff)} until ${fmt(exp)}`
+                                  : exp
+                                    ? `In effect until ${fmt(exp)}`
+                                    : `From ${fmt(eff!)}`}
+                              </p>
+                              {a.sender && (
+                                <p className="text-[11px] opacity-70">
+                                  Issued by {a.sender}
+                                </p>
+                              )}
+                            </div>
+                          );
+                        })()}
                         {a.description && (
                           <>
                             {expanded && (

@@ -6,6 +6,7 @@ import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/integrations/supabase/client";
 import { loadPrefs, saveAboutMe, saveSocialHandles, saveSocialSignals, saveTasteProfile, type Prefs, type SocialHandles, type TasteProfile } from "@/lib/taste";
 import { ConnectionsPanel } from "@/components/ConnectionsPanel";
+import { TiktokProfileCard } from "@/components/TiktokProfileCard";
 
 const DATA_CONSENT_KEY = "confetti.dataSharingConsent.v1";
 

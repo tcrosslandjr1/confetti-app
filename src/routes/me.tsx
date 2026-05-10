@@ -326,8 +326,9 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
 
       {msg && <p className="mt-3 rounded-lg bg-muted px-3 py-2 text-xs text-foreground/80">{msg}</p>}
 
-      <div className="mt-4">
+      <div className="mt-4 space-y-3">
         <ConnectionsPanel consent={consent} />
+        <TiktokProfileCard />
       </div>
     </div>
   );

@@ -15,6 +15,7 @@ export const Route = createFileRoute("/portal/bookings")({
 });
 
 type Venue = { id: string; name: string; category: string; neighborhood: string | null; price_level: number; image_url: string | null };
+type DrinkItem = { name: string; qty: number; notes?: string };
 type Booking = {
   id: string;
   venue_id: string | null;
@@ -24,6 +25,8 @@ type Booking = {
   status: string;
   notes: string | null;
   cancelled_at: string | null;
+  pre_order_drinks: DrinkItem[] | null;
+  seating_preference: string | null;
 };
 
 function PortalBookingsPage() {

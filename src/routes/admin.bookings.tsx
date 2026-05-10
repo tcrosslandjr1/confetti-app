@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { CalendarCheck, CheckCircle2, Search, XCircle, Clock, Filter } from "lucide-react";
+import { CalendarCheck, CheckCircle2, Search, XCircle, Clock, Filter, Wine, Armchair } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";

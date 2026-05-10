@@ -197,6 +197,7 @@ function AdminBookingsPage() {
               <TableHead>Venue</TableHead>
               <TableHead>When</TableHead>
               <TableHead>Party</TableHead>
+              <TableHead>Pre-arrival</TableHead>
               <TableHead>Status</TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>

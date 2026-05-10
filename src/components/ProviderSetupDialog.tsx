@@ -132,6 +132,8 @@ const COPY: Record<ProviderKey, ProviderCopy> = {
         example: "a1b2c3d4e5f6...",
       }),
     },
+  },
+  instagram: {
     label: "Instagram",
     portalLabel: "Meta for Developers",
     portalUrl: "https://developers.facebook.com/apps",
@@ -146,6 +148,26 @@ const COPY: Record<ProviderKey, ProviderCopy> = {
       "Copy the Instagram App ID and App Secret from the basic settings.",
       "Submit them in the form below — we'll review and enable Instagram sign-in.",
     ],
+    clientIdFormat: {
+      hint: "Numeric only — usually 15–17 digits (e.g. 1234567890123456).",
+      validate: makeValidator({
+        label: "Instagram App ID",
+        pattern: /^[0-9]+$/,
+        minLen: 10,
+        maxLen: 32,
+        example: "1234567890123456",
+      }),
+    },
+    clientSecretFormat: {
+      hint: "32 hex characters (0–9, a–f).",
+      validate: makeValidator({
+        label: "Instagram App Secret",
+        pattern: /^[a-f0-9]+$/i,
+        minLen: 24,
+        maxLen: 64,
+        example: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
+      }),
+    },
   },
 };
 

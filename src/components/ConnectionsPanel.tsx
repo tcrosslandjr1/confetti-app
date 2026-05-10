@@ -229,7 +229,15 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
           provider: p.key as "google" | "apple",
           options: { redirectTo: `${window.location.origin}/me` },
         });
-        if (error) throw error;
+        if (error) {
+          // Common: "Manual linking is disabled" — surface actionable help.
+          if (/manual linking/i.test(error.message)) {
+            throw new Error(
+              "Manual identity linking is disabled. Enable it in Lovable Cloud → Auth settings, then try again.",
+            );
+          }
+          throw error;
+        }
         if (data?.url) window.location.href = data.url;
         return;
       }

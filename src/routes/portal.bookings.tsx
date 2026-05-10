@@ -118,21 +118,24 @@ function PortalBookingsPage() {
   );
 }
 
-function Group({ title, rows, onCancel, muted }: { title: string; rows: Booking[]; onCancel?: (id: string) => void; muted?: boolean }) {
+function Group({ title, rows, onCancel, onUpdated, muted }: { title: string; rows: Booking[]; onCancel?: (id: string) => void; onUpdated?: () => void; muted?: boolean }) {
   if (rows.length === 0) return null;
   return (
     <section>
       <h2 className="mb-3 font-display text-2xl font-bold">{title} <span className="rounded-full bg-muted px-2 py-0.5 text-sm font-semibold text-muted-foreground">{rows.length}</span></h2>
       <ul className={`grid gap-3 sm:grid-cols-2 ${muted ? "opacity-80" : ""}`}>
-        {rows.map((b) => <BookingCard key={b.id} b={b} onCancel={onCancel} />)}
+        {rows.map((b) => <BookingCard key={b.id} b={b} onCancel={onCancel} onUpdated={onUpdated} />)}
       </ul>
     </section>
   );
 }
 
-function BookingCard({ b, onCancel }: { b: Booking; onCancel?: (id: string) => void }) {
+function BookingCard({ b, onCancel, onUpdated }: { b: Booking; onCancel?: (id: string) => void; onUpdated?: () => void }) {
   const dt = new Date(b.starts_at);
   const cancelled = !!b.cancelled_at || b.status === "cancelled";
+  const confirmed = !cancelled && b.status === "confirmed";
+  const drinks = Array.isArray(b.pre_order_drinks) ? b.pre_order_drinks : [];
+  const hasPreorder = drinks.length > 0 || !!b.seating_preference;
   return (
     <li className="rounded-2xl border border-border bg-card p-5 shadow-card">
       <div className="flex items-start justify-between gap-3">
@@ -148,12 +151,111 @@ function BookingCard({ b, onCancel }: { b: Booking; onCancel?: (id: string) => v
         }`}>{cancelled ? "Cancelled" : b.status}</span>
       </div>
       {b.notes && <p className="mt-2 text-sm text-muted-foreground">{b.notes}</p>}
-      {!cancelled && onCancel && (
-        <Button variant="ghost" size="sm" className="mt-3 text-destructive hover:text-destructive" onClick={() => onCancel(b.id)}>
-          <X className="mr-1 h-3.5 w-3.5" /> Cancel reservation
-        </Button>
+
+      {confirmed && hasPreorder && (
+        <div className="mt-3 space-y-1.5 rounded-xl border border-border bg-background/60 p-3 text-xs">
+          {drinks.length > 0 && (
+            <div>
+              <div className="mb-1 inline-flex items-center gap-1 font-semibold text-foreground"><Wine className="h-3.5 w-3.5" /> Drinks ahead</div>
+              <ul className="space-y-0.5 text-muted-foreground">
+                {drinks.map((d, i) => (
+                  <li key={i}>· {d.qty}× {d.name}{d.notes ? ` — ${d.notes}` : ""}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {b.seating_preference && (
+            <div className="pt-1">
+              <span className="inline-flex items-center gap-1 font-semibold text-foreground"><Armchair className="h-3.5 w-3.5" /> Seating:</span>{" "}
+              <span className="text-muted-foreground">{b.seating_preference}</span>
+            </div>
+          )}
+        </div>
       )}
+
+      <div className="mt-3 flex flex-wrap gap-2">
+        {confirmed && <PreorderDialog booking={b} onSaved={onUpdated} />}
+        {!cancelled && onCancel && (
+          <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive" onClick={() => onCancel(b.id)}>
+            <X className="mr-1 h-3.5 w-3.5" /> Cancel
+          </Button>
+        )}
+      </div>
     </li>
+  );
+}
+
+function PreorderDialog({ booking, onSaved }: { booking: Booking; onSaved?: () => void }) {
+  const [open, setOpen] = useState(false);
+  const initial = Array.isArray(booking.pre_order_drinks) && booking.pre_order_drinks.length > 0
+    ? booking.pre_order_drinks
+    : [{ name: "", qty: 1, notes: "" }];
+  const [drinks, setDrinks] = useState<DrinkItem[]>(initial);
+  const [seating, setSeating] = useState<string>(booking.seating_preference ?? "");
+  const [saving, setSaving] = useState(false);
+  const has = (Array.isArray(booking.pre_order_drinks) && booking.pre_order_drinks.length > 0) || !!booking.seating_preference;
+
+  const update = (i: number, patch: Partial<DrinkItem>) =>
+    setDrinks((d) => d.map((row, idx) => (idx === i ? { ...row, ...patch } : row)));
+  const addRow = () => setDrinks((d) => [...d, { name: "", qty: 1, notes: "" }]);
+  const removeRow = (i: number) => setDrinks((d) => d.filter((_, idx) => idx !== i));
+
+  const save = async () => {
+    setSaving(true);
+    const cleaned = drinks
+      .map((d) => ({ name: d.name.trim(), qty: Math.max(1, Number(d.qty) || 1), notes: d.notes?.trim() || undefined }))
+      .filter((d) => d.name.length > 0);
+    const { error } = await supabase
+      .from("bookings")
+      .update({ pre_order_drinks: cleaned, seating_preference: seating.trim() || null })
+      .eq("id", booking.id);
+    setSaving(false);
+    if (error) { toast.error(error.message); return; }
+    toast.success("Preferences sent to the venue");
+    setOpen(false);
+    onSaved?.();
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button size="sm" variant="outline" className="gap-1.5">
+          <Wine className="h-3.5 w-3.5" /> {has ? "Edit drinks & seating" : "Order drinks ahead"}
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="max-w-lg">
+        <DialogHeader>
+          <DialogTitle className="font-display text-2xl">Drinks & seating — {booking.venue_name}</DialogTitle>
+        </DialogHeader>
+        <div className="space-y-4">
+          <div>
+            <Label className="flex items-center gap-1.5"><Wine className="h-4 w-4" /> Drinks to have ready</Label>
+            <div className="mt-2 space-y-2">
+              {drinks.map((d, i) => (
+                <div key={i} className="grid grid-cols-[64px_1fr_auto] gap-2">
+                  <Input type="number" min={1} max={20} value={d.qty} onChange={(e) => update(i, { qty: parseInt(e.target.value) || 1 })} />
+                  <Input value={d.name} placeholder="Negroni, Sancerre, sparkling water…" onChange={(e) => update(i, { name: e.target.value })} />
+                  <Button type="button" variant="ghost" size="icon" onClick={() => removeRow(i)} disabled={drinks.length === 1}>
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                  <div className="col-span-3">
+                    <Input value={d.notes ?? ""} placeholder="Notes (extra dry, no ice, etc.)" onChange={(e) => update(i, { notes: e.target.value })} />
+                  </div>
+                </div>
+              ))}
+              <Button type="button" variant="ghost" size="sm" onClick={addRow} className="gap-1">
+                <Plus className="h-3.5 w-3.5" /> Add another
+              </Button>
+            </div>
+          </div>
+          <div>
+            <Label className="flex items-center gap-1.5"><Armchair className="h-4 w-4" /> Desired seating area</Label>
+            <Input className="mt-2" value={seating} onChange={(e) => setSeating(e.target.value)} placeholder="Booth, patio, bar, window, quiet corner, private room…" />
+          </div>
+          <Button onClick={save} disabled={saving} className="w-full">{saving ? "Saving…" : "Save preferences"}</Button>
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }
 

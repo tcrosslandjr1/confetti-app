@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Twitter, Youtube, Music2, Github } from "lucide-react";
+import { openCookieSettings } from "@/components/CookieConsent";
 
 const cols = [
   {

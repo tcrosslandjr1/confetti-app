@@ -13,6 +13,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { makeDemoLoop, setActiveLoop } from "@/lib/loop-store";
+import { ConfettiMap } from "@/components/maps/ConfettiMap";
+import { useGeocodedPoints } from "@/lib/geocode";
 
 export const Route = createFileRoute("/quick-generate")({
   head: () => ({ meta: [{ title: "Quick Generate — Confetti" }] }),

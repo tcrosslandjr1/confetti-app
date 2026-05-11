@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { GooglePhotos } from "@/components/GooglePhotos";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/portal/saved")({

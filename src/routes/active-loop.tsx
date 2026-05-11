@@ -12,7 +12,8 @@ import {
   subscribeConfetti,
   type ActiveLoop,
 } from "@/lib/loop-store";
-import { LoopMap } from "@/components/loop/LoopMap";
+import { LoopMap, type ActiveLegInfo } from "@/components/loop/LoopMap";
+import { DirectionsPanel } from "@/components/loop/DirectionsPanel";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/active-loop")({
@@ -23,6 +24,7 @@ export const Route = createFileRoute("/active-loop")({
 function ActiveLoopPage() {
   const [loop, setLoop] = useState<ActiveLoop | null>(null);
   const [confetti, setConfettiCount] = useState(0);
+  const [activeLeg, setActiveLeg] = useState<ActiveLegInfo>(null);
   const { burst, layer } = useConfettiBurst();
   const navigate = useNavigate();
 
@@ -93,11 +95,22 @@ function ActiveLoopPage() {
             stops={loop.stops}
             currentIdx={currentIdx}
             fallbackCity={loop.stops[0]?.area || "Washington, DC"}
+            onActiveLegChange={setActiveLeg}
           />
           <div className="pointer-events-none absolute bottom-2 left-2 rounded-full bg-cream/95 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink shadow-sm">
             Live route · {loop.stops.length} stops
           </div>
         </div>
+
+        {activeLeg && activeLeg.steps.length > 0 && !completed && (
+          <DirectionsPanel
+            fromName={loop.stops[activeLeg.fromIdx]?.name || "Start"}
+            toName={loop.stops[activeLeg.toIdx]?.name || "Next"}
+            steps={activeLeg.steps}
+            distanceText={activeLeg.distanceText}
+            durationText={activeLeg.durationText}
+          />
+        )}
 
         {completed ? (
           <div className="mt-6 rounded-3xl border-2 border-ink bg-coral p-6 text-cream shadow-brut text-center">

@@ -14,6 +14,13 @@ export type MapStop = {
   done?: boolean;
 };
 
+export type DirectionsStepLite = {
+  instructionHtml: string;
+  distanceText?: string;
+  durationText?: string;
+  maneuver?: string;
+};
+
 type Props = {
   stops: MapStop[];
   currentIdx?: number;
@@ -25,6 +32,14 @@ type Props = {
   className?: string;
   /** Called once geocoding finishes so the parent can build directions links. */
   onPointsReady?: (points: GeocodeResult[]) => void;
+  /** Steps for the currently active leg (between the previous and current stop). */
+  onActiveStepsChange?: (info: {
+    fromIdx: number;
+    toIdx: number;
+    steps: DirectionsStepLite[];
+    distanceText?: string;
+    durationText?: string;
+  } | null) => void;
 };
 
 export function ConfettiMap({
@@ -37,6 +52,7 @@ export function ConfettiMap({
   onStopClick,
   className = "",
   onPointsReady,
+  onActiveStepsChange,
 }: Props) {
   if (!GOOGLE_MAPS_API_KEY) {
     return (
@@ -74,6 +90,7 @@ export function ConfettiMap({
           showUserLocation={showUserLocation}
           onStopClick={onStopClick}
           onPointsReady={onPointsReady}
+          onActiveStepsChange={onActiveStepsChange}
         />
       </Map>
     </div>
@@ -87,6 +104,7 @@ function Layer({
   showUserLocation,
   onStopClick,
   onPointsReady,
+  onActiveStepsChange,
 }: {
   stops: MapStop[];
   currentIdx: number;
@@ -94,12 +112,15 @@ function Layer({
   showUserLocation: boolean;
   onStopClick?: (stop: MapStop) => void;
   onPointsReady?: (points: GeocodeResult[]) => void;
+  onActiveStepsChange?: Props["onActiveStepsChange"];
 }) {
   const map = useMap();
   const [user, setUser] = useState<{ lat: number; lng: number } | null>(null);
   const userMarkerRef = useRef<google.maps.Marker | null>(null);
   const stopMarkersRef = useRef<google.maps.Marker[]>([]);
-  const polylineRef = useRef<google.maps.Polyline | null>(null);
+  const segmentsRef = useRef<google.maps.Polyline[]>([]);
+  const directionsServiceRef = useRef<google.maps.DirectionsService | null>(null);
+  const activeRouteRequestRef = useRef(0);
 
   const inputs = useMemo(
     () =>
@@ -123,27 +144,34 @@ function Layer({
     if (!showUserLocation || typeof navigator === "undefined" || !navigator.geolocation) return;
     navigator.geolocation.getCurrentPosition(
       (pos) => setUser({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
-      () => {
-        /* permission denied - silently ignore */
-      },
+      () => {},
       { enableHighAccuracy: false, timeout: 5000, maximumAge: 60_000 }
     );
   }, [showUserLocation]);
 
-  // Render numbered stop markers + polyline + fit bounds
+  // Determine active leg: segment ENDING at currentIdx (from currentIdx-1 → currentIdx).
+  // If we're at stop 0, the active leg is 0 → 1. If completed (-1), no active leg.
+  const activeLeg = useMemo<{ from: number; to: number } | null>(() => {
+    if (stops.length < 2) return null;
+    if (currentIdx < 0) return null;
+    if (currentIdx === 0) return { from: 0, to: 1 };
+    return { from: currentIdx - 1, to: currentIdx };
+  }, [currentIdx, stops.length]);
+
+  // Render markers + segmented polylines + fit bounds
   useEffect(() => {
     if (!map) return;
-    // Clear previous
     stopMarkersRef.current.forEach((m) => m.setMap(null));
     stopMarkersRef.current = [];
-    polylineRef.current?.setMap(null);
-    polylineRef.current = null;
+    segmentsRef.current.forEach((s) => s.setMap(null));
+    segmentsRef.current = [];
 
     const ordered = stops
       .map((s) => points.find((p) => p.id === s.id))
       .filter((p): p is GeocodeResult => !!p);
     if (ordered.length === 0) return;
 
+    // Markers
     stops.forEach((stop, i) => {
       const pt = points.find((p) => p.id === stop.id);
       if (!pt) return;
@@ -169,27 +197,75 @@ function Layer({
         zIndex: isCurrent ? 999 : 100 - i,
         title: stop.name,
       });
-      if (onStopClick) {
-        marker.addListener("click", () => onStopClick(stop));
-      }
+      if (onStopClick) marker.addListener("click", () => onStopClick(stop));
       stopMarkersRef.current.push(marker);
     });
 
-    polylineRef.current = new google.maps.Polyline({
-      path: ordered.map((p) => ({ lat: p.lat, lng: p.lng })),
-      geodesic: false,
-      strokeColor: "#F05537",
-      strokeOpacity: 0.9,
-      strokeWeight: 3,
-      icons: [
-        {
-          icon: { path: "M 0,-1 0,1", strokeOpacity: 1, scale: 3 },
-          offset: "0",
-          repeat: "12px",
-        },
-      ],
-      map,
-    });
+    // Per-segment polylines
+    for (let i = 0; i < stops.length - 1; i++) {
+      const a = points.find((p) => p.id === stops[i].id);
+      const b = points.find((p) => p.id === stops[i + 1].id);
+      if (!a || !b) continue;
+
+      const isPast = !!activeLeg && i < activeLeg.from;
+      const isActive = !!activeLeg && i === activeLeg.from;
+
+      const style: google.maps.PolylineOptions = isActive
+        ? {
+            strokeColor: "#F05537",
+            strokeOpacity: 1,
+            strokeWeight: 5,
+            zIndex: 50,
+            icons: [
+              {
+                icon: {
+                  path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                  scale: 3,
+                  strokeColor: "#F05537",
+                  fillColor: "#F05537",
+                  fillOpacity: 1,
+                },
+                offset: "0",
+                repeat: "80px",
+              },
+            ],
+          }
+        : isPast
+        ? {
+            strokeColor: "#1A1410",
+            strokeOpacity: 0.25,
+            strokeWeight: 3,
+            zIndex: 10,
+          }
+        : {
+            // future segments: dashed coral
+            strokeOpacity: 0,
+            zIndex: 20,
+            icons: [
+              {
+                icon: {
+                  path: "M 0,-1 0,1",
+                  strokeOpacity: 1,
+                  strokeColor: "#F05537",
+                  scale: 3,
+                },
+                offset: "0",
+                repeat: "12px",
+              },
+            ],
+          };
+
+      const segment = new google.maps.Polyline({
+        path: [
+          { lat: a.lat, lng: a.lng },
+          { lat: b.lat, lng: b.lng },
+        ],
+        geodesic: false,
+        ...style,
+        map,
+      });
+      segmentsRef.current.push(segment);
+    }
 
     // Fit bounds
     const bounds = new google.maps.LatLngBounds();
@@ -202,10 +278,69 @@ function Layer({
     return () => {
       stopMarkersRef.current.forEach((m) => m.setMap(null));
       stopMarkersRef.current = [];
-      polylineRef.current?.setMap(null);
-      polylineRef.current = null;
+      segmentsRef.current.forEach((s) => s.setMap(null));
+      segmentsRef.current = [];
     };
-  }, [map, points, stops, currentIdx, user, onStopClick]);
+  }, [map, points, stops, currentIdx, user, onStopClick, activeLeg]);
+
+  // Fetch real road geometry + steps for the active leg
+  useEffect(() => {
+    if (!map || !activeLeg) {
+      onActiveStepsChange?.(null);
+      return;
+    }
+    const a = points.find((p) => p.id === stops[activeLeg.from]?.id);
+    const b = points.find((p) => p.id === stops[activeLeg.to]?.id);
+    if (!a || !b) return;
+
+    if (!directionsServiceRef.current) {
+      directionsServiceRef.current = new google.maps.DirectionsService();
+    }
+    const reqId = ++activeRouteRequestRef.current;
+
+    directionsServiceRef.current.route(
+      {
+        origin: { lat: a.lat, lng: a.lng },
+        destination: { lat: b.lat, lng: b.lng },
+        travelMode: google.maps.TravelMode.DRIVING,
+      },
+      (result, status) => {
+        if (reqId !== activeRouteRequestRef.current) return; // superseded
+        if (status !== google.maps.DirectionsStatus.OK || !result) {
+          onActiveStepsChange?.({
+            fromIdx: activeLeg.from,
+            toIdx: activeLeg.to,
+            steps: [],
+          });
+          return;
+        }
+        const leg = result.routes[0]?.legs[0];
+        if (!leg) return;
+
+        // Replace the active straight-line segment with the real route polyline
+        const activeSegment = segmentsRef.current.find(
+          (poly) => poly.get("strokeWeight") === 5 && poly.get("strokeColor") === "#F05537"
+        );
+        if (activeSegment) {
+          activeSegment.setPath(result.routes[0].overview_path);
+        }
+
+        const steps: DirectionsStepLite[] = leg.steps.map((s) => ({
+          instructionHtml: s.instructions,
+          distanceText: s.distance?.text,
+          durationText: s.duration?.text,
+          maneuver: (s as google.maps.DirectionsStep & { maneuver?: string }).maneuver,
+        }));
+        onActiveStepsChange?.({
+          fromIdx: activeLeg.from,
+          toIdx: activeLeg.to,
+          steps,
+          distanceText: leg.distance?.text,
+          durationText: leg.duration?.text,
+        });
+      }
+    );
+  }, [map, points, stops, activeLeg, onActiveStepsChange]);
 
   // User location pulsing dot
   useEffect(() => {

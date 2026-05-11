@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Flame, ArrowRight, MapPin } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -20,6 +20,18 @@ type ViralVenue = {
 
 export function ViralNow({ city = "Washington DC", limit = 8 }: { city?: string; limit?: number }) {
   const [venues, setVenues] = useState<ViralVenue[] | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Slow down horizontal wheel scroll for a more deliberate feel
+  const SCROLL_SPEED = 0.25;
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (delta === 0) return;
+    e.preventDefault();
+    el.scrollBy({ left: delta * SCROLL_SPEED, behavior: "auto" });
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -66,7 +78,7 @@ export function ViralNow({ city = "Washington DC", limit = 8 }: { city?: string;
       )}
 
       {venues && venues.length > 0 && (
-        <div className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-2 snap-x">
+        <div ref={scrollRef} onWheel={handleWheel} className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-2 snap-x scroll-smooth">
           {venues.map((v) => (
             <ViralCard key={v.id} v={v} />
           ))}

@@ -12,7 +12,7 @@ import {
   subscribeConfetti,
   type ActiveLoop,
 } from "@/lib/loop-store";
-import { LoopMap, type ActiveLegInfo } from "@/components/loop/LoopMap";
+import { LoopMap, type ActiveLegInfo, type TravelMode } from "@/components/loop/LoopMap";
 import { DirectionsPanel } from "@/components/loop/DirectionsPanel";
 import { toast } from "sonner";
 

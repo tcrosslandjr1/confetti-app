@@ -117,3 +117,24 @@ function Field({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
+
+function StopRow({ stop }: { stop: LoopStop }) {
+  const inner = (
+    <div className="flex items-center justify-between gap-2 rounded-xl border border-ink/15 bg-card p-3 transition-pop group-hover:-translate-y-0.5 group-hover:border-ink/40 group-hover:shadow-pop">
+      <div className="min-w-0">
+        <div className="flex items-baseline justify-between gap-2">
+          <div className="font-display text-sm font-bold truncate">{stop.name}</div>
+          <span className="font-mono text-[10px] font-bold text-ink/60 shrink-0">{stop.time}</span>
+        </div>
+        <div className="text-xs text-muted-foreground">{stop.type}{stop.area ? ` · ${stop.area}` : ""}</div>
+      </div>
+      {stop.venueId && <ChevronRight className="h-4 w-4 text-ink/40 shrink-0" />}
+    </div>
+  );
+  if (!stop.venueId) return inner;
+  return (
+    <Link to="/venue/$id" params={{ id: stop.venueId }} className="group block focus:outline-none">
+      {inner}
+    </Link>
+  );
+}

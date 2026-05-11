@@ -1,5 +1,6 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { getItinerary } from "@/lib/itineraries";
 import {
   Briefcase,
   ArrowRight,

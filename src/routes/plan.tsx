@@ -10,7 +10,7 @@ import { buildAndSaveItinerary } from "@/lib/itineraries";
 export const Route = createFileRoute("/plan")({
   head: () => ({
     meta: [
-      { title: "Plan my day — Confetti" },
+      { title: "Plan my day — Loop" },
       { name: "description", content: "Tell us the occasion and we'll build a full-day itinerary with stops, timing, and booking links." },
     ],
   }),

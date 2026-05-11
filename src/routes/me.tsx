@@ -283,7 +283,7 @@ function SocialsCard({ prefs, onProfile, onPrefs }: { prefs: Prefs; onProfile: (
         />
         <span id="data-consent-help" className="leading-relaxed text-muted-foreground">
           <ShieldCheck className="mr-1 inline h-3.5 w-3.5 text-primary" />
-          I agree that Confettiplan's AI may use my social handles, pasted signals, photos of places I've
+          I agree that Loopplan's AI may use my social handles, pasted signals, photos of places I've
           been or want to go, and inferences from my most-engaged followers to learn my taste and
           personalize plans. I've read the{" "}
           <Link to="/data-terms" className="font-semibold text-foreground underline">

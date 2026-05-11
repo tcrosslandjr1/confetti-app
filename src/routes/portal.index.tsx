@@ -14,9 +14,9 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/portal/")({
   head: () => ({
     meta: [
-      { title: "Your Portal — Confetti" },
+      { title: "Your Portal — Loop" },
       { name: "description", content: "Your bookings, referrals, achievements and curated picks — all in one dashboard." },
-      { property: "og:title", content: "Your Portal — Confetti" },
+      { property: "og:title", content: "Your Portal — Loop" },
       { property: "og:description", content: "Your bookings, referrals, achievements and curated picks — all in one dashboard." },
     ],
   }),

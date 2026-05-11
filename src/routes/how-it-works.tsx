@@ -6,9 +6,9 @@ import { GatedAction } from "@/components/GatedAction";
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
     meta: [
-      { title: "How it works — Confetti" },
+      { title: "How it works — Loop" },
       { name: "description", content: "Three steps to a full outing plan: pick a vibe, swipe ideas, hit the road with timing, transit and reservations sorted." },
-      { property: "og:title", content: "How it works — Confetti" },
+      { property: "og:title", content: "How it works — Loop" },
       { property: "og:description", content: "From vibe to door-to-door plan in three steps." },
     ],
   }),

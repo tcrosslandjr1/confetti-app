@@ -288,7 +288,7 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
         <div>
           <h2 className="font-display text-lg font-bold">Connected accounts</h2>
           <p className="mt-1 text-xs text-muted-foreground">
-            Manage every identity linked to this Confettiplan account in one place.
+            Manage every identity linked to this Loopplan account in one place.
           </p>
         </div>
         <ShieldCheck className="h-5 w-5 shrink-0 text-primary" />

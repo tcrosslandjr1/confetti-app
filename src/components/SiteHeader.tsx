@@ -24,11 +24,11 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-8">
         <Link to="/" className="group flex items-baseline gap-1">
           <span className="font-display text-2xl font-extrabold tracking-tight text-ink">
-            confetti
+            loop
           </span>
           <span className="font-serif text-2xl italic text-coral">.</span>
           <span className="ml-2 hidden font-mono text-[10px] uppercase tracking-[0.25em] text-ink/60 sm:inline">
-            / plans w/ a pulse
+            / your city, on a loop
           </span>
         </Link>
 

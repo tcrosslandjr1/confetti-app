@@ -16,6 +16,7 @@ import { WizardProvider } from "@/components/wizard/wizard-context";
 import { BuildMyNightWizard } from "@/components/wizard/BuildMyNightWizard";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ReferralCapture } from "@/components/ReferralCapture";
+import { TabBar } from "@/components/loop/TabBar";
 
 function NotFoundComponent() {
   return (
@@ -79,17 +80,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Concierge — Your AI guide to dining & nightlife in the DMV" },
-      { name: "description", content: "Personal guide for dining, nightlife, and curated experiences across DC, Maryland, and Virginia." },
-      { name: "author", content: "Concierge" },
-      { name: "theme-color", content: "#1c1024" },
-      { property: "og:title", content: "Concierge — Your AI guide to dining & nightlife in the DMV" },
-      { property: "og:description", content: "Personal guide for dining, nightlife, and curated experiences across DC, Maryland, and Virginia." },
+      { title: "Loop — Your city, curated" },
+      { name: "description", content: "Loop curates city experiences, dining, and nightlife into ready-to-go itineraries." },
+      { name: "author", content: "Loop" },
+      { name: "theme-color", content: "#F05537" },
+      { property: "og:title", content: "Loop — Your city, curated" },
+      { property: "og:description", content: "Curated city experiences and itineraries, ready in seconds." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Concierge — Your AI guide to dining & nightlife in the DMV" },
-      { name: "twitter:description", content: "Personal guide for dining, nightlife, and curated experiences across DC, Maryland, and Virginia." },
+      { name: "twitter:title", content: "Loop — Your city, curated" },
+      { name: "twitter:description", content: "Curated city experiences and itineraries, ready in seconds." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/61ece84c-a024-4a69-a7ce-019c9d1e13a6/id-preview-d6f23aef--f4bae350-0f3c-459c-a8b3-17702408f503.lovable.app-1778344807777.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/61ece84c-a024-4a69-a7ce-019c9d1e13a6/id-preview-d6f23aef--f4bae350-0f3c-459c-a8b3-17702408f503.lovable.app-1778344807777.png" },
     ],
@@ -135,6 +136,7 @@ function RootComponent() {
           <Outlet />
           <BuildMyNightWizard />
           <RoleSwitcher />
+          <TabBar />
           <Toaster />
         </WizardProvider>
       </AuthProvider>

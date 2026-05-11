@@ -74,7 +74,7 @@ export function SiteFooter() {
         <div className="grid gap-12 md:grid-cols-4">
           <div>
             <Link to="/" className="flex items-baseline gap-1">
-              <span className="font-display text-3xl font-extrabold tracking-tight">confetti</span>
+              <span className="font-display text-3xl font-extrabold tracking-tight">loop</span>
               <span className="font-serif text-3xl italic text-coral">.</span>
             </Link>
             <p className="mt-4 max-w-xs font-serif text-lg italic leading-snug">
@@ -117,12 +117,12 @@ export function SiteFooter() {
 
         <div className="mt-16 border-t-2 border-cream/15 pt-6">
           <h2 className="font-display text-[18vw] font-extrabold leading-none tracking-tighter sm:text-[160px]">
-            confetti<span className="text-coral">.</span>
+            loop<span className="text-coral">.</span>
           </h2>
         </div>
 
         <div className="mt-6 flex flex-col items-start justify-between gap-3 font-mono text-[11px] uppercase tracking-widest text-cream/50 sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Confetti — plans with a pulse.</p>
+          <p>© {new Date().getFullYear()} Loop — plans with a pulse.</p>
           <p>made loud, on purpose.</p>
         </div>
       </div>

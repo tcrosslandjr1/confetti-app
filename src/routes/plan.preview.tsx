@@ -7,7 +7,7 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/plan/preview")({
   head: () => ({
     meta: [
-      { title: "Preview your day — Confetti" },
+      { title: "Preview your day — Loop" },
       { name: "description", content: "A live preview of your AI-built day: stops, timing, vibes, and a map." },
     ],
   }),

@@ -3,6 +3,7 @@ import { Pencil, Repeat2, CalendarClock, X, Bell } from "lucide-react";
 import { toast } from "sonner";
 import { setActiveLoop, type ActiveLoop, type LoopStop } from "@/lib/loop-store";
 import { logActivity } from "@/lib/activity-log";
+import { appendNotifications, type NotificationKind } from "@/lib/trip-status";
 
 type Props = {
   loop: ActiveLoop;
@@ -72,7 +73,11 @@ function Backdrop({ children, onClose }: { children: React.ReactNode; onClose: (
   );
 }
 
-function notifyGroup(message: string) {
+function notifyGroup(tripId: string, kind: NotificationKind, message: string) {
+  // Persist a per-trip notification so attendees viewing the trip page
+  // (subscribed via subscribeNotifications) see the change in their feed.
+  appendNotifications(tripId, [{ kind, venue: "Guests", message }]);
+  // Plus a transient confirmation toast for the actor making the edit.
   toast.message("Group notified", {
     description: message,
     icon: <Bell className="h-3.5 w-3.5" />,
@@ -134,7 +139,7 @@ function SwapStopDialog({
       message: `swapped ${swappedFrom} → ${swappedTo}`,
       detail: [area, time].filter(Boolean).join(" · "),
     });
-    notifyGroup(`${actor} swapped a stop: ${swappedFrom} → ${swappedTo}`);
+    notifyGroup(loop.id, "reschedule", `${actor} swapped a stop: ${swappedFrom} → ${swappedTo}`);
     onClose();
   }
 
@@ -207,7 +212,7 @@ function RescheduleDialog({
       message: `rescheduled the plan to ${next.boardingTime}, ${next.date}`,
       detail,
     });
-    notifyGroup(`${actor} moved boarding to ${next.boardingTime}`);
+    notifyGroup(loop.id, "reschedule", `${actor} moved boarding to ${next.boardingTime}`);
     onClose();
   }
 

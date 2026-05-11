@@ -5,6 +5,7 @@ import { QRCodeSVG } from "qrcode.react";
 import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane, Printer, Share2, Link2, Image as ImageIcon, FileText, Check, Repeat } from "lucide-react";
 import type { ActiveLoop, LoopStop, StopKind } from "@/lib/loop-store";
 import { checkInStop, setActiveLoop, PLAN_PRESETS } from "@/lib/loop-store";
+import { appendNotifications } from "@/lib/trip-status";
 import { logActivity } from "@/lib/activity-log";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";
@@ -1429,8 +1430,22 @@ function SwitchPlanButton({ currentId }: { currentId: string }) {
     const next = preset.build();
     setActiveLoop(next);
     setOpen(false);
+
+    // Notify the group that the plan was swapped, so attendees viewing the
+    // trip see it in their notification feed and activity log.
+    const message = `Plan switched to "${preset.label}" — ${preset.blurb}`;
+    appendNotifications(next.id, [{ kind: "reschedule", venue: "Guests", message }]);
+    logActivity({
+      tripId: next.id,
+      tripTitle: `${next.from} → ${next.to}`,
+      actor: "You",
+      kind: "rescheduled",
+      message,
+      detail: `${next.stops.length} stops · boarding ${next.boardingTime}`,
+    });
+
     toast.success(`Switched to ${preset.label}`, {
-      description: "Map and directions refreshed.",
+      description: "Map, directions, and group notified.",
     });
   }
 

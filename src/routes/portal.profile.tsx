@@ -378,3 +378,190 @@ function StreakCard({ pastBookings, unlocked }: { pastBookings: number; unlocked
     </article>
   );
 }
+
+const ORDER_KEY = "portal-profile-order-v1";
+
+type SectionDef = { id: string; title: string; node: ReactNode };
+
+function loadOrder(defaultOrder: string[]): string[] {
+  if (typeof window === "undefined") return defaultOrder;
+  try {
+    const raw = window.localStorage.getItem(ORDER_KEY);
+    if (!raw) return defaultOrder;
+    const parsed = JSON.parse(raw) as string[];
+    if (!Array.isArray(parsed)) return defaultOrder;
+    // Keep saved order, append any new sections at the end, drop unknown ids
+    const known = new Set(defaultOrder);
+    const filtered = parsed.filter((id) => known.has(id));
+    const missing = defaultOrder.filter((id) => !filtered.includes(id));
+    return [...filtered, ...missing];
+  } catch {
+    return defaultOrder;
+  }
+}
+
+function ReorderableSections({ sections }: { sections: SectionDef[] }) {
+  const defaultOrder = sections.map((s) => s.id);
+  const [order, setOrder] = useState<string[]>(() => loadOrder(defaultOrder));
+  const [dragId, setDragId] = useState<string | null>(null);
+  const [overId, setOverId] = useState<string | null>(null);
+
+  // Reconcile order when section list shape changes (e.g., new section added later)
+  useEffect(() => {
+    setOrder((prev) => {
+      const known = new Set(defaultOrder);
+      const filtered = prev.filter((id) => known.has(id));
+      const missing = defaultOrder.filter((id) => !filtered.includes(id));
+      return [...filtered, ...missing];
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [defaultOrder.join("|")]);
+
+  const persist = (next: string[]) => {
+    setOrder(next);
+    try {
+      window.localStorage.setItem(ORDER_KEY, JSON.stringify(next));
+    } catch {
+      // ignore
+    }
+  };
+
+  const move = (from: string, to: string) => {
+    if (from === to) return;
+    const next = [...order];
+    const fromIdx = next.indexOf(from);
+    const toIdx = next.indexOf(to);
+    if (fromIdx < 0 || toIdx < 0) return;
+    next.splice(fromIdx, 1);
+    next.splice(toIdx, 0, from);
+    persist(next);
+  };
+
+  const moveBy = (id: string, delta: number) => {
+    const idx = order.indexOf(id);
+    const target = idx + delta;
+    if (idx < 0 || target < 0 || target >= order.length) return;
+    const next = [...order];
+    const [removed] = next.splice(idx, 1);
+    next.splice(target, 0, removed);
+    persist(next);
+  };
+
+  const reset = () => persist(defaultOrder);
+
+  const byId = new Map(sections.map((s) => [s.id, s]));
+  const isCustom = order.join("|") !== defaultOrder.join("|");
+
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center justify-between gap-2 px-1">
+        <p className="text-xs text-muted-foreground">
+          <GripVertical className="mr-1 inline h-3.5 w-3.5 align-text-bottom" />
+          Drag the handle to rearrange. Saved on this device.
+        </p>
+        {isCustom && (
+          <button
+            onClick={reset}
+            className="inline-flex items-center gap-1 rounded-full border border-border px-2.5 py-1 text-[11px] font-semibold text-muted-foreground hover:bg-muted hover:text-foreground"
+          >
+            <RotateCcw className="h-3 w-3" /> Reset order
+          </button>
+        )}
+      </div>
+      <div className="space-y-8">
+        {order.map((id, idx) => {
+          const sec = byId.get(id);
+          if (!sec) return null;
+          const isDragging = dragId === id;
+          const isOver = overId === id && dragId && overId !== dragId;
+          return (
+            <div
+              key={id}
+              draggable
+              onDragStart={(e) => {
+                setDragId(id);
+                e.dataTransfer.effectAllowed = "move";
+                e.dataTransfer.setData("text/plain", id);
+              }}
+              onDragEnter={() => setOverId(id)}
+              onDragOver={(e) => {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = "move";
+                if (overId !== id) setOverId(id);
+              }}
+              onDragLeave={(e) => {
+                // Only clear if leaving the section entirely
+                if (e.currentTarget.contains(e.relatedTarget as Node)) return;
+                if (overId === id) setOverId(null);
+              }}
+              onDrop={(e) => {
+                e.preventDefault();
+                const from = e.dataTransfer.getData("text/plain") || dragId;
+                if (from) move(from, id);
+                setDragId(null);
+                setOverId(null);
+              }}
+              onDragEnd={() => {
+                setDragId(null);
+                setOverId(null);
+              }}
+              className={`group relative rounded-3xl transition-all ${
+                isOver ? "ring-2 ring-primary ring-offset-2 ring-offset-background" : ""
+              } ${isDragging ? "opacity-50" : ""}`}
+            >
+              <div className="absolute -left-1 top-3 z-10 flex translate-x-[-100%] flex-col items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100 sm:-left-2">
+                <button
+                  type="button"
+                  onClick={() => moveBy(id, -1)}
+                  disabled={idx === 0}
+                  aria-label="Move up"
+                  className="grid h-6 w-6 place-items-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground disabled:opacity-30"
+                >
+                  ▲
+                </button>
+                <span
+                  aria-hidden
+                  className="grid h-7 w-7 cursor-grab place-items-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground active:cursor-grabbing"
+                  title="Drag to reorder"
+                >
+                  <GripVertical className="h-4 w-4" />
+                </span>
+                <button
+                  type="button"
+                  onClick={() => moveBy(id, 1)}
+                  disabled={idx === order.length - 1}
+                  aria-label="Move down"
+                  className="grid h-6 w-6 place-items-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground disabled:opacity-30"
+                >
+                  ▼
+                </button>
+              </div>
+              {/* Mobile/touch handle: visible inline above section */}
+              <div className="mb-1 flex items-center justify-end gap-1 px-1 sm:hidden">
+                <button
+                  type="button"
+                  onClick={() => moveBy(id, -1)}
+                  disabled={idx === 0}
+                  aria-label="Move up"
+                  className="rounded-md px-2 py-0.5 text-xs text-muted-foreground hover:bg-muted disabled:opacity-30"
+                >
+                  ▲ Up
+                </button>
+                <button
+                  type="button"
+                  onClick={() => moveBy(id, 1)}
+                  disabled={idx === order.length - 1}
+                  aria-label="Move down"
+                  className="rounded-md px-2 py-0.5 text-xs text-muted-foreground hover:bg-muted disabled:opacity-30"
+                >
+                  Down ▼
+                </button>
+              </div>
+              {sec.node}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

@@ -2,6 +2,7 @@ import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tan
 import { useEffect } from "react";
 import {
   BarChart3,
+  Bell,
   CalendarCheck,
   LayoutDashboard,
   Megaphone,

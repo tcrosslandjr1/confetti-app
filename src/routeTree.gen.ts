@@ -46,6 +46,7 @@ import { Route as AdvertiseIndexRouteImport } from './routes/advertise.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as VenueIdRouteImport } from './routes/venue.$id'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
+import { Route as TeamsNewRouteImport } from './routes/teams.new'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
 import { Route as PortalViralRouteImport } from './routes/portal.viral'
 import { Route as PortalSavedRouteImport } from './routes/portal.saved'
@@ -266,6 +267,11 @@ const TripsIdRoute = TripsIdRouteImport.update({
   path: '/trips/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TeamsNewRoute = TeamsNewRouteImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => TeamsRoute,
+} as any)
 const RsvpTripIdRoute = RsvpTripIdRouteImport.update({
   id: '/rsvp/$tripId',
   path: '/rsvp/$tripId',
@@ -466,7 +472,7 @@ export interface FileRoutesByFullPath {
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
-  '/teams': typeof TeamsRoute
+  '/teams': typeof TeamsRouteWithChildren
   '/translate': typeof TranslateRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
@@ -497,6 +503,7 @@ export interface FileRoutesByFullPath {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
+  '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/admin/': typeof AdminIndexRoute
@@ -535,7 +542,7 @@ export interface FileRoutesByTo {
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
-  '/teams': typeof TeamsRoute
+  '/teams': typeof TeamsRouteWithChildren
   '/translate': typeof TranslateRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
@@ -566,6 +573,7 @@ export interface FileRoutesByTo {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
+  '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/admin': typeof AdminIndexRoute
@@ -609,7 +617,7 @@ export interface FileRoutesById {
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
-  '/teams': typeof TeamsRoute
+  '/teams': typeof TeamsRouteWithChildren
   '/translate': typeof TranslateRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
@@ -640,6 +648,7 @@ export interface FileRoutesById {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
+  '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/admin/': typeof AdminIndexRoute
@@ -715,6 +724,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/rsvp/$tripId'
+    | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
     | '/admin/'
@@ -784,6 +794,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/rsvp/$tripId'
+    | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
     | '/admin'
@@ -857,6 +868,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/rsvp/$tripId'
+    | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
     | '/admin/'
@@ -900,7 +912,7 @@ export interface RootRouteChildren {
   QuickGenerateRoute: typeof QuickGenerateRoute
   ReservationsRoute: typeof ReservationsRoute
   TasteTunerRoute: typeof TasteTunerRoute
-  TeamsRoute: typeof TeamsRoute
+  TeamsRoute: typeof TeamsRouteWithChildren
   TranslateRoute: typeof TranslateRoute
   ViralRoute: typeof ViralRoute
   WeatherRoute: typeof WeatherRoute
@@ -1179,6 +1191,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/trips/$id'
       preLoaderRoute: typeof TripsIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/teams/new': {
+      id: '/teams/new'
+      path: '/new'
+      fullPath: '/teams/new'
+      preLoaderRoute: typeof TeamsNewRouteImport
+      parentRoute: typeof TeamsRoute
     }
     '/rsvp/$tripId': {
       id: '/rsvp/$tripId'
@@ -1522,6 +1541,16 @@ const PortalRouteChildren: PortalRouteChildren = {
 const PortalRouteWithChildren =
   PortalRoute._addFileChildren(PortalRouteChildren)
 
+interface TeamsRouteChildren {
+  TeamsNewRoute: typeof TeamsNewRoute
+}
+
+const TeamsRouteChildren: TeamsRouteChildren = {
+  TeamsNewRoute: TeamsNewRoute,
+}
+
+const TeamsRouteWithChildren = TeamsRoute._addFileChildren(TeamsRouteChildren)
+
 interface TripsIdRouteChildren {
   TripsIdPassportRoute: typeof TripsIdPassportRoute
 }
@@ -1559,7 +1588,7 @@ const rootRouteChildren: RootRouteChildren = {
   QuickGenerateRoute: QuickGenerateRoute,
   ReservationsRoute: ReservationsRoute,
   TasteTunerRoute: TasteTunerRoute,
-  TeamsRoute: TeamsRoute,
+  TeamsRoute: TeamsRouteWithChildren,
   TranslateRoute: TranslateRoute,
   ViralRoute: ViralRoute,
   WeatherRoute: WeatherRoute,

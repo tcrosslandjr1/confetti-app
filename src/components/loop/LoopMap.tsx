@@ -56,7 +56,14 @@ function RouteLayer({ stops, currentIdx, fallbackCity }: Props & { fallbackCity:
   const rendererRef = useRef<google.maps.DirectionsRenderer | null>(null);
   const [steps, setSteps] = useState<{ instruction: string; distance?: string; duration?: string }[]>([]);
 
-  // Geocode each stop's area (or name) once
+  // Stable signature so geocoding only re-runs when stop identity/location changes,
+  // NOT when `done` flips. This keeps marker highlight responsive without API spam.
+  const geoKey = useMemo(
+    () => stops.map((s) => `${s.id}|${s.name}|${s.area || ""}`).join("::"),
+    [stops]
+  );
+
+  // Geocode each stop's area (or name)
   useEffect(() => {
     if (!geocoding || stops.length === 0) return;
     let cancelled = false;
@@ -80,7 +87,14 @@ function RouteLayer({ stops, currentIdx, fallbackCity }: Props & { fallbackCity:
     return () => {
       cancelled = true;
     };
-  }, [geocoding, stops, fallbackCity]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [geocoding, geoKey, fallbackCity]);
+
+  // Merge live `done` state from props onto geocoded coords each render
+  const liveGeo = useMemo<GeoStop[]>(() => {
+    const byId = new globalThis.Map<string, LoopStop>(stops.map((s) => [s.id, s] as const));
+    return geo.map((g) => ({ ...g, done: !!byId.get(g.id)?.done }));
+  }, [geo, stops]);
 
   // Fit bounds to all stops
   useEffect(() => {
@@ -163,18 +177,28 @@ function RouteLayer({ stops, currentIdx, fallbackCity }: Props & { fallbackCity:
 
   return (
     <>
-      {geo.map((s, i) => {
-        const isCurrent = i === currentIdx;
+      {liveGeo.map((s, i) => {
         const isDone = !!s.done;
+        const isCurrent = !isDone && i === currentIdx;
+        const isNext = !isDone && i === currentIdx + 1;
+        const bg = isDone ? "#FF5C4D" : isCurrent ? "#FFC846" : isNext ? "#FFE6A8" : "#FFF7EC";
         return (
           <AdvancedMarker key={s.id} position={{ lat: s.lat, lng: s.lng }} title={s.name}>
-            <Pin
-              background={isDone ? "#FF5C4D" : isCurrent ? "#FFC846" : "#FFF7EC"}
-              borderColor="#1B1B1B"
-              glyphColor="#1B1B1B"
-              glyph={isDone ? "✓" : String(i + 1)}
-              scale={isCurrent ? 1.25 : 1}
-            />
+            <div className="relative">
+              {isCurrent && (
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 animate-ping rounded-full bg-coral/60"
+                />
+              )}
+              <Pin
+                background={bg}
+                borderColor="#1B1B1B"
+                glyphColor="#1B1B1B"
+                glyph={isDone ? "✓" : String(i + 1)}
+                scale={isCurrent ? 1.3 : isNext ? 1.05 : 1}
+              />
+            </div>
           </AdvancedMarker>
         );
       })}

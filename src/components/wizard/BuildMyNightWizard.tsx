@@ -413,10 +413,10 @@ export function BuildMyNightWizard() {
 
   // Loading text rotation
   useEffect(() => {
-    if (step !== 5) return;
+    if (step !== 6) return;
     setLoadingIdx(0);
     const interval = setInterval(() => setLoadingIdx((i) => i + 1), 700);
-    const done = setTimeout(() => setStep(6), 3600);
+    const done = setTimeout(() => setStep(7), 3600);
     return () => { clearInterval(interval); clearTimeout(done); };
   }, [step]);
 

@@ -72,6 +72,7 @@ const tagToneClass: Record<NonNullable<LoopStop["tags"]>[number]["variant"], str
 export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   const [googleLoading, setGoogleLoading] = useState(false);
   const [qrUrl, setQrUrl] = useState<string | null>(null);
+  const [qrPending, setQrPending] = useState(false);
   const [routePoints, setRoutePoints] = useState<GeocodeResult[]>([]);
   const [bookingOpen, setBookingOpen] = useState(false);
 

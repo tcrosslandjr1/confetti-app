@@ -1234,6 +1234,111 @@ export type Database = {
           },
         ]
       }
+      viral_discovery_runs: {
+        Row: {
+          candidates_found: number
+          city: string | null
+          duration_ms: number | null
+          error: string | null
+          finished_at: string | null
+          id: string
+          queries_run: number
+          started_at: string
+          venues_upserted: number
+        }
+        Insert: {
+          candidates_found?: number
+          city?: string | null
+          duration_ms?: number | null
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          queries_run?: number
+          started_at?: string
+          venues_upserted?: number
+        }
+        Update: {
+          candidates_found?: number
+          city?: string | null
+          duration_ms?: number | null
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          queries_run?: number
+          started_at?: string
+          venues_upserted?: number
+        }
+        Relationships: []
+      }
+      viral_venues: {
+        Row: {
+          address: string | null
+          city: string
+          discovered_at: string
+          google_place_id: string | null
+          id: string
+          last_mentioned_at: string
+          lat: number | null
+          lng: number | null
+          mention_count: number
+          neighborhood: string | null
+          normalized_name: string
+          photo_url: string | null
+          rating: number | null
+          refreshed_at: string
+          source_urls: Json
+          summary: string | null
+          tags: string[]
+          trend_score: number
+          venue_name: string
+          verified: boolean
+        }
+        Insert: {
+          address?: string | null
+          city: string
+          discovered_at?: string
+          google_place_id?: string | null
+          id?: string
+          last_mentioned_at?: string
+          lat?: number | null
+          lng?: number | null
+          mention_count?: number
+          neighborhood?: string | null
+          normalized_name: string
+          photo_url?: string | null
+          rating?: number | null
+          refreshed_at?: string
+          source_urls?: Json
+          summary?: string | null
+          tags?: string[]
+          trend_score?: number
+          venue_name: string
+          verified?: boolean
+        }
+        Update: {
+          address?: string | null
+          city?: string
+          discovered_at?: string
+          google_place_id?: string | null
+          id?: string
+          last_mentioned_at?: string
+          lat?: number | null
+          lng?: number | null
+          mention_count?: number
+          neighborhood?: string | null
+          normalized_name?: string
+          photo_url?: string | null
+          rating?: number | null
+          refreshed_at?: string
+          source_urls?: Json
+          summary?: string | null
+          tags?: string[]
+          trend_score?: number
+          venue_name?: string
+          verified?: boolean
+        }
+        Relationships: []
+      }
       visits: {
         Row: {
           created_at: string

@@ -886,6 +886,15 @@ export function BuildMyNightWizard() {
     [user, favorites],
   );
 
+  // External "diet prefs updated" signal (e.g. user saves on profile page) → re-pull
+  const [prefsVersion, setPrefsVersion] = useState(0);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const handler = () => setPrefsVersion((v) => v + 1);
+    window.addEventListener("loop:diet-prefs-updated", handler);
+    return () => window.removeEventListener("loop:diet-prefs-updated", handler);
+  }, []);
+
   // Load personalization (past bookings + dietary prefs) when wizard opens
   useEffect(() => {
     if (!open || !user) {

@@ -110,13 +110,21 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
       }
       if (isAndroid()) {
         window.open(data.saveUrl, "_blank", "noopener,noreferrer");
+        trackWalletEvent("wallet_direct_open_success", { loopId: loop.id });
       } else if (isIOS()) {
         // iOS-specific: try the new-tab handoff first; only fall back to the
         // QR modal if the popup was blocked or refused.
         const opened = tryOpenInNewTab(data.saveUrl);
-        if (!opened) setQrUrl(data.saveUrl);
+        if (opened) {
+          trackWalletEvent("wallet_direct_open_success", { loopId: loop.id });
+        } else {
+          trackWalletEvent("wallet_direct_open_blocked", { loopId: loop.id });
+          setQrUrl(data.saveUrl);
+          trackWalletEvent("wallet_qr_modal_open", { loopId: loop.id, meta: { reason: "ios_popup_blocked" } });
+        }
       } else {
         setQrUrl(data.saveUrl);
+        trackWalletEvent("wallet_qr_modal_open", { loopId: loop.id, meta: { reason: "desktop" } });
       }
     } catch {
       toast.error("Network error talking to Wallet service");

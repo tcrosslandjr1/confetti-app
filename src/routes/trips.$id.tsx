@@ -182,6 +182,8 @@ function TripDetail() {
 
                   <GooglePhotos venue={s.name} address={s.address} className="mt-3 overflow-hidden rounded-xl" variant="strip" hideEmpty />
 
+                  <VibeRow stop={s} prefs={vibePrefs} />
+
                   {s.description && <p className="mt-3 text-sm text-foreground">{s.description}</p>}
 
                   <div className="mt-3 grid gap-3 text-sm sm:grid-cols-2">

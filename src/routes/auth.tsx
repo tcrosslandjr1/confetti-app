@@ -104,7 +104,7 @@ function AuthPage() {
       }
       if (!redirected) {
         // Tokens already exchanged — auth-context will pick the session up.
-        navigate({ to: "/" });
+        navigate({ to: redirectTo });
       }
       // If redirected === true, the browser is navigating away; leave busy on.
     } catch (e: any) {

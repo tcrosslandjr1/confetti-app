@@ -369,16 +369,13 @@ export function NextBookingCountdown() {
     const text = `${b.venue_name} on ${when} · party of ${b.party_size}`;
     const url = typeof window !== "undefined" ? window.location.origin + "/portal/bookings" : "";
     try {
-      if (typeof navigator !== "undefined" && "share" in navigator) {
-        await (navigator as Navigator & { share: (d: ShareData) => Promise<void> }).share({
-          title: "My next booking",
-          text,
-          url,
-        });
+      const nav = typeof navigator !== "undefined" ? (navigator as Navigator) : null;
+      if (nav && typeof nav.share === "function") {
+        await nav.share({ title: "My next booking", text, url });
         return;
       }
-      if (typeof navigator !== "undefined" && navigator.clipboard) {
-        await navigator.clipboard.writeText(`${text}\n${url}`);
+      if (nav && nav.clipboard) {
+        await nav.clipboard.writeText(`${text}\n${url}`);
         toast.success("Booking copied to clipboard");
       }
     } catch {

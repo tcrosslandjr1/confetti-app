@@ -704,20 +704,44 @@ function NewTeamEventPage() {
                 >
                   <ArrowLeft className="h-4 w-4" /> Back
                 </Button>
-                {currentStep.id === "review" ? (
-                  <Button onClick={submit} disabled={busy} size="lg" className="gap-2">
-                    {busy ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <Check className="h-4 w-4" />
-                    )}
-                    Create event
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className="hidden font-mono text-[10px] uppercase tracking-widest text-ink/50 sm:block">
+                    {lastSavedAt
+                      ? `Draft saved ${new Date(lastSavedAt).toLocaleTimeString([], {
+                          hour: "numeric",
+                          minute: "2-digit",
+                        })}`
+                      : "Draft autosaves as you type"}
+                  </div>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={resumeLater}
+                    disabled={busy}
+                    className="gap-2"
+                  >
+                    <Save className="h-4 w-4" /> Resume later
                   </Button>
-                ) : (
-                  <Button onClick={next} disabled={!canAdvance || busy} size="lg" className="gap-2">
-                    Next <ArrowRight className="h-4 w-4" />
-                  </Button>
-                )}
+                  {currentStep.id === "review" ? (
+                    <Button onClick={submit} disabled={busy} size="lg" className="gap-2">
+                      {busy ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <Check className="h-4 w-4" />
+                      )}
+                      Create event
+                    </Button>
+                  ) : (
+                    <Button
+                      onClick={next}
+                      disabled={!canAdvance || busy}
+                      size="lg"
+                      className="gap-2"
+                    >
+                      Next <ArrowRight className="h-4 w-4" />
+                    </Button>
+                  )}
+                </div>
               </div>
             </div>
 

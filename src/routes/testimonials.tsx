@@ -30,6 +30,7 @@ type Testimonial = {
   body: string;
   img: string;
   country: string;
+  rating: number | null;
 };
 
 const fallbackTestimonials: Testimonial[] = [

@@ -51,6 +51,7 @@ import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdvertisePortalRouteImport } from './routes/advertise.portal'
 import { Route as AdminVenuesRouteImport } from './routes/admin.venues'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
 import { Route as AdminModerationRouteImport } from './routes/admin.moderation'
 import { Route as AdminMarqueeRouteImport } from './routes/admin.marquee'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
@@ -277,6 +278,11 @@ const AdminUsersRoute = AdminUsersRouteImport.update({
   path: '/users',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminModerationRoute = AdminModerationRouteImport.update({
   id: '/moderation',
   path: '/moderation',
@@ -384,6 +390,7 @@ export interface FileRoutesByFullPath {
   '/admin/login': typeof AdminLoginRoute
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
   '/advertise/portal': typeof AdvertisePortalRoute
@@ -439,6 +446,7 @@ export interface FileRoutesByTo {
   '/admin/login': typeof AdminLoginRoute
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
   '/advertise/portal': typeof AdvertisePortalRoute
@@ -499,6 +507,7 @@ export interface FileRoutesById {
   '/admin/login': typeof AdminLoginRoute
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
   '/advertise/portal': typeof AdvertisePortalRoute
@@ -560,6 +569,7 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/marquee'
     | '/admin/moderation'
+    | '/admin/notifications'
     | '/admin/users'
     | '/admin/venues'
     | '/advertise/portal'
@@ -615,6 +625,7 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/marquee'
     | '/admin/moderation'
+    | '/admin/notifications'
     | '/admin/users'
     | '/admin/venues'
     | '/advertise/portal'
@@ -674,6 +685,7 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/marquee'
     | '/admin/moderation'
+    | '/admin/notifications'
     | '/admin/users'
     | '/admin/venues'
     | '/advertise/portal'
@@ -1034,6 +1046,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminUsersRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/notifications': {
+      id: '/admin/notifications'
+      path: '/notifications'
+      fullPath: '/admin/notifications'
+      preLoaderRoute: typeof AdminNotificationsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/moderation': {
       id: '/admin/moderation'
       path: '/moderation'
@@ -1152,6 +1171,7 @@ interface AdminRouteChildren {
   AdminLoginRoute: typeof AdminLoginRoute
   AdminMarqueeRoute: typeof AdminMarqueeRoute
   AdminModerationRoute: typeof AdminModerationRoute
+  AdminNotificationsRoute: typeof AdminNotificationsRoute
   AdminUsersRoute: typeof AdminUsersRoute
   AdminVenuesRoute: typeof AdminVenuesRoute
   AdminIndexRoute: typeof AdminIndexRoute
@@ -1167,6 +1187,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminLoginRoute: AdminLoginRoute,
   AdminMarqueeRoute: AdminMarqueeRoute,
   AdminModerationRoute: AdminModerationRoute,
+  AdminNotificationsRoute: AdminNotificationsRoute,
   AdminUsersRoute: AdminUsersRoute,
   AdminVenuesRoute: AdminVenuesRoute,
   AdminIndexRoute: AdminIndexRoute,

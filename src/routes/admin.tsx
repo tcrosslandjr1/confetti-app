@@ -2,6 +2,7 @@ import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tan
 import { useEffect } from "react";
 import {
   BarChart3,
+  Bell,
   CalendarCheck,
   LayoutDashboard,
   Megaphone,
@@ -44,6 +45,7 @@ const NAV: NavItem[] = [
   { to: "/admin/users", label: "Users", icon: Users },
   { to: "/admin/venues", label: "Venues", icon: Store },
   { to: "/admin/bookings", label: "Bookings", icon: CalendarCheck },
+  { to: "/admin/notifications", label: "Notifications", icon: Bell },
   { to: "/admin/advertisers", label: "Advertisers", icon: Megaphone },
   { to: "/admin/marquee", label: "Sponsored marquee", icon: Megaphone },
   { to: "/admin/integrations", label: "Integrations", icon: Sparkles },

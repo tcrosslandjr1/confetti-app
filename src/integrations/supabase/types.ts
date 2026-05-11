@@ -1096,6 +1096,7 @@ export type Database = {
       }
       venues: {
         Row: {
+          advertiser_id: string | null
           category: string
           city: string | null
           created_at: string
@@ -1105,8 +1106,10 @@ export type Database = {
           name: string
           neighborhood: string | null
           price_level: number
+          staff_email: string | null
         }
         Insert: {
+          advertiser_id?: string | null
           category: string
           city?: string | null
           created_at?: string
@@ -1116,8 +1119,10 @@ export type Database = {
           name: string
           neighborhood?: string | null
           price_level?: number
+          staff_email?: string | null
         }
         Update: {
+          advertiser_id?: string | null
           category?: string
           city?: string | null
           created_at?: string
@@ -1127,8 +1132,17 @@ export type Database = {
           name?: string
           neighborhood?: string | null
           price_level?: number
+          staff_email?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "venues_advertiser_id_fkey"
+            columns: ["advertiser_id"]
+            isOneToOne: false
+            referencedRelation: "advertisers"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       visits: {
         Row: {

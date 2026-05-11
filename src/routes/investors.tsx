@@ -14,7 +14,7 @@ export const Route = createFileRoute("/investors")({
       { property: "og:title", content: "Investors — Confetti" },
       {
         property: "og:description",
-        content: "Loop's investor brief: market, traction, model, and contact.",
+        content: "Confetti's investor brief: market, traction, model, and contact.",
       },
     ],
   }),
@@ -31,7 +31,7 @@ const metrics = [
 const pillars = [
   {
     title: "A category, not a feature",
-    body: "Going out is a $1.4T global spend with no native planning layer. Calendars, maps, and reviews are not plans. Loop owns the verb 'plan a night.'",
+    body: "Going out is a $1.4T global spend with no native planning layer. Calendars, maps, and reviews are not plans. Confetti owns the verb 'plan a night.'",
   },
   {
     title: "Three-sided flywheel",
@@ -43,7 +43,7 @@ const pillars = [
   },
   {
     title: "Built for the AI shift",
-    body: "Loop turns intent ('Saturday with the in-laws') into a confirmed itinerary. We're the execution layer, not another chatbot.",
+    body: "Confetti turns intent ('Saturday with the in-laws') into a confirmed itinerary. We're the execution layer, not another chatbot.",
   },
 ];
 
@@ -94,7 +94,7 @@ const faq: { group: string; items: { q: string; a: string }[] }[] = [
     items: [
       {
         q: "How do you make money?",
-        a: "Three streams: (1) advertiser subscriptions and placements (Starter / Featured / Spotlight), (2) booking take-rate via partner reservations, (3) optional Loop+ consumer membership for premium picks and concierge.",
+        a: "Three streams: (1) advertiser subscriptions and placements (Starter / Featured / Spotlight), (2) booking take-rate via partner reservations, (3) optional Confetti+ consumer membership for premium picks and concierge.",
       },
       {
         q: "What's the unit economics picture?",

@@ -15,10 +15,10 @@ export const Route = createFileRoute("/testimonials")({
       {
         name: "description",
         content:
-          "Real plans, real nights, real reviews from people who use Loop to actually go out.",
+          "Real plans, real nights, real reviews from people who use Confetti to actually go out.",
       },
       { property: "og:title", content: "Testimonials — Confetti" },
-      { property: "og:description", content: "What people say after Loop plans their night." },
+      { property: "og:description", content: "What people say after Confetti plans their night." },
     ],
   }),
   component: TestimonialsPage,
@@ -37,7 +37,7 @@ const fallbackTestimonials: Testimonial[] = [
   {
     name: "Ava Green",
     username: "@ava",
-    body: "Loop killed our group-chat purgatory. Friday plans in 30 seconds.",
+    body: "Confetti killed our group-chat purgatory. Friday plans in 30 seconds.",
     img: "https://randomuser.me/api/portraits/women/32.jpg",
     country: "🇦🇺 Sydney",
     rating: 5,
@@ -101,7 +101,7 @@ const fallbackTestimonials: Testimonial[] = [
   {
     name: "Carlos Ray",
     username: "@carl",
-    body: "First date energy: low-key, high spark. Loop nailed the vibe.",
+    body: "First date energy: low-key, high spark. Confetti nailed the vibe.",
     img: "https://randomuser.me/api/portraits/men/61.jpg",
     country: "🇪🇸 Madrid",
     rating: 5,
@@ -194,7 +194,7 @@ function TestimonialsPage() {
             <span className="font-serif italic font-normal text-coral">talking about.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-snug">
-            Real nights, real reviews. Here's what people say after Loop plans their evening.
+            Real nights, real reviews. Here's what people say after Confetti plans their evening.
           </p>
         </div>
       </section>

@@ -132,7 +132,7 @@ function Profile() {
       <div className="text-xs uppercase tracking-wider text-muted-foreground">Account center</div>
       <h1 className="mt-1 font-display text-5xl font-bold tracking-tight">Your profile</h1>
       <p className="mt-3 max-w-2xl text-muted-foreground">
-        Keep your tastes, budget, and outing preferences current so Loop can plan better days and
+        Keep your tastes, budget, and outing preferences current so Confetti can plan better days and
         nights out.
       </p>
 

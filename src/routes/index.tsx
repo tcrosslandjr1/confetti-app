@@ -429,7 +429,7 @@ function Landing() {
               <span className="font-serif italic">Again.</span>
             </p>
             <p>
-              Loop kills that loop. One vibe in — one full evening out. Stops, times, routes,
+              Confetti kills that loop. One vibe in — one full evening out. Stops, times, routes,
               reservations, the dress code, the cost, the conversation starter. The whole damn
               night, in under a minute.
             </p>

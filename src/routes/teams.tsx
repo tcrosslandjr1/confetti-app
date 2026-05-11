@@ -7,7 +7,7 @@ import { GatedAction } from "@/components/GatedAction";
 export const Route = createFileRoute("/teams")({
   head: () => ({
     meta: [
-      { title: "For Teams — Corporate event planning | Loop" },
+      { title: "For Teams — Corporate event planning | Confetti" },
       {
         name: "description",
         content:

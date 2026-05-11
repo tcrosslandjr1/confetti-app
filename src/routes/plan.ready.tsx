@@ -73,7 +73,7 @@ const STOPS = [
 const TRIP = {
   id: "PLN-A7K2",
   title: "Confetti — Date Night Day",
-  description: "A little romance, end-to-end. 4 stops curated by Loop.",
+  description: "A little romance, end-to-end. 4 stops curated by Confetti.",
   // Saturday 11:30 AM – 7:30 PM (next Saturday)
   start: nextSaturdayAt(11, 30),
   end: nextSaturdayAt(19, 30),
@@ -496,7 +496,7 @@ function ReadyPage() {
         className="pointer-events-none absolute inset-x-0 top-0 -z-0 h-[420px] bg-gradient-to-b from-primary/15 via-coral/10 to-transparent blur-2xl"
       />
 
-      {/* Loop burst */}
+      {/* Confetti burst */}
       {showLoop && (
         <div
           aria-hidden

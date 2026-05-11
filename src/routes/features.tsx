@@ -28,7 +28,7 @@ export const Route = createFileRoute("/features")({
       { property: "og:title", content: "Features — Confetti" },
       {
         property: "og:description",
-        content: "Everything Loop does to plan outings worth showing up for.",
+        content: "Everything Confetti does to plan outings worth showing up for.",
       },
     ],
   }),
@@ -46,7 +46,7 @@ const features = [
   {
     icon: Car,
     title: "Door-to-door routing",
-    body: "Car, transit, walking, Uber or Lyft. Loop picks the best mode and gives you one-tap directions.",
+    body: "Car, transit, walking, Uber or Lyft. Confetti picks the best mode and gives you one-tap directions.",
     color: "bg-purple",
     tag: "02 / move",
   },
@@ -129,7 +129,7 @@ function FeaturesPage() {
           </h1>
 
           <p className="mt-8 max-w-2xl text-lg leading-snug">
-            Loop turns "what should we do?" into a full plan — stops, timing, transit, reservations.
+            Confetti turns "what should we do?" into a full plan — stops, timing, transit, reservations.
             <span className="font-serif italic"> The whole night, handled.</span>
           </p>
 

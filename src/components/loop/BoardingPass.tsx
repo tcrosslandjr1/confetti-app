@@ -223,7 +223,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         {/* Map strip */}
         <div className="relative h-[160px] w-full overflow-hidden border-t-2 border-dashed border-ink/40">
           <ConfettiMap
-            stops={loop.stops.map((s) => ({ id: s.id, name: s.name, area: s.area }))}
+            stops={loop.stops.map((s) => ({ id: s.id, name: s.name, area: s.area, lat: s.lat, lng: s.lng }))}
             fallbackCity={loop.stops[0]?.area || "Washington, DC"}
             height="100%"
             interactive={false}

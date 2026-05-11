@@ -89,7 +89,7 @@ function Onboarding() {
               <Sparkles className="h-4 w-4" />
             </span>
             <span className="font-display text-lg font-extrabold">
-              loop<span className="text-coral">.</span>
+              confetti<span className="text-coral">.</span>
             </span>
           </div>
           <button

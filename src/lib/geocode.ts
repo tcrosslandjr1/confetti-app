@@ -127,21 +127,16 @@ export function useGeocodedPoints(inputs: GeocodeInput[]) {
 }
 
 
-/** Build a Google Maps directions URL for desktop/native handoff. */
-export function buildDirectionsUrl(points: { lat: number; lng: number }[], travelMode: "walking" | "driving" | "transit" = "walking") {
-  if (points.length === 0) return "https://www.google.com/maps";
-  if (points.length === 1) {
-    return `https://www.google.com/maps/search/?api=1&query=${points[0].lat},${points[0].lng}`;
-  }
-  const origin = `${points[0].lat},${points[0].lng}`;
-  const destination = `${points[points.length - 1].lat},${points[points.length - 1].lng}`;
-  const waypoints = points.slice(1, -1).map((p) => `${p.lat},${p.lng}`).join("|");
-  const params = new URLSearchParams({
-    api: "1",
-    origin,
-    destination,
-    travelmode: travelMode,
-  });
-  if (waypoints) params.set("waypoints", waypoints);
-  return `https://www.google.com/maps/dir/?${params.toString()}`;
+/**
+ * Build a directions URL for desktop/native handoff.
+ * Picks Apple Maps on iOS/macOS, Google Maps elsewhere.
+ */
+export function buildDirectionsUrl(
+  points: { lat: number; lng: number }[],
+  travelMode: "walking" | "driving" | "transit" | "bicycling" = "walking",
+) {
+  // re-export through smart picker so all callers benefit from device detection
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { buildSmartDirectionsUrl } = require("./maps-links") as typeof import("./maps-links");
+  return buildSmartDirectionsUrl(points, travelMode);
 }

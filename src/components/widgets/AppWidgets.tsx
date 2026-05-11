@@ -87,10 +87,47 @@ function codeToBucket(code: number): string {
   return "clear";
 }
 
+type NearbyOption = {
+  id: string;
+  name: string;
+  category: string;
+  neighborhood: string | null;
+  distanceKm: number | null;
+};
+
+const NEIGHBORHOOD_COORDS: Record<string, { lat: number; lng: number }> = {
+  "adams morgan": { lat: 38.9215, lng: -77.0423 },
+  "14th street": { lat: 38.912, lng: -77.032 },
+  downtown: { lat: 38.9037, lng: -77.0365 },
+  georgetown: { lat: 38.9097, lng: -77.0655 },
+  "h street": { lat: 38.9005, lng: -76.9958 },
+  "logan circle": { lat: 38.9096, lng: -77.0296 },
+  "u street": { lat: 38.917, lng: -77.028 },
+  "union market": { lat: 38.9087, lng: -76.9974 },
+};
+
+function haversineKm(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
+  const R = 6371;
+  const toRad = (d: number) => (d * Math.PI) / 180;
+  const dLat = toRad(b.lat - a.lat);
+  const dLng = toRad(b.lng - a.lng);
+  const s =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(s));
+}
+
+function fmtDistance(km: number) {
+  if (km < 1) return `${Math.round(km * 1000)}m`;
+  if (km < 10) return `${km.toFixed(1)}km`;
+  return `${Math.round(km)}km`;
+}
+
 export function TonightAtAGlance() {
   const [loc, setLoc] = useState<ReturnType<typeof getStoredLocation>>(null);
   const [w, setW] = useState<WeatherNow | null>(null);
   const [now, setNow] = useState(new Date());
+  const [nearby, setNearby] = useState<NearbyOption[]>([]);
 
   useEffect(() => {
     setLoc(getStoredLocation());
@@ -122,6 +159,46 @@ export function TonightAtAGlance() {
       }
     }
     void load();
+    return () => {
+      cancelled = true;
+    };
+  }, [loc]);
+
+  useEffect(() => {
+    let cancelled = false;
+    void supabase
+      .from("venues")
+      .select("id,name,category,neighborhood,city")
+      .order("created_at", { ascending: false })
+      .limit(40)
+      .then(({ data }) => {
+        if (cancelled || !data) return;
+        const ranked: NearbyOption[] = (data as Array<{
+          id: string;
+          name: string;
+          category: string;
+          neighborhood: string | null;
+          city: string | null;
+        }>).map((v) => {
+          const key = v.neighborhood?.trim().toLowerCase();
+          const coords = key ? NEIGHBORHOOD_COORDS[key] : undefined;
+          const distanceKm = loc && coords ? haversineKm(loc, coords) : null;
+          return {
+            id: v.id,
+            name: v.name,
+            category: v.category,
+            neighborhood: v.neighborhood,
+            distanceKm,
+          };
+        });
+        ranked.sort((a, b) => {
+          if (a.distanceKm == null && b.distanceKm == null) return 0;
+          if (a.distanceKm == null) return 1;
+          if (b.distanceKm == null) return -1;
+          return a.distanceKm - b.distanceKm;
+        });
+        setNearby(ranked.slice(0, 3));
+      });
     return () => {
       cancelled = true;
     };
@@ -174,6 +251,40 @@ export function TonightAtAGlance() {
           <div className="mt-1 text-[11px] text-ink/60">Local</div>
         </div>
       </div>
+
+      {nearby.length > 0 && (
+        <div className="mt-3">
+          <div className="mb-1.5 flex items-center justify-between">
+            <div className="font-mono text-[9px] uppercase tracking-widest text-ink/60">
+              <MapPin className="inline h-3 w-3" /> Nearby options
+            </div>
+            {!loc && (
+              <span className="font-mono text-[9px] uppercase tracking-widest text-ink/40">
+                Set location for distances
+              </span>
+            )}
+          </div>
+          <ul className="space-y-1">
+            {nearby.map((n) => (
+              <li key={n.id} className="flex items-center justify-between gap-2">
+                <Link
+                  to="/venue/$id"
+                  params={{ id: n.id }}
+                  className="min-w-0 flex-1 truncate font-display text-sm font-bold hover:underline"
+                >
+                  {n.name}
+                </Link>
+                <span className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                  {n.distanceKm != null
+                    ? fmtDistance(n.distanceKm)
+                    : (n.neighborhood ?? n.category)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <p className="mt-3 rounded-xl border border-dashed border-ink/20 px-3 py-2 text-xs text-ink/70">
         💡 {tip}
       </p>

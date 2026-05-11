@@ -11,6 +11,7 @@ import { ConfettiMap } from "@/components/maps/ConfettiMap";
 import { ParkingPin } from "@/components/loop/ParkingPin";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";
 import { trackWalletEvent } from "@/lib/wallet-analytics";
+import { trackShareEvent } from "@/lib/share-analytics";
 
 function isAndroid() {
   if (typeof navigator === "undefined") return false;

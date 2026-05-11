@@ -10,6 +10,12 @@ export type LoopStop = {
   time: string;
   area?: string;
   done?: boolean;
+  /** True once Confetti points have been awarded for checking in here. */
+  awarded?: boolean;
+  /** ISO timestamp recorded the first time this stop was checked in. */
+  checkedInAt?: string;
+  /** Per-stop Confetti override; defaults to even split of loop.confettiPoints. */
+  points?: number;
   venueId?: string;
   /** Optional pre-resolved coordinates — skips geocoding lookup. */
   lat?: number;

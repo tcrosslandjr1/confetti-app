@@ -881,8 +881,6 @@ function TravelLegCard({ leg, from, to }: { leg: TravelLeg; from: Stop; to: Stop
           : "driving";
   const fromPlace = { name: from.name, address: from.address };
   const toPlace = { name: to.name, address: to.address };
-  const { buildAppleMapsDirectionsUrl, buildGoogleMapsDirectionsUrl, isAppleDevice } =
-    require("@/lib/maps-links") as typeof import("@/lib/maps-links");
   const apple = buildAppleMapsDirectionsUrl([fromPlace, toPlace], travelMode);
   const google = buildGoogleMapsDirectionsUrl([fromPlace, toPlace], travelMode);
   // Order: preferred map first

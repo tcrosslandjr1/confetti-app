@@ -1,13 +1,15 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Compass, Search, Plus, Award, User } from "lucide-react";
 
-const TABS = [
-  { to: "/portal", label: "Home", icon: Compass, match: (p: string) => p === "/portal" || p === "/" },
-  { to: "/viral", label: "Discover", icon: Search, match: (p: string) => p.startsWith("/viral") || p.startsWith("/venue") },
-  { to: "/create", label: "Create", icon: Plus, prominent: true, match: (p: string) => p.startsWith("/create") || p.startsWith("/quick-generate") },
-  { to: "/passport", label: "Passport", icon: Award, match: (p: string) => p.startsWith("/passport") },
-  { to: "/portal/profile", label: "Profile", icon: User, match: (p: string) => p.startsWith("/portal/profile") || p.startsWith("/me") },
-] as const;
+type Tab = { to: string; label: string; icon: typeof Compass; match: (p: string) => boolean; prominent?: boolean };
+
+const TABS: Tab[] = [
+  { to: "/portal", label: "Home", icon: Compass, match: (p) => p === "/portal" || p === "/" },
+  { to: "/viral", label: "Discover", icon: Search, match: (p) => p.startsWith("/viral") || p.startsWith("/venue") },
+  { to: "/create", label: "Create", icon: Plus, prominent: true, match: (p) => p.startsWith("/create") || p.startsWith("/quick-generate") },
+  { to: "/passport", label: "Passport", icon: Award, match: (p) => p.startsWith("/passport") },
+  { to: "/portal/profile", label: "Profile", icon: User, match: (p) => p.startsWith("/portal/profile") || p.startsWith("/me") },
+];
 
 const HIDE_PREFIXES = ["/admin", "/auth", "/onboarding", "/about", "/pricing", "/features", "/how-it-works", "/contact", "/investors", "/advertise", "/data-terms", "/api"];
 

@@ -18,17 +18,23 @@ import { Route as QuickGenerateRouteImport } from './routes/quick-generate'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortalRouteImport } from './routes/portal'
 import { Route as PlanRouteImport } from './routes/plan'
+import { Route as PassportRouteImport } from './routes/passport'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MeRouteImport } from './routes/me'
 import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as DataTermsRouteImport } from './routes/data-terms'
+import { Route as CreateRouteImport } from './routes/create'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ConfirmationRouteImport } from './routes/confirmation'
 import { Route as ConciergeRouteImport } from './routes/concierge'
+import { Route as ChatRouteImport } from './routes/chat'
+import { Route as BoardingPassRouteImport } from './routes/boarding-pass'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdvertiseRouteImport } from './routes/advertise'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ActiveLoopRouteImport } from './routes/active-loop'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
@@ -37,6 +43,7 @@ import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
 import { Route as AdvertiseIndexRouteImport } from './routes/advertise.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as VenueIdRouteImport } from './routes/venue.$id'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
 import { Route as PortalSavedRouteImport } from './routes/portal.saved'
@@ -117,6 +124,11 @@ const PlanRoute = PlanRouteImport.update({
   path: '/plan',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PassportRoute = PassportRouteImport.update({
+  id: '/passport',
+  path: '/passport',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OnboardingRoute = OnboardingRouteImport.update({
   id: '/onboarding',
   path: '/onboarding',
@@ -147,14 +159,34 @@ const DataTermsRoute = DataTermsRouteImport.update({
   path: '/data-terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CreateRoute = CreateRouteImport.update({
+  id: '/create',
+  path: '/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConfirmationRoute = ConfirmationRouteImport.update({
+  id: '/confirmation',
+  path: '/confirmation',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ConciergeRoute = ConciergeRouteImport.update({
   id: '/concierge',
   path: '/concierge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BoardingPassRoute = BoardingPassRouteImport.update({
+  id: '/boarding-pass',
+  path: '/boarding-pass',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -170,6 +202,11 @@ const AdvertiseRoute = AdvertiseRouteImport.update({
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActiveLoopRoute = ActiveLoopRouteImport.update({
+  id: '/active-loop',
+  path: '/active-loop',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -211,6 +248,11 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => AdminRoute,
+} as any)
+const VenueIdRoute = VenueIdRouteImport.update({
+  id: '/venue/$id',
+  path: '/venue/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const TripsIdRoute = TripsIdRouteImport.update({
   id: '/trips/$id',
@@ -389,17 +431,23 @@ const ApiPublicHooksDiscoverViralRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/active-loop': typeof ActiveLoopRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRouteWithChildren
   '/auth': typeof AuthRoute
+  '/boarding-pass': typeof BoardingPassRoute
+  '/chat': typeof ChatRoute
   '/concierge': typeof ConciergeRouteWithChildren
+  '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
+  '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
+  '/passport': typeof PassportRoute
   '/plan': typeof PlanRouteWithChildren
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
@@ -436,6 +484,7 @@ export interface FileRoutesByFullPath {
   '/portal/saved': typeof PortalSavedRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
+  '/venue/$id': typeof VenueIdRoute
   '/admin/': typeof AdminIndexRoute
   '/advertise/': typeof AdvertiseIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
@@ -453,14 +502,20 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/active-loop': typeof ActiveLoopRoute
   '/auth': typeof AuthRoute
+  '/boarding-pass': typeof BoardingPassRoute
+  '/chat': typeof ChatRoute
+  '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
+  '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
+  '/passport': typeof PassportRoute
   '/plan': typeof PlanRouteWithChildren
   '/pricing': typeof PricingRoute
   '/quick-generate': typeof QuickGenerateRoute
@@ -496,6 +551,7 @@ export interface FileRoutesByTo {
   '/portal/saved': typeof PortalSavedRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
+  '/venue/$id': typeof VenueIdRoute
   '/admin': typeof AdminIndexRoute
   '/advertise': typeof AdvertiseIndexRoute
   '/concierge': typeof ConciergeIndexRoute
@@ -514,17 +570,23 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/active-loop': typeof ActiveLoopRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRouteWithChildren
   '/auth': typeof AuthRoute
+  '/boarding-pass': typeof BoardingPassRoute
+  '/chat': typeof ChatRoute
   '/concierge': typeof ConciergeRouteWithChildren
+  '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
+  '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
+  '/passport': typeof PassportRoute
   '/plan': typeof PlanRouteWithChildren
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
@@ -561,6 +623,7 @@ export interface FileRoutesById {
   '/portal/saved': typeof PortalSavedRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
+  '/venue/$id': typeof VenueIdRoute
   '/admin/': typeof AdminIndexRoute
   '/advertise/': typeof AdvertiseIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
@@ -580,17 +643,23 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/active-loop'
     | '/admin'
     | '/advertise'
     | '/auth'
+    | '/boarding-pass'
+    | '/chat'
     | '/concierge'
+    | '/confirmation'
     | '/contact'
+    | '/create'
     | '/data-terms'
     | '/features'
     | '/how-it-works'
     | '/investors'
     | '/me'
     | '/onboarding'
+    | '/passport'
     | '/plan'
     | '/portal'
     | '/pricing'
@@ -627,6 +696,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/rsvp/$tripId'
     | '/trips/$id'
+    | '/venue/$id'
     | '/admin/'
     | '/advertise/'
     | '/concierge/'
@@ -644,14 +714,20 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/active-loop'
     | '/auth'
+    | '/boarding-pass'
+    | '/chat'
+    | '/confirmation'
     | '/contact'
+    | '/create'
     | '/data-terms'
     | '/features'
     | '/how-it-works'
     | '/investors'
     | '/me'
     | '/onboarding'
+    | '/passport'
     | '/plan'
     | '/pricing'
     | '/quick-generate'
@@ -687,6 +763,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/rsvp/$tripId'
     | '/trips/$id'
+    | '/venue/$id'
     | '/admin'
     | '/advertise'
     | '/concierge'
@@ -704,17 +781,23 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/active-loop'
     | '/admin'
     | '/advertise'
     | '/auth'
+    | '/boarding-pass'
+    | '/chat'
     | '/concierge'
+    | '/confirmation'
     | '/contact'
+    | '/create'
     | '/data-terms'
     | '/features'
     | '/how-it-works'
     | '/investors'
     | '/me'
     | '/onboarding'
+    | '/passport'
     | '/plan'
     | '/portal'
     | '/pricing'
@@ -751,6 +834,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/rsvp/$tripId'
     | '/trips/$id'
+    | '/venue/$id'
     | '/admin/'
     | '/advertise/'
     | '/concierge/'
@@ -769,17 +853,23 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ActiveLoopRoute: typeof ActiveLoopRoute
   AdminRoute: typeof AdminRouteWithChildren
   AdvertiseRoute: typeof AdvertiseRouteWithChildren
   AuthRoute: typeof AuthRoute
+  BoardingPassRoute: typeof BoardingPassRoute
+  ChatRoute: typeof ChatRoute
   ConciergeRoute: typeof ConciergeRouteWithChildren
+  ConfirmationRoute: typeof ConfirmationRoute
   ContactRoute: typeof ContactRoute
+  CreateRoute: typeof CreateRoute
   DataTermsRoute: typeof DataTermsRoute
   FeaturesRoute: typeof FeaturesRoute
   HowItWorksRoute: typeof HowItWorksRoute
   InvestorsRoute: typeof InvestorsRoute
   MeRoute: typeof MeRoute
   OnboardingRoute: typeof OnboardingRoute
+  PassportRoute: typeof PassportRoute
   PlanRoute: typeof PlanRouteWithChildren
   PortalRoute: typeof PortalRouteWithChildren
   PricingRoute: typeof PricingRoute
@@ -795,6 +885,7 @@ export interface RootRouteChildren {
   IdeasSlugRoute: typeof IdeasSlugRoute
   RsvpTripIdRoute: typeof RsvpTripIdRoute
   TripsIdRoute: typeof TripsIdRouteWithChildren
+  VenueIdRoute: typeof VenueIdRoute
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
   ApiPublicHooksDiscoverViralRoute: typeof ApiPublicHooksDiscoverViralRoute
@@ -868,6 +959,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlanRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/passport': {
+      id: '/passport'
+      path: '/passport'
+      fullPath: '/passport'
+      preLoaderRoute: typeof PassportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/onboarding': {
       id: '/onboarding'
       path: '/onboarding'
@@ -910,6 +1008,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DataTermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/create': {
+      id: '/create'
+      path: '/create'
+      fullPath: '/create'
+      preLoaderRoute: typeof CreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -917,11 +1022,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/confirmation': {
+      id: '/confirmation'
+      path: '/confirmation'
+      fullPath: '/confirmation'
+      preLoaderRoute: typeof ConfirmationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/concierge': {
       id: '/concierge'
       path: '/concierge'
       fullPath: '/concierge'
       preLoaderRoute: typeof ConciergeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/boarding-pass': {
+      id: '/boarding-pass'
+      path: '/boarding-pass'
+      fullPath: '/boarding-pass'
+      preLoaderRoute: typeof BoardingPassRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -943,6 +1069,13 @@ declare module '@tanstack/react-router' {
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/active-loop': {
+      id: '/active-loop'
+      path: '/active-loop'
+      fullPath: '/active-loop'
+      preLoaderRoute: typeof ActiveLoopRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -1000,6 +1133,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
+    }
+    '/venue/$id': {
+      id: '/venue/$id'
+      path: '/venue/$id'
+      fullPath: '/venue/$id'
+      preLoaderRoute: typeof VenueIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/trips/$id': {
       id: '/trips/$id'
@@ -1355,17 +1495,23 @@ const TripsIdRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ActiveLoopRoute: ActiveLoopRoute,
   AdminRoute: AdminRouteWithChildren,
   AdvertiseRoute: AdvertiseRouteWithChildren,
   AuthRoute: AuthRoute,
+  BoardingPassRoute: BoardingPassRoute,
+  ChatRoute: ChatRoute,
   ConciergeRoute: ConciergeRouteWithChildren,
+  ConfirmationRoute: ConfirmationRoute,
   ContactRoute: ContactRoute,
+  CreateRoute: CreateRoute,
   DataTermsRoute: DataTermsRoute,
   FeaturesRoute: FeaturesRoute,
   HowItWorksRoute: HowItWorksRoute,
   InvestorsRoute: InvestorsRoute,
   MeRoute: MeRoute,
   OnboardingRoute: OnboardingRoute,
+  PassportRoute: PassportRoute,
   PlanRoute: PlanRouteWithChildren,
   PortalRoute: PortalRouteWithChildren,
   PricingRoute: PricingRoute,
@@ -1381,6 +1527,7 @@ const rootRouteChildren: RootRouteChildren = {
   IdeasSlugRoute: IdeasSlugRoute,
   RsvpTripIdRoute: RsvpTripIdRoute,
   TripsIdRoute: TripsIdRouteWithChildren,
+  VenueIdRoute: VenueIdRoute,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
   ApiPublicHooksDiscoverViralRoute: ApiPublicHooksDiscoverViralRoute,

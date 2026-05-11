@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { CornerUpLeft, CornerUpRight, ArrowUp, MapPin, Flag } from "lucide-react";
-import type { DirectionsStepLite } from "@/components/maps/ConfettiMap";
+import { CornerUpLeft, CornerUpRight, ArrowUp, MapPin, Flag, Footprints, Car } from "lucide-react";
+import type { DirectionsStepLite, TravelMode } from "@/components/maps/ConfettiMap";
 
 function maneuverIcon(maneuver?: string) {
   if (!maneuver) return ArrowUp;
@@ -15,30 +15,34 @@ export function DirectionsPanel({
   steps,
   distanceText,
   durationText,
+  travelMode,
 }: {
   fromName: string;
   toName: string;
   steps: DirectionsStepLite[];
   distanceText?: string;
   durationText?: string;
+  travelMode?: TravelMode;
 }) {
-  // Active step index — advance manually as user travels. Reset whenever the leg changes.
+  // Active step index — advance manually as user travels. Reset whenever the leg or mode changes.
   const [activeStep, setActiveStep] = useState(0);
   useEffect(() => {
     setActiveStep(0);
-  }, [steps]);
+  }, [steps, travelMode]);
 
   if (!steps.length) return null;
   const advance = () => setActiveStep((i) => Math.min(i + 1, steps.length - 1));
   const back = () => setActiveStep((i) => Math.max(i - 1, 0));
   const atEnd = activeStep >= steps.length - 1;
+  const ModeIcon = travelMode === "WALKING" ? Footprints : Car;
+  const modeLabel = travelMode === "WALKING" ? "Walking" : "Driving";
 
   return (
     <div className="mt-4 rounded-3xl border-2 border-ink bg-card shadow-brut overflow-hidden">
       <div className="flex items-center justify-between gap-2 bg-coral/10 px-4 py-3 border-b-2 border-ink">
         <div className="min-w-0">
-          <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-coral">
-            Active leg
+          <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-coral inline-flex items-center gap-1">
+            <ModeIcon className="h-3 w-3" /> {modeLabel} · Active leg
           </div>
           <div className="font-display text-sm font-extrabold tracking-tight truncate">
             {fromName} → {toName}

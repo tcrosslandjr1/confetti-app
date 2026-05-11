@@ -347,7 +347,19 @@ function PortalDiscoverPage() {
         />
       )}
 
-      {user && <ActivityFeed title="Recent group activity" className="bg-card" limit={8} />}
+      {user && (
+        <div className="space-y-2">
+          <ActivityFeed title="Recent group activity" className="bg-card" limit={8} />
+          <div className="flex justify-end">
+            <Link
+              to="/portal/activity"
+              className="inline-flex items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-widest text-coral hover:text-ink"
+            >
+              View full log →
+            </Link>
+          </div>
+        </div>
+      )}
 
       <ViralNow city="Washington DC" />
 

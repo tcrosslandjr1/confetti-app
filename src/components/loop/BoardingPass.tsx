@@ -2,7 +2,7 @@ import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { QRCodeSVG } from "qrcode.react";
-import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane, Printer, Share2, Link2, Image as ImageIcon, FileText, Check, Repeat } from "lucide-react";
+import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane, Printer, Share2, Link2, Image as ImageIcon, FileText, Check, Repeat, Mail } from "lucide-react";
 import type { ActiveLoop, LoopStop, StopKind } from "@/lib/loop-store";
 import { checkInStop, setActiveLoop, PLAN_PRESETS } from "@/lib/loop-store";
 import { appendNotifications } from "@/lib/trip-status";

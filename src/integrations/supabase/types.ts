@@ -1097,6 +1097,45 @@ export type Database = {
           },
         ]
       }
+      testimonials: {
+        Row: {
+          active: boolean
+          body: string
+          country: string | null
+          created_at: string
+          id: string
+          image_url: string | null
+          name: string
+          position: number
+          updated_at: string
+          username: string
+        }
+        Insert: {
+          active?: boolean
+          body: string
+          country?: string | null
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          name: string
+          position?: number
+          updated_at?: string
+          username: string
+        }
+        Update: {
+          active?: boolean
+          body?: string
+          country?: string | null
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          name?: string
+          position?: number
+          updated_at?: string
+          username?: string
+        }
+        Relationships: []
+      }
       threads: {
         Row: {
           created_at: string

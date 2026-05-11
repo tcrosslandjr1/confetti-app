@@ -17,6 +17,7 @@ import { Route as TeamsRouteImport } from './routes/teams'
 import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
 import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as QuickGenerateRouteImport } from './routes/quick-generate'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortalRouteImport } from './routes/portal'
 import { Route as PlanRouteImport } from './routes/plan'
@@ -125,6 +126,11 @@ const ReservationsRoute = ReservationsRouteImport.update({
 const QuickGenerateRoute = QuickGenerateRouteImport.update({
   id: '/quick-generate',
   path: '/quick-generate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
@@ -499,6 +505,7 @@ export interface FileRoutesByFullPath {
   '/plan': typeof PlanRouteWithChildren
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
@@ -574,6 +581,7 @@ export interface FileRoutesByTo {
   '/passport': typeof PassportRoute
   '/plan': typeof PlanRouteWithChildren
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
@@ -654,6 +662,7 @@ export interface FileRoutesById {
   '/plan': typeof PlanRouteWithChildren
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
@@ -735,6 +744,7 @@ export interface FileRouteTypes {
     | '/plan'
     | '/portal'
     | '/pricing'
+    | '/privacy'
     | '/quick-generate'
     | '/reservations'
     | '/taste-tuner'
@@ -810,6 +820,7 @@ export interface FileRouteTypes {
     | '/passport'
     | '/plan'
     | '/pricing'
+    | '/privacy'
     | '/quick-generate'
     | '/reservations'
     | '/taste-tuner'
@@ -889,6 +900,7 @@ export interface FileRouteTypes {
     | '/plan'
     | '/portal'
     | '/pricing'
+    | '/privacy'
     | '/quick-generate'
     | '/reservations'
     | '/taste-tuner'
@@ -969,6 +981,7 @@ export interface RootRouteChildren {
   PlanRoute: typeof PlanRouteWithChildren
   PortalRoute: typeof PortalRouteWithChildren
   PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
   QuickGenerateRoute: typeof QuickGenerateRoute
   ReservationsRoute: typeof ReservationsRoute
   TasteTunerRoute: typeof TasteTunerRoute
@@ -1049,6 +1062,13 @@ declare module '@tanstack/react-router' {
       path: '/quick-generate'
       fullPath: '/quick-generate'
       preLoaderRoute: typeof QuickGenerateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -1688,6 +1708,7 @@ const rootRouteChildren: RootRouteChildren = {
   PlanRoute: PlanRouteWithChildren,
   PortalRoute: PortalRouteWithChildren,
   PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
   QuickGenerateRoute: QuickGenerateRoute,
   ReservationsRoute: ReservationsRoute,
   TasteTunerRoute: TasteTunerRoute,

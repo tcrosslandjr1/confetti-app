@@ -8,6 +8,7 @@ import { checkInStop, setActiveLoop, PLAN_PRESETS } from "@/lib/loop-store";
 import { appendNotifications } from "@/lib/trip-status";
 import { logActivity } from "@/lib/activity-log";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";
+import { ParkingPin } from "@/components/loop/ParkingPin";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";
 import { trackWalletEvent } from "@/lib/wallet-analytics";
 
@@ -765,6 +766,11 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           {googleLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Wallet className="h-4 w-4" />}
           Add to Google Wallet
         </button>
+      </div>
+
+      {/* Find my car — drop a pin where you parked, walk back later */}
+      <div className="mt-3">
+        <ParkingPin />
       </div>
 
       {qrUrl && (

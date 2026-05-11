@@ -230,15 +230,6 @@ function PortalDiscoverPage() {
         </section>
       )}
 
-      {/* Engagement strip: level progress + weekly challenge + streak */}
-      {user && (
-        <section aria-label="Your progress" className="grid gap-4 lg:grid-cols-3">
-          <LevelProgress xp={profile?.xp ?? 0} level={profile?.level ?? 1} />
-          <WeeklyChallenge bookings={bookingTotals.upcoming} referrals={refStats.signedUp} />
-          <StreakCard pastBookings={bookingTotals.past} unlocked={unlockedCount} />
-        </section>
-      )}
-
       {/* Personalized next-best-actions */}
       {user && (
         <NextSteps
@@ -257,98 +248,107 @@ function PortalDiscoverPage() {
         <QuickAction to="/portal/saved" icon={Bookmark} label="Saved Spots" hint="Your wishlist" />
       </div>
 
-      {/* Dashboard grid */}
+      {/* Dashboard grid + progress sidebar */}
       {user && (
-        <section className="grid gap-6 lg:grid-cols-3">
-          {/* Bookings */}
-          <DashCard
-            title="Upcoming bookings"
-            actionLabel="See all"
-            actionTo="/portal/bookings"
-            icon={CalendarCheck}
-          >
-            {upcoming.length === 0 ? (
-              <EmptyState
-                icon={CalendarIcon}
-                text="No bookings yet — plan a night with the Concierge."
-                cta={{ to: "/concierge/chat", label: "Start planning" }}
-              />
-            ) : (
-              <ul className="space-y-2">
-                {upcoming.map((b) => (
-                  <li key={b.id} className="flex items-start justify-between gap-3 rounded-xl border border-border bg-background/50 p-3">
-                    <div className="min-w-0">
-                      <div className="truncate font-display font-bold">{b.venue_name}</div>
-                      <div className="mt-0.5 text-xs text-muted-foreground">
-                        {formatDateTime(b.starts_at)} · party of {b.party_size}
+        <div className="grid gap-6 lg:grid-cols-4">
+          <section className="grid gap-6 sm:grid-cols-2 lg:col-span-3">
+            {/* Bookings */}
+            <DashCard
+              title="Upcoming bookings"
+              actionLabel="See all"
+              actionTo="/portal/bookings"
+              icon={CalendarCheck}
+            >
+              {upcoming.length === 0 ? (
+                <EmptyState
+                  icon={CalendarIcon}
+                  text="No bookings yet — plan a night with the Concierge."
+                  cta={{ to: "/concierge/chat", label: "Start planning" }}
+                />
+              ) : (
+                <ul className="space-y-2">
+                  {upcoming.map((b) => (
+                    <li key={b.id} className="flex items-start justify-between gap-3 rounded-xl border border-border bg-background/50 p-3">
+                      <div className="min-w-0">
+                        <div className="truncate font-display font-bold">{b.venue_name}</div>
+                        <div className="mt-0.5 text-xs text-muted-foreground">
+                          {formatDateTime(b.starts_at)} · party of {b.party_size}
+                        </div>
                       </div>
-                    </div>
-                    <span className={`shrink-0 rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest ${statusTone(b.status)}`}>
-                      {b.status}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </DashCard>
-
-          {/* Referrals */}
-          <DashCard
-            title="Your referrals"
-            actionLabel="Invite & leaderboard"
-            actionTo="/portal/refer"
-            icon={Users}
-          >
-            <div className="grid grid-cols-3 gap-2 text-center">
-              <MiniStat label="Invited" value={refStats.invited} />
-              <MiniStat label="Joined" value={refStats.signedUp} />
-              <MiniStat label="Completed" value={refStats.completed} />
-            </div>
-            <div className="mt-3 rounded-xl border border-dashed border-border bg-background/40 p-3">
-              <div className="flex items-center justify-between gap-2">
-                <div className="min-w-0">
-                  <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Earned</div>
-                  <div className="font-display text-lg font-bold">${(refStats.earnedCents / 100).toFixed(0)}</div>
-                </div>
-                <Gift className="h-5 w-5 text-primary" />
-              </div>
-              {referralLink && (
-                <div className="mt-2 truncate font-mono text-[11px] text-muted-foreground" title={referralLink}>
-                  {referralCode ? `Code: ${referralCode}` : referralLink}
-                </div>
+                      <span className={`shrink-0 rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest ${statusTone(b.status)}`}>
+                        {b.status}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               )}
-            </div>
-          </DashCard>
+            </DashCard>
 
-          {/* Achievements */}
-          <DashCard
-            title="Achievements"
-            actionLabel={achievements.length > 4 ? "View all" : undefined}
-            actionTo="/portal/refer"
-            icon={Trophy}
-          >
-            {achievements.length === 0 ? (
-              <EmptyState icon={Trophy} text="Achievements unlock as you explore." />
-            ) : (
-              <ul className="space-y-2">
-                {achievements.slice(0, 4).map((a) => (
-                  <li key={a.id} className={`flex items-start gap-3 rounded-xl border p-2.5 ${a.unlocked ? "border-primary/40 bg-primary/5" : "border-border bg-background/40 opacity-70"}`}>
-                    <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg ${a.unlocked ? "bg-gradient-vibe text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
-                      {a.unlocked ? <AchIcon name={a.icon} /> : <Lock className="h-4 w-4" />}
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="truncate font-display text-sm font-bold">{a.title}</div>
-                        <span className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">+{a.xp_reward} XP</span>
+            {/* Referrals */}
+            <DashCard
+              title="Your referrals"
+              actionLabel="Invite & leaderboard"
+              actionTo="/portal/refer"
+              icon={Users}
+            >
+              <div className="grid grid-cols-3 gap-2 text-center">
+                <MiniStat label="Invited" value={refStats.invited} />
+                <MiniStat label="Joined" value={refStats.signedUp} />
+                <MiniStat label="Completed" value={refStats.completed} />
+              </div>
+              <div className="mt-3 rounded-xl border border-dashed border-border bg-background/40 p-3">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="min-w-0">
+                    <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Earned</div>
+                    <div className="font-display text-lg font-bold">${(refStats.earnedCents / 100).toFixed(0)}</div>
+                  </div>
+                  <Gift className="h-5 w-5 text-primary" />
+                </div>
+                {referralLink && (
+                  <div className="mt-2 truncate font-mono text-[11px] text-muted-foreground" title={referralLink}>
+                    {referralCode ? `Code: ${referralCode}` : referralLink}
+                  </div>
+                )}
+              </div>
+            </DashCard>
+
+            {/* Achievements */}
+            <DashCard
+              title="Achievements"
+              actionLabel={achievements.length > 4 ? "View all" : undefined}
+              actionTo="/portal/refer"
+              icon={Trophy}
+            >
+              {achievements.length === 0 ? (
+                <EmptyState icon={Trophy} text="Achievements unlock as you explore." />
+              ) : (
+                <ul className="space-y-2">
+                  {achievements.slice(0, 4).map((a) => (
+                    <li key={a.id} className={`flex items-start gap-3 rounded-xl border p-2.5 ${a.unlocked ? "border-primary/40 bg-primary/5" : "border-border bg-background/40 opacity-70"}`}>
+                      <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg ${a.unlocked ? "bg-gradient-vibe text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
+                        {a.unlocked ? <AchIcon name={a.icon} /> : <Lock className="h-4 w-4" />}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="truncate font-display text-sm font-bold">{a.title}</div>
+                          <span className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">+{a.xp_reward} XP</span>
+                        </div>
+                        <div className="line-clamp-2 text-xs text-muted-foreground">{a.description}</div>
                       </div>
-                      <div className="line-clamp-2 text-xs text-muted-foreground">{a.description}</div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </DashCard>
-        </section>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </DashCard>
+          </section>
+
+          {/* Right sidebar: progress strip */}
+          <aside aria-label="Your progress" className="space-y-4 lg:col-span-1">
+            <LevelProgress xp={profile?.xp ?? 0} level={profile?.level ?? 1} />
+            <WeeklyChallenge bookings={bookingTotals.upcoming} referrals={refStats.signedUp} />
+            <StreakCard pastBookings={bookingTotals.past} unlocked={unlockedCount} />
+          </aside>
+        </div>
       )}
 
       <PromotedSlot placement="home_spotlight" surface="portal_home" variant="spotlight" />

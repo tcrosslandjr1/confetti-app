@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { getStoredLocation, requestUserLocation, type UserLocation } from "@/lib/location";
 import { Button } from "@/components/ui/button";
+import { GooglePhotos } from "@/components/GooglePhotos";
 
 type Venue = {
   id: string;
@@ -152,8 +153,10 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
               to="/portal/bookings"
               className="group overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-pop hover:-translate-y-0.5 hover:shadow-pop"
             >
-              {v.image_url && (
+              {v.image_url ? (
                 <img src={v.image_url} alt={v.name} className="h-36 w-full object-cover" loading="lazy" />
+              ) : (
+                <GooglePhotos venue={v.name} neighborhood={v.neighborhood} variant="hero" />
               )}
               <div className="p-4">
                 <div className="flex items-center justify-between gap-2">

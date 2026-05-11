@@ -10,6 +10,7 @@ import { LiveElapsed } from "@/components/LiveElapsed";
 import { BoardingPass } from "@/components/BoardingPass";
 import { PromotedSlot } from "@/components/PromotedSlot";
 import { clearNotifications, formatUpdatedAt, loadNotifications, loadStatus, subscribeNotifications, subscribeStatus, type SentNotification, type TripStatus } from "@/lib/trip-status";
+import { GooglePhotos } from "@/components/GooglePhotos";
 
 export const Route = createFileRoute("/trips/$id")({
   component: TripDetail,
@@ -167,6 +168,8 @@ function TripDetail() {
                     </div>
                     <BookingPill status={s.booking_status as Stop["booking_status"]} onChange={(st) => s.id && setStatus(s.id, st)} />
                   </div>
+
+                  <GooglePhotos venue={s.name} address={s.address} className="mt-3 overflow-hidden rounded-xl" variant="strip" hideEmpty />
 
                   {s.description && <p className="mt-3 text-sm text-foreground">{s.description}</p>}
 

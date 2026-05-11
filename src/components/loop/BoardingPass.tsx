@@ -101,6 +101,18 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
       });
       const data = await res.json().catch(() => ({}));
       if (res.status === 503) {
+        // Wallet issuer creds aren't wired up yet — surface the QR modal in
+        // "pending" mode with a placeholder URL so users still see what the
+        // pass-handoff experience will look like.
+        const previewUrl =
+          data?.saveUrl ||
+          `https://pay.google.com/gp/v/save/preview?loop=${encodeURIComponent(loop.id)}`;
+        setQrPending(true);
+        setQrUrl(previewUrl);
+        trackWalletEvent("wallet_qr_modal_open", {
+          loopId: loop.id,
+          meta: { reason: "missing_credentials_503" },
+        });
         toast("Google Wallet launching soon", {
           description: "We're finalizing our Wallet issuer setup before launch.",
         });

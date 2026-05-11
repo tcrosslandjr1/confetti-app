@@ -1,15 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useMemo, useState } from "react";
 import {
   DollarSign,
   Edit3,
   Loader2,
+  MailCheck,
   MapPin,
   Plus,
   Search,
   Store,
   Trash2,
 } from "lucide-react";
+import { resolveVenueNotificationEmail } from "@/lib/booking-notifications.functions";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -85,6 +88,40 @@ function AdminVenuesPage() {
   const [query, setQuery] = useState("");
   const [editing, setEditing] = useState<Venue | null>(null);
   const [adding, setAdding] = useState(false);
+  const [testingId, setTestingId] = useState<string | null>(null);
+  const resolveEmail = useServerFn(resolveVenueNotificationEmail);
+
+  const onTestNotification = async (v: Venue) => {
+    setTestingId(v.id);
+    try {
+      const result = await resolveEmail({ data: { venueId: v.id } });
+      if (!result?.email) {
+        toast.error("No recipient resolved", {
+          description: "Set a staff email, link an advertiser, or configure the ops inbox.",
+        });
+        return;
+      }
+      const sourceLabel = {
+        venue_staff_email: "venue staff email",
+        linked_advertiser: "linked advertiser",
+        ops_fallback: "ops inbox fallback",
+      }[result.source];
+      toast.success(`Test would deliver to ${result.email}`, {
+        description: `Routed via ${sourceLabel}.`,
+      });
+      logAudit({
+        admin: adminEmail,
+        action: "edit",
+        entity: "venue",
+        targetId: v.id,
+        summary: `Tested notification routing for "${v.name}" → ${result.email} (${result.source})`,
+      });
+    } catch (e) {
+      toast.error("Test failed", { description: (e as Error).message });
+    } finally {
+      setTestingId(null);
+    }
+  };
 
   const load = async () => {
     setLoading(true);
@@ -226,7 +263,21 @@ function AdminVenuesPage() {
               )}
 
               <div className="mt-auto flex flex-wrap gap-2 pt-1">
-                <Button size="sm" variant="ghost" className="ml-auto" onClick={() => setEditing(v)}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="mr-auto"
+                  disabled={testingId === v.id}
+                  onClick={() => void onTestNotification(v)}
+                >
+                  {testingId === v.id ? (
+                    <Loader2 className="mr-1 h-3.5 w-3.5 animate-spin" />
+                  ) : (
+                    <MailCheck className="mr-1 h-3.5 w-3.5" />
+                  )}
+                  Test notification
+                </Button>
+                <Button size="sm" variant="ghost" onClick={() => setEditing(v)}>
                   <Edit3 className="mr-1 h-3.5 w-3.5" /> Edit
                 </Button>
                 <Button

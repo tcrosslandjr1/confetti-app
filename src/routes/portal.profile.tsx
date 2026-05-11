@@ -616,3 +616,15 @@ function ReorderableSections({ sections }: { sections: SectionDef[] }) {
     </div>
   );
 }
+
+function AchIcon({ name }: { name: string }) {
+  const cls = "h-4 w-4";
+  switch (name) {
+    case "crown": return <Crown className={cls} />;
+    case "flame": return <Flame className={cls} />;
+    case "star": return <Star className={cls} />;
+    case "medal": return <Medal className={cls} />;
+    case "sparkles": return <Sparkles className={cls} />;
+    default: return <Trophy className={cls} />;
+  }
+}

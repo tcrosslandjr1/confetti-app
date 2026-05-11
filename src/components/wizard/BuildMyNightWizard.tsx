@@ -1480,6 +1480,61 @@ export function BuildMyNightWizard() {
                       .join(" + ")} · ${CREW.find((c) => c.k === crew)?.label} · ${budget}`}
               </p>
 
+              {(() => {
+                const dietLabel = dietPrefs.vegan
+                  ? "Vegan"
+                  : dietPrefs.vegetarian
+                    ? "Vegetarian"
+                    : dietPrefs.pescatarian
+                      ? "Pescatarian"
+                      : dietPrefs.glutenFree
+                        ? "Gluten-free"
+                        : null;
+                const allergens = dietPrefs.allergens;
+                if (!dietLabel && allergens.length === 0) return null;
+                return (
+                  <div className="mt-4 rounded-2xl border-2 border-ink bg-mint/30 p-3 shadow-brut">
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70">
+                        Your dietary needs
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setStep(5)}
+                        className="font-mono text-[10px] font-bold uppercase tracking-widest text-coral underline-offset-4 hover:underline"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                    <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                      {dietLabel && (
+                        <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest">
+                          <Check className="h-3 w-3" /> {dietLabel}
+                        </span>
+                      )}
+                      {allergens.length > 0 && (
+                        <>
+                          <span className="font-mono text-[10px] uppercase tracking-widest text-ink/55">
+                            avoiding
+                          </span>
+                          {allergens.map((a) => (
+                            <span
+                              key={a}
+                              className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-coral px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-cream"
+                            >
+                              <span aria-hidden>⚠</span> {a}
+                            </span>
+                          ))}
+                        </>
+                      )}
+                    </div>
+                    <p className="mt-2 text-[11px] text-ink/60">
+                      We'll flag risky dishes and prefer matches as you browse picks below.
+                    </p>
+                  </div>
+                );
+              })()}
+
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
                   Sort by

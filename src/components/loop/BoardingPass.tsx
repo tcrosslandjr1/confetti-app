@@ -277,6 +277,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
     <div className="mx-auto max-w-md">
       {/* Share toolbar — sits above the pass card so it stays out of the captured image */}
       <div className="mb-2 flex items-center justify-end gap-2 print:hidden">
+        <SwitchPlanButton currentId={loop.id} />
         <div className="relative">
           <button
             type="button"

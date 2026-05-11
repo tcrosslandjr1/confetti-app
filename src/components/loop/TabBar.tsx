@@ -46,11 +46,12 @@ export function TabBar() {
             <Link
               key={to}
               to={to}
-              className={`relative flex flex-1 flex-col items-center gap-0.5 rounded-xl py-1.5 ${active ? "text-coral" : "text-ink/60"}`}
+              aria-current={active ? "page" : undefined}
+              className={`relative flex flex-1 flex-col items-center gap-0.5 rounded-xl py-1.5 transition-colors ${active ? "text-coral" : "text-ink/60 hover:text-ink"}`}
             >
               <Icon className="h-5 w-5" strokeWidth={active ? 2.5 : 2} />
               <span className="font-mono text-[9px] font-bold uppercase tracking-widest">{label}</span>
-              {active && <span className="absolute -bottom-0.5 h-1 w-1 rounded-full bg-coral" />}
+              {active && <span className="absolute -bottom-0.5 h-1.5 w-1.5 rounded-full bg-coral" />}
             </Link>
           );
         })}

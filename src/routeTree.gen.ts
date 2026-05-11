@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeatherRouteImport } from './routes/weather'
+import { Route as ViralRouteImport } from './routes/viral'
 import { Route as TranslateRouteImport } from './routes/translate'
 import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
 import { Route as ReservationsRouteImport } from './routes/reservations'
@@ -74,6 +75,11 @@ import { Route as ApiPublicHooksDiscoverViralRouteImport } from './routes/api/pu
 const WeatherRoute = WeatherRouteImport.update({
   id: '/weather',
   path: '/weather',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ViralRoute = ViralRouteImport.update({
+  id: '/viral',
+  path: '/viral',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TranslateRoute = TranslateRouteImport.update({
@@ -401,6 +407,7 @@ export interface FileRoutesByFullPath {
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/translate': typeof TranslateRoute
+  '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
@@ -460,6 +467,7 @@ export interface FileRoutesByTo {
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/translate': typeof TranslateRoute
+  '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
@@ -524,6 +532,7 @@ export interface FileRoutesById {
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/translate': typeof TranslateRoute
+  '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
@@ -589,6 +598,7 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/taste-tuner'
     | '/translate'
+    | '/viral'
     | '/weather'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
@@ -648,6 +658,7 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/taste-tuner'
     | '/translate'
+    | '/viral'
     | '/weather'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
@@ -711,6 +722,7 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/taste-tuner'
     | '/translate'
+    | '/viral'
     | '/weather'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
@@ -775,6 +787,7 @@ export interface RootRouteChildren {
   ReservationsRoute: typeof ReservationsRoute
   TasteTunerRoute: typeof TasteTunerRoute
   TranslateRoute: typeof TranslateRoute
+  ViralRoute: typeof ViralRoute
   WeatherRoute: typeof WeatherRoute
   ApiChatRoute: typeof ApiChatRoute
   CollabTripIdRoute: typeof CollabTripIdRoute
@@ -797,6 +810,13 @@ declare module '@tanstack/react-router' {
       path: '/weather'
       fullPath: '/weather'
       preLoaderRoute: typeof WeatherRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/viral': {
+      id: '/viral'
+      path: '/viral'
+      fullPath: '/viral'
+      preLoaderRoute: typeof ViralRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/translate': {
@@ -1353,6 +1373,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReservationsRoute: ReservationsRoute,
   TasteTunerRoute: TasteTunerRoute,
   TranslateRoute: TranslateRoute,
+  ViralRoute: ViralRoute,
   WeatherRoute: WeatherRoute,
   ApiChatRoute: ApiChatRoute,
   CollabTripIdRoute: CollabTripIdRoute,

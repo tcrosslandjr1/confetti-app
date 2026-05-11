@@ -383,7 +383,7 @@ export function BuildMyNightWizard() {
     }
     return arr;
   }, [stops, sortBy, placesData]);
-  const totalSteps = 5;
+  const totalSteps = 6;
 
   // If preset supplied, jump straight to result and seed vibe multi-select
   useEffect(() => {

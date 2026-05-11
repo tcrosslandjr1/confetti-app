@@ -13,9 +13,32 @@ import { supabaseAdmin } from "@/integrations/supabase/client.server";
  * Returns { email, source } so callers/logs can see which path was used,
  * or null if nothing is configured.
  */
+/**
+ * Last-resort ops inbox if no secret is configured. Ensures booking
+ * notifications are never silently dropped.
+ */
+const HARDCODED_OPS_FALLBACK = "ops@confettiplan.com";
+
+function opsInboxAddress(): string {
+  const fromSecret = (process.env.OPS_NOTIFICATION_EMAIL ?? "").trim();
+  return fromSecret || HARDCODED_OPS_FALLBACK;
+}
+
 export const resolveVenueNotificationEmail = createServerFn({ method: "GET" })
-  .inputValidator((data) => z.object({ venueId: z.string().uuid() }).parse(data))
+  .inputValidator((data) =>
+    z.object({ venueId: z.string().uuid().nullish() }).parse(data),
+  )
   .handler(async ({ data }) => {
+    const opsInbox = opsInboxAddress();
+    const opsResult = {
+      email: opsInbox,
+      source: "ops_fallback" as const,
+      venueName: null as string | null,
+    };
+
+    // No venue linked — go straight to ops so the booking isn't dropped.
+    if (!data.venueId) return opsResult;
+
     const { data: venue, error } = await supabaseAdmin
       .from("venues")
       .select("id, name, staff_email, advertiser_id")
@@ -23,7 +46,7 @@ export const resolveVenueNotificationEmail = createServerFn({ method: "GET" })
       .maybeSingle();
 
     if (error) throw error;
-    if (!venue) return null;
+    if (!venue) return opsResult;
 
     const staff = (venue.staff_email ?? "").trim();
     if (staff) {
@@ -42,10 +65,6 @@ export const resolveVenueNotificationEmail = createServerFn({ method: "GET" })
       }
     }
 
-    const opsInbox = (process.env.OPS_NOTIFICATION_EMAIL ?? "").trim();
-    if (opsInbox) {
-      return { email: opsInbox, source: "ops_fallback" as const, venueName: venue.name };
-    }
-
-    return null;
+    // Final fallback: ops inbox so the notification still goes out.
+    return { ...opsResult, venueName: venue.name };
   });

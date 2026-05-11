@@ -1,9 +1,12 @@
-import { Plane, Check, Wallet, Apple, ChevronRight, Loader2, X, Smartphone } from "lucide-react";
+import { Plane, Check, Wallet, Apple, ChevronRight, Loader2, X, Smartphone, Navigation } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import type { ActiveLoop, LoopStop } from "@/lib/loop-store";
+import { ConfettiMap } from "@/components/maps/ConfettiMap";
+import { buildDirectionsUrl } from "@/lib/geocode";
+import type { GeocodeResult } from "@/lib/geocode";
 
 function isAndroid() {
   if (typeof navigator === "undefined") return false;

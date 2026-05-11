@@ -142,7 +142,7 @@ function RouteLayer({ stops, currentIdx, fallbackCity }: Props & { fallbackCity:
     );
 
     return () => {
-      rendererRef.current?.setDirections({ routes: [] });
+      // renderer is cleaned up on full unmount
     };
   }, [map, routes, geo]);
 

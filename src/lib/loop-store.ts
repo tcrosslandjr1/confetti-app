@@ -11,6 +11,9 @@ export type LoopStop = {
   area?: string;
   done?: boolean;
   venueId?: string;
+  /** Optional pre-resolved coordinates — skips geocoding lookup. */
+  lat?: number;
+  lng?: number;
   // Rich boarding-pass extras (all optional for back-compat)
   kind?: StopKind;
   emoji?: string;

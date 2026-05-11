@@ -15,6 +15,8 @@ import {
   MapPin,
   Utensils,
   ClipboardList,
+  Save,
+  Trash2,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";

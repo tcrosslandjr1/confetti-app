@@ -24,9 +24,13 @@ export const Route = createFileRoute("/plan")({
 function PlanPage() {
   const { user, loading } = useAuth();
   const nav = useNavigate();
-  const [occasionSlug, setOccasionSlug] = useState<string>(OCCASIONS[0].slug);
+  const [occasionSlugs, setOccasionSlugs] = useState<string[]>([OCCASIONS[0].slug]);
   const [customVibe, setCustomVibe] = useState("");
-  const isCustom = occasionSlug === "__custom__";
+  const isCustom = occasionSlugs.includes("__custom__");
+  const toggleOccasion = (slug: string) =>
+    setOccasionSlugs((prev) =>
+      prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug],
+    );
   const [city, setCity] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
   const [date, setDate] = useState("");

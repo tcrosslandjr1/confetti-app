@@ -498,7 +498,7 @@ function Layer({
     }
     const t = window.setTimeout(() => marker.setAnimation(null), 1400);
     return () => window.clearTimeout(t);
-  }, [map, focusStopId, points, stops]);
+  }, [map, focusStopId, points, stops, currentIdx]);
 
   return null;
 }

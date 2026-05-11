@@ -11,6 +11,12 @@ import { rememberReferralCode, getPendingReferralCode } from "@/lib/referrals";
 import { requestUserLocation } from "@/lib/location";
 
 export const Route = createFileRoute("/auth")({
+  validateSearch: (search: Record<string, unknown>) => {
+    const raw = typeof search.redirect === "string" ? search.redirect : "";
+    // Only allow internal paths to avoid open-redirect to off-site URLs.
+    const safe = raw.startsWith("/") && !raw.startsWith("//") ? raw : "/";
+    return { redirect: safe };
+  },
   head: () => ({ meta: [{ title: "Sign in — Concierge" }] }),
   component: AuthPage,
 });

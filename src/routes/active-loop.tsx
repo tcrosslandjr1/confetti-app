@@ -21,6 +21,9 @@ function ActiveLoopPage() {
     setActiveLoop(existing);
     setLoop(existing);
     setConfettiCount(getConfetti());
+    const offLoop = subscribeActiveLoop(() => setLoop(getActiveLoop()));
+    const offConfetti = subscribeConfetti(() => setConfettiCount(getConfetti()));
+    return () => { offLoop(); offConfetti(); };
   }, []);
 
   if (!loop) return <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">Loading…</div>;

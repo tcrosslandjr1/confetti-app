@@ -53,6 +53,29 @@ function ProfilePage() {
     });
   }, [user]);
 
+  useEffect(() => {
+    if (!user) return;
+    let cancelled = false;
+    (async () => {
+      const nowIso = new Date().toISOString();
+      const [upRes, pastRes, refs, achRows, userAch] = await Promise.all([
+        supabase.from("bookings").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("starts_at", nowIso),
+        supabase.from("bookings").select("id", { count: "exact", head: true }).eq("user_id", user.id).lt("starts_at", nowIso),
+        getMyReferralStats(),
+        supabase.from("achievements").select("id, xp_reward"),
+        supabase.from("user_achievements").select("achievement_id").eq("user_id", user.id),
+      ]);
+      if (cancelled) return;
+      const unlockedIds = new Set(((userAch.data ?? []) as { achievement_id: string }[]).map((r) => r.achievement_id));
+      const allAch = (achRows.data ?? []) as { id: string; xp_reward: number }[];
+      const xpEarned = allAch.reduce((s, a) => s + (unlockedIds.has(a.id) ? a.xp_reward : 0), 0);
+      setBookingTotals({ upcoming: upRes.count ?? 0, past: pastRes.count ?? 0 });
+      setRefStats(refs);
+      setAchTotals({ unlocked: unlockedIds.size, total: allAch.length, xpEarned });
+    })();
+    return () => { cancelled = true; };
+  }, [user]);
+
   const save = async () => {
     if (!user) return;
     const { error } = await supabase.from("profiles").update({ display_name: name }).eq("id", user.id);

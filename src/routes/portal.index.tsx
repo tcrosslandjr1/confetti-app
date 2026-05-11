@@ -248,6 +248,8 @@ function PortalDiscoverPage() {
         />
       )}
 
+      <ViralNow city="Washington DC" />
+
       <div className="grid gap-3 sm:grid-cols-3">
         <QuickAction to="/concierge/chat" icon={MessageCircle} label="Ask Concierge" hint="AI-powered planning" />
         <QuickAction to="/portal/bookings" icon={CalendarCheck} label="My Bookings" hint="Upcoming & past" />

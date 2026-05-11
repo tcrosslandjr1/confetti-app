@@ -349,6 +349,7 @@ function NewTeamEventPage() {
         notes: composeNotes() || undefined,
         attendees: parsed,
       });
+      clearDraft();
       toast.success("Event created — let's plan it");
       nav({ to: "/teams/$id", params: { id: ev.id } });
     } catch (err) {

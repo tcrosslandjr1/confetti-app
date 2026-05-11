@@ -14,7 +14,10 @@ import {
   Bookmark,
   Trophy,
   Flame,
+  Share2,
+  X,
 } from "lucide-react";
+import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { getStoredLocation } from "@/lib/location";
@@ -326,6 +329,7 @@ export function NextBookingCountdown() {
   const { user } = useAuth();
   const [b, setB] = useState<NextBooking | null>(null);
   const [, setTick] = useState(0);
+  const [cancelling, setCancelling] = useState(false);
 
   useEffect(() => {
     if (!user) return;
@@ -347,10 +351,56 @@ export function NextBookingCountdown() {
     };
   }, [user]);
 
+  // Live countdown — tick every second so the minutes update without lag
   useEffect(() => {
-    const t = window.setInterval(() => setTick((n) => n + 1), 60_000);
+    const t = window.setInterval(() => setTick((n) => n + 1), 1_000);
     return () => window.clearInterval(t);
   }, []);
+
+  const handleShare = async () => {
+    if (!b) return;
+    const when = new Date(b.starts_at).toLocaleString([], {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    });
+    const text = `${b.venue_name} on ${when} · party of ${b.party_size}`;
+    const url = typeof window !== "undefined" ? window.location.origin + "/portal/bookings" : "";
+    try {
+      const nav = typeof navigator !== "undefined" ? (navigator as Navigator) : null;
+      if (nav && typeof nav.share === "function") {
+        await nav.share({ title: "My next booking", text, url });
+        return;
+      }
+      if (nav && nav.clipboard) {
+        await nav.clipboard.writeText(`${text}\n${url}`);
+        toast.success("Booking copied to clipboard");
+      }
+    } catch {
+      /* user cancelled or unsupported */
+    }
+  };
+
+  const handleCancel = async () => {
+    if (!b) return;
+    if (typeof window !== "undefined" && !window.confirm(`Cancel your booking at ${b.venue_name}?`)) {
+      return;
+    }
+    setCancelling(true);
+    const { error } = await supabase
+      .from("bookings")
+      .update({ status: "cancelled", cancelled_at: new Date().toISOString() })
+      .eq("id", b.id);
+    setCancelling(false);
+    if (error) {
+      toast.error("Could not cancel — please try again.");
+      return;
+    }
+    toast.success("Booking cancelled");
+    setB(null);
+  };
 
   if (!b) {
     return (
@@ -371,6 +421,7 @@ export function NextBookingCountdown() {
   }
 
   const t = timeUntil(b.starts_at);
+  const sec = Math.max(0, Math.floor(((new Date(b.starts_at).getTime() - Date.now()) % 60_000) / 1000));
   return (
     <WidgetShell
       title="Next up"
@@ -389,10 +440,11 @@ export function NextBookingCountdown() {
         })}{" "}
         · party of {b.party_size}
       </div>
-      <div className="mt-4 grid grid-cols-3 gap-2 text-center">
+      <div className="mt-4 grid grid-cols-4 gap-2 text-center">
         <CountdownCell label="Days" value={t.d} />
         <CountdownCell label="Hours" value={t.h} />
         <CountdownCell label="Min" value={t.m} />
+        <CountdownCell label="Sec" value={sec} />
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
         <a
@@ -403,6 +455,21 @@ export function NextBookingCountdown() {
         >
           <Navigation className="h-3 w-3" /> Directions
         </a>
+        <button
+          type="button"
+          onClick={handleShare}
+          className="inline-flex h-9 items-center gap-1.5 rounded-full border-2 border-cream/30 px-3 font-mono text-[10px] font-bold uppercase tracking-widest text-cream hover:bg-cream/10"
+        >
+          <Share2 className="h-3 w-3" /> Share
+        </button>
+        <button
+          type="button"
+          onClick={handleCancel}
+          disabled={cancelling}
+          className="inline-flex h-9 items-center gap-1.5 rounded-full border-2 border-coral/60 bg-coral/20 px-3 font-mono text-[10px] font-bold uppercase tracking-widest text-cream hover:bg-coral/30 disabled:opacity-60"
+        >
+          <X className="h-3 w-3" /> {cancelling ? "Cancelling…" : "Cancel"}
+        </button>
         <Link
           to="/portal/bookings"
           className="inline-flex h-9 items-center gap-1.5 rounded-full border-2 border-cream bg-cream px-3 font-mono text-[10px] font-bold uppercase tracking-widest text-ink hover:bg-cream/90"

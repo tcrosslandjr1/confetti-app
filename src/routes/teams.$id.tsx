@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { PURPOSE_LABELS, dayCount, type CorporateEvent, type CorporateAttendee, type RsvpStatus } from "@/lib/corporate";
+import { TonightAtAGlance, ConciergeQuickAsk, NextBookingCountdown, SpendBudgetTracker } from "@/components/widgets/AppWidgets";
 
 export const Route = createFileRoute("/teams/$id")({
   component: TeamEventPage,

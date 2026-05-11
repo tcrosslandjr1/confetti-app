@@ -115,6 +115,9 @@ function NewTeamEventPage() {
   const [vibes, setVibes] = useState<Set<Vibe>>(new Set());
   const [dietary, setDietary] = useState<Set<Dietary>>(new Set());
   const [notes, setNotes] = useState("");
+  const [draftLoaded, setDraftLoaded] = useState(false);
+  const [hadDraft, setHadDraft] = useState(false);
+  const [lastSavedAt, setLastSavedAt] = useState<number | null>(null);
 
   // Prefill from an existing trip when arriving via /teams/new?fromTrip=<id>
   useEffect(() => {

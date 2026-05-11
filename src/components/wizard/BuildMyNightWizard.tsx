@@ -283,6 +283,49 @@ export function BuildMyNightWizard() {
     toast.success(`Reserved ${venueName} at ${slot} ✓`);
   }, [user, pickedDate, crew, burst]);
 
+  const shareStopCard = useCallback(async (data: StopShareData) => {
+    setShareData(data);
+    setSharing(data.venue);
+    // Wait for the offscreen card to render
+    await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+    try {
+      if (!shareRef.current) throw new Error("Card not mounted");
+      const dataUrl = await toPng(shareRef.current, {
+        pixelRatio: 2,
+        cacheBust: true,
+        backgroundColor: "#FAF6EF",
+      });
+      const blob = await (await fetch(dataUrl)).blob();
+      const filename = `${data.venue.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}-stop-card.png`;
+
+      // Try Web Share API with file (mobile)
+      const file = new File([blob], filename, { type: "image/png" });
+      const navAny = navigator as Navigator & { canShare?: (d: { files: File[] }) => boolean; share?: (d: ShareData & { files?: File[] }) => Promise<void> };
+      if (navAny.canShare?.({ files: [file] }) && navAny.share) {
+        try {
+          await navAny.share({ files: [file], title: data.venue, text: `${data.venue} — ${data.time} · ${data.vibe}` });
+          toast.success("Shared ✓");
+          return;
+        } catch (err) {
+          // user cancelled — fall through to download
+          if ((err as Error).name === "AbortError") return;
+        }
+      }
+      // Fallback: download
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.download = filename;
+      link.click();
+      toast.success("Stop card downloaded");
+    } catch (e) {
+      console.error("[share]", e);
+      toast.error("Couldn't generate share card");
+    } finally {
+      setSharing(null);
+      setShareData(null);
+    }
+  }, []);
+
   const fallbackTones = ["bg-coral", "bg-purple", "bg-gold", "bg-emerald-400", "bg-pink-300", "bg-amber-300"];
   const presetStops = useMemo(
     () => preset?.stops.map((s, i) => ({

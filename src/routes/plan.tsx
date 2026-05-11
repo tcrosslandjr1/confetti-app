@@ -33,6 +33,49 @@ function PlanPage() {
   const [transportMode, setTransportMode] = useState<"auto" | "car" | "transit" | "lyft" | "uber" | "walk">("auto");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const [locating, setLocating] = useState(false);
+  const [locErr, setLocErr] = useState<string | null>(null);
+
+  const detectLocation = () => {
+    setLocErr(null);
+    if (typeof navigator === "undefined" || !navigator.geolocation) {
+      setLocErr("Geolocation isn't available in this browser.");
+      return;
+    }
+    setLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        try {
+          const { latitude, longitude } = pos.coords;
+          const res = await fetch(
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+          );
+          if (!res.ok) throw new Error("Lookup failed");
+          const data = await res.json();
+          const detectedCity = data.city || data.locality || data.principalSubdivision || "";
+          const detectedHood = data.localityInfo?.administrative?.find((a: { adminLevel: number; name: string }) => a.adminLevel >= 8)?.name
+            || data.localityInfo?.informative?.[0]?.name
+            || "";
+          if (detectedCity) setCity(detectedCity);
+          if (detectedHood && detectedHood !== detectedCity) setNeighborhood(detectedHood);
+          if (!detectedCity) setLocErr("Couldn't resolve a city from your location.");
+        } catch {
+          setLocErr("Couldn't look up your location. Type it in instead.");
+        } finally {
+          setLocating(false);
+        }
+      },
+      (geoErr) => {
+        setLocating(false);
+        setLocErr(
+          geoErr.code === geoErr.PERMISSION_DENIED
+            ? "Location permission denied. Type your city instead."
+            : "Couldn't get your location. Type it in instead."
+        );
+      },
+      { enableHighAccuracy: false, timeout: 8000, maximumAge: 60_000 }
+    );
+  };
 
   useEffect(() => {
     if (!loading && !user) {

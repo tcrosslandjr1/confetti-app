@@ -219,8 +219,8 @@ function PortalDiscoverPage() {
 
       {/* Dashboard grid + progress sidebar */}
       {user && (
-        <div className="grid gap-6 lg:grid-cols-4">
-          <section className="grid gap-6 sm:grid-cols-2 lg:col-span-3">
+        <div className="grid gap-6 lg:grid-cols-4 lg:items-start">
+          <section className="grid gap-6 sm:grid-cols-2 lg:col-span-3 lg:order-1">
             {/* Bookings */}
             <DashCard
               title="Upcoming bookings"

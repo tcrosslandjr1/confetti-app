@@ -30,8 +30,40 @@ const KEY_CONFETTI = "loop:confetti";
 const KEY_ONBOARDED = "loop:onboarded";
 const KEY_ONBOARDING = "loop:onboarding";
 
+const EVENT_LOOP = "loop:active:changed";
+const EVENT_CONFETTI = "loop:confetti:changed";
+
 export function isClient() {
   return typeof window !== "undefined";
+}
+
+function emit(event: string) {
+  if (!isClient()) return;
+  window.dispatchEvent(new CustomEvent(event));
+}
+
+/** Subscribe to active-loop changes (same-tab + cross-tab). Returns unsubscribe. */
+export function subscribeActiveLoop(cb: () => void): () => void {
+  if (!isClient()) return () => {};
+  const onStorage = (e: StorageEvent) => { if (e.key === KEY_LOOP) cb(); };
+  window.addEventListener(EVENT_LOOP, cb);
+  window.addEventListener("storage", onStorage);
+  return () => {
+    window.removeEventListener(EVENT_LOOP, cb);
+    window.removeEventListener("storage", onStorage);
+  };
+}
+
+/** Subscribe to confetti changes (same-tab + cross-tab). Returns unsubscribe. */
+export function subscribeConfetti(cb: () => void): () => void {
+  if (!isClient()) return () => {};
+  const onStorage = (e: StorageEvent) => { if (e.key === KEY_CONFETTI) cb(); };
+  window.addEventListener(EVENT_CONFETTI, cb);
+  window.addEventListener("storage", onStorage);
+  return () => {
+    window.removeEventListener(EVENT_CONFETTI, cb);
+    window.removeEventListener("storage", onStorage);
+  };
 }
 
 export function getActiveLoop(): ActiveLoop | null {
@@ -47,6 +79,25 @@ export function getActiveLoop(): ActiveLoop | null {
 export function setActiveLoop(loop: ActiveLoop) {
   if (!isClient()) return;
   localStorage.setItem(KEY_LOOP, JSON.stringify(loop));
+  emit(EVENT_LOOP);
+}
+
+export function clearActiveLoop() {
+  if (!isClient()) return;
+  localStorage.removeItem(KEY_LOOP);
+  emit(EVENT_LOOP);
+}
+
+/** Toggle/set a stop's `done` flag and persist. Returns the updated loop. */
+export function setStopDone(stopId: string, done = true): ActiveLoop | null {
+  const loop = getActiveLoop();
+  if (!loop) return null;
+  const updated: ActiveLoop = {
+    ...loop,
+    stops: loop.stops.map((s) => (s.id === stopId ? { ...s, done } : s)),
+  };
+  setActiveLoop(updated);
+  return updated;
 }
 
 export function getConfetti(): number {
@@ -58,7 +109,14 @@ export function addConfetti(amount: number): number {
   if (!isClient()) return 0;
   const next = getConfetti() + amount;
   localStorage.setItem(KEY_CONFETTI, String(next));
+  emit(EVENT_CONFETTI);
   return next;
+}
+
+export function setConfetti(value: number) {
+  if (!isClient()) return;
+  localStorage.setItem(KEY_CONFETTI, String(Math.max(0, value)));
+  emit(EVENT_CONFETTI);
 }
 
 export function isOnboarded(): boolean {

@@ -534,3 +534,36 @@ function TravelLegCard({ leg, from, to }: { leg: TravelLeg; from: Stop; to: Stop
     </div>
   );
 }
+
+function VibeRow({ stop, prefs }: { stop: Stop; prefs: VibePrefs }) {
+  const inferred = inferStopVibe(stop);
+  const score = vibeMatchScore(inferred, prefs);
+  const level = matchLevel(score);
+
+  const tone =
+    level === "match" ? "border-emerald-300 bg-emerald-50 text-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-100"
+    : level === "near" ? "border-amber-300 bg-amber-50 text-amber-900 dark:bg-amber-950/30 dark:text-amber-100"
+    : "border-rose-300 bg-rose-50 text-rose-900 dark:bg-rose-950/30 dark:text-rose-100";
+  const label = level === "match" ? "Vibe match" : level === "near" ? "Close to your vibe" : "Off your vibe";
+
+  const chip = (active: boolean, text: string, Icon: typeof Users) => (
+    <span
+      className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-semibold ${
+        active
+          ? "border-primary/40 bg-primary/10 text-primary"
+          : "border-border bg-background text-muted-foreground"
+      }`}
+    >
+      <Icon className="h-3 w-3" /> {text}
+    </span>
+  );
+
+  return (
+    <div className={`mt-3 flex flex-wrap items-center gap-2 rounded-xl border px-3 py-2 ${tone}`}>
+      <span className="text-[11px] font-bold uppercase tracking-wider">{label} · {score}%</span>
+      {chip(inferred.crowd === prefs.crowd, CROWD_LABEL[inferred.crowd], Users)}
+      {chip(inferred.noise === prefs.noise, NOISE_LABEL[inferred.noise], Sparkles)}
+      {chip(inferred.dress === prefs.dress, DRESS_LABEL[inferred.dress], Shirt)}
+    </div>
+  );
+}

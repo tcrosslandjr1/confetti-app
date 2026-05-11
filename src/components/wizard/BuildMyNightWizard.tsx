@@ -695,7 +695,7 @@ export function BuildMyNightWizard() {
         <div className="flex items-center justify-between border-b-2 border-ink bg-cream/80 px-5 py-3 backdrop-blur">
           <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest">
             <Sparkles className="h-3.5 w-3.5 text-coral" />
-            {step <= 4 ? `Step ${step + 1} / ${totalSteps}` : step === 5 ? "Building your night" : "Your night, ready"}
+            {step <= 5 ? `Step ${step + 1} / ${totalSteps}` : step === 6 ? "Building your night" : "Your night, ready"}
           </div>
           <button
             onClick={closeWizard}

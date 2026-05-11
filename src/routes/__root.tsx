@@ -81,15 +81,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Loop — Your city, curated" },
+      { title: "Confetti — Your city, curated" },
       {
         name: "description",
         content:
-          "Loop curates city experiences, dining, and nightlife into ready-to-go itineraries.",
+          "Confetti curates city experiences, dining, and nightlife into ready-to-go itineraries.",
       },
-      { name: "author", content: "Loop" },
+      { name: "author", content: "Confetti" },
       { name: "theme-color", content: "#F05537" },
-      { property: "og:title", content: "Loop — Your city, curated" },
+      { property: "og:title", content: "Confetti — Your city, curated" },
       {
         property: "og:description",
         content: "Curated city experiences and itineraries, ready in seconds.",
@@ -97,7 +97,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Loop — Your city, curated" },
+      { name: "twitter:title", content: "Confetti — Your city, curated" },
       {
         name: "twitter:description",
         content: "Curated city experiences and itineraries, ready in seconds.",

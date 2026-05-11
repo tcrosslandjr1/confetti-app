@@ -10,7 +10,7 @@ import { toast } from "sonner";
 import { PURPOSE_LABELS, type CorporatePurpose, type RsvpStatus } from "@/lib/corporate";
 
 export const Route = createFileRoute("/rsvp/$token")({
-  head: () => ({ meta: [{ title: "RSVP — Loop" }] }),
+  head: () => ({ meta: [{ title: "RSVP — Confetti" }] }),
   component: RsvpPage,
 });
 

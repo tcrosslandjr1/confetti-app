@@ -40,6 +40,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdvertiseRouteImport } from './routes/advertise'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ActiveLoopRouteImport } from './routes/active-loop'
+import { Route as ActiveConfettiRouteImport } from './routes/active-confetti'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -244,6 +245,11 @@ const AdminRoute = AdminRouteImport.update({
 const ActiveLoopRoute = ActiveLoopRouteImport.update({
   id: '/active-loop',
   path: '/active-loop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActiveConfettiRoute = ActiveConfettiRouteImport.update({
+  id: '/active-confetti',
+  path: '/active-confetti',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AccessibilityRoute = AccessibilityRouteImport.update({
@@ -504,6 +510,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/active-confetti': typeof ActiveConfettiRoute
   '/active-loop': typeof ActiveLoopRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRouteWithChildren
@@ -587,6 +594,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/active-confetti': typeof ActiveConfettiRoute
   '/active-loop': typeof ActiveLoopRoute
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
@@ -667,6 +675,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/active-confetti': typeof ActiveConfettiRoute
   '/active-loop': typeof ActiveLoopRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRouteWithChildren
@@ -752,6 +761,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/accessibility'
+    | '/active-confetti'
     | '/active-loop'
     | '/admin'
     | '/advertise'
@@ -835,6 +845,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/accessibility'
+    | '/active-confetti'
     | '/active-loop'
     | '/auth'
     | '/boarding-pass'
@@ -914,6 +925,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/accessibility'
+    | '/active-confetti'
     | '/active-loop'
     | '/admin'
     | '/advertise'
@@ -998,6 +1010,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AccessibilityRoute: typeof AccessibilityRoute
+  ActiveConfettiRoute: typeof ActiveConfettiRoute
   ActiveLoopRoute: typeof ActiveLoopRoute
   AdminRoute: typeof AdminRouteWithChildren
   AdvertiseRoute: typeof AdvertiseRouteWithChildren
@@ -1262,6 +1275,13 @@ declare module '@tanstack/react-router' {
       path: '/active-loop'
       fullPath: '/active-loop'
       preLoaderRoute: typeof ActiveLoopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/active-confetti': {
+      id: '/active-confetti'
+      path: '/active-confetti'
+      fullPath: '/active-confetti'
+      preLoaderRoute: typeof ActiveConfettiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/accessibility': {
@@ -1749,6 +1769,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
+  ActiveConfettiRoute: ActiveConfettiRoute,
   ActiveLoopRoute: ActiveLoopRoute,
   AdminRoute: AdminRouteWithChildren,
   AdvertiseRoute: AdvertiseRouteWithChildren,
@@ -1798,3 +1819,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

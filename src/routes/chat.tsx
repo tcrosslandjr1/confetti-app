@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { Sparkles, Send, ArrowLeft } from "lucide-react";
 
 export const Route = createFileRoute("/chat")({
-  head: () => ({ meta: [{ title: "Loop AI Chat — Loop" }] }),
+  head: () => ({ meta: [{ title: "Confetti AI Chat — Confetti" }] }),
   component: ChatPage,
 });
 
@@ -13,7 +13,7 @@ const SUGGESTIONS = ["Find me a rooftop", "Date night ideas", "What's trending"]
 
 const REPLIES: Record<string, string> = {
   rooftop:
-    "Aera Rooftop is having a moment — sunset cocktails, low waits before 7pm. Want me to add it to a Loop?",
+    "Aera Rooftop is having a moment — sunset cocktails, low waits before 7pm. Want me to add it to a plan?",
   date: "I'd start at Lila's Patio (small plates), walk to Mason St. Records for nat wine, end at Aera. Romantic, walkable, ~3hrs.",
   trending:
     "This week: Aera Rooftop, Mason St. Records, and the new Ethiopian spot in Shaw — all spiking on TikTok.",
@@ -24,7 +24,7 @@ function pickReply(text: string) {
   if (t.includes("rooftop")) return REPLIES.rooftop;
   if (t.includes("date") || t.includes("romantic")) return REPLIES.date;
   if (t.includes("trend") || t.includes("viral")) return REPLIES.trending;
-  return "I can build you a Loop for that. Tell me when, who's coming, and your budget.";
+  return "I can build you a plan for that. Tell me when, who's coming, and your budget.";
 }
 
 function ChatPage() {
@@ -32,7 +32,7 @@ function ChatPage() {
     {
       id: 0,
       role: "ai",
-      text: "Hey — I'm your Loop concierge. What's the vibe tonight?",
+      text: "Hey — I'm your Confetti concierge. What's the vibe tonight?",
       reveal: true,
     },
   ]);
@@ -76,7 +76,7 @@ function ChatPage() {
             <Sparkles className="h-4 w-4" />
           </span>
           <div>
-            <div className="font-display text-sm font-bold">Loop AI</div>
+            <div className="font-display text-sm font-bold">Confetti AI</div>
             <div className="font-mono text-[9px] uppercase tracking-widest text-ink/60">Online</div>
           </div>
         </div>

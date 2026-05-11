@@ -7,7 +7,7 @@ import { ViralTagChip, ALL_VIRAL_TAGS, tagLabel, type ViralTag } from "@/compone
 export const Route = createFileRoute("/viral")({
   head: () => ({
     meta: [
-      { title: "Viral Now — Trending Spots | Loop" },
+      { title: "Viral Now — Trending Spots | Confetti" },
       {
         name: "description",
         content:

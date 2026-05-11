@@ -150,7 +150,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-6 flex flex-col items-start justify-between gap-3 font-mono text-[11px] uppercase tracking-widest text-cream/50 sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Loop — plans with a pulse.</p>
+          <p>© {new Date().getFullYear()} Confetti — plans with a pulse.</p>
           <div className="flex items-center gap-4">
             <button
               type="button"

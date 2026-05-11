@@ -18,7 +18,7 @@ import {
 import { makeDemoLoop, setActiveLoop } from "@/lib/loop-store";
 
 export const Route = createFileRoute("/create")({
-  head: () => ({ meta: [{ title: "Create a Loop — Loop" }] }),
+  head: () => ({ meta: [{ title: "Create a Plan — Confetti" }] }),
   component: CreatePage,
 });
 
@@ -236,7 +236,7 @@ function CreatePage() {
         {step === 3 && vibe && (
           <div className="mt-6 rounded-2xl border-2 border-dashed border-ink/40 bg-card p-4">
             <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
-              Loop summary
+              Plan summary
             </div>
             <ul className="mt-2 space-y-1 text-sm">
               <li className="flex items-center gap-2">
@@ -261,7 +261,7 @@ function CreatePage() {
             onClick={() => (step < totalSteps - 1 ? setStep(step + 1) : finish())}
             className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink px-4 py-4 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-40"
           >
-            {step < totalSteps - 1 ? "Continue" : "Create My Loop"}
+            {step < totalSteps - 1 ? "Continue" : "Create My Plan"}
             <ArrowRight className="h-4 w-4" />
           </button>
         </div>

@@ -1,4 +1,4 @@
-// Lightweight localStorage-backed store for the Loop demo features.
+// Lightweight localStorage-backed store for the plan demo features.
 // Holds the active loop itinerary, confetti currency, and onboarding flag.
 
 export type LoopStop = {

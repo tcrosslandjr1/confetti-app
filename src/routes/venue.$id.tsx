@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/venue/$id")({
-  head: () => ({ meta: [{ title: "Venue — Loop" }] }),
+  head: () => ({ meta: [{ title: "Venue — Confetti" }] }),
   component: VenuePage,
 });
 
@@ -224,10 +224,10 @@ function VenuePage() {
 
         <div className="mt-5 grid grid-cols-2 gap-2">
           <button
-            onClick={() => toast.success(`${venue.name} added to your Loop`)}
+            onClick={() => toast.success(`${venue.name} added to your plan`)}
             className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold shadow-brut transition-pop hover:-translate-y-0.5"
           >
-            <Plus className="h-4 w-4" /> Add to Loop
+            <Plus className="h-4 w-4" /> Add to Plan
           </button>
           <button
             onClick={() => toast.success("Booking handoff coming soon")}

@@ -5,7 +5,7 @@ import { getActiveLoop, makeDemoLoop, type ActiveLoop } from "@/lib/loop-store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/confirmation")({
-  head: () => ({ meta: [{ title: "Confirmed — Loop" }] }),
+  head: () => ({ meta: [{ title: "Confirmed — Confetti" }] }),
   component: ConfirmationPage,
 });
 
@@ -56,12 +56,12 @@ function ConfirmationPage() {
           You're all set!
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Your Loop is locked. Confirmation sent.
+          Your plan is locked. Confirmation sent.
         </p>
 
         <div className="mt-6 rounded-3xl border-2 border-ink bg-card p-5 text-left shadow-brut">
           <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
-            Loop summary
+            Plan summary
           </div>
           <div className="mt-2 grid grid-cols-3 gap-2 text-center">
             <Stat label="Stops" value={loop.stops.length.toString()} />
@@ -94,7 +94,7 @@ function ConfirmationPage() {
         <button
           onClick={() => {
             navigator
-              .share?.({ title: "Loop", text: "Check out my Loop", url: location.href })
+              .share?.({ title: "Confetti", text: "Check out my Confetti plan", url: location.href })
               .catch(() => toast.success("Share link copied"));
           }}
           className="mt-3 inline-flex items-center justify-center gap-2 text-sm font-semibold text-ink/70 hover:text-ink"

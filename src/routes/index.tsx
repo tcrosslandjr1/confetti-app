@@ -22,13 +22,13 @@ import { getAdImpressionConfig } from "@/lib/ad-impression-config";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Loop — Plans with a pulse. Outings worth showing up for." },
+      { title: "Confetti — Plans with a pulse. Outings worth showing up for." },
       {
         name: "description",
         content:
-          "Loop is the loud, opinionated planner that turns 'I'm bored' into a whole night. AI itineraries, door-to-door routing, reservations on lock.",
+          "Confetti is the loud, opinionated planner that turns 'I'm bored' into a whole night. AI itineraries, door-to-door routing, reservations on lock.",
       },
-      { property: "og:title", content: "Loop — Plans with a pulse." },
+      { property: "og:title", content: "Confetti — Plans with a pulse." },
       { property: "og:description", content: "From vibe to door-to-door plan in under a minute." },
     ],
   }),
@@ -267,7 +267,7 @@ function Landing() {
             </h1>
 
             <p className="mt-8 max-w-xl text-lg leading-snug">
-              Loop is the loud, opinionated planner. Tell it the vibe — it builds the night. Real
+              Confetti is the loud, opinionated planner. Tell it the vibe — it builds the night. Real
               stops, real timings, real reservations.{" "}
               <span className="font-serif italic">No more group-chat purgatory.</span>
             </p>
@@ -429,7 +429,7 @@ function Landing() {
               <span className="font-serif italic">Again.</span>
             </p>
             <p>
-              Loop kills that loop. One vibe in — one full evening out. Stops, times, routes,
+              Confetti kills that loop. One vibe in — one full evening out. Stops, times, routes,
               reservations, the dress code, the cost, the conversation starter. The whole damn
               night, in under a minute.
             </p>
@@ -644,7 +644,7 @@ function Landing() {
                 icon: Clock,
                 k: "timing",
                 t: "Down to the minute.",
-                b: "Reservations, sunset, last call — Loop backs into the schedule so you’re never early or stranded.",
+                b: "Reservations, sunset, last call — Confetti backs into the schedule so you’re never early or stranded.",
               },
               {
                 icon: Car,

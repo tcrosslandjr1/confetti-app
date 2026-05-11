@@ -12,10 +12,11 @@ import {
   subscribeConfetti,
   type ActiveLoop,
 } from "@/lib/loop-store";
+import { GOOGLE_MAPS_API_KEY } from "@/lib/config";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/active-loop")({
-  head: () => ({ meta: [{ title: "Active Loop — Loop" }] }),
+  head: () => ({ meta: [{ title: "Active Confetti — Confetti" }] }),
   component: ActiveLoopPage,
 });
 
@@ -65,7 +66,7 @@ function ActiveLoopPage() {
   }
 
   function endEarly() {
-    if (confirm("End this Loop early?")) {
+    if (confirm("End this plan early?")) {
       navigate({ to: "/passport" });
     }
   }
@@ -86,30 +87,24 @@ function ActiveLoopPage() {
           </span>
         </div>
 
-        {/* Mini map placeholder */}
-        <div className="mt-4 relative h-44 overflow-hidden rounded-3xl border-2 border-ink shadow-brut bg-gradient-cool">
-          <div className="absolute inset-0 grid-paper opacity-30" />
-          {loop.stops.map((s, i) => (
-            <span
-              key={s.id}
-              className={`absolute grid h-8 w-8 place-items-center rounded-full border-2 border-ink ${i === currentIdx ? "bg-coral text-cream animate-pulse-glow" : s.done ? "bg-cream text-ink" : "bg-cream/80 text-ink"}`}
-              style={{ top: `${20 + i * 22}%`, left: `${15 + i * 28}%` }}
-            >
-              {s.done ? (
-                <Check className="h-3.5 w-3.5" strokeWidth={3} />
-              ) : (
-                <span className="font-mono text-[10px] font-bold">{i + 1}</span>
-              )}
-            </span>
-          ))}
-          <div className="absolute bottom-2 left-2 rounded-full bg-cream/90 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink">
-            Live route
+        {/* Mini map (Google Maps embed) */}
+        <div className="mt-4 relative h-44 overflow-hidden rounded-3xl border-2 border-ink shadow-brut bg-cream">
+          <iframe
+            title="Route map"
+            aria-label="Map of your route"
+            className="absolute inset-0 h-full w-full"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            src={`https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(current?.area || loop.stops[0]?.area || "Washington, DC")}&zoom=14`}
+          />
+          <div className="pointer-events-none absolute bottom-2 left-2 rounded-full bg-cream/95 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink shadow-sm">
+            Live route · {loop.stops.length} stops
           </div>
         </div>
 
         {completed ? (
           <div className="mt-6 rounded-3xl border-2 border-ink bg-coral p-6 text-cream shadow-brut text-center">
-            <div className="font-display text-2xl font-extrabold">Loop complete 🎉</div>
+            <div className="font-display text-2xl font-extrabold">Plan complete 🎉</div>
             <p className="mt-1 text-sm opacity-90">You earned {confetti} Confetti tonight.</p>
             <Link
               to="/passport"
@@ -193,7 +188,7 @@ function ActiveLoopPage() {
               onClick={endEarly}
               className="inline-flex items-center justify-center gap-1 rounded-xl border border-border py-2 text-xs font-semibold text-muted-foreground hover:text-destructive"
             >
-              <X className="h-3 w-3" /> End Loop early
+              <X className="h-3 w-3" /> End plan early
             </button>
           )}
         </div>

@@ -15,7 +15,7 @@ import {
 import { getConfetti, subscribeConfetti } from "@/lib/loop-store";
 
 export const Route = createFileRoute("/passport")({
-  head: () => ({ meta: [{ title: "Passport — Loop" }] }),
+  head: () => ({ meta: [{ title: "Passport — Confetti" }] }),
   component: PassportPage,
 });
 
@@ -57,7 +57,7 @@ function PassportPage() {
         {/* Passport hero */}
         <div className="mt-4 rounded-3xl border-2 border-ink bg-gradient-vibe p-6 text-cream shadow-brut-lg">
           <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-widest opacity-90">
-            <Award className="h-3.5 w-3.5" /> Loop Passport
+            <Award className="h-3.5 w-3.5" /> Confetti Passport
           </div>
           <div className="mt-2 flex items-end justify-between gap-3">
             <div>

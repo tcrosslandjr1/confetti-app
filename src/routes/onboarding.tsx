@@ -4,7 +4,7 @@ import { ArrowRight, ArrowLeft, Check, Sparkles } from "lucide-react";
 import { markOnboarded, saveOnboarding } from "@/lib/loop-store";
 
 export const Route = createFileRoute("/onboarding")({
-  head: () => ({ meta: [{ title: "Welcome — Loop" }] }),
+  head: () => ({ meta: [{ title: "Welcome — Confetti" }] }),
   component: Onboarding,
 });
 

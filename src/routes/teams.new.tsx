@@ -40,16 +40,16 @@ export const Route = createFileRoute("/teams/new")({
   }),
   head: () => ({
     meta: [
-      { title: "Plan a team event — Loop" },
+      { title: "Plan a team event — Confetti" },
       {
         name: "description",
         content:
           "Build a multi-day team event in minutes — venues, RSVPs, and budgets handled, end to end.",
       },
-      { property: "og:title", content: "Plan a team event — Loop" },
+      { property: "og:title", content: "Plan a team event — Confetti" },
       {
         property: "og:description",
-        content: "From client dinners to multi-day offsites: build it in minutes with Loop.",
+        content: "From client dinners to multi-day offsites: build it in minutes with Confetti.",
       },
     ],
   }),

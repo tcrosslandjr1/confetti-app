@@ -51,12 +51,12 @@ import {
 export const Route = createFileRoute("/portal/")({
   head: () => ({
     meta: [
-      { title: "Your Portal — Loop" },
+      { title: "Your Portal — Confetti" },
       {
         name: "description",
         content: "Your bookings, referrals, achievements and curated picks — all in one dashboard.",
       },
-      { property: "og:title", content: "Your Portal — Loop" },
+      { property: "og:title", content: "Your Portal — Confetti" },
       {
         property: "og:description",
         content: "Your bookings, referrals, achievements and curated picks — all in one dashboard.",

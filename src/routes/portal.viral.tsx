@@ -19,7 +19,7 @@ import { ViralTagChip, ALL_VIRAL_TAGS, tagLabel, type ViralTag } from "@/compone
 export const Route = createFileRoute("/portal/viral")({
   head: () => ({
     meta: [
-      { title: "Viral Now — My Portal | Loop" },
+      { title: "Viral Now — My Portal | Confetti" },
       {
         name: "description",
         content: "Top trending venues in your city, ranked by trend score and filterable by vibe.",
@@ -157,7 +157,7 @@ function PortalViralPage() {
           </h1>
           <p className="max-w-2xl text-sm text-muted-foreground">
             The top venues trending across TikTok, Instagram, creators, and the press — ranked by
-            Loop's trend score.
+            Confetti's trend score.
           </p>
 
           {/* Quick city pills */}

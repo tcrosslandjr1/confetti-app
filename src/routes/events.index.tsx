@@ -11,12 +11,12 @@ type EventsSearch = { cat?: EventCategory; q?: string };
 export const Route = createFileRoute("/events/")({
   head: () => ({
     meta: [
-      { title: "Browse events — Loop" },
+      { title: "Browse events — Confetti" },
       {
         name: "description",
         content: "Search and filter events by category, city, and date. Find your next night out.",
       },
-      { property: "og:title", content: "Browse events — Loop" },
+      { property: "og:title", content: "Browse events — Confetti" },
       {
         property: "og:description",
         content: "Search and filter events near you.",

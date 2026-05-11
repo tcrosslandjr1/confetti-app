@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { QRCodeSVG } from "qrcode.react";
-import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane } from "lucide-react";
+import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane, Printer } from "lucide-react";
 import type { ActiveLoop, LoopStop, StopKind } from "@/lib/loop-store";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";
@@ -710,6 +710,67 @@ function BookingModal({
 
 // ─── Wallet QR modal (preserved) ───────────────────────────────────────
 function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
+  const qrWrapRef = useRef<HTMLDivElement | null>(null);
+
+  function handlePrint() {
+    const svgEl = qrWrapRef.current?.querySelector("svg");
+    if (!svgEl) {
+      toast.error("Could not prepare print view");
+      return;
+    }
+    // Inline the SVG at large size for crisp scanning from across the room.
+    const clone = svgEl.cloneNode(true) as SVGSVGElement;
+    clone.setAttribute("width", "560");
+    clone.setAttribute("height", "560");
+    const svgMarkup = clone.outerHTML;
+
+    const win = window.open("", "_blank", "noopener,noreferrer,width=720,height=900");
+    if (!win) {
+      toast.error("Pop-up blocked — allow pop-ups to print");
+      return;
+    }
+    win.document.write(`<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Confetti — Google Wallet pass</title>
+<style>
+  @page { margin: 16mm; }
+  html, body { margin: 0; padding: 0; background: #FFF7EC; color: #1B1B1B;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 640px; margin: 24px auto; padding: 24px;
+    border: 3px solid #1B1B1B; border-radius: 24px; text-align: center; }
+  h1 { margin: 0 0 4px; font-size: 28px; font-weight: 900; letter-spacing: -0.02em; }
+  .eyebrow { font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    text-transform: uppercase; letter-spacing: 0.18em; font-size: 11px;
+    font-weight: 700; color: rgba(27,27,27,0.6); }
+  p { font-size: 14px; line-height: 1.45; margin: 12px 0; }
+  .qr { margin: 20px auto; padding: 16px; display: inline-block;
+    border: 2px solid #1B1B1B; border-radius: 16px; background: #FFF7EC; }
+  .url { font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px; word-break: break-all; padding: 12px;
+    border: 2px dashed #1B1B1B; border-radius: 12px; background: #fff; }
+  .btn { display: inline-block; margin-top: 16px; padding: 10px 18px;
+    border: 2px solid #1B1B1B; border-radius: 999px; background: #1B1B1B;
+    color: #FFF7EC; font-weight: 800; font-size: 13px; cursor: pointer; }
+  @media print { .btn { display: none; } .wrap { border-width: 2px; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow">/ confetti · google wallet</div>
+    <h1>Scan from another device</h1>
+    <p>Open your Android phone's camera and aim at the QR code. The pass will open in Google Wallet.</p>
+    <div class="qr">${svgMarkup}</div>
+    <div class="url">${url.replace(/[<&>]/g, (c) => ({"<":"&lt;","&":"&amp;",">":"&gt;"}[c]!))}</div>
+    <button class="btn" onclick="window.print()">Print this page</button>
+  </div>
+  <script>setTimeout(function(){ try { window.focus(); window.print(); } catch(e){} }, 300);</script>
+</body>
+</html>`);
+    win.document.close();
+  }
+
   return (
     <div
       role="dialog"
@@ -739,7 +800,7 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
           Open your Android phone's camera and point it at this QR code. The pass will open in
           Google Wallet for you to save.
         </p>
-        <div className="mt-4 grid place-items-center rounded-2xl border-2 border-ink bg-cream p-4">
+        <div ref={qrWrapRef} className="mt-4 grid place-items-center rounded-2xl border-2 border-ink bg-cream p-4">
           <QRCodeSVG value={url} size={208} bgColor="#FFF7EC" fgColor="#1B1B1B" level="M" includeMargin={false} />
         </div>
         <a
@@ -750,6 +811,13 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
         >
           <Wallet className="h-4 w-4" /> Open save link in new tab
         </a>
+        <button
+          type="button"
+          onClick={handlePrint}
+          className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold"
+        >
+          <Printer className="h-4 w-4" /> Print large QR
+        </button>
         <button
           type="button"
           onClick={() => {

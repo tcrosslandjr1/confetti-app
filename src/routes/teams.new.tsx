@@ -412,6 +412,35 @@ function NewTeamEventPage() {
             </div>
           )}
 
+          {hadDraft && (
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border-2 border-ink bg-cream p-4 text-sm shadow-brut">
+              <div className="flex items-start gap-2">
+                <Save className="mt-0.5 h-4 w-4" />
+                <span>
+                  Picked up your saved draft
+                  {lastSavedAt
+                    ? ` from ${new Date(lastSavedAt).toLocaleString([], {
+                        month: "short",
+                        day: "numeric",
+                        hour: "numeric",
+                        minute: "2-digit",
+                      })}`
+                    : ""}
+                  . Keep editing or start over.
+                </span>
+              </div>
+              <Button
+                type="button"
+                size="sm"
+                variant="outline"
+                onClick={discardDraft}
+                className="gap-1.5"
+              >
+                <Trash2 className="h-3.5 w-3.5" /> Discard draft
+              </Button>
+            </div>
+          )}
+
           {!user && (
             <div className="mt-6 flex items-start gap-3 rounded-2xl border-2 border-ink bg-gold/40 p-4">
               <AlertCircle className="mt-0.5 h-5 w-5" />

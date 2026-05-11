@@ -118,7 +118,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
               ))}
             </div>
             <div className="mt-2 text-center font-mono text-[10px] tracking-[0.3em] text-ink/60">
-              {loop.id} · LOOP
+              {loop.id} · CONFETTI
             </div>
           </div>
         </div>

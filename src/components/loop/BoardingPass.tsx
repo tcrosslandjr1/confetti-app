@@ -482,12 +482,15 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                 lat: s.lat,
                 lng: s.lng,
                 done: s.done,
+                time: s.time,
               }))}
               currentIdx={loop.stops.findIndex((s) => !s.done)}
               fallbackCity={loop.stops[0]?.area || "Washington, DC"}
               height="100%"
               interactive={false}
               onPointsReady={setRoutePoints}
+              focusStopId={selectedStopId}
+              onStopClick={(s) => setSelectedStopId(s.id)}
             />
             <div className="absolute right-3 top-3 flex flex-col items-end gap-1.5">
               <button

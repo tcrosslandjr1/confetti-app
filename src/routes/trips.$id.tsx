@@ -11,6 +11,8 @@ import { BoardingPass } from "@/components/BoardingPass";
 import { PromotedSlot } from "@/components/PromotedSlot";
 import { clearNotifications, formatUpdatedAt, loadNotifications, loadStatus, subscribeNotifications, subscribeStatus, type SentNotification, type TripStatus } from "@/lib/trip-status";
 import { GooglePhotos } from "@/components/GooglePhotos";
+import { VibeFilter } from "@/components/VibeFilter";
+import { CROWD_LABEL, DRESS_LABEL, NOISE_LABEL, inferStopVibe, loadVibePrefs, matchLevel, saveVibePrefs, vibeMatchScore, type VibePrefs } from "@/lib/vibe";
 
 export const Route = createFileRoute("/trips/$id")({
   component: TripDetail,
@@ -33,6 +35,12 @@ function TripDetail() {
 
   const [tripStatus, setTripStatus] = useState<TripStatus | null>(null);
   const [notifications, setNotifications] = useState<SentNotification[]>([]);
+  const [vibePrefs, setVibePrefs] = useState<VibePrefs>(() => loadVibePrefs());
+
+  function updateVibePrefs(next: VibePrefs) {
+    setVibePrefs(next);
+    saveVibePrefs(next);
+  }
 
   useEffect(() => {
     if (authLoading) return;
@@ -143,6 +151,9 @@ function TripDetail() {
 
       {/* Timeline */}
       <section className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mb-6">
+          <VibeFilter prefs={vibePrefs} onChange={updateVibePrefs} />
+        </div>
         <ol className="relative space-y-6 border-l-2 border-dashed border-border pl-6">
           {stops.map((s, i) => {
             const Icon = CAT_ICONS[s.category as string] ?? Sparkles;
@@ -170,6 +181,8 @@ function TripDetail() {
                   </div>
 
                   <GooglePhotos venue={s.name} address={s.address} className="mt-3 overflow-hidden rounded-xl" variant="strip" hideEmpty />
+
+                  <VibeRow stop={s} prefs={vibePrefs} />
 
                   {s.description && <p className="mt-3 text-sm text-foreground">{s.description}</p>}
 
@@ -518,6 +531,39 @@ function TravelLegCard({ leg, from, to }: { leg: TravelLeg; from: Stop; to: Stop
           ))}
         </div>
       </div>
+    </div>
+  );
+}
+
+function VibeRow({ stop, prefs }: { stop: Stop; prefs: VibePrefs }) {
+  const inferred = inferStopVibe(stop);
+  const score = vibeMatchScore(inferred, prefs);
+  const level = matchLevel(score);
+
+  const tone =
+    level === "match" ? "border-emerald-300 bg-emerald-50 text-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-100"
+    : level === "near" ? "border-amber-300 bg-amber-50 text-amber-900 dark:bg-amber-950/30 dark:text-amber-100"
+    : "border-rose-300 bg-rose-50 text-rose-900 dark:bg-rose-950/30 dark:text-rose-100";
+  const label = level === "match" ? "Vibe match" : level === "near" ? "Close to your vibe" : "Off your vibe";
+
+  const chip = (active: boolean, text: string, Icon: typeof Users) => (
+    <span
+      className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-semibold ${
+        active
+          ? "border-primary/40 bg-primary/10 text-primary"
+          : "border-border bg-background text-muted-foreground"
+      }`}
+    >
+      <Icon className="h-3 w-3" /> {text}
+    </span>
+  );
+
+  return (
+    <div className={`mt-3 flex flex-wrap items-center gap-2 rounded-xl border px-3 py-2 ${tone}`}>
+      <span className="text-[11px] font-bold uppercase tracking-wider">{label} · {score}%</span>
+      {chip(inferred.crowd === prefs.crowd, CROWD_LABEL[inferred.crowd], Users)}
+      {chip(inferred.noise === prefs.noise, NOISE_LABEL[inferred.noise], Sparkles)}
+      {chip(inferred.dress === prefs.dress, DRESS_LABEL[inferred.dress], Shirt)}
     </div>
   );
 }

@@ -612,21 +612,61 @@ export function BuildMyNightWizard() {
     (step === 1 && !!crew) ||
     (step === 2 && !!when && (when !== "pick" || !!pickedDate)) ||
     (step === 3 && !!budget) ||
-    (step === 4); // musts optional
+    (step === 4) || // musts optional
+    (step === 5); // dietary optional
 
-  function next() { setStep((s) => Math.min(s + 1, 5)); }
+  function toggleAllergen(a: string) {
+    setDietPrefs((p) => ({
+      ...p,
+      allergens: p.allergens.includes(a) ? p.allergens.filter((x) => x !== a) : [...p.allergens, a],
+    }));
+  }
+
+  async function persistDietPrefs() {
+    if (!user) return;
+    try {
+      const { data: existing } = await supabase
+        .from("user_preferences")
+        .select("taste_profile")
+        .eq("user_id", user.id)
+        .maybeSingle();
+      const tp = (existing?.taste_profile ?? {}) as Record<string, unknown>;
+      const diet = dietPrefs.vegan ? "vegan"
+        : dietPrefs.vegetarian ? "vegetarian"
+        : dietPrefs.pescatarian ? "pescatarian"
+        : dietPrefs.glutenFree ? "gluten-free"
+        : "";
+      const nextTp = { ...tp, diet, allergens: dietPrefs.allergens };
+      await supabase
+        .from("user_preferences")
+        .upsert({ user_id: user.id, taste_profile: nextTp }, { onConflict: "user_id" });
+      // Update in-memory personalize so dish filtering reflects changes immediately
+      setPersonalize((p) => p ? ({
+        ...p,
+        diet: { ...p.diet, vegan: dietPrefs.vegan, vegetarian: dietPrefs.vegetarian || dietPrefs.vegan, pescatarian: dietPrefs.pescatarian, glutenFree: dietPrefs.glutenFree, avoidAllergens: dietPrefs.allergens },
+        dietLabel: dietPrefs.vegan ? "Vegan" : dietPrefs.vegetarian ? "Vegetarian" : dietPrefs.pescatarian ? "Pescatarian" : dietPrefs.glutenFree ? "Gluten-free" : null,
+      }) : p);
+      setDietSavedFlash(true);
+      setTimeout(() => setDietSavedFlash(false), 1500);
+    } catch (err) {
+      console.warn("[wizard] persist diet prefs failed", err);
+    }
+  }
+
+  function next() { setStep((s) => Math.min(s + 1, 6)); }
   function back() { setStep((s) => Math.max(s - 1, 0)); }
   function toggleMust(k: string) {
     setMusts((m) => m.includes(k) ? m.filter((x) => x !== k) : [...m, k]);
   }
   function build(e: React.MouseEvent) {
     burst(e.clientX, e.clientY);
+    void persistDietPrefs();
     next();
   }
   function regenerate(e: React.MouseEvent) {
     burst(e.clientX, e.clientY);
     setVariant((v) => v + 1);
-    setStep(5);
+    setStep(6);
   }
   function savePlan(e: React.MouseEvent) {
     burst(e.clientX, e.clientY);

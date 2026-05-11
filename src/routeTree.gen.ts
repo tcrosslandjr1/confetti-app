@@ -49,6 +49,7 @@ import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as TeamsNewRouteImport } from './routes/teams.new'
 import { Route as TeamsIdRouteImport } from './routes/teams.$id'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
+import { Route as RsvpTokenRouteImport } from './routes/rsvp.$token'
 import { Route as PortalViralRouteImport } from './routes/portal.viral'
 import { Route as PortalSavedRouteImport } from './routes/portal.saved'
 import { Route as PortalReferRouteImport } from './routes/portal.refer'
@@ -283,6 +284,11 @@ const RsvpTripIdRoute = RsvpTripIdRouteImport.update({
   path: '/rsvp/$tripId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RsvpTokenRoute = RsvpTokenRouteImport.update({
+  id: '/rsvp/$token',
+  path: '/rsvp/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PortalViralRoute = PortalViralRouteImport.update({
   id: '/viral',
   path: '/viral',
@@ -508,6 +514,7 @@ export interface FileRoutesByFullPath {
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
+  '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/teams/$id': typeof TeamsIdRoute
   '/teams/new': typeof TeamsNewRoute
@@ -579,6 +586,7 @@ export interface FileRoutesByTo {
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
+  '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/teams/$id': typeof TeamsIdRoute
   '/teams/new': typeof TeamsNewRoute
@@ -655,6 +663,7 @@ export interface FileRoutesById {
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
+  '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/teams/$id': typeof TeamsIdRoute
   '/teams/new': typeof TeamsNewRoute
@@ -732,6 +741,7 @@ export interface FileRouteTypes {
     | '/portal/refer'
     | '/portal/saved'
     | '/portal/viral'
+    | '/rsvp/$token'
     | '/rsvp/$tripId'
     | '/teams/$id'
     | '/teams/new'
@@ -803,6 +813,7 @@ export interface FileRouteTypes {
     | '/portal/refer'
     | '/portal/saved'
     | '/portal/viral'
+    | '/rsvp/$token'
     | '/rsvp/$tripId'
     | '/teams/$id'
     | '/teams/new'
@@ -878,6 +889,7 @@ export interface FileRouteTypes {
     | '/portal/refer'
     | '/portal/saved'
     | '/portal/viral'
+    | '/rsvp/$token'
     | '/rsvp/$tripId'
     | '/teams/$id'
     | '/teams/new'
@@ -932,6 +944,7 @@ export interface RootRouteChildren {
   CollabTripIdRoute: typeof CollabTripIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   IdeasSlugRoute: typeof IdeasSlugRoute
+  RsvpTokenRoute: typeof RsvpTokenRoute
   RsvpTripIdRoute: typeof RsvpTripIdRoute
   TripsIdRoute: typeof TripsIdRouteWithChildren
   VenueIdRoute: typeof VenueIdRoute
@@ -1223,6 +1236,13 @@ declare module '@tanstack/react-router' {
       path: '/rsvp/$tripId'
       fullPath: '/rsvp/$tripId'
       preLoaderRoute: typeof RsvpTripIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rsvp/$token': {
+      id: '/rsvp/$token'
+      path: '/rsvp/$token'
+      fullPath: '/rsvp/$token'
+      preLoaderRoute: typeof RsvpTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portal/viral': {
@@ -1617,6 +1637,7 @@ const rootRouteChildren: RootRouteChildren = {
   CollabTripIdRoute: CollabTripIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   IdeasSlugRoute: IdeasSlugRoute,
+  RsvpTokenRoute: RsvpTokenRoute,
   RsvpTripIdRoute: RsvpTripIdRoute,
   TripsIdRoute: TripsIdRouteWithChildren,
   VenueIdRoute: VenueIdRoute,

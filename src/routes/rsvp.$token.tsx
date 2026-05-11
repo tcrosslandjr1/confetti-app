@@ -56,7 +56,7 @@ function RsvpPage() {
     const { data, error } = await supabase.rpc("record_rsvp_by_token", {
       _token: token,
       _status: status,
-      _dietary: dietary.trim() || null,
+      _dietary: dietary.trim() || "",
     });
     setBusy(false);
     if (error || !data) { toast.error("Couldn't save your RSVP"); return; }

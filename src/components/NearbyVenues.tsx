@@ -12,12 +12,39 @@ type Venue = {
   name: string;
   category: string;
   neighborhood: string | null;
+  city: string | null;
   price_level: number;
   image_url: string | null;
   description: string | null;
 };
 
 type Ranked = Venue & { distanceKm: number };
+
+type PlaceCoordinate = {
+  venue: string;
+  displayName?: string;
+  latitude?: number;
+  longitude?: number;
+};
+
+const NEIGHBORHOOD_COORDS: Record<string, { lat: number; lng: number }> = {
+  "adams morgan": { lat: 38.9215, lng: -77.0423 },
+  "14th street": { lat: 38.912, lng: -77.032 },
+  "buzzard point": { lat: 38.8683, lng: -77.0126 },
+  downtown: { lat: 38.9037, lng: -77.0365 },
+  georgetown: { lat: 38.9097, lng: -77.0655 },
+  "h street": { lat: 38.9005, lng: -76.9958 },
+  "logan circle": { lat: 38.9096, lng: -77.0296 },
+  "u street": { lat: 38.917, lng: -77.028 },
+  "union market": { lat: 38.9087, lng: -76.9974 },
+};
+
+function fallbackCoords(v: Venue) {
+  const neighborhood = v.neighborhood?.trim().toLowerCase();
+  if (neighborhood && NEIGHBORHOOD_COORDS[neighborhood]) return NEIGHBORHOOD_COORDS[neighborhood];
+  if (v.city?.toLowerCase().includes("washington")) return { lat: 38.9072, lng: -77.0369 };
+  return null;
+}
 
 function haversineKm(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
   const R = 6371;
@@ -54,7 +81,7 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
       const [vRes, cRes] = await Promise.all([
         supabase
           .from("venues")
-          .select("id,name,category,neighborhood,price_level,image_url,description"),
+          .select("id,name,category,neighborhood,city,price_level,image_url,description"),
         supabase
           .from("venue_details_cache")
           .select("name,latitude,longitude")
@@ -64,7 +91,11 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
       if (cancelled) return;
 
       const coordsByName = new Map<string, { lat: number; lng: number }>();
-      for (const c of (cRes.data ?? []) as { name: string | null; latitude: number; longitude: number }[]) {
+      for (const c of (cRes.data ?? []) as {
+        name: string | null;
+        latitude: number;
+        longitude: number;
+      }[]) {
         if (!c.name) continue;
         const key = c.name.trim().toLowerCase();
         if (!coordsByName.has(key)) coordsByName.set(key, { lat: c.latitude, lng: c.longitude });
@@ -76,6 +107,41 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
         if (!coords) continue;
         ranked.push({ ...v, distanceKm: haversineKm(location, coords) });
       }
+
+      if (ranked.length === 0 && vRes.data?.length) {
+        const lookups = ((vRes.data ?? []) as Venue[]).slice(0, 12).map((v) => ({
+          venue: v.name,
+          neighborhood: [v.neighborhood, v.city].filter(Boolean).join(" ") || undefined,
+        }));
+        const { data } = await supabase.functions.invoke("google-places", {
+          body: { queries: lookups },
+        });
+        if (cancelled) return;
+        const liveCoords = new Map<string, { lat: number; lng: number }>();
+        for (const p of (data?.results ?? []) as PlaceCoordinate[]) {
+          if (typeof p.latitude !== "number" || typeof p.longitude !== "number") continue;
+          liveCoords.set(p.venue.trim().toLowerCase(), { lat: p.latitude, lng: p.longitude });
+          if (p.displayName)
+            liveCoords.set(p.displayName.trim().toLowerCase(), {
+              lat: p.latitude,
+              lng: p.longitude,
+            });
+        }
+        for (const v of (vRes.data ?? []) as Venue[]) {
+          const coords = liveCoords.get(v.name.trim().toLowerCase());
+          if (!coords) continue;
+          ranked.push({ ...v, distanceKm: haversineKm(location, coords) });
+        }
+      }
+
+      if (ranked.length === 0) {
+        for (const v of (vRes.data ?? []) as Venue[]) {
+          const coords = fallbackCoords(v);
+          if (!coords) continue;
+          ranked.push({ ...v, distanceKm: haversineKm(location, coords) });
+        }
+      }
+
       ranked.sort((a, b) => a.distanceKm - b.distanceKm);
       setVenues(ranked.slice(0, limit));
       setLoading(false);
@@ -87,7 +153,11 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
 
   const enable = async () => {
     setRequesting(true);
-    const loc = await requestUserLocation({ enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
+    const loc = await requestUserLocation({
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0,
+    });
     setRequesting(false);
     if (loc) setLocation(loc);
     else toast.error("Couldn't get your location. Check browser permissions.");
@@ -95,7 +165,11 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
 
   const refresh = async () => {
     setRequesting(true);
-    const loc = await requestUserLocation({ enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
+    const loc = await requestUserLocation({
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0,
+    });
     setRequesting(false);
     if (loc) {
       setLocation(loc);
@@ -118,8 +192,18 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
             </span>
           )}
           {location && (
-            <Button variant="outline" size="sm" onClick={refresh} disabled={requesting} className="gap-1.5">
-              {requesting ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <RefreshCw className="h-3.5 w-3.5" />}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={refresh}
+              disabled={requesting}
+              className="gap-1.5"
+            >
+              {requesting ? (
+                <Loader2 className="h-3.5 w-3.5 animate-spin" />
+              ) : (
+                <RefreshCw className="h-3.5 w-3.5" />
+              )}
               Refresh nearby
             </Button>
           )}
@@ -133,7 +217,11 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
             Share your location to see venues ranked by how close they are right now.
           </p>
           <Button onClick={enable} disabled={requesting} className="mt-4 gap-2">
-            {requesting ? <Loader2 className="h-4 w-4 animate-spin" /> : <MapPin className="h-4 w-4" />}
+            {requesting ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <MapPin className="h-4 w-4" />
+            )}
             Enable location
           </Button>
         </div>
@@ -155,7 +243,12 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
               className="group overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-pop hover:-translate-y-0.5 hover:shadow-pop"
             >
               {v.image_url ? (
-                <img src={v.image_url} alt={v.name} className="h-36 w-full object-cover" loading="lazy" />
+                <img
+                  src={v.image_url}
+                  alt={v.name}
+                  className="h-36 w-full object-cover"
+                  loading="lazy"
+                />
               ) : (
                 <GooglePhotos venue={v.name} neighborhood={v.neighborhood} variant="hero" />
               )}

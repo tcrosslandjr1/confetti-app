@@ -13,6 +13,8 @@ type PlaceResult = {
   placeId?: string;
   displayName?: string;
   formattedAddress?: string;
+  latitude?: number;
+  longitude?: number;
   rating?: number;
   userRatingCount?: number;
   priceLevel?: number; // 0..4
@@ -46,25 +48,36 @@ async function resolvePhoto(name: string, key: string, maxHeightPx = 600): Promi
 
 async function lookup(q: Query, key: string): Promise<PlaceResult> {
   const text = [q.venue, q.address, q.neighborhood].filter(Boolean).join(" ");
+  const attempts = [
+    text,
+    [q.venue, q.address, q.neighborhood, "Washington DC"].filter(Boolean).join(" "),
+  ];
   try {
-    const res = await fetch("https://places.googleapis.com/v1/places:searchText", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Goog-Api-Key": key,
-        "X-Goog-FieldMask":
-          "places.id,places.displayName,places.formattedAddress,places.rating,places.userRatingCount,places.priceLevel,places.currentOpeningHours.openNow,places.businessStatus,places.websiteUri,places.googleMapsUri,places.photos",
-      },
-      body: JSON.stringify({ textQuery: text, pageSize: 1 }),
-    });
-    if (!res.ok) return { venue: q.venue, found: false };
-    const data = await res.json();
-    const p = data.places?.[0];
+    let p;
+    for (const textQuery of attempts) {
+      const res = await fetch("https://places.googleapis.com/v1/places:searchText", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Goog-Api-Key": key,
+          "X-Goog-FieldMask":
+            "places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.priceLevel,places.currentOpeningHours.openNow,places.businessStatus,places.websiteUri,places.googleMapsUri,places.photos",
+        },
+        body: JSON.stringify({ textQuery, pageSize: 1 }),
+      });
+      if (!res.ok) continue;
+      const data = await res.json();
+      p = data.places?.[0];
+      if (p) break;
+    }
     if (!p) return { venue: q.venue, found: false };
 
-    const photoNames: string[] = (p.photos ?? []).slice(0, 3).map((ph: { name: string }) => ph.name).filter(Boolean);
+    const photoNames: string[] = (p.photos ?? [])
+      .slice(0, 3)
+      .map((ph: { name: string }) => ph.name)
+      .filter(Boolean);
     const photos = (await Promise.all(photoNames.map((n) => resolvePhoto(n, key)))).filter(
-      (u): u is string => !!u
+      (u): u is string => !!u,
     );
 
     return {
@@ -72,6 +85,8 @@ async function lookup(q: Query, key: string): Promise<PlaceResult> {
       placeId: p.id,
       displayName: p.displayName?.text,
       formattedAddress: p.formattedAddress,
+      latitude: typeof p.location?.latitude === "number" ? p.location.latitude : undefined,
+      longitude: typeof p.location?.longitude === "number" ? p.location.longitude : undefined,
       rating: typeof p.rating === "number" ? p.rating : undefined,
       userRatingCount: p.userRatingCount,
       priceLevel: p.priceLevel ? PRICE_MAP[p.priceLevel] : undefined,

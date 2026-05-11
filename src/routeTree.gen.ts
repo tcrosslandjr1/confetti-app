@@ -48,6 +48,7 @@ import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
+import { Route as TeamsIndexRouteImport } from './routes/teams.index'
 import { Route as PortalIndexRouteImport } from './routes/portal.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
@@ -294,6 +295,11 @@ const TripsIndexRoute = TripsIndexRouteImport.update({
   id: '/trips/',
   path: '/trips/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const TeamsIndexRoute = TeamsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => TeamsRoute,
 } as any)
 const PortalIndexRoute = PortalIndexRouteImport.update({
   id: '/',
@@ -636,6 +642,7 @@ export interface FileRoutesByFullPath {
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/portal/': typeof PortalIndexRoute
+  '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
@@ -677,7 +684,6 @@ export interface FileRoutesByTo {
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
   '/taste-tuner': typeof TasteTunerRoute
-  '/teams': typeof TeamsRouteWithChildren
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/translate': typeof TranslateRoute
@@ -724,6 +730,7 @@ export interface FileRoutesByTo {
   '/concierge': typeof ConciergeIndexRoute
   '/events': typeof EventsIndexRoute
   '/portal': typeof PortalIndexRoute
+  '/teams': typeof TeamsIndexRoute
   '/trips': typeof TripsIndexRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
@@ -817,6 +824,7 @@ export interface FileRoutesById {
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/portal/': typeof PortalIndexRoute
+  '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
@@ -911,6 +919,7 @@ export interface FileRouteTypes {
     | '/concierge/'
     | '/events/'
     | '/portal/'
+    | '/teams/'
     | '/trips/'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
@@ -952,7 +961,6 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/scan'
     | '/taste-tuner'
-    | '/teams'
     | '/terms'
     | '/testimonials'
     | '/translate'
@@ -999,6 +1007,7 @@ export interface FileRouteTypes {
     | '/concierge'
     | '/events'
     | '/portal'
+    | '/teams'
     | '/trips'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
@@ -1091,6 +1100,7 @@ export interface FileRouteTypes {
     | '/concierge/'
     | '/events/'
     | '/portal/'
+    | '/teams/'
     | '/trips/'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
@@ -1436,6 +1446,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/trips/'
       preLoaderRoute: typeof TripsIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/teams/': {
+      id: '/teams/'
+      path: '/'
+      fullPath: '/teams/'
+      preLoaderRoute: typeof TeamsIndexRouteImport
+      parentRoute: typeof TeamsRoute
     }
     '/portal/': {
       id: '/portal/'
@@ -1909,11 +1926,13 @@ const PortalRouteWithChildren =
 interface TeamsRouteChildren {
   TeamsIdRoute: typeof TeamsIdRoute
   TeamsNewRoute: typeof TeamsNewRoute
+  TeamsIndexRoute: typeof TeamsIndexRoute
 }
 
 const TeamsRouteChildren: TeamsRouteChildren = {
   TeamsIdRoute: TeamsIdRoute,
   TeamsNewRoute: TeamsNewRoute,
+  TeamsIndexRoute: TeamsIndexRoute,
 }
 
 const TeamsRouteWithChildren = TeamsRoute._addFileChildren(TeamsRouteChildren)

@@ -124,7 +124,7 @@ function IdeasPage() {
   if (!occasion) throw notFound();
 
   const [format, setFormat] = useState<IdeaFormat>("quick");
-  const [ideas, setIdeas] = useState<Idea[]>([]);
+  const [ideas, setIdeas] = useState<Idea[]>(() => getSeedIdeas(slug));
   const [index, setIndex] = useState(0);
   const [saved, setSaved] = useState<Idea[]>([]);
   const [loading, setLoading] = useState(false);

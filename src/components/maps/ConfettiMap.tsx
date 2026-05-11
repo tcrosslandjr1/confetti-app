@@ -101,6 +101,7 @@ export function ConfettiMap({
           onPointsReady={onPointsReady}
           travelMode={travelMode}
           onActiveStepsChange={onActiveStepsChange}
+          focusStopId={focusStopId}
         />
       </Map>
     </div>

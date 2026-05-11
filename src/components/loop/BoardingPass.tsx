@@ -427,6 +427,14 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
               </button>
               <button
                 type="button"
+                onClick={handleAddToCalendar}
+                className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-[12px] font-bold hover:bg-gold/40"
+              >
+                <CalendarPlus className="h-4 w-4" />
+                Add to Calendar (.ics)
+              </button>
+              <button
+                type="button"
                 onClick={handleSaveImage}
                 disabled={shareBusy === "image"}
                 className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-[12px] font-bold hover:bg-gold/40 disabled:opacity-50"

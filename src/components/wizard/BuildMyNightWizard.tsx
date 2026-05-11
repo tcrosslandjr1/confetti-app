@@ -1346,7 +1346,7 @@ export function BuildMyNightWizard() {
         </div>
 
         {/* Footer nav */}
-        {step <= 4 && (
+        {step <= 5 && (
           <div className="flex items-center justify-between gap-3 border-t-2 border-ink bg-cream/80 px-5 py-4 backdrop-blur">
             <button
               onClick={back}

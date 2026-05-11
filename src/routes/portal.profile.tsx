@@ -16,6 +16,7 @@ export const Route = createFileRoute("/portal/profile")({
 });
 
 type Profile = { id: string; display_name: string | null; xp: number; level: number };
+type Achievement = { id: string; code: string; title: string; description: string; icon: string; xp_reward: number; unlocked: boolean; unlocked_at: string | null };
 
 function ProfilePage() {
   const { user, signOut } = useAuth();

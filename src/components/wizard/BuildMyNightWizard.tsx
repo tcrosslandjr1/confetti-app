@@ -256,6 +256,9 @@ export function BuildMyNightWizard() {
     dietLabel: string | null;
   };
   const [personalize, setPersonalize] = useState<Personalize | null>(null);
+  type DietPrefs = { vegan: boolean; vegetarian: boolean; pescatarian: boolean; glutenFree: boolean; allergens: string[] };
+  const [dietPrefs, setDietPrefs] = useState<DietPrefs>({ vegan: false, vegetarian: false, pescatarian: false, glutenFree: false, allergens: [] });
+  const [dietSavedFlash, setDietSavedFlash] = useState(false);
   const [shareData, setShareData] = useState<StopShareData | null>(null);
   const [sharing, setSharing] = useState<string | null>(null);
   const shareRef = useRef<HTMLDivElement>(null);
@@ -380,13 +383,13 @@ export function BuildMyNightWizard() {
     }
     return arr;
   }, [stops, sortBy, placesData]);
-  const totalSteps = 5;
+  const totalSteps = 6;
 
   // If preset supplied, jump straight to result and seed vibe multi-select
   useEffect(() => {
     if (open && preset) {
       setVibe(preset.vibeKeys ?? []);
-      setStep(6);
+      setStep(7);
     }
   }, [open, preset]);
 
@@ -410,16 +413,16 @@ export function BuildMyNightWizard() {
 
   // Loading text rotation
   useEffect(() => {
-    if (step !== 5) return;
+    if (step !== 6) return;
     setLoadingIdx(0);
     const interval = setInterval(() => setLoadingIdx((i) => i + 1), 700);
-    const done = setTimeout(() => setStep(6), 3600);
+    const done = setTimeout(() => setStep(7), 3600);
     return () => { clearInterval(interval); clearTimeout(done); };
   }, [step]);
 
   // Fetch live Google Places data for the current stops as soon as results show.
   useEffect(() => {
-    if (step !== 6 || !stops?.length) return;
+    if (step !== 7 || !stops?.length) return;
     let cancelled = false;
     const queries = stops.map((s) => ({ venue: s.venue, address: s.address, neighborhood: s.neighborhood }));
     setPlacesLoading(true);
@@ -541,6 +544,18 @@ export function BuildMyNightWizard() {
     return () => { cancelled = true; };
   }, [open, user, favorites]);
 
+  // Seed wizard's editable diet prefs from saved personalization
+  useEffect(() => {
+    if (!personalize) return;
+    setDietPrefs({
+      vegan: !!personalize.diet.vegan,
+      vegetarian: !!personalize.diet.vegetarian,
+      pescatarian: !!personalize.diet.pescatarian,
+      glutenFree: !!personalize.diet.glutenFree,
+      allergens: personalize.diet.avoidAllergens ?? [],
+    });
+  }, [personalize]);
+
   type SlotLevel = "open" | "limited" | "few" | "full";
   type Availability = { time: string; level: SlotLevel; seatsLeft: number };
   type Details = ReturnType<typeof getDetails>;
@@ -597,21 +612,61 @@ export function BuildMyNightWizard() {
     (step === 1 && !!crew) ||
     (step === 2 && !!when && (when !== "pick" || !!pickedDate)) ||
     (step === 3 && !!budget) ||
-    (step === 4); // musts optional
+    (step === 4) || // musts optional
+    (step === 5); // dietary optional
 
-  function next() { setStep((s) => Math.min(s + 1, 5)); }
+  function toggleAllergen(a: string) {
+    setDietPrefs((p) => ({
+      ...p,
+      allergens: p.allergens.includes(a) ? p.allergens.filter((x) => x !== a) : [...p.allergens, a],
+    }));
+  }
+
+  async function persistDietPrefs() {
+    if (!user) return;
+    try {
+      const { data: existing } = await supabase
+        .from("user_preferences")
+        .select("taste_profile")
+        .eq("user_id", user.id)
+        .maybeSingle();
+      const tp = (existing?.taste_profile ?? {}) as Record<string, unknown>;
+      const diet = dietPrefs.vegan ? "vegan"
+        : dietPrefs.vegetarian ? "vegetarian"
+        : dietPrefs.pescatarian ? "pescatarian"
+        : dietPrefs.glutenFree ? "gluten-free"
+        : "";
+      const nextTp = { ...tp, diet, allergens: dietPrefs.allergens };
+      await supabase
+        .from("user_preferences")
+        .upsert({ user_id: user.id, taste_profile: nextTp }, { onConflict: "user_id" });
+      // Update in-memory personalize so dish filtering reflects changes immediately
+      setPersonalize((p) => p ? ({
+        ...p,
+        diet: { ...p.diet, vegan: dietPrefs.vegan, vegetarian: dietPrefs.vegetarian || dietPrefs.vegan, pescatarian: dietPrefs.pescatarian, glutenFree: dietPrefs.glutenFree, avoidAllergens: dietPrefs.allergens },
+        dietLabel: dietPrefs.vegan ? "Vegan" : dietPrefs.vegetarian ? "Vegetarian" : dietPrefs.pescatarian ? "Pescatarian" : dietPrefs.glutenFree ? "Gluten-free" : null,
+      }) : p);
+      setDietSavedFlash(true);
+      setTimeout(() => setDietSavedFlash(false), 1500);
+    } catch (err) {
+      console.warn("[wizard] persist diet prefs failed", err);
+    }
+  }
+
+  function next() { setStep((s) => Math.min(s + 1, 6)); }
   function back() { setStep((s) => Math.max(s - 1, 0)); }
   function toggleMust(k: string) {
     setMusts((m) => m.includes(k) ? m.filter((x) => x !== k) : [...m, k]);
   }
   function build(e: React.MouseEvent) {
     burst(e.clientX, e.clientY);
+    void persistDietPrefs();
     next();
   }
   function regenerate(e: React.MouseEvent) {
     burst(e.clientX, e.clientY);
     setVariant((v) => v + 1);
-    setStep(5);
+    setStep(6);
   }
   function savePlan(e: React.MouseEvent) {
     burst(e.clientX, e.clientY);
@@ -640,7 +695,7 @@ export function BuildMyNightWizard() {
         <div className="flex items-center justify-between border-b-2 border-ink bg-cream/80 px-5 py-3 backdrop-blur">
           <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest">
             <Sparkles className="h-3.5 w-3.5 text-coral" />
-            {step <= 4 ? `Step ${step + 1} / ${totalSteps}` : step === 5 ? "Building your night" : "Your night, ready"}
+            {step <= 5 ? `Step ${step + 1} / ${totalSteps}` : step === 6 ? "Building your night" : "Your night, ready"}
           </div>
           <button
             onClick={closeWizard}
@@ -652,7 +707,7 @@ export function BuildMyNightWizard() {
         </div>
 
         {/* Progress bar */}
-        {step <= 4 && (
+        {step <= 5 && (
           <div className="h-1.5 w-full bg-ink/10">
             <div
               className="h-full bg-gradient-to-r from-coral via-gold to-purple transition-[width] duration-500 ease-out"
@@ -779,6 +834,69 @@ export function BuildMyNightWizard() {
           )}
 
           {step === 5 && (
+            <StepShell title="Dietary needs?" sub="We'll filter dishes and warn you about allergens.">
+              <div className="space-y-5">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink/55">Diet</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {([
+                      { k: "vegan", label: "Vegan" },
+                      { k: "vegetarian", label: "Vegetarian" },
+                      { k: "pescatarian", label: "Pescatarian" },
+                      { k: "glutenFree", label: "Gluten-free" },
+                    ] as const).map((d) => {
+                      const active = dietPrefs[d.k];
+                      return (
+                        <button
+                          key={d.k}
+                          onClick={() => setDietPrefs((p) => {
+                            // Diet options are mutually exclusive; clicking active one clears it.
+                            const cleared: DietPrefs = { ...p, vegan: false, vegetarian: false, pescatarian: false, glutenFree: false };
+                            if (active) return cleared;
+                            const nextP = { ...cleared, [d.k]: true } as DietPrefs;
+                            // Vegan implies vegetarian
+                            if (d.k === "vegan") nextP.vegetarian = true;
+                            return nextP;
+                          })}
+                          className={`rounded-full border-2 border-ink px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-0.5 bg-mint text-ink shadow-brut-lg" : "bg-cream"}`}
+                        >
+                          {active && <Check className="-mt-0.5 mr-1 inline h-3.5 w-3.5" />}
+                          {d.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <p className="mt-1.5 text-[11px] text-ink/55">Pick one. Vegan automatically implies vegetarian.</p>
+                </div>
+
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink/55">Allergens to avoid</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {["peanuts", "tree nuts", "shellfish", "dairy", "eggs", "soy", "sesame", "wheat/gluten", "fish"].map((a) => {
+                      const active = dietPrefs.allergens.includes(a);
+                      return (
+                        <button
+                          key={a}
+                          onClick={() => toggleAllergen(a)}
+                          className={`inline-flex items-center gap-1 rounded-full border-2 border-ink px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-0.5 bg-coral text-cream shadow-brut-lg" : "bg-cream"}`}
+                        >
+                          {active ? <Check className="h-3 w-3" /> : <span>⚠</span>}
+                          {a}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <p className="mt-1.5 text-[11px] text-ink/55">We'll flag matches in dish details and skip risky picks where possible.</p>
+                </div>
+
+                {dietSavedFlash && (
+                  <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-mint-foreground">Saved to your profile</p>
+                )}
+              </div>
+            </StepShell>
+          )}
+
+          {step === 6 && (
             <div className="flex min-h-[260px] flex-col items-center justify-center gap-5 py-8">
               <Loader2 className="h-12 w-12 animate-spin text-coral" />
               <div key={loadingIdx} className="font-display text-2xl font-extrabold" style={{ animation: "reveal-up 0.4s ease-out forwards" }}>
@@ -792,7 +910,7 @@ export function BuildMyNightWizard() {
             </div>
           )}
 
-          {step === 6 && (
+          {step === 7 && (
             <div>
               <h2 className="font-display text-3xl font-extrabold leading-tight sm:text-4xl">
                 {preset ? preset.title : "Your night's "}
@@ -1228,7 +1346,7 @@ export function BuildMyNightWizard() {
         </div>
 
         {/* Footer nav */}
-        {step <= 4 && (
+        {step <= 5 && (
           <div className="flex items-center justify-between gap-3 border-t-2 border-ink bg-cream/80 px-5 py-4 backdrop-blur">
             <button
               onClick={back}
@@ -1237,7 +1355,7 @@ export function BuildMyNightWizard() {
             >
               <ArrowLeft className="h-4 w-4" /> Back
             </button>
-            {step < 4 ? (
+            {step < 5 ? (
               <button
                 onClick={next}
                 disabled={!canAdvance}

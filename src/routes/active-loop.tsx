@@ -30,14 +30,26 @@ function ActiveLoopPage() {
   const [confetti, setConfettiCount] = useState(0);
   const [activeLeg, setActiveLeg] = useState<ActiveLegInfo>(null);
   const [travelMode, setTravelMode] = useState<TravelMode>("DRIVING");
+  const [focusStopId, setFocusStopId] = useState<string | null>(null);
   const { burst, layer } = useConfettiBurst();
   const navigate = useNavigate();
+  const startedRef = useRef(false);
 
   useEffect(() => {
     const existing = getActiveLoop() || makeDemoLoop();
     setActiveLoop(existing);
     setLoop(existing);
     setConfettiCount(getConfetti());
+    if (!startedRef.current) {
+      startedRef.current = true;
+      logActivity({
+        tripId: existing.id,
+        tripTitle: `${existing.from} → ${existing.to}`,
+        actor: "You",
+        kind: "plan_started",
+        message: `started the plan with ${existing.stops.length} stops`,
+      });
+    }
     const offLoop = subscribeActiveLoop(() => setLoop(getActiveLoop()));
     const offConfetti = subscribeConfetti(() => setConfettiCount(getConfetti()));
     return () => {
@@ -58,6 +70,12 @@ function ActiveLoopPage() {
   const next = currentIdx >= 0 ? loop.stops[currentIdx + 1] : null;
   const completed = currentIdx === -1;
 
+  function jumpToStop(stopId: string) {
+    // Re-trigger by setting null first if same id
+    setFocusStopId(null);
+    requestAnimationFrame(() => setFocusStopId(stopId));
+  }
+
   function checkIn(e: React.MouseEvent) {
     if (!current || !loop) return;
     burst(e.clientX, e.clientY);
@@ -69,6 +87,25 @@ function ActiveLoopPage() {
     setLoop(updated);
     const newTotal = addConfetti(50);
     setConfettiCount(newTotal);
+    logActivity({
+      tripId: loop.id,
+      tripTitle: `${loop.from} → ${loop.to}`,
+      actor: "You",
+      kind: "check_in",
+      message: `checked in at ${current.name}`,
+      detail: "+50 Confetti",
+    });
+    const allDone = updated.stops.every((s) => s.done);
+    if (allDone) {
+      logActivity({
+        tripId: loop.id,
+        tripTitle: `${loop.from} → ${loop.to}`,
+        actor: "You",
+        kind: "plan_completed",
+        message: `completed the plan`,
+        detail: `${newTotal} Confetti earned`,
+      });
+    }
     toast.success("+50 Confetti", { description: `Checked in at ${current.name}` });
   }
 

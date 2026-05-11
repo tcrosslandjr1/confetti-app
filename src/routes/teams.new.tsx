@@ -15,6 +15,8 @@ import {
   MapPin,
   Utensils,
   ClipboardList,
+  Save,
+  Trash2,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -113,6 +115,9 @@ function NewTeamEventPage() {
   const [vibes, setVibes] = useState<Set<Vibe>>(new Set());
   const [dietary, setDietary] = useState<Set<Dietary>>(new Set());
   const [notes, setNotes] = useState("");
+  const [draftLoaded, setDraftLoaded] = useState(false);
+  const [hadDraft, setHadDraft] = useState(false);
+  const [lastSavedAt, setLastSavedAt] = useState<number | null>(null);
 
   // Prefill from an existing trip when arriving via /teams/new?fromTrip=<id>
   useEffect(() => {
@@ -147,6 +152,148 @@ function NewTeamEventPage() {
       cancelled = true;
     };
   }, [fromTrip, user]);
+
+  // ── Draft persistence (resume later) ──────────────────────────────────────
+  const DRAFT_KEY = "teams.new.draft.v1";
+
+  // Load any saved draft on first mount.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const raw = window.localStorage.getItem(DRAFT_KEY);
+      if (raw) {
+        const d = JSON.parse(raw) as Partial<{
+          stepIdx: number;
+          orgName: string;
+          title: string;
+          purpose: CorporatePurpose;
+          startDate: string;
+          endDate: string;
+          headcount: number;
+          budget: number;
+          attendeesRaw: string;
+          city: string;
+          neighborhood: string;
+          vibes: Vibe[];
+          dietary: Dietary[];
+          notes: string;
+          savedAt: number;
+        }>;
+        if (typeof d.stepIdx === "number") setStepIdx(d.stepIdx);
+        if (d.orgName) setOrgName(d.orgName);
+        if (d.title) setTitle(d.title);
+        if (d.purpose) setPurpose(d.purpose);
+        if (d.startDate) setStartDate(d.startDate);
+        if (d.endDate) setEndDate(d.endDate);
+        if (typeof d.headcount === "number") setHeadcount(d.headcount);
+        if (typeof d.budget === "number") setBudget(d.budget);
+        if (d.attendeesRaw) setAttendeesRaw(d.attendeesRaw);
+        if (d.city) setCity(d.city);
+        if (d.neighborhood) setNeighborhood(d.neighborhood);
+        if (Array.isArray(d.vibes)) setVibes(new Set(d.vibes));
+        if (Array.isArray(d.dietary)) setDietary(new Set(d.dietary));
+        if (d.notes) setNotes(d.notes);
+        if (typeof d.savedAt === "number") setLastSavedAt(d.savedAt);
+        setHadDraft(true);
+      }
+    } catch (err) {
+      console.warn("[teams/new] failed to read draft", err);
+    } finally {
+      setDraftLoaded(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const buildDraftPayload = () => ({
+    stepIdx,
+    orgName,
+    title,
+    purpose,
+    startDate,
+    endDate,
+    headcount,
+    budget,
+    attendeesRaw,
+    city,
+    neighborhood,
+    vibes: [...vibes],
+    dietary: [...dietary],
+    notes,
+    savedAt: Date.now(),
+  });
+
+  // Auto-save draft (debounced) once initial load has run.
+  useEffect(() => {
+    if (!draftLoaded || typeof window === "undefined") return;
+    const handle = window.setTimeout(() => {
+      try {
+        const payload = buildDraftPayload();
+        window.localStorage.setItem(DRAFT_KEY, JSON.stringify(payload));
+        setLastSavedAt(payload.savedAt);
+      } catch (err) {
+        console.warn("[teams/new] failed to save draft", err);
+      }
+    }, 600);
+    return () => window.clearTimeout(handle);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    draftLoaded,
+    stepIdx,
+    orgName,
+    title,
+    purpose,
+    startDate,
+    endDate,
+    headcount,
+    budget,
+    attendeesRaw,
+    city,
+    neighborhood,
+    vibes,
+    dietary,
+    notes,
+  ]);
+
+  const clearDraft = () => {
+    try {
+      if (typeof window !== "undefined") window.localStorage.removeItem(DRAFT_KEY);
+    } catch {
+      /* ignore */
+    }
+    setHadDraft(false);
+    setLastSavedAt(null);
+  };
+
+  const discardDraft = () => {
+    clearDraft();
+    setStepIdx(0);
+    setOrgName("");
+    setTitle("");
+    setPurpose("team-outing");
+    setStartDate("");
+    setEndDate("");
+    setHeadcount(8);
+    setBudget(150);
+    setAttendeesRaw("");
+    setCity("");
+    setNeighborhood("");
+    setVibes(new Set());
+    setDietary(new Set());
+    setNotes("");
+    toast.success("Draft discarded — starting fresh");
+  };
+
+  const resumeLater = () => {
+    try {
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(DRAFT_KEY, JSON.stringify(buildDraftPayload()));
+      }
+    } catch {
+      /* ignore */
+    }
+    toast.success("Draft saved — pick up where you left off any time");
+    nav({ to: "/teams" });
+  };
 
   const parsed = useMemo(() => parseAttendeeList(attendeesRaw), [attendeesRaw]);
   const days = startDate ? dayCount(startDate, endDate || startDate) : 1;
@@ -202,6 +349,7 @@ function NewTeamEventPage() {
         notes: composeNotes() || undefined,
         attendees: parsed,
       });
+      clearDraft();
       toast.success("Event created — let's plan it");
       nav({ to: "/teams/$id", params: { id: ev.id } });
     } catch (err) {
@@ -261,6 +409,35 @@ function NewTeamEventPage() {
                   . Edit anything below.
                 </span>
               </div>
+            </div>
+          )}
+
+          {hadDraft && (
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border-2 border-ink bg-cream p-4 text-sm shadow-brut">
+              <div className="flex items-start gap-2">
+                <Save className="mt-0.5 h-4 w-4" />
+                <span>
+                  Picked up your saved draft
+                  {lastSavedAt
+                    ? ` from ${new Date(lastSavedAt).toLocaleString([], {
+                        month: "short",
+                        day: "numeric",
+                        hour: "numeric",
+                        minute: "2-digit",
+                      })}`
+                    : ""}
+                  . Keep editing or start over.
+                </span>
+              </div>
+              <Button
+                type="button"
+                size="sm"
+                variant="outline"
+                onClick={discardDraft}
+                className="gap-1.5"
+              >
+                <Trash2 className="h-3.5 w-3.5" /> Discard draft
+              </Button>
             </div>
           )}
 
@@ -527,20 +704,44 @@ function NewTeamEventPage() {
                 >
                   <ArrowLeft className="h-4 w-4" /> Back
                 </Button>
-                {currentStep.id === "review" ? (
-                  <Button onClick={submit} disabled={busy} size="lg" className="gap-2">
-                    {busy ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <Check className="h-4 w-4" />
-                    )}
-                    Create event
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className="hidden font-mono text-[10px] uppercase tracking-widest text-ink/50 sm:block">
+                    {lastSavedAt
+                      ? `Draft saved ${new Date(lastSavedAt).toLocaleTimeString([], {
+                          hour: "numeric",
+                          minute: "2-digit",
+                        })}`
+                      : "Draft autosaves as you type"}
+                  </div>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={resumeLater}
+                    disabled={busy}
+                    className="gap-2"
+                  >
+                    <Save className="h-4 w-4" /> Resume later
                   </Button>
-                ) : (
-                  <Button onClick={next} disabled={!canAdvance || busy} size="lg" className="gap-2">
-                    Next <ArrowRight className="h-4 w-4" />
-                  </Button>
-                )}
+                  {currentStep.id === "review" ? (
+                    <Button onClick={submit} disabled={busy} size="lg" className="gap-2">
+                      {busy ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <Check className="h-4 w-4" />
+                      )}
+                      Create event
+                    </Button>
+                  ) : (
+                    <Button
+                      onClick={next}
+                      disabled={!canAdvance || busy}
+                      size="lg"
+                      className="gap-2"
+                    >
+                      Next <ArrowRight className="h-4 w-4" />
+                    </Button>
+                  )}
+                </div>
               </div>
             </div>
 

@@ -115,6 +115,15 @@ function ProfilePage() {
         )}
       </section>
 
+      {user && (
+        <section aria-label="Your stats" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <StatTile tone="bg-gradient-vibe text-primary-foreground" icon={Sparkles} label="XP" value={(profile?.xp ?? 0).toLocaleString()} hint={`Level ${profile?.level ?? 1}`} />
+          <StatTile icon={CalendarCheck} label="Upcoming bookings" value={bookingTotals.upcoming.toString()} hint={`${bookingTotals.past} completed`} to="/portal/bookings" />
+          <StatTile icon={Users} label="Referrals signed up" value={refStats.signedUp.toString()} hint={`${refStats.invited} invited · ${refStats.completed} completed`} to="/portal/refer" />
+          <StatTile icon={Trophy} label="Achievements" value={`${achTotals.unlocked}/${achTotals.total || "—"}`} hint={achTotals.total ? `${achTotals.xpEarned} XP earned` : "Unlock by exploring"} />
+        </section>
+      )}
+
       <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
         <h2 className="mb-4 font-display text-xl font-bold">Display name</h2>
         <div className="flex flex-wrap gap-2">

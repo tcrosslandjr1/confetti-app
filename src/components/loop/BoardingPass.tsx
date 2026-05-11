@@ -277,24 +277,57 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           </div>
         </div>
 
-        {/* Map strip */}
-        <div className="relative h-[160px] w-full overflow-hidden border-t-2 border-dashed border-ink/40">
-          <ConfettiMap
-            stops={loop.stops.map((s) => ({ id: s.id, name: s.name, area: s.area, lat: s.lat, lng: s.lng }))}
-            fallbackCity={loop.stops[0]?.area || "Washington, DC"}
-            height="100%"
-            interactive={false}
-            onPointsReady={setRoutePoints}
-          />
-          <a
-            href={directionsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5"
-          >
-            <Navigation className="h-3 w-3" /> Get Directions
-          </a>
+        {/* Compact map strip with numbered stop markers */}
+        <div className="border-t-2 border-dashed border-ink/40">
+          <div className="relative h-[150px] w-full overflow-hidden">
+            <ConfettiMap
+              stops={loop.stops.map((s) => ({
+                id: s.id,
+                name: s.name,
+                area: s.area,
+                lat: s.lat,
+                lng: s.lng,
+                done: s.done,
+              }))}
+              currentIdx={loop.stops.findIndex((s) => !s.done)}
+              fallbackCity={loop.stops[0]?.area || "Washington, DC"}
+              height="100%"
+              interactive={false}
+              onPointsReady={setRoutePoints}
+            />
+            <a
+              href={directionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5"
+            >
+              <Navigation className="h-3 w-3" /> Directions
+            </a>
+          </div>
+          {/* Numbered legend */}
+          <div className="flex items-center gap-2 overflow-x-auto px-6 py-2 border-t border-ink/10 bg-cream/40">
+            {loop.stops.map((s, i) => {
+              const done = !!s.done;
+              return (
+                <div
+                  key={s.id}
+                  className="flex shrink-0 items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70"
+                >
+                  <span
+                    className={`grid h-5 w-5 place-items-center rounded-full border-2 border-ink text-[9px] ${
+                      done ? "bg-coral text-cream" : "bg-cream text-ink"
+                    }`}
+                  >
+                    {i + 1}
+                  </span>
+                  <span className="max-w-[8rem] truncate">{s.name}</span>
+                  {i < loop.stops.length - 1 && <span className="text-ink/30">→</span>}
+                </div>
+              );
+            })}
+          </div>
         </div>
+
 
         {/* Tear */}
         <TearDivider />

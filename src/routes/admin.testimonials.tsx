@@ -218,6 +218,20 @@ function AdminTestimonialsPage() {
                     <td className="px-3 py-2 max-w-md">
                       <div className="line-clamp-3 text-xs text-muted-foreground">{r.body}</div>
                     </td>
+                    <td className="px-3 py-2">
+                      {r.rating ? (
+                        <div className="flex items-center gap-0.5 text-amber-500">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`h-3 w-3 ${i < (r.rating ?? 0) ? "fill-current" : "opacity-30"}`}
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="text-xs text-muted-foreground">—</span>
+                      )}
+                    </td>
                     <td className="px-3 py-2 text-xs">{r.country ?? "—"}</td>
                     <td className="px-3 py-2 text-xs">{r.position}</td>
                     <td className="px-3 py-2">

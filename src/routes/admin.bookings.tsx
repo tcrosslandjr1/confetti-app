@@ -132,12 +132,39 @@ function AdminBookingsPage() {
   const [tab, setTab] = useState<"all" | Status>("all");
   const [query, setQuery] = useState("");
   const [venueFilter, setVenueFilter] = useState<string>("all");
+  const resolveEmail = useServerFn(resolveVenueNotificationEmail);
+  const routingCacheRef = useRef(new Map<string, Routing | null>());
+  const inFlightRef = useRef(new Map<string, Promise<Routing | null>>());
+
+  const resolveRouting = useMemo(
+    () => (venueId: string) => {
+      const cache = routingCacheRef.current;
+      if (cache.has(venueId)) return Promise.resolve(cache.get(venueId) ?? null);
+      const inflight = inFlightRef.current.get(venueId);
+      if (inflight) return inflight;
+      const p = resolveEmail({ data: { venueId } })
+        .then((r) => {
+          const result = (r as Routing | null) ?? null;
+          cache.set(venueId, result);
+          inFlightRef.current.delete(venueId);
+          return result;
+        })
+        .catch(() => {
+          cache.set(venueId, null);
+          inFlightRef.current.delete(venueId);
+          return null;
+        });
+      inFlightRef.current.set(venueId, p);
+      return p;
+    },
+    [resolveEmail],
+  );
 
   const load = async () => {
     setLoading(true);
     const { data, error } = await supabase
       .from("bookings")
-      .select("id,user_id,venue_name,starts_at,party_size,status,cancelled_at,notes,pre_order_drinks,seating_preference")
+      .select("id,user_id,venue_id,venue_name,starts_at,party_size,status,cancelled_at,notes,pre_order_drinks,seating_preference")
       .order("starts_at", { ascending: false });
     if (error) toast.error(error.message);
     const rows = (data ?? []) as Omit<Booking, "profiles">[];

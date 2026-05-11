@@ -1429,8 +1429,22 @@ function SwitchPlanButton({ currentId }: { currentId: string }) {
     const next = preset.build();
     setActiveLoop(next);
     setOpen(false);
+
+    // Notify the group that the plan was swapped, so attendees viewing the
+    // trip see it in their notification feed and activity log.
+    const message = `Plan switched to "${preset.label}" — ${preset.blurb}`;
+    appendNotifications(next.id, [{ kind: "reschedule", venue: "Guests", message }]);
+    logActivity({
+      tripId: next.id,
+      tripTitle: `${next.from} → ${next.to}`,
+      actor: "You",
+      kind: "rescheduled",
+      message,
+      detail: `${next.stops.length} stops · boarding ${next.boardingTime}`,
+    });
+
     toast.success(`Switched to ${preset.label}`, {
-      description: "Map and directions refreshed.",
+      description: "Map, directions, and group notified.",
     });
   }
 

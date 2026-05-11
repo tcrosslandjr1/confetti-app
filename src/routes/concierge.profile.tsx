@@ -317,6 +317,18 @@ function Profile() {
                 {activities.length ? activities.slice(0, 5).join(", ") : "Add the outings you like"}
               </div>
             </div>
+            <div>
+              <div className="font-semibold">Diet</div>
+              <div className="text-muted-foreground">
+                {DIET_OPTIONS.find((d) => d.k === diet)?.label ?? "No restriction"}
+              </div>
+            </div>
+            <div>
+              <div className="font-semibold">Avoiding</div>
+              <div className="text-muted-foreground">
+                {allergens.length ? allergens.join(", ") : "No allergens flagged"}
+              </div>
+            </div>
           </div>
         </aside>
       </div>

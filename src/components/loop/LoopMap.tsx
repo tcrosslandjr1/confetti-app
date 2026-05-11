@@ -20,12 +20,14 @@ export function LoopMap({
   fallbackCity = "Washington, DC",
   travelMode = "DRIVING",
   onActiveLegChange,
+  focusStopId,
 }: {
   stops: LoopStop[];
   currentIdx: number;
   fallbackCity?: string;
   travelMode?: TravelMode;
   onActiveLegChange?: (info: ActiveLegInfo) => void;
+  focusStopId?: string | null;
 }) {
   return (
     <ConfettiMap
@@ -43,6 +45,7 @@ export function LoopMap({
       showUserLocation
       travelMode={travelMode}
       onActiveStepsChange={onActiveLegChange}
+      focusStopId={focusStopId}
     />
   );
 }

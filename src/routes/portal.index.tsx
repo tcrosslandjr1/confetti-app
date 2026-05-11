@@ -47,6 +47,7 @@ import {
   XpProgressWidget,
   TrendingNearYouWidget,
 } from "@/components/widgets/AppWidgets";
+import { ActivityFeed } from "@/components/activity/ActivityFeed";
 
 export const Route = createFileRoute("/portal/")({
   head: () => ({
@@ -345,6 +346,8 @@ function PortalDiscoverPage() {
           totalAch={achievements.length}
         />
       )}
+
+      {user && <ActivityFeed title="Recent group activity" className="bg-card" limit={8} />}
 
       <ViralNow city="Washington DC" />
 

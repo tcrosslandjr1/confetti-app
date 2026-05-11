@@ -64,6 +64,7 @@ import {
 } from "@/lib/trip-status";
 import { GooglePhotos } from "@/components/GooglePhotos";
 import { VibeFilter } from "@/components/VibeFilter";
+import { ActivityFeed } from "@/components/activity/ActivityFeed";
 import {
   CROWD_LABEL,
   DRESS_LABEL,
@@ -515,6 +516,14 @@ function TripDetail() {
             </ol>
           )}
         </div>
+      </section>
+
+      <section className="mx-auto mt-6 max-w-4xl px-4 sm:px-6 lg:px-8">
+        <ActivityFeed
+          tripId={id}
+          title="Group activity"
+          emptyHint="Once your group starts checking in, swapping stops or rescheduling, you'll see who did what here."
+        />
       </section>
 
       <LateRescheduleFab

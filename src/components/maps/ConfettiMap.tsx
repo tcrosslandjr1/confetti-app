@@ -45,6 +45,8 @@ type Props = {
     durationText?: string;
     travelMode: TravelMode;
   } | null) => void;
+  /** Pan + zoom + bounce the marker for this stop id. Changing the value re-triggers the focus. */
+  focusStopId?: string | null;
 };
 
 export function ConfettiMap({
@@ -59,6 +61,7 @@ export function ConfettiMap({
   onPointsReady,
   travelMode = "DRIVING",
   onActiveStepsChange,
+  focusStopId = null,
 }: Props) {
   if (!GOOGLE_MAPS_API_KEY) {
     return (
@@ -98,6 +101,7 @@ export function ConfettiMap({
           onPointsReady={onPointsReady}
           travelMode={travelMode}
           onActiveStepsChange={onActiveStepsChange}
+          focusStopId={focusStopId}
         />
       </Map>
     </div>
@@ -113,6 +117,7 @@ function Layer({
   onPointsReady,
   travelMode,
   onActiveStepsChange,
+  focusStopId,
 }: {
   stops: MapStop[];
   currentIdx: number;
@@ -122,6 +127,7 @@ function Layer({
   onPointsReady?: (points: GeocodeResult[]) => void;
   travelMode: TravelMode;
   onActiveStepsChange?: Props["onActiveStepsChange"];
+  focusStopId?: string | null;
 }) {
   const map = useMap();
   const [user, setUser] = useState<{ lat: number; lng: number } | null>(null);
@@ -380,5 +386,22 @@ function Layer({
     };
   }, [map, user]);
 
+  // Focus a stop on demand: pan, zoom and bounce its marker briefly.
+  useEffect(() => {
+    if (!map || !focusStopId) return;
+    const idx = stops.findIndex((s) => s.id === focusStopId);
+    if (idx < 0) return;
+    const pt = points.find((p) => p.id === focusStopId);
+    const marker = stopMarkersRef.current[idx];
+    if (!pt || !marker) return;
+    map.panTo({ lat: pt.lat, lng: pt.lng });
+    const currentZoom = map.getZoom() ?? 13;
+    if (currentZoom < 14) map.setZoom(15);
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+    const t = window.setTimeout(() => marker.setAnimation(null), 1400);
+    return () => window.clearTimeout(t);
+  }, [map, focusStopId, points, stops]);
+
   return null;
 }
+

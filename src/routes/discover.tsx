@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { LayoutList, Map as MapIcon, MapPin, Star, Loader2 } from "lucide-react";
+import { LayoutList, Map as MapIcon, MapPin, Star, Loader2, Search, X } from "lucide-react";
 import { Map, useMap } from "@vis.gl/react-google-maps";
 import { supabase } from "@/integrations/supabase/client";
 import { confettiMapStyle } from "@/components/maps/mapStyles";
@@ -35,6 +35,16 @@ type VenueRow = {
 function DiscoverPage() {
   const [view, setView] = useState<"list" | "map">("list");
   const [rows, setRows] = useState<VenueRow[] | null>(null);
+  const [q, setQ] = useState("");
+
+  const filtered = useMemo(() => {
+    if (!rows) return rows;
+    const term = q.trim().toLowerCase();
+    if (!term) return rows;
+    return rows.filter((r) =>
+      [r.name, r.neighborhood, r.address].filter(Boolean).join(" ").toLowerCase().includes(term)
+    );
+  }, [rows, q]);
 
   useEffect(() => {
     let cancelled = false;
@@ -88,20 +98,40 @@ function DiscoverPage() {
             <MapIcon className="h-3.5 w-3.5" /> Map
           </button>
         </div>
+
+        <div className="mt-4 flex items-center gap-2 rounded-full border-2 border-ink bg-cream px-3 py-2 shadow-brut">
+          <Search className="h-4 w-4 text-ink/60" />
+          <input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="Search venues, neighborhoods, addresses…"
+            className="flex-1 bg-transparent text-sm text-ink placeholder:text-ink/40 focus:outline-none"
+            aria-label="Search venues"
+          />
+          {q && (
+            <button
+              onClick={() => setQ("")}
+              className="grid h-6 w-6 place-items-center rounded-full text-ink/60 hover:bg-ink/10"
+              aria-label="Clear"
+            >
+              <X className="h-3.5 w-3.5" />
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="mx-auto mt-5 max-w-2xl px-4">
-        {rows === null ? (
+        {filtered === null ? (
           <div className="flex items-center justify-center py-12 text-sm text-muted-foreground">
             <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Loading venues…
           </div>
-        ) : rows.length === 0 ? (
+        ) : filtered.length === 0 ? (
           <div className="rounded-2xl border border-border bg-card p-6 text-center text-sm text-muted-foreground">
-            No trending venues yet. Check back soon.
+            {q ? `No venues match "${q}".` : "No trending venues yet. Check back soon."}
           </div>
         ) : view === "list" ? (
           <ul className="space-y-3">
-            {rows.map((v) => (
+            {filtered.map((v) => (
               <li
                 key={v.id}
                 className="overflow-hidden rounded-2xl border border-border bg-card shadow-card"
@@ -134,7 +164,7 @@ function DiscoverPage() {
             ))}
           </ul>
         ) : (
-          <DiscoverMap rows={rows} />
+          <DiscoverMap rows={filtered} />
         )}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MapPin, Check, Navigation, X, Footprints, Car } from "lucide-react";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
 import {
@@ -14,6 +14,10 @@ import {
 } from "@/lib/loop-store";
 import { LoopMap, type ActiveLegInfo, type TravelMode } from "@/components/loop/LoopMap";
 import { DirectionsPanel } from "@/components/loop/DirectionsPanel";
+import { StopSearchBox } from "@/components/loop/StopSearchBox";
+import { PlanEditFab } from "@/components/loop/PlanEditFab";
+import { ActivityFeed } from "@/components/activity/ActivityFeed";
+import { logActivity } from "@/lib/activity-log";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/active-loop")({
@@ -26,14 +30,26 @@ function ActiveLoopPage() {
   const [confetti, setConfettiCount] = useState(0);
   const [activeLeg, setActiveLeg] = useState<ActiveLegInfo>(null);
   const [travelMode, setTravelMode] = useState<TravelMode>("DRIVING");
+  const [focusStopId, setFocusStopId] = useState<string | null>(null);
   const { burst, layer } = useConfettiBurst();
   const navigate = useNavigate();
+  const startedRef = useRef(false);
 
   useEffect(() => {
     const existing = getActiveLoop() || makeDemoLoop();
     setActiveLoop(existing);
     setLoop(existing);
     setConfettiCount(getConfetti());
+    if (!startedRef.current) {
+      startedRef.current = true;
+      logActivity({
+        tripId: existing.id,
+        tripTitle: `${existing.from} → ${existing.to}`,
+        actor: "You",
+        kind: "plan_started",
+        message: `started the plan with ${existing.stops.length} stops`,
+      });
+    }
     const offLoop = subscribeActiveLoop(() => setLoop(getActiveLoop()));
     const offConfetti = subscribeConfetti(() => setConfettiCount(getConfetti()));
     return () => {
@@ -54,6 +70,12 @@ function ActiveLoopPage() {
   const next = currentIdx >= 0 ? loop.stops[currentIdx + 1] : null;
   const completed = currentIdx === -1;
 
+  function jumpToStop(stopId: string) {
+    // Re-trigger by setting null first if same id
+    setFocusStopId(null);
+    requestAnimationFrame(() => setFocusStopId(stopId));
+  }
+
   function checkIn(e: React.MouseEvent) {
     if (!current || !loop) return;
     burst(e.clientX, e.clientY);
@@ -65,6 +87,25 @@ function ActiveLoopPage() {
     setLoop(updated);
     const newTotal = addConfetti(50);
     setConfettiCount(newTotal);
+    logActivity({
+      tripId: loop.id,
+      tripTitle: `${loop.from} → ${loop.to}`,
+      actor: "You",
+      kind: "check_in",
+      message: `checked in at ${current.name}`,
+      detail: "+50 Confetti",
+    });
+    const allDone = updated.stops.every((s) => s.done);
+    if (allDone) {
+      logActivity({
+        tripId: loop.id,
+        tripTitle: `${loop.from} → ${loop.to}`,
+        actor: "You",
+        kind: "plan_completed",
+        message: `completed the plan`,
+        detail: `${newTotal} Confetti earned`,
+      });
+    }
     toast.success("+50 Confetti", { description: `Checked in at ${current.name}` });
   }
 
@@ -90,14 +131,26 @@ function ActiveLoopPage() {
           </span>
         </div>
 
+        {/* Search + quick edit toolbar */}
+        <div className="mt-4 flex flex-wrap items-center gap-2">
+          <StopSearchBox
+            stops={loop.stops}
+            currentIdx={currentIdx}
+            onJump={jumpToStop}
+            className="min-w-0 flex-1"
+          />
+          <PlanEditFab loop={loop} actor="You" />
+        </div>
+
         {/* Interactive Google Map: numbered markers, polyline route, user pulse, current bounce */}
-        <div className="mt-4 relative h-[220px] overflow-hidden rounded-3xl border-2 border-ink shadow-brut bg-cream">
+        <div className="mt-3 relative h-[220px] overflow-hidden rounded-3xl border-2 border-ink shadow-brut bg-cream">
           <LoopMap
             stops={loop.stops}
             currentIdx={currentIdx}
             fallbackCity={loop.stops[0]?.area || "Washington, DC"}
             travelMode={travelMode}
             onActiveLegChange={setActiveLeg}
+            focusStopId={focusStopId}
           />
           <div className="pointer-events-none absolute bottom-2 left-2 rounded-full bg-cream/95 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink shadow-sm">
             Live route · {loop.stops.length} stops
@@ -209,22 +262,31 @@ function ActiveLoopPage() {
             </div>
             <ol className="space-y-2">
               {loop.stops.map((s, i) => (
-                <li key={s.id} className="flex items-center gap-2">
-                  <span
-                    className={`grid h-6 w-6 place-items-center rounded-full border-2 border-ink ${s.done ? "bg-coral text-cream" : i === currentIdx ? "bg-gold" : "bg-cream"}`}
+                <li key={s.id}>
+                  <button
+                    type="button"
+                    onClick={() => jumpToStop(s.id)}
+                    className="flex w-full items-center gap-2 rounded-lg px-1 py-1 text-left hover:bg-coral/5"
                   >
-                    {s.done ? (
-                      <Check className="h-3 w-3" strokeWidth={3} />
-                    ) : (
-                      <span className="font-mono text-[9px] font-bold">{i + 1}</span>
-                    )}
-                  </span>
-                  <div className="flex-1 text-sm font-semibold">{s.name}</div>
-                  <span className="font-mono text-[10px] text-ink/60">{s.time}</span>
+                    <span
+                      className={`grid h-6 w-6 place-items-center rounded-full border-2 border-ink ${s.done ? "bg-coral text-cream" : i === currentIdx ? "bg-gold" : "bg-cream"}`}
+                    >
+                      {s.done ? (
+                        <Check className="h-3 w-3" strokeWidth={3} />
+                      ) : (
+                        <span className="font-mono text-[9px] font-bold">{i + 1}</span>
+                      )}
+                    </span>
+                    <div className="flex-1 text-sm font-semibold">{s.name}</div>
+                    <span className="font-mono text-[10px] text-ink/60">{s.time}</span>
+                  </button>
                 </li>
               ))}
             </ol>
           </div>
+
+          <ActivityFeed tripId={loop.id} className="mt-2" />
+
           {!completed && (
             <button
               onClick={endEarly}

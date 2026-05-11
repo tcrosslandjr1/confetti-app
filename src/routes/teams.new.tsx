@@ -153,6 +153,148 @@ function NewTeamEventPage() {
     };
   }, [fromTrip, user]);
 
+  // ── Draft persistence (resume later) ──────────────────────────────────────
+  const DRAFT_KEY = "teams.new.draft.v1";
+
+  // Load any saved draft on first mount.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const raw = window.localStorage.getItem(DRAFT_KEY);
+      if (raw) {
+        const d = JSON.parse(raw) as Partial<{
+          stepIdx: number;
+          orgName: string;
+          title: string;
+          purpose: CorporatePurpose;
+          startDate: string;
+          endDate: string;
+          headcount: number;
+          budget: number;
+          attendeesRaw: string;
+          city: string;
+          neighborhood: string;
+          vibes: Vibe[];
+          dietary: Dietary[];
+          notes: string;
+          savedAt: number;
+        }>;
+        if (typeof d.stepIdx === "number") setStepIdx(d.stepIdx);
+        if (d.orgName) setOrgName(d.orgName);
+        if (d.title) setTitle(d.title);
+        if (d.purpose) setPurpose(d.purpose);
+        if (d.startDate) setStartDate(d.startDate);
+        if (d.endDate) setEndDate(d.endDate);
+        if (typeof d.headcount === "number") setHeadcount(d.headcount);
+        if (typeof d.budget === "number") setBudget(d.budget);
+        if (d.attendeesRaw) setAttendeesRaw(d.attendeesRaw);
+        if (d.city) setCity(d.city);
+        if (d.neighborhood) setNeighborhood(d.neighborhood);
+        if (Array.isArray(d.vibes)) setVibes(new Set(d.vibes));
+        if (Array.isArray(d.dietary)) setDietary(new Set(d.dietary));
+        if (d.notes) setNotes(d.notes);
+        if (typeof d.savedAt === "number") setLastSavedAt(d.savedAt);
+        setHadDraft(true);
+      }
+    } catch (err) {
+      console.warn("[teams/new] failed to read draft", err);
+    } finally {
+      setDraftLoaded(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const buildDraftPayload = () => ({
+    stepIdx,
+    orgName,
+    title,
+    purpose,
+    startDate,
+    endDate,
+    headcount,
+    budget,
+    attendeesRaw,
+    city,
+    neighborhood,
+    vibes: [...vibes],
+    dietary: [...dietary],
+    notes,
+    savedAt: Date.now(),
+  });
+
+  // Auto-save draft (debounced) once initial load has run.
+  useEffect(() => {
+    if (!draftLoaded || typeof window === "undefined") return;
+    const handle = window.setTimeout(() => {
+      try {
+        const payload = buildDraftPayload();
+        window.localStorage.setItem(DRAFT_KEY, JSON.stringify(payload));
+        setLastSavedAt(payload.savedAt);
+      } catch (err) {
+        console.warn("[teams/new] failed to save draft", err);
+      }
+    }, 600);
+    return () => window.clearTimeout(handle);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    draftLoaded,
+    stepIdx,
+    orgName,
+    title,
+    purpose,
+    startDate,
+    endDate,
+    headcount,
+    budget,
+    attendeesRaw,
+    city,
+    neighborhood,
+    vibes,
+    dietary,
+    notes,
+  ]);
+
+  const clearDraft = () => {
+    try {
+      if (typeof window !== "undefined") window.localStorage.removeItem(DRAFT_KEY);
+    } catch {
+      /* ignore */
+    }
+    setHadDraft(false);
+    setLastSavedAt(null);
+  };
+
+  const discardDraft = () => {
+    clearDraft();
+    setStepIdx(0);
+    setOrgName("");
+    setTitle("");
+    setPurpose("team-outing");
+    setStartDate("");
+    setEndDate("");
+    setHeadcount(8);
+    setBudget(150);
+    setAttendeesRaw("");
+    setCity("");
+    setNeighborhood("");
+    setVibes(new Set());
+    setDietary(new Set());
+    setNotes("");
+    toast.success("Draft discarded — starting fresh");
+  };
+
+  const resumeLater = () => {
+    try {
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(DRAFT_KEY, JSON.stringify(buildDraftPayload()));
+      }
+    } catch {
+      /* ignore */
+    }
+    toast.success("Draft saved — pick up where you left off any time");
+    nav({ to: "/teams" });
+  };
+
   const parsed = useMemo(() => parseAttendeeList(attendeesRaw), [attendeesRaw]);
   const days = startDate ? dayCount(startDate, endDate || startDate) : 1;
   const totalCents = headcount * budget * 100 * days;

@@ -102,7 +102,7 @@ function PortalViralPage() {
     () => (rows ?? []).reduce((sum, r) => sum + (r.mention_count ?? 0), 0),
     [rows],
   );
-  const trendingTag = useMemo(() => {
+  const trendingTag = useMemo<{ tag: ViralTag; n: number } | null>(() => {
     const counts = new Map<ViralTag, number>();
     (rows ?? []).forEach((r) => (r.tags ?? []).forEach((t) => counts.set(t, (counts.get(t) ?? 0) + 1)));
     let best: { tag: ViralTag; n: number } | null = null;

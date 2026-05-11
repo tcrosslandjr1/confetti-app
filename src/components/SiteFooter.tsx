@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Twitter, Youtube, Music2, Github } from "lucide-react";
+import { openCookieSettings } from "@/components/CookieConsent";
 
 const cols = [
   {
@@ -123,7 +124,16 @@ export function SiteFooter() {
 
         <div className="mt-6 flex flex-col items-start justify-between gap-3 font-mono text-[11px] uppercase tracking-widest text-cream/50 sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} Loop — plans with a pulse.</p>
-          <p>made loud, on purpose.</p>
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="uppercase tracking-widest hover:text-coral"
+            >
+              Cookie settings
+            </button>
+            <p>made loud, on purpose.</p>
+          </div>
         </div>
       </div>
     </footer>

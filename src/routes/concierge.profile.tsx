@@ -34,6 +34,27 @@ function Chip({
   );
 }
 
+const DIET_OPTIONS = [
+  { k: "none", label: "No restriction" },
+  { k: "vegan", label: "Vegan" },
+  { k: "vegetarian", label: "Vegetarian" },
+  { k: "pescatarian", label: "Pescatarian" },
+  { k: "gluten-free", label: "Gluten-free" },
+] as const;
+type DietKey = (typeof DIET_OPTIONS)[number]["k"];
+
+const ALLERGEN_OPTIONS = [
+  "peanuts",
+  "tree nuts",
+  "shellfish",
+  "dairy",
+  "eggs",
+  "soy",
+  "sesame",
+  "wheat/gluten",
+  "fish",
+];
+
 function Profile() {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
@@ -42,6 +63,9 @@ function Profile() {
   const [cuisines, setCuisines] = useState<string[]>([]);
   const [activities, setActivities] = useState<string[]>([]);
   const [budget, setBudget] = useState<[number, number]>([25, 100]);
+  const [diet, setDiet] = useState<DietKey>("none");
+  const [allergens, setAllergens] = useState<string[]>([]);
+  const [tasteProfile, setTasteProfile] = useState<Record<string, unknown>>({});
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -58,6 +82,16 @@ function Profile() {
         setCuisines(prefs.cuisines ?? []);
         setActivities(prefs.activities ?? []);
         setBudget([prefs.budget_min ?? 25, prefs.budget_max ?? 100]);
+        const tp = (prefs.taste_profile ?? {}) as Record<string, unknown>;
+        setTasteProfile(tp);
+        const dietRaw = String((tp.diet as string) ?? "").toLowerCase();
+        const matched =
+          DIET_OPTIONS.find((d) => d.k !== "none" && dietRaw.includes(d.k))?.k ?? "none";
+        setDiet(matched as DietKey);
+        const arr = Array.isArray(tp.allergens)
+          ? (tp.allergens as unknown[]).map((s) => String(s).toLowerCase())
+          : [];
+        setAllergens(arr);
       }
     })();
   }, [user]);
@@ -69,17 +103,27 @@ function Profile() {
     if (!user) return;
     setSaving(true);
     await supabase.from("profiles").update({ display_name: name }).eq("id", user.id);
+    const nextTp = { ...tasteProfile, diet: diet === "none" ? "" : diet, allergens };
     await supabase.from("user_preferences").upsert({
       user_id: user.id,
       cuisines,
       activities,
       budget_min: budget[0],
       budget_max: budget[1],
+      taste_profile: nextTp,
     });
+    setTasteProfile(nextTp);
     setSaving(false);
     setSaved(true);
+    // Signal other surfaces (wizard, dashboard) to re-pull and re-filter
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("loop:diet-prefs-updated", { detail: { diet, allergens } }),
+      );
+    }
     setTimeout(() => setSaved(false), 1500);
   };
+
 
   const level = levelFromXp(xp);
 
@@ -151,6 +195,48 @@ function Profile() {
                   </Chip>
                 ))}
               </div>
+            </div>
+
+            <div className="lg:col-span-2">
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Diet
+              </label>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {DIET_OPTIONS.map((d) => (
+                  <Chip key={d.k} active={diet === d.k} onClick={() => setDiet(d.k)}>
+                    {d.label}
+                  </Chip>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-2">
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Allergens to avoid
+              </label>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {ALLERGEN_OPTIONS.map((a) => (
+                  <Chip
+                    key={a}
+                    active={allergens.includes(a)}
+                    onClick={() => toggle(allergens, setAllergens, a)}
+                  >
+                    ⚠ {a}
+                  </Chip>
+                ))}
+                {allergens.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => setAllergens([])}
+                    className="text-xs font-semibold uppercase tracking-wider text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Dish picks re-filter immediately — these flow into the planner and concierge chat.
+              </p>
             </div>
 
             <div className="lg:col-span-2">
@@ -229,6 +315,18 @@ function Profile() {
               <div className="font-semibold">Activity signals</div>
               <div className="text-muted-foreground">
                 {activities.length ? activities.slice(0, 5).join(", ") : "Add the outings you like"}
+              </div>
+            </div>
+            <div>
+              <div className="font-semibold">Diet</div>
+              <div className="text-muted-foreground">
+                {DIET_OPTIONS.find((d) => d.k === diet)?.label ?? "No restriction"}
+              </div>
+            </div>
+            <div>
+              <div className="font-semibold">Avoiding</div>
+              <div className="text-muted-foreground">
+                {allergens.length ? allergens.join(", ") : "No allergens flagged"}
               </div>
             </div>
           </div>

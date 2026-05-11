@@ -293,6 +293,8 @@ export function BuildMyNightWizard() {
     topVenues: Set<string>;
     bookingsCount: number;
     dietLabel: string | null;
+    hourCounts: Record<number, number>;
+    venueCounts: Record<string, number>;
   };
   const [personalize, setPersonalize] = useState<Personalize | null>(null);
   type DietPrefs = { vegan: boolean; vegetarian: boolean; pescatarian: boolean; glutenFree: boolean; allergens: string[] };

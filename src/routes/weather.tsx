@@ -291,7 +291,7 @@ function WeatherPage() {
     }
   }
 
-  function useMyLocation() {
+  function getMyLocation() {
     if (typeof navigator === "undefined" || !navigator.geolocation) {
       setError("Your browser doesn't support geolocation.");
       return;
@@ -346,7 +346,7 @@ function WeatherPage() {
 
   // Auto-attempt geolocation on first mount.
   useEffect(() => {
-    useMyLocation();
+    getMyLocation();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -379,7 +379,7 @@ function WeatherPage() {
             <Button type="submit" disabled={searching || !query.trim()}>
               {searching ? <Loader2 className="h-4 w-4 animate-spin" /> : "Search"}
             </Button>
-            <Button type="button" variant="outline" onClick={useMyLocation} disabled={locating}>
+            <Button type="button" variant="outline" onClick={getMyLocation} disabled={locating}>
               {locating ? (
                 <Loader2 className="mr-1.5 h-4 w-4 animate-spin" />
               ) : (

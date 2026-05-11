@@ -263,7 +263,21 @@ function AdminVenuesPage() {
               )}
 
               <div className="mt-auto flex flex-wrap gap-2 pt-1">
-                <Button size="sm" variant="ghost" className="ml-auto" onClick={() => setEditing(v)}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="mr-auto"
+                  disabled={testingId === v.id}
+                  onClick={() => void onTestNotification(v)}
+                >
+                  {testingId === v.id ? (
+                    <Loader2 className="mr-1 h-3.5 w-3.5 animate-spin" />
+                  ) : (
+                    <MailCheck className="mr-1 h-3.5 w-3.5" />
+                  )}
+                  Test notification
+                </Button>
+                <Button size="sm" variant="ghost" onClick={() => setEditing(v)}>
                   <Edit3 className="mr-1 h-3.5 w-3.5" /> Edit
                 </Button>
                 <Button

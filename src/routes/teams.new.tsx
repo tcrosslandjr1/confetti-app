@@ -125,7 +125,7 @@ function NewTeamEventPage() {
         if (itinerary.title) setTitle(itinerary.title);
         if (itinerary.city) setCity(itinerary.city);
         if (itinerary.date) setStartDate(itinerary.date);
-        if (itinerary.end_date) setEndDate(itinerary.end_date);
+        // end_date isn't on the Itinerary type today; single-day trips are fine without it.
         if (itinerary.vibe) {
           const matched = VIBE_TAGS.filter((v) =>
             itinerary.vibe!.toLowerCase().includes(v.toLowerCase()),

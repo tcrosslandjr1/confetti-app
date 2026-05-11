@@ -163,7 +163,7 @@ export function RoleSwitcher() {
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-1">
+            <div className="grid grid-cols-2 gap-1 sm:grid-cols-4">
               {OPTIONS.map(({ value, label, Icon, blurb, tone }) => {
                 const active = viewAs === value;
                 return (

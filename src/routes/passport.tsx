@@ -25,7 +25,10 @@ const REWARDS = [
 
 function PassportPage() {
   const [confetti, setConfettiCount] = useState(0);
-  useEffect(() => setConfettiCount(getConfetti()), []);
+  useEffect(() => {
+    setConfettiCount(getConfetti());
+    return subscribeConfetti(() => setConfettiCount(getConfetti()));
+  }, []);
   const level = Math.floor(confetti / 250) + 1;
   const nextLevelAt = level * 250;
   const progress = Math.min(100, ((confetti % 250) / 250) * 100);

@@ -107,23 +107,32 @@ function PlanPage() {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("[plan] submit clicked", { occasionSlug, isCustom, user: !!user });
+    console.log("[plan] submit clicked", { occasionSlugs, isCustom, user: !!user });
     setErr(null);
     setBusy(true);
     try {
       if (!user) {
         throw new Error("Sign in required — please log in and try again.");
       }
-      const occ = OCCASIONS.find((o) => o.slug === occasionSlug);
+      const selected = OCCASIONS.filter((o) => occasionSlugs.includes(o.slug));
       const customText = customVibe.trim();
       if (isCustom && !customText) {
         throw new Error("Tell us your vibe — type a few words to describe your day.");
       }
+      if (selected.length === 0 && !isCustom) {
+        throw new Error("Pick at least one vibe to plan your day.");
+      }
+      const titles = selected.map((o) => o.title);
+      const taglines = selected.map((o) => o.tagline);
+      if (isCustom && customText) {
+        titles.push(customText);
+        taglines.push(customText);
+      }
       console.log("[plan] calling buildAndSaveItinerary…");
       const { id } = await buildAndSaveItinerary({
-        occasion: occ ? occ.title : customText,
-        vibe: occ ? occ.tagline : customText,
-        occasionSlug: occ ? occ.slug : "spontaneous",
+        occasion: titles.join(" + "),
+        vibe: taglines.join(" · "),
+        occasionSlug: selected[0]?.slug ?? "spontaneous",
         city: city || undefined,
         neighborhood: neighborhood || undefined,
         date: date || undefined,

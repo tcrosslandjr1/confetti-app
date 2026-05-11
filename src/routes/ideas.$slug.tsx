@@ -52,6 +52,72 @@ const FORMAT_LABELS: Record<IdeaFormat, { name: string; sub: string }> = {
   full: { name: "Full", sub: "Plan, cost, what to wear" },
 };
 
+const FALLBACK_TEMPLATES = [
+  {
+    title: "Neighborhood tasting crawl",
+    hook: "Pick three walkable spots and turn tiny bites into the whole outing.",
+    description:
+      "Choose one compact neighborhood, then sample a signature bite, a drink, and something sweet across three stops. Keep it loose, local, and easy to bail or extend.",
+    vibeTags: ["walkable", "foodie", "low-pressure"],
+    estCost: "$$",
+    timeOfDay: "Evening",
+    duration: "3 hours",
+  },
+  {
+    title: "Free calendar surprise",
+    hook: "Let the town calendar pick the weird little thing you’d usually miss.",
+    description:
+      "Check the local parks, library, museum, or downtown calendar and choose the most oddly specific free event happening soon. Add coffee or dessert nearby to make it feel intentional.",
+    vibeTags: ["budget-friendly", "spontaneous", "local"],
+    estCost: "$",
+    timeOfDay: "Afternoon",
+    duration: "2 hours",
+  },
+  {
+    title: "Hands-on workshop date",
+    hook: "Make something imperfect together, then toast the attempt.",
+    description:
+      "Book a pottery, candle, cooking, floral, or paint class that matches the group’s energy. Finish with one nearby stop where everyone can compare results.",
+    vibeTags: ["creative", "hands-on", "memorable"],
+    estCost: "$$",
+    timeOfDay: "Evening",
+    duration: "2-4 hours",
+  },
+  {
+    title: "Scenic snack mission",
+    hook: "Grab the best portable snack in town and eat it somewhere with a view.",
+    description:
+      "Pick up pastries, tacos, sandwiches, or milkshakes from a beloved local counter, then head to a riverwalk, overlook, garden, or quiet park bench.",
+    vibeTags: ["easy", "outdoors", "charming"],
+    estCost: "$",
+    timeOfDay: "All day",
+    duration: "90 minutes",
+  },
+] as const;
+
+function fallbackIdeas(slug: string, format: IdeaFormat, excludeTitles: string[]): Idea[] {
+  const excluded = new Set(excludeTitles.map((title) => title.toLowerCase()));
+  return FALLBACK_TEMPLATES.filter((template) => !excluded.has(template.title.toLowerCase()))
+    .slice(0, 3)
+    .map((template, n) => ({
+      ...template,
+      vibeTags: [...template.vibeTags],
+      id: `${slug}-fallback-${Date.now()}-${n}`,
+      source: "ai" as const,
+      steps:
+        format === "quick"
+          ? []
+          : [
+              { label: "Start", detail: template.hook },
+              { label: "Main move", detail: template.description },
+              { label: "Close", detail: "Add one nearby low-effort stop if the group wants to keep going." },
+            ],
+      whatToWear: format === "full" ? "Comfortable but photo-ready; choose shoes you can walk in." : "",
+      conversationStarter: format === "full" ? "What’s the most underrated place within 20 minutes of here?" : "",
+      imagePrompt: `${template.title} for ${slug.replaceAll("-", " ")}`,
+    }));
+}
+
 function IdeasPage() {
   const { slug } = Route.useParams();
   const occasion = getOccasion(slug);
@@ -114,7 +180,8 @@ function IdeasPage() {
   const current = ideas[index];
   const remaining = ideas.length - index;
 
-  async function generateMore() {
+  async function generateMore({ showNew = false }: { showNew?: boolean } = {}) {
+    const firstNewIndex = ideas.length;
     setLoading(true);
     setError(null);
     try {
@@ -140,8 +207,20 @@ function IdeasPage() {
       );
       if (newOnes.length === 0) throw new Error("No ideas returned. Try again.");
       setIdeas((prev) => [...prev, ...newOnes]);
+      if (showNew) setIndex(firstNewIndex);
     } catch (e) {
-      setError((e as Error).message);
+      const fallback = fallbackIdeas(
+        slug,
+        format,
+        ideas.map((i) => i.title),
+      );
+      if (fallback.length) {
+        setIdeas((prev) => [...prev, ...fallback]);
+        if (showNew) setIndex(firstNewIndex);
+        setError(null);
+      } else {
+        setError((e as Error).message);
+      }
     } finally {
       setLoading(false);
     }
@@ -222,7 +301,7 @@ function IdeasPage() {
           {current ? (
             <FlashCard idea={current} format={format} occasionGradient={occasion.gradient} />
           ) : (
-            <EmptyDeck onReset={reset} onGenerate={generateMore} loading={loading} />
+            <EmptyDeck onReset={reset} onGenerate={() => generateMore({ showNew: true })} loading={loading} />
           )}
 
           {current && (
@@ -235,7 +314,7 @@ function IdeasPage() {
                 <X className="h-7 w-7" />
               </button>
               <button
-                onClick={generateMore}
+                onClick={() => generateMore({ showNew: true })}
                 disabled={loading}
                 className="grid h-12 w-12 place-items-center rounded-full bg-muted text-foreground transition-pop hover:scale-110 disabled:opacity-50"
                 aria-label="Generate more"

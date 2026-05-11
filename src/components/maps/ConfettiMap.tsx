@@ -191,8 +191,15 @@ function Layer({
       const pt = points.find((p) => p.id === stop.id);
       if (!pt) return;
       const isCurrent = i === currentIdx;
+      const isNext = currentIdx >= 0 && i === currentIdx + 1;
       const isDone = !!stop.done;
-      const fill = isDone ? "#3FA66B" : isCurrent ? "#F05537" : "#FFFFFF";
+      const fill = isDone
+        ? "#3FA66B"
+        : isCurrent
+        ? "#F05537"
+        : isNext
+        ? "#F2C744"
+        : "#FFFFFF";
       const stroke = "#1A1410";
       const labelColor = isDone || isCurrent ? "#FFFFFF" : "#1A1410";
 
@@ -202,14 +209,18 @@ function Layer({
         label: { text: String(i + 1), color: labelColor, fontWeight: "700", fontSize: "13px" },
         icon: {
           path: google.maps.SymbolPath.CIRCLE,
-          scale: isCurrent ? 16 : 12,
+          scale: isCurrent ? 16 : isNext ? 14 : 12,
           fillColor: fill,
           fillOpacity: 1,
           strokeColor: stroke,
-          strokeWeight: 2,
+          strokeWeight: isNext ? 3 : 2,
         },
-        animation: isCurrent ? google.maps.Animation.BOUNCE : null,
-        zIndex: isCurrent ? 999 : 100 - i,
+        animation: isCurrent
+          ? google.maps.Animation.BOUNCE
+          : isNext
+          ? google.maps.Animation.DROP
+          : null,
+        zIndex: isCurrent ? 999 : isNext ? 800 : 100 - i,
         title: stop.name,
       });
       if (onStopClick) marker.addListener("click", () => onStopClick(stop));

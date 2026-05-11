@@ -170,6 +170,7 @@ function AdminTestimonialsPage() {
                 <tr>
                   <th className="px-3 py-2 text-left">Person</th>
                   <th className="px-3 py-2 text-left">Quote</th>
+                  <th className="px-3 py-2 text-left">Rating</th>
                   <th className="px-3 py-2 text-left">Country</th>
                   <th className="px-3 py-2 text-left">Pos</th>
                   <th className="px-3 py-2 text-left">Status</th>

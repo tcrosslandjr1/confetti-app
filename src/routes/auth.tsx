@@ -1,9 +1,9 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Sparkles, Loader2, Wand2 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { useEffect } from "react";
+
 import { useServerFn } from "@tanstack/react-start";
 import { seedDemoAccounts } from "@/lib/seed-demo.functions";
 import { lovable } from "@/integrations/lovable";

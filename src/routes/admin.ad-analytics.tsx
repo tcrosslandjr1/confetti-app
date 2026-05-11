@@ -12,13 +12,13 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { BarChart3, Eye, MousePointerClick, Percent, Filter } from "lucide-react";
+import { BarChart3, CalendarIcon, Eye, Filter, MousePointerClick, Percent } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { CalendarIcon } from "lucide-react";
+
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 

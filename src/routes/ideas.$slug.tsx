@@ -101,6 +101,7 @@ function fallbackIdeas(slug: string, format: IdeaFormat, excludeTitles: string[]
     .slice(0, 3)
     .map((template, n) => ({
       ...template,
+      vibeTags: [...template.vibeTags],
       id: `${slug}-fallback-${Date.now()}-${n}`,
       source: "ai" as const,
       steps:

@@ -767,7 +767,10 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         </button>
       </div>
 
-      {qrUrl && (
+      {/* Find my car — drop a pin where you parked, walk back later */}
+      <div className="mt-3">
+        <ParkingPin />
+      </div>
         <WalletQrModal
           url={qrUrl}
           pending={qrPending}

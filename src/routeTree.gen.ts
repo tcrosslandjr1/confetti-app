@@ -13,10 +13,12 @@ import { Route as WeatherRouteImport } from './routes/weather'
 import { Route as ViralRouteImport } from './routes/viral'
 import { Route as TranslateRouteImport } from './routes/translate'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TeamsRouteImport } from './routes/teams'
 import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
 import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as QuickGenerateRouteImport } from './routes/quick-generate'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortalRouteImport } from './routes/portal'
 import { Route as PlanRouteImport } from './routes/plan'
@@ -28,6 +30,7 @@ import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as DataTermsRouteImport } from './routes/data-terms'
 import { Route as CreateRouteImport } from './routes/create'
+import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConfirmationRouteImport } from './routes/confirmation'
 import { Route as ConciergeRouteImport } from './routes/concierge'
@@ -37,6 +40,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdvertiseRouteImport } from './routes/advertise'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ActiveLoopRouteImport } from './routes/active-loop'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
@@ -107,6 +111,11 @@ const TestimonialsRoute = TestimonialsRouteImport.update({
   path: '/testimonials',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeamsRoute = TeamsRouteImport.update({
   id: '/teams',
   path: '/teams',
@@ -125,6 +134,11 @@ const ReservationsRoute = ReservationsRouteImport.update({
 const QuickGenerateRoute = QuickGenerateRouteImport.update({
   id: '/quick-generate',
   path: '/quick-generate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
@@ -182,6 +196,11 @@ const CreateRoute = CreateRouteImport.update({
   path: '/create',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -225,6 +244,11 @@ const AdminRoute = AdminRouteImport.update({
 const ActiveLoopRoute = ActiveLoopRouteImport.update({
   id: '/active-loop',
   path: '/active-loop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -479,6 +503,7 @@ const ApiPublicHooksDiscoverViralRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
   '/active-loop': typeof ActiveLoopRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRouteWithChildren
@@ -488,6 +513,7 @@ export interface FileRoutesByFullPath {
   '/concierge': typeof ConciergeRouteWithChildren
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/features': typeof FeaturesRoute
@@ -499,10 +525,12 @@ export interface FileRoutesByFullPath {
   '/plan': typeof PlanRouteWithChildren
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
+  '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/translate': typeof TranslateRoute
   '/viral': typeof ViralRoute
@@ -558,12 +586,14 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
   '/active-loop': typeof ActiveLoopRoute
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/features': typeof FeaturesRoute
@@ -574,10 +604,12 @@ export interface FileRoutesByTo {
   '/passport': typeof PassportRoute
   '/plan': typeof PlanRouteWithChildren
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
+  '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/translate': typeof TranslateRoute
   '/viral': typeof ViralRoute
@@ -634,6 +666,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
   '/active-loop': typeof ActiveLoopRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRouteWithChildren
@@ -643,6 +676,7 @@ export interface FileRoutesById {
   '/concierge': typeof ConciergeRouteWithChildren
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/features': typeof FeaturesRoute
@@ -654,10 +688,12 @@ export interface FileRoutesById {
   '/plan': typeof PlanRouteWithChildren
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
+  '/privacy': typeof PrivacyRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
+  '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/translate': typeof TranslateRoute
   '/viral': typeof ViralRoute
@@ -715,6 +751,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/accessibility'
     | '/active-loop'
     | '/admin'
     | '/advertise'
@@ -724,6 +761,7 @@ export interface FileRouteTypes {
     | '/concierge'
     | '/confirmation'
     | '/contact'
+    | '/cookies'
     | '/create'
     | '/data-terms'
     | '/features'
@@ -735,10 +773,12 @@ export interface FileRouteTypes {
     | '/plan'
     | '/portal'
     | '/pricing'
+    | '/privacy'
     | '/quick-generate'
     | '/reservations'
     | '/taste-tuner'
     | '/teams'
+    | '/terms'
     | '/testimonials'
     | '/translate'
     | '/viral'
@@ -794,12 +834,14 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/accessibility'
     | '/active-loop'
     | '/auth'
     | '/boarding-pass'
     | '/chat'
     | '/confirmation'
     | '/contact'
+    | '/cookies'
     | '/create'
     | '/data-terms'
     | '/features'
@@ -810,10 +852,12 @@ export interface FileRouteTypes {
     | '/passport'
     | '/plan'
     | '/pricing'
+    | '/privacy'
     | '/quick-generate'
     | '/reservations'
     | '/taste-tuner'
     | '/teams'
+    | '/terms'
     | '/testimonials'
     | '/translate'
     | '/viral'
@@ -869,6 +913,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/accessibility'
     | '/active-loop'
     | '/admin'
     | '/advertise'
@@ -878,6 +923,7 @@ export interface FileRouteTypes {
     | '/concierge'
     | '/confirmation'
     | '/contact'
+    | '/cookies'
     | '/create'
     | '/data-terms'
     | '/features'
@@ -889,10 +935,12 @@ export interface FileRouteTypes {
     | '/plan'
     | '/portal'
     | '/pricing'
+    | '/privacy'
     | '/quick-generate'
     | '/reservations'
     | '/taste-tuner'
     | '/teams'
+    | '/terms'
     | '/testimonials'
     | '/translate'
     | '/viral'
@@ -949,6 +997,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AccessibilityRoute: typeof AccessibilityRoute
   ActiveLoopRoute: typeof ActiveLoopRoute
   AdminRoute: typeof AdminRouteWithChildren
   AdvertiseRoute: typeof AdvertiseRouteWithChildren
@@ -958,6 +1007,7 @@ export interface RootRouteChildren {
   ConciergeRoute: typeof ConciergeRouteWithChildren
   ConfirmationRoute: typeof ConfirmationRoute
   ContactRoute: typeof ContactRoute
+  CookiesRoute: typeof CookiesRoute
   CreateRoute: typeof CreateRoute
   DataTermsRoute: typeof DataTermsRoute
   FeaturesRoute: typeof FeaturesRoute
@@ -969,10 +1019,12 @@ export interface RootRouteChildren {
   PlanRoute: typeof PlanRouteWithChildren
   PortalRoute: typeof PortalRouteWithChildren
   PricingRoute: typeof PricingRoute
+  PrivacyRoute: typeof PrivacyRoute
   QuickGenerateRoute: typeof QuickGenerateRoute
   ReservationsRoute: typeof ReservationsRoute
   TasteTunerRoute: typeof TasteTunerRoute
   TeamsRoute: typeof TeamsRouteWithChildren
+  TermsRoute: typeof TermsRoute
   TestimonialsRoute: typeof TestimonialsRoute
   TranslateRoute: typeof TranslateRoute
   ViralRoute: typeof ViralRoute
@@ -1023,6 +1075,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TestimonialsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/teams': {
       id: '/teams'
       path: '/teams'
@@ -1049,6 +1108,13 @@ declare module '@tanstack/react-router' {
       path: '/quick-generate'
       fullPath: '/quick-generate'
       preLoaderRoute: typeof QuickGenerateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -1128,6 +1194,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CreateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -1189,6 +1262,13 @@ declare module '@tanstack/react-router' {
       path: '/active-loop'
       fullPath: '/active-loop'
       preLoaderRoute: typeof ActiveLoopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -1668,6 +1748,7 @@ const TripsIdRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AccessibilityRoute: AccessibilityRoute,
   ActiveLoopRoute: ActiveLoopRoute,
   AdminRoute: AdminRouteWithChildren,
   AdvertiseRoute: AdvertiseRouteWithChildren,
@@ -1677,6 +1758,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConciergeRoute: ConciergeRouteWithChildren,
   ConfirmationRoute: ConfirmationRoute,
   ContactRoute: ContactRoute,
+  CookiesRoute: CookiesRoute,
   CreateRoute: CreateRoute,
   DataTermsRoute: DataTermsRoute,
   FeaturesRoute: FeaturesRoute,
@@ -1688,10 +1770,12 @@ const rootRouteChildren: RootRouteChildren = {
   PlanRoute: PlanRouteWithChildren,
   PortalRoute: PortalRouteWithChildren,
   PricingRoute: PricingRoute,
+  PrivacyRoute: PrivacyRoute,
   QuickGenerateRoute: QuickGenerateRoute,
   ReservationsRoute: ReservationsRoute,
   TasteTunerRoute: TasteTunerRoute,
   TeamsRoute: TeamsRouteWithChildren,
+  TermsRoute: TermsRoute,
   TestimonialsRoute: TestimonialsRoute,
   TranslateRoute: TranslateRoute,
   ViralRoute: ViralRoute,

@@ -133,9 +133,9 @@ function RootComponent() {
         <WizardProvider>
           <ScrollProgress />
           <ReferralCapture />
+          <RoleSwitcher />
           <Outlet />
           <BuildMyNightWizard />
-          <RoleSwitcher />
           <TabBar />
           <Toaster />
         </WizardProvider>

@@ -133,8 +133,8 @@ function AuthPage() {
   };
 
   useEffect(() => {
-    if (user) navigate({ to: "/" });
-  }, [user, navigate]);
+    if (user) navigate({ to: redirectTo });
+  }, [user, navigate, redirectTo]);
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();

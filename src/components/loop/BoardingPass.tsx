@@ -257,6 +257,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
               return (
                 <div key={stop.id}>
                   <StopCard
+                    loopId={loop.id}
                     stop={stop}
                     kind={kind}
                     index={i}

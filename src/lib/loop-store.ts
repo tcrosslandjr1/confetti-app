@@ -53,6 +53,13 @@ export type ActiveLoop = {
   confettiPoints?: number;
   fromName?: string;
   toName?: string;
+  /** Filled when the plan has been booked end-to-end via the BookingModal. */
+  booking?: {
+    ref: string;
+    bookedAt: string;
+    /** Per-stop confirmation refs keyed by stop id. */
+    stops: Record<string, string>;
+  };
 };
 
 const KEY_LOOP = "loop:active";

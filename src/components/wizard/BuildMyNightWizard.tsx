@@ -129,6 +129,34 @@ function getDetails(venue: string, vibe: string) {
   const pescatarian = dietary.includes("Pescatarian");
   // Allergens the kitchen can accommodate (request ahead)
   const allergens = ALL_ALLERGENS.filter((_, i) => ((h >> (i + 2)) & 1) === 1).slice(0, 4);
+  // Popular dishes / drinks (deterministic)
+  const ALL_DISHES = [
+    "Truffle rigatoni", "Spicy tuna crispy rice", "Wood-fired margherita", "Wagyu sliders",
+    "Charred octopus", "Burrata + peaches", "Short rib tacos", "Hand-cut pappardelle",
+    "Yuzu old fashioned", "Espresso martini", "Smoked negroni", "Lychee martini",
+    "Bone marrow toast", "Crispy duck rolls", "Hamachi crudo", "Chocolate olive oil cake",
+  ];
+  const popularDishes = [0, 1, 2].map((i) => ALL_DISHES[(h >> (i * 3)) % ALL_DISHES.length]);
+  // De-dupe
+  const dishes = Array.from(new Set(popularDishes)).slice(0, 3);
+  // Popular booking times
+  const TIME_SLOTS = ["6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM", "9:00 PM", "9:30 PM", "10:00 PM"];
+  const startIdx = h % (TIME_SLOTS.length - 2);
+  const popularTimes = TIME_SLOTS.slice(startIdx, startIdx + 3);
+  const peakTime = popularTimes[1];
+  // The vibe descriptors
+  const CROWDS = ["Date-night locals", "Industry crowd", "After-work professionals", "Stylish regulars", "Creative scene", "Neighborhood loyalists"];
+  const NOISE = ["Hushed", "Conversational", "Lively", "Buzzy", "Loud + electric"];
+  const DRESS = ["Come as you are", "Smart casual", "Date-night sharp", "Dress to impress"];
+  const LIGHTING = ["Candlelit", "Warm + low", "Moody amber", "Sunlit garden", "Neon glow"];
+  const MUSIC = ["Vinyl jazz", "Ambient house", "Indie + soul", "Live acoustic", "Disco classics", "Lo-fi beats"];
+  const vibeProfile = {
+    crowd: CROWDS[h % CROWDS.length],
+    noise: NOISE[(h >> 2) % NOISE.length],
+    dress: DRESS[(h >> 4) % DRESS.length],
+    lighting: LIGHTING[(h >> 6) % LIGHTING.length],
+    music: MUSIC[(h >> 8) % MUSIC.length],
+  };
   return {
     rating,
     reviewCount,
@@ -144,6 +172,10 @@ function getDetails(venue: string, vibe: string) {
     vegetarian,
     pescatarian,
     allergens,
+    dishes,
+    popularTimes,
+    peakTime,
+    vibeProfile,
   };
 }
 

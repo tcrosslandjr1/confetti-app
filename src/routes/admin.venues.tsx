@@ -41,7 +41,15 @@ type Venue = {
   price_level: number;
   description: string | null;
   image_url: string | null;
+  staff_email: string | null;
+  advertiser_id: string | null;
   created_at: string;
+};
+
+type AdvertiserOption = {
+  id: string;
+  business_name: string;
+  contact_email: string;
 };
 
 const EMPTY_DRAFT: Omit<Venue, "id" | "created_at"> = {
@@ -52,6 +60,8 @@ const EMPTY_DRAFT: Omit<Venue, "id" | "created_at"> = {
   price_level: 2,
   description: "",
   image_url: "",
+  staff_email: "",
+  advertiser_id: null,
 };
 
 function PriceLevel({ level }: { level: number }) {
@@ -273,10 +283,28 @@ function VenueDialog({
     price_level: initial.price_level ?? 2,
     description: initial.description ?? "",
     image_url: initial.image_url ?? "",
+    staff_email: initial.staff_email ?? "",
+    advertiser_id: initial.advertiser_id ?? null,
   });
   const [busy, setBusy] = useState(false);
+  const [advertisers, setAdvertisers] = useState<AdvertiserOption[]>([]);
   const update = <K extends keyof typeof EMPTY_DRAFT>(key: K, value: (typeof EMPTY_DRAFT)[K]) =>
     setDraft((d) => ({ ...d, [key]: value }));
+
+  useEffect(() => {
+    void (async () => {
+      const { data } = await supabase
+        .from("advertisers")
+        .select("id, business_name, contact_email")
+        .eq("status", "approved")
+        .order("business_name");
+      setAdvertisers((data as AdvertiserOption[]) ?? []);
+    })();
+  }, []);
+
+  const linkedAdvertiser = advertisers.find((a) => a.id === draft.advertiser_id) ?? null;
+  const effectiveStaffEmail =
+    (draft.staff_email && draft.staff_email.trim()) || linkedAdvertiser?.contact_email || "";
 
   return (
     <DialogContent className="flex max-h-[90dvh] w-[calc(100vw-1.5rem)] max-w-lg flex-col gap-4 overflow-hidden p-0 sm:w-full">
@@ -331,6 +359,42 @@ function VenueDialog({
             onChange={(e) => update("description", e.target.value)}
             rows={4}
           />
+        </div>
+        <div className="grid gap-1.5">
+          <Label htmlFor="advertiser">Linked advertiser</Label>
+          <select
+            id="advertiser"
+            value={draft.advertiser_id ?? ""}
+            onChange={(e) => update("advertiser_id", e.target.value || null)}
+            className="h-9 rounded-md border border-border bg-background px-3 text-sm"
+          >
+            <option value="">— None —</option>
+            {advertisers.map((a) => (
+              <option key={a.id} value={a.id}>
+                {a.business_name} ({a.contact_email})
+              </option>
+            ))}
+          </select>
+          {linkedAdvertiser && !draft.staff_email?.trim() && (
+            <p className="text-xs text-muted-foreground">
+              Notifications will auto-route to <span className="font-mono">{linkedAdvertiser.contact_email}</span> from the linked advertiser.
+            </p>
+          )}
+        </div>
+        <div className="grid gap-1.5">
+          <Label htmlFor="staff_email">Staff notification email (override)</Label>
+          <Input
+            id="staff_email"
+            type="email"
+            placeholder={linkedAdvertiser?.contact_email || "ops@venue.com"}
+            value={draft.staff_email ?? ""}
+            onChange={(e) => update("staff_email", e.target.value)}
+          />
+          <p className="text-xs text-muted-foreground">
+            {effectiveStaffEmail
+              ? <>Booking notifications go to <span className="font-mono">{effectiveStaffEmail}</span>.</>
+              : "Leave blank to fall back to the global ops inbox."}
+          </p>
         </div>
       </div>
       <DialogFooter className="border-t border-border bg-background px-6 py-4 pb-[max(env(safe-area-inset-bottom),1rem)]">

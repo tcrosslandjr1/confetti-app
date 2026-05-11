@@ -90,9 +90,21 @@ function QuickGenerate() {
     const t1 = setTimeout(() => setStatusStep(1), 600);
     const t2 = setTimeout(() => setStatusStep(2), 1300);
     const t3 = setTimeout(() => setStatusStep(3), 2000);
-    const done = setTimeout(() => setPhase("ready"), 2800);
+    const done = setTimeout(() => {
+      const loop = makeDemoLoop({
+        stops: STOPS.map((s, i) => ({
+          id: `s${i + 1}`,
+          name: s.name,
+          type: s.type,
+          time: s.time,
+          area: s.area,
+        })),
+      });
+      setActiveLoop(loop);
+      navigate({ to: "/boarding-pass", replace: true });
+    }, 2800);
     return () => { clearInterval(iv); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(done); };
-  }, [phase]);
+  }, [phase, navigate]);
 
   const move = (i: number, dir: -1 | 1) => {
     const j = i + dir;

@@ -6,6 +6,7 @@ import {
   CalendarCheck,
   LayoutDashboard,
   Megaphone,
+  MessageSquareQuote,
   ScrollText,
   ShieldCheck,
   Sparkles,

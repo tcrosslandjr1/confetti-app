@@ -111,6 +111,45 @@ function parseSlot(label: string): { h: number; m: number } | null {
   return { h: hh, m: parseInt(m[2], 10) };
 }
 
+/** Why this dish was suggested for the user, given their personalization. */
+function dishReasons(name: string, p: { diet: DietFilter; topVenues: Set<string>; bookingsCount: number; dietLabel: string | null } | null, isUsualVenue: boolean): string[] {
+  const out: string[] = [];
+  const info = getDishInfo(name);
+  if (!info) return out;
+  if (p) {
+    const d = p.diet;
+    if (d.vegan && info.vegan) out.push("Vegan ✓");
+    else if (d.vegetarian && (info.vegetarian || info.vegan)) out.push("Vegetarian ✓");
+    else if (d.pescatarian && (info.pescatarian || info.vegetarian || info.vegan)) out.push("Pescatarian ✓");
+    if (d.glutenFree && info.glutenFree) out.push("Gluten-free ✓");
+    const avoid = (d.avoidAllergens ?? []).map((a) => a.toLowerCase());
+    if (avoid.length > 0) {
+      const lower = info.allergens.map((a) => a.toLowerCase());
+      const conflicts = avoid.filter((a) => lower.includes(a));
+      if (conflicts.length === 0) out.push(`Skips ${avoid.slice(0, 2).join(" + ")}`);
+    }
+    if (typeof info.spice === "number" && info.spice >= 2) out.push("Bold + spicy");
+  }
+  if (isUsualVenue) out.push("Crowd favorite at your usual spot");
+  if (out.length === 0) out.push("Top-ordered here");
+  return out.slice(0, 2);
+}
+
+/** Why this time slot is highlighted as peak for the user. */
+function peakReason(p: { preferredHour: number | null; bookingsCount: number } | null, peakTime: string): string {
+  const slot = parseSlot(peakTime);
+  if (p?.preferredHour != null && slot) {
+    const ph = p.preferredHour;
+    const diff = Math.abs(slot.h * 60 + slot.m - ph * 60);
+    if (diff <= 45) {
+      const hr12 = ((ph + 11) % 12) + 1;
+      const ampm = ph >= 12 ? "pm" : "am";
+      return `Matches your usual ~${hr12}${ampm} window (${p.bookingsCount} past bookings)`;
+    }
+  }
+  return "Most-booked slot here right now";
+}
+
 /** Resolve an ISO timestamp from the wizard's pickedDate + a "7:00 PM" slot. Falls back to today. */
 function slotToIso(pickedDate: string, slot: string): string | null {
   const t = parseSlot(slot);
@@ -1249,26 +1288,47 @@ export function BuildMyNightWizard() {
                               <p className="mt-2 text-[11px] text-ink/65">
                                 Tap a slot to reserve — {personalize?.preferredHour != null ? "your usual window" : "peak"} around <span className="font-semibold text-ink">{d.peakTime}</span>.
                               </p>
+                              <p className="mt-1 inline-flex items-start gap-1 rounded-md bg-cream px-2 py-1 font-mono text-[10px] text-ink/70">
+                                <Sparkles className="mt-[1px] h-2.5 w-2.5 shrink-0 text-coral" />
+                                <span>Why ★ {d.peakTime}: {peakReason(personalize, d.peakTime)}</span>
+                              </p>
                               {d.dishes.length > 0 && (
                                 <>
-                                  <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-ink/60">Most ordered</p>
-                                  <ul className="mt-1.5 space-y-1">
-                                    {d.dishes.map((dish) => (
-                                      <li key={dish}>
-                                        <button
-                                          type="button"
-                                          onClick={() => setOpenDish({ name: dish, venue: s.venue })}
-                                          className="group flex w-full items-center gap-1.5 rounded-md px-1 py-0.5 text-left text-[12px] text-ink/85 transition-colors hover:bg-gold/20 hover:text-ink"
-                                          aria-label={`See details for ${dish}`}
-                                        >
-                                          <span aria-hidden>🔥</span>
-                                          <span className="underline-offset-2 group-hover:underline">{dish}</span>
-                                          <span className="ml-auto font-mono text-[9px] uppercase tracking-widest text-ink/45 opacity-0 transition-opacity group-hover:opacity-100">
-                                            View →
-                                          </span>
-                                        </button>
-                                      </li>
-                                    ))}
+                                  <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-ink/60">Most ordered · why for you</p>
+                                  <ul className="mt-1.5 space-y-1.5">
+                                    {d.dishes.map((dish) => {
+                                      const reasons = dishReasons(dish, personalize, d.isUsual);
+                                      return (
+                                        <li key={dish}>
+                                          <button
+                                            type="button"
+                                            onClick={() => setOpenDish({ name: dish, venue: s.venue })}
+                                            className="group flex w-full flex-col gap-0.5 rounded-md px-1 py-1 text-left text-[12px] text-ink/85 transition-colors hover:bg-gold/20 hover:text-ink"
+                                            aria-label={`See details for ${dish}`}
+                                          >
+                                            <span className="flex w-full items-center gap-1.5">
+                                              <span aria-hidden>🔥</span>
+                                              <span className="underline-offset-2 group-hover:underline">{dish}</span>
+                                              <span className="ml-auto font-mono text-[9px] uppercase tracking-widest text-ink/45 opacity-0 transition-opacity group-hover:opacity-100">
+                                                View →
+                                              </span>
+                                            </span>
+                                            {reasons.length > 0 && (
+                                              <span className="ml-5 flex flex-wrap gap-1">
+                                                {reasons.map((r) => (
+                                                  <span
+                                                    key={r}
+                                                    className="inline-flex items-center gap-0.5 rounded-full border border-ink/20 bg-mint/40 px-1.5 py-[1px] font-mono text-[9px] uppercase tracking-widest text-ink/75"
+                                                  >
+                                                    {r}
+                                                  </span>
+                                                ))}
+                                              </span>
+                                            )}
+                                          </button>
+                                        </li>
+                                      );
+                                    })}
                                   </ul>
                                 </>
                               )}

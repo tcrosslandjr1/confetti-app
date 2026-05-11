@@ -11,7 +11,7 @@ import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { consumePendingReferralOnSignup } from "@/lib/referrals";
 
-export type ViewAs = "admin" | "customer" | "visitor";
+export type ViewAs = "admin" | "business" | "customer" | "visitor";
 const VIEW_KEY = "concierge.viewAs";
 
 type AuthCtx = {

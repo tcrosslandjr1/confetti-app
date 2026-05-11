@@ -78,7 +78,34 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   const [routePoints, setRoutePoints] = useState<GeocodeResult[]>([]);
   const [bookingOpen, setBookingOpen] = useState(false);
 
-  const directionsUrl = buildDirectionsUrl(routePoints, "walking");
+  // Selected stop drives the "Get Directions" action. Defaults to the next
+  // un-checked-in stop; user can switch by tapping any stop in the legend.
+  const defaultSelectedId = useMemo(() => {
+    const next = loop.stops.find((s) => !s.done);
+    return (next ?? loop.stops[0])?.id ?? null;
+  }, [loop.stops]);
+  const [selectedStopId, setSelectedStopId] = useState<string | null>(defaultSelectedId);
+  useEffect(() => {
+    // Re-sync if the active loop changes underneath us, but keep user's pick
+    // when it's still a valid stop.
+    if (!selectedStopId || !loop.stops.some((s) => s.id === selectedStopId)) {
+      setSelectedStopId(defaultSelectedId);
+    }
+  }, [defaultSelectedId, loop.stops, selectedStopId]);
+  const [dirOpen, setDirOpen] = useState(false);
+
+  const selectedStop = loop.stops.find((s) => s.id === selectedStopId) ?? loop.stops[0];
+  const selectedAddress =
+    selectedStop?.address ?? selectedStop?.area ?? `${selectedStop?.name ?? ""} ${loop.to ?? ""}`.trim();
+  const appleDirUrl = selectedAddress
+    ? `https://maps.apple.com/?daddr=${encodeURIComponent(selectedAddress)}&dirflg=d`
+    : null;
+  const googleDirUrl = selectedAddress
+    ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(selectedAddress)}`
+    : null;
+  const preferAppleFirst = isIOS();
+
+  const fullRouteUrl = buildDirectionsUrl(routePoints, "walking");
   const vibes = vibesOf(loop);
   const reward = loop.confettiPoints ?? 250;
 

@@ -207,6 +207,93 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
     }
   }
 
+  function handleAddToCalendar() {
+    try {
+      // Parse loop.date (e.g. "2026-05-11" or freeform) + boardingTime ("7:30 PM")
+      const pad = (n: number) => String(n).padStart(2, "0");
+      const fmt = (d: Date) =>
+        `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T${pad(
+          d.getUTCHours(),
+        )}${pad(d.getUTCMinutes())}00Z`;
+
+      // Build a start Date by combining date + boardingTime when possible.
+      let start: Date;
+      const baseDate = loop.date ? new Date(loop.date) : new Date();
+      if (Number.isNaN(baseDate.getTime())) {
+        start = new Date();
+      } else {
+        start = new Date(baseDate);
+        const tm = (loop.boardingTime ?? "").match(/(\d{1,2}):(\d{2})\s*(AM|PM)?/i);
+        if (tm) {
+          let h = parseInt(tm[1], 10);
+          const m = parseInt(tm[2], 10);
+          const mer = tm[3]?.toUpperCase();
+          if (mer === "PM" && h < 12) h += 12;
+          if (mer === "AM" && h === 12) h = 0;
+          start.setHours(h, m, 0, 0);
+        } else {
+          start.setHours(19, 0, 0, 0);
+        }
+      }
+      // Default duration: 3 hours, or longer if many stops.
+      const hours = Math.max(2, Math.min(8, loop.stops.length || 3));
+      const end = new Date(start.getTime() + hours * 60 * 60 * 1000);
+
+      const summary = `Confetti Plan: ${loop.from} → ${loop.to}`;
+      const descLines = [
+        `Passenger: ${loop.passenger ?? "—"}`,
+        `Boarding: ${loop.boardingTime ?? "—"}  Gate: ${loop.gate ?? "—"}`,
+        `Stops (${loop.stops.length}):`,
+        ...loop.stops.map((s, i) => `  ${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}${s.area ? " (" + s.area + ")" : ""}`),
+        "",
+        `Boarding pass: ${shareUrl}`,
+      ];
+      const description = descLines.join("\\n");
+      const location = loop.to ?? "";
+      const uid = `confetti-${loop.id}@confettiplan.app`;
+      const dtstamp = fmt(new Date());
+
+      const ics = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Confetti//Boarding Pass//EN",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        "BEGIN:VEVENT",
+        `UID:${uid}`,
+        `DTSTAMP:${dtstamp}`,
+        `DTSTART:${fmt(start)}`,
+        `DTEND:${fmt(end)}`,
+        `SUMMARY:${summary}`,
+        `DESCRIPTION:${description}`,
+        `LOCATION:${location}`,
+        `URL:${shareUrl}`,
+        "BEGIN:VALARM",
+        "ACTION:DISPLAY",
+        "DESCRIPTION:Confetti Plan starts soon",
+        "TRIGGER:-PT30M",
+        "END:VALARM",
+        "END:VEVENT",
+        "END:VCALENDAR",
+      ].join("\r\n");
+
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `confetti-${loop.id}.ics`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      setShareOpen(false);
+      toast.success("Calendar event downloaded");
+    } catch {
+      toast.error("Couldn't create calendar event");
+    }
+  }
+
+
 
   async function addToGoogleWallet() {
     setGoogleLoading(true);

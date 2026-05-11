@@ -1,6 +1,7 @@
-import { Plane, Check, Wallet, Apple } from "lucide-react";
+import { Plane, Check, Wallet, Apple, ChevronRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
-import type { ActiveLoop } from "@/lib/loop-store";
+import type { ActiveLoop, LoopStop } from "@/lib/loop-store";
 
 export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   return (
@@ -70,13 +71,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                 <span className={`absolute -left-7 top-0 grid h-6 w-6 place-items-center rounded-full border-2 border-ink ${s.done ? "bg-coral text-cream" : "bg-cream"}`}>
                   {s.done ? <Check className="h-3 w-3" strokeWidth={3} /> : <span className="font-mono text-[10px] font-bold">{i + 1}</span>}
                 </span>
-                <div className="rounded-xl border border-ink/15 bg-card p-3">
-                  <div className="flex items-baseline justify-between gap-2">
-                    <div className="font-display text-sm font-bold truncate">{s.name}</div>
-                    <span className="font-mono text-[10px] font-bold text-ink/60 shrink-0">{s.time}</span>
-                  </div>
-                  <div className="text-xs text-muted-foreground">{s.type}{s.area ? ` · ${s.area}` : ""}</div>
-                </div>
+                <StopRow stop={s} />
               </li>
             ))}
           </ol>
@@ -120,5 +115,26 @@ function Field({ label, value }: { label: string; value: string }) {
       <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">{label}</div>
       <div className="mt-0.5 font-display text-base font-extrabold tracking-tight">{value}</div>
     </div>
+  );
+}
+
+function StopRow({ stop }: { stop: LoopStop }) {
+  const inner = (
+    <div className="flex items-center justify-between gap-2 rounded-xl border border-ink/15 bg-card p-3 transition-pop group-hover:-translate-y-0.5 group-hover:border-ink/40 group-hover:shadow-pop">
+      <div className="min-w-0">
+        <div className="flex items-baseline justify-between gap-2">
+          <div className="font-display text-sm font-bold truncate">{stop.name}</div>
+          <span className="font-mono text-[10px] font-bold text-ink/60 shrink-0">{stop.time}</span>
+        </div>
+        <div className="text-xs text-muted-foreground">{stop.type}{stop.area ? ` · ${stop.area}` : ""}</div>
+      </div>
+      {stop.venueId && <ChevronRight className="h-4 w-4 text-ink/40 shrink-0" />}
+    </div>
+  );
+  if (!stop.venueId) return inner;
+  return (
+    <Link to="/venue/$id" params={{ id: stop.venueId }} className="group block focus:outline-none">
+      {inner}
+    </Link>
   );
 }

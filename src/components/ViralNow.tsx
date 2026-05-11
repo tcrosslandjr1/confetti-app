@@ -92,7 +92,11 @@ function ViralCard({ v }: { v: ViralVenue }) {
   const topTag = v.tags?.[0];
   const heat = Math.min(5, Math.max(1, Math.round(v.trend_score * 3)));
   return (
-    <article className="group relative w-64 shrink-0 snap-start overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:shadow-pop">
+    <Link
+      to="/venue/$id"
+      params={{ id: v.id }}
+      className="group relative block w-64 shrink-0 snap-start overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:shadow-pop"
+    >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
         {v.photo_url ? (
           <img src={v.photo_url} alt={v.venue_name} loading="lazy" className="h-full w-full object-cover transition group-hover:scale-105" />
@@ -119,6 +123,6 @@ function ViralCard({ v }: { v: ViralVenue }) {
         )}
         {v.summary && <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2">{v.summary}</p>}
       </div>
-    </article>
+    </Link>
   );
 }

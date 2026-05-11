@@ -84,6 +84,7 @@ function AdminTestimonialsPage() {
       country: row.country ?? "",
       position: row.position,
       active: row.active,
+      rating: row.rating ?? null,
     });
   }
 
@@ -96,6 +97,10 @@ function AdminTestimonialsPage() {
       toast.error("Body must be under 500 characters.");
       return;
     }
+    if (form.rating !== null && (form.rating < 1 || form.rating > 5)) {
+      toast.error("Rating must be between 1 and 5.");
+      return;
+    }
     setSaving(true);
     const payload = {
       name: form.name.trim(),
@@ -105,6 +110,7 @@ function AdminTestimonialsPage() {
       country: form.country?.trim() || null,
       position: form.position,
       active: form.active,
+      rating: form.rating,
     };
     const op = editing
       ? supabase.from("testimonials").update(payload).eq("id", editing.id)

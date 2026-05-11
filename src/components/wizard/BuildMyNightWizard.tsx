@@ -1355,7 +1355,7 @@ export function BuildMyNightWizard() {
             >
               <ArrowLeft className="h-4 w-4" /> Back
             </button>
-            {step < 4 ? (
+            {step < 5 ? (
               <button
                 onClick={next}
                 disabled={!canAdvance}

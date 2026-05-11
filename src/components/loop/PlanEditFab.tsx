@@ -212,7 +212,7 @@ function RescheduleDialog({
       message: `rescheduled the plan to ${next.boardingTime}, ${next.date}`,
       detail,
     });
-    notifyGroup(`${actor} moved boarding to ${next.boardingTime}`);
+    notifyGroup(loop.id, "reschedule", `${actor} moved boarding to ${next.boardingTime}`);
     onClose();
   }
 

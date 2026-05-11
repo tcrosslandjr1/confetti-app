@@ -492,7 +492,11 @@ function FeaturedCard({ venue, title, subtitle }: { venue: Venue; title: string 
       params={{ id: venue.id }}
       className="group block overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-pop hover:-translate-y-0.5 hover:shadow-pop"
     >
-      {venue.image_url && <img src={venue.image_url} alt={venue.name} className="h-40 w-full object-cover" />}
+      {venue.image_url ? (
+        <img src={venue.image_url} alt={venue.name} className="h-40 w-full object-cover" />
+      ) : (
+        <GooglePhotos venue={venue.name} neighborhood={venue.neighborhood} variant="hero" className="h-40 w-full" />
+      )}
       <div className="p-4">
         <div className="text-[10px] font-mono uppercase tracking-wider text-primary">{title ?? "Featured"}</div>
         <h3 className="mt-1 font-display text-lg font-bold">{venue.name}</h3>

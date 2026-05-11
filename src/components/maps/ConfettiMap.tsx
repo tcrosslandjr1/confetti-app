@@ -61,6 +61,7 @@ export function ConfettiMap({
   onPointsReady,
   travelMode = "DRIVING",
   onActiveStepsChange,
+  focusStopId = null,
 }: Props) {
   if (!GOOGLE_MAPS_API_KEY) {
     return (

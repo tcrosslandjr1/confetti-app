@@ -139,7 +139,7 @@ function SwapStopDialog({
       message: `swapped ${swappedFrom} → ${swappedTo}`,
       detail: [area, time].filter(Boolean).join(" · "),
     });
-    notifyGroup(`${actor} swapped a stop: ${swappedFrom} → ${swappedTo}`);
+    notifyGroup(loop.id, "reschedule", `${actor} swapped a stop: ${swappedFrom} → ${swappedTo}`);
     onClose();
   }
 

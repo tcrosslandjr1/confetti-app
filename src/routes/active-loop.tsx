@@ -24,6 +24,7 @@ export const Route = createFileRoute("/active-loop")({
 function ActiveLoopPage() {
   const [loop, setLoop] = useState<ActiveLoop | null>(null);
   const [confetti, setConfettiCount] = useState(0);
+  const [activeLeg, setActiveLeg] = useState<ActiveLegInfo>(null);
   const { burst, layer } = useConfettiBurst();
   const navigate = useNavigate();
 

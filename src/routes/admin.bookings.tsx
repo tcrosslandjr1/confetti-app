@@ -339,6 +339,13 @@ function AdminBookingsPage() {
                         );
                       })()}
                     </TableCell>
+                    <TableCell>
+                      <NotificationRoutingCell
+                        venueId={b.venue_id}
+                        cache={routingCacheRef.current}
+                        resolve={resolveRouting}
+                      />
+                    </TableCell>
                     <TableCell><StatusBadge status={status} /></TableCell>
                   </TableRow>
                 );

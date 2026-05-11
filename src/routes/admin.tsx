@@ -141,7 +141,10 @@ function AdminShell({ user, pathname }: { user: ReturnType<typeof useAuth>["user
         <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-border bg-background/80 px-4 backdrop-blur-xl">
           <SidebarTrigger />
           <div className="text-sm font-semibold">Admin Console</div>
-          <div className="ml-auto truncate text-xs text-muted-foreground">{user?.email}</div>
+          <div className="ml-auto flex items-center gap-2">
+            <span className="hidden truncate text-xs text-muted-foreground sm:inline">{user?.email}</span>
+            <NotificationsBell />
+          </div>
         </header>
         <main className="min-w-0 flex-1 overflow-x-hidden px-3 pb-[max(env(safe-area-inset-bottom),1.25rem)] pt-4 sm:p-6">
           <Outlet />

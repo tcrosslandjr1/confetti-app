@@ -65,16 +65,20 @@ function ProfilePage() {
         supabase.from("bookings").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("starts_at", nowIso),
         supabase.from("bookings").select("id", { count: "exact", head: true }).eq("user_id", user.id).lt("starts_at", nowIso),
         getMyReferralStats(),
-        supabase.from("achievements").select("id, xp_reward"),
-        supabase.from("user_achievements").select("achievement_id").eq("user_id", user.id),
+        supabase.from("achievements").select("id, code, title, description, icon, xp_reward"),
+        supabase.from("user_achievements").select("achievement_id, unlocked_at").eq("user_id", user.id),
       ]);
       if (cancelled) return;
-      const unlockedIds = new Set(((userAch.data ?? []) as { achievement_id: string }[]).map((r) => r.achievement_id));
-      const allAch = (achRows.data ?? []) as { id: string; xp_reward: number }[];
-      const xpEarned = allAch.reduce((s, a) => s + (unlockedIds.has(a.id) ? a.xp_reward : 0), 0);
+      const unlockedMap = new Map(((userAch.data ?? []) as { achievement_id: string; unlocked_at: string | null }[]).map((r) => [r.achievement_id, r.unlocked_at]));
+      const allAch = (achRows.data ?? []) as Omit<Achievement, "unlocked" | "unlocked_at">[];
+      const xpEarned = allAch.reduce((s, a) => s + (unlockedMap.has(a.id) ? a.xp_reward : 0), 0);
+      const merged: Achievement[] = allAch
+        .map((d) => ({ ...d, unlocked: unlockedMap.has(d.id), unlocked_at: unlockedMap.get(d.id) ?? null }))
+        .sort((a, b) => Number(b.unlocked) - Number(a.unlocked) || a.xp_reward - b.xp_reward);
       setBookingTotals({ upcoming: upRes.count ?? 0, past: pastRes.count ?? 0 });
       setRefStats(refs);
-      setAchTotals({ unlocked: unlockedIds.size, total: allAch.length, xpEarned });
+      setAchTotals({ unlocked: unlockedMap.size, total: allAch.length, xpEarned });
+      setAchievements(merged);
     })();
     return () => { cancelled = true; };
   }, [user]);

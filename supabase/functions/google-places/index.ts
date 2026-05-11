@@ -48,20 +48,25 @@ async function resolvePhoto(name: string, key: string, maxHeightPx = 600): Promi
 
 async function lookup(q: Query, key: string): Promise<PlaceResult> {
   const text = [q.venue, q.address, q.neighborhood].filter(Boolean).join(" ");
+  const attempts = [text, [q.venue, q.address, q.neighborhood, "Washington DC"].filter(Boolean).join(" ")];
   try {
-    const res = await fetch("https://places.googleapis.com/v1/places:searchText", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Goog-Api-Key": key,
-        "X-Goog-FieldMask":
-          "places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.priceLevel,places.currentOpeningHours.openNow,places.businessStatus,places.websiteUri,places.googleMapsUri,places.photos",
-      },
-      body: JSON.stringify({ textQuery: text, pageSize: 1 }),
-    });
-    if (!res.ok) return { venue: q.venue, found: false };
-    const data = await res.json();
-    const p = data.places?.[0];
+    let p;
+    for (const textQuery of attempts) {
+      const res = await fetch("https://places.googleapis.com/v1/places:searchText", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Goog-Api-Key": key,
+          "X-Goog-FieldMask":
+            "places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.priceLevel,places.currentOpeningHours.openNow,places.businessStatus,places.websiteUri,places.googleMapsUri,places.photos",
+        },
+        body: JSON.stringify({ textQuery, pageSize: 1 }),
+      });
+      if (!res.ok) continue;
+      const data = await res.json();
+      p = data.places?.[0];
+      if (p) break;
+    }
     if (!p) return { venue: q.venue, found: false };
 
     const photoNames: string[] = (p.photos ?? []).slice(0, 3).map((ph: { name: string }) => ph.name).filter(Boolean);

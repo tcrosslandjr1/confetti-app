@@ -95,26 +95,46 @@ function AdminVenuesPage() {
     setTestingId(v.id);
     try {
       const result = await resolveEmail({ data: { venueId: v.id } });
-      if (!result?.email) {
-        toast.error("No recipient resolved", {
-          description: "Set a staff email, link an advertiser, or configure the ops inbox.",
-        });
-        return;
-      }
-      const sourceLabel = {
-        venue_staff_email: "venue staff email",
-        linked_advertiser: "linked advertiser",
-        ops_fallback: "ops inbox fallback",
-      }[result.source];
-      toast.success(`Test would deliver to ${result.email}`, {
-        description: `Routed via ${sourceLabel}.`,
+      const recipient = result?.email ?? null;
+      const source = result?.source ?? "unresolved";
+      const subject = `Test — booking notification for ${v.name}`;
+      const body = `This is a test notification routed via ${source}. If a real booking arrived now, it would be delivered to ${recipient ?? "(no recipient resolved)"}.`;
+
+      const { error } = await supabase.from("booking_notification_deliveries").insert({
+        booking_id: null,
+        venue_id: v.id,
+        venue_name: v.name,
+        recipient_email: recipient,
+        source,
+        channel: "email",
+        status: recipient ? "sent" : "failed",
+        error: recipient ? null : "No recipient resolved",
+        subject,
+        body,
+        test: true,
       });
+      if (error) throw error;
+
+      if (!recipient) {
+        toast.error("No recipient resolved", {
+          description: "Logged as failed in the notifications log.",
+        });
+      } else {
+        const sourceLabel = {
+          venue_staff_email: "venue staff email",
+          linked_advertiser: "linked advertiser",
+          ops_fallback: "ops inbox fallback",
+        }[result!.source];
+        toast.success(`Test routed to ${recipient}`, {
+          description: `Via ${sourceLabel}. See Admin → Notifications.`,
+        });
+      }
       logAudit({
         admin: adminEmail,
         action: "edit",
         entity: "venue",
         targetId: v.id,
-        summary: `Tested notification routing for "${v.name}" → ${result.email} (${result.source})`,
+        summary: `Tested notification for "${v.name}" → ${recipient ?? "unresolved"} (${source})`,
       });
     } catch (e) {
       toast.error("Test failed", { description: (e as Error).message });

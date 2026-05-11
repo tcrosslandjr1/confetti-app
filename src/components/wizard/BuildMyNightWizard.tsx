@@ -1289,9 +1289,11 @@ function StepShell({ title, sub, children }: { title: string; sub: string; child
 function DishQuickView({
   open,
   onOpenChange,
+  avoidAllergens = [],
 }: {
   open: { name: string; venue: string } | null;
   onOpenChange: (next: boolean) => void;
+  avoidAllergens?: string[];
 }) {
   const info = open ? getDishInfo(open.name) : null;
   const pairingTone =
@@ -1299,6 +1301,9 @@ function DishQuickView({
     : info?.pairing.type === "beer" ? "bg-gold/20 text-ink border-gold/50"
     : info?.pairing.type === "non-alcoholic" ? "bg-mint/40 text-ink border-ink/30"
     : "bg-coral/15 text-coral border-coral/40";
+
+  const avoidLower = avoidAllergens.map((a) => a.toLowerCase());
+  const matched = info ? info.allergens.filter((a) => avoidLower.includes(a.toLowerCase())) : [];
 
   return (
     <Dialog open={!!open} onOpenChange={onOpenChange}>
@@ -1322,6 +1327,30 @@ function DishQuickView({
               </DialogDescription>
             </DialogHeader>
 
+            {matched.length > 0 && (
+              <div
+                role="alert"
+                className="rounded-xl border-2 border-coral bg-coral/15 p-3 shadow-brut"
+              >
+                <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-coral">
+                  ⚠ Heads up — contains allergens you avoid
+                </p>
+                <div className="mt-1.5 flex flex-wrap gap-1.5">
+                  {matched.map((a) => (
+                    <span
+                      key={a}
+                      className="inline-flex items-center gap-1 rounded-full border-2 border-coral bg-cream px-2 py-0.5 text-[11px] font-bold text-coral"
+                    >
+                      ⚠ {a}
+                    </span>
+                  ))}
+                </div>
+                <p className="mt-1.5 text-[11px] text-ink/80">
+                  Confirm with the kitchen before ordering or ask about a substitute.
+                </p>
+              </div>
+            )}
+
             {typeof info.spice === "number" && info.spice > 0 && (
               <div className="flex items-center gap-1.5 text-[12px] text-ink/70">
                 <span className="font-mono uppercase tracking-widest text-ink/55">Spice</span>
@@ -1342,14 +1371,21 @@ function DishQuickView({
               </p>
               <div className="mt-1.5 flex flex-wrap gap-1.5">
                 {info.allergens.length > 0 ? (
-                  info.allergens.map((a) => (
-                    <span
-                      key={a}
-                      className="inline-flex items-center gap-1 rounded-full border border-coral/50 bg-coral/10 px-2 py-0.5 text-[11px] text-ink/85"
-                    >
-                      ⚠ {a}
-                    </span>
-                  ))
+                  info.allergens.map((a) => {
+                    const isMatch = avoidLower.includes(a.toLowerCase());
+                    return (
+                      <span
+                        key={a}
+                        className={
+                          isMatch
+                            ? "inline-flex items-center gap-1 rounded-full border-2 border-coral bg-coral/25 px-2 py-0.5 text-[11px] font-bold text-coral"
+                            : "inline-flex items-center gap-1 rounded-full border border-coral/50 bg-coral/10 px-2 py-0.5 text-[11px] text-ink/85"
+                        }
+                      >
+                        ⚠ {a}{isMatch ? " · avoid" : ""}
+                      </span>
+                    );
+                  })
                 ) : (
                   <span className="text-[11px] text-ink/65">
                     No common allergens — confirm prep with the kitchen.

@@ -953,8 +953,19 @@ export function BuildMyNightWizard() {
                                   <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-ink/60">Most ordered</p>
                                   <ul className="mt-1.5 space-y-1">
                                     {d.dishes.map((dish) => (
-                                      <li key={dish} className="flex items-center gap-1.5 text-[12px] text-ink/85">
-                                        <span aria-hidden>🔥</span> {dish}
+                                      <li key={dish}>
+                                        <button
+                                          type="button"
+                                          onClick={() => setOpenDish({ name: dish, venue: s.venue })}
+                                          className="group flex w-full items-center gap-1.5 rounded-md px-1 py-0.5 text-left text-[12px] text-ink/85 transition-colors hover:bg-gold/20 hover:text-ink"
+                                          aria-label={`See details for ${dish}`}
+                                        >
+                                          <span aria-hidden>🔥</span>
+                                          <span className="underline-offset-2 group-hover:underline">{dish}</span>
+                                          <span className="ml-auto font-mono text-[9px] uppercase tracking-widest text-ink/45 opacity-0 transition-opacity group-hover:opacity-100">
+                                            View →
+                                          </span>
+                                        </button>
                                       </li>
                                     ))}
                                   </ul>

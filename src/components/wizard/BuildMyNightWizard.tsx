@@ -241,8 +241,31 @@ export function BuildMyNightWizard() {
   const [placesLoading, setPlacesLoading] = useState(false);
   const [favorites, setFavorites] = useState<Record<string, FavRow>>({});
   const [showFavorites, setShowFavorites] = useState(false);
+  const [reservingKey, setReservingKey] = useState<string | null>(null);
+  const [bookedSlots, setBookedSlots] = useState<Record<string, string>>({});
   const { user } = useAuth();
   const { burst, layer } = useConfettiBurst();
+
+  const reserveSlot = useCallback(async (venueName: string, slot: string, level: "open" | "limited" | "few" | "full") => {
+    if (level === "full") { toast.error("That slot is full — try another time."); return; }
+    if (!user) { toast.error("Sign in to reserve a table."); return; }
+    const startsAt = slotToIso(pickedDate, slot);
+    if (!startsAt) { toast.error("Invalid time slot."); return; }
+    const key = `${venueName}|${slot}`;
+    setReservingKey(key);
+    const { error } = await supabase.from("bookings").insert({
+      user_id: user.id,
+      venue_name: venueName,
+      starts_at: startsAt,
+      party_size: partySizeFromCrew(crew),
+      status: "pending",
+    });
+    setReservingKey(null);
+    if (error) { toast.error(error.message); return; }
+    setBookedSlots((p) => ({ ...p, [key]: startsAt }));
+    burst?.();
+    toast.success(`Reserved ${venueName} at ${slot} ✓`);
+  }, [user, pickedDate, crew, burst]);
 
   const fallbackTones = ["bg-coral", "bg-purple", "bg-gold", "bg-emerald-400", "bg-pink-300", "bg-amber-300"];
   const presetStops = useMemo(

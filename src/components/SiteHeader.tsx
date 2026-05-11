@@ -57,9 +57,7 @@ export function SiteHeader() {
           <Oloid className="h-[0.95em] w-[0.95em] -mx-[1px] text-ink transition-transform duration-500 group-hover:[transform:rotate(-180deg)]" style={{ transform: "rotate(60deg)" }} />
           <span className="font-display text-2xl font-extrabold leading-none tracking-tight text-ink">p</span>
           <span className="font-serif text-2xl italic leading-none text-coral">.</span>
-          <span className="ml-2 hidden font-mono text-[10px] uppercase tracking-[0.25em] text-ink/60 sm:inline">
-            / your city, on a loop
-          </span>
+          <RotatingTagline />
         </Link>
 
         <nav className="ml-4 hidden items-center gap-1 md:flex">

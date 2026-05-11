@@ -12,6 +12,30 @@ function isAndroid() {
   return /android/i.test(navigator.userAgent);
 }
 
+function isIOS() {
+  if (typeof navigator === "undefined") return false;
+  const ua = navigator.userAgent;
+  // iPad on iPadOS 13+ reports as "MacIntel" with touch — include that case.
+  return /iPad|iPhone|iPod/.test(ua) ||
+    (navigator.platform === "MacIntel" && (navigator as Navigator & { maxTouchPoints?: number }).maxTouchPoints! > 1);
+}
+
+/**
+ * Try to open a URL in a new tab. Returns true if the browser appears to have
+ * accepted the navigation (popup not blocked). On iOS Safari, window.open
+ * called outside a direct user gesture (e.g. after an `await`) usually returns
+ * null — that's our signal to fall back to the QR modal.
+ */
+function tryOpenInNewTab(url: string): boolean {
+  try {
+    const win = window.open(url, "_blank", "noopener,noreferrer");
+    if (!win || win.closed || typeof win.closed === "undefined") return false;
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 // ─── Helpers to derive rich fields from ActiveLoop ─────────────────────
 function stopKind(stop: LoopStop, i: number, total: number): StopKind {
   if (stop.kind) return stop.kind;
@@ -84,8 +108,16 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         toast.error(data.error || "Could not generate Google Wallet pass");
         return;
       }
-      if (isAndroid()) window.open(data.saveUrl, "_blank", "noopener,noreferrer");
-      else setQrUrl(data.saveUrl);
+      if (isAndroid()) {
+        window.open(data.saveUrl, "_blank", "noopener,noreferrer");
+      } else if (isIOS()) {
+        // iOS-specific: try the new-tab handoff first; only fall back to the
+        // QR modal if the popup was blocked or refused.
+        const opened = tryOpenInNewTab(data.saveUrl);
+        if (!opened) setQrUrl(data.saveUrl);
+      } else {
+        setQrUrl(data.saveUrl);
+      }
     } catch {
       toast.error("Network error talking to Wallet service");
     } finally {

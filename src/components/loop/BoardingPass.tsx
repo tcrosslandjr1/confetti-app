@@ -16,6 +16,9 @@ function isAndroid() {
 export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   const [googleLoading, setGoogleLoading] = useState(false);
   const [qrUrl, setQrUrl] = useState<string | null>(null);
+  const [routePoints, setRoutePoints] = useState<GeocodeResult[]>([]);
+
+  const directionsUrl = buildDirectionsUrl(routePoints, "walking");
 
   async function addToGoogleWallet() {
     setGoogleLoading(true);

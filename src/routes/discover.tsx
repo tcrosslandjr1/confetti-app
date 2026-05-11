@@ -35,6 +35,16 @@ type VenueRow = {
 function DiscoverPage() {
   const [view, setView] = useState<"list" | "map">("list");
   const [rows, setRows] = useState<VenueRow[] | null>(null);
+  const [q, setQ] = useState("");
+
+  const filtered = useMemo(() => {
+    if (!rows) return rows;
+    const term = q.trim().toLowerCase();
+    if (!term) return rows;
+    return rows.filter((r) =>
+      [r.name, r.neighborhood, r.address].filter(Boolean).join(" ").toLowerCase().includes(term)
+    );
+  }, [rows, q]);
 
   useEffect(() => {
     let cancelled = false;

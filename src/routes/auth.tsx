@@ -172,7 +172,7 @@ function AuthPage() {
         // Refresh location opportunistically on sign-in too.
         void requestUserLocation();
       }
-      navigate({ to: "/" });
+      navigate({ to: redirectTo });
     } catch (err: any) {
       setError(err?.message ?? "Something went wrong");
     } finally {

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { CheckCircle2, ExternalLink, KeyRound, Loader2, Plug, RefreshCw, XCircle } from "lucide-react";
+import { CheckCircle2, ExternalLink, Flame, KeyRound, Loader2, Plug, RefreshCw, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";

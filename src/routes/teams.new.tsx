@@ -88,8 +88,10 @@ type StepId = (typeof STEPS)[number]["id"];
 function NewTeamEventPage() {
   const { user } = useAuth();
   const nav = useNavigate();
+  const { fromTrip } = Route.useSearch();
   const [busy, setBusy] = useState(false);
   const [stepIdx, setStepIdx] = useState(0);
+  const [prefilled, setPrefilled] = useState(false);
 
   // Basics
   const [orgName, setOrgName] = useState("");

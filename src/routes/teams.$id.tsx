@@ -94,6 +94,13 @@ function TeamEventPage() {
             </div>
           </header>
 
+          <section aria-label="Quick widgets" className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <TonightAtAGlance />
+            <NextBookingCountdown />
+            <ConciergeQuickAsk />
+            <SpendBudgetTracker />
+          </section>
+
           <nav className="mt-8 flex gap-1 border-b-2 border-ink">
             {(["overview","attendees","budget","share"] as Tab[]).map((t) => (
               <button

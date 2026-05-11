@@ -1,6 +1,6 @@
 import { useAuth, type ViewAs } from "@/lib/auth-context";
 import { useNavigate } from "@tanstack/react-router";
-import { Shield, User as UserIcon, Eye, X, ChevronUp, ChevronDown, Repeat } from "lucide-react";
+import { Shield, User as UserIcon, Eye, X, ChevronUp, ChevronDown, Repeat, Briefcase } from "lucide-react";
 import { useState } from "react";
 
 type Option = {
@@ -8,7 +8,7 @@ type Option = {
   label: string;
   Icon: typeof Shield;
   blurb: string;
-  home: "/" | "/portal" | "/admin";
+  home: "/" | "/portal" | "/admin" | "/advertise/portal";
   tone: string; // tailwind classes for active chip
 };
 
@@ -20,6 +20,14 @@ const OPTIONS: Option[] = [
     blurb: "Full console + moderation",
     home: "/admin",
     tone: "bg-purple-600 text-white",
+  },
+  {
+    value: "business",
+    label: "Business",
+    Icon: Briefcase,
+    blurb: "Advertiser portal & venues",
+    home: "/advertise/portal",
+    tone: "bg-emerald-600 text-white",
   },
   {
     value: "customer",
@@ -155,7 +163,7 @@ export function RoleSwitcher() {
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-1">
+            <div className="grid grid-cols-2 gap-1 sm:grid-cols-4">
               {OPTIONS.map(({ value, label, Icon, blurb, tone }) => {
                 const active = viewAs === value;
                 return (

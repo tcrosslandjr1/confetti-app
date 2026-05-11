@@ -130,10 +130,10 @@ function ProfilePage() {
               title: "Your stats",
               node: (
                 <section aria-label="Your stats" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                  <StatTile tone="bg-gradient-vibe text-primary-foreground" icon={Sparkles} label="XP" value={(profile?.xp ?? 0).toLocaleString()} hint={`Level ${profile?.level ?? 1}`} />
-                  <StatTile icon={CalendarCheck} label="Upcoming bookings" value={bookingTotals.upcoming.toString()} hint={`${bookingTotals.past} completed`} to="/portal/bookings" />
-                  <StatTile icon={Users} label="Referrals signed up" value={refStats.signedUp.toString()} hint={`${refStats.invited} invited · ${refStats.completed} completed`} to="/portal/refer" />
-                  <StatTile icon={Trophy} label="Achievements" value={`${achTotals.unlocked}/${achTotals.total || "—"}`} hint={achTotals.total ? `${achTotals.xpEarned} XP earned` : "Unlock by exploring"} />
+                  <StatTile tone="bg-gradient-vibe text-primary-foreground" icon={Sparkles} label="XP" value={(profile?.xp ?? 0).toLocaleString()} hint={`Level ${profile?.level ?? 1}`} onClick={() => toast.success(`${(profile?.xp ?? 0).toLocaleString()} XP banked`, { description: `You're Level ${profile?.level ?? 1}. Keep going to unlock the next tier.` })} />
+                  <StatTile icon={CalendarCheck} label="Upcoming bookings" value={bookingTotals.upcoming.toString()} hint={`${bookingTotals.past} completed`} to="/portal/bookings" onClick={() => toast(`${bookingTotals.upcoming} upcoming booking${bookingTotals.upcoming === 1 ? "" : "s"}`, { description: `${bookingTotals.past} completed so far. Opening your bookings…` })} />
+                  <StatTile icon={Users} label="Referrals signed up" value={refStats.signedUp.toString()} hint={`${refStats.invited} invited · ${refStats.completed} completed`} to="/portal/refer" onClick={() => toast(`${refStats.signedUp} friend${refStats.signedUp === 1 ? "" : "s"} on board`, { description: `${refStats.invited} invited · ${refStats.completed} completed. Earn more by sharing your link.` })} />
+                  <StatTile icon={Trophy} label="Achievements" value={`${achTotals.unlocked}/${achTotals.total || "—"}`} hint={achTotals.total ? `${achTotals.xpEarned} XP earned` : "Unlock by exploring"} onClick={() => toast.success(`${achTotals.unlocked}/${achTotals.total || "—"} achievements unlocked`, { description: achTotals.total ? `${achTotals.xpEarned} XP earned from badges so far.` : "Start exploring to unlock your first badge." })} />
                 </section>
               ),
             },

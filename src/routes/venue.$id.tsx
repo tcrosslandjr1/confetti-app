@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles } from "lucide-react";
+import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles, BadgeCheck } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -21,6 +21,8 @@ type Venue = {
   price_level: number | null;
   tags: string[];
   source: "venues" | "viral_venues";
+  verified: boolean;
+  featured: boolean;
 };
 
 const FALLBACK_PHOTOS = [
@@ -41,22 +43,25 @@ function VenuePage() {
       // Try venues table first
       const v = await supabase
         .from("venues")
-        .select("id,name,category,neighborhood,image_url,description,price_level")
+        .select("id,name,category,neighborhood,image_url,description,price_level,verified,featured")
         .eq("id", id)
         .maybeSingle();
       if (!cancelled && v.data) {
+        const row = v.data as typeof v.data & { verified?: boolean; featured?: boolean };
         setVenue({
-          id: v.data.id,
-          name: v.data.name,
-          category: v.data.category,
-          neighborhood: v.data.neighborhood,
+          id: row.id,
+          name: row.name,
+          category: row.category,
+          neighborhood: row.neighborhood,
           address: null,
-          image_url: v.data.image_url,
-          description: v.data.description,
+          image_url: row.image_url,
+          description: row.description,
           rating: null,
-          price_level: v.data.price_level,
+          price_level: row.price_level,
           tags: [],
           source: "venues",
+          verified: !!row.verified,
+          featured: !!row.featured,
         });
         return;
       }
@@ -80,6 +85,8 @@ function VenuePage() {
           price_level: null,
           tags: (vv.data.tags as string[]) ?? [],
           source: "viral_venues",
+          verified: false,
+          featured: false,
         });
       } else {
         setVenue(null);
@@ -147,7 +154,21 @@ function VenuePage() {
               #{id.slice(0, 6)}
             </span>
           </div>
-          <div className="text-sm text-muted-foreground">
+          {(venue.verified || venue.featured) && (
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {venue.verified && (
+                <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-emerald-400/30 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest">
+                  <BadgeCheck className="h-3 w-3" /> Verified business
+                </span>
+              )}
+              {venue.featured && (
+                <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-gold/40 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest">
+                  <Star className="h-3 w-3 fill-ink" /> Featured
+                </span>
+              )}
+            </div>
+          )}
+          <div className="mt-3 text-sm text-muted-foreground">
             {venue.category ?? "Venue"}
             {venue.neighborhood ? ` · ${venue.neighborhood}` : ""}
           </div>

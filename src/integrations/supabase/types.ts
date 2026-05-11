@@ -1307,12 +1307,15 @@ export type Database = {
           city: string | null
           created_at: string
           description: string | null
+          featured: boolean
+          featured_until: string | null
           id: string
           image_url: string | null
           name: string
           neighborhood: string | null
           price_level: number
           staff_email: string | null
+          verified: boolean
         }
         Insert: {
           advertiser_id?: string | null
@@ -1320,12 +1323,15 @@ export type Database = {
           city?: string | null
           created_at?: string
           description?: string | null
+          featured?: boolean
+          featured_until?: string | null
           id?: string
           image_url?: string | null
           name: string
           neighborhood?: string | null
           price_level?: number
           staff_email?: string | null
+          verified?: boolean
         }
         Update: {
           advertiser_id?: string | null
@@ -1333,12 +1339,15 @@ export type Database = {
           city?: string | null
           created_at?: string
           description?: string | null
+          featured?: boolean
+          featured_until?: string | null
           id?: string
           image_url?: string | null
           name?: string
           neighborhood?: string | null
           price_level?: number
           staff_email?: string | null
+          verified?: boolean
         }
         Relationships: [
           {

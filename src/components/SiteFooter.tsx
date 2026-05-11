@@ -26,6 +26,8 @@ const cols = [
     items: [
       { to: "/about", label: "About" },
       { to: "/contact", label: "Contact" },
+      { to: "/advertise", label: "Advertise" },
+      { to: "/investors", label: "Investors" },
       { to: "/auth", label: "Sign in" },
       { to: "/data-terms", label: "Data terms" },
     ],

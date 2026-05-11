@@ -71,6 +71,7 @@ import { Route as ConciergePassportRouteImport } from './routes/concierge.passpo
 import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdvertisePortalRouteImport } from './routes/advertise.portal'
+import { Route as AdminWalletDebugRouteImport } from './routes/admin.wallet-debug'
 import { Route as AdminVenuesRouteImport } from './routes/admin.venues'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
@@ -405,6 +406,11 @@ const AdvertisePortalRoute = AdvertisePortalRouteImport.update({
   path: '/portal',
   getParentRoute: () => AdvertiseRoute,
 } as any)
+const AdminWalletDebugRoute = AdminWalletDebugRouteImport.update({
+  id: '/wallet-debug',
+  path: '/wallet-debug',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminVenuesRoute = AdminVenuesRouteImport.update({
   id: '/venues',
   path: '/venues',
@@ -575,6 +581,7 @@ export interface FileRoutesByFullPath {
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
+  '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/collab/$tripId': typeof CollabTripIdRoute
@@ -658,6 +665,7 @@ export interface FileRoutesByTo {
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
+  '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/collab/$tripId': typeof CollabTripIdRoute
@@ -746,6 +754,7 @@ export interface FileRoutesById {
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
+  '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/collab/$tripId': typeof CollabTripIdRoute
@@ -835,6 +844,7 @@ export interface FileRouteTypes {
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/venues'
+    | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
     | '/collab/$tripId'
@@ -918,6 +928,7 @@ export interface FileRouteTypes {
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/venues'
+    | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
     | '/collab/$tripId'
@@ -1005,6 +1016,7 @@ export interface FileRouteTypes {
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/venues'
+    | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
     | '/collab/$tripId'
@@ -1535,6 +1547,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdvertisePortalRouteImport
       parentRoute: typeof AdvertiseRoute
     }
+    '/admin/wallet-debug': {
+      id: '/admin/wallet-debug'
+      path: '/wallet-debug'
+      fullPath: '/admin/wallet-debug'
+      preLoaderRoute: typeof AdminWalletDebugRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/venues': {
       id: '/admin/venues'
       path: '/venues'
@@ -1713,6 +1732,7 @@ interface AdminRouteChildren {
   AdminTestimonialsRoute: typeof AdminTestimonialsRoute
   AdminUsersRoute: typeof AdminUsersRoute
   AdminVenuesRoute: typeof AdminVenuesRoute
+  AdminWalletDebugRoute: typeof AdminWalletDebugRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
@@ -1730,6 +1750,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminTestimonialsRoute: AdminTestimonialsRoute,
   AdminUsersRoute: AdminUsersRoute,
   AdminVenuesRoute: AdminVenuesRoute,
+  AdminWalletDebugRoute: AdminWalletDebugRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 

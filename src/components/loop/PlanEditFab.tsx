@@ -73,7 +73,11 @@ function Backdrop({ children, onClose }: { children: React.ReactNode; onClose: (
   );
 }
 
-function notifyGroup(message: string) {
+function notifyGroup(tripId: string, kind: NotificationKind, message: string) {
+  // Persist a per-trip notification so attendees viewing the trip page
+  // (subscribed via subscribeNotifications) see the change in their feed.
+  appendNotifications(tripId, [{ kind, venue: "Guests", message }]);
+  // Plus a transient confirmation toast for the actor making the edit.
   toast.message("Group notified", {
     description: message,
     icon: <Bell className="h-3.5 w-3.5" />,

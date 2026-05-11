@@ -33,11 +33,12 @@ export function TabBar() {
                 to={to}
                 className="relative -mt-5 flex flex-col items-center gap-0.5 px-3"
                 aria-label={label}
+                aria-current={active ? "page" : undefined}
               >
-                <span className="grid h-14 w-14 place-items-center rounded-full border-2 border-ink bg-gradient-vibe text-primary-foreground shadow-brut">
+                <span className={`grid h-14 w-14 place-items-center rounded-full border-2 border-ink bg-gradient-vibe text-primary-foreground shadow-brut transition-transform ${active ? "scale-110 ring-2 ring-coral ring-offset-2 ring-offset-cream" : ""}`}>
                   <Icon className="h-6 w-6" strokeWidth={2.5} />
                 </span>
-                <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/80">{label}</span>
+                <span className={`font-mono text-[9px] font-bold uppercase tracking-widest ${active ? "text-coral" : "text-ink/80"}`}>{label}</span>
               </Link>
             );
           }

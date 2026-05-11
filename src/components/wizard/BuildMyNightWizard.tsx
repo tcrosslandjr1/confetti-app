@@ -1667,7 +1667,7 @@ export function BuildMyNightWizard() {
                     [s.address, s.neighborhood].filter(Boolean).join(" · ");
                   const mapsHref =
                     live?.googleMapsUri ??
-                    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`;
+                    buildSmartSearchUrl({ name: `${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}` });
                   return (
                     <li
                       key={`${variant}-${i}`}

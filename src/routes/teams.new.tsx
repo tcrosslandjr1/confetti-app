@@ -329,7 +329,7 @@ function NewTeamEventPage() {
   const submit = async () => {
     if (!user) {
       toast.error("Sign in first to save your event");
-      nav({ to: "/auth" });
+      nav({ to: "/auth", search: { redirect: "/teams/new" } });
       return;
     }
     if (!stepValid.basics || !stepValid.schedule || !stepValid.people) {

@@ -12,7 +12,8 @@ import {
   subscribeConfetti,
   type ActiveLoop,
 } from "@/lib/loop-store";
-import { LoopMap } from "@/components/loop/LoopMap";
+import { LoopMap, type ActiveLegInfo } from "@/components/loop/LoopMap";
+import { DirectionsPanel } from "@/components/loop/DirectionsPanel";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/active-loop")({

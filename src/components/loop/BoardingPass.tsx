@@ -881,14 +881,31 @@ function WalletQrModal({
         <div className="flex items-center gap-2">
           <Smartphone className="h-4 w-4 text-coral" aria-hidden="true" />
           <h2 id={headingId} className="font-display text-lg font-extrabold tracking-tight text-ink">
-            Scan to add to Google Wallet
+            {pending ? "Google Wallet — preview" : "Scan to add to Google Wallet"}
           </h2>
         </div>
-        <p id={descId} className="mt-1 text-xs text-ink/70">
-          Open your Android phone's camera and point it at this QR code. The pass will open in
-          Google Wallet for you to save. Press Escape to close.
-        </p>
-        <div ref={qrWrapRef} className="mt-4 grid place-items-center rounded-2xl border-2 border-ink bg-cream p-4">
+        {pending ? (
+          <div className="mt-3 rounded-xl border-2 border-ink bg-gold/40 px-3 py-2">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+              ⚠ launching soon
+            </p>
+            <p id={descId} className="mt-1 text-xs leading-snug text-ink/80">
+              Our Google Wallet issuer credentials aren't live yet, so this is a preview of how
+              the hand-off will work. Once we're approved, the QR will sign you straight into
+              your pass. Press Escape to close.
+            </p>
+          </div>
+        ) : (
+          <p id={descId} className="mt-1 text-xs text-ink/70">
+            Open your Android phone's camera and point it at this QR code. The pass will open in
+            Google Wallet for you to save. Press Escape to close.
+          </p>
+        )}
+        <div
+          ref={qrWrapRef}
+          className={`mt-4 grid place-items-center rounded-2xl border-2 border-ink bg-cream p-4 ${pending ? "opacity-60" : ""}`}
+          aria-hidden={pending ? "true" : undefined}
+        >
           <QRCodeSVG value={url} size={208} bgColor="#FFF7EC" fgColor="#1B1B1B" level="M" includeMargin={false} />
         </div>
         <a

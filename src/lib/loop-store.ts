@@ -8,6 +8,7 @@ export type LoopStop = {
   time: string;
   area?: string;
   done?: boolean;
+  venueId?: string;
 };
 
 export type ActiveLoop = {

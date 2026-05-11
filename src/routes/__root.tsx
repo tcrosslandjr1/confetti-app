@@ -150,16 +150,18 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <WizardProvider>
-          <ScrollProgress />
-          <ReferralCapture />
-          <RoleSwitcher />
-          <Outlet />
-          <BuildMyNightWizard />
-          <TabBar />
-          <CookieConsent />
-          <Toaster />
-        </WizardProvider>
+        <MapProvider>
+          <WizardProvider>
+            <ScrollProgress />
+            <ReferralCapture />
+            <RoleSwitcher />
+            <Outlet />
+            <BuildMyNightWizard />
+            <TabBar />
+            <CookieConsent />
+            <Toaster />
+          </WizardProvider>
+        </MapProvider>
       </AuthProvider>
     </QueryClientProvider>
   );

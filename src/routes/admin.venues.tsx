@@ -283,10 +283,28 @@ function VenueDialog({
     price_level: initial.price_level ?? 2,
     description: initial.description ?? "",
     image_url: initial.image_url ?? "",
+    staff_email: initial.staff_email ?? "",
+    advertiser_id: initial.advertiser_id ?? null,
   });
   const [busy, setBusy] = useState(false);
+  const [advertisers, setAdvertisers] = useState<AdvertiserOption[]>([]);
   const update = <K extends keyof typeof EMPTY_DRAFT>(key: K, value: (typeof EMPTY_DRAFT)[K]) =>
     setDraft((d) => ({ ...d, [key]: value }));
+
+  useEffect(() => {
+    void (async () => {
+      const { data } = await supabase
+        .from("advertisers")
+        .select("id, business_name, contact_email")
+        .eq("status", "approved")
+        .order("business_name");
+      setAdvertisers((data as AdvertiserOption[]) ?? []);
+    })();
+  }, []);
+
+  const linkedAdvertiser = advertisers.find((a) => a.id === draft.advertiser_id) ?? null;
+  const effectiveStaffEmail =
+    (draft.staff_email && draft.staff_email.trim()) || linkedAdvertiser?.contact_email || "";
 
   return (
     <DialogContent className="flex max-h-[90dvh] w-[calc(100vw-1.5rem)] max-w-lg flex-col gap-4 overflow-hidden p-0 sm:w-full">

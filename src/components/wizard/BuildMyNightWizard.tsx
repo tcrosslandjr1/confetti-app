@@ -452,6 +452,96 @@ export function BuildMyNightWizard() {
     }
   }, [user, favorites]);
 
+  // Load personalization (past bookings + dietary prefs) when wizard opens
+  useEffect(() => {
+    if (!open || !user) { setPersonalize(null); return; }
+    let cancelled = false;
+    (async () => {
+      const [{ data: prefs }, { data: bookings }] = await Promise.all([
+        supabase.from("user_preferences").select("cuisines,taste_profile").eq("user_id", user.id).maybeSingle(),
+        supabase.from("bookings").select("venue_name,starts_at").eq("user_id", user.id).order("starts_at", { ascending: false }).limit(50),
+      ]);
+      if (cancelled) return;
+      const cuisines: string[] = ((prefs?.cuisines ?? []) as string[]).map((c) => String(c).toLowerCase());
+      const tp = (prefs?.taste_profile ?? {}) as Record<string, unknown>;
+      const dietRaw = String((tp.diet as string) ?? "").toLowerCase();
+      const allergRaw = Array.isArray(tp.allergens)
+        ? (tp.allergens as unknown[]).map((s) => String(s).toLowerCase())
+        : [];
+      const vegan = dietRaw.includes("vegan") || cuisines.includes("vegan");
+      const vegetarian = vegan || dietRaw.includes("vegetarian") || cuisines.includes("vegetarian");
+      const pescatarian = dietRaw.includes("pescatarian") || cuisines.includes("pescatarian");
+      const glutenFree = dietRaw.includes("gluten") || cuisines.some((c) => c.includes("gluten-free"));
+      const diet: DietFilter = { vegan, vegetarian, pescatarian, glutenFree, avoidAllergens: allergRaw };
+      const dietLabel = vegan ? "Vegan" : vegetarian ? "Vegetarian" : pescatarian ? "Pescatarian" : glutenFree ? "Gluten-free" : null;
+
+      const hourCounts: Record<number, number> = {};
+      const venueCounts: Record<string, number> = {};
+      (bookings ?? []).forEach((b) => {
+        const d = new Date(b.starts_at as string);
+        const h = d.getHours();
+        if (h >= 17 && h <= 23) hourCounts[h] = (hourCounts[h] ?? 0) + 1;
+        venueCounts[b.venue_name as string] = (venueCounts[b.venue_name as string] ?? 0) + 1;
+      });
+      let preferredHour: number | null = null;
+      let max = 0;
+      Object.entries(hourCounts).forEach(([h, c]) => { if (c > max) { max = c; preferredHour = parseInt(h, 10); } });
+      const topVenues = new Set<string>(Object.keys(venueCounts).filter((v) => venueCounts[v] >= 1));
+      Object.keys(favorites).forEach((v) => topVenues.add(v));
+      setPersonalize({ preferredHour, diet, topVenues, bookingsCount: bookings?.length ?? 0, dietLabel });
+    })();
+    return () => { cancelled = true; };
+  }, [open, user, favorites]);
+
+  type SlotLevel = "open" | "limited" | "few" | "full";
+  type Availability = { time: string; level: SlotLevel; seatsLeft: number };
+  type Details = ReturnType<typeof getDetails>;
+  const personalizeDetails = useCallback((d: Details, venue: string): Details & { isUsual: boolean; personalNote: string | null } => {
+    if (!personalize) return { ...d, isUsual: false, personalNote: null };
+    // 1) Filter dishes by dietary prefs
+    const opts = personalize.diet;
+    let filtered = d.dishes.filter((n) => dishMatches(n, opts));
+    if (filtered.length < 3) {
+      const h = hashStr(venue);
+      const extras = ALL_DISH_NAMES.filter((n) => !filtered.includes(n) && dishMatches(n, opts));
+      for (let i = 0; filtered.length < 3 && i < extras.length; i++) {
+        filtered.push(extras[(h + i) % extras.length]);
+      }
+    }
+    filtered = filtered.slice(0, 3);
+
+    // 2) Re-rank availability around user's preferred hour
+    let avail: Availability[] = d.popularAvailability;
+    let peak = d.peakTime;
+    if (personalize.preferredHour != null) {
+      const ph = personalize.preferredHour;
+      const slotMinutes = (t: string) => { const p = parseSlot(t); return p ? p.h * 60 + p.m : 0; };
+      const closest = avail.reduce<{ time: string; diff: number }>((best, s) => {
+        const diff = Math.abs(slotMinutes(s.time) - ph * 60);
+        return diff < best.diff ? { time: s.time, diff } : best;
+      }, { time: avail[0]?.time ?? "", diff: Number.POSITIVE_INFINITY });
+      peak = closest.time;
+      avail = avail.map((slot) => {
+        if (slot.time === peak) {
+          const seatsLeft = Math.min(slot.seatsLeft, 2);
+          const level: SlotLevel = seatsLeft === 0 ? "full" : "few";
+          return { ...slot, seatsLeft, level };
+        }
+        // off-peak feels more open
+        const seatsLeft = Math.max(slot.seatsLeft, 4);
+        return { ...slot, seatsLeft, level: "open" as SlotLevel };
+      });
+    }
+
+    const isUsual = personalize.topVenues.has(venue);
+    const noteParts: string[] = [];
+    if (personalize.preferredHour != null) noteParts.push(`your usual ${peak} window`);
+    if (personalize.dietLabel) noteParts.push(`${personalize.dietLabel.toLowerCase()} picks`);
+    const personalNote = noteParts.length ? `Tuned for ${noteParts.join(" · ")}` : null;
+
+    return { ...d, dishes: filtered, popularAvailability: avail, peakTime: peak, isUsual, personalNote };
+  }, [personalize]);
+
   if (!open) return null;
 
   const canAdvance =

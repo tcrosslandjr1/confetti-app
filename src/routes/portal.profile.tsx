@@ -282,3 +282,19 @@ function ProfilePage() {
     </div>
   );
 }
+
+function StatTile({ icon: Icon, label, value, hint, to, tone }: { icon: typeof Sparkles; label: string; value: string; hint?: string; to?: string; tone?: string }) {
+  const inner = (
+    <div className={`flex h-full items-center gap-3 rounded-2xl border border-border p-4 shadow-card transition-pop ${tone ?? "bg-card"} ${to ? "hover:scale-[1.02] hover:shadow-pop" : ""}`}>
+      <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tone ? "bg-white/15" : "bg-gradient-vibe text-primary-foreground"}`}>
+        <Icon className="h-5 w-5" />
+      </span>
+      <div className="min-w-0">
+        <div className={`text-[10px] font-mono uppercase tracking-widest ${tone ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{label}</div>
+        <div className="font-display text-2xl font-extrabold leading-tight">{value}</div>
+        {hint && <div className={`truncate text-xs ${tone ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{hint}</div>}
+      </div>
+    </div>
+  );
+  return to ? <Link to={to as "/"}>{inner}</Link> : inner;
+}

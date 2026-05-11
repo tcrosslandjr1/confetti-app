@@ -262,22 +262,31 @@ function ActiveLoopPage() {
             </div>
             <ol className="space-y-2">
               {loop.stops.map((s, i) => (
-                <li key={s.id} className="flex items-center gap-2">
-                  <span
-                    className={`grid h-6 w-6 place-items-center rounded-full border-2 border-ink ${s.done ? "bg-coral text-cream" : i === currentIdx ? "bg-gold" : "bg-cream"}`}
+                <li key={s.id}>
+                  <button
+                    type="button"
+                    onClick={() => jumpToStop(s.id)}
+                    className="flex w-full items-center gap-2 rounded-lg px-1 py-1 text-left hover:bg-coral/5"
                   >
-                    {s.done ? (
-                      <Check className="h-3 w-3" strokeWidth={3} />
-                    ) : (
-                      <span className="font-mono text-[9px] font-bold">{i + 1}</span>
-                    )}
-                  </span>
-                  <div className="flex-1 text-sm font-semibold">{s.name}</div>
-                  <span className="font-mono text-[10px] text-ink/60">{s.time}</span>
+                    <span
+                      className={`grid h-6 w-6 place-items-center rounded-full border-2 border-ink ${s.done ? "bg-coral text-cream" : i === currentIdx ? "bg-gold" : "bg-cream"}`}
+                    >
+                      {s.done ? (
+                        <Check className="h-3 w-3" strokeWidth={3} />
+                      ) : (
+                        <span className="font-mono text-[9px] font-bold">{i + 1}</span>
+                      )}
+                    </span>
+                    <div className="flex-1 text-sm font-semibold">{s.name}</div>
+                    <span className="font-mono text-[10px] text-ink/60">{s.time}</span>
+                  </button>
                 </li>
               ))}
             </ol>
           </div>
+
+          <ActivityFeed tripId={loop.id} className="mt-2" />
+
           {!completed && (
             <button
               onClick={endEarly}

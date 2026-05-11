@@ -389,7 +389,7 @@ export function BuildMyNightWizard() {
   useEffect(() => {
     if (open && preset) {
       setVibe(preset.vibeKeys ?? []);
-      setStep(6);
+      setStep(7);
     }
   }, [open, preset]);
 

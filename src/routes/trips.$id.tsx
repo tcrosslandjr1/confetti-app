@@ -518,6 +518,14 @@ function TripDetail() {
         </div>
       </section>
 
+      <section className="mx-auto mt-6 max-w-4xl px-4 sm:px-6 lg:px-8">
+        <ActivityFeed
+          tripId={id}
+          title="Group activity"
+          emptyHint="Once your group starts checking in, swapping stops or rescheduling, you'll see who did what here."
+        />
+      </section>
+
       <LateRescheduleFab
         tripId={id}
         partyName={it.title}

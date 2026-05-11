@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { Flame, MapPin, ExternalLink, Star, TrendingUp } from "lucide-react";
+import { Flame, MapPin, ExternalLink, Star, TrendingUp, Sparkles, Search, X, Trophy, Crown, Medal } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { ViralTagChip, ALL_VIRAL_TAGS, tagLabel, type ViralTag } from "@/components/ViralTagChip";
 
@@ -44,7 +44,6 @@ function PortalViralPage() {
   const [minScore, setMinScore] = useState(0);
   const [query, setQuery] = useState("");
 
-  // Discover available cities so the filter reflects what's actually in the table
   useEffect(() => {
     (async () => {
       const { data } = await supabase
@@ -99,36 +98,105 @@ function PortalViralPage() {
     setActiveTags((prev) => (prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]));
 
   const topScore = rows?.[0]?.trend_score ?? 0;
+  const totalMentions = useMemo(
+    () => (rows ?? []).reduce((sum, r) => sum + (r.mention_count ?? 0), 0),
+    [rows],
+  );
+  const trendingTag = useMemo(() => {
+    const counts = new Map<ViralTag, number>();
+    (rows ?? []).forEach((r) => (r.tags ?? []).forEach((t) => counts.set(t, (counts.get(t) ?? 0) + 1)));
+    let best: { tag: ViralTag; n: number } | null = null;
+    counts.forEach((n, tag) => {
+      if (!best || n > best.n) best = { tag, n };
+    });
+    return best;
+  }, [rows]);
+
+  const hasFilters = activeTags.length > 0 || !!query || minScore > 0;
+  const top3 = useMemo(() => {
+    if (!rows) return [];
+    return [...rows].sort((a, b) => b.trend_score - a.trend_score).slice(0, 3);
+  }, [rows]);
 
   return (
     <section className="space-y-6">
-      <header className="space-y-2">
-        <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">My portal · What's hot</p>
-        <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
-          <Flame className="h-6 w-6 text-rose-500" /> Viral Now in {city}
-        </h1>
-        <p className="max-w-2xl text-sm text-muted-foreground">
-          The top venues trending across TikTok, Instagram, creators, and the press — ranked by Loop's trend score.
-        </p>
+      {/* HERO */}
+      <header className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-rose-500/10 via-orange-500/10 to-amber-400/10 p-6 shadow-card sm:p-8">
+        <div className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-rose-500/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-16 -left-10 h-56 w-56 rounded-full bg-amber-400/20 blur-3xl" />
+        <div className="relative space-y-3">
+          <p className="inline-flex items-center gap-2 rounded-full border border-rose-500/30 bg-background/60 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-widest text-rose-600 backdrop-blur">
+            <Flame className="h-3 w-3 animate-pulse" /> What's hot · live
+          </p>
+          <h1 className="font-display text-3xl font-extrabold leading-tight sm:text-4xl">
+            Viral Now in <span className="bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 bg-clip-text text-transparent">{city}</span>
+          </h1>
+          <p className="max-w-2xl text-sm text-muted-foreground">
+            The top venues trending across TikTok, Instagram, creators, and the press — ranked by Loop's trend score.
+          </p>
+
+          {/* Quick city pills */}
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {cities.slice(0, 8).map((c) => (
+              <button
+                key={c}
+                type="button"
+                onClick={() => setCity(c)}
+                className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
+                  c === city
+                    ? "bg-foreground text-background shadow-pop"
+                    : "border border-border bg-background/60 text-foreground hover:bg-background"
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+
+          {/* KPIs */}
+          <div className="grid gap-2 pt-3 sm:grid-cols-3">
+            <Kpi icon={Flame} label="Top score" value={rows ? topScore.toFixed(2) : "—"} accent="text-rose-500" />
+            <Kpi icon={TrendingUp} label="Total mentions" value={rows ? totalMentions.toLocaleString() : "—"} accent="text-orange-500" />
+            <Kpi
+              icon={Sparkles}
+              label="Trending vibe"
+              value={trendingTag ? tagLabel(trendingTag.tag) : "—"}
+              accent="text-amber-500"
+            />
+          </div>
+        </div>
       </header>
 
-      {/* Filter bar */}
-      <div className="space-y-3 rounded-2xl border border-border bg-card p-4 shadow-card">
+      {/* TOP 3 SPOTLIGHT */}
+      {top3.length >= 3 && (
+        <div>
+          <div className="mb-2 flex items-center gap-2">
+            <Trophy className="h-4 w-4 text-amber-500" />
+            <h2 className="font-display text-sm font-bold uppercase tracking-wider">Top 3 right now</h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {top3.map((v, i) => (
+              <SpotlightCard key={v.id} v={v} rank={i + 1} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Sticky filter bar */}
+      <div className="sticky top-2 z-10 space-y-3 rounded-2xl border border-border bg-card/95 p-4 shadow-card backdrop-blur">
         <div className="flex flex-wrap items-center gap-2">
-          <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">City</label>
+          <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground">City</label>
           <select
             value={city}
             onChange={(e) => setCity(e.target.value)}
             className="rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold"
           >
             {cities.map((c) => (
-              <option key={c} value={c}>
-                {c}
-              </option>
+              <option key={c} value={c}>{c}</option>
             ))}
           </select>
 
-          <label className="ml-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">Sort</label>
+          <label className="ml-2 text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground">Sort</label>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as SortKey)}
@@ -140,13 +208,16 @@ function PortalViralPage() {
             <option value="mentions">Most mentions</option>
           </select>
 
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search venue, neighborhood…"
-            className="ml-auto w-full max-w-xs rounded-xl border border-border bg-background px-3 py-2 text-sm"
-          />
+          <div className="relative ml-auto w-full max-w-xs">
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search venue, neighborhood…"
+              className="w-full rounded-xl border border-border bg-background py-2 pl-9 pr-3 text-sm"
+            />
+          </div>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
@@ -165,9 +236,18 @@ function PortalViralPage() {
               className="h-1 w-40 accent-rose-500"
             />
           </div>
-          <span className="text-xs text-muted-foreground">
+          <span className="rounded-full bg-muted px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
             {filtered?.length ?? 0} of {rows?.length ?? 0} shown
           </span>
+          {hasFilters && (
+            <button
+              type="button"
+              onClick={() => { setActiveTags([]); setMinScore(0); setQuery(""); }}
+              className="ml-auto inline-flex items-center gap-1 rounded-full border border-border px-2.5 py-1 text-[11px] font-semibold text-muted-foreground hover:text-foreground"
+            >
+              <X className="h-3 w-3" /> Reset filters
+            </button>
+          )}
         </div>
 
         <div className="flex flex-wrap gap-2">
@@ -178,22 +258,13 @@ function PortalViralPage() {
                 key={t}
                 type="button"
                 onClick={() => toggleTag(t)}
-                className={`transition ${active ? "scale-105" : "opacity-70 hover:opacity-100"}`}
+                className={`transition ${active ? "scale-105" : "opacity-60 hover:opacity-100"}`}
                 aria-pressed={active}
               >
                 <ViralTagChip tag={t} size="md" />
               </button>
             );
           })}
-          {activeTags.length > 0 && (
-            <button
-              type="button"
-              onClick={() => setActiveTags([])}
-              className="rounded-full border border-border px-2.5 py-1 text-[11px] font-semibold text-muted-foreground hover:text-foreground"
-            >
-              Clear tags
-            </button>
-          )}
         </div>
       </div>
 
@@ -201,7 +272,14 @@ function PortalViralPage() {
       {filtered === null && (
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="h-72 animate-pulse rounded-2xl bg-muted" />
+            <div key={i} className="overflow-hidden rounded-2xl border border-border bg-card">
+              <div className="aspect-[5/3] w-full animate-pulse bg-muted" />
+              <div className="space-y-2 p-4">
+                <div className="h-4 w-2/3 animate-pulse rounded bg-muted" />
+                <div className="h-3 w-1/3 animate-pulse rounded bg-muted" />
+                <div className="h-3 w-full animate-pulse rounded bg-muted" />
+              </div>
+            </div>
           ))}
         </div>
       )}
@@ -211,17 +289,26 @@ function PortalViralPage() {
           <Flame className="mx-auto h-8 w-8 text-muted-foreground" />
           <p className="mt-3 font-display text-lg font-bold">Nothing matches those filters</p>
           <p className="text-sm text-muted-foreground">
-            {activeTags.length || query || minScore > 0
+            {hasFilters
               ? "Try clearing filters or lowering the minimum score."
               : `We haven't discovered ${city} venues yet — admins can refresh from /admin/integrations.`}
           </p>
+          {hasFilters && (
+            <button
+              type="button"
+              onClick={() => { setActiveTags([]); setMinScore(0); setQuery(""); }}
+              className="mt-4 rounded-full bg-foreground px-4 py-2 text-xs font-bold uppercase tracking-widest text-background"
+            >
+              Reset filters
+            </button>
+          )}
         </div>
       )}
 
       {filtered && filtered.length > 0 && (
         <ol className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {filtered.map((v, i) => (
-            <ViralCard key={v.id} v={v} rank={sortBy === "score_desc" ? i + 1 : undefined} />
+            <ViralCard key={v.id} v={v} rank={sortBy === "score_desc" ? i + 1 : undefined} topScore={topScore} />
           ))}
         </ol>
       )}
@@ -229,16 +316,73 @@ function PortalViralPage() {
   );
 }
 
-function ViralCard({ v, rank }: { v: Row; rank?: number }) {
+function Kpi({ icon: Icon, label, value, accent }: { icon: typeof Flame; label: string; value: string; accent: string }) {
+  return (
+    <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/70 p-3 backdrop-blur">
+      <span className={`grid h-9 w-9 place-items-center rounded-xl bg-background ${accent}`}>
+        <Icon className="h-4 w-4" />
+      </span>
+      <div className="min-w-0">
+        <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">{label}</div>
+        <div className="truncate font-display text-base font-extrabold leading-tight">{value}</div>
+      </div>
+    </div>
+  );
+}
+
+function rankBadge(rank: number) {
+  if (rank === 1) return { Icon: Crown, color: "bg-amber-400 text-amber-950" };
+  if (rank === 2) return { Icon: Medal, color: "bg-zinc-300 text-zinc-900" };
+  return { Icon: Medal, color: "bg-orange-300 text-orange-950" };
+}
+
+function SpotlightCard({ v, rank }: { v: Row; rank: number }) {
+  const { Icon, color } = rankBadge(rank);
+  return (
+    <article className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:shadow-pop">
+      <div className="relative aspect-[5/3] w-full overflow-hidden bg-muted">
+        {v.photo_url ? (
+          <img src={v.photo_url} alt={v.venue_name} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+        ) : (
+          <div className="grid h-full place-items-center text-4xl">🔥</div>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
+        <div className={`absolute left-2 top-2 inline-flex items-center gap-1 rounded-full px-2 py-1 text-[10px] font-black uppercase tracking-widest shadow-pop ${color}`}>
+          <Icon className="h-3 w-3" /> #{rank}
+        </div>
+        <div className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-full bg-background/90 px-2 py-1 text-[10px] font-bold backdrop-blur">
+          <Flame className="h-3 w-3 text-rose-500" /> {v.trend_score.toFixed(2)}
+        </div>
+        <div className="absolute inset-x-3 bottom-2 text-white">
+          <h3 className="font-display text-base font-extrabold leading-tight drop-shadow">{v.venue_name}</h3>
+          {v.neighborhood && <p className="text-[11px] opacity-90">{v.neighborhood}</p>}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function ViralCard({ v, rank, topScore }: { v: Row; rank?: number; topScore: number }) {
   const heat = Math.min(5, Math.max(1, Math.round(v.trend_score * 3)));
+  const pct = topScore > 0 ? Math.min(100, Math.round((v.trend_score / topScore) * 100)) : 0;
   const mapHref = v.google_place_id
     ? `https://www.google.com/maps/place/?q=place_id:${v.google_place_id}`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${v.venue_name} ${v.address ?? v.city}`)}`;
+  const daysAgo = (() => {
+    const d = new Date(v.last_mentioned_at);
+    if (isNaN(+d)) return null;
+    const days = Math.max(0, Math.round((Date.now() - +d) / 86_400_000));
+    if (days === 0) return "today";
+    if (days === 1) return "yesterday";
+    if (days < 7) return `${days}d ago`;
+    if (days < 30) return `${Math.round(days / 7)}w ago`;
+    return `${Math.round(days / 30)}mo ago`;
+  })();
   return (
-    <li className="overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:shadow-pop">
+    <li className="group overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:-translate-y-0.5 hover:shadow-pop">
       <div className="relative aspect-[5/3] w-full overflow-hidden bg-muted">
         {v.photo_url ? (
-          <img src={v.photo_url} alt={v.venue_name} loading="lazy" className="h-full w-full object-cover" />
+          <img src={v.photo_url} alt={v.venue_name} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]" />
         ) : (
           <div className="grid h-full place-items-center text-4xl">🍽️</div>
         )}
@@ -247,7 +391,7 @@ function ViralCard({ v, rank }: { v: Row; rank?: number }) {
             #{rank}
           </div>
         )}
-        <div className="absolute left-2 top-2 flex items-center gap-1 rounded-full bg-background/85 px-2 py-1 text-[10px] font-bold backdrop-blur">
+        <div className="absolute left-2 top-2 flex items-center gap-1 rounded-full bg-background/90 px-2 py-1 text-[10px] font-bold backdrop-blur">
           {[...Array(heat)].map((_, i) => (
             <Flame key={i} className="h-3 w-3 text-rose-500" />
           ))}
@@ -270,6 +414,17 @@ function ViralCard({ v, rank }: { v: Row; rank?: number }) {
           </p>
         )}
         {v.summary && <p className="text-sm text-muted-foreground line-clamp-3">{v.summary}</p>}
+
+        {/* Heat bar relative to top score */}
+        <div className="pt-1">
+          <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 transition-all"
+              style={{ width: `${pct}%` }}
+            />
+          </div>
+        </div>
+
         <div className="flex flex-wrap gap-1">
           {(v.tags ?? []).slice(0, 4).map((t) => (
             <ViralTagChip key={t} tag={t} />
@@ -285,7 +440,7 @@ function ViralCard({ v, rank }: { v: Row; rank?: number }) {
             Open in Maps <ExternalLink className="h-3 w-3" />
           </a>
           <span className="text-[10px] text-muted-foreground">
-            {v.mention_count ?? v.source_urls?.length ?? 0} mentions
+            {v.mention_count ?? v.source_urls?.length ?? 0} mentions{daysAgo ? ` · ${daysAgo}` : ""}
           </span>
         </div>
       </div>

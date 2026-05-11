@@ -765,9 +765,8 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
 // Deterministic Code-128-style faux barcode derived from `code`, so the bars
 // are stable across renders/SSR and visually unique per plan id.
 function Barcode({ code }: { code: string }) {
-  const { bars, label } = useMemo(() => {
+  const { bars, label, viewWidth } = useMemo(() => {
     const seed = code || "CONFETTI";
-    // Simple FNV-1a style hash → reproducible PRNG
     let h = 2166136261;
     for (let i = 0; i < seed.length; i++) {
       h ^= seed.charCodeAt(i);
@@ -780,32 +779,46 @@ function Barcode({ code }: { code: string }) {
       return ((h >>> 0) % 1000) / 1000;
     };
     const COUNT = 64;
-    const bars: { width: number; isGap: boolean }[] = Array.from({ length: COUNT }, (_, i) => {
+    const GAP = 1; // unit gap between bars
+    let x = 0;
+    const bars: { x: number; width: number; isGap: boolean }[] = [];
+    for (let i = 0; i < COUNT; i++) {
       const r = rand();
-      // Mix thin/thick bars and gaps for a barcode-like rhythm
       const isGap = r < 0.18 && i > 0 && i < COUNT - 1;
       const width = isGap ? 1 : r < 0.55 ? 2 : r < 0.85 ? 3 : 4;
-      return { width, isGap };
-    });
-    return { bars, label: seed };
+      bars.push({ x, width, isGap });
+      x += width + GAP;
+    }
+    return { bars, label: seed, viewWidth: x - GAP };
   }, [code]);
 
+  const VIEW_HEIGHT = 48;
+
   return (
-    <div className="rounded-xl border-2 border-ink bg-cream p-3">
-      <div
-        className="flex h-12 items-stretch justify-center"
+    <div className="rounded-xl border-2 border-ink bg-cream p-3 print:border-black print:bg-white">
+      {/* Inline SVG with viewBox = bars scale fluidly to container width on
+          any screen size and print, never clipping. */}
+      <svg
+        viewBox={`0 0 ${viewWidth} ${VIEW_HEIGHT}`}
+        preserveAspectRatio="none"
+        className="block h-12 w-full"
         role="img"
         aria-label={`Barcode for ${label}`}
       >
-        {bars.map((b, i) => (
-          <span
-            key={i}
-            className={b.isGap ? "bg-transparent" : "bg-ink"}
-            style={{ width: b.width, marginRight: 1 }}
-          />
-        ))}
-      </div>
-      <div className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-ink/70 truncate">
+        {bars.map((b, i) =>
+          b.isGap ? null : (
+            <rect
+              key={i}
+              x={b.x}
+              y={0}
+              width={b.width}
+              height={VIEW_HEIGHT}
+              className="fill-ink print:fill-black"
+            />
+          )
+        )}
+      </svg>
+      <div className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-ink/70 truncate print:text-black">
         {label}
       </div>
     </div>

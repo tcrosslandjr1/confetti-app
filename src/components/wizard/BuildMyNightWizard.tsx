@@ -1258,6 +1258,20 @@ export function BuildMyNightWizard() {
       </div>
       {layer}
       <DishQuickView open={openDish} onOpenChange={(o) => !o && setOpenDish(null)} />
+      {shareData && (
+        <div
+          aria-hidden
+          style={{
+            position: "fixed",
+            left: -10000,
+            top: 0,
+            pointerEvents: "none",
+            opacity: 0,
+          }}
+        >
+          <StopShareCard ref={shareRef} data={shareData} />
+        </div>
+      )}
     </div>
   );
 }

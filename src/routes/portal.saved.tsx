@@ -95,7 +95,7 @@ function SavedPage() {
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.filter((i) => i.venues).map((i) => (
             <li key={i.id} className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
-              {i.venues!.image_url ? <img src={i.venues!.image_url} alt={i.venues!.name} className="h-36 w-full object-cover" /> : <div className="h-36 bg-muted" />}
+              {i.venues!.image_url ? <img src={i.venues!.image_url} alt={i.venues!.name} className="h-36 w-full object-cover" /> : <GooglePhotos venue={i.venues!.name} neighborhood={i.venues!.neighborhood} variant="hero" />}
               <div className="p-4">
                 <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">{i.venues!.category}</div>
                 <h3 className="mt-1 font-display text-lg font-bold">{i.venues!.name}</h3>

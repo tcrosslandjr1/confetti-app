@@ -111,6 +111,7 @@ function Layer({
   showUserLocation,
   onStopClick,
   onPointsReady,
+  travelMode,
   onActiveStepsChange,
 }: {
   stops: MapStop[];
@@ -119,6 +120,7 @@ function Layer({
   showUserLocation: boolean;
   onStopClick?: (stop: MapStop) => void;
   onPointsReady?: (points: GeocodeResult[]) => void;
+  travelMode: TravelMode;
   onActiveStepsChange?: Props["onActiveStepsChange"];
 }) {
   const map = useMap();

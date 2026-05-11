@@ -22,6 +22,14 @@ const OPTIONS: Option[] = [
     tone: "bg-purple-600 text-white",
   },
   {
+    value: "business",
+    label: "Business",
+    Icon: Briefcase,
+    blurb: "Advertiser portal & venues",
+    home: "/advertise/portal",
+    tone: "bg-emerald-600 text-white",
+  },
+  {
     value: "customer",
     label: "Customer",
     Icon: UserIcon,

@@ -156,7 +156,7 @@ function ProfilePage() {
                 <section aria-label="Achievements" className="rounded-3xl border border-border bg-card p-6 shadow-card">
                   <div className="mb-4 flex items-center justify-between gap-2">
                     <h2 className="flex items-center gap-2 font-display text-xl font-bold"><Trophy className="h-5 w-5 text-primary" /> Achievements</h2>
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{achTotals.unlocked}/{achTotals.total || "—"} unlocked</span>
+                    <Link to="/portal/achievements" className="font-mono text-[10px] uppercase tracking-widest text-primary hover:underline">{achTotals.unlocked}/{achTotals.total || "—"} unlocked · View all →</Link>
                   </div>
                   {achievements.length === 0 ? (
                     <p className="rounded-xl border border-dashed border-border bg-background/40 p-5 text-center text-sm text-muted-foreground">Achievements unlock as you explore.</p>

@@ -41,7 +41,15 @@ type Venue = {
   price_level: number;
   description: string | null;
   image_url: string | null;
+  staff_email: string | null;
+  advertiser_id: string | null;
   created_at: string;
+};
+
+type AdvertiserOption = {
+  id: string;
+  business_name: string;
+  contact_email: string;
 };
 
 const EMPTY_DRAFT: Omit<Venue, "id" | "created_at"> = {
@@ -52,6 +60,8 @@ const EMPTY_DRAFT: Omit<Venue, "id" | "created_at"> = {
   price_level: 2,
   description: "",
   image_url: "",
+  staff_email: "",
+  advertiser_id: null,
 };
 
 function PriceLevel({ level }: { level: number }) {

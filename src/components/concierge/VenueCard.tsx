@@ -1,4 +1,4 @@
-import { MapPin, Sparkles, DollarSign, Clock } from "lucide-react";
+import { Clock, MapPin, Sparkles } from "lucide-react";
 
 export type VenueCardData = {
   name?: string;

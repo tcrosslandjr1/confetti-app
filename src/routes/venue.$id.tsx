@@ -213,6 +213,14 @@ function VenuePage() {
           </div>
         )}
 
+        <div className="mt-4">
+          <VenueMap
+            name={venue.name}
+            address={venue.address}
+            area={venue.neighborhood}
+          />
+        </div>
+
         <div className="mt-4 grid gap-2">
           <InfoRow icon={Clock} label="Hours" value="Tue–Sun · 5pm – 1am" />
           <InfoRow icon={Phone} label="Phone" value="—" />

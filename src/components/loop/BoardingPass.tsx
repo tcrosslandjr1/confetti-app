@@ -737,20 +737,67 @@ function BookingModal({
   reward: number;
 }) {
   type Status = "idle" | "booking" | "booked";
+  const navigate = useNavigate();
   const [status, setStatus] = useState<Record<string, Status>>({});
+  const [refs, setRefs] = useState<Record<string, string>>({});
+  const [finalizing, setFinalizing] = useState(false);
 
   // Treat all stops as bookable; bookingType inferred from stop.bookingType or "reservation"
   const bookable = loop.stops.filter((s) => s.bookable !== false);
   const allBooked = bookable.length > 0 && bookable.every((s) => status[s.id] === "booked");
 
+  function makeRef(stopId: string) {
+    const tail = stopId.replace(/[^a-zA-Z0-9]/g, "").slice(-3).toUpperCase() || "STP";
+    const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
+    return `CF-${tail}-${rand}`;
+  }
+
   function bookOne(id: string) {
     setStatus((p) => ({ ...p, [id]: "booking" }));
-    setTimeout(() => setStatus((p) => ({ ...p, [id]: "booked" })), 1200);
+    setTimeout(() => {
+      const ref = makeRef(id);
+      setRefs((p) => ({ ...p, [id]: ref }));
+      setStatus((p) => ({ ...p, [id]: "booked" }));
+    }, 1200);
   }
 
   function bookAll() {
     bookable.forEach((s, i) => setTimeout(() => bookOne(s.id), i * 600));
   }
+
+  // Once every bookable stop is confirmed, persist booking to the loop and
+  // navigate to the confirmation screen with the reference info.
+  useEffect(() => {
+    if (!allBooked || finalizing) return;
+    setFinalizing(true);
+    const planRef = `CF-${loop.id}-${Math.random().toString(36).slice(2, 5).toUpperCase()}`;
+    const updated: ActiveLoop = {
+      ...loop,
+      stops: loop.stops.map((s) =>
+        refs[s.id] ? { ...s, bookingRef: refs[s.id], bookingStatus: "confirmed" } : s,
+      ),
+      booking: {
+        ref: planRef,
+        bookedAt: new Date().toISOString(),
+        stops: refs,
+      },
+    };
+    setActiveLoop(updated);
+    logActivity({
+      tripId: loop.id,
+      tripTitle: `${loop.from} → ${loop.to}`,
+      actor: "You",
+      kind: "plan_started",
+      message: `booked the full plan (${bookable.length} stops)`,
+      detail: planRef,
+    });
+    toast.success("Plan booked!", { description: planRef });
+    const t = setTimeout(() => {
+      onClose();
+      navigate({ to: "/confirmation" });
+    }, 900);
+    return () => clearTimeout(t);
+  }, [allBooked, finalizing, loop, refs, navigate, onClose, bookable.length]);
 
   if (!open) return null;
   return (

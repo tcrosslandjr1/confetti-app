@@ -1,11 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Sparkles, MapPin, ArrowRight, Star, Bookmark, CalendarCheck, MessageCircle, Trophy, Users, Gift, Lock, Crown, Flame, Medal, Calendar as CalendarIcon, Target, Zap, TrendingUp, CheckCircle2, Clock } from "lucide-react";
+import { Sparkles, MapPin, ArrowRight, Star, Bookmark, CalendarCheck, MessageCircle, Trophy, Users, Gift, Lock, Crown, Flame, Medal, Calendar as CalendarIcon, Target, Zap, TrendingUp, CheckCircle2, Clock, Wand2, Loader2, Sliders } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { getMyReferralStats, getOrCreateMyReferralCode, buildReferralLink, type MyReferralStats } from "@/lib/referrals";
 import { useAuth } from "@/lib/auth-context";
 import { NearbyVenues } from "@/components/NearbyVenues";
 import { PromotedSlot } from "@/components/PromotedSlot";
+import { buildAndSaveItinerary } from "@/lib/itineraries";
+import { loadPrefs } from "@/lib/taste";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/portal/")({
   head: () => ({
@@ -37,6 +40,57 @@ function PortalDiscoverPage() {
   const [refStats, setRefStats] = useState<MyReferralStats>({ invited: 0, signedUp: 0, completed: 0, earnedCents: 0 });
   const [referralCode, setReferralCode] = useState<string | null>(null);
   const [achievements, setAchievements] = useState<Achievement[]>([]);
+
+  const nav = useNavigate();
+  const [quickBusy, setQuickBusy] = useState(false);
+
+  const quickGenerate = async () => {
+    if (!user) {
+      nav({ to: "/auth" });
+      return;
+    }
+    setQuickBusy(true);
+    try {
+      const prefs = await loadPrefs();
+      const tp = prefs.taste_profile ?? {};
+      const loves = (tp.loves ?? []).slice(0, 4).join(", ");
+      const scenes = (tp.scene_keywords ?? []).slice(0, 3).join(", ");
+      const vibeBits = [scenes, loves].filter(Boolean).join(" · ");
+      const occasion =
+        tp.life_stage === "with_kids" ? "Family night"
+        : tp.energy === "high_energy" ? "Night out"
+        : tp.energy === "chill" ? "Chill evening"
+        : "Surprise me";
+      const today = new Date();
+      const dateIso = today.toISOString().slice(0, 10);
+      const startTime = today.getHours() < 16 ? "17:00" : "19:00";
+      const budget =
+        prefs.budget_max >= 200 ? "$$$"
+        : prefs.budget_max >= 100 ? "$$"
+        : prefs.budget_min > 0 || prefs.budget_max > 0 ? "$" : "$$";
+      const toastId = toast.loading("Generating your plan from your taste profile…");
+      try {
+        const { id } = await buildAndSaveItinerary({
+          occasion,
+          vibe: vibeBits || "Personalized for you",
+          occasionSlug: "spontaneous",
+          city: tp.cities?.[0],
+          date: dateIso,
+          startTime,
+          durationHours: 4,
+          budget,
+          notes: prefs.about_me || prefs.social_signals || undefined,
+          transportMode: "auto",
+        });
+        toast.success("Your plan is ready", { id: toastId });
+        nav({ to: "/trips/$id", params: { id } });
+      } catch (e) {
+        toast.error((e as Error).message, { id: toastId });
+      }
+    } finally {
+      setQuickBusy(false);
+    }
+  };
 
   useEffect(() => {
     supabase
@@ -114,14 +168,31 @@ function PortalDiscoverPage() {
             Upcoming bookings, referral rewards, badges you've earned, and fresh picks from the city.
           </p>
         </div>
-        <Link
-          to="/plan"
-          className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-vibe px-6 py-3 font-display text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-pop transition-pop hover:scale-[1.03]"
-        >
-          <Sparkles className="h-4 w-4" />
-          Create plan now
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </Link>
+        <div className="flex shrink-0 flex-col items-stretch gap-2 sm:items-end">
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={quickGenerate}
+              disabled={quickBusy}
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-vibe px-6 py-3 font-display text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-pop transition-pop hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-70"
+              title="Auto-build a plan from your taste profile and social signals"
+            >
+              {quickBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Wand2 className="h-4 w-4" />}
+              {quickBusy ? "Generating…" : "Quick generate"}
+            </button>
+            <Link
+              to="/plan"
+              className="group inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-5 py-3 font-display text-sm font-bold uppercase tracking-wide text-foreground transition-pop hover:scale-[1.02]"
+            >
+              <Sparkles className="h-4 w-4" />
+              Customize
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+          <Link to="/onboarding" className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground">
+            <Sliders className="h-3 w-3" /> Tune what you like
+          </Link>
+        </div>
       </header>
 
       {/* Top stats strip */}

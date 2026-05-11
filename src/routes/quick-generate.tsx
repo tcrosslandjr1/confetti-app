@@ -1,9 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { WandSparkles, ArrowUp, ArrowDown, Repeat, Sparkles, Lock, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
+import { makeDemoLoop, setActiveLoop } from "@/lib/loop-store";
 
 export const Route = createFileRoute("/quick-generate")({
   head: () => ({ meta: [{ title: "Quick Generate — Loop" }] }),

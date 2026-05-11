@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Marquee } from "@/components/ui/3d-testimonails";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Star } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/testimonials")({
@@ -30,6 +30,7 @@ type Testimonial = {
   body: string;
   img: string;
   country: string;
+  rating: number | null;
 };
 
 const fallbackTestimonials: Testimonial[] = [
@@ -39,6 +40,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "Loop killed our group-chat purgatory. Friday plans in 30 seconds.",
     img: "https://randomuser.me/api/portraits/women/32.jpg",
     country: "🇦🇺 Sydney",
+    rating: 5,
   },
   {
     name: "Ana Miller",
@@ -46,6 +48,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "I'm the planner friend. This out-planned me.",
     img: "https://randomuser.me/api/portraits/women/68.jpg",
     country: "🇩🇪 Berlin",
+    rating: 5,
   },
   {
     name: "Mateo Rossi",
@@ -53,6 +56,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "Booked a date night dive bar I'd driven past 100 times. Chef's kiss.",
     img: "https://randomuser.me/api/portraits/men/51.jpg",
     country: "🇮🇹 Milan",
+    rating: 4,
   },
   {
     name: "Maya Patel",
@@ -60,6 +64,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "Kids day-out: museum + ice cream + a nap. Saved my Saturday.",
     img: "https://randomuser.me/api/portraits/women/53.jpg",
     country: "🇮🇳 Mumbai",
+    rating: 5,
   },
   {
     name: "Noah Smith",
@@ -67,6 +72,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "The routing alone is worth it. One-tap directions between every stop.",
     img: "https://randomuser.me/api/portraits/men/33.jpg",
     country: "🇺🇸 Brooklyn",
+    rating: 5,
   },
   {
     name: "Lucas Stone",
@@ -74,6 +80,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "Used it for a bachelorette. Glam dinner → karaoke → 2am pizza. Perfect.",
     img: "https://randomuser.me/api/portraits/men/22.jpg",
     country: "🇫🇷 Paris",
+    rating: 5,
   },
   {
     name: "Haruto Sato",
@@ -81,6 +88,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "Out-of-towner mode: 4 hours, 3 stops, every single one a banger.",
     img: "https://randomuser.me/api/portraits/men/85.jpg",
     country: "🇯🇵 Tokyo",
+    rating: 4,
   },
   {
     name: "Emma Lee",
@@ -88,6 +96,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "It feels like a friend planned it. The good friend.",
     img: "https://randomuser.me/api/portraits/women/45.jpg",
     country: "🇨🇦 Toronto",
+    rating: 5,
   },
   {
     name: "Carlos Ray",
@@ -95,10 +104,11 @@ const fallbackTestimonials: Testimonial[] = [
     body: "First date energy: low-key, high spark. Loop nailed the vibe.",
     img: "https://randomuser.me/api/portraits/men/61.jpg",
     country: "🇪🇸 Madrid",
+    rating: 5,
   },
 ];
 
-function TestimonialCard({ img, name, username, body, country }: Testimonial) {
+function TestimonialCard({ img, name, username, body, country, rating }: Testimonial) {
   return (
     <Card className="w-72 border-2 border-ink bg-cream shadow-brut">
       <CardContent className="p-4">
@@ -116,6 +126,19 @@ function TestimonialCard({ img, name, username, body, country }: Testimonial) {
             </div>
           </div>
         </div>
+        {rating ? (
+          <div
+            className="mt-3 flex items-center gap-0.5 text-coral"
+            aria-label={`${rating} out of 5 stars`}
+          >
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star
+                key={i}
+                className={`h-3.5 w-3.5 ${i < rating ? "fill-current" : "opacity-30"}`}
+              />
+            ))}
+          </div>
+        ) : null}
         <p className="mt-3 text-sm leading-snug text-ink/80">{body}</p>
       </CardContent>
     </Card>
@@ -130,7 +153,7 @@ function TestimonialsPage() {
     void (async () => {
       const { data, error } = await supabase
         .from("testimonials")
-        .select("name, username, body, image_url, country")
+        .select("name, username, body, image_url, country, rating")
         .eq("active", true)
         .order("position", { ascending: true })
         .order("created_at", { ascending: false });
@@ -142,6 +165,7 @@ function TestimonialsPage() {
           body: r.body,
           img: r.image_url ?? "",
           country: r.country ?? "",
+          rating: r.rating ?? null,
         })),
       );
     })();

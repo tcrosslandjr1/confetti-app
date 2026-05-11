@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Pencil, Plus, Trash2 } from "lucide-react";
+import { Pencil, Plus, Star, Trash2 } from "lucide-react";
 
 export const Route = createFileRoute("/admin/testimonials")({
   head: () => ({
@@ -28,6 +28,7 @@ type Testimonial = {
   country: string | null;
   position: number;
   active: boolean;
+  rating: number | null;
   created_at: string;
   updated_at: string;
 };
@@ -42,6 +43,7 @@ const EMPTY: FormState = {
   country: "",
   position: 0,
   active: true,
+  rating: 5,
 };
 
 function AdminTestimonialsPage() {
@@ -82,6 +84,7 @@ function AdminTestimonialsPage() {
       country: row.country ?? "",
       position: row.position,
       active: row.active,
+      rating: row.rating ?? null,
     });
   }
 
@@ -94,6 +97,10 @@ function AdminTestimonialsPage() {
       toast.error("Body must be under 500 characters.");
       return;
     }
+    if (form.rating !== null && (form.rating < 1 || form.rating > 5)) {
+      toast.error("Rating must be between 1 and 5.");
+      return;
+    }
     setSaving(true);
     const payload = {
       name: form.name.trim(),
@@ -103,6 +110,7 @@ function AdminTestimonialsPage() {
       country: form.country?.trim() || null,
       position: form.position,
       active: form.active,
+      rating: form.rating,
     };
     const op = editing
       ? supabase.from("testimonials").update(payload).eq("id", editing.id)
@@ -162,6 +170,7 @@ function AdminTestimonialsPage() {
                 <tr>
                   <th className="px-3 py-2 text-left">Person</th>
                   <th className="px-3 py-2 text-left">Quote</th>
+                  <th className="px-3 py-2 text-left">Rating</th>
                   <th className="px-3 py-2 text-left">Country</th>
                   <th className="px-3 py-2 text-left">Pos</th>
                   <th className="px-3 py-2 text-left">Status</th>
@@ -171,14 +180,14 @@ function AdminTestimonialsPage() {
               <tbody>
                 {loading && (
                   <tr>
-                    <td colSpan={6} className="px-3 py-6 text-center text-muted-foreground">
+                    <td colSpan={7} className="px-3 py-6 text-center text-muted-foreground">
                       Loading…
                     </td>
                   </tr>
                 )}
                 {!loading && rows.length === 0 && (
                   <tr>
-                    <td colSpan={6} className="px-3 py-6 text-center text-muted-foreground">
+                    <td colSpan={7} className="px-3 py-6 text-center text-muted-foreground">
                       No testimonials yet. Create one to get started.
                     </td>
                   </tr>
@@ -208,6 +217,20 @@ function AdminTestimonialsPage() {
                     </td>
                     <td className="px-3 py-2 max-w-md">
                       <div className="line-clamp-3 text-xs text-muted-foreground">{r.body}</div>
+                    </td>
+                    <td className="px-3 py-2">
+                      {r.rating ? (
+                        <div className="flex items-center gap-0.5 text-amber-500">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`h-3 w-3 ${i < (r.rating ?? 0) ? "fill-current" : "opacity-30"}`}
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="text-xs text-muted-foreground">—</span>
+                      )}
                     </td>
                     <td className="px-3 py-2 text-xs">{r.country ?? "—"}</td>
                     <td className="px-3 py-2 text-xs">{r.position}</td>
@@ -323,6 +346,36 @@ function AdminTestimonialsPage() {
                 value={form.position}
                 onChange={(e) => setForm({ ...form, position: Number(e.target.value) || 0 })}
               />
+            </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <Label>Rating</Label>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-0.5">
+                {[1, 2, 3, 4, 5].map((n) => (
+                  <button
+                    key={n}
+                    type="button"
+                    onClick={() => setForm({ ...form, rating: n })}
+                    aria-label={`${n} star${n === 1 ? "" : "s"}`}
+                    className="p-0.5 text-amber-500"
+                  >
+                    <Star
+                      className={`h-5 w-5 ${
+                        form.rating !== null && n <= form.rating ? "fill-current" : "opacity-30"
+                      }`}
+                    />
+                  </button>
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={() => setForm({ ...form, rating: null })}
+                className="text-xs text-muted-foreground underline"
+              >
+                Clear
+              </button>
             </div>
           </div>
 

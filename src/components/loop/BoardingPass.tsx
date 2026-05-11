@@ -301,9 +301,11 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
       a.click();
       a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
+      trackShareEvent("share_add_to_calendar", { loopId: loop.id, meta: { stops: loop.stops.length } });
       setShareOpen(false);
       toast.success("Calendar event downloaded");
     } catch {
+      trackShareEvent("share_error", { loopId: loop.id, meta: { source: "add_to_calendar" } });
       toast.error("Couldn't create calendar event");
     }
   }

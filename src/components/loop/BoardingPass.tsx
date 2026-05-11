@@ -322,32 +322,128 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
               interactive={false}
               onPointsReady={setRoutePoints}
             />
-            <a
-              href={directionsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5"
-            >
-              <Navigation className="h-3 w-3" /> Directions
-            </a>
+            <div className="absolute right-3 top-3 flex flex-col items-end gap-1.5">
+              <button
+                type="button"
+                onClick={() => setDirOpen((v) => !v)}
+                aria-expanded={dirOpen}
+                aria-haspopup="menu"
+                className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+              >
+                <Navigation className="h-3 w-3" />
+                Get Directions
+              </button>
+              {dirOpen && selectedStop && (
+                <div
+                  role="menu"
+                  className="w-64 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut text-ink"
+                >
+                  <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">
+                    Directions to
+                  </div>
+                  <div className="mt-0.5 font-display text-sm font-extrabold leading-tight">
+                    {selectedStop.name}
+                  </div>
+                  {selectedAddress && (
+                    <div className="mt-0.5 text-[11px] text-ink/60 truncate">{selectedAddress}</div>
+                  )}
+                  <div className="mt-2 flex flex-col gap-1.5">
+                    {preferAppleFirst ? (
+                      <>
+                        {appleDirUrl && (
+                          <a
+                            href={appleDirUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setDirOpen(false)}
+                            className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] font-bold text-cream"
+                          >
+                             Open in Apple Maps
+                          </a>
+                        )}
+                        {googleDirUrl && (
+                          <a
+                            href={googleDirUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setDirOpen(false)}
+                            className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 text-[11px] font-bold text-ink hover:bg-gold"
+                          >
+                            📍 Open in Google Maps
+                          </a>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        {googleDirUrl && (
+                          <a
+                            href={googleDirUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setDirOpen(false)}
+                            className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] font-bold text-cream"
+                          >
+                            📍 Open in Google Maps
+                          </a>
+                        )}
+                        {appleDirUrl && (
+                          <a
+                            href={appleDirUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setDirOpen(false)}
+                            className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 text-[11px] font-bold text-ink hover:bg-gold"
+                          >
+                             Open in Apple Maps
+                          </a>
+                        )}
+                      </>
+                    )}
+                    {fullRouteUrl && (
+                      <a
+                        href={fullRouteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setDirOpen(false)}
+                        className="inline-flex items-center justify-center gap-1.5 rounded-full border border-ink/30 bg-cream px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ink/70 hover:text-ink"
+                      >
+                        Or view full route
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
-          {/* Numbered legend */}
+          {/* Numbered legend — tap to pick which stop to navigate to */}
           <div className="flex items-center gap-2 overflow-x-auto px-6 py-2 border-t border-ink/10 bg-cream/40">
             {loop.stops.map((s, i) => {
               const done = !!s.done;
+              const active = s.id === selectedStopId;
               return (
-                <div
-                  key={s.id}
-                  className="flex shrink-0 items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70"
-                >
-                  <span
-                    className={`grid h-5 w-5 place-items-center rounded-full border-2 border-ink text-[9px] ${
-                      done ? "bg-coral text-cream" : "bg-cream text-ink"
+                <div key={s.id} className="flex shrink-0 items-center gap-1.5">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedStopId(s.id);
+                      setDirOpen(true);
+                    }}
+                    aria-pressed={active}
+                    className={`flex items-center gap-1.5 rounded-full border-2 px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-pop ${
+                      active
+                        ? "border-ink bg-ink text-cream shadow-brut"
+                        : "border-transparent text-ink/70 hover:border-ink/30"
                     }`}
                   >
-                    {i + 1}
-                  </span>
-                  <span className="max-w-[8rem] truncate">{s.name}</span>
+                    <span
+                      className={`grid h-5 w-5 place-items-center rounded-full border-2 border-ink text-[9px] ${
+                        done ? "bg-coral text-cream" : active ? "bg-cream text-ink" : "bg-cream text-ink"
+                      }`}
+                    >
+                      {i + 1}
+                    </span>
+                    <span className="max-w-[8rem] truncate">{s.name}</span>
+                  </button>
                   {i < loop.stops.length - 1 && <span className="text-ink/30">→</span>}
                 </div>
               );

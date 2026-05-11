@@ -246,6 +246,14 @@ export function BuildMyNightWizard() {
   const [reservingKey, setReservingKey] = useState<string | null>(null);
   const [bookedSlots, setBookedSlots] = useState<Record<string, string>>({});
   const [openDish, setOpenDish] = useState<{ name: string; venue: string } | null>(null);
+  type Personalize = {
+    preferredHour: number | null;
+    diet: DietFilter;
+    topVenues: Set<string>;
+    bookingsCount: number;
+    dietLabel: string | null;
+  };
+  const [personalize, setPersonalize] = useState<Personalize | null>(null);
   const { user } = useAuth();
   const { burst, layer } = useConfettiBurst();
 

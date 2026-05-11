@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { QRCodeSVG } from "qrcode.react";
-import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane } from "lucide-react";
+import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane, Printer } from "lucide-react";
 import type { ActiveLoop, LoopStop, StopKind } from "@/lib/loop-store";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";

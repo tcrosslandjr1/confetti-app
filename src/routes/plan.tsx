@@ -103,14 +103,19 @@ function PlanPage() {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+    console.log("[plan] submit clicked", { occasionSlug, isCustom, user: !!user });
     setErr(null);
     setBusy(true);
     try {
+      if (!user) {
+        throw new Error("Sign in required — please log in and try again.");
+      }
       const occ = OCCASIONS.find((o) => o.slug === occasionSlug);
       const customText = customVibe.trim();
       if (isCustom && !customText) {
         throw new Error("Tell us your vibe — type a few words to describe your day.");
       }
+      console.log("[plan] calling buildAndSaveItinerary…");
       const { id } = await buildAndSaveItinerary({
         occasion: occ ? occ.title : customText,
         vibe: occ ? occ.tagline : customText,
@@ -124,9 +129,11 @@ function PlanPage() {
         notes: notes || undefined,
         transportMode,
       });
+      console.log("[plan] itinerary built", id);
       nav({ to: "/trips/$id", params: { id } });
-    } catch (e) {
-      setErr((e as Error).message);
+    } catch (err) {
+      console.error("[plan] submit failed", err);
+      setErr((err as Error).message ?? "Something went wrong building your day.");
     } finally {
       setBusy(false);
     }

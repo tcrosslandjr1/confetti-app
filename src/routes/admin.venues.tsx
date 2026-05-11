@@ -360,6 +360,42 @@ function VenueDialog({
             rows={4}
           />
         </div>
+        <div className="grid gap-1.5">
+          <Label htmlFor="advertiser">Linked advertiser</Label>
+          <select
+            id="advertiser"
+            value={draft.advertiser_id ?? ""}
+            onChange={(e) => update("advertiser_id", e.target.value || null)}
+            className="h-9 rounded-md border border-border bg-background px-3 text-sm"
+          >
+            <option value="">— None —</option>
+            {advertisers.map((a) => (
+              <option key={a.id} value={a.id}>
+                {a.business_name} ({a.contact_email})
+              </option>
+            ))}
+          </select>
+          {linkedAdvertiser && !draft.staff_email?.trim() && (
+            <p className="text-xs text-muted-foreground">
+              Notifications will auto-route to <span className="font-mono">{linkedAdvertiser.contact_email}</span> from the linked advertiser.
+            </p>
+          )}
+        </div>
+        <div className="grid gap-1.5">
+          <Label htmlFor="staff_email">Staff notification email (override)</Label>
+          <Input
+            id="staff_email"
+            type="email"
+            placeholder={linkedAdvertiser?.contact_email || "ops@venue.com"}
+            value={draft.staff_email ?? ""}
+            onChange={(e) => update("staff_email", e.target.value)}
+          />
+          <p className="text-xs text-muted-foreground">
+            {effectiveStaffEmail
+              ? <>Booking notifications go to <span className="font-mono">{effectiveStaffEmail}</span>.</>
+              : "Leave blank to fall back to the global ops inbox."}
+          </p>
+        </div>
       </div>
       <DialogFooter className="border-t border-border bg-background px-6 py-4 pb-[max(env(safe-area-inset-bottom),1rem)]">
         <Button

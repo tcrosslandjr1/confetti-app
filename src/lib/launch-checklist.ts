@@ -79,14 +79,15 @@ export function getChecklistState(): State {
   return state;
 }
 
-export function useChecklist() {
+const EMPTY: State = {};
+export function useChecklist(): State {
   return useSyncExternalStore(
     (cb) => {
       listeners.add(cb);
       return () => listeners.delete(cb);
     },
     () => state,
-    () => ({}),
+    () => EMPTY,
   );
 }
 

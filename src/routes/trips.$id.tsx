@@ -535,7 +535,7 @@ function TravelLegCard({ leg, from, to }: { leg: TravelLeg; from: Stop; to: Stop
   );
 }
 
-function VibeRow({ stop, prefs }: { stop: Stop; prefs: VibePrefs }) {
+export function VibeRow({ stop, prefs }: { stop: Stop; prefs: VibePrefs }) {
   const inferred = inferStopVibe(stop);
   const score = vibeMatchScore(inferred, prefs);
   const level = matchLevel(score);

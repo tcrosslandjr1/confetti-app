@@ -87,8 +87,8 @@ function ActiveLoopPage() {
           </span>
         </div>
 
-        {/* Interactive Google Map with markers + walking directions */}
-        <div className="mt-4 relative h-64 overflow-hidden rounded-3xl border-2 border-ink shadow-brut bg-cream">
+        {/* Interactive Google Map: numbered markers, polyline route, user pulse, current bounce */}
+        <div className="mt-4 relative h-[220px] overflow-hidden rounded-3xl border-2 border-ink shadow-brut bg-cream">
           <LoopMap
             stops={loop.stops}
             currentIdx={currentIdx}

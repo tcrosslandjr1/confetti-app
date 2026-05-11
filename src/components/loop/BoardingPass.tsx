@@ -1,24 +1,58 @@
-import { Plane, Check, Wallet, Apple, ChevronRight, Loader2, X, Smartphone, Navigation } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
-import { useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
-import type { ActiveLoop, LoopStop } from "@/lib/loop-store";
+import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane } from "lucide-react";
+import type { ActiveLoop, LoopStop, StopKind } from "@/lib/loop-store";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";
-import { buildDirectionsUrl } from "@/lib/geocode";
-import type { GeocodeResult } from "@/lib/geocode";
+import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";
 
 function isAndroid() {
   if (typeof navigator === "undefined") return false;
   return /android/i.test(navigator.userAgent);
 }
 
+// ─── Helpers to derive rich fields from ActiveLoop ─────────────────────
+function stopKind(stop: LoopStop, i: number, total: number): StopKind {
+  if (stop.kind) return stop.kind;
+  if (i === 0) return "departure";
+  if (i === total - 1) return "destination";
+  return "layover";
+}
+
+function defaultEmoji(kind: StopKind) {
+  return kind === "departure" ? "🥂" : kind === "destination" ? "🌟" : "⚡";
+}
+
+function vibesOf(loop: ActiveLoop): string[] {
+  if (loop.vibes?.length) return loop.vibes;
+  if (loop.vibe) return [`✨ ${loop.vibe}`];
+  return [];
+}
+
+// ─── Tone tokens (mapped to design system, no raw colors) ──────────────
+const kindStyles: Record<StopKind, { marker: string; label: string; line: string }> = {
+  departure:   { marker: "bg-coral text-cream",   label: "text-coral",          line: "border-coral/40" },
+  layover:     { marker: "bg-gold text-ink",      label: "text-ink/70",         line: "border-ink/30" },
+  destination: { marker: "bg-ink text-cream",     label: "text-ink",            line: "border-ink/40" },
+};
+
+const tagToneClass: Record<NonNullable<LoopStop["tags"]>[number]["variant"], string> = {
+  vibe: "bg-coral/10 text-coral border-coral/30",
+  ev:   "bg-gold/30 text-ink border-ink/30",
+  time: "bg-ink/5 text-ink border-ink/20",
+};
+
+// ──────────────────────────────────────────────────────────────────────
 export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   const [googleLoading, setGoogleLoading] = useState(false);
   const [qrUrl, setQrUrl] = useState<string | null>(null);
   const [routePoints, setRoutePoints] = useState<GeocodeResult[]>([]);
+  const [bookingOpen, setBookingOpen] = useState(false);
 
   const directionsUrl = buildDirectionsUrl(routePoints, "walking");
+  const vibes = vibesOf(loop);
+  const reward = loop.confettiPoints ?? 250;
 
   async function addToGoogleWallet() {
     setGoogleLoading(true);
@@ -35,11 +69,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           gate: loop.gate,
           boardingTime: loop.boardingTime,
           stops: loop.stops.map((s) => ({
-            id: s.id,
-            name: s.name,
-            type: s.type,
-            time: s.time,
-            area: s.area,
+            id: s.id, name: s.name, type: s.type, time: s.time, area: s.area,
           })),
         }),
       });
@@ -54,13 +84,9 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         toast.error(data.error || "Could not generate Google Wallet pass");
         return;
       }
-      // Android: open Wallet directly. Desktop / iOS: show QR fallback.
-      if (isAndroid()) {
-        window.open(data.saveUrl, "_blank", "noopener,noreferrer");
-      } else {
-        setQrUrl(data.saveUrl);
-      }
-    } catch (err) {
+      if (isAndroid()) window.open(data.saveUrl, "_blank", "noopener,noreferrer");
+      else setQrUrl(data.saveUrl);
+    } catch {
       toast.error("Network error talking to Wallet service");
     } finally {
       setGoogleLoading(false);
@@ -70,102 +96,128 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   return (
     <div className="mx-auto max-w-md">
       <div className="relative rounded-3xl border-2 border-ink bg-cream shadow-brut-lg overflow-hidden">
-        {/* Header */}
+        {/* ── Header ── */}
         <div className="bg-ink px-6 py-5 text-cream">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Plane className="h-4 w-4 -rotate-45" />
-              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.25em]">
-                Boarding Pass
-              </span>
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <div className="font-display text-xl font-extrabold tracking-tight flex items-center gap-1">
+                <span>CONFETTI</span>
+                <span className="text-coral">.</span>
+              </div>
+              <div className="mt-1 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest opacity-80">
+                <span>{loop.occasionEmoji ?? "✈"}</span>
+                <span className="truncate">{loop.occasion ?? "Curated Plan"}</span>
+              </div>
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-widest opacity-70">
-              {loop.id}
-            </span>
+            <div className="text-right shrink-0">
+              <div className="font-mono text-[9px] uppercase tracking-widest opacity-60">
+                Itinerary
+              </div>
+              <div className="font-mono text-[11px] font-bold tracking-widest">{loop.id}</div>
+            </div>
           </div>
-          <div className="mt-4 flex items-end justify-between gap-3">
-            <div>
-              <div className="font-mono text-[9px] uppercase tracking-widest opacity-60">
-                Passenger
+
+          <div className="mt-4 grid grid-cols-3 gap-2">
+            {[
+              { label: "Date", value: loop.date },
+              { label: "Passengers", value: String(loop.groupSize) },
+              { label: "Day", value: loop.day ?? "—" },
+            ].map((m) => (
+              <div key={m.label}>
+                <div className="font-mono text-[9px] uppercase tracking-widest opacity-60">
+                  {m.label}
+                </div>
+                <div className="font-display text-[13px] font-extrabold tracking-tight truncate">
+                  {m.value}
+                </div>
               </div>
-              <div className="font-display text-lg font-bold uppercase tracking-wide">
-                {loop.passenger}
-              </div>
-            </div>
-            <div className="text-right">
-              <div className="font-mono text-[9px] uppercase tracking-widest opacity-60">
-                Date · Party
-              </div>
-              <div className="font-display text-sm font-bold">
-                {loop.date} · {loop.groupSize}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Route */}
+        {/* ── Route ── */}
         <div className="px-6 pt-6 pb-4">
-          <div className="flex items-center justify-between gap-3">
-            <div>
+          <div className="flex items-end justify-between gap-3">
+            <div className="min-w-0">
+              <div className="font-mono text-[9px] uppercase tracking-widest text-ink/50">
+                Departure
+              </div>
               <div className="font-display text-3xl font-extrabold leading-none tracking-tight">
                 {loop.from}
               </div>
-              <div className="mt-1 font-mono text-[9px] uppercase tracking-widest text-ink/50">
-                Departure
-              </div>
+              {loop.fromName && (
+                <div className="mt-1 text-[11px] text-ink/60 truncate">{loop.fromName}</div>
+              )}
             </div>
-            <div className="flex flex-1 items-center justify-center gap-1 px-2">
+            <div className="flex flex-1 items-center justify-center gap-1 px-2 pb-1">
               <div className="h-px flex-1 border-t-2 border-dashed border-ink/30" />
               <Plane className="h-5 w-5 text-coral rotate-90" />
               <div className="h-px flex-1 border-t-2 border-dashed border-ink/30" />
             </div>
-            <div className="text-right">
+            <div className="text-right min-w-0">
+              <div className="font-mono text-[9px] uppercase tracking-widest text-ink/50">
+                Destination
+              </div>
               <div className="font-display text-3xl font-extrabold leading-none tracking-tight">
                 {loop.to}
               </div>
-              <div className="mt-1 font-mono text-[9px] uppercase tracking-widest text-ink/50">
-                Arrival
-              </div>
+              {loop.toName && (
+                <div className="mt-1 text-[11px] text-ink/60 truncate">{loop.toName}</div>
+              )}
             </div>
           </div>
 
           {/* Gate / Boarding / Seat */}
-          <div className="mt-6 grid grid-cols-3 gap-3 rounded-2xl border-2 border-ink bg-gold/30 p-3">
+          <div className="mt-5 grid grid-cols-3 gap-3 rounded-2xl border-2 border-ink bg-gold/30 p-3">
             <Field label="Gate" value={loop.gate} />
             <Field label="Boarding" value={loop.boardingTime} />
             <Field label="Seat" value={`${loop.groupSize}P`} />
           </div>
+
+          {/* Vibe pills */}
+          {vibes.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-1.5">
+              {vibes.map((v) => (
+                <span
+                  key={v}
+                  className="inline-flex items-center rounded-full border border-ink/20 bg-coral/10 px-2.5 py-1 text-[11px] font-semibold text-ink"
+                >
+                  {v}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Perforation */}
-        <div className="relative">
-          <div className="absolute -left-3 top-1/2 h-6 w-6 -translate-y-1/2 rounded-full bg-background border-2 border-ink" />
-          <div className="absolute -right-3 top-1/2 h-6 w-6 -translate-y-1/2 rounded-full bg-background border-2 border-ink" />
-          <div className="border-t-2 border-dashed border-ink/40 mx-6" />
-        </div>
+        {/* Tear */}
+        <TearDivider />
 
-        {/* Itinerary timeline */}
+        {/* ── Flight Plan / Stops ── */}
         <div className="px-6 py-5">
           <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 mb-3">
-            Itinerary · {loop.stops.length} stops
+            Flight Plan · {loop.stops.length} stops
           </div>
-          <ol className="relative space-y-3 pl-7">
-            <span className="absolute left-2.5 top-2 bottom-2 w-px border-l-2 border-dashed border-ink/30" />
-            {loop.stops.map((s, i) => (
-              <li key={s.id} className="relative">
-                <span
-                  className={`absolute -left-7 top-0 grid h-6 w-6 place-items-center rounded-full border-2 border-ink ${s.done ? "bg-coral text-cream" : "bg-cream"}`}
-                >
-                  {s.done ? (
-                    <Check className="h-3 w-3" strokeWidth={3} />
-                  ) : (
-                    <span className="font-mono text-[10px] font-bold">{i + 1}</span>
+          <div>
+            {loop.stops.map((stop, i) => {
+              const kind = stopKind(stop, i, loop.stops.length);
+              return (
+                <div key={stop.id}>
+                  <StopCard
+                    stop={stop}
+                    kind={kind}
+                    index={i}
+                    isLast={i === loop.stops.length - 1}
+                  />
+                  {stop.driveAfter && (
+                    <DriveTimeChip
+                      minutes={stop.driveAfter.minutes}
+                      destination={stop.driveAfter.destination}
+                    />
                   )}
-                </span>
-                <StopRow stop={s} />
-              </li>
-            ))}
-          </ol>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Map strip */}
@@ -187,22 +239,63 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           </a>
         </div>
 
-        {/* Barcode */}
-        <div className="px-6 pb-5">
-          <div className="rounded-xl border-2 border-ink bg-cream p-3">
-            <div className="flex h-12 items-center gap-[2px]">
-              {Array.from({ length: 60 }).map((_, i) => (
-                <span
-                  key={i}
-                  className="bg-ink"
-                  style={{ width: i % 3 === 0 ? 3 : i % 5 === 0 ? 4 : 1, height: "100%" }}
-                />
-              ))}
+        {/* Tear */}
+        <TearDivider />
+
+        {/* ── Stats ── */}
+        <div className="px-6 py-4 grid grid-cols-4 gap-2">
+          {[
+            { value: String(loop.stops.length), label: "Stops" },
+            {
+              value: String(new Set(loop.stops.map((s) => s.area).filter(Boolean)).size || loop.stops.length),
+              label: "Hoods",
+            },
+            { value: loop.boardingTime, label: "Start" },
+            { value: loop.stops.some((s) => s.ev) ? "⚡" : "✓", label: "EV Ready" },
+          ].map((s) => (
+            <div
+              key={s.label}
+              className="rounded-xl border border-ink/15 bg-card px-2 py-2 text-center"
+            >
+              <div className="font-display text-base font-extrabold tracking-tight">{s.value}</div>
+              <div className="mt-0.5 font-mono text-[9px] uppercase tracking-widest text-ink/60">
+                {s.label}
+              </div>
             </div>
-            <div className="mt-2 text-center font-mono text-[10px] tracking-[0.3em] text-ink/60">
-              {loop.id} · CONFETTI
+          ))}
+        </div>
+
+        {/* ── Confetti reward ── */}
+        <div className="mx-6 mb-4 flex items-center justify-between gap-3 rounded-2xl border-2 border-ink bg-coral/10 px-4 py-3">
+          <div className="flex items-center gap-3 min-w-0">
+            <span className="text-2xl">🎊</span>
+            <div className="min-w-0">
+              <div className="font-mono text-[9px] uppercase tracking-widest text-ink/60">
+                Complete this plan to earn
+              </div>
+              <div className="font-display text-sm font-extrabold tracking-tight truncate">
+                Confetti Reward
+              </div>
             </div>
           </div>
+          <div className="font-display text-xl font-extrabold tracking-tight text-coral shrink-0">
+            +{reward}
+          </div>
+        </div>
+
+        {/* ── Book This Plan ── */}
+        <div className="px-6 pb-4">
+          <button
+            onClick={() => setBookingOpen(true)}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+          >
+            🎯 Book this plan
+          </button>
+        </div>
+
+        {/* ── Barcode ── */}
+        <div className="px-6 pb-5">
+          <Barcode code={`${loop.id} · CONFETTI`} />
         </div>
       </div>
 
@@ -225,10 +318,365 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
       </div>
 
       {qrUrl && <WalletQrModal url={qrUrl} onClose={() => setQrUrl(null)} />}
+      <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} loop={loop} reward={reward} />
     </div>
   );
 }
 
+// ─── Barcode ───────────────────────────────────────────────────────────
+function Barcode({ code }: { code: string }) {
+  const widths = useRef(
+    Array.from({ length: 56 }, (_, i) => (i % 3 === 0 ? 3 : i % 5 === 0 ? 4 : i % 2 === 0 ? 2 : 1)),
+  );
+  const heights = useRef(widths.current.map(() => 28 + Math.round(Math.random() * 16)));
+  return (
+    <div className="rounded-xl border-2 border-ink bg-cream p-3">
+      <div className="flex h-12 items-end justify-center gap-[2px]">
+        {widths.current.map((w, i) => (
+          <span
+            key={i}
+            className="bg-ink"
+            style={{ width: w, height: heights.current[i] }}
+          />
+        ))}
+      </div>
+      <div className="mt-2 text-center font-mono text-[10px] tracking-[0.3em] text-ink/60">
+        {code}
+      </div>
+    </div>
+  );
+}
+
+// ─── Tear divider with notches ─────────────────────────────────────────
+function TearDivider() {
+  return (
+    <div className="relative">
+      <div className="absolute -left-3 top-1/2 h-6 w-6 -translate-y-1/2 rounded-full bg-background border-2 border-ink" />
+      <div className="absolute -right-3 top-1/2 h-6 w-6 -translate-y-1/2 rounded-full bg-background border-2 border-ink" />
+      <div className="border-t-2 border-dashed border-ink/40 mx-6" />
+    </div>
+  );
+}
+
+// ─── Stop card ─────────────────────────────────────────────────────────
+function StopCard({
+  stop,
+  kind,
+  index,
+  isLast,
+}: {
+  stop: LoopStop;
+  kind: StopKind;
+  index: number;
+  isLast: boolean;
+}) {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 120 + index * 90);
+    return () => clearTimeout(t);
+  }, [index]);
+
+  const tone = kindStyles[kind];
+  const typeLabel = kind === "departure" ? "Departure" : kind === "destination" ? "Destination" : "Layover";
+  const emoji = stop.emoji ?? defaultEmoji(kind);
+  const address = stop.address ?? stop.area ?? "";
+  const appleUrl = address
+    ? `https://maps.apple.com/?daddr=${encodeURIComponent(address)}&dirflg=d`
+    : null;
+  const googleUrl = address
+    ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`
+    : null;
+
+  const titleNode = (
+    <div className="font-display text-base font-extrabold tracking-tight leading-snug">
+      {stop.name}
+    </div>
+  );
+
+  return (
+    <div
+      className={`relative flex gap-3 transition-all duration-500 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+      }`}
+    >
+      {/* Marker column */}
+      <div className="relative flex flex-col items-center">
+        <span
+          className={`grid h-10 w-10 place-items-center rounded-full border-2 border-ink shadow-brut text-base ${tone.marker}`}
+        >
+          {emoji}
+        </span>
+        {!isLast && (
+          <span className={`mt-1 flex-1 w-px border-l-2 border-dashed ${tone.line}`} />
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="flex-1 pb-5 min-w-0">
+        <div className={`font-mono text-[10px] font-bold uppercase tracking-widest ${tone.label}`}>
+          {typeLabel} — {stop.time}
+        </div>
+        {stop.venueId ? (
+          <Link to="/venue/$id" params={{ id: stop.venueId }} className="mt-0.5 block hover:underline underline-offset-4 decoration-coral">
+            {titleNode}
+          </Link>
+        ) : (
+          <div className="mt-0.5">{titleNode}</div>
+        )}
+        <div className="mt-0.5 text-xs text-ink/70">
+          {stop.detail ?? `${stop.type}${stop.area ? ` · ${stop.area}` : ""}`}
+        </div>
+
+        {/* EV */}
+        {stop.ev && (
+          <div className="mt-2 rounded-xl border border-ink/20 bg-gold/20 p-2.5">
+            <div className="flex items-center justify-between gap-2 text-[11px] font-bold">
+              <span>{stop.ev.brand}</span>
+              <span className="text-ink/70">{stop.ev.spec}</span>
+              <span className="text-coral">{stop.ev.chargeTime}</span>
+            </div>
+            {stop.ev.sub && (
+              <div className="mt-1 text-[10px] text-ink/60">{stop.ev.sub}</div>
+            )}
+          </div>
+        )}
+
+        {/* Parking */}
+        {stop.parking && (
+          <div className="mt-2 flex gap-2 text-[11px]">
+            <span aria-hidden>🅿</span>
+            <div className="min-w-0">
+              <div className="font-semibold text-ink">{stop.parking.primary}</div>
+              {stop.parking.secondary && (
+                <div className="text-ink/60">{stop.parking.secondary}</div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Sunday parking */}
+        {stop.sundayParking && (
+          <div className="mt-1.5 flex items-start gap-2 text-[11px]">
+            <span className="rounded-md bg-ink px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest text-cream">
+              SUN
+            </span>
+            <span className="text-ink/70">{stop.sundayParking}</span>
+          </div>
+        )}
+
+        {/* Nav buttons */}
+        {(appleUrl || googleUrl) && (
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {appleUrl && (
+              <a
+                href={appleUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 rounded-full border border-ink/30 bg-cream px-2.5 py-1 text-[10px] font-bold text-ink hover:bg-ink hover:text-cream transition-colors"
+              >
+                🍎 Apple Maps
+              </a>
+            )}
+            {googleUrl && (
+              <a
+                href={googleUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 rounded-full border border-ink/30 bg-cream px-2.5 py-1 text-[10px] font-bold text-ink hover:bg-ink hover:text-cream transition-colors"
+              >
+                📍 Google Maps
+              </a>
+            )}
+          </div>
+        )}
+
+        {/* Tags */}
+        {stop.tags && stop.tags.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {stop.tags.map((tag, i) => (
+              <span
+                key={i}
+                className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-bold ${tagToneClass[tag.variant]}`}
+              >
+                {tag.label}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ─── Drive time chip ───────────────────────────────────────────────────
+function DriveTimeChip({ minutes, destination }: { minutes: number; destination: string }) {
+  return (
+    <div className="ml-12 mb-3 -mt-2 inline-flex items-center gap-1.5 rounded-full border border-dashed border-ink/30 bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70">
+      🚗 ~{minutes} min drive → {destination}
+    </div>
+  );
+}
+
+// ─── Field ─────────────────────────────────────────────────────────────
+function Field({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">
+        {label}
+      </div>
+      <div className="mt-0.5 font-display text-base font-extrabold tracking-tight">{value}</div>
+    </div>
+  );
+}
+
+// ─── Booking modal ─────────────────────────────────────────────────────
+function BookingModal({
+  open,
+  onClose,
+  loop,
+  reward,
+}: {
+  open: boolean;
+  onClose: () => void;
+  loop: ActiveLoop;
+  reward: number;
+}) {
+  type Status = "idle" | "booking" | "booked";
+  const [status, setStatus] = useState<Record<string, Status>>({});
+
+  // Treat all stops as bookable; bookingType inferred from stop.bookingType or "reservation"
+  const bookable = loop.stops.filter((s) => s.bookable !== false);
+  const allBooked = bookable.length > 0 && bookable.every((s) => status[s.id] === "booked");
+
+  function bookOne(id: string) {
+    setStatus((p) => ({ ...p, [id]: "booking" }));
+    setTimeout(() => setStatus((p) => ({ ...p, [id]: "booked" })), 1200);
+  }
+
+  function bookAll() {
+    bookable.forEach((s, i) => setTimeout(() => bookOne(s.id), i * 600));
+  }
+
+  if (!open) return null;
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Book this plan"
+      className="fixed inset-0 z-50 grid place-items-end sm:place-items-center bg-ink/60 p-0 sm:p-4 backdrop-blur-sm animate-fade-in"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full sm:max-w-md rounded-t-3xl sm:rounded-3xl border-2 border-ink bg-cream shadow-brut-lg animate-scale-in max-h-[92vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="bg-ink px-5 py-4 text-cream rounded-t-3xl">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <div className="font-display text-lg font-extrabold tracking-tight">
+                Book this plan
+              </div>
+              <div className="mt-0.5 text-[11px] opacity-75">
+                Reserve everything in one tap
+              </div>
+            </div>
+            <button
+              onClick={onClose}
+              aria-label="Close"
+              className="grid h-8 w-8 place-items-center rounded-full border border-cream/30 hover:bg-cream/10"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+          <div className="mt-3 grid grid-cols-3 gap-2">
+            {[
+              { label: "Date", value: loop.date },
+              { label: "Guests", value: String(loop.groupSize) },
+              { label: "Conf.", value: loop.id },
+            ].map((m) => (
+              <div key={m.label}>
+                <div className="font-mono text-[9px] uppercase tracking-widest opacity-60">
+                  {m.label}
+                </div>
+                <div className="font-display text-[12px] font-extrabold truncate">{m.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Stops list */}
+        <div className="p-4 space-y-2">
+          {bookable.map((stop, i) => {
+            const kind = stopKind(stop, i, bookable.length);
+            const s = status[stop.id] ?? "idle";
+            const typeLabel =
+              stop.bookingType === "parking"
+                ? "Garage pre-pay"
+                : stop.bookingType === "both"
+                ? "Reservation + Parking"
+                : "Table reservation";
+            return (
+              <div
+                key={stop.id}
+                className="flex items-center gap-3 rounded-2xl border-2 border-ink bg-card p-3"
+              >
+                <span className="grid h-10 w-10 place-items-center rounded-full border-2 border-ink bg-cream text-base shrink-0">
+                  {stop.emoji ?? defaultEmoji(kind)}
+                </span>
+                <div className="min-w-0 flex-1">
+                  <div className="font-display text-sm font-extrabold tracking-tight truncate">
+                    {stop.name}
+                  </div>
+                  <div className="text-[11px] text-ink/60 truncate">
+                    {stop.time} · {typeLabel}
+                  </div>
+                </div>
+                <button
+                  onClick={() => bookOne(stop.id)}
+                  disabled={s !== "idle"}
+                  className={`shrink-0 rounded-lg px-3 py-1.5 font-mono text-[10px] font-bold tracking-widest transition-all ${
+                    s === "booked"
+                      ? "bg-ink text-cream"
+                      : s === "booking"
+                      ? "bg-coral/20 text-coral animate-pulse"
+                      : "bg-coral text-cream hover:-translate-y-0.5"
+                  }`}
+                >
+                  {s === "booked" ? "✓ BOOKED" : s === "booking" ? "BOOKING…" : "BOOK"}
+                </button>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Footer */}
+        <div className="px-4 pb-5">
+          {allBooked ? (
+            <div className="rounded-2xl border-2 border-ink bg-coral/10 p-4 text-center">
+              <div className="text-2xl">🎊</div>
+              <div className="mt-1 font-display text-base font-extrabold tracking-tight">
+                Plan fully booked!
+              </div>
+              <div className="mt-0.5 text-[11px] text-ink/70">
+                +{reward} Confetti earned on completion
+              </div>
+            </div>
+          ) : (
+            <button
+              onClick={bookAll}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+            >
+              🎯 Book entire plan
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Wallet QR modal (preserved) ───────────────────────────────────────
 function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
   return (
     <div
@@ -259,11 +707,9 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
           Open your Android phone's camera and point it at this QR code. The pass will open in
           Google Wallet for you to save.
         </p>
-
         <div className="mt-4 grid place-items-center rounded-2xl border-2 border-ink bg-cream p-4">
           <QRCodeSVG value={url} size={208} bgColor="#FFF7EC" fgColor="#1B1B1B" level="M" includeMargin={false} />
         </div>
-
         <a
           href={url}
           target="_blank"
@@ -284,40 +730,5 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
         </button>
       </div>
     </div>
-  );
-}
-
-function Field({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">
-        {label}
-      </div>
-      <div className="mt-0.5 font-display text-base font-extrabold tracking-tight">{value}</div>
-    </div>
-  );
-}
-
-function StopRow({ stop }: { stop: LoopStop }) {
-  const inner = (
-    <div className="flex items-center justify-between gap-2 rounded-xl border border-ink/15 bg-card p-3 transition-pop group-hover:-translate-y-0.5 group-hover:border-ink/40 group-hover:shadow-pop">
-      <div className="min-w-0">
-        <div className="flex items-baseline justify-between gap-2">
-          <div className="font-display text-sm font-bold truncate">{stop.name}</div>
-          <span className="font-mono text-[10px] font-bold text-ink/60 shrink-0">{stop.time}</span>
-        </div>
-        <div className="text-xs text-muted-foreground">
-          {stop.type}
-          {stop.area ? ` · ${stop.area}` : ""}
-        </div>
-      </div>
-      {stop.venueId && <ChevronRight className="h-4 w-4 text-ink/40 shrink-0" />}
-    </div>
-  );
-  if (!stop.venueId) return inner;
-  return (
-    <Link to="/venue/$id" params={{ id: stop.venueId }} className="group block focus:outline-none">
-      {inner}
-    </Link>
   );
 }

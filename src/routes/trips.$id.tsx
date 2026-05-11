@@ -10,6 +10,7 @@ import { LiveElapsed } from "@/components/LiveElapsed";
 import { BoardingPass } from "@/components/BoardingPass";
 import { PromotedSlot } from "@/components/PromotedSlot";
 import { clearNotifications, formatUpdatedAt, loadNotifications, loadStatus, subscribeNotifications, subscribeStatus, type SentNotification, type TripStatus } from "@/lib/trip-status";
+import { GooglePhotos } from "@/components/GooglePhotos";
 
 export const Route = createFileRoute("/trips/$id")({
   component: TripDetail,

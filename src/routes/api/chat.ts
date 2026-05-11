@@ -95,7 +95,8 @@ export const Route = createFileRoute("/api/chat")({
           if (p.budget_max) ctx.push(`Budget per person: $${p.budget_min ?? 0}–$${p.budget_max}`);
           const t = p.taste_profile;
           if (t?.diet) ctx.push(`Diet: ${t.diet} (HARD CONSTRAINT)`);
-          if (t?.allergens?.length) ctx.push(`Allergens to avoid: ${t.allergens.join(", ")} (HARD CONSTRAINT)`);
+          if (t?.allergens?.length)
+            ctx.push(`Allergens to avoid: ${t.allergens.join(", ")} (HARD CONSTRAINT)`);
           if (t?.vibe?.length) ctx.push(`Preferred vibes: ${t.vibe.join(", ")}`);
           if (t?.drink) ctx.push(`Drink preference: ${t.drink}`);
           if (t?.dress) ctx.push(`Typical dress: ${t.dress}`);
@@ -105,11 +106,15 @@ export const Route = createFileRoute("/api/chat")({
 
         const recent = (body.recentBookings ?? []).filter((b) => b.venue_name).slice(0, 8);
         if (recent.length) {
-          const venues = Array.from(new Set(recent.map((r) => r.venue_name))).slice(0, 6).join(", ");
+          const venues = Array.from(new Set(recent.map((r) => r.venue_name)))
+            .slice(0, 6)
+            .join(", ");
           ctx.push(`Recently booked venues (avoid recommending these unless asked): ${venues}`);
         }
 
-        const system = ctx.length ? `${SYSTEM_PROMPT}\n\nUSER CONTEXT\n- ${ctx.join("\n- ")}` : SYSTEM_PROMPT;
+        const system = ctx.length
+          ? `${SYSTEM_PROMPT}\n\nUSER CONTEXT\n- ${ctx.join("\n- ")}`
+          : SYSTEM_PROMPT;
 
         const modelMessages: ModelMessage[] = body.messages.map((m) => ({
           role: m.role,

@@ -14,7 +14,12 @@ type Props = {
  * can ease scrollbar drag/click through requestAnimationFrame instead of the
  * browser's instant jump.
  */
-export function SmoothScrollRow({ children, className = "", ease = 0.18, wheelSpeed = 0.25 }: Props) {
+export function SmoothScrollRow({
+  children,
+  className = "",
+  ease = 0.18,
+  wheelSpeed = 0.25,
+}: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const targetRef = useRef(0);
@@ -25,7 +30,10 @@ export function SmoothScrollRow({ children, className = "", ease = 0.18, wheelSp
   // Animate scrollLeft toward targetRef.
   const tick = () => {
     const el = scrollRef.current;
-    if (!el) { rafRef.current = null; return; }
+    if (!el) {
+      rafRef.current = null;
+      return;
+    }
     const max = el.scrollWidth - el.clientWidth;
     targetRef.current = Math.max(0, Math.min(max, targetRef.current));
     const current = el.scrollLeft;
@@ -134,7 +142,11 @@ export function SmoothScrollRow({ children, className = "", ease = 0.18, wheelSp
   const onThumbPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
     const drag = dragRef.current;
     if (!drag || drag.pointerId !== e.pointerId) return;
-    try { (e.currentTarget as HTMLDivElement).releasePointerCapture(e.pointerId); } catch { /* noop */ }
+    try {
+      (e.currentTarget as HTMLDivElement).releasePointerCapture(e.pointerId);
+    } catch {
+      /* noop */
+    }
     dragRef.current = null;
   };
 

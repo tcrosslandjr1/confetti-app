@@ -39,20 +39,21 @@ export function Reveal({
           }
         });
       },
-      { threshold, rootMargin: "0px 0px -8% 0px" }
+      { threshold, rootMargin: "0px 0px -8% 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
   }, [threshold, once]);
 
-  const cls = [
-    "reveal",
-    variant === "scale" ? "reveal-scale" : "",
-    shown ? "in" : "",
-    className,
-  ].filter(Boolean).join(" ");
+  const cls = ["reveal", variant === "scale" ? "reveal-scale" : "", shown ? "in" : "", className]
+    .filter(Boolean)
+    .join(" ");
 
-  return <Tag ref={ref} className={cls} style={{ animationDelay: `${delay}ms` }}>{children}</Tag>;
+  return (
+    <Tag ref={ref} className={cls} style={{ animationDelay: `${delay}ms` }}>
+      {children}
+    </Tag>
+  );
 }
 
 export function RevealStagger({

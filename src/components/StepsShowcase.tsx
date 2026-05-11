@@ -55,7 +55,15 @@ export function StepsShowcase() {
         className="pointer-events-none absolute inset-x-0 top-[34%] hidden h-16 w-full lg:block"
       >
         <defs>
-          <marker id="ah1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <marker
+            id="ah1"
+            viewBox="0 0 10 10"
+            refX="8"
+            refY="5"
+            markerWidth="8"
+            markerHeight="8"
+            orient="auto-start-reverse"
+          >
             <path d="M0,0 L10,5 L0,10 z" fill="var(--ink)" />
           </marker>
         </defs>
@@ -80,8 +88,20 @@ export function StepsShowcase() {
           className="[stroke-dasharray:6_8]"
         />
         {/* squiggle scribbles for charm */}
-        <path d="M 470 8 q 6 -8 12 0 t 12 0" fill="none" stroke="var(--coral)" strokeWidth="2" strokeLinecap="round" />
-        <path d="M 850 50 q 6 -8 12 0 t 12 0" fill="none" stroke="var(--coral)" strokeWidth="2" strokeLinecap="round" />
+        <path
+          d="M 470 8 q 6 -8 12 0 t 12 0"
+          fill="none"
+          stroke="var(--coral)"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M 850 50 q 6 -8 12 0 t 12 0"
+          fill="none"
+          stroke="var(--coral)"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
       </svg>
 
       <div className="grid gap-6 lg:grid-cols-3">
@@ -102,9 +122,13 @@ export function StepsShowcase() {
                 >
                   <div className="flex items-baseline justify-between">
                     <span className="font-display text-7xl font-extrabold leading-none">{s.n}</span>
-                    <span className="font-mono text-[11px] uppercase tracking-widest">{s.kicker}</span>
+                    <span className="font-mono text-[11px] uppercase tracking-widest">
+                      {s.kicker}
+                    </span>
                   </div>
-                  <h3 className="mt-8 font-display text-2xl font-extrabold leading-tight">{s.title}</h3>
+                  <h3 className="mt-8 font-display text-2xl font-extrabold leading-tight">
+                    {s.title}
+                  </h3>
                   <p className="mt-3 text-base leading-snug">{s.body}</p>
 
                   {/* mini animated preview */}
@@ -149,7 +173,9 @@ function PreviewVibe({ active }: { active: boolean }) {
           <span
             key={c}
             style={{
-              animation: active ? `chip-in 0.45s cubic-bezier(.34,1.56,.64,1) ${i * 0.12}s both` : undefined,
+              animation: active
+                ? `chip-in 0.45s cubic-bezier(.34,1.56,.64,1) ${i * 0.12}s both`
+                : undefined,
             }}
             className="rounded-full border-2 border-ink bg-background px-2.5 py-1 text-[11px] font-bold"
           >
@@ -180,10 +206,23 @@ function PreviewRoute({ active }: { active: boolean }) {
       </div>
       <div className="relative mt-3">
         <svg viewBox="0 0 220 12" className="h-3 w-full">
-          <line x1="6" y1="6" x2="214" y2="6" stroke="var(--ink)" strokeWidth="2" strokeDasharray="3 4" />
           <line
-            x1="6" y1="6" x2="214" y2="6"
-            stroke="var(--coral)" strokeWidth="3" strokeLinecap="round"
+            x1="6"
+            y1="6"
+            x2="214"
+            y2="6"
+            stroke="var(--ink)"
+            strokeWidth="2"
+            strokeDasharray="3 4"
+          />
+          <line
+            x1="6"
+            y1="6"
+            x2="214"
+            y2="6"
+            stroke="var(--coral)"
+            strokeWidth="3"
+            strokeLinecap="round"
             style={{
               strokeDasharray: 220,
               strokeDashoffset: active ? 0 : 220,
@@ -196,7 +235,9 @@ function PreviewRoute({ active }: { active: boolean }) {
             <div
               key={s.t}
               style={{
-                animation: active ? `pop-in 0.4s cubic-bezier(.34,1.56,.64,1) ${0.3 + i * 0.25}s both` : undefined,
+                animation: active
+                  ? `pop-in 0.4s cubic-bezier(.34,1.56,.64,1) ${0.3 + i * 0.25}s both`
+                  : undefined,
               }}
               className="rounded-lg border-2 border-ink bg-background p-2"
             >

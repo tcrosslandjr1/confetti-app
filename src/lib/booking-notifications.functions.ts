@@ -25,9 +25,7 @@ function opsInboxAddress(): string {
 }
 
 export const resolveVenueNotificationEmail = createServerFn({ method: "GET" })
-  .inputValidator((data) =>
-    z.object({ venueId: z.string().uuid().nullish() }).parse(data),
-  )
+  .inputValidator((data) => z.object({ venueId: z.string().uuid().nullish() }).parse(data))
   .handler(async ({ data }) => {
     const opsInbox = opsInboxAddress();
     const opsResult = {

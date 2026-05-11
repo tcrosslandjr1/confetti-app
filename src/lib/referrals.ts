@@ -26,8 +26,7 @@ export function clearPendingReferralCode() {
 }
 
 export function buildReferralLink(code: string): string {
-  const origin =
-    typeof window !== "undefined" ? window.location.origin : "https://concierge.app";
+  const origin = typeof window !== "undefined" ? window.location.origin : "https://concierge.app";
   return `${origin}/?ref=${encodeURIComponent(code)}`;
 }
 
@@ -65,10 +64,7 @@ export async function getMyReferralStats(): Promise<MyReferralStats> {
   ]);
 
   const list = refs.data ?? [];
-  const earned = (rewards.data ?? []).reduce(
-    (sum, r) => sum + (r.amount_cents ?? 0),
-    0,
-  );
+  const earned = (rewards.data ?? []).reduce((sum, r) => sum + (r.amount_cents ?? 0), 0);
   return {
     invited: list.length,
     signedUp: list.filter((r) => r.status === "signed_up" || r.status === "completed").length,

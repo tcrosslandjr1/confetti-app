@@ -1,7 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { CalendarCheck, CheckCircle2, Search, XCircle, Clock, Filter, Wine, Armchair, Eye, Mail, Loader2 } from "lucide-react";
+import {
+  CalendarCheck,
+  CheckCircle2,
+  Search,
+  XCircle,
+  Clock,
+  Filter,
+  Wine,
+  Armchair,
+  Eye,
+  Mail,
+  Loader2,
+} from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -120,10 +132,25 @@ const STATUS_TABS: { key: "all" | Status; label: string }[] = [
 
 function StatusBadge({ status }: { status: string }) {
   if (status === "confirmed")
-    return <Badge className="bg-emerald-500/15 text-emerald-700 hover:bg-emerald-500/20"><CheckCircle2 className="mr-1 h-3 w-3" />Confirmed</Badge>;
+    return (
+      <Badge className="bg-emerald-500/15 text-emerald-700 hover:bg-emerald-500/20">
+        <CheckCircle2 className="mr-1 h-3 w-3" />
+        Confirmed
+      </Badge>
+    );
   if (status === "cancelled")
-    return <Badge className="bg-destructive/15 text-destructive hover:bg-destructive/20"><XCircle className="mr-1 h-3 w-3" />Cancelled</Badge>;
-  return <Badge className="bg-gold/20 text-foreground hover:bg-gold/30"><Clock className="mr-1 h-3 w-3" />Pending</Badge>;
+    return (
+      <Badge className="bg-destructive/15 text-destructive hover:bg-destructive/20">
+        <XCircle className="mr-1 h-3 w-3" />
+        Cancelled
+      </Badge>
+    );
+  return (
+    <Badge className="bg-gold/20 text-foreground hover:bg-gold/30">
+      <Clock className="mr-1 h-3 w-3" />
+      Pending
+    </Badge>
+  );
 }
 
 function AdminBookingsPage() {
@@ -164,21 +191,28 @@ function AdminBookingsPage() {
     setLoading(true);
     const { data, error } = await supabase
       .from("bookings")
-      .select("id,user_id,venue_id,venue_name,starts_at,party_size,status,cancelled_at,notes,pre_order_drinks,seating_preference")
+      .select(
+        "id,user_id,venue_id,venue_name,starts_at,party_size,status,cancelled_at,notes,pre_order_drinks,seating_preference",
+      )
       .order("starts_at", { ascending: false });
     if (error) toast.error(error.message);
     const rows = (data ?? []) as Omit<Booking, "profiles">[];
     const userIds = Array.from(new Set(rows.map((r) => r.user_id)));
     let profileMap = new Map<string, { display_name: string | null }>();
     if (userIds.length) {
-      const { data: profs } = await supabase.from("profiles").select("id,display_name").in("id", userIds);
+      const { data: profs } = await supabase
+        .from("profiles")
+        .select("id,display_name")
+        .in("id", userIds);
       profileMap = new Map((profs ?? []).map((p) => [p.id, { display_name: p.display_name }]));
     }
     setBookings(rows.map((r) => ({ ...r, profiles: profileMap.get(r.user_id) ?? null })));
     setLoading(false);
   };
 
-  useEffect(() => { load(); }, []);
+  useEffect(() => {
+    load();
+  }, []);
 
   const venues = useMemo(() => Array.from(new Set(bookings.map((b) => b.venue_name))), [bookings]);
 
@@ -215,12 +249,15 @@ function AdminBookingsPage() {
     <div className="space-y-6">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Operations</p>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            Operations
+          </p>
           <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
             <CalendarCheck className="h-7 w-7" /> Bookings
           </h1>
           <p className="text-sm text-muted-foreground inline-flex items-center gap-1.5">
-            <Eye className="h-3.5 w-3.5" /> Monitor only — venues receive notifications and manage their own bookings.
+            <Eye className="h-3.5 w-3.5" /> Monitor only — venues receive notifications and manage
+            their own bookings.
           </p>
         </div>
       </header>
@@ -239,7 +276,9 @@ function AdminBookingsPage() {
               }`}
             >
               {t.label}
-              <span className={`rounded-full px-1.5 text-[10px] ${active ? "bg-background/20" : "bg-muted"}`}>
+              <span
+                className={`rounded-full px-1.5 text-[10px] ${active ? "bg-background/20" : "bg-muted"}`}
+              >
                 {counts[t.key]}
               </span>
             </button>
@@ -266,7 +305,9 @@ function AdminBookingsPage() {
           >
             <option value="all">All venues</option>
             {venues.map((v) => (
-              <option key={v} value={v}>{v}</option>
+              <option key={v} value={v}>
+                {v}
+              </option>
             ))}
           </select>
         </div>
@@ -288,7 +329,11 @@ function AdminBookingsPage() {
           </TableHeader>
           <TableBody>
             {loading ? (
-              <TableRow><TableCell colSpan={8} className="py-12 text-center text-sm text-muted-foreground">Loading…</TableCell></TableRow>
+              <TableRow>
+                <TableCell colSpan={8} className="py-12 text-center text-sm text-muted-foreground">
+                  Loading…
+                </TableCell>
+              </TableRow>
             ) : filtered.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={8} className="py-12 text-center text-sm text-muted-foreground">
@@ -304,15 +349,21 @@ function AdminBookingsPage() {
                     <TableCell className="font-mono text-xs">{b.id.slice(0, 8)}</TableCell>
                     <TableCell>
                       <div className="font-semibold">{b.profiles?.display_name ?? "Guest"}</div>
-                      <div className="text-xs text-muted-foreground font-mono">{b.user_id.slice(0, 8)}</div>
+                      <div className="text-xs text-muted-foreground font-mono">
+                        {b.user_id.slice(0, 8)}
+                      </div>
                     </TableCell>
                     <TableCell>
                       <div className="font-semibold">{b.venue_name}</div>
-                      {b.notes && <div className="text-xs text-muted-foreground line-clamp-1">{b.notes}</div>}
+                      {b.notes && (
+                        <div className="text-xs text-muted-foreground line-clamp-1">{b.notes}</div>
+                      )}
                     </TableCell>
                     <TableCell className="text-sm">
                       {dt.toLocaleDateString()}
-                      <div className="text-xs text-muted-foreground">{dt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {dt.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}
+                      </div>
                     </TableCell>
                     <TableCell>{b.party_size}</TableCell>
                     <TableCell className="max-w-[260px]">
@@ -326,7 +377,13 @@ function AdminBookingsPage() {
                             {drinks.length > 0 && (
                               <div className="flex items-start gap-1">
                                 <Wine className="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground" />
-                                <span>{drinks.map((d) => `${d.qty}× ${d.name}${d.notes ? ` (${d.notes})` : ""}`).join(", ")}</span>
+                                <span>
+                                  {drinks
+                                    .map(
+                                      (d) => `${d.qty}× ${d.name}${d.notes ? ` (${d.notes})` : ""}`,
+                                    )
+                                    .join(", ")}
+                                </span>
                               </div>
                             )}
                             {b.seating_preference && (
@@ -346,7 +403,9 @@ function AdminBookingsPage() {
                         resolve={resolveRouting}
                       />
                     </TableCell>
-                    <TableCell><StatusBadge status={status} /></TableCell>
+                    <TableCell>
+                      <StatusBadge status={status} />
+                    </TableCell>
                   </TableRow>
                 );
               })

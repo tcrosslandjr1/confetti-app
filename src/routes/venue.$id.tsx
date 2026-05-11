@@ -107,8 +107,13 @@ function VenuePage() {
       <div className="min-h-screen bg-background pb-32 grid place-items-center px-4">
         <div className="text-center space-y-3">
           <h1 className="font-display text-xl font-bold">Venue not found</h1>
-          <p className="text-sm text-muted-foreground">We couldn't find a venue for id <code>{id}</code>.</p>
-          <Link to="/portal/viral" className="inline-flex items-center gap-1 text-primary font-semibold text-sm hover:underline">
+          <p className="text-sm text-muted-foreground">
+            We couldn't find a venue for id <code>{id}</code>.
+          </p>
+          <Link
+            to="/portal/viral"
+            className="inline-flex items-center gap-1 text-primary font-semibold text-sm hover:underline"
+          >
             <ArrowLeft className="h-3 w-3" /> Browse trending spots
           </Link>
         </div>
@@ -138,7 +143,9 @@ function VenuePage() {
         <div className="rounded-3xl border-2 border-ink bg-card p-5 shadow-brut">
           <div className="flex items-baseline justify-between gap-2">
             <h1 className="font-display text-2xl font-extrabold tracking-tight">{venue.name}</h1>
-            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">#{id.slice(0, 6)}</span>
+            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+              #{id.slice(0, 6)}
+            </span>
           </div>
           <div className="text-sm text-muted-foreground">
             {venue.category ?? "Venue"}
@@ -151,7 +158,9 @@ function VenuePage() {
               </span>
             )}
             {venue.price_level != null && (
-              <span className="text-muted-foreground">{"$".repeat(Math.max(1, venue.price_level))}</span>
+              <span className="text-muted-foreground">
+                {"$".repeat(Math.max(1, venue.price_level))}
+              </span>
             )}
             {venue.address && (
               <span className="inline-flex items-center gap-1 text-muted-foreground">
@@ -162,7 +171,10 @@ function VenuePage() {
           {venue.tags.length > 0 && (
             <div className="mt-3 flex flex-wrap gap-1.5">
               {venue.tags.slice(0, 6).map((t) => (
-                <span key={t} className="rounded-full border-2 border-ink bg-gold/30 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest">
+                <span
+                  key={t}
+                  className="rounded-full border-2 border-ink bg-gold/30 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest"
+                >
                   {t.replace(/_/g, " ")}
                 </span>
               ))}
@@ -182,7 +194,11 @@ function VenuePage() {
         <div className="mt-4 grid gap-2">
           <InfoRow icon={Clock} label="Hours" value="Tue–Sun · 5pm – 1am" />
           <InfoRow icon={Phone} label="Phone" value="—" />
-          <InfoRow icon={MapPin} label="Address" value={venue.address ?? venue.neighborhood ?? "Address coming soon"} />
+          <InfoRow
+            icon={MapPin}
+            label="Address"
+            value={venue.address ?? venue.neighborhood ?? "Address coming soon"}
+          />
         </div>
 
         <div className="mt-5 grid grid-cols-2 gap-2">
@@ -201,10 +217,17 @@ function VenuePage() {
         </div>
 
         <div className="mt-6">
-          <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 mb-2">Photos</div>
+          <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 mb-2">
+            Photos
+          </div>
           <div className="grid grid-cols-2 gap-2">
             {photos.map((p, i) => (
-              <img key={i} src={p} alt="" className="aspect-square w-full rounded-2xl border-2 border-ink object-cover" />
+              <img
+                key={i}
+                src={p}
+                alt=""
+                className="aspect-square w-full rounded-2xl border-2 border-ink object-cover"
+              />
             ))}
           </div>
         </div>
@@ -213,12 +236,24 @@ function VenuePage() {
   );
 }
 
-function InfoRow({ icon: Icon, label, value }: { icon: typeof Clock; label: string; value: string }) {
+function InfoRow({
+  icon: Icon,
+  label,
+  value,
+}: {
+  icon: typeof Clock;
+  label: string;
+  value: string;
+}) {
   return (
     <div className="flex items-center gap-3 rounded-xl border border-border bg-card p-3">
-      <span className="grid h-9 w-9 place-items-center rounded-full bg-muted"><Icon className="h-4 w-4" /></span>
+      <span className="grid h-9 w-9 place-items-center rounded-full bg-muted">
+        <Icon className="h-4 w-4" />
+      </span>
       <div>
-        <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">{label}</div>
+        <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">
+          {label}
+        </div>
         <div className="text-sm font-semibold">{value}</div>
       </div>
     </div>

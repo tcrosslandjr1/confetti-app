@@ -8,9 +8,16 @@ export const Route = createFileRoute("/viral")({
   head: () => ({
     meta: [
       { title: "Viral Now — Trending Spots | Loop" },
-      { name: "description", content: "Where everyone's going right now — viral restaurants, hidden gems, and Instagrammable spots trending across TikTok, Instagram, and the press." },
+      {
+        name: "description",
+        content:
+          "Where everyone's going right now — viral restaurants, hidden gems, and Instagrammable spots trending across TikTok, Instagram, and the press.",
+      },
       { property: "og:title", content: "Viral Now — Trending Spots" },
-      { property: "og:description", content: "Trending venues from TikTok, Instagram, and creators — refreshed daily." },
+      {
+        property: "og:description",
+        content: "Trending venues from TikTok, Instagram, and creators — refreshed daily.",
+      },
     ],
   }),
   component: ViralPage,
@@ -47,13 +54,17 @@ function ViralPage() {
       const orderCol = sortBy === "score" ? "trend_score" : "last_mentioned_at";
       const { data } = await supabase
         .from("viral_venues")
-        .select("id,city,venue_name,neighborhood,address,photo_url,rating,trend_score,tags,summary,google_place_id,source_urls,last_mentioned_at")
+        .select(
+          "id,city,venue_name,neighborhood,address,photo_url,rating,trend_score,tags,summary,google_place_id,source_urls,last_mentioned_at",
+        )
         .eq("city", city)
         .order(orderCol, { ascending: false })
         .limit(60);
       if (!cancelled) setRows((data as Row[]) ?? []);
     })();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [city, sortBy]);
 
   const filtered = useMemo(() => {
@@ -67,17 +78,23 @@ function ViralPage() {
 
   return (
     <div className="mx-auto max-w-6xl space-y-6 px-4 py-8">
-      <Link to="/portal" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground">
+      <Link
+        to="/portal"
+        className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+      >
         <ArrowLeft className="h-3 w-3" /> Back to portal
       </Link>
 
       <header className="space-y-2">
-        <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">What's hot</p>
+        <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+          What's hot
+        </p>
         <h1 className="font-display text-4xl font-bold leading-tight flex items-center gap-2">
           <Flame className="h-7 w-7 text-rose-500" /> Viral Now
         </h1>
         <p className="max-w-2xl text-sm text-muted-foreground">
-          Trending venues surfaced from TikTok, Instagram, creators, and the press — verified against Google and refreshed daily.
+          Trending venues surfaced from TikTok, Instagram, creators, and the press — verified
+          against Google and refreshed daily.
         </p>
       </header>
 
@@ -87,19 +104,27 @@ function ViralPage() {
           onChange={(e) => setCity(e.target.value)}
           className="rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold"
         >
-          {CITIES.map((c) => <option key={c} value={c}>{c}</option>)}
+          {CITIES.map((c) => (
+            <option key={c} value={c}>
+              {c}
+            </option>
+          ))}
         </select>
         <div className="flex gap-1 rounded-xl border border-border bg-background p-1 text-xs">
           <button
             type="button"
             onClick={() => setSortBy("score")}
             className={`rounded-lg px-3 py-1.5 font-semibold ${sortBy === "score" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}
-          >Top trending</button>
+          >
+            Top trending
+          </button>
           <button
             type="button"
             onClick={() => setSortBy("recent")}
             className={`rounded-lg px-3 py-1.5 font-semibold ${sortBy === "recent" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}
-          >Most recent</button>
+          >
+            Most recent
+          </button>
         </div>
       </div>
 
@@ -123,13 +148,17 @@ function ViralPage() {
             type="button"
             onClick={() => setActiveTags([])}
             className="rounded-full border border-border px-2.5 py-1 text-[11px] font-semibold text-muted-foreground hover:text-foreground"
-          >Clear</button>
+          >
+            Clear
+          </button>
         )}
       </div>
 
       {filtered === null && (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {[...Array(6)].map((_, i) => <div key={i} className="h-72 animate-pulse rounded-2xl bg-muted" />)}
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="h-72 animate-pulse rounded-2xl bg-muted" />
+          ))}
         </div>
       )}
 
@@ -138,14 +167,18 @@ function ViralPage() {
           <Flame className="mx-auto h-8 w-8 text-muted-foreground" />
           <p className="mt-3 font-display text-lg font-bold">Nothing trending here yet</p>
           <p className="text-sm text-muted-foreground">
-            {activeTags.length ? `No ${activeTags.map(tagLabel).join(" · ")} spots in ${city}. Try clearing filters.` : `We haven't discovered ${city} venues yet — admins can refresh from /admin/integrations.`}
+            {activeTags.length
+              ? `No ${activeTags.map(tagLabel).join(" · ")} spots in ${city}. Try clearing filters.`
+              : `We haven't discovered ${city} venues yet — admins can refresh from /admin/integrations.`}
           </p>
         </div>
       )}
 
       {filtered && filtered.length > 0 && (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((v) => <ViralBigCard key={v.id} v={v} />)}
+          {filtered.map((v) => (
+            <ViralBigCard key={v.id} v={v} />
+          ))}
         </div>
       )}
     </div>
@@ -161,10 +194,19 @@ function ViralBigCard({ v }: { v: Row }) {
     <article className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
       <div className="relative aspect-[5/3] w-full overflow-hidden bg-muted">
         {v.photo_url ? (
-          <img src={v.photo_url} alt={v.venue_name} loading="lazy" className="h-full w-full object-cover" />
-        ) : <div className="grid h-full place-items-center text-4xl">🍽️</div>}
+          <img
+            src={v.photo_url}
+            alt={v.venue_name}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <div className="grid h-full place-items-center text-4xl">🍽️</div>
+        )}
         <div className="absolute left-2 top-2 flex items-center gap-1 rounded-full bg-background/85 px-2 py-1 text-[10px] font-bold backdrop-blur">
-          {[...Array(heat)].map((_, i) => <Flame key={i} className="h-3 w-3 text-rose-500" />)}
+          {[...Array(heat)].map((_, i) => (
+            <Flame key={i} className="h-3 w-3 text-rose-500" />
+          ))}
           <span className="ml-1 text-foreground">{v.trend_score.toFixed(2)}</span>
         </div>
       </div>
@@ -173,7 +215,8 @@ function ViralBigCard({ v }: { v: Row }) {
           <h3 className="font-display text-lg font-bold leading-tight">{v.venue_name}</h3>
           {typeof v.rating === "number" && (
             <span className="flex shrink-0 items-center gap-1 text-xs font-semibold text-amber-600">
-              <Star className="h-3 w-3 fill-amber-500 text-amber-500" />{v.rating.toFixed(1)}
+              <Star className="h-3 w-3 fill-amber-500 text-amber-500" />
+              {v.rating.toFixed(1)}
             </span>
           )}
         </div>
@@ -184,13 +227,22 @@ function ViralBigCard({ v }: { v: Row }) {
         )}
         {v.summary && <p className="text-sm text-muted-foreground line-clamp-3">{v.summary}</p>}
         <div className="flex flex-wrap gap-1">
-          {(v.tags ?? []).map((t) => <ViralTagChip key={t} tag={t} />)}
+          {(v.tags ?? []).map((t) => (
+            <ViralTagChip key={t} tag={t} />
+          ))}
         </div>
         <div className="flex items-center justify-between pt-1">
-          <a href={mapHref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline">
+          <a
+            href={mapHref}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+          >
             Open in Maps <ExternalLink className="h-3 w-3" />
           </a>
-          <span className="text-[10px] text-muted-foreground">{v.source_urls?.length ?? 0} mentions</span>
+          <span className="text-[10px] text-muted-foreground">
+            {v.source_urls?.length ?? 0} mentions
+          </span>
         </div>
       </div>
     </article>

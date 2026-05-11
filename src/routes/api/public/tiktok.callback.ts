@@ -1,4 +1,4 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { createClient } from "@supabase/supabase-js";
 import { getRequestHost } from "@tanstack/react-start/server";
 
@@ -74,23 +74,20 @@ export const Route = createFileRoute("/api/public/tiktok/callback")({
         const redirectUri = `${proto}://${host}/api/public/tiktok/callback`;
 
         // 2) Exchange code for token
-        const tokenRes = await fetch(
-          "https://open.tiktokapis.com/v2/oauth/token/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-              "Cache-Control": "no-cache",
-            },
-            body: new URLSearchParams({
-              client_key: clientKey,
-              client_secret: clientSecret,
-              code,
-              grant_type: "authorization_code",
-              redirect_uri: redirectUri,
-            }),
+        const tokenRes = await fetch("https://open.tiktokapis.com/v2/oauth/token/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Cache-Control": "no-cache",
           },
-        );
+          body: new URLSearchParams({
+            client_key: clientKey,
+            client_secret: clientSecret,
+            code,
+            grant_type: "authorization_code",
+            redirect_uri: redirectUri,
+          }),
+        });
 
         if (!tokenRes.ok) {
           const text = await tokenRes.text();
@@ -161,25 +158,23 @@ export const Route = createFileRoute("/api/public/tiktok/callback")({
           : null;
 
         // 4) Upsert linked_social_accounts
-        const { error: upsertErr } = await admin
-          .from("linked_social_accounts")
-          .upsert(
-            {
-              user_id: stateRow.user_id,
-              provider: "tiktok",
-              provider_user_id: openId,
-              username,
-              display_name: displayName,
-              avatar_url: avatarUrl,
-              scope: tokenJson.scope ?? null,
-              access_token: tokenJson.access_token,
-              refresh_token: tokenJson.refresh_token ?? null,
-              expires_at: expiresAt,
-              raw: rawProfile as Record<string, unknown> | null,
-              updated_at: new Date().toISOString(),
-            },
-            { onConflict: "user_id,provider" },
-          );
+        const { error: upsertErr } = await admin.from("linked_social_accounts").upsert(
+          {
+            user_id: stateRow.user_id,
+            provider: "tiktok",
+            provider_user_id: openId,
+            username,
+            display_name: displayName,
+            avatar_url: avatarUrl,
+            scope: tokenJson.scope ?? null,
+            access_token: tokenJson.access_token,
+            refresh_token: tokenJson.refresh_token ?? null,
+            expires_at: expiresAt,
+            raw: rawProfile as Record<string, unknown> | null,
+            updated_at: new Date().toISOString(),
+          },
+          { onConflict: "user_id,provider" },
+        );
 
         if (upsertErr) {
           console.error("Linked account upsert failed", upsertErr);

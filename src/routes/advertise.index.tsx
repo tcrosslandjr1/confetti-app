@@ -2,7 +2,15 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { createAdvertiser, getMyAdvertiser, PACKAGES, type PackageTier } from "@/lib/ads";
-import { Sparkles, CheckCircle2, ArrowRight, Megaphone, Target, BarChart3, Loader2 } from "lucide-react";
+import {
+  Sparkles,
+  CheckCircle2,
+  ArrowRight,
+  Megaphone,
+  Target,
+  BarChart3,
+  Loader2,
+} from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/advertise/")({
@@ -17,10 +25,17 @@ function AdvertiseLanding() {
   const [hasAccount, setHasAccount] = useState<boolean | null>(null);
 
   useEffect(() => {
-    if (!user) { setHasAccount(false); return; }
+    if (!user) {
+      setHasAccount(false);
+      return;
+    }
     let cancelled = false;
-    getMyAdvertiser(user.id).then((a) => { if (!cancelled) setHasAccount(!!a); });
-    return () => { cancelled = true; };
+    getMyAdvertiser(user.id).then((a) => {
+      if (!cancelled) setHasAccount(!!a);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [user]);
 
   const [form, setForm] = useState({
@@ -40,7 +55,9 @@ function AdvertiseLanding() {
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!user) {
-      toast("Create a free account to continue", { description: "We'll bring you right back to the form." });
+      toast("Create a free account to continue", {
+        description: "We'll bring you right back to the form.",
+      });
       nav({ to: "/auth" });
       return;
     }
@@ -77,16 +94,22 @@ function AdvertiseLanding() {
             Be the plan, <span className="text-gradient">not an afterthought.</span>
           </h1>
           <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-            Loop is where people decide what to do tonight. Get your venue in front of
-            planners the moment they're choosing — with promoted rails, itinerary boosts, and
-            home-page spotlight slots.
+            Loop is where people decide what to do tonight. Get your venue in front of planners the
+            moment they're choosing — with promoted rails, itinerary boosts, and home-page spotlight
+            slots.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="#packages" className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-bold text-background hover:opacity-90">
+            <a
+              href="#packages"
+              className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-bold text-background hover:opacity-90"
+            >
               See packages <ArrowRight className="h-4 w-4" />
             </a>
             {hasAccount && (
-              <Link to="/advertise/portal" className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-bold hover:bg-muted">
+              <Link
+                to="/advertise/portal"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-bold hover:bg-muted"
+              >
                 Go to advertiser portal
               </Link>
             )}
@@ -100,7 +123,10 @@ function AdvertiseLanding() {
           </div>
           <ul className="mt-5 space-y-3 text-sm">
             <Bullet icon={Target} text="Reach users at decision time, not just discovery." />
-            <Bullet icon={Sparkles} text="The AI planner can suggest your venue inside live itineraries." />
+            <Bullet
+              icon={Sparkles}
+              text="The AI planner can suggest your venue inside live itineraries."
+            />
             <Bullet icon={BarChart3} text="Real impressions and clicks, not vanity metrics." />
           </ul>
         </div>
@@ -109,7 +135,9 @@ function AdvertiseLanding() {
       {/* Packages */}
       <section id="packages" className="mt-20">
         <h2 className="font-display text-3xl font-bold">Pick a package</h2>
-        <p className="mt-1 text-sm text-muted-foreground">Capture intent now — billing handled by our team. No card required.</p>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Capture intent now — billing handled by our team. No card required.
+        </p>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {(Object.keys(PACKAGES) as PackageTier[]).map((k) => {
             const p = PACKAGES[k];
@@ -119,7 +147,9 @@ function AdvertiseLanding() {
                 key={k}
                 onClick={() => setTier(k)}
                 className={`group rounded-3xl border-2 p-6 text-left transition ${
-                  active ? "border-primary bg-card shadow-pop" : "border-border bg-card hover:border-foreground/40"
+                  active
+                    ? "border-primary bg-card shadow-pop"
+                    : "border-border bg-card hover:border-foreground/40"
                 }`}
                 aria-pressed={active}
               >
@@ -148,12 +178,16 @@ function AdvertiseLanding() {
       </section>
 
       {/* Signup */}
-      <section id="signup" className="mt-16 rounded-3xl border border-border bg-card p-6 shadow-card sm:p-10">
+      <section
+        id="signup"
+        className="mt-16 rounded-3xl border border-border bg-card p-6 shadow-card sm:p-10"
+      >
         <div className="grid gap-8 lg:grid-cols-[1fr_1.3fr]">
           <div>
             <h2 className="font-display text-3xl font-bold">Tell us about your business</h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              We'll set you up with the <strong>{PACKAGES[tier].label}</strong> package and reach out within 1 business day.
+              We'll set you up with the <strong>{PACKAGES[tier].label}</strong> package and reach
+              out within 1 business day.
             </p>
             <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
               <li>✓ Verification keeps Loop recommendations trustworthy.</li>
@@ -164,21 +198,57 @@ function AdvertiseLanding() {
           {hasAccount ? (
             <div className="grid place-items-center rounded-2xl border border-dashed border-border bg-muted/30 p-8 text-center">
               <p className="font-display text-xl font-bold">You're already an advertiser ✨</p>
-              <p className="mt-1 text-sm text-muted-foreground">Manage campaigns and stats in your portal.</p>
-              <Link to="/advertise/portal" className="mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground">
+              <p className="mt-1 text-sm text-muted-foreground">
+                Manage campaigns and stats in your portal.
+              </p>
+              <Link
+                to="/advertise/portal"
+                className="mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
+              >
                 Open portal <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           ) : (
             <form onSubmit={submit} className="grid gap-3 sm:grid-cols-2">
-              <Field label="Business name *" value={form.business_name} onChange={(v) => setForm({ ...form, business_name: v })} required />
-              <Field label="Contact email *" type="email" value={form.contact_email} onChange={(v) => setForm({ ...form, contact_email: v })} required />
-              <Field label="Website" value={form.website} onChange={(v) => setForm({ ...form, website: v })} placeholder="https://" />
-              <Field label="Phone" value={form.contact_phone} onChange={(v) => setForm({ ...form, contact_phone: v })} />
-              <Field label="Category" value={form.category} onChange={(v) => setForm({ ...form, category: v })} placeholder="Cocktail bar, restaurant, …" />
-              <Field label="City" value={form.city} onChange={(v) => setForm({ ...form, city: v })} />
+              <Field
+                label="Business name *"
+                value={form.business_name}
+                onChange={(v) => setForm({ ...form, business_name: v })}
+                required
+              />
+              <Field
+                label="Contact email *"
+                type="email"
+                value={form.contact_email}
+                onChange={(v) => setForm({ ...form, contact_email: v })}
+                required
+              />
+              <Field
+                label="Website"
+                value={form.website}
+                onChange={(v) => setForm({ ...form, website: v })}
+                placeholder="https://"
+              />
+              <Field
+                label="Phone"
+                value={form.contact_phone}
+                onChange={(v) => setForm({ ...form, contact_phone: v })}
+              />
+              <Field
+                label="Category"
+                value={form.category}
+                onChange={(v) => setForm({ ...form, category: v })}
+                placeholder="Cocktail bar, restaurant, …"
+              />
+              <Field
+                label="City"
+                value={form.city}
+                onChange={(v) => setForm({ ...form, city: v })}
+              />
               <div className="sm:col-span-2">
-                <label className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground">Anything else?</label>
+                <label className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground">
+                  Anything else?
+                </label>
                 <textarea
                   value={form.notes}
                   onChange={(e) => setForm({ ...form, notes: e.target.value })}
@@ -197,7 +267,9 @@ function AdvertiseLanding() {
               </button>
               <p className="sm:col-span-2 text-center text-xs text-muted-foreground">
                 Already advertise with us?{" "}
-                <Link to="/advertise/portal" className="underline">Open your portal</Link>
+                <Link to="/advertise/portal" className="underline">
+                  Open your portal
+                </Link>
               </p>
             </form>
           )}
@@ -211,7 +283,9 @@ function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-2xl bg-muted/40 p-3">
       <div className="font-display text-2xl font-bold">{value}</div>
-      <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">{label}</div>
+      <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+        {label}
+      </div>
     </div>
   );
 }
@@ -225,12 +299,26 @@ function Bullet({ icon: Icon, text }: { icon: typeof Target; text: string }) {
   );
 }
 
-function Field({ label, value, onChange, type = "text", required, placeholder }: {
-  label: string; value: string; onChange: (v: string) => void; type?: string; required?: boolean; placeholder?: string;
+function Field({
+  label,
+  value,
+  onChange,
+  type = "text",
+  required,
+  placeholder,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  type?: string;
+  required?: boolean;
+  placeholder?: string;
 }) {
   return (
     <label className="block">
-      <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground">{label}</span>
+      <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground">
+        {label}
+      </span>
       <input
         type={type}
         value={value}

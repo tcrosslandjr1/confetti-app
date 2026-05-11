@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
  */
 export function useViewportImpression<T extends Element>(
   onEnter: () => void,
-  options?: { rootMargin?: string; threshold?: number }
+  options?: { rootMargin?: string; threshold?: number },
 ) {
   const ref = useRef<T | null>(null);
   const cbRef = useRef(onEnter);
@@ -34,7 +34,7 @@ export function useViewportImpression<T extends Element>(
       {
         threshold: options?.threshold ?? 0.5,
         rootMargin: options?.rootMargin ?? "0px",
-      }
+      },
     );
     obs.observe(el);
     return () => obs.disconnect();

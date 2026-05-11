@@ -36,7 +36,11 @@ export const Route = createFileRoute("/portal/refer")({
   head: () => ({
     meta: [
       { title: "Refer friends — Concierge" },
-      { name: "description", content: "Share Concierge. Friends get $25 off their first booking, you get a $25 gift card." },
+      {
+        name: "description",
+        content:
+          "Share Concierge. Friends get $25 off their first booking, you get a $25 gift card.",
+      },
     ],
   }),
   component: ReferPage,
@@ -105,7 +109,11 @@ function ReferPage() {
     try {
       const list = emailsRaw.split(/[\s,;]+/).filter(Boolean);
       const n = await inviteByEmail(list);
-      setSentMsg(n > 0 ? `Opened your mail client for ${n} invite${n > 1 ? "s" : ""}.` : "No valid emails found.");
+      setSentMsg(
+        n > 0
+          ? `Opened your mail client for ${n} invite${n > 1 ? "s" : ""}.`
+          : "No valid emails found.",
+      );
       setEmailsRaw("");
       await refresh();
     } catch (err: any) {
@@ -136,7 +144,11 @@ function ReferPage() {
           <div className="mt-6 grid grid-cols-3 gap-3 sm:max-w-md">
             <Stat icon={Users} label="Invited" value={stats?.invited ?? 0} />
             <Stat icon={Ticket} label="Joined" value={stats?.signedUp ?? 0} />
-            <Stat icon={Gift} label="Earned" value={`$${((stats?.earnedCents ?? 0) / 100).toFixed(0)}`} />
+            <Stat
+              icon={Gift}
+              label="Earned"
+              value={`$${((stats?.earnedCents ?? 0) / 100).toFixed(0)}`}
+            />
           </div>
         </div>
       </section>
@@ -171,7 +183,8 @@ function ReferPage() {
         </div>
         {code && (
           <p className="mt-3 text-xs text-muted-foreground">
-            Or have them enter your code at signup: <span className="font-mono font-semibold text-foreground">{code}</span>
+            Or have them enter your code at signup:{" "}
+            <span className="font-mono font-semibold text-foreground">{code}</span>
           </p>
         )}
       </section>
@@ -198,7 +211,11 @@ function ReferPage() {
               disabled={sending || !emailsRaw.trim()}
               className="inline-flex items-center gap-1.5 rounded-2xl bg-gradient-vibe px-5 py-3 text-sm font-semibold text-primary-foreground shadow-pop transition-pop active:scale-95 disabled:opacity-50"
             >
-              {sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}
+              {sending ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Mail className="h-4 w-4" />
+              )}
               Send invites
             </button>
           </div>
@@ -228,7 +245,9 @@ function ReferPage() {
                       {r.type === "gift_card" ? "$25 gift card" : "First-booking discount"}
                     </div>
                     {r.redeem_code && (
-                      <div className="font-mono text-xs text-muted-foreground">Code: {r.redeem_code}</div>
+                      <div className="font-mono text-xs text-muted-foreground">
+                        Code: {r.redeem_code}
+                      </div>
                     )}
                   </div>
                 </div>
@@ -237,8 +256,8 @@ function ReferPage() {
                     r.status === "issued"
                       ? "bg-primary/15 text-primary"
                       : r.status === "redeemed"
-                      ? "bg-muted text-muted-foreground"
-                      : "bg-secondary text-secondary-foreground"
+                        ? "bg-muted text-muted-foreground"
+                        : "bg-secondary text-secondary-foreground"
                   }`}
                 >
                   {r.status}
@@ -259,7 +278,9 @@ function ReferPage() {
             {invites.map((i) => (
               <li key={i.id} className="flex items-center justify-between py-3">
                 <div className="min-w-0">
-                  <div className="truncate text-sm font-semibold">{i.referee_email ?? "via link"}</div>
+                  <div className="truncate text-sm font-semibold">
+                    {i.referee_email ?? "via link"}
+                  </div>
                   <div className="text-xs text-muted-foreground">
                     {i.channel} · {new Date(i.created_at).toLocaleDateString()}
                   </div>
@@ -269,11 +290,15 @@ function ReferPage() {
                     i.status === "completed"
                       ? "bg-primary/15 text-primary"
                       : i.status === "signed_up"
-                      ? "bg-secondary text-secondary-foreground"
-                      : "bg-muted text-muted-foreground"
+                        ? "bg-secondary text-secondary-foreground"
+                        : "bg-muted text-muted-foreground"
                   }`}
                 >
-                  {i.status === "completed" ? "Booked" : i.status === "signed_up" ? "Joined" : "Pending"}
+                  {i.status === "completed"
+                    ? "Booked"
+                    : i.status === "signed_up"
+                      ? "Joined"
+                      : "Pending"}
                 </span>
               </li>
             ))}
@@ -317,9 +342,7 @@ function ReferPage() {
                 <li
                   key={row.user_id}
                   className={`flex items-center justify-between gap-3 rounded-2xl border px-4 py-3 ${
-                    isMe
-                      ? "border-primary/40 bg-primary/10"
-                      : "border-border bg-background"
+                    isMe ? "border-primary/40 bg-primary/10" : "border-border bg-background"
                   }`}
                 >
                   <div className="flex min-w-0 items-center gap-3">
@@ -384,9 +407,7 @@ function BadgeCard({ badge }: { badge: ReferralBadge }) {
         {badge.unlocked ? <Icon className="h-6 w-6" /> : <Lock className="h-5 w-5" />}
       </div>
       <div className="mt-2 text-xs font-bold leading-tight">{badge.title}</div>
-      <div className="mt-1 line-clamp-2 text-[10px] text-muted-foreground">
-        {badge.description}
-      </div>
+      <div className="mt-1 line-clamp-2 text-[10px] text-muted-foreground">{badge.description}</div>
       <div className="mt-1 text-[10px] font-semibold text-primary">+{badge.xp_reward} XP</div>
     </div>
   );
@@ -397,10 +418,10 @@ function RankPill({ rank }: { rank: number }) {
     rank === 1
       ? "bg-amber-400/20 text-amber-600 dark:text-amber-300 border-amber-400/40"
       : rank === 2
-      ? "bg-slate-400/20 text-slate-600 dark:text-slate-300 border-slate-400/40"
-      : rank === 3
-      ? "bg-orange-400/20 text-orange-600 dark:text-orange-300 border-orange-400/40"
-      : "bg-muted text-muted-foreground border-border";
+        ? "bg-slate-400/20 text-slate-600 dark:text-slate-300 border-slate-400/40"
+        : rank === 3
+          ? "bg-orange-400/20 text-orange-600 dark:text-orange-300 border-orange-400/40"
+          : "bg-muted text-muted-foreground border-border";
   return (
     <div
       className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border font-display text-sm font-bold ${styles}`}

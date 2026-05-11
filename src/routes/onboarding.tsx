@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowRight, ArrowLeft, Check, Sparkles } from "lucide-react";
 import { markOnboarded, saveOnboarding } from "@/lib/loop-store";
@@ -9,8 +9,34 @@ export const Route = createFileRoute("/onboarding")({
 });
 
 const CITIES = ["DC", "NYC", "LA", "Miami", "Atlanta", "Chicago"];
-const CUISINES = ["Italian", "Mexican", "Japanese", "Seafood", "Korean", "Mediterranean", "Soul Food", "Indian", "Thai", "American", "Ethiopian", "Vegan"];
-const VIBES = ["Rooftop bars", "Live music", "Speakeasies", "Art galleries", "Outdoor dining", "Food halls", "Wine bars", "Comedy clubs", "Dancing", "Karaoke", "Breweries", "Jazz clubs"];
+const CUISINES = [
+  "Italian",
+  "Mexican",
+  "Japanese",
+  "Seafood",
+  "Korean",
+  "Mediterranean",
+  "Soul Food",
+  "Indian",
+  "Thai",
+  "American",
+  "Ethiopian",
+  "Vegan",
+];
+const VIBES = [
+  "Rooftop bars",
+  "Live music",
+  "Speakeasies",
+  "Art galleries",
+  "Outdoor dining",
+  "Food halls",
+  "Wine bars",
+  "Comedy clubs",
+  "Dancing",
+  "Karaoke",
+  "Breweries",
+  "Jazz clubs",
+];
 const GROUPS = [
   { id: "solo", label: "Solo", emoji: "🚶" },
   { id: "couple", label: "Couple", emoji: "💑" },
@@ -28,8 +54,20 @@ function Onboarding() {
   const [group, setGroup] = useState<string | null>(null);
 
   const totalSteps = 5;
-  const titles = ["What city are you exploring?", "What are you into?", "Pick your vibe", "Your comfort zone", "Who's coming?"];
-  const subs = ["Pick your home base.", "Cuisines you love.", "Activities that pull you out.", "Per person, per outing.", "Default group size."];
+  const titles = [
+    "What city are you exploring?",
+    "What are you into?",
+    "Pick your vibe",
+    "Your comfort zone",
+    "Who's coming?",
+  ];
+  const subs = [
+    "Pick your home base.",
+    "Cuisines you love.",
+    "Activities that pull you out.",
+    "Per person, per outing.",
+    "Default group size.",
+  ];
   const canNext = [city, tastes.length > 0, vibes.length > 0, true, group][step];
 
   function toggle(arr: string[], setArr: (v: string[]) => void, v: string) {
@@ -47,15 +85,27 @@ function Onboarding() {
       <div className="mx-auto flex min-h-screen max-w-md flex-col px-6 py-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-vibe text-cream"><Sparkles className="h-4 w-4" /></span>
-            <span className="font-display text-lg font-extrabold">loop<span className="text-coral">.</span></span>
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-vibe text-cream">
+              <Sparkles className="h-4 w-4" />
+            </span>
+            <span className="font-display text-lg font-extrabold">
+              loop<span className="text-coral">.</span>
+            </span>
           </div>
-          <button onClick={finish} className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink">Skip</button>
+          <button
+            onClick={finish}
+            className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink"
+          >
+            Skip
+          </button>
         </div>
 
         <div className="mt-4 flex gap-1.5">
           {Array.from({ length: totalSteps }).map((_, i) => (
-            <div key={i} className={`h-1.5 flex-1 rounded-full transition-all ${i <= step ? "bg-gradient-vibe" : "bg-muted"}`} />
+            <div
+              key={i}
+              className={`h-1.5 flex-1 rounded-full transition-all ${i <= step ? "bg-gradient-vibe" : "bg-muted"}`}
+            />
           ))}
         </div>
 
@@ -68,25 +118,44 @@ function Onboarding() {
           {step === 0 && (
             <div className="grid grid-cols-3 gap-2">
               {CITIES.map((c) => (
-                <Chip key={c} active={city === c} onClick={() => setCity(c)}>{c}</Chip>
+                <Chip key={c} active={city === c} onClick={() => setCity(c)}>
+                  {c}
+                </Chip>
               ))}
             </div>
           )}
           {step === 1 && (
             <div className="flex flex-wrap gap-2">
-              {CUISINES.map((c) => <Chip key={c} active={tastes.includes(c)} onClick={() => toggle(tastes, setTastes, c)}>{c}</Chip>)}
+              {CUISINES.map((c) => (
+                <Chip
+                  key={c}
+                  active={tastes.includes(c)}
+                  onClick={() => toggle(tastes, setTastes, c)}
+                >
+                  {c}
+                </Chip>
+              ))}
             </div>
           )}
           {step === 2 && (
             <div className="flex flex-wrap gap-2">
-              {VIBES.map((v) => <Chip key={v} active={vibes.includes(v)} onClick={() => toggle(vibes, setVibes, v)}>{v}</Chip>)}
+              {VIBES.map((v) => (
+                <Chip key={v} active={vibes.includes(v)} onClick={() => toggle(vibes, setVibes, v)}>
+                  {v}
+                </Chip>
+              ))}
             </div>
           )}
           {step === 3 && (
             <div>
               <div className="text-center">
-                <div className="font-display text-5xl font-extrabold tracking-tight">${budget}{budget >= 500 && "+"}</div>
-                <div className="font-mono text-[10px] uppercase tracking-widest text-ink/60">per person</div>
+                <div className="font-display text-5xl font-extrabold tracking-tight">
+                  ${budget}
+                  {budget >= 500 && "+"}
+                </div>
+                <div className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                  per person
+                </div>
               </div>
               <input
                 type="range"
@@ -98,7 +167,8 @@ function Onboarding() {
                 className="mt-6 w-full accent-coral"
               />
               <div className="mt-1 flex justify-between font-mono text-[10px] uppercase tracking-widest text-ink/60">
-                <span>$50</span><span>$500+</span>
+                <span>$50</span>
+                <span>$500+</span>
               </div>
             </div>
           )}
@@ -127,7 +197,10 @@ function Onboarding() {
             {step < totalSteps - 1 ? "Continue" : "Finish"} <ArrowRight className="h-4 w-4" />
           </button>
           {step > 0 && (
-            <button onClick={() => setStep(step - 1)} className="mt-3 inline-flex w-full items-center justify-center gap-1 text-sm font-semibold text-ink/60 hover:text-ink">
+            <button
+              onClick={() => setStep(step - 1)}
+              className="mt-3 inline-flex w-full items-center justify-center gap-1 text-sm font-semibold text-ink/60 hover:text-ink"
+            >
               <ArrowLeft className="h-3 w-3" /> Back
             </button>
           )}
@@ -137,13 +210,23 @@ function Onboarding() {
   );
 }
 
-function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+function Chip({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
   return (
     <button
       type="button"
       onClick={onClick}
       className={`rounded-full border-2 px-4 py-2.5 text-sm font-semibold transition-pop ${
-        active ? "border-ink bg-coral text-cream shadow-brut" : "border-ink/20 bg-card text-ink hover:border-ink"
+        active
+          ? "border-ink bg-coral text-cream shadow-brut"
+          : "border-ink/20 bg-card text-ink hover:border-ink"
       }`}
     >
       {active && <Check className="mr-1 inline h-3.5 w-3.5" />}

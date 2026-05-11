@@ -43,7 +43,10 @@ export const PURPOSE_LABELS: Record<CorporatePurpose, string> = {
 export function parseAttendeeList(raw: string): { email: string; name?: string }[] {
   const out: { email: string; name?: string }[] = [];
   const seen = new Set<string>();
-  const lines = raw.split(/[\n,;]+/).map((l) => l.trim()).filter(Boolean);
+  const lines = raw
+    .split(/[\n,;]+/)
+    .map((l) => l.trim())
+    .filter(Boolean);
   for (const line of lines) {
     // formats: "email", "name <email>", "name,email"
     const m = line.match(/^(?:(.*?)\s*<\s*)?([^\s<>]+@[^\s<>]+\.[^\s<>]+)\s*>?\s*$/);

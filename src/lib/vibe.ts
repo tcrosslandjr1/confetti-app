@@ -21,9 +21,15 @@ export function loadVibePrefs(): VibePrefs {
     if (!raw) return DEFAULT_VIBE;
     const p = JSON.parse(raw);
     return {
-      crowd: (["chill", "lively", "packed"] as const).includes(p.crowd) ? p.crowd : DEFAULT_VIBE.crowd,
-      noise: (["quiet", "moderate", "loud"] as const).includes(p.noise) ? p.noise : DEFAULT_VIBE.noise,
-      dress: (["casual", "smart", "dressy"] as const).includes(p.dress) ? p.dress : DEFAULT_VIBE.dress,
+      crowd: (["chill", "lively", "packed"] as const).includes(p.crowd)
+        ? p.crowd
+        : DEFAULT_VIBE.crowd,
+      noise: (["quiet", "moderate", "loud"] as const).includes(p.noise)
+        ? p.noise
+        : DEFAULT_VIBE.noise,
+      dress: (["casual", "smart", "dressy"] as const).includes(p.dress)
+        ? p.dress
+        : DEFAULT_VIBE.dress,
     };
   } catch {
     return DEFAULT_VIBE;
@@ -45,22 +51,54 @@ export function inferStopVibe(s: Stop): StopVibe {
 
   // Dress
   let dress: Dress = "casual";
-  if (KW(dressRaw, ["formal", "black tie", "cocktail", "elegant", "dressy", "jacket required"])) dress = "dressy";
+  if (KW(dressRaw, ["formal", "black tie", "cocktail", "elegant", "dressy", "jacket required"]))
+    dress = "dressy";
   else if (KW(dressRaw, ["smart", "business", "upscale", "neat"])) dress = "smart";
   else if (dressRaw) dress = "casual";
-  else if (KW(text, ["fine dining", "rooftop bar", "speakeasy", "tasting menu", "michelin"])) dress = "smart";
+  else if (KW(text, ["fine dining", "rooftop bar", "speakeasy", "tasting menu", "michelin"]))
+    dress = "smart";
 
   // Noise
   let noise: Noise = "moderate";
-  if (KW(text, ["library", "museum", "garden", "park", "scenic", "viewpoint", "tea", "spa", "quiet"])) noise = "quiet";
-  else if (KW(text, ["club", "live music", "concert", "dj", "dance", "karaoke", "sports bar", "arcade", "loud"])) noise = "loud";
+  if (
+    KW(text, ["library", "museum", "garden", "park", "scenic", "viewpoint", "tea", "spa", "quiet"])
+  )
+    noise = "quiet";
+  else if (
+    KW(text, [
+      "club",
+      "live music",
+      "concert",
+      "dj",
+      "dance",
+      "karaoke",
+      "sports bar",
+      "arcade",
+      "loud",
+    ])
+  )
+    noise = "loud";
   else if (s.category === "drinks" || KW(text, ["bar", "pub", "brewery"])) noise = "loud";
   else if (s.category === "scenic") noise = "quiet";
 
   // Crowd
   let crowd: Crowd = "lively";
-  if (KW(text, ["intimate", "hidden", "secret", "speakeasy", "tasting", "private", "scenic", "garden", "viewpoint"])) crowd = "chill";
-  else if (KW(text, ["popular", "trending", "packed", "rooftop", "club", "festival", "iconic"])) crowd = "packed";
+  if (
+    KW(text, [
+      "intimate",
+      "hidden",
+      "secret",
+      "speakeasy",
+      "tasting",
+      "private",
+      "scenic",
+      "garden",
+      "viewpoint",
+    ])
+  )
+    crowd = "chill";
+  else if (KW(text, ["popular", "trending", "packed", "rooftop", "club", "festival", "iconic"]))
+    crowd = "packed";
   else if (s.category === "scenic") crowd = "chill";
   else if (s.category === "drinks") crowd = "lively";
 
@@ -88,6 +126,18 @@ export function matchLevel(score: number): VibeMatch {
   return "off";
 }
 
-export const CROWD_LABEL: Record<Crowd, string> = { chill: "Chill", lively: "Lively", packed: "Packed" };
-export const NOISE_LABEL: Record<Noise, string> = { quiet: "Quiet", moderate: "Moderate", loud: "Loud" };
-export const DRESS_LABEL: Record<Dress, string> = { casual: "Casual", smart: "Smart casual", dressy: "Dressy" };
+export const CROWD_LABEL: Record<Crowd, string> = {
+  chill: "Chill",
+  lively: "Lively",
+  packed: "Packed",
+};
+export const NOISE_LABEL: Record<Noise, string> = {
+  quiet: "Quiet",
+  moderate: "Moderate",
+  loud: "Loud",
+};
+export const DRESS_LABEL: Record<Dress, string> = {
+  casual: "Casual",
+  smart: "Smart casual",
+  dressy: "Dressy",
+};

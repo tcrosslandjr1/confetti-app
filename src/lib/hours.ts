@@ -46,7 +46,13 @@ export const VENUE_HOURS: Record<string, WeeklyHours> = {
 
 const DAY_ORDER: DayKey[] = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 const DAY_LABEL: Record<DayKey, string> = {
-  mon: "Mon", tue: "Tue", wed: "Wed", thu: "Thu", fri: "Fri", sat: "Sat", sun: "Sun",
+  mon: "Mon",
+  tue: "Tue",
+  wed: "Wed",
+  thu: "Thu",
+  fri: "Fri",
+  sat: "Sat",
+  sun: "Sun",
 };
 
 export function dayKeyFromDate(d: Date): DayKey {
@@ -129,12 +135,18 @@ export function checkStopFits(
 
   // Find the closest reason for the friendliest message.
   const earliestOpen = Math.min(...windows.map((w) => parseHM(w.open)));
-  const latestClose = Math.max(...windows.map((w) => {
-    const o = parseHM(w.open); const c = parseHM(w.close); return c <= o ? c + 24 * 60 : c;
-  }));
+  const latestClose = Math.max(
+    ...windows.map((w) => {
+      const o = parseHM(w.open);
+      const c = parseHM(w.close);
+      return c <= o ? c + 24 * 60 : c;
+    }),
+  );
   const reason =
-    start < earliestOpen ? `Opens at ${fmt12(earliestOpen)}` :
-    start >= latestClose ? `Closed after ${fmt12(latestClose % (24 * 60))}` :
-    "Outside opening hours";
+    start < earliestOpen
+      ? `Opens at ${fmt12(earliestOpen)}`
+      : start >= latestClose
+        ? `Closed after ${fmt12(latestClose % (24 * 60))}`
+        : "Outside opening hours";
   return { state: "closed", hoursLabel, reason };
 }

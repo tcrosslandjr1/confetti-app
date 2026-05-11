@@ -61,7 +61,11 @@ function ChatList() {
 
   const newChat = async () => {
     if (!user) return;
-    const { data, error } = await supabase.from("threads").insert({ user_id: user.id }).select().single();
+    const { data, error } = await supabase
+      .from("threads")
+      .insert({ user_id: user.id })
+      .select()
+      .single();
     if (error) {
       toast.error("Couldn't start a chat");
       return;
@@ -122,7 +126,11 @@ function ChatList() {
             className="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
           />
           {q && (
-            <button onClick={() => setQ("")} aria-label="Clear" className="text-muted-foreground hover:text-foreground">
+            <button
+              onClick={() => setQ("")}
+              aria-label="Clear"
+              className="text-muted-foreground hover:text-foreground"
+            >
               <X className="h-4 w-4" />
             </button>
           )}
@@ -137,7 +145,9 @@ function ChatList() {
             <div className="rounded-3xl border border-dashed border-border bg-card/50 p-8 text-center">
               <MessageCircle className="mx-auto h-8 w-8 text-muted-foreground" />
               <div className="mt-3 font-semibold">No chats yet</div>
-              <div className="mt-1 text-xs text-muted-foreground">Start one to plan your night.</div>
+              <div className="mt-1 text-xs text-muted-foreground">
+                Start one to plan your night.
+              </div>
               <button
                 onClick={newChat}
                 className="mt-4 inline-flex rounded-full bg-gradient-vibe px-4 py-2 text-sm font-semibold text-primary-foreground"
@@ -200,9 +210,13 @@ function ChatList() {
                             params={{ threadId: t.id }}
                             className="min-w-0 flex-1"
                           >
-                            <div className="truncate text-sm font-semibold">{t.title || "Untitled"}</div>
+                            <div className="truncate text-sm font-semibold">
+                              {t.title || "Untitled"}
+                            </div>
                             <div className="text-[11px] text-muted-foreground">
-                              {formatDistanceToNow(new Date(t.last_message_at), { addSuffix: true })}
+                              {formatDistanceToNow(new Date(t.last_message_at), {
+                                addSuffix: true,
+                              })}
                             </div>
                           </Link>
                           <button

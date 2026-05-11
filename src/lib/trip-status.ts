@@ -3,11 +3,11 @@
 // pages stay in sync via storage + custom events without a backend round-trip.
 
 export type TripStatus = {
-  minutesLate: number;          // 0 = on time
-  updatedAt: string;            // ISO timestamp
-  note?: string;                // optional host message
-  rescheduledAt?: string;       // ISO datetime if host picked a new date/time
-  cancelled?: boolean;          // true if host cancelled the plan
+  minutesLate: number; // 0 = on time
+  updatedAt: string; // ISO timestamp
+  note?: string; // optional host message
+  rescheduledAt?: string; // ISO datetime if host picked a new date/time
+  cancelled?: boolean; // true if host cancelled the plan
 };
 
 const STORAGE_PREFIX = "confetti.status.";
@@ -130,15 +130,17 @@ export type SentNotification = {
   id: string;
   tripId: string;
   kind: NotificationKind;
-  venue: string;       // venue name OR "Guests" for guest broadcast
+  venue: string; // venue name OR "Guests" for guest broadcast
   message: string;
-  sentAt: string;      // ISO
+  sentAt: string; // ISO
 };
 
 const NOTIF_PREFIX = "confetti.notifications.";
 const NOTIF_EVENT = "confetti.notifications.changed";
 
-function notifKey(tripId: string) { return NOTIF_PREFIX + tripId; }
+function notifKey(tripId: string) {
+  return NOTIF_PREFIX + tripId;
+}
 
 export function loadNotifications(tripId: string): SentNotification[] {
   if (typeof window === "undefined") return [];
@@ -146,16 +148,21 @@ export function loadNotifications(tripId: string): SentNotification[] {
     const raw = window.localStorage.getItem(notifKey(tripId));
     if (!raw) return [];
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed as SentNotification[] : [];
-  } catch { return []; }
+    return Array.isArray(parsed) ? (parsed as SentNotification[]) : [];
+  } catch {
+    return [];
+  }
 }
 
-export function appendNotifications(tripId: string, items: Omit<SentNotification, "id" | "tripId" | "sentAt">[]): SentNotification[] {
+export function appendNotifications(
+  tripId: string,
+  items: Omit<SentNotification, "id" | "tripId" | "sentAt">[],
+): SentNotification[] {
   const now = new Date().toISOString();
   const existing = loadNotifications(tripId);
   const added: SentNotification[] = items.map((it) => ({
     ...it,
-    id: (crypto.randomUUID?.() ?? Math.random().toString(36).slice(2)),
+    id: crypto.randomUUID?.() ?? Math.random().toString(36).slice(2),
     tripId,
     sentAt: now,
   }));
@@ -163,7 +170,9 @@ export function appendNotifications(tripId: string, items: Omit<SentNotification
   try {
     window.localStorage.setItem(notifKey(tripId), JSON.stringify(next));
     window.dispatchEvent(new CustomEvent(NOTIF_EVENT, { detail: { tripId } }));
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
   return next;
 }
 
@@ -172,12 +181,16 @@ export function clearNotifications(tripId: string) {
   try {
     window.localStorage.removeItem(notifKey(tripId));
     window.dispatchEvent(new CustomEvent(NOTIF_EVENT, { detail: { tripId } }));
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
 }
 
 export function subscribeNotifications(tripId: string, onChange: () => void): () => void {
   if (typeof window === "undefined") return () => {};
-  const onStorage = (e: StorageEvent) => { if (e.key === notifKey(tripId)) onChange(); };
+  const onStorage = (e: StorageEvent) => {
+    if (e.key === notifKey(tripId)) onChange();
+  };
   const onCustom = (e: Event) => {
     const detail = (e as CustomEvent<{ tripId?: string }>).detail;
     if (!detail?.tripId || detail.tripId === tripId) onChange();

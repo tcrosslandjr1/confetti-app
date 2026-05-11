@@ -7,7 +7,7 @@ export type Stop = {
   category: "meal" | "activity" | "drinks" | "scenic" | "travel" | "other" | string;
   description?: string;
   address?: string;
-  start_time?: string | null;       // 'HH:MM:SS'
+  start_time?: string | null; // 'HH:MM:SS'
   duration_minutes?: number | null;
   est_cost?: string;
   what_to_do?: string;
@@ -60,9 +60,16 @@ export type Itinerary = {
 };
 
 type AiStop = {
-  name: string; category: string; description: string; address: string;
-  startTime: string; durationMinutes: number; estCost: string; whatToDo: string;
-  bookingUrl: string; bookingProvider: string;
+  name: string;
+  category: string;
+  description: string;
+  address: string;
+  startTime: string;
+  durationMinutes: number;
+  estCost: string;
+  whatToDo: string;
+  bookingUrl: string;
+  bookingProvider: string;
   reviewSnippets?: string[];
   parking?: { type: string; cost: string; access: string };
   tips?: string[];
@@ -70,7 +77,10 @@ type AiStop = {
   dressCode?: string;
 };
 type AiItinerary = {
-  title: string; summary: string; estTotalCost: string; stops: AiStop[];
+  title: string;
+  summary: string;
+  estTotalCost: string;
+  stops: AiStop[];
 };
 
 export type BuildPayload = {
@@ -160,10 +170,16 @@ export async function listItineraries(): Promise<Itinerary[]> {
 
 export async function getItinerary(id: string): Promise<{ itinerary: Itinerary; stops: Stop[] }> {
   const { data: it, error: e1 } = await supabase
-    .from("itineraries").select("*").eq("id", id).single();
+    .from("itineraries")
+    .select("*")
+    .eq("id", id)
+    .single();
   if (e1 || !it) throw new Error(e1?.message ?? "Not found");
   const { data: stops, error: e2 } = await supabase
-    .from("itinerary_stops").select("*").eq("itinerary_id", id).order("position");
+    .from("itinerary_stops")
+    .select("*")
+    .eq("itinerary_id", id)
+    .order("position");
   if (e2) throw new Error(e2.message);
   return { itinerary: it as Itinerary, stops: (stops ?? []) as Stop[] };
 }

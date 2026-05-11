@@ -1,6 +1,14 @@
 import { useCallback, useState, type CSSProperties } from "react";
 
-type Particle = { id: number; x: number; y: number; bx: number; by: number; br: number; color: string };
+type Particle = {
+  id: number;
+  x: number;
+  y: number;
+  bx: number;
+  by: number;
+  br: number;
+  color: string;
+};
 
 const COLORS = ["bg-coral", "bg-gold", "bg-purple", "bg-ink", "bg-emerald-500", "bg-pink-400"];
 
@@ -20,7 +28,7 @@ export function useConfettiBurst() {
         y,
         bx: Math.cos(angle) * dist,
         by: Math.sin(angle) * dist - 40,
-        br: (Math.random() * 720 - 360),
+        br: Math.random() * 720 - 360,
         color: COLORS[Math.floor(Math.random() * COLORS.length)],
       };
     });
@@ -35,14 +43,16 @@ export function useConfettiBurst() {
         <span
           key={p.id}
           className={`absolute h-2 w-2 rounded-[2px] ${p.color}`}
-          style={{
-            left: p.x,
-            top: p.y,
-            ["--bx" as keyof CSSProperties]: `${p.bx}px`,
-            ["--by" as keyof CSSProperties]: `${p.by}px`,
-            ["--br" as keyof CSSProperties]: `${p.br}deg`,
-            animation: "confetti-burst 1s cubic-bezier(.2,.7,.3,1) forwards",
-          } as CSSProperties}
+          style={
+            {
+              left: p.x,
+              top: p.y,
+              ["--bx" as keyof CSSProperties]: `${p.bx}px`,
+              ["--by" as keyof CSSProperties]: `${p.by}px`,
+              ["--br" as keyof CSSProperties]: `${p.br}deg`,
+              animation: "confetti-burst 1s cubic-bezier(.2,.7,.3,1) forwards",
+            } as CSSProperties
+          }
         />
       ))}
     </div>

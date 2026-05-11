@@ -91,7 +91,7 @@ export function getAdImpressionConfig(): AdImpressionConfig {
   const stored = readStorage();
   return {
     threshold: clampThreshold(
-      url.threshold ?? stored.threshold ?? AD_IMPRESSION_DEFAULTS.threshold
+      url.threshold ?? stored.threshold ?? AD_IMPRESSION_DEFAULTS.threshold,
     ),
     rootMargin:
       url.rootMargin ??

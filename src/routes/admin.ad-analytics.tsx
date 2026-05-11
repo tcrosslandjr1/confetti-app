@@ -12,18 +12,20 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { BarChart3, Eye, MousePointerClick, Percent, Filter } from "lucide-react";
+import { BarChart3, CalendarIcon, Eye, Filter, MousePointerClick, Percent } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { CalendarIcon } from "lucide-react";
+
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/admin/ad-analytics")({
-  head: () => ({ meta: [{ title: "Ad analytics — Admin" }, { name: "robots", content: "noindex, nofollow" }] }),
+  head: () => ({
+    meta: [{ title: "Ad analytics — Admin" }, { name: "robots", content: "noindex, nofollow" }],
+  }),
   component: AdAnalyticsPage,
 });
 
@@ -42,10 +44,22 @@ const RANGE_DAYS: Record<Exclude<Range, "custom">, number> = { "7d": 7, "30d": 3
 
 const ALL = "__all__";
 
-function startOfDay(d: Date) { const x = new Date(d); x.setHours(0, 0, 0, 0); return x; }
-function endOfDay(d: Date) { const x = new Date(d); x.setHours(23, 59, 59, 999); return x; }
-function dayKey(iso: string) { return iso.slice(0, 10); }
-function fmtPct(n: number) { return `${(n * 100).toFixed(2)}%`; }
+function startOfDay(d: Date) {
+  const x = new Date(d);
+  x.setHours(0, 0, 0, 0);
+  return x;
+}
+function endOfDay(d: Date) {
+  const x = new Date(d);
+  x.setHours(23, 59, 59, 999);
+  return x;
+}
+function dayKey(iso: string) {
+  return iso.slice(0, 10);
+}
+function fmtPct(n: number) {
+  return `${(n * 100).toFixed(2)}%`;
+}
 
 function AdAnalyticsPage() {
   const [range, setRange] = useState<Range>("30d");
@@ -86,7 +100,9 @@ function AdAnalyticsPage() {
       else setEvents((data ?? []) as AdEvent[]);
       setLoading(false);
     })();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [window.from, window.to]);
 
   const filtered = useMemo(
@@ -100,12 +116,22 @@ function AdAnalyticsPage() {
     [events, brand, occasion, surface],
   );
 
-  const brands = useMemo(() => Array.from(new Set(events.map((e) => e.brand).filter(Boolean) as string[])).sort(), [events]);
-  const occasions = useMemo(() => Array.from(new Set(events.map((e) => e.occasion).filter(Boolean) as string[])).sort(), [events]);
-  const surfaces = useMemo(() => Array.from(new Set(events.map((e) => e.surface).filter(Boolean) as string[])).sort(), [events]);
+  const brands = useMemo(
+    () => Array.from(new Set(events.map((e) => e.brand).filter(Boolean) as string[])).sort(),
+    [events],
+  );
+  const occasions = useMemo(
+    () => Array.from(new Set(events.map((e) => e.occasion).filter(Boolean) as string[])).sort(),
+    [events],
+  );
+  const surfaces = useMemo(
+    () => Array.from(new Set(events.map((e) => e.surface).filter(Boolean) as string[])).sort(),
+    [events],
+  );
 
   const totals = useMemo(() => {
-    let imp = 0, clk = 0;
+    let imp = 0,
+      clk = 0;
     for (const e of filtered) {
       if (e.kind === "impression") imp++;
       else if (e.kind === "click") clk++;
@@ -135,7 +161,10 @@ function AdAnalyticsPage() {
   }, [filtered, window.from, window.to]);
 
   const groupBy = (key: "brand" | "occasion" | "surface") => {
-    const map = new Map<string, { name: string; impressions: number; clicks: number; ctr: number }>();
+    const map = new Map<
+      string,
+      { name: string; impressions: number; clicks: number; ctr: number }
+    >();
     for (const e of filtered) {
       const name = (e[key] ?? "—") as string;
       const row = map.get(name) ?? { name, impressions: 0, clicks: 0, ctr: 0 };
@@ -164,7 +193,9 @@ function AdAnalyticsPage() {
     <div className="space-y-6">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Ad performance</p>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            Ad performance
+          </p>
           <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
             <BarChart3 className="h-7 w-7" /> Ad analytics
           </h1>
@@ -178,7 +209,9 @@ function AdAnalyticsPage() {
               key={r}
               onClick={() => setRange(r)}
               className={`rounded-full px-3 py-1.5 font-semibold transition ${
-                range === r ? "bg-foreground text-background shadow-pop" : "text-muted-foreground hover:text-foreground"
+                range === r
+                  ? "bg-foreground text-background shadow-pop"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {r === "7d" ? "7d" : r === "30d" ? "30d" : r === "90d" ? "90d" : "Custom"}
@@ -199,7 +232,12 @@ function AdAnalyticsPage() {
             </>
           )}
           <SelectField label="Brand" value={brand} onChange={setBrand} options={brands} />
-          <SelectField label="Occasion" value={occasion} onChange={setOccasion} options={occasions} />
+          <SelectField
+            label="Occasion"
+            value={occasion}
+            onChange={setOccasion}
+            options={occasions}
+          />
           <SelectField label="Surface" value={surface} onChange={setSurface} options={surfaces} />
         </div>
         {err && <p className="mt-3 text-xs text-destructive">{err}</p>}
@@ -214,7 +252,9 @@ function AdAnalyticsPage() {
       <section className="rounded-2xl border border-border bg-card p-5 shadow-card">
         <div className="mb-3 flex items-center justify-between">
           <h2 className="font-display text-lg font-bold">Daily impressions vs clicks</h2>
-          <span className="text-xs text-muted-foreground">{loading ? "Loading…" : `${filtered.length} events`}</span>
+          <span className="text-xs text-muted-foreground">
+            {loading ? "Loading…" : `${filtered.length} events`}
+          </span>
         </div>
         <div className="h-72 w-full">
           <ResponsiveContainer width="100%" height="100%">
@@ -224,8 +264,22 @@ function AdAnalyticsPage() {
               <YAxis tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
               <Tooltip contentStyle={tooltipStyle} />
               <Legend wrapperStyle={{ fontSize: 12 }} />
-              <Line type="monotone" dataKey="impressions" name="Impressions" stroke="hsl(var(--primary))" strokeWidth={2} dot={false} />
-              <Line type="monotone" dataKey="clicks" name="Clicks" stroke="oklch(0.78 0.15 85)" strokeWidth={2} dot={false} />
+              <Line
+                type="monotone"
+                dataKey="impressions"
+                name="Impressions"
+                stroke="hsl(var(--primary))"
+                strokeWidth={2}
+                dot={false}
+              />
+              <Line
+                type="monotone"
+                dataKey="clicks"
+                name="Clicks"
+                stroke="oklch(0.78 0.15 85)"
+                strokeWidth={2}
+                dot={false}
+              />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -261,8 +315,16 @@ function Stat({ label, value, icon: Icon }: { label: string; value: string; icon
 }
 
 function SelectField({
-  label, value, onChange, options,
-}: { label: string; value: string; onChange: (v: string) => void; options: string[] }) {
+  label,
+  value,
+  onChange,
+  options,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  options: string[];
+}) {
   return (
     <div className="space-y-1.5">
       <Label className="text-xs">{label}</Label>
@@ -273,26 +335,48 @@ function SelectField({
       >
         <option value={ALL}>All</option>
         {options.map((o) => (
-          <option key={o} value={o}>{o}</option>
+          <option key={o} value={o}>
+            {o}
+          </option>
         ))}
       </select>
     </div>
   );
 }
 
-function DateField({ label, value, onChange }: { label: string; value: Date | undefined; onChange: (d: Date | undefined) => void }) {
+function DateField({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: Date | undefined;
+  onChange: (d: Date | undefined) => void;
+}) {
   return (
     <div className="space-y-1.5">
       <Label className="text-xs">{label}</Label>
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="outline" className={cn("h-9 w-full justify-start text-left font-normal text-sm", !value && "text-muted-foreground")}>
+          <Button
+            variant="outline"
+            className={cn(
+              "h-9 w-full justify-start text-left font-normal text-sm",
+              !value && "text-muted-foreground",
+            )}
+          >
             <CalendarIcon className="mr-2 h-4 w-4" />
             {value ? format(value, "PP") : <span>Pick a date</span>}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
-          <Calendar mode="single" selected={value} onSelect={onChange} initialFocus className={cn("p-3 pointer-events-auto")} />
+          <Calendar
+            mode="single"
+            selected={value}
+            onSelect={onChange}
+            initialFocus
+            className={cn("p-3 pointer-events-auto")}
+          />
         </PopoverContent>
       </Popover>
     </div>
@@ -300,8 +384,14 @@ function DateField({ label, value, onChange }: { label: string; value: Date | un
 }
 
 function GroupChart({
-  title, rows, tooltipStyle,
-}: { title: string; rows: { name: string; impressions: number; clicks: number; ctr: number }[]; tooltipStyle: React.CSSProperties }) {
+  title,
+  rows,
+  tooltipStyle,
+}: {
+  title: string;
+  rows: { name: string; impressions: number; clicks: number; ctr: number }[];
+  tooltipStyle: React.CSSProperties;
+}) {
   return (
     <div className="rounded-2xl border border-border bg-card p-5 shadow-card">
       <div className="mb-3 flex items-center justify-between">
@@ -312,14 +402,29 @@ function GroupChart({
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={rows} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
-            <XAxis dataKey="name" tick={{ fontSize: 10 }} stroke="hsl(var(--muted-foreground))" interval={0} angle={-20} dy={10} height={60} />
+            <XAxis
+              dataKey="name"
+              tick={{ fontSize: 10 }}
+              stroke="hsl(var(--muted-foreground))"
+              interval={0}
+              angle={-20}
+              dy={10}
+              height={60}
+            />
             <YAxis tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
             <Tooltip
               contentStyle={tooltipStyle}
-              formatter={(v: number, n: string) => (n === "ctr" ? [fmtPct(v), "CTR"] : [v.toLocaleString(), n])}
+              formatter={(v: number, n: string) =>
+                n === "ctr" ? [fmtPct(v), "CTR"] : [v.toLocaleString(), n]
+              }
             />
             <Legend wrapperStyle={{ fontSize: 12 }} />
-            <Bar dataKey="impressions" name="Impressions" fill="hsl(var(--primary))" radius={[6, 6, 0, 0]} />
+            <Bar
+              dataKey="impressions"
+              name="Impressions"
+              fill="hsl(var(--primary))"
+              radius={[6, 6, 0, 0]}
+            />
             <Bar dataKey="clicks" name="Clicks" fill="oklch(0.78 0.15 85)" radius={[6, 6, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
@@ -330,10 +435,18 @@ function GroupChart({
 
 function BreakdownTable({ title, events }: { title: string; events: AdEvent[] }) {
   const rows = useMemo(() => {
-    const map = new Map<string, { brand: string; occasion: string; impressions: number; clicks: number }>();
+    const map = new Map<
+      string,
+      { brand: string; occasion: string; impressions: number; clicks: number }
+    >();
     for (const e of events) {
       const k = `${e.brand ?? "—"}::${e.occasion ?? "—"}`;
-      const row = map.get(k) ?? { brand: e.brand ?? "—", occasion: e.occasion ?? "—", impressions: 0, clicks: 0 };
+      const row = map.get(k) ?? {
+        brand: e.brand ?? "—",
+        occasion: e.occasion ?? "—",
+        impressions: 0,
+        clicks: 0,
+      };
       if (e.kind === "impression") row.impressions++;
       else if (e.kind === "click") row.clicks++;
       map.set(k, row);
@@ -362,7 +475,11 @@ function BreakdownTable({ title, events }: { title: string; events: AdEvent[] })
           </thead>
           <tbody>
             {rows.length === 0 && (
-              <tr><td colSpan={5} className="px-3 py-6 text-center text-muted-foreground">No events in this window.</td></tr>
+              <tr>
+                <td colSpan={5} className="px-3 py-6 text-center text-muted-foreground">
+                  No events in this window.
+                </td>
+              </tr>
             )}
             {rows.map((r, i) => (
               <tr key={i} className="border-t border-border">

@@ -7,10 +7,7 @@ const inputSchema = z.object({
   text: z.string().trim().min(1, "Enter text to translate.").max(5000),
   targetLanguage: z.string().trim().min(2).max(60),
   sourceLanguage: z.string().trim().max(60).optional(),
-  tone: z
-    .enum(["natural", "formal", "casual", "literal"])
-    .optional()
-    .default("natural"),
+  tone: z.enum(["natural", "formal", "casual", "literal"]).optional().default("natural"),
 });
 
 export const translateText = createServerFn({ method: "POST" })
@@ -18,9 +15,7 @@ export const translateText = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const key = process.env.LOVABLE_API_KEY;
     if (!key) {
-      throw new Error(
-        "Translator is not configured. Missing AI gateway credentials.",
-      );
+      throw new Error("Translator is not configured. Missing AI gateway credentials.");
     }
 
     const gateway = createLovableAiGatewayProvider(key);
@@ -48,14 +43,10 @@ export const translateText = createServerFn({ method: "POST" })
     } catch (err) {
       const e = err as { status?: number; message?: string };
       if (e.status === 429) {
-        throw new Error(
-          "Too many requests right now. Please wait a moment and try again.",
-        );
+        throw new Error("Too many requests right now. Please wait a moment and try again.");
       }
       if (e.status === 402) {
-        throw new Error(
-          "AI credits exhausted. Add credits in Settings → Workspace → Usage.",
-        );
+        throw new Error("AI credits exhausted. Add credits in Settings → Workspace → Usage.");
       }
       throw new Error(e.message || "Translation failed. Please try again.");
     }

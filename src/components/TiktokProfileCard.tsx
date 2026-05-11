@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { Music2, Loader2, Unlink, ExternalLink, AlertTriangle, RefreshCw, CheckCircle2 } from "lucide-react";
+import {
+  Music2,
+  Loader2,
+  Unlink,
+  ExternalLink,
+  AlertTriangle,
+  RefreshCw,
+  CheckCircle2,
+} from "lucide-react";
 import {
   disconnectTiktok,
   getMyLinkedAccounts,
@@ -74,8 +82,7 @@ export function TiktokProfileCard() {
           <div className="min-w-0">
             <div className="font-display text-base font-bold">TikTok</div>
             <p className="text-xs text-muted-foreground">
-              Not connected yet. Use Connect TikTok in Connected accounts above
-              to link your handle.
+              Not connected yet. Use Connect TikTok in Connected accounts above to link your handle.
             </p>
           </div>
         </div>
@@ -84,9 +91,7 @@ export function TiktokProfileCard() {
   }
 
   const handle = tiktok.username ?? tiktok.provider_user_id;
-  const profileUrl = tiktok.username
-    ? `https://www.tiktok.com/@${tiktok.username}`
-    : null;
+  const profileUrl = tiktok.username ? `https://www.tiktok.com/@${tiktok.username}` : null;
   const initials = (tiktok.display_name ?? handle ?? "?")
     .split(/\s+/)
     .map((s) => s[0])
@@ -215,8 +220,8 @@ export function TiktokProfileCard() {
       )}
 
       <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
-        Disconnecting removes the access token from your account. Your TikTok
-        post history isn't deleted on TikTok's side — only our link to it.
+        Disconnecting removes the access token from your account. Your TikTok post history isn't
+        deleted on TikTok's side — only our link to it.
       </p>
     </div>
   );

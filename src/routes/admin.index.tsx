@@ -6,10 +6,34 @@ export const Route = createFileRoute("/admin/")({
 });
 
 const KPIS = [
-  { label: "Total users", value: "1,284", delta: "+12.4%", icon: Users, tone: "from-coral/30 to-coral/5" },
-  { label: "Active bookings", value: "327", delta: "+4.1%", icon: CalendarCheck, tone: "from-purple/30 to-purple/5" },
-  { label: "Revenue MTD", value: "$48.2k", delta: "+18.7%", icon: DollarSign, tone: "from-gold/40 to-gold/5" },
-  { label: "Venues live", value: "92", delta: "+3", icon: Store, tone: "from-coral/30 to-purple/10" },
+  {
+    label: "Total users",
+    value: "1,284",
+    delta: "+12.4%",
+    icon: Users,
+    tone: "from-coral/30 to-coral/5",
+  },
+  {
+    label: "Active bookings",
+    value: "327",
+    delta: "+4.1%",
+    icon: CalendarCheck,
+    tone: "from-purple/30 to-purple/5",
+  },
+  {
+    label: "Revenue MTD",
+    value: "$48.2k",
+    delta: "+18.7%",
+    icon: DollarSign,
+    tone: "from-gold/40 to-gold/5",
+  },
+  {
+    label: "Venues live",
+    value: "92",
+    delta: "+3",
+    icon: Store,
+    tone: "from-coral/30 to-purple/10",
+  },
 ];
 
 const TOP_VENUES = [
@@ -33,7 +57,9 @@ function AdminDashboard() {
     <div className="space-y-8">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Overview</p>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            Overview
+          </p>
           <h1 className="font-display text-3xl font-bold leading-tight">Good morning, Admin.</h1>
           <p className="text-sm text-muted-foreground">Here's how the platform is doing today.</p>
         </div>
@@ -50,7 +76,9 @@ function AdminDashboard() {
           >
             <div className="flex items-start justify-between">
               <div>
-                <div className="text-xs uppercase tracking-wider text-muted-foreground">{k.label}</div>
+                <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                  {k.label}
+                </div>
                 <div className="mt-2 font-display text-3xl font-bold">{k.value}</div>
               </div>
               <div className="grid h-10 w-10 place-items-center rounded-xl bg-background/70 backdrop-blur">
@@ -83,7 +111,10 @@ function AdminDashboard() {
                       <span className="text-xs text-muted-foreground">{v.neighborhood}</span>
                     </div>
                     <div className="mt-1 h-2 w-full overflow-hidden rounded-full bg-muted">
-                      <div className="h-full rounded-full bg-gradient-vibe" style={{ width: `${pct}%` }} />
+                      <div
+                        className="h-full rounded-full bg-gradient-vibe"
+                        style={{ width: `${pct}%` }}
+                      />
                     </div>
                   </div>
                   <span className="w-10 text-right text-sm font-semibold">{v.bookings}</span>
@@ -114,8 +145,9 @@ function AdminDashboard() {
 
       <section className="rounded-2xl border border-dashed border-border bg-card/50 p-5 text-sm text-muted-foreground">
         <p>
-          <span className="font-semibold text-foreground">Phase 2 preview.</span> Users, Venues, Curated,
-          Bookings, Moderation, and Analytics screens are scaffolded next. Pick a sidebar item to start.
+          <span className="font-semibold text-foreground">Phase 2 preview.</span> Users, Venues,
+          Curated, Bookings, Moderation, and Analytics screens are scaffolded next. Pick a sidebar
+          item to start.
         </p>
       </section>
     </div>

@@ -1,6 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { Plane, MapPin, Clock, Users, Pencil, RotateCcw, Save, X, CalendarDays, Check, Wine, Utensils, Camera, Sparkles, Activity } from "lucide-react";
+import {
+  Plane,
+  MapPin,
+  Clock,
+  Users,
+  Pencil,
+  RotateCcw,
+  Save,
+  X,
+  CalendarDays,
+  Check,
+  Wine,
+  Utensils,
+  Camera,
+  Sparkles,
+  Activity,
+} from "lucide-react";
 import { toast } from "sonner";
 import { cloneItinerary, updateItinerary, type Itinerary, type Stop } from "@/lib/itineraries";
 import { Button } from "@/components/ui/button";
@@ -10,11 +26,11 @@ import { Label } from "@/components/ui/label";
 type Theme = {
   key: string;
   label: string;
-  bg: string;       // background gradient class
-  ink: string;      // primary text color class
-  muted: string;    // muted text color class
-  accent: string;   // accent badge bg class
-  stub: string;     // tear-off stub gradient class
+  bg: string; // background gradient class
+  ink: string; // primary text color class
+  muted: string; // muted text color class
+  accent: string; // accent badge bg class
+  stub: string; // tear-off stub gradient class
   icon: typeof Plane;
 };
 
@@ -90,7 +106,8 @@ function pickTheme(it: Itinerary, stops: Stop[]): Theme {
   if (/(date|romantic|anniversary|valentine)/.test(haystack)) return THEMES.romantic;
   if (/(hike|outdoor|park|scenic|nature|trail|garden)/.test(haystack)) return THEMES.outdoors;
   if (/(workout|run|sport|gym|active|cycle|bike)/.test(haystack)) return THEMES.active;
-  if (/(food|brunch|dinner|lunch|tasting|chef|restaurant|foodie)/.test(haystack)) return THEMES.food;
+  if (/(food|brunch|dinner|lunch|tasting|chef|restaurant|foodie)/.test(haystack))
+    return THEMES.food;
 
   // Fall back to dominant stop category.
   const cats = stops.map((s) => s.category?.toLowerCase());
@@ -114,13 +131,22 @@ function gateCode(it: Itinerary, stops: Stop[]) {
 
 function shortCity(s?: string | null) {
   if (!s) return "TBD";
-  return s.replace(/[^A-Za-z]/g, "").slice(0, 3).toUpperCase() || "TBD";
+  return (
+    s
+      .replace(/[^A-Za-z]/g, "")
+      .slice(0, 3)
+      .toUpperCase() || "TBD"
+  );
 }
 
 function fmtDate(d?: string | null) {
   if (!d) return "TBD";
   try {
-    return new Date(d).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
+    return new Date(d).toLocaleDateString(undefined, {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+    });
   } catch {
     return d;
   }
@@ -225,7 +251,9 @@ export function BoardingPass({
         <div className="p-6 sm:p-8">
           <header className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-2">
-              <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-widest ${theme.accent}`}>
+              <span
+                className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-widest ${theme.accent}`}
+              >
                 <ThemeIcon className="h-3 w-3" /> {theme.label}
               </span>
               <span className={`font-mono text-[10px] uppercase tracking-widest ${theme.muted}`}>
@@ -293,17 +321,23 @@ export function BoardingPass({
           {/* Route */}
           <div className="mt-6 flex items-end gap-4">
             <div>
-              <div className={`font-mono text-[10px] uppercase tracking-widest ${theme.muted}`}>From</div>
+              <div className={`font-mono text-[10px] uppercase tracking-widest ${theme.muted}`}>
+                From
+              </div>
               <div className="font-display text-3xl font-black leading-none">{fromCode}</div>
               <div className={`mt-1 text-xs ${theme.muted}`}>Right now</div>
             </div>
             <div className="flex-1 px-2">
               <div className="relative h-px bg-cream/40">
-                <Plane className={`absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 ${theme.ink}`} />
+                <Plane
+                  className={`absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 ${theme.ink}`}
+                />
               </div>
             </div>
             <div className="text-right">
-              <div className={`font-mono text-[10px] uppercase tracking-widest ${theme.muted}`}>To</div>
+              <div className={`font-mono text-[10px] uppercase tracking-widest ${theme.muted}`}>
+                To
+              </div>
               <div className="font-display text-3xl font-black leading-none">{toCode}</div>
               <div className={`mt-1 text-xs ${theme.muted}`}>{itinerary.city ?? "TBD"}</div>
             </div>
@@ -337,7 +371,7 @@ export function BoardingPass({
             </Detail>
             <Detail label="City" icon={MapPin} muted={theme.muted}>
               {!editing ? (
-                itinerary.city ?? "—"
+                (itinerary.city ?? "—")
               ) : (
                 <input
                   value={draft.city}
@@ -352,7 +386,9 @@ export function BoardingPass({
           </div>
 
           {/* Confirmed + cost row */}
-          <div className={`mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs ${theme.muted}`}>
+          <div
+            className={`mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs ${theme.muted}`}
+          >
             <span className="inline-flex items-center gap-1.5">
               <Check className="h-3.5 w-3.5" /> {confirmed}/{stops.length} confirmed
             </span>
@@ -369,7 +405,9 @@ export function BoardingPass({
               </p>
               <div className="mt-3 grid gap-2 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
                 <div>
-                  <Label className="text-[10px] font-mono uppercase tracking-widest text-cream/80">New date</Label>
+                  <Label className="text-[10px] font-mono uppercase tracking-widest text-cream/80">
+                    New date
+                  </Label>
                   <input
                     type="date"
                     value={rebookDate}
@@ -379,7 +417,9 @@ export function BoardingPass({
                   />
                 </div>
                 <div>
-                  <Label className="text-[10px] font-mono uppercase tracking-widest text-cream/80">Start time</Label>
+                  <Label className="text-[10px] font-mono uppercase tracking-widest text-cream/80">
+                    Start time
+                  </Label>
                   <input
                     type="time"
                     value={rebookTime}
@@ -387,7 +427,11 @@ export function BoardingPass({
                     className="mt-1 w-full rounded-md border border-cream/30 bg-cream/10 px-2 py-1.5 text-sm text-cream"
                   />
                 </div>
-                <Button onClick={rebook} disabled={rebooking} className="h-10 bg-cream text-ink hover:bg-cream/90">
+                <Button
+                  onClick={rebook}
+                  disabled={rebooking}
+                  className="h-10 bg-cream text-ink hover:bg-cream/90"
+                >
                   {rebooking ? "Cloning…" : "Rebook"}
                 </Button>
               </div>
@@ -441,7 +485,9 @@ function Detail({
 }) {
   return (
     <div>
-      <div className={`flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest ${muted}`}>
+      <div
+        className={`flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest ${muted}`}
+      >
         <Icon className="h-3 w-3" /> {label}
       </div>
       <div className="mt-1 font-display text-base font-bold">{children}</div>

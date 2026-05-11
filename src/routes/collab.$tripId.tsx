@@ -1,6 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { AlertTriangle, Check, Clock, MapPin, Sparkles, ThumbsDown, ThumbsUp, Users, HelpCircle } from "lucide-react";
+import {
+  AlertTriangle,
+  Check,
+  Clock,
+  MapPin,
+  Sparkles,
+  ThumbsDown,
+  ThumbsUp,
+  Users,
+  HelpCircle,
+} from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import {
   castVote,
@@ -20,7 +30,10 @@ export const Route = createFileRoute("/collab/$tripId")({
   head: () => ({
     meta: [
       { title: "Build the night together — Loop" },
-      { name: "description", content: "Vote on each stop with your crew. Live tallies, no account needed." },
+      {
+        name: "description",
+        content: "Vote on each stop with your crew. Live tallies, no account needed.",
+      },
     ],
   }),
   component: CollabPage,
@@ -34,17 +47,41 @@ const TRIP_PREVIEW = {
   // Saturday demo trip — `day` keyed off the saved plan's start date.
   day: "sat" as const,
   stops: [
-    { time: "11:30 AM", durationMin: 75,  name: "Bluebird Coffee Social", neighborhood: "East Side",          note: "Slow brews, sunlit corner table." },
-    { time: "1:15 PM",  durationMin: 90,  name: "The Marigold Rooftop",   neighborhood: "Warehouse District", note: "Aperitivo with skyline views." },
-    { time: "3:15 PM",  durationMin: 90,  name: "Lantern Hill Overlook",  neighborhood: "Riverbend",          note: "Golden-hour walk + photos." },
-    { time: "5:30 PM",  durationMin: 120, name: "Osteria di Pesca",       neighborhood: "Old Market",         note: "Hand-rolled pasta, cozy booth." },
+    {
+      time: "11:30 AM",
+      durationMin: 75,
+      name: "Bluebird Coffee Social",
+      neighborhood: "East Side",
+      note: "Slow brews, sunlit corner table.",
+    },
+    {
+      time: "1:15 PM",
+      durationMin: 90,
+      name: "The Marigold Rooftop",
+      neighborhood: "Warehouse District",
+      note: "Aperitivo with skyline views.",
+    },
+    {
+      time: "3:15 PM",
+      durationMin: 90,
+      name: "Lantern Hill Overlook",
+      neighborhood: "Riverbend",
+      note: "Golden-hour walk + photos.",
+    },
+    {
+      time: "5:30 PM",
+      durationMin: 120,
+      name: "Osteria di Pesca",
+      neighborhood: "Old Market",
+      note: "Hand-rolled pasta, cozy booth.",
+    },
   ],
 };
 
 const VOTE_OPTIONS: { value: VoteValue; label: string; icon: typeof ThumbsUp; tone: string }[] = [
-  { value: "in",    label: "I'm in",   icon: ThumbsUp,    tone: "from-emerald-500 to-primary" },
-  { value: "maybe", label: "Maybe",    icon: HelpCircle,  tone: "from-amber-400 to-coral" },
-  { value: "out",   label: "Pass",     icon: ThumbsDown,  tone: "from-muted-foreground to-foreground" },
+  { value: "in", label: "I'm in", icon: ThumbsUp, tone: "from-emerald-500 to-primary" },
+  { value: "maybe", label: "Maybe", icon: HelpCircle, tone: "from-amber-400 to-coral" },
+  { value: "out", label: "Pass", icon: ThumbsDown, tone: "from-muted-foreground to-foreground" },
 ];
 
 function CollabPage() {
@@ -60,7 +97,10 @@ function CollabPage() {
     setTripStatus(loadStatus(tripId));
     const unsubV = subscribeVotes(tripId, () => setVotes(loadVotes(tripId)));
     const unsubS = subscribeStatus(tripId, () => setTripStatus(loadStatus(tripId)));
-    return () => { unsubV(); unsubS(); };
+    return () => {
+      unsubV();
+      unsubS();
+    };
   }, [tripId]);
 
   function commitName(v: string) {
@@ -81,7 +121,10 @@ function CollabPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
       <SiteHeader />
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-0 h-[420px] bg-gradient-to-b from-primary/15 via-coral/10 to-transparent blur-2xl" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -z-0 h-[420px] bg-gradient-to-b from-primary/15 via-coral/10 to-transparent blur-2xl"
+      />
 
       <div className="relative z-10 mx-auto max-w-2xl px-4 py-12 sm:px-6">
         <div className="text-center">
@@ -113,7 +156,9 @@ function CollabPage() {
             className="mt-2 w-full rounded-xl border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary"
           />
           <p className="mt-2 text-[11px] text-muted-foreground">
-            {totalVoters > 0 ? `${totalVoters} ${totalVoters === 1 ? "person has" : "people have"} weighed in so far.` : "Be the first to vote."}
+            {totalVoters > 0
+              ? `${totalVoters} ${totalVoters === 1 ? "person has" : "people have"} weighed in so far.`
+              : "Be the first to vote."}
           </p>
         </section>
 
@@ -121,7 +166,9 @@ function CollabPage() {
         <section className="mt-6 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
           <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-gradient-to-r from-primary/5 to-coral/5 p-5 sm:p-6">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{TRIP_PREVIEW.date}</p>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                {TRIP_PREVIEW.date}
+              </p>
               <p className="mt-0.5 font-display text-xl font-semibold">{TRIP_PREVIEW.title}</p>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
@@ -131,11 +178,17 @@ function CollabPage() {
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
                   </span>
-                  Running ~{tripStatus.minutesLate} min late · {formatUpdatedAt(tripStatus.updatedAt)} · <LiveElapsed since={tripStatus.updatedAt} />
+                  Running ~{tripStatus.minutesLate} min late ·{" "}
+                  {formatUpdatedAt(tripStatus.updatedAt)} ·{" "}
+                  <LiveElapsed since={tripStatus.updatedAt} />
                 </span>
               )}
-              <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {TRIP_PREVIEW.window}</span>
-              <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {TRIP_PREVIEW.city}</span>
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5" /> {TRIP_PREVIEW.window}
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin className="h-3.5 w-3.5" /> {TRIP_PREVIEW.city}
+              </span>
             </div>
           </header>
 
@@ -158,7 +211,12 @@ function CollabPage() {
                       <p className="truncate text-sm font-semibold">{s.name}</p>
                       <p className="truncate text-xs text-muted-foreground">
                         {s.neighborhood} · {s.note}
-                        {fit.state !== "unknown" && <> · <span className="font-medium">{fit.hoursLabel}</span></>}
+                        {fit.state !== "unknown" && (
+                          <>
+                            {" "}
+                            · <span className="font-medium">{fit.hoursLabel}</span>
+                          </>
+                        )}
                       </p>
                     </div>
                     <div className="flex shrink-0 flex-col items-end gap-1">
@@ -209,18 +267,37 @@ function CollabPage() {
                   {total > 0 ? (
                     <div className="space-y-1.5">
                       <div className="flex h-2 w-full overflow-hidden rounded-full bg-muted">
-                        <div className="h-full bg-emerald-500 transition-all duration-300" style={{ width: `${inPct}%` }} />
-                        <div className="h-full bg-amber-400 transition-all duration-300" style={{ width: `${maybePct}%` }} />
-                        <div className="h-full bg-muted-foreground transition-all duration-300" style={{ width: `${outPct}%` }} />
+                        <div
+                          className="h-full bg-emerald-500 transition-all duration-300"
+                          style={{ width: `${inPct}%` }}
+                        />
+                        <div
+                          className="h-full bg-amber-400 transition-all duration-300"
+                          style={{ width: `${maybePct}%` }}
+                        />
+                        <div
+                          className="h-full bg-muted-foreground transition-all duration-300"
+                          style={{ width: `${outPct}%` }}
+                        />
                       </div>
                       <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[11px] text-muted-foreground">
-                        <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-emerald-500" /> {tally.in} in</span>
-                        <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-amber-400" /> {tally.maybe} maybe</span>
-                        <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-muted-foreground" /> {tally.out} out</span>
+                        <span className="inline-flex items-center gap-1">
+                          <span className="h-2 w-2 rounded-full bg-emerald-500" /> {tally.in} in
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                          <span className="h-2 w-2 rounded-full bg-amber-400" /> {tally.maybe} maybe
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                          <span className="h-2 w-2 rounded-full bg-muted-foreground" /> {tally.out}{" "}
+                          out
+                        </span>
                       </div>
                       {tally.voters.some((v) => v.voterName) && (
                         <p className="text-[11px] text-muted-foreground">
-                          {tally.voters.filter((v) => v.voterName).map((v) => `${v.voterName} (${v.value})`).join(" · ")}
+                          {tally.voters
+                            .filter((v) => v.voterName)
+                            .map((v) => `${v.voterName} (${v.value})`)
+                            .join(" · ")}
                         </p>
                       )}
                     </div>
@@ -234,7 +311,10 @@ function CollabPage() {
         </section>
 
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <Link to="/" className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+          >
             Build your own day
           </Link>
         </div>

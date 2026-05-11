@@ -1,28 +1,99 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, Check, ExternalLink, MapPin, Pencil, Trash2, Utensils, Wine, Camera, Activity, Car, Sparkles, ParkingCircle, Lightbulb, Quote, Stamp, Bus, Footprints, Bike, Navigation, Ticket, Hash, Users, Phone, Mail, Clock, FileText, ChevronDown, History, RotateCcw, Timer, Calendar, AlertTriangle, X, Shirt } from "lucide-react";
+import {
+  ArrowLeft,
+  ExternalLink,
+  MapPin,
+  Pencil,
+  Trash2,
+  Utensils,
+  Wine,
+  Camera,
+  Activity,
+  Car,
+  Sparkles,
+  ParkingCircle,
+  Lightbulb,
+  Quote,
+  Stamp,
+  Bus,
+  Footprints,
+  Bike,
+  Navigation,
+  Ticket,
+  Hash,
+  Users,
+  Phone,
+  Mail,
+  Clock,
+  FileText,
+  ChevronDown,
+  History,
+  RotateCcw,
+  Timer,
+  Calendar,
+  AlertTriangle,
+  X,
+  Shirt,
+} from "lucide-react";
 import { toast } from "sonner";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
-import { completeItinerary, deleteItinerary, getItinerary, updateStop, type Itinerary, type Stop, type TravelLeg } from "@/lib/itineraries";
+import {
+  completeItinerary,
+  deleteItinerary,
+  getItinerary,
+  updateStop,
+  type Itinerary,
+  type Stop,
+  type TravelLeg,
+} from "@/lib/itineraries";
 import { LateRescheduleFab } from "@/components/LateRescheduleFab";
 import { LiveElapsed } from "@/components/LiveElapsed";
 import { BoardingPass } from "@/components/BoardingPass";
 import { PromotedSlot } from "@/components/PromotedSlot";
-import { clearNotifications, formatUpdatedAt, loadNotifications, loadStatus, subscribeNotifications, subscribeStatus, type SentNotification, type TripStatus } from "@/lib/trip-status";
+import {
+  clearNotifications,
+  formatUpdatedAt,
+  loadNotifications,
+  loadStatus,
+  subscribeNotifications,
+  subscribeStatus,
+  type SentNotification,
+  type TripStatus,
+} from "@/lib/trip-status";
 import { GooglePhotos } from "@/components/GooglePhotos";
 import { VibeFilter } from "@/components/VibeFilter";
-import { CROWD_LABEL, DRESS_LABEL, NOISE_LABEL, inferStopVibe, loadVibePrefs, matchLevel, saveVibePrefs, vibeMatchScore, type VibePrefs } from "@/lib/vibe";
+import {
+  CROWD_LABEL,
+  DRESS_LABEL,
+  NOISE_LABEL,
+  inferStopVibe,
+  loadVibePrefs,
+  matchLevel,
+  saveVibePrefs,
+  vibeMatchScore,
+  type VibePrefs,
+} from "@/lib/vibe";
 
 export const Route = createFileRoute("/trips/$id")({
   component: TripDetail,
   notFoundComponent: () => (
-    <div className="grid min-h-screen place-items-center"><Link to="/trips" className="text-primary underline">Back to trips</Link></div>
+    <div className="grid min-h-screen place-items-center">
+      <Link to="/trips" className="text-primary underline">
+        Back to trips
+      </Link>
+    </div>
   ),
 });
 
 const CAT_ICONS: Record<string, typeof Utensils> = {
-  meal: Utensils, drinks: Wine, scenic: Camera, activity: Activity, travel: Car, other: Sparkles,
+  meal: Utensils,
+  drinks: Wine,
+  scenic: Camera,
+  activity: Activity,
+  travel: Car,
+  other: Sparkles,
 };
 
 function TripDetail() {
@@ -44,8 +115,14 @@ function TripDetail() {
 
   useEffect(() => {
     if (authLoading) return;
-    if (!user) { nav({ to: "/auth" }); return; }
-    getItinerary(id).then(setData).catch((e) => setErr(e.message)).finally(() => setLoading(false));
+    if (!user) {
+      nav({ to: "/auth" });
+      return;
+    }
+    getItinerary(id)
+      .then(setData)
+      .catch((e) => setErr(e.message))
+      .finally(() => setLoading(false));
   }, [id, user, authLoading, nav]);
 
   useEffect(() => {
@@ -53,41 +130,79 @@ function TripDetail() {
     setNotifications(loadNotifications(id));
     const u1 = subscribeStatus(id, () => setTripStatus(loadStatus(id)));
     const u2 = subscribeNotifications(id, () => setNotifications(loadNotifications(id)));
-    return () => { u1(); u2(); };
+    return () => {
+      u1();
+      u2();
+    };
   }, [id]);
 
   async function setStatus(stopId: string, status: Stop["booking_status"]) {
     if (!data) return;
-    setData({ ...data, stops: data.stops.map((s) => s.id === stopId ? { ...s, booking_status: status } : s) });
-    try { await updateStop(stopId, { booking_status: status }); } catch (e) { setErr((e as Error).message); }
+    setData({
+      ...data,
+      stops: data.stops.map((s) => (s.id === stopId ? { ...s, booking_status: status } : s)),
+    });
+    try {
+      await updateStop(stopId, { booking_status: status });
+    } catch (e) {
+      setErr((e as Error).message);
+    }
   }
 
   async function saveNotes(stopId: string, user_notes: string) {
     if (!data) return;
-    setData({ ...data, stops: data.stops.map((s) => s.id === stopId ? { ...s, user_notes } : s) });
-    try { await updateStop(stopId, { user_notes }); } catch (e) { setErr((e as Error).message); }
+    setData({
+      ...data,
+      stops: data.stops.map((s) => (s.id === stopId ? { ...s, user_notes } : s)),
+    });
+    try {
+      await updateStop(stopId, { user_notes });
+    } catch (e) {
+      setErr((e as Error).message);
+    }
   }
 
   async function saveReservation(stopId: string, patch: Partial<Stop>) {
     if (!data) return;
-    setData({ ...data, stops: data.stops.map((s) => s.id === stopId ? { ...s, ...patch } : s) });
-    try { await updateStop(stopId, patch); } catch (e) { setErr((e as Error).message); }
+    setData({ ...data, stops: data.stops.map((s) => (s.id === stopId ? { ...s, ...patch } : s)) });
+    try {
+      await updateStop(stopId, patch);
+    } catch (e) {
+      setErr((e as Error).message);
+    }
   }
 
   async function removeTrip() {
     if (!confirm("Delete this trip?")) return;
-    try { await deleteItinerary(id); nav({ to: "/trips" }); } catch (e) { setErr((e as Error).message); }
+    try {
+      await deleteItinerary(id);
+      nav({ to: "/trips" });
+    } catch (e) {
+      setErr((e as Error).message);
+    }
   }
 
   async function completeDay() {
     try {
       if (!data?.itinerary.completed_at) await completeItinerary(id);
       nav({ to: "/trips/$id/passport", params: { id } });
-    } catch (e) { setErr((e as Error).message); }
+    } catch (e) {
+      setErr((e as Error).message);
+    }
   }
 
-  if (loading) return <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">Loading...</div>;
-  if (err) return <div className="grid min-h-screen place-items-center"><p className="text-destructive">{err}</p></div>;
+  if (loading)
+    return (
+      <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">
+        Loading...
+      </div>
+    );
+  if (err)
+    return (
+      <div className="grid min-h-screen place-items-center">
+        <p className="text-destructive">{err}</p>
+      </div>
+    );
   if (!data) return null;
 
   const { itinerary: it, stops } = data;
@@ -98,7 +213,10 @@ function TripDetail() {
 
       {/* Boarding pass header */}
       <section className="mx-auto max-w-4xl px-4 pt-8 sm:px-6 lg:px-8">
-        <Link to="/trips" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+        <Link
+          to="/trips"
+          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+        >
           <ArrowLeft className="h-4 w-4" /> All trips
         </Link>
         <div className="mt-4">
@@ -109,41 +227,61 @@ function TripDetail() {
           />
         </div>
 
-        <PromotedSlot placement="itinerary_boost" surface={`trip_${id}`} variant="boost" className="mt-4" />
+        <PromotedSlot
+          placement="itinerary_boost"
+          surface={`trip_${id}`}
+          variant="boost"
+          className="mt-4"
+        />
 
-        {it.summary && (
-          <p className="mt-5 max-w-2xl text-sm text-muted-foreground">{it.summary}</p>
-        )}
+        {it.summary && <p className="mt-5 max-w-2xl text-sm text-muted-foreground">{it.summary}</p>}
 
-        {tripStatus && (tripStatus.minutesLate > 0 || tripStatus.cancelled || tripStatus.rescheduledAt) && (
-          <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
-            {tripStatus.cancelled && (
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 px-2.5 py-1 font-semibold text-rose-700">
-                <X className="h-3 w-3" /> Cancelled · {formatUpdatedAt(tripStatus.updatedAt)} · <LiveElapsed since={tripStatus.updatedAt} />
-              </span>
-            )}
-            {tripStatus.rescheduledAt && !tripStatus.cancelled && (
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/15 px-2.5 py-1 font-semibold text-sky-700">
-                <Calendar className="h-3 w-3" /> Rescheduled · {new Date(tripStatus.rescheduledAt).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}
-              </span>
-            )}
-            {tripStatus.minutesLate > 0 && !tripStatus.cancelled && (
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 px-2.5 py-1 font-semibold text-amber-700">
-                <span className="relative inline-flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
+        {tripStatus &&
+          (tripStatus.minutesLate > 0 || tripStatus.cancelled || tripStatus.rescheduledAt) && (
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
+              {tripStatus.cancelled && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 px-2.5 py-1 font-semibold text-rose-700">
+                  <X className="h-3 w-3" /> Cancelled · {formatUpdatedAt(tripStatus.updatedAt)} ·{" "}
+                  <LiveElapsed since={tripStatus.updatedAt} />
                 </span>
-                Running ~{tripStatus.minutesLate} min late · {formatUpdatedAt(tripStatus.updatedAt)} · <LiveElapsed since={tripStatus.updatedAt} />
-              </span>
-            )}
-          </div>
-        )}
+              )}
+              {tripStatus.rescheduledAt && !tripStatus.cancelled && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/15 px-2.5 py-1 font-semibold text-sky-700">
+                  <Calendar className="h-3 w-3" /> Rescheduled ·{" "}
+                  {new Date(tripStatus.rescheduledAt).toLocaleString([], {
+                    month: "short",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "2-digit",
+                  })}
+                </span>
+              )}
+              {tripStatus.minutesLate > 0 && !tripStatus.cancelled && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 px-2.5 py-1 font-semibold text-amber-700">
+                  <span className="relative inline-flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
+                  </span>
+                  Running ~{tripStatus.minutesLate} min late ·{" "}
+                  {formatUpdatedAt(tripStatus.updatedAt)} ·{" "}
+                  <LiveElapsed since={tripStatus.updatedAt} />
+                </span>
+              )}
+            </div>
+          )}
 
         <div className="mt-5 flex flex-wrap gap-3">
-          <button onClick={completeDay} className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-pop hover:scale-105 transition-pop">
-            <Stamp className="h-3.5 w-3.5" /> {it.completed_at ? "View passport" : "Complete day → Passport"}
+          <button
+            onClick={completeDay}
+            className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-pop hover:scale-105 transition-pop"
+          >
+            <Stamp className="h-3.5 w-3.5" />{" "}
+            {it.completed_at ? "View passport" : "Complete day → Passport"}
           </button>
-          <button onClick={removeTrip} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-destructive">
+          <button
+            onClick={removeTrip}
+            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-destructive"
+          >
             <Trash2 className="h-3.5 w-3.5" /> Delete
           </button>
         </div>
@@ -161,9 +299,7 @@ function TripDetail() {
             const prev = i > 0 ? stops[i - 1] : null;
             return (
               <li key={s.id} className="relative">
-                {leg && prev && (
-                  <TravelLegCard leg={leg} from={prev} to={s} />
-                )}
+                {leg && prev && <TravelLegCard leg={leg} from={prev} to={s} />}
                 <span className="absolute -left-[34px] grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-pop">
                   <Icon className="h-5 w-5" />
                 </span>
@@ -177,10 +313,19 @@ function TripDetail() {
                       </p>
                       <h3 className="mt-1 font-display text-xl font-bold">{s.name}</h3>
                     </div>
-                    <BookingPill status={s.booking_status as Stop["booking_status"]} onChange={(st) => s.id && setStatus(s.id, st)} />
+                    <BookingPill
+                      status={s.booking_status as Stop["booking_status"]}
+                      onChange={(st) => s.id && setStatus(s.id, st)}
+                    />
                   </div>
 
-                  <GooglePhotos venue={s.name} address={s.address} className="mt-3 overflow-hidden rounded-xl" variant="strip" hideEmpty />
+                  <GooglePhotos
+                    venue={s.name}
+                    address={s.address}
+                    className="mt-3 overflow-hidden rounded-xl"
+                    variant="strip"
+                    hideEmpty
+                  />
 
                   <VibeRow stop={s} prefs={vibePrefs} />
 
@@ -202,7 +347,9 @@ function TripDetail() {
 
                   {s.what_to_do && (
                     <div className="mt-3 rounded-xl bg-muted p-3">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">What to do / order</p>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                        What to do / order
+                      </p>
                       <p className="mt-1 text-sm">{s.what_to_do}</p>
                     </div>
                   )}
@@ -210,10 +357,15 @@ function TripDetail() {
                   {Array.isArray(s.review_snippets) && s.review_snippets.length > 0 && (
                     <div className="mt-3 rounded-xl border border-border/60 bg-background p-3">
                       <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                        <Quote className="h-3.5 w-3.5" /> What people say <span className="ml-1 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-bold normal-case">AI summary</span>
+                        <Quote className="h-3.5 w-3.5" /> What people say{" "}
+                        <span className="ml-1 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-bold normal-case">
+                          AI summary
+                        </span>
                       </p>
                       <ul className="mt-2 space-y-1.5 text-sm italic text-foreground/80">
-                        {s.review_snippets.map((r, idx) => (<li key={idx}>"{r}"</li>))}
+                        {s.review_snippets.map((r, idx) => (
+                          <li key={idx}>"{r}"</li>
+                        ))}
                       </ul>
                     </div>
                   )}
@@ -222,7 +374,9 @@ function TripDetail() {
                     <div className="mt-3 flex gap-3 rounded-xl bg-muted/60 p-3">
                       <ParkingCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <div className="text-sm">
-                        <p className="font-semibold capitalize">{s.parking.type} · {s.parking.cost}</p>
+                        <p className="font-semibold capitalize">
+                          {s.parking.type} · {s.parking.cost}
+                        </p>
                         <p className="text-muted-foreground">{s.parking.access}</p>
                       </div>
                     </div>
@@ -232,7 +386,9 @@ function TripDetail() {
                     <div className="mt-3 flex gap-3 rounded-xl border border-border/60 bg-background p-3">
                       <Shirt className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <div className="text-sm">
-                        <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Dress code</p>
+                        <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                          Dress code
+                        </p>
                         <p className="mt-0.5 font-medium">{s.dress_code}</p>
                       </div>
                     </div>
@@ -244,22 +400,32 @@ function TripDetail() {
                         <Lightbulb className="h-3.5 w-3.5" /> Insider tips
                       </p>
                       <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-amber-950 dark:text-amber-100">
-                        {s.tips.map((t, idx) => (<li key={idx}>{t}</li>))}
+                        {s.tips.map((t, idx) => (
+                          <li key={idx}>{t}</li>
+                        ))}
                       </ul>
                     </div>
                   )}
 
                   <div className="mt-4 flex flex-wrap items-center gap-2">
                     {s.booking_url && (
-                      <a href={s.booking_url} target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-xs font-semibold text-background hover:scale-105 transition-pop">
-                        Book on {s.booking_provider ?? "site"} <ExternalLink className="h-3.5 w-3.5" />
+                      <a
+                        href={s.booking_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-xs font-semibold text-background hover:scale-105 transition-pop"
+                      >
+                        Book on {s.booking_provider ?? "site"}{" "}
+                        <ExternalLink className="h-3.5 w-3.5" />
                       </a>
                     )}
                   </div>
 
                   <ReservationEditor stop={s} onSave={(p) => s.id && saveReservation(s.id, p)} />
-                  <NotesEditor initial={s.user_notes ?? ""} onSave={(v) => s.id && saveNotes(s.id, v)} />
+                  <NotesEditor
+                    initial={s.user_notes ?? ""}
+                    onSave={(v) => s.id && saveNotes(s.id, v)}
+                  />
                 </article>
               </li>
             );
@@ -276,7 +442,9 @@ function TripDetail() {
                 <History className="h-4 w-4" />
               </span>
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Notification history</p>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Notification history
+                </p>
                 <p className="mt-0.5 text-sm font-semibold">
                   {notifications.length === 0
                     ? "Nothing sent yet"
@@ -287,7 +455,10 @@ function TripDetail() {
             {notifications.length > 0 && (
               <button
                 type="button"
-                onClick={() => { clearNotifications(id); toast.success("History cleared"); }}
+                onClick={() => {
+                  clearNotifications(id);
+                  toast.success("History cleared");
+                }}
                 className="inline-flex items-center gap-1 rounded-full border border-border bg-card px-2.5 py-1 text-[11px] font-semibold text-muted-foreground transition-colors hover:border-destructive hover:text-destructive"
               >
                 <RotateCcw className="h-3 w-3" /> Clear
@@ -296,26 +467,37 @@ function TripDetail() {
           </header>
           {notifications.length === 0 ? (
             <p className="p-5 text-xs text-muted-foreground">
-              Use the floating button to notify venues when you're running late, rescheduling, or cancelling. Every message lands here with a timestamp.
+              Use the floating button to notify venues when you're running late, rescheduling, or
+              cancelling. Every message lands here with a timestamp.
             </p>
           ) : (
             <ol className="divide-y divide-border">
               {notifications.map((n) => {
                 const tone =
-                  n.kind === "late" ? "bg-amber-500/15 text-amber-700"
-                  : n.kind === "reschedule" ? "bg-sky-500/15 text-sky-700"
-                  : "bg-rose-500/15 text-rose-700";
-                const Icon = n.kind === "late" ? Timer : n.kind === "reschedule" ? Calendar : AlertTriangle;
+                  n.kind === "late"
+                    ? "bg-amber-500/15 text-amber-700"
+                    : n.kind === "reschedule"
+                      ? "bg-sky-500/15 text-sky-700"
+                      : "bg-rose-500/15 text-rose-700";
+                const Icon =
+                  n.kind === "late" ? Timer : n.kind === "reschedule" ? Calendar : AlertTriangle;
                 return (
                   <li key={n.id} className="flex items-start gap-3 p-4 sm:px-5">
-                    <span className={`mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg ${tone}`}>
+                    <span
+                      className={`mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg ${tone}`}
+                    >
                       <Icon className="h-3.5 w-3.5" />
                     </span>
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-baseline justify-between gap-2">
                         <p className="text-sm font-semibold">{n.venue}</p>
                         <span className="text-[11px] text-muted-foreground">
-                          {new Date(n.sentAt).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}
+                          {new Date(n.sentAt).toLocaleString([], {
+                            month: "short",
+                            day: "numeric",
+                            hour: "numeric",
+                            minute: "2-digit",
+                          })}
                         </span>
                       </div>
                       <p className="text-xs text-muted-foreground">{n.message}</p>
@@ -352,17 +534,30 @@ function formatTimeLabel(t?: string | null): string {
   return `${h}:${m[2]} ${mer}`;
 }
 
-function BookingPill({ status, onChange }: { status: Stop["booking_status"]; onChange: (s: Stop["booking_status"]) => void }) {
+function BookingPill({
+  status,
+  onChange,
+}: {
+  status: Stop["booking_status"];
+  onChange: (s: Stop["booking_status"]) => void;
+}) {
   const opts: Array<{ k: Stop["booking_status"]; label: string; cls: string }> = [
     { k: "unbooked", label: "Unbooked", cls: "bg-muted text-muted-foreground" },
-    { k: "pending",  label: "Pending",  cls: "bg-amber-100 text-amber-900" },
+    { k: "pending", label: "Pending", cls: "bg-amber-100 text-amber-900" },
     { k: "confirmed", label: "Confirmed", cls: "bg-emerald-100 text-emerald-900" },
   ];
   const cur = opts.find((o) => o.k === status) ?? opts[0];
   return (
-    <select value={cur.k} onChange={(e) => onChange(e.target.value as Stop["booking_status"])}
-      className={`rounded-full px-3 py-1.5 text-xs font-semibold ${cur.cls} cursor-pointer`}>
-      {opts.map((o) => (<option key={o.k} value={o.k}>{o.label}</option>))}
+    <select
+      value={cur.k}
+      onChange={(e) => onChange(e.target.value as Stop["booking_status"])}
+      className={`rounded-full px-3 py-1.5 text-xs font-semibold ${cur.cls} cursor-pointer`}
+    >
+      {opts.map((o) => (
+        <option key={o.k} value={o.k}>
+          {o.label}
+        </option>
+      ))}
     </select>
   );
 }
@@ -374,25 +569,59 @@ function NotesEditor({ initial, onSave }: { initial: string; onSave: (v: string)
     <div className="mt-3">
       {editing ? (
         <div className="space-y-2">
-          <textarea value={val} onChange={(e) => setVal(e.target.value)} rows={2}
+          <textarea
+            value={val}
+            onChange={(e) => setVal(e.target.value)}
+            rows={2}
             placeholder="Confirmation #, party size, special requests..."
-            className="w-full rounded-xl border border-border bg-background p-3 text-sm outline-none focus:border-primary" />
+            className="w-full rounded-xl border border-border bg-background p-3 text-sm outline-none focus:border-primary"
+          />
           <div className="flex gap-2">
-            <button onClick={() => { onSave(val); setEditing(false); }} className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">Save</button>
-            <button onClick={() => { setVal(initial); setEditing(false); }} className="rounded-full border border-border px-3 py-1 text-xs font-semibold">Cancel</button>
+            <button
+              onClick={() => {
+                onSave(val);
+                setEditing(false);
+              }}
+              className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground"
+            >
+              Save
+            </button>
+            <button
+              onClick={() => {
+                setVal(initial);
+                setEditing(false);
+              }}
+              className="rounded-full border border-border px-3 py-1 text-xs font-semibold"
+            >
+              Cancel
+            </button>
           </div>
         </div>
       ) : (
-        <button onClick={() => setEditing(true)} className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground">
+        <button
+          onClick={() => setEditing(true)}
+          className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground"
+        >
           <Pencil className="h-3 w-3" /> {val ? "Edit notes" : "Add notes"}
-          {val && <span className="ml-2 italic font-normal opacity-80">— "{val.slice(0, 60)}{val.length > 60 ? "..." : ""}"</span>}
+          {val && (
+            <span className="ml-2 italic font-normal opacity-80">
+              — "{val.slice(0, 60)}
+              {val.length > 60 ? "..." : ""}"
+            </span>
+          )}
         </button>
       )}
     </div>
   );
 }
 
-function ReservationEditor({ stop, onSave }: { stop: Stop; onSave: (patch: Partial<Stop>) => void }) {
+function ReservationEditor({
+  stop,
+  onSave,
+}: {
+  stop: Stop;
+  onSave: (patch: Partial<Stop>) => void;
+}) {
   const [open, setOpen] = useState(false);
   const [ref, setRef] = useState(stop.booking_ref ?? "");
   const [party, setParty] = useState<string>(stop.party_size ? String(stop.party_size) : "");
@@ -401,7 +630,13 @@ function ReservationEditor({ stop, onSave }: { stop: Stop; onSave: (patch: Parti
   const [email, setEmail] = useState(stop.contact_email ?? "");
   const [note, setNote] = useState(stop.confirmation_note ?? "");
 
-  const filled = stop.booking_ref || stop.party_size || stop.reservation_time || stop.contact_phone || stop.contact_email || stop.confirmation_note;
+  const filled =
+    stop.booking_ref ||
+    stop.party_size ||
+    stop.reservation_time ||
+    stop.contact_phone ||
+    stop.contact_email ||
+    stop.confirmation_note;
 
   function save() {
     onSave({
@@ -418,55 +653,131 @@ function ReservationEditor({ stop, onSave }: { stop: Stop; onSave: (patch: Parti
 
   return (
     <div className="mt-3 rounded-xl border border-border/70 bg-background">
-      <button onClick={() => setOpen((v) => !v)} className="flex w-full items-center justify-between gap-2 px-3 py-2 text-left">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-center justify-between gap-2 px-3 py-2 text-left"
+      >
         <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           <Ticket className="h-3.5 w-3.5 text-primary" /> Reservation details
-          {filled ? <span className="ml-1 rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-900 normal-case">Saved</span>
-                  : <span className="ml-1 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-bold normal-case">Add</span>}
+          {filled ? (
+            <span className="ml-1 rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-900 normal-case">
+              Saved
+            </span>
+          ) : (
+            <span className="ml-1 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-bold normal-case">
+              Add
+            </span>
+          )}
         </span>
-        <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`} />
+        <ChevronDown
+          className={`h-4 w-4 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`}
+        />
       </button>
       {!open && filled && (
         <div className="grid gap-1 px-3 pb-3 text-sm text-muted-foreground sm:grid-cols-2">
-          {stop.booking_ref && <span className="inline-flex items-center gap-1.5"><Hash className="h-3.5 w-3.5" /> <span className="font-mono text-foreground">{stop.booking_ref}</span></span>}
-          {stop.party_size && <span className="inline-flex items-center gap-1.5"><Users className="h-3.5 w-3.5" /> Party of {stop.party_size}</span>}
-          {stop.reservation_time && <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {stop.reservation_time.slice(0, 5)}</span>}
-          {stop.contact_phone && <span className="inline-flex items-center gap-1.5"><Phone className="h-3.5 w-3.5" /> {stop.contact_phone}</span>}
-          {stop.contact_email && <span className="inline-flex items-center gap-1.5"><Mail className="h-3.5 w-3.5" /> {stop.contact_email}</span>}
-          {stop.confirmation_note && <span className="inline-flex items-center gap-1.5 sm:col-span-2"><FileText className="h-3.5 w-3.5" /> {stop.confirmation_note}</span>}
+          {stop.booking_ref && (
+            <span className="inline-flex items-center gap-1.5">
+              <Hash className="h-3.5 w-3.5" />{" "}
+              <span className="font-mono text-foreground">{stop.booking_ref}</span>
+            </span>
+          )}
+          {stop.party_size && (
+            <span className="inline-flex items-center gap-1.5">
+              <Users className="h-3.5 w-3.5" /> Party of {stop.party_size}
+            </span>
+          )}
+          {stop.reservation_time && (
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="h-3.5 w-3.5" /> {stop.reservation_time.slice(0, 5)}
+            </span>
+          )}
+          {stop.contact_phone && (
+            <span className="inline-flex items-center gap-1.5">
+              <Phone className="h-3.5 w-3.5" /> {stop.contact_phone}
+            </span>
+          )}
+          {stop.contact_email && (
+            <span className="inline-flex items-center gap-1.5">
+              <Mail className="h-3.5 w-3.5" /> {stop.contact_email}
+            </span>
+          )}
+          {stop.confirmation_note && (
+            <span className="inline-flex items-center gap-1.5 sm:col-span-2">
+              <FileText className="h-3.5 w-3.5" /> {stop.confirmation_note}
+            </span>
+          )}
         </div>
       )}
       {open && (
         <div className="space-y-3 border-t border-border/70 p-3">
           <div className="grid gap-2 sm:grid-cols-2">
             <ResField label="Confirmation #" icon={<Hash className="h-3.5 w-3.5" />}>
-              <input value={ref} onChange={(e) => setRef(e.target.value)} placeholder="ABC-12345"
-                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 font-mono text-sm outline-none focus:border-primary" />
+              <input
+                value={ref}
+                onChange={(e) => setRef(e.target.value)}
+                placeholder="ABC-12345"
+                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 font-mono text-sm outline-none focus:border-primary"
+              />
             </ResField>
             <ResField label="Party size" icon={<Users className="h-3.5 w-3.5" />}>
-              <input type="number" min={1} value={party} onChange={(e) => setParty(e.target.value)} placeholder="2"
-                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary" />
+              <input
+                type="number"
+                min={1}
+                value={party}
+                onChange={(e) => setParty(e.target.value)}
+                placeholder="2"
+                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary"
+              />
             </ResField>
             <ResField label="Reservation time" icon={<Clock className="h-3.5 w-3.5" />}>
-              <input type="time" value={time} onChange={(e) => setTime(e.target.value)}
-                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary" />
+              <input
+                type="time"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary"
+              />
             </ResField>
             <ResField label="Phone" icon={<Phone className="h-3.5 w-3.5" />}>
-              <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="(555) 123-4567"
-                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary" />
+              <input
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="(555) 123-4567"
+                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary"
+              />
             </ResField>
             <ResField label="Email" icon={<Mail className="h-3.5 w-3.5" />}>
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="confirmations@..."
-                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary" />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="confirmations@..."
+                className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary"
+              />
             </ResField>
           </div>
           <ResField label="Note" icon={<FileText className="h-3.5 w-3.5" />}>
-            <textarea value={note} onChange={(e) => setNote(e.target.value)} rows={2} placeholder="Special requests, dress code, allergies..."
-              className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary" />
+            <textarea
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              rows={2}
+              placeholder="Special requests, dress code, allergies..."
+              className="w-full rounded-lg border border-border bg-background px-2.5 py-1.5 text-sm outline-none focus:border-primary"
+            />
           </ResField>
           <div className="flex gap-2">
-            <button onClick={save} className="rounded-full bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground">Save reservation</button>
-            <button onClick={() => setOpen(false)} className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold">Cancel</button>
+            <button
+              onClick={save}
+              className="rounded-full bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground"
+            >
+              Save reservation
+            </button>
+            <button
+              onClick={() => setOpen(false)}
+              className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold"
+            >
+              Cancel
+            </button>
           </div>
         </div>
       )}
@@ -474,21 +785,51 @@ function ReservationEditor({ stop, onSave }: { stop: Stop; onSave: (patch: Parti
   );
 }
 
-function ResField({ label, icon, children }: { label: string; icon: React.ReactNode; children: React.ReactNode }) {
+function ResField({
+  label,
+  icon,
+  children,
+}: {
+  label: string;
+  icon: React.ReactNode;
+  children: React.ReactNode;
+}) {
   return (
     <label className="block">
-      <span className="mb-1 inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{icon} {label}</span>
+      <span className="mb-1 inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+        {icon} {label}
+      </span>
       {children}
     </label>
   );
 }
 
 const MODE_META: Record<string, { Icon: typeof Car; label: string; cls: string }> = {
-  walk: { Icon: Footprints, label: "Walk", cls: "bg-emerald-100 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200" },
-  bike: { Icon: Bike, label: "Bike", cls: "bg-emerald-100 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200" },
-  car: { Icon: Car, label: "Drive", cls: "bg-blue-100 text-blue-900 dark:bg-blue-950/40 dark:text-blue-200" },
-  transit: { Icon: Bus, label: "Transit", cls: "bg-violet-100 text-violet-900 dark:bg-violet-950/40 dark:text-violet-200" },
-  lyft: { Icon: Car, label: "Lyft", cls: "bg-pink-100 text-pink-900 dark:bg-pink-950/40 dark:text-pink-200" },
+  walk: {
+    Icon: Footprints,
+    label: "Walk",
+    cls: "bg-emerald-100 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200",
+  },
+  bike: {
+    Icon: Bike,
+    label: "Bike",
+    cls: "bg-emerald-100 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200",
+  },
+  car: {
+    Icon: Car,
+    label: "Drive",
+    cls: "bg-blue-100 text-blue-900 dark:bg-blue-950/40 dark:text-blue-200",
+  },
+  transit: {
+    Icon: Bus,
+    label: "Transit",
+    cls: "bg-violet-100 text-violet-900 dark:bg-violet-950/40 dark:text-violet-200",
+  },
+  lyft: {
+    Icon: Car,
+    label: "Lyft",
+    cls: "bg-pink-100 text-pink-900 dark:bg-pink-950/40 dark:text-pink-200",
+  },
   uber: { Icon: Car, label: "Uber", cls: "bg-foreground text-background" },
   rideshare: { Icon: Car, label: "Rideshare", cls: "bg-foreground text-background" },
 };
@@ -502,13 +843,29 @@ function TravelLegCard({ leg, from, to }: { leg: TravelLeg; from: Stop; to: Stop
   // Deep links
   const links: Array<{ label: string; href: string }> = [];
   if (leg.mode === "uber" || leg.mode === "rideshare") {
-    links.push({ label: "Open Uber", href: `https://m.uber.com/ul/?action=setPickup&pickup[formatted_address]=${fromQ}&dropoff[formatted_address]=${toQ}` });
+    links.push({
+      label: "Open Uber",
+      href: `https://m.uber.com/ul/?action=setPickup&pickup[formatted_address]=${fromQ}&dropoff[formatted_address]=${toQ}`,
+    });
   }
   if (leg.mode === "lyft" || leg.mode === "rideshare") {
-    links.push({ label: "Open Lyft", href: `https://ride.lyft.com/ridetype?destination[address]=${toQ}` });
+    links.push({
+      label: "Open Lyft",
+      href: `https://ride.lyft.com/ridetype?destination[address]=${toQ}`,
+    });
   }
-  const gmapsMode = leg.mode === "transit" ? "transit" : leg.mode === "walk" ? "walking" : leg.mode === "bike" ? "bicycling" : "driving";
-  links.push({ label: "Maps", href: `https://www.google.com/maps/dir/?api=1&origin=${fromQ}&destination=${toQ}&travelmode=${gmapsMode}` });
+  const gmapsMode =
+    leg.mode === "transit"
+      ? "transit"
+      : leg.mode === "walk"
+        ? "walking"
+        : leg.mode === "bike"
+          ? "bicycling"
+          : "driving";
+  links.push({
+    label: "Maps",
+    href: `https://www.google.com/maps/dir/?api=1&origin=${fromQ}&destination=${toQ}&travelmode=${gmapsMode}`,
+  });
 
   return (
     <div className="mb-4 ml-2 flex items-start gap-3 rounded-xl border border-dashed border-border/70 bg-muted/30 p-3 text-sm">
@@ -524,8 +881,13 @@ function TravelLegCard({ leg, from, to }: { leg: TravelLeg; from: Stop; to: Stop
         <p className="mt-0.5 text-muted-foreground">{leg.instructions}</p>
         <div className="mt-2 flex flex-wrap gap-1.5">
           {links.map((l) => (
-            <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-1 text-[11px] font-semibold hover:bg-muted">
+            <a
+              key={l.label}
+              href={l.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-1 text-[11px] font-semibold hover:bg-muted"
+            >
               <Navigation className="h-3 w-3" /> {l.label}
             </a>
           ))}
@@ -541,10 +903,13 @@ export function VibeRow({ stop, prefs }: { stop: Stop; prefs: VibePrefs }) {
   const level = matchLevel(score);
 
   const tone =
-    level === "match" ? "border-emerald-300 bg-emerald-50 text-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-100"
-    : level === "near" ? "border-amber-300 bg-amber-50 text-amber-900 dark:bg-amber-950/30 dark:text-amber-100"
-    : "border-rose-300 bg-rose-50 text-rose-900 dark:bg-rose-950/30 dark:text-rose-100";
-  const label = level === "match" ? "Vibe match" : level === "near" ? "Close to your vibe" : "Off your vibe";
+    level === "match"
+      ? "border-emerald-300 bg-emerald-50 text-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-100"
+      : level === "near"
+        ? "border-amber-300 bg-amber-50 text-amber-900 dark:bg-amber-950/30 dark:text-amber-100"
+        : "border-rose-300 bg-rose-50 text-rose-900 dark:bg-rose-950/30 dark:text-rose-100";
+  const label =
+    level === "match" ? "Vibe match" : level === "near" ? "Close to your vibe" : "Off your vibe";
 
   const chip = (active: boolean, text: string, Icon: typeof Users) => (
     <span
@@ -559,8 +924,13 @@ export function VibeRow({ stop, prefs }: { stop: Stop; prefs: VibePrefs }) {
   );
 
   return (
-    <div data-testid="vibe-row" className={`mt-3 flex flex-wrap items-center gap-2 rounded-xl border px-3 py-2 ${tone}`}>
-      <span className="text-[11px] font-bold uppercase tracking-wider">{label} · {score}%</span>
+    <div
+      data-testid="vibe-row"
+      className={`mt-3 flex flex-wrap items-center gap-2 rounded-xl border px-3 py-2 ${tone}`}
+    >
+      <span className="text-[11px] font-bold uppercase tracking-wider">
+        {label} · {score}%
+      </span>
       {chip(inferred.crowd === prefs.crowd, CROWD_LABEL[inferred.crowd], Users)}
       {chip(inferred.noise === prefs.noise, NOISE_LABEL[inferred.noise], Sparkles)}
       {chip(inferred.dress === prefs.dress, DRESS_LABEL[inferred.dress], Shirt)}

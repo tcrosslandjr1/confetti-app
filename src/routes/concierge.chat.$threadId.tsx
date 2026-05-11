@@ -68,7 +68,11 @@ function ChatThread() {
     (async () => {
       const [{ data: t }, { data: msgs }] = await Promise.all([
         supabase.from("threads").select("title").eq("id", threadId).maybeSingle(),
-        supabase.from("messages").select("id,role,content").eq("thread_id", threadId).order("created_at"),
+        supabase
+          .from("messages")
+          .select("id,role,content")
+          .eq("thread_id", threadId)
+          .order("created_at"),
       ]);
       if (cancelled) return;
       if (t) setThread(t);
@@ -88,7 +92,12 @@ function ChatThread() {
     }
     seededRef.current = true;
     void send(seed);
-    navigate({ to: "/concierge/chat/$threadId", params: { threadId }, search: {} as any, replace: true });
+    navigate({
+      to: "/concierge/chat/$threadId",
+      params: { threadId },
+      search: {} as any,
+      replace: true,
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, seed, messages.length]);
 
@@ -101,7 +110,10 @@ function ChatThread() {
     if (!streaming) textareaRef.current?.focus();
   }, [streaming, threadId]);
 
-  const send = async (text: string, opts?: { skipUserPersist?: boolean; replaceLastAssistant?: boolean }) => {
+  const send = async (
+    text: string,
+    opts?: { skipUserPersist?: boolean; replaceLastAssistant?: boolean },
+  ) => {
     if (!user || !text.trim() || streaming) return;
     const trimmed = text.trim();
 
@@ -177,7 +189,8 @@ function ChatThread() {
       if (!res.ok || !res.body) {
         const errText = await res.text().catch(() => "");
         if (res.status === 429) throw new Error("Rate limited — please slow down.");
-        if (res.status === 402) throw new Error("AI credits exhausted. Add credits in Workspace settings.");
+        if (res.status === 402)
+          throw new Error("AI credits exhausted. Add credits in Workspace settings.");
         throw new Error(errText || `Request failed (${res.status})`);
       }
 
@@ -188,7 +201,9 @@ function ChatThread() {
         const { value, done } = await reader.read();
         if (done) break;
         acc += decoder.decode(value, { stream: true });
-        setMessages((m) => m.map((msg) => (msg.id === assistantId ? { ...msg, content: acc } : msg)));
+        setMessages((m) =>
+          m.map((msg) => (msg.id === assistantId ? { ...msg, content: acc } : msg)),
+        );
       }
 
       if (acc) {
@@ -202,12 +217,14 @@ function ChatThread() {
     } catch (e: any) {
       if (e?.name === "AbortError") {
         // Persist whatever streamed before stopping
-        const partial = (typeof window !== "undefined" ? null : null);
+        const partial = typeof window !== "undefined" ? null : null;
         void partial;
       } else {
         setMessages((m) =>
           m.map((msg) =>
-            msg.id === assistantId ? { ...msg, content: `⚠️ ${e?.message ?? "Something went wrong"}` } : msg,
+            msg.id === assistantId
+              ? { ...msg, content: `⚠️ ${e?.message ?? "Something went wrong"}` }
+              : msg,
           ),
         );
       }
@@ -237,7 +254,10 @@ function ChatThread() {
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-30 -mx-px border-b border-border glass">
         <div className="mx-auto flex max-w-md items-center gap-2 px-4 py-3">
-          <Link to="/concierge/chat" className="grid h-9 w-9 place-items-center rounded-full hover:bg-muted">
+          <Link
+            to="/concierge/chat"
+            className="grid h-9 w-9 place-items-center rounded-full hover:bg-muted"
+          >
             <ArrowLeft className="h-4 w-4" />
           </Link>
           <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-vibe">

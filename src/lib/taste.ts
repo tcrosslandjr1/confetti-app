@@ -36,7 +36,9 @@ export async function loadPrefs(): Promise<Prefs> {
   if (!u.user) return empty();
   const { data } = await supabase
     .from("user_preferences")
-    .select("taste_profile, about_me, cuisines, activities, budget_min, budget_max, social_handles, social_signals")
+    .select(
+      "taste_profile, about_me, cuisines, activities, budget_min, budget_max, social_handles, social_signals",
+    )
     .eq("user_id", u.user.id)
     .maybeSingle();
   if (!data) return empty();
@@ -47,13 +49,22 @@ export async function loadPrefs(): Promise<Prefs> {
     activities: data.activities ?? [],
     budget_min: data.budget_min ?? 0,
     budget_max: data.budget_max ?? 100,
-    social_handles: ((data as { social_handles?: SocialHandles }).social_handles) ?? {},
+    social_handles: (data as { social_handles?: SocialHandles }).social_handles ?? {},
     social_signals: (data as { social_signals?: string }).social_signals ?? "",
   };
 }
 
 function empty(): Prefs {
-  return { taste_profile: {}, about_me: "", cuisines: [], activities: [], budget_min: 0, budget_max: 100, social_handles: {}, social_signals: "" };
+  return {
+    taste_profile: {},
+    about_me: "",
+    cuisines: [],
+    activities: [],
+    budget_min: 0,
+    budget_max: 100,
+    social_handles: {},
+    social_signals: "",
+  };
 }
 
 export async function saveTasteProfile(profile: TasteProfile): Promise<void> {
@@ -108,7 +119,9 @@ export function tasteSummary(p: Prefs): string {
   if (p.activities.length) parts.push(`favorite activities: ${p.activities.join(", ")}`);
   if (p.budget_min || p.budget_max) parts.push(`budget $${p.budget_min}-${p.budget_max}`);
   if (p.about_me) parts.push(`about: "${p.about_me.slice(0, 280)}"`);
-  const handles = Object.entries(p.social_handles ?? {}).filter(([, v]) => v).map(([k, v]) => `${k}:@${v}`);
+  const handles = Object.entries(p.social_handles ?? {})
+    .filter(([, v]) => v)
+    .map(([k, v]) => `${k}:@${v}`);
   if (handles.length) parts.push(`socials: ${handles.join(", ")}`);
   if (p.social_signals) parts.push(`social signals: "${p.social_signals.slice(0, 280)}"`);
   return parts.length ? parts.join(" · ") : "";

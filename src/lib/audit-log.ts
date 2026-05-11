@@ -2,7 +2,15 @@
 // Persists across route navigations (module singleton) but resets on full reload.
 import { useSyncExternalStore } from "react";
 
-export type AuditAction = "approve" | "remove" | "reject" | "confirm" | "cancel" | "edit" | "role" | "status";
+export type AuditAction =
+  | "approve"
+  | "remove"
+  | "reject"
+  | "confirm"
+  | "cancel"
+  | "edit"
+  | "role"
+  | "status";
 export type AuditEntity = "booking" | "venue" | "report" | "user";
 
 export type AuditEntry = {
@@ -26,11 +34,41 @@ function seed(): AuditEntry[] {
     ...e,
   });
   return [
-    mk(3, { admin: "admin@demo.local", action: "approve", entity: "report", targetId: "RP-2037", summary: "Approved review report on Albi" }),
-    mk(22, { admin: "admin@demo.local", action: "remove", entity: "report", targetId: "RP-2036", summary: "Removed harassing comment" }),
-    mk(64, { admin: "devon@h.dev", action: "approve", entity: "venue", targetId: "VN-300", summary: "Approved Maydan listing" }),
-    mk(120, { admin: "admin@demo.local", action: "confirm", entity: "booking", targetId: "BK-1041", summary: "Confirmed booking at Albi" }),
-    mk(240, { admin: "admin@demo.local", action: "role", entity: "user", targetId: "U-1040", summary: "Set role to moderator" }),
+    mk(3, {
+      admin: "admin@demo.local",
+      action: "approve",
+      entity: "report",
+      targetId: "RP-2037",
+      summary: "Approved review report on Albi",
+    }),
+    mk(22, {
+      admin: "admin@demo.local",
+      action: "remove",
+      entity: "report",
+      targetId: "RP-2036",
+      summary: "Removed harassing comment",
+    }),
+    mk(64, {
+      admin: "devon@h.dev",
+      action: "approve",
+      entity: "venue",
+      targetId: "VN-300",
+      summary: "Approved Maydan listing",
+    }),
+    mk(120, {
+      admin: "admin@demo.local",
+      action: "confirm",
+      entity: "booking",
+      targetId: "BK-1041",
+      summary: "Confirmed booking at Albi",
+    }),
+    mk(240, {
+      admin: "admin@demo.local",
+      action: "role",
+      entity: "user",
+      targetId: "U-1040",
+      summary: "Set role to moderator",
+    }),
   ];
 }
 
@@ -59,5 +97,9 @@ function subscribe(cb: () => void) {
 }
 
 export function useAuditLog() {
-  return useSyncExternalStore(subscribe, () => entries, () => entries);
+  return useSyncExternalStore(
+    subscribe,
+    () => entries,
+    () => entries,
+  );
 }

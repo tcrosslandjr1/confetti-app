@@ -1,6 +1,15 @@
 import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { Bookmark, CalendarCheck, Compass, MessageCircle, BookMarked, User, Gift, Flame } from "lucide-react";
+import {
+  Bookmark,
+  CalendarCheck,
+  Compass,
+  MessageCircle,
+  BookMarked,
+  User,
+  Gift,
+  Flame,
+} from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { inferFeatureFromPath, logAccessDenial } from "@/lib/access-denials";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -10,7 +19,10 @@ export const Route = createFileRoute("/portal")({
   head: () => ({
     meta: [
       { title: "My Portal — Concierge" },
-      { name: "description", content: "Your bookings, saved spots, passport, and profile in one place." },
+      {
+        name: "description",
+        content: "Your bookings, saved spots, passport, and profile in one place.",
+      },
     ],
   }),
   component: PortalLayout,
@@ -61,7 +73,11 @@ function PortalLayout() {
   }, [user, loading, viewAs, nav, pathname]);
 
   if (loading || !user || viewAs === "visitor") {
-    return <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">Loading…</div>;
+    return (
+      <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">
+        Loading…
+      </div>
+    );
   }
 
   return (
@@ -77,10 +93,14 @@ function PortalLayout() {
                   key={to}
                   to={to as "/"}
                   className={`flex items-center gap-3 rounded-2xl px-3 py-3 text-sm font-semibold transition-pop ${
-                    active ? "bg-muted text-foreground" : "text-muted-foreground hover:bg-muted/70 hover:text-foreground"
+                    active
+                      ? "bg-muted text-foreground"
+                      : "text-muted-foreground hover:bg-muted/70 hover:text-foreground"
                   }`}
                 >
-                  <span className={`grid h-9 w-9 place-items-center rounded-full ${active ? "bg-gradient-vibe text-primary-foreground shadow-pop" : ""}`}>
+                  <span
+                    className={`grid h-9 w-9 place-items-center rounded-full ${active ? "bg-gradient-vibe text-primary-foreground shadow-pop" : ""}`}
+                  >
                     <Icon className="h-4 w-4" />
                   </span>
                   {label}

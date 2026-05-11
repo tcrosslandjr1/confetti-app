@@ -27,9 +27,7 @@ export const Route = createFileRoute("/api/public/instagram/callback")({
           new Response(null, { status: 302, headers: { Location: path } });
 
         if (errParam) {
-          return finish(
-            `/me?instagram=error&reason=${encodeURIComponent(errReason ?? errParam)}`,
-          );
+          return finish(`/me?instagram=error&reason=${encodeURIComponent(errReason ?? errParam)}`);
         }
         if (!code || !state) {
           return finish("/me?instagram=error&reason=missing_params");
@@ -136,9 +134,7 @@ export const Route = createFileRoute("/api/public/instagram/callback")({
           `https://graph.instagram.com/v21.0/me?fields=id,username,account_type&access_token=${encodeURIComponent(accessToken)}`,
         );
 
-        let providerUserId: string | null = shortLived.user_id
-          ? String(shortLived.user_id)
-          : null;
+        let providerUserId: string | null = shortLived.user_id ? String(shortLived.user_id) : null;
         let username: string | null = null;
         let accountType: string | null = null;
         let rawProfile: unknown = null;
@@ -166,28 +162,23 @@ export const Route = createFileRoute("/api/public/instagram/callback")({
           : (shortLived.permissions ?? null);
 
         // 5) Upsert linked account
-        const { error: upsertErr } = await admin
-          .from("linked_social_accounts")
-          .upsert(
-            {
-              user_id: stateRow.user_id,
-              provider: "instagram",
-              provider_user_id: providerUserId,
-              username,
-              display_name: username,
-              avatar_url: null, // not exposed by Instagram Login API
-              scope,
-              access_token: accessToken,
-              refresh_token: null,
-              expires_at: expiresAt,
-              raw: { profile: rawProfile, account_type: accountType } as Record<
-                string,
-                unknown
-              >,
-              updated_at: new Date().toISOString(),
-            },
-            { onConflict: "user_id,provider" },
-          );
+        const { error: upsertErr } = await admin.from("linked_social_accounts").upsert(
+          {
+            user_id: stateRow.user_id,
+            provider: "instagram",
+            provider_user_id: providerUserId,
+            username,
+            display_name: username,
+            avatar_url: null, // not exposed by Instagram Login API
+            scope,
+            access_token: accessToken,
+            refresh_token: null,
+            expires_at: expiresAt,
+            raw: { profile: rawProfile, account_type: accountType } as Record<string, unknown>,
+            updated_at: new Date().toISOString(),
+          },
+          { onConflict: "user_id,provider" },
+        );
 
         if (upsertErr) {
           console.error("Linked account upsert failed", upsertErr);

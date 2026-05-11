@@ -1,12 +1,21 @@
 import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, Bookmark, CalendarPlus, Clock, DollarSign, Heart, Loader2, RotateCw, Sparkles, X } from "lucide-react";
+import {
+  ArrowLeft,
+  Bookmark,
+  CalendarPlus,
+  Clock,
+  DollarSign,
+  Heart,
+  Loader2,
+  RotateCw,
+  Sparkles,
+  X,
+} from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { supabase } from "@/integrations/supabase/client";
 import { buildAndSaveItinerary } from "@/lib/itineraries";
-import {
-  getOccasion, getSeedIdeas, type Idea, type IdeaFormat,
-} from "@/lib/occasions";
+import { getOccasion, getSeedIdeas, type Idea, type IdeaFormat } from "@/lib/occasions";
 
 export const Route = createFileRoute("/ideas/$slug")({
   head: ({ params }) => {
@@ -17,8 +26,10 @@ export const Route = createFileRoute("/ideas/$slug")({
       : "Personalized outing ideas.";
     return {
       meta: [
-        { title }, { name: "description", content: desc },
-        { property: "og:title", content: title }, { property: "og:description", content: desc },
+        { title },
+        { name: "description", content: desc },
+        { property: "og:title", content: title },
+        { property: "og:description", content: desc },
       ],
     };
   },
@@ -27,16 +38,18 @@ export const Route = createFileRoute("/ideas/$slug")({
     <div className="grid min-h-screen place-items-center p-6 text-center">
       <div>
         <h1 className="font-display text-3xl font-bold">Occasion not found</h1>
-        <Link to="/" className="mt-4 inline-block text-primary underline">Back home</Link>
+        <Link to="/" className="mt-4 inline-block text-primary underline">
+          Back home
+        </Link>
       </div>
     </div>
   ),
 });
 
 const FORMAT_LABELS: Record<IdeaFormat, { name: string; sub: string }> = {
-  quick:  { name: "Quick",  sub: "One thing per card" },
+  quick: { name: "Quick", sub: "One thing per card" },
   bundle: { name: "Bundle", sub: "Dinner + activity + nightcap" },
-  full:   { name: "Full",   sub: "Plan, cost, what to wear" },
+  full: { name: "Full", sub: "Plan, cost, what to wear" },
 };
 
 function IdeasPage() {
@@ -61,7 +74,12 @@ function IdeasPage() {
         occasion: occasion!.title,
         vibe: occasion!.tagline,
         occasionSlug: occasion!.slug,
-        seedIdea: { title: idea.title, hook: idea.hook, description: idea.description, vibeTags: idea.vibeTags },
+        seedIdea: {
+          title: idea.title,
+          hook: idea.hook,
+          description: idea.description,
+          vibeTags: idea.vibeTags,
+        },
       });
       void navigate({ to: "/trips/$id", params: { id } });
     } catch (e) {
@@ -74,7 +92,12 @@ function IdeasPage() {
   // Load saved from localStorage
   useEffect(() => {
     const raw = localStorage.getItem(`confetti:saved:${slug}`);
-    if (raw) try { setSaved(JSON.parse(raw)); } catch { /* ignore */ }
+    if (raw)
+      try {
+        setSaved(JSON.parse(raw));
+      } catch {
+        /* ignore */
+      }
   }, [slug]);
 
   useEffect(() => {
@@ -108,9 +131,13 @@ function IdeasPage() {
         },
       });
       if (error) throw error;
-      const newOnes: Idea[] = (data?.ideas ?? []).map((i: Omit<Idea, "id" | "source">, n: number) => ({
-        ...i, id: `${slug}-ai-${Date.now()}-${n}`, source: "ai" as const,
-      }));
+      const newOnes: Idea[] = (data?.ideas ?? []).map(
+        (i: Omit<Idea, "id" | "source">, n: number) => ({
+          ...i,
+          id: `${slug}-ai-${Date.now()}-${n}`,
+          source: "ai" as const,
+        }),
+      );
       if (newOnes.length === 0) throw new Error("No ideas returned. Try again.");
       setIdeas((prev) => [...prev, ...newOnes]);
     } catch (e) {
@@ -120,13 +147,17 @@ function IdeasPage() {
     }
   }
 
-  function skip() { if (current) setIndex((i) => i + 1); }
+  function skip() {
+    if (current) setIndex((i) => i + 1);
+  }
   function save() {
     if (!current) return;
     setSaved((s) => (s.find((x) => x.id === current.id) ? s : [...s, current]));
     setIndex((i) => i + 1);
   }
-  function reset() { setIndex(0); }
+  function reset() {
+    setIndex(0);
+  }
 
   // Auto-generate when running low
   useEffect(() => {
@@ -141,7 +172,10 @@ function IdeasPage() {
       {/* Occasion banner */}
       <section className={`bg-gradient-to-br ${occasion.gradient} text-white`}>
         <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-4 px-4 py-8 sm:px-6 lg:px-8">
-          <Link to="/" className="grid h-10 w-10 place-items-center rounded-full bg-white/20 backdrop-blur transition-colors hover:bg-white/30">
+          <Link
+            to="/"
+            className="grid h-10 w-10 place-items-center rounded-full bg-white/20 backdrop-blur transition-colors hover:bg-white/30"
+          >
             <ArrowLeft className="h-5 w-5" />
           </Link>
           <div className="flex-1">
@@ -207,7 +241,11 @@ function IdeasPage() {
                 aria-label="Generate more"
                 title="Generate more with AI"
               >
-                {loading ? <Sparkles className="h-5 w-5 animate-pulse" /> : <Sparkles className="h-5 w-5" />}
+                {loading ? (
+                  <Sparkles className="h-5 w-5 animate-pulse" />
+                ) : (
+                  <Sparkles className="h-5 w-5" />
+                )}
               </button>
               <button
                 onClick={save}
@@ -226,15 +264,21 @@ function IdeasPage() {
               className="mt-4 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background shadow-card transition-pop hover:scale-105 disabled:opacity-60"
             >
               {planning === current.id ? (
-                <><Loader2 className="h-4 w-4 animate-spin" /> Building your day...</>
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" /> Building your day...
+                </>
               ) : (
-                <><CalendarPlus className="h-4 w-4" /> Build full day from this</>
+                <>
+                  <CalendarPlus className="h-4 w-4" /> Build full day from this
+                </>
               )}
             </button>
           )}
 
           {error && (
-            <p className="mt-4 rounded-lg bg-destructive/10 px-4 py-2 text-sm text-destructive">{error}</p>
+            <p className="mt-4 rounded-lg bg-destructive/10 px-4 py-2 text-sm text-destructive">
+              {error}
+            </p>
           )}
           <p className="mt-3 text-xs text-muted-foreground">
             {remaining > 0 ? `${remaining} card${remaining === 1 ? "" : "s"} left` : "Deck empty"}
@@ -263,7 +307,9 @@ function IdeasPage() {
                       <X className="h-4 w-4" />
                     </button>
                   </div>
-                  <p className="mt-1 text-xs text-muted-foreground">{s.estCost} · {s.timeOfDay}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    {s.estCost} · {s.timeOfDay}
+                  </p>
                 </li>
               ))}
             </ul>
@@ -274,37 +320,61 @@ function IdeasPage() {
   );
 }
 
-function FlashCard({ idea, format, occasionGradient }: { idea: Idea; format: IdeaFormat; occasionGradient: string }) {
+function FlashCard({
+  idea,
+  format,
+  occasionGradient,
+}: {
+  idea: Idea;
+  format: IdeaFormat;
+  occasionGradient: string;
+}) {
   return (
     <article className="w-full overflow-hidden rounded-3xl bg-card shadow-pop">
       <div className={`relative h-48 bg-gradient-to-br ${occasionGradient} p-6 text-white`}>
         <div className="absolute right-4 top-4 flex gap-1">
           {idea.vibeTags.slice(0, 3).map((t) => (
-            <span key={t} className="rounded-full bg-white/20 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider backdrop-blur">{t}</span>
+            <span
+              key={t}
+              className="rounded-full bg-white/20 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider backdrop-blur"
+            >
+              {t}
+            </span>
           ))}
         </div>
         <div className="absolute bottom-6 left-6 right-6">
-          <h2 className="font-display text-2xl font-bold leading-tight sm:text-3xl">{idea.title}</h2>
+          <h2 className="font-display text-2xl font-bold leading-tight sm:text-3xl">
+            {idea.title}
+          </h2>
           <p className="mt-2 text-sm opacity-90">{idea.hook}</p>
         </div>
       </div>
 
       <div className="space-y-4 p-6">
         <div className="flex flex-wrap gap-3 text-xs font-medium text-muted-foreground">
-          <span className="inline-flex items-center gap-1"><DollarSign className="h-3.5 w-3.5" /> {idea.estCost}</span>
-          <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5" /> {idea.timeOfDay} · {idea.duration}</span>
+          <span className="inline-flex items-center gap-1">
+            <DollarSign className="h-3.5 w-3.5" /> {idea.estCost}
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <Clock className="h-3.5 w-3.5" /> {idea.timeOfDay} · {idea.duration}
+          </span>
         </div>
 
         <p className="text-sm text-foreground">{idea.description}</p>
 
-        {(format !== "quick") && idea.steps.length > 0 && (
+        {format !== "quick" && idea.steps.length > 0 && (
           <div className="rounded-xl bg-muted p-4">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Timeline</p>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              Timeline
+            </p>
             <ol className="space-y-2">
               {idea.steps.map((s, i) => (
                 <li key={i} className="flex gap-3 text-sm">
                   <span className="font-semibold text-primary">{i + 1}.</span>
-                  <span><span className="font-semibold">{s.label}</span> — <span className="text-muted-foreground">{s.detail}</span></span>
+                  <span>
+                    <span className="font-semibold">{s.label}</span> —{" "}
+                    <span className="text-muted-foreground">{s.detail}</span>
+                  </span>
                 </li>
               ))}
             </ol>
@@ -315,13 +385,17 @@ function FlashCard({ idea, format, occasionGradient }: { idea: Idea; format: Ide
           <div className="grid gap-3 sm:grid-cols-2">
             {idea.whatToWear && (
               <div className="rounded-xl border border-border p-3">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">What to wear</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  What to wear
+                </p>
                 <p className="mt-1 text-sm">{idea.whatToWear}</p>
               </div>
             )}
             {idea.conversationStarter && (
               <div className="rounded-xl border border-border p-3">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Conversation starter</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Conversation starter
+                </p>
                 <p className="mt-1 text-sm italic">"{idea.conversationStarter}"</p>
               </div>
             )}
@@ -332,17 +406,34 @@ function FlashCard({ idea, format, occasionGradient }: { idea: Idea; format: Ide
   );
 }
 
-function EmptyDeck({ onReset, onGenerate, loading }: { onReset: () => void; onGenerate: () => void; loading: boolean }) {
+function EmptyDeck({
+  onReset,
+  onGenerate,
+  loading,
+}: {
+  onReset: () => void;
+  onGenerate: () => void;
+  loading: boolean;
+}) {
   return (
     <div className="grid w-full place-items-center rounded-3xl border-2 border-dashed border-border bg-card p-10 text-center">
       <Sparkles className="h-10 w-10 text-primary" />
       <h3 className="mt-4 font-display text-xl font-bold">You've seen 'em all</h3>
-      <p className="mt-1 text-sm text-muted-foreground">Generate a fresh batch with AI, or restart the deck.</p>
+      <p className="mt-1 text-sm text-muted-foreground">
+        Generate a fresh batch with AI, or restart the deck.
+      </p>
       <div className="mt-5 flex gap-3">
-        <button onClick={onReset} className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold">
+        <button
+          onClick={onReset}
+          className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold"
+        >
           <RotateCw className="h-4 w-4" /> Restart
         </button>
-        <button onClick={onGenerate} disabled={loading} className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-pop disabled:opacity-60">
+        <button
+          onClick={onGenerate}
+          disabled={loading}
+          className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-pop disabled:opacity-60"
+        >
           <Sparkles className="h-4 w-4" /> {loading ? "Generating..." : "Generate more"}
         </button>
       </div>

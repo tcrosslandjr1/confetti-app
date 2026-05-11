@@ -10,15 +10,23 @@ export const Route = createFileRoute("/concierge/profile")({
   component: Profile,
 });
 
-
-
-function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+function Chip({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
   return (
     <button
       type="button"
       onClick={onClick}
       className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-pop ${
-        active ? "border-transparent bg-gradient-vibe text-primary-foreground shadow-pop" : "border-border bg-card text-foreground"
+        active
+          ? "border-transparent bg-gradient-vibe text-primary-foreground shadow-pop"
+          : "border-border bg-card text-foreground"
       }`}
     >
       {children}
@@ -63,8 +71,10 @@ function Profile() {
     await supabase.from("profiles").update({ display_name: name }).eq("id", user.id);
     await supabase.from("user_preferences").upsert({
       user_id: user.id,
-      cuisines, activities,
-      budget_min: budget[0], budget_max: budget[1],
+      cuisines,
+      activities,
+      budget_min: budget[0],
+      budget_max: budget[1],
     });
     setSaving(false);
     setSaved(true);
@@ -78,7 +88,8 @@ function Profile() {
       <div className="text-xs uppercase tracking-wider text-muted-foreground">Account center</div>
       <h1 className="mt-1 font-display text-5xl font-bold tracking-tight">Your profile</h1>
       <p className="mt-3 max-w-2xl text-muted-foreground">
-        Keep your tastes, budget, and outing preferences current so Loop can plan better days and nights out.
+        Keep your tastes, budget, and outing preferences current so Loop can plan better days and
+        nights out.
       </p>
 
       <div className="mt-8 grid gap-8 xl:grid-cols-[minmax(0,1fr)_320px]">
@@ -98,7 +109,9 @@ function Profile() {
 
           <div className="mt-8 grid gap-7 lg:grid-cols-2">
             <div className="lg:col-span-2">
-              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Display name</label>
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Display name
+              </label>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -107,25 +120,43 @@ function Profile() {
             </div>
 
             <div>
-              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Favorite cuisines</label>
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Favorite cuisines
+              </label>
               <div className="mt-3 flex flex-wrap gap-2">
                 {CUISINES.map((c) => (
-                  <Chip key={c} active={cuisines.includes(c)} onClick={() => toggle(cuisines, setCuisines, c)}>{c}</Chip>
+                  <Chip
+                    key={c}
+                    active={cuisines.includes(c)}
+                    onClick={() => toggle(cuisines, setCuisines, c)}
+                  >
+                    {c}
+                  </Chip>
                 ))}
               </div>
             </div>
 
             <div>
-              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Activities you like</label>
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Activities you like
+              </label>
               <div className="mt-3 flex flex-wrap gap-2">
                 {ACTIVITIES.map((a) => (
-                  <Chip key={a} active={activities.includes(a)} onClick={() => toggle(activities, setActivities, a)}>{a}</Chip>
+                  <Chip
+                    key={a}
+                    active={activities.includes(a)}
+                    onClick={() => toggle(activities, setActivities, a)}
+                  >
+                    {a}
+                  </Chip>
                 ))}
               </div>
             </div>
 
             <div className="lg:col-span-2">
-              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Budget</label>
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Budget
+              </label>
               <div className="mt-3 grid gap-3 sm:grid-cols-4">
                 {[
                   { label: "Easy", min: 0, max: 40 },
@@ -139,11 +170,15 @@ function Profile() {
                       key={b.label}
                       onClick={() => setBudget([b.min, b.max])}
                       className={`rounded-2xl border p-4 text-left text-sm font-semibold transition-pop ${
-                        active ? "border-transparent bg-gradient-cool text-primary-foreground shadow-pop" : "border-border bg-background hover:bg-muted"
+                        active
+                          ? "border-transparent bg-gradient-cool text-primary-foreground shadow-pop"
+                          : "border-border bg-background hover:bg-muted"
                       }`}
                     >
                       <div>{b.label}</div>
-                      <div className="text-xs opacity-80">${b.min}–${b.max} per person</div>
+                      <div className="text-xs opacity-80">
+                        ${b.min}–${b.max} per person
+                      </div>
                     </button>
                   );
                 })}
@@ -157,11 +192,15 @@ function Profile() {
               disabled={saving}
               className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-vibe px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-pop disabled:opacity-60"
             >
-              <Save className="h-4 w-4" /> {saved ? "Saved!" : saving ? "Saving..." : "Save changes"}
+              <Save className="h-4 w-4" />{" "}
+              {saved ? "Saved!" : saving ? "Saving..." : "Save changes"}
             </button>
 
             <button
-              onClick={async () => { await signOut(); navigate({ to: "/auth" }); }}
+              onClick={async () => {
+                await signOut();
+                navigate({ to: "/auth" });
+              }}
               className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-background px-6 py-3.5 text-sm font-semibold hover:bg-muted"
             >
               <LogOut className="h-4 w-4" /> Sign out
@@ -170,19 +209,27 @@ function Profile() {
         </section>
 
         <aside className="rounded-3xl border border-border bg-card p-6 shadow-card">
-          <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Taste snapshot</div>
+          <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Taste snapshot
+          </div>
           <div className="mt-4 space-y-4 text-sm">
             <div>
               <div className="font-semibold">Budget range</div>
-              <div className="text-muted-foreground">${budget[0]}–${budget[1]} per person</div>
+              <div className="text-muted-foreground">
+                ${budget[0]}–${budget[1]} per person
+              </div>
             </div>
             <div>
               <div className="font-semibold">Cuisine picks</div>
-              <div className="text-muted-foreground">{cuisines.length ? cuisines.join(", ") : "Choose a few favorites"}</div>
+              <div className="text-muted-foreground">
+                {cuisines.length ? cuisines.join(", ") : "Choose a few favorites"}
+              </div>
             </div>
             <div>
               <div className="font-semibold">Activity signals</div>
-              <div className="text-muted-foreground">{activities.length ? activities.slice(0, 5).join(", ") : "Add the outings you like"}</div>
+              <div className="text-muted-foreground">
+                {activities.length ? activities.slice(0, 5).join(", ") : "Add the outings you like"}
+              </div>
             </div>
           </div>
         </aside>

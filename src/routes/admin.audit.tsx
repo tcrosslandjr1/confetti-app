@@ -35,16 +35,17 @@ export const Route = createFileRoute("/admin/audit")({
   component: AdminAuditPage,
 });
 
-const ACTION_META: Record<AuditAction, { icon: typeof CheckCircle2; tone: string; label: string }> = {
-  approve: { icon: CheckCircle2, tone: "bg-emerald-500/15 text-emerald-700", label: "Approve" },
-  confirm: { icon: CheckCircle2, tone: "bg-emerald-500/15 text-emerald-700", label: "Confirm" },
-  remove: { icon: Trash2, tone: "bg-destructive/15 text-destructive", label: "Remove" },
-  reject: { icon: XCircle, tone: "bg-destructive/15 text-destructive", label: "Reject" },
-  cancel: { icon: XCircle, tone: "bg-destructive/15 text-destructive", label: "Cancel" },
-  edit: { icon: Edit3, tone: "bg-muted text-foreground", label: "Edit" },
-  role: { icon: Shield, tone: "bg-purple/20 text-foreground", label: "Role change" },
-  status: { icon: UserIcon, tone: "bg-gold/20 text-foreground", label: "Status change" },
-};
+const ACTION_META: Record<AuditAction, { icon: typeof CheckCircle2; tone: string; label: string }> =
+  {
+    approve: { icon: CheckCircle2, tone: "bg-emerald-500/15 text-emerald-700", label: "Approve" },
+    confirm: { icon: CheckCircle2, tone: "bg-emerald-500/15 text-emerald-700", label: "Confirm" },
+    remove: { icon: Trash2, tone: "bg-destructive/15 text-destructive", label: "Remove" },
+    reject: { icon: XCircle, tone: "bg-destructive/15 text-destructive", label: "Reject" },
+    cancel: { icon: XCircle, tone: "bg-destructive/15 text-destructive", label: "Cancel" },
+    edit: { icon: Edit3, tone: "bg-muted text-foreground", label: "Edit" },
+    role: { icon: Shield, tone: "bg-purple/20 text-foreground", label: "Role change" },
+    status: { icon: UserIcon, tone: "bg-gold/20 text-foreground", label: "Status change" },
+  };
 
 const ENTITY_META: Record<AuditEntity, { icon: typeof CalendarCheck; label: string }> = {
   booking: { icon: CalendarCheck, label: "Booking" },
@@ -76,7 +77,8 @@ function AdminAuditPage() {
       if (actionFilter !== "all" && e.action !== actionFilter) return false;
       if (entityFilter !== "all" && e.entity !== entityFilter) return false;
       if (q) {
-        const hay = `${e.id} ${e.admin} ${e.action} ${e.entity} ${e.targetId} ${e.summary}`.toLowerCase();
+        const hay =
+          `${e.id} ${e.admin} ${e.action} ${e.entity} ${e.targetId} ${e.summary}`.toLowerCase();
         if (!hay.includes(q)) return false;
       }
       return true;
@@ -105,7 +107,9 @@ function AdminAuditPage() {
     <div className="space-y-6">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Compliance</p>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            Compliance
+          </p>
           <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
             <ScrollText className="h-7 w-7" /> Audit log
           </h1>
@@ -148,7 +152,9 @@ function AdminAuditPage() {
         >
           <option value="all">All actions</option>
           {(Object.keys(ACTION_META) as AuditAction[]).map((a) => (
-            <option key={a} value={a}>{ACTION_META[a].label}</option>
+            <option key={a} value={a}>
+              {ACTION_META[a].label}
+            </option>
           ))}
         </select>
         <select
@@ -158,7 +164,9 @@ function AdminAuditPage() {
         >
           <option value="all">All entities</option>
           {(Object.keys(ENTITY_META) as AuditEntity[]).map((e) => (
-            <option key={e} value={e}>{ENTITY_META[e].label}</option>
+            <option key={e} value={e}>
+              {ENTITY_META[e].label}
+            </option>
           ))}
         </select>
       </div>
@@ -179,7 +187,8 @@ function AdminAuditPage() {
             {filtered.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={6} className="py-12 text-center text-sm text-muted-foreground">
-                  No entries match your filters. Actions you take in other admin pages will appear here.
+                  No entries match your filters. Actions you take in other admin pages will appear
+                  here.
                 </TableCell>
               </TableRow>
             ) : (
@@ -251,7 +260,8 @@ function AccessDenialsSection() {
     return denials.filter((d) => {
       if (feature !== "all" && d.feature !== feature) return false;
       if (s) {
-        const hay = `${d.id} ${d.attemptedPath} ${d.fromPath} ${d.viewerRole} ${d.userId ?? ""} ${d.note ?? ""} ${d.feature}`.toLowerCase();
+        const hay =
+          `${d.id} ${d.attemptedPath} ${d.fromPath} ${d.viewerRole} ${d.userId ?? ""} ${d.note ?? ""} ${d.feature}`.toLowerCase();
         if (!hay.includes(s)) return false;
       }
       return true;
@@ -262,12 +272,35 @@ function AccessDenialsSection() {
     () => denials.filter((d) => Date.now() - new Date(d.at).getTime() < 24 * 60 * 60 * 1000).length,
     [denials],
   );
-  const visitorCount = useMemo(() => denials.filter((d) => d.viewerRole === "visitor").length, [denials]);
+  const visitorCount = useMemo(
+    () => denials.filter((d) => d.viewerRole === "visitor").length,
+    [denials],
+  );
 
   const exportCsv = () => {
     const rows = [
-      ["id", "timestamp", "source", "feature", "attempted_path", "from_path", "viewer_role", "user_id", "note"],
-      ...filtered.map((d) => [d.id, d.at, d.source, d.feature, d.attemptedPath, d.fromPath, d.viewerRole, d.userId ?? "", d.note ?? ""]),
+      [
+        "id",
+        "timestamp",
+        "source",
+        "feature",
+        "attempted_path",
+        "from_path",
+        "viewer_role",
+        "user_id",
+        "note",
+      ],
+      ...filtered.map((d) => [
+        d.id,
+        d.at,
+        d.source,
+        d.feature,
+        d.attemptedPath,
+        d.fromPath,
+        d.viewerRole,
+        d.userId ?? "",
+        d.note ?? "",
+      ]),
     ];
     const csv = rows
       .map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(","))
@@ -282,13 +315,23 @@ function AccessDenialsSection() {
     toast.success(`Exported ${filtered.length} denials`);
   };
 
-  const FEATURES: DenialEntry["feature"][] = ["planning", "booking", "portal", "concierge", "trips", "reservations", "other"];
+  const FEATURES: DenialEntry["feature"][] = [
+    "planning",
+    "booking",
+    "portal",
+    "concierge",
+    "trips",
+    "reservations",
+    "other",
+  ];
 
   return (
     <section className="space-y-4">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Access monitoring</p>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            Access monitoring
+          </p>
           <h2 className="font-display text-2xl font-bold leading-tight flex items-center gap-2">
             <ShieldAlert className="h-6 w-6 text-amber-600" /> Denied access attempts
           </h2>
@@ -337,7 +380,9 @@ function AccessDenialsSection() {
         >
           <option value="all">All features</option>
           {FEATURES.map((f) => (
-            <option key={f} value={f}>{f}</option>
+            <option key={f} value={f}>
+              {f}
+            </option>
           ))}
         </select>
       </div>
@@ -358,7 +403,8 @@ function AccessDenialsSection() {
             {filtered.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={6} className="py-12 text-center text-sm text-muted-foreground">
-                  No denied attempts recorded yet. Visitors blocked from gated pages will appear here.
+                  No denied attempts recorded yet. Visitors blocked from gated pages will appear
+                  here.
                 </TableCell>
               </TableRow>
             ) : (
@@ -374,7 +420,9 @@ function AccessDenialsSection() {
                     <TableCell>
                       <div className="text-sm capitalize">{d.viewerRole}</div>
                       {d.userId ? (
-                        <div className="font-mono text-[11px] text-muted-foreground">{d.userId.slice(0, 8)}…</div>
+                        <div className="font-mono text-[11px] text-muted-foreground">
+                          {d.userId.slice(0, 8)}…
+                        </div>
                       ) : (
                         <div className="text-[11px] text-muted-foreground">no session</div>
                       )}

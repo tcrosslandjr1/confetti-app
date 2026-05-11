@@ -7,9 +7,16 @@ export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
       { title: "Pricing — Loop" },
-      { name: "description", content: "Free to start. Upgrade for unlimited AI plans, saved reservations and the full taste profile." },
+      {
+        name: "description",
+        content:
+          "Free to start. Upgrade for unlimited AI plans, saved reservations and the full taste profile.",
+      },
       { property: "og:title", content: "Pricing — Loop" },
-      { property: "og:description", content: "Simple plans for casual planners and people who go out every weekend." },
+      {
+        property: "og:description",
+        content: "Simple plans for casual planners and people who go out every weekend.",
+      },
     ],
   }),
   component: PricingPage,
@@ -20,7 +27,12 @@ const tiers = [
     name: "Free",
     price: "$0",
     blurb: "Plan a few outings a month.",
-    features: ["3 AI itineraries / month", "Swipeable idea cards", "Save up to 5 trips", "Basic taste profile"],
+    features: [
+      "3 AI itineraries / month",
+      "Swipeable idea cards",
+      "Save up to 5 trips",
+      "Basic taste profile",
+    ],
     cta: "Start free",
     to: "/auth" as const,
     highlight: false,
@@ -30,7 +42,13 @@ const tiers = [
     price: "$8",
     suffix: "/mo",
     blurb: "For people who actually go out.",
-    features: ["Unlimited itineraries", "Multi-stop routing & transit", "Saved reservations vault", "Full taste profile + social learning", "Priority AI"],
+    features: [
+      "Unlimited itineraries",
+      "Multi-stop routing & transit",
+      "Saved reservations vault",
+      "Full taste profile + social learning",
+      "Priority AI",
+    ],
     cta: "Try Plus",
     to: "/auth" as const,
     highlight: true,
@@ -40,7 +58,13 @@ const tiers = [
     price: "$18",
     suffix: "/mo",
     blurb: "Plan with friends and family.",
-    features: ["Everything in Plus", "Shared trips & voting", "Up to 6 members", "Group reservations", "Concierge chat"],
+    features: [
+      "Everything in Plus",
+      "Shared trips & voting",
+      "Up to 6 members",
+      "Group reservations",
+      "Concierge chat",
+    ],
     cta: "Get Crew",
     to: "/auth" as const,
     highlight: false,
@@ -87,7 +111,9 @@ function PricingPage() {
                 <Link
                   to={t.to}
                   className={`mt-6 inline-flex h-11 w-full items-center justify-center rounded-full text-sm font-semibold transition-pop hover:scale-[1.02] ${
-                    t.highlight ? "bg-foreground text-background" : "border border-border bg-background text-foreground hover:bg-muted"
+                    t.highlight
+                      ? "bg-foreground text-background"
+                      : "border border-border bg-background text-foreground hover:bg-muted"
                   }`}
                 >
                   {t.cta}
@@ -98,9 +124,14 @@ function PricingPage() {
 
           <div className="mt-4 flex items-center justify-center gap-2 md:hidden">
             {tiers.map((t) => (
-              <span key={t.name} className={`h-1.5 w-6 rounded-full ${t.highlight ? "bg-primary" : "bg-border"}`} />
+              <span
+                key={t.name}
+                className={`h-1.5 w-6 rounded-full ${t.highlight ? "bg-primary" : "bg-border"}`}
+              />
             ))}
-            <span className="ml-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">swipe to compare</span>
+            <span className="ml-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+              swipe to compare
+            </span>
           </div>
         </div>
       </section>

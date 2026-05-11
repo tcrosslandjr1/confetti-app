@@ -46,7 +46,10 @@ export function VenueCard({ data }: { data: VenueCardData }) {
         {data.why && <p className="text-foreground/90">{data.why}</p>}
         <div className="flex flex-wrap items-center gap-1.5 pt-1">
           {data.best_for?.map((b) => (
-            <span key={b} className="rounded-full border border-border bg-background px-2 py-0.5 text-[10px] uppercase tracking-wider text-muted-foreground">
+            <span
+              key={b}
+              className="rounded-full border border-border bg-background px-2 py-0.5 text-[10px] uppercase tracking-wider text-muted-foreground"
+            >
               {b}
             </span>
           ))}
@@ -62,9 +65,7 @@ export function VenueCard({ data }: { data: VenueCardData }) {
 }
 
 /** Parse markdown into segments: text and venue cards. Handles streaming (incomplete blocks shown as text). */
-export type Segment =
-  | { kind: "text"; text: string }
-  | { kind: "venue"; data: VenueCardData };
+export type Segment = { kind: "text"; text: string } | { kind: "venue"; data: VenueCardData };
 
 export function parseAssistantContent(content: string): Segment[] {
   if (!content) return [{ kind: "text", text: "" }];

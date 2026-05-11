@@ -66,23 +66,13 @@ export const OAUTH_PROVIDERS = {
  * read, and the same error shape for the UI to surface.
  */
 const credentialsSchema = z.object({
-  clientId: z
-    .string()
-    .trim()
-    .min(1, "must not be empty")
-    .max(512, "is suspiciously long"),
-  clientSecret: z
-    .string()
-    .trim()
-    .min(1, "must not be empty")
-    .max(512, "is suspiciously long"),
+  clientId: z.string().trim().min(1, "must not be empty").max(512, "is suspiciously long"),
+  clientSecret: z.string().trim().min(1, "must not be empty").max(512, "is suspiciously long"),
 });
 
 export type ProviderCredentials = z.infer<typeof credentialsSchema>;
 
-export function readProviderCredentials(
-  id: CustomOAuthProvider,
-): ProviderCredentials {
+export function readProviderCredentials(id: CustomOAuthProvider): ProviderCredentials {
   const spec = OAUTH_PROVIDERS[id];
   const [idVar, secretVar] = spec.envVars;
   const raw = {
@@ -133,10 +123,7 @@ export function getProvidersConfigStatus(): Array<{
 }
 
 /** Build the OAuth callback URL from the request host. */
-export function buildCallbackUrl(
-  id: CustomOAuthProvider,
-  host: string | undefined,
-): string {
+export function buildCallbackUrl(id: CustomOAuthProvider, host: string | undefined): string {
   const proto = !host || host.includes("localhost") ? "http" : "https";
   return `${proto}://${host ?? "localhost"}${OAUTH_PROVIDERS[id].callbackPath}`;
 }

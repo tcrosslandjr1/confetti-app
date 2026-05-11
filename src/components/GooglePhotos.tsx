@@ -37,7 +37,11 @@ export function GooglePhotos({
     setLoading(true);
     supabase.functions
       .invoke("google-places", {
-        body: { queries: [{ venue, address: address ?? undefined, neighborhood: neighborhood ?? undefined }] },
+        body: {
+          queries: [
+            { venue, address: address ?? undefined, neighborhood: neighborhood ?? undefined },
+          ],
+        },
       })
       .then(({ data }) => {
         if (cancelled) return;

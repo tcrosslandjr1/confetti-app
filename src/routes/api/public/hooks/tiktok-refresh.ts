@@ -20,9 +20,7 @@ export const Route = createFileRoute("/api/public/hooks/tiktok-refresh")({
           });
         }
 
-        const { refreshExpiringTiktokTokens } = await import(
-          "@/lib/tiktok-token.server"
-        );
+        const { refreshExpiringTiktokTokens } = await import("@/lib/tiktok-token.server");
 
         try {
           const result = await refreshExpiringTiktokTokens(24);

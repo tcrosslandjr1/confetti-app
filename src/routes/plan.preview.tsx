@@ -1,6 +1,16 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ArrowLeft, Bookmark, Camera, Clock, MapPin, RefreshCw, Sparkles, Utensils, Wine } from "lucide-react";
+import {
+  ArrowLeft,
+  Bookmark,
+  Camera,
+  Clock,
+  MapPin,
+  RefreshCw,
+  Sparkles,
+  Utensils,
+  Wine,
+} from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { toast } from "sonner";
 
@@ -8,7 +18,10 @@ export const Route = createFileRoute("/plan/preview")({
   head: () => ({
     meta: [
       { title: "Preview your day — Loop" },
-      { name: "description", content: "A live preview of your AI-built day: stops, timing, vibes, and a map." },
+      {
+        name: "description",
+        content: "A live preview of your AI-built day: stops, timing, vibes, and a map.",
+      },
     ],
   }),
   component: PreviewPage,
@@ -27,16 +40,89 @@ type Stop = {
 
 const VARIANTS: Stop[][] = [
   [
-    { time: "11:30 AM", duration: "1h 15m", name: "Bluebird Coffee Social", category: "meal", neighborhood: "East Side", blurb: "Sun-drenched corner café with house-roasted beans and flaky kouign-amann.", vibes: ["Cozy", "Light bites", "Walkable"], pin: { x: 22, y: 38 } },
-    { time: "1:15 PM", duration: "1h 30m", name: "The Marigold Rooftop", category: "drinks", neighborhood: "Warehouse District", blurb: "Skyline views, frozen palomas, and a chef's antipasto board to share.", vibes: ["Romantic", "Golden-hour", "Bring a jacket"], pin: { x: 48, y: 26 } },
-    { time: "3:15 PM", duration: "1h 45m", name: "Lantern Hill Overlook", category: "scenic", neighborhood: "Riverbend", blurb: "Short trail to a quiet bluff — perfect for slow walks and slow conversations.", vibes: ["Outdoors", "Photo-friendly", "Free"], pin: { x: 72, y: 58 } },
-    { time: "5:30 PM", duration: "2h", name: "Osteria di Pesca", category: "meal", neighborhood: "Old Market", blurb: "Hand-pulled pasta, candlelit booths, a sommelier who actually listens.", vibes: ["Elegant", "Date-worthy", "Reservation suggested"], pin: { x: 58, y: 78 } },
+    {
+      time: "11:30 AM",
+      duration: "1h 15m",
+      name: "Bluebird Coffee Social",
+      category: "meal",
+      neighborhood: "East Side",
+      blurb: "Sun-drenched corner café with house-roasted beans and flaky kouign-amann.",
+      vibes: ["Cozy", "Light bites", "Walkable"],
+      pin: { x: 22, y: 38 },
+    },
+    {
+      time: "1:15 PM",
+      duration: "1h 30m",
+      name: "The Marigold Rooftop",
+      category: "drinks",
+      neighborhood: "Warehouse District",
+      blurb: "Skyline views, frozen palomas, and a chef's antipasto board to share.",
+      vibes: ["Romantic", "Golden-hour", "Bring a jacket"],
+      pin: { x: 48, y: 26 },
+    },
+    {
+      time: "3:15 PM",
+      duration: "1h 45m",
+      name: "Lantern Hill Overlook",
+      category: "scenic",
+      neighborhood: "Riverbend",
+      blurb: "Short trail to a quiet bluff — perfect for slow walks and slow conversations.",
+      vibes: ["Outdoors", "Photo-friendly", "Free"],
+      pin: { x: 72, y: 58 },
+    },
+    {
+      time: "5:30 PM",
+      duration: "2h",
+      name: "Osteria di Pesca",
+      category: "meal",
+      neighborhood: "Old Market",
+      blurb: "Hand-pulled pasta, candlelit booths, a sommelier who actually listens.",
+      vibes: ["Elegant", "Date-worthy", "Reservation suggested"],
+      pin: { x: 58, y: 78 },
+    },
   ],
   [
-    { time: "12:00 PM", duration: "1h", name: "Six Spoons Brunch Room", category: "meal", neighborhood: "Midtown", blurb: "Sourdough pancakes, citrus mimosas, and the kind of corner booth you don't want to leave.", vibes: ["Brunch", "Lively", "Family-friendly"], pin: { x: 30, y: 30 } },
-    { time: "2:00 PM", duration: "2h", name: "Glasshouse Modern Art", category: "activity", neighborhood: "Cultural Mile", blurb: "A walkable, sun-lit gallery with a rotating textile exhibit on now.", vibes: ["Creative", "Quiet", "Indoor"], pin: { x: 52, y: 50 } },
-    { time: "4:30 PM", duration: "1h 15m", name: "Harborline Promenade", category: "scenic", neighborhood: "Waterfront", blurb: "Salt air, street musicians, and ice cream from the corner cart.", vibes: ["Outdoors", "Stroll", "Photo-friendly"], pin: { x: 70, y: 70 } },
-    { time: "6:30 PM", duration: "1h 45m", name: "The Velvet Banquette", category: "drinks", neighborhood: "Old Market", blurb: "Hidden cocktail room behind a record store. Order the smoked Negroni.", vibes: ["Speakeasy", "Romantic", "21+"], pin: { x: 42, y: 82 } },
+    {
+      time: "12:00 PM",
+      duration: "1h",
+      name: "Six Spoons Brunch Room",
+      category: "meal",
+      neighborhood: "Midtown",
+      blurb:
+        "Sourdough pancakes, citrus mimosas, and the kind of corner booth you don't want to leave.",
+      vibes: ["Brunch", "Lively", "Family-friendly"],
+      pin: { x: 30, y: 30 },
+    },
+    {
+      time: "2:00 PM",
+      duration: "2h",
+      name: "Glasshouse Modern Art",
+      category: "activity",
+      neighborhood: "Cultural Mile",
+      blurb: "A walkable, sun-lit gallery with a rotating textile exhibit on now.",
+      vibes: ["Creative", "Quiet", "Indoor"],
+      pin: { x: 52, y: 50 },
+    },
+    {
+      time: "4:30 PM",
+      duration: "1h 15m",
+      name: "Harborline Promenade",
+      category: "scenic",
+      neighborhood: "Waterfront",
+      blurb: "Salt air, street musicians, and ice cream from the corner cart.",
+      vibes: ["Outdoors", "Stroll", "Photo-friendly"],
+      pin: { x: 70, y: 70 },
+    },
+    {
+      time: "6:30 PM",
+      duration: "1h 45m",
+      name: "The Velvet Banquette",
+      category: "drinks",
+      neighborhood: "Old Market",
+      blurb: "Hidden cocktail room behind a record store. Order the smoked Negroni.",
+      vibes: ["Speakeasy", "Romantic", "21+"],
+      pin: { x: 42, y: 82 },
+    },
   ],
 ];
 
@@ -71,7 +157,10 @@ function PreviewPage() {
       <SiteHeader />
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-6 flex items-center justify-between gap-4">
-          <Link to="/plan" className="inline-flex items-center gap-1.5 text-sm font-semibold text-muted-foreground hover:text-foreground">
+          <Link
+            to="/plan"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-muted-foreground hover:text-foreground"
+          >
             <ArrowLeft className="h-4 w-4" /> Back to planner
           </Link>
           <span className="inline-flex items-center gap-2 rounded-full border border-dashed border-border bg-card px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
@@ -84,8 +173,12 @@ function PreviewPage() {
             Your <span className="text-gradient">date-night</span> day
           </h1>
           <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-            <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> 11:30 AM – 7:30 PM</span>
-            <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> 4 stops · ~6.5 mi</span>
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="h-3.5 w-3.5" /> 11:30 AM – 7:30 PM
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5" /> 4 stops · ~6.5 mi
+            </span>
             <span>· $$ budget · Romantic vibe</span>
           </p>
         </div>
@@ -97,7 +190,9 @@ function PreviewPage() {
               const Icon = CAT_ICON[s.category];
               return (
                 <li key={`${variant}-${i}`} className="relative">
-                  <span className={`absolute -left-[34px] sm:-left-[42px] top-4 grid h-9 w-9 place-items-center rounded-full border-2 ${CAT_TONE[s.category]} bg-background shadow-card`}>
+                  <span
+                    className={`absolute -left-[34px] sm:-left-[42px] top-4 grid h-9 w-9 place-items-center rounded-full border-2 ${CAT_TONE[s.category]} bg-background shadow-card`}
+                  >
                     <Icon className="h-4 w-4" />
                   </span>
                   <article className="rounded-3xl border border-border bg-card p-5 shadow-card transition-all hover:border-primary/40 hover:shadow-pop sm:p-6">
@@ -108,11 +203,18 @@ function PreviewPage() {
                         <MapPin className="h-3 w-3" /> {s.neighborhood}
                       </span>
                     </div>
-                    <h2 className="mt-1.5 font-display text-2xl font-semibold leading-tight">{s.name}</h2>
+                    <h2 className="mt-1.5 font-display text-2xl font-semibold leading-tight">
+                      {s.name}
+                    </h2>
                     <p className="mt-1.5 text-sm text-muted-foreground">{s.blurb}</p>
                     <div className="mt-3 flex flex-wrap gap-1.5">
                       {s.vibes.map((v) => (
-                        <span key={v} className="rounded-full bg-muted px-2.5 py-0.5 text-[11px] font-semibold text-muted-foreground">{v}</span>
+                        <span
+                          key={v}
+                          className="rounded-full bg-muted px-2.5 py-0.5 text-[11px] font-semibold text-muted-foreground"
+                        >
+                          {v}
+                        </span>
                       ))}
                     </div>
                   </article>
@@ -126,17 +228,34 @@ function PreviewPage() {
             <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
               <div className="relative h-72 w-full overflow-hidden bg-gradient-to-br from-muted via-background to-muted">
                 {/* Faux map grid */}
-                <div className="absolute inset-0 opacity-40" style={{
-                  backgroundImage:
-                    "linear-gradient(to right, color-mix(in oklab, var(--border) 60%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklab, var(--border) 60%, transparent) 1px, transparent 1px)",
-                  backgroundSize: "32px 32px",
-                }} />
+                <div
+                  className="absolute inset-0 opacity-40"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to right, color-mix(in oklab, var(--border) 60%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklab, var(--border) 60%, transparent) 1px, transparent 1px)",
+                    backgroundSize: "32px 32px",
+                  }}
+                />
                 {/* Faux river */}
-                <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <path d="M -5 70 Q 30 55 50 65 T 105 50" stroke="color-mix(in oklab, var(--primary) 35%, transparent)" strokeWidth="6" fill="none" strokeLinecap="round" />
+                <svg
+                  className="absolute inset-0 h-full w-full"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M -5 70 Q 30 55 50 65 T 105 50"
+                    stroke="color-mix(in oklab, var(--primary) 35%, transparent)"
+                    strokeWidth="6"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
                 </svg>
                 {/* Route line through pins */}
-                <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <svg
+                  className="absolute inset-0 h-full w-full"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                >
                   <polyline
                     points={stops.map((s) => `${s.pin.x},${s.pin.y}`).join(" ")}
                     fill="none"

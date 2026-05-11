@@ -56,6 +56,7 @@ import { Route as PortalSavedRouteImport } from './routes/portal.saved'
 import { Route as PortalReferRouteImport } from './routes/portal.refer'
 import { Route as PortalProfileRouteImport } from './routes/portal.profile'
 import { Route as PortalBookingsRouteImport } from './routes/portal.bookings'
+import { Route as PortalAchievementsRouteImport } from './routes/portal.achievements'
 import { Route as PlanReadyRouteImport } from './routes/plan.ready'
 import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
 import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
@@ -320,6 +321,11 @@ const PortalBookingsRoute = PortalBookingsRouteImport.update({
   path: '/bookings',
   getParentRoute: () => PortalRoute,
 } as any)
+const PortalAchievementsRoute = PortalAchievementsRouteImport.update({
+  id: '/achievements',
+  path: '/achievements',
+  getParentRoute: () => PortalRoute,
+} as any)
 const PlanReadyRoute = PlanReadyRouteImport.update({
   id: '/ready',
   path: '/ready',
@@ -516,6 +522,7 @@ export interface FileRoutesByFullPath {
   '/ideas/$slug': typeof IdeasSlugRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
+  '/portal/achievements': typeof PortalAchievementsRoute
   '/portal/bookings': typeof PortalBookingsRoute
   '/portal/profile': typeof PortalProfileRoute
   '/portal/refer': typeof PortalReferRoute
@@ -589,6 +596,7 @@ export interface FileRoutesByTo {
   '/ideas/$slug': typeof IdeasSlugRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
+  '/portal/achievements': typeof PortalAchievementsRoute
   '/portal/bookings': typeof PortalBookingsRoute
   '/portal/profile': typeof PortalProfileRoute
   '/portal/refer': typeof PortalReferRoute
@@ -667,6 +675,7 @@ export interface FileRoutesById {
   '/ideas/$slug': typeof IdeasSlugRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
+  '/portal/achievements': typeof PortalAchievementsRoute
   '/portal/bookings': typeof PortalBookingsRoute
   '/portal/profile': typeof PortalProfileRoute
   '/portal/refer': typeof PortalReferRoute
@@ -746,6 +755,7 @@ export interface FileRouteTypes {
     | '/ideas/$slug'
     | '/plan/preview'
     | '/plan/ready'
+    | '/portal/achievements'
     | '/portal/bookings'
     | '/portal/profile'
     | '/portal/refer'
@@ -819,6 +829,7 @@ export interface FileRouteTypes {
     | '/ideas/$slug'
     | '/plan/preview'
     | '/plan/ready'
+    | '/portal/achievements'
     | '/portal/bookings'
     | '/portal/profile'
     | '/portal/refer'
@@ -896,6 +907,7 @@ export interface FileRouteTypes {
     | '/ideas/$slug'
     | '/plan/preview'
     | '/plan/ready'
+    | '/portal/achievements'
     | '/portal/bookings'
     | '/portal/profile'
     | '/portal/refer'
@@ -1300,6 +1312,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortalBookingsRouteImport
       parentRoute: typeof PortalRoute
     }
+    '/portal/achievements': {
+      id: '/portal/achievements'
+      path: '/achievements'
+      fullPath: '/portal/achievements'
+      preLoaderRoute: typeof PortalAchievementsRouteImport
+      parentRoute: typeof PortalRoute
+    }
     '/plan/ready': {
       id: '/plan/ready'
       path: '/ready'
@@ -1580,6 +1599,7 @@ const PlanRouteChildren: PlanRouteChildren = {
 const PlanRouteWithChildren = PlanRoute._addFileChildren(PlanRouteChildren)
 
 interface PortalRouteChildren {
+  PortalAchievementsRoute: typeof PortalAchievementsRoute
   PortalBookingsRoute: typeof PortalBookingsRoute
   PortalProfileRoute: typeof PortalProfileRoute
   PortalReferRoute: typeof PortalReferRoute
@@ -1589,6 +1609,7 @@ interface PortalRouteChildren {
 }
 
 const PortalRouteChildren: PortalRouteChildren = {
+  PortalAchievementsRoute: PortalAchievementsRoute,
   PortalBookingsRoute: PortalBookingsRoute,
   PortalProfileRoute: PortalProfileRoute,
   PortalReferRoute: PortalReferRoute,

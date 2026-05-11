@@ -133,7 +133,7 @@ function ProfilePage() {
                   <StatTile tone="bg-gradient-vibe text-primary-foreground" icon={Sparkles} label="XP" value={(profile?.xp ?? 0).toLocaleString()} hint={`Level ${profile?.level ?? 1}`} onClick={() => toast.success(`${(profile?.xp ?? 0).toLocaleString()} XP banked`, { description: `You're Level ${profile?.level ?? 1}. Keep going to unlock the next tier.` })} />
                   <StatTile icon={CalendarCheck} label="Upcoming bookings" value={bookingTotals.upcoming.toString()} hint={`${bookingTotals.past} completed`} to="/portal/bookings" onClick={() => toast(`${bookingTotals.upcoming} upcoming booking${bookingTotals.upcoming === 1 ? "" : "s"}`, { description: `${bookingTotals.past} completed so far. Opening your bookings…` })} />
                   <StatTile icon={Users} label="Referrals signed up" value={refStats.signedUp.toString()} hint={`${refStats.invited} invited · ${refStats.completed} completed`} to="/portal/refer" onClick={() => toast(`${refStats.signedUp} friend${refStats.signedUp === 1 ? "" : "s"} on board`, { description: `${refStats.invited} invited · ${refStats.completed} completed. Earn more by sharing your link.` })} />
-                  <StatTile icon={Trophy} label="Achievements" value={`${achTotals.unlocked}/${achTotals.total || "—"}`} hint={achTotals.total ? `${achTotals.xpEarned} XP earned` : "Unlock by exploring"} onClick={() => toast.success(`${achTotals.unlocked}/${achTotals.total || "—"} achievements unlocked`, { description: achTotals.total ? `${achTotals.xpEarned} XP earned from badges so far.` : "Start exploring to unlock your first badge." })} />
+                  <StatTile icon={Trophy} label="Achievements" value={`${achTotals.unlocked}/${achTotals.total || "—"}`} hint={achTotals.total ? `${achTotals.xpEarned} XP earned` : "Unlock by exploring"} to="/portal/achievements" onClick={() => toast.success(`${achTotals.unlocked}/${achTotals.total || "—"} achievements unlocked`, { description: achTotals.total ? `${achTotals.xpEarned} XP earned. Opening your badge book…` : "Start exploring to unlock your first badge." })} />
                 </section>
               ),
             },
@@ -156,7 +156,7 @@ function ProfilePage() {
                 <section aria-label="Achievements" className="rounded-3xl border border-border bg-card p-6 shadow-card">
                   <div className="mb-4 flex items-center justify-between gap-2">
                     <h2 className="flex items-center gap-2 font-display text-xl font-bold"><Trophy className="h-5 w-5 text-primary" /> Achievements</h2>
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{achTotals.unlocked}/{achTotals.total || "—"} unlocked</span>
+                    <Link to="/portal/achievements" className="font-mono text-[10px] uppercase tracking-widest text-primary hover:underline">{achTotals.unlocked}/{achTotals.total || "—"} unlocked · View all →</Link>
                   </div>
                   {achievements.length === 0 ? (
                     <p className="rounded-xl border border-dashed border-border bg-background/40 p-5 text-center text-sm text-muted-foreground">Achievements unlock as you explore.</p>

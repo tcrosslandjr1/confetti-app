@@ -297,9 +297,17 @@ function PlanPage() {
                 min={2}
                 max={14}
                 value={durationHours}
-                onChange={(e) => setDurationHours(Number(e.target.value))}
+                onChange={(e) => {
+                  setDurationTouched(true);
+                  setDurationHours(Number(e.target.value));
+                }}
                 className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
+              {!durationTouched && (
+                <p className="mt-1 text-[11px] text-muted-foreground">
+                  Auto-sized from your vibes — edit to override.
+                </p>
+              )}
             </Field>
           </div>
 

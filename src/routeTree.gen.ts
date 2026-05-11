@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeatherRouteImport } from './routes/weather'
 import { Route as TranslateRouteImport } from './routes/translate'
+import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
 import { Route as ReservationsRouteImport } from './routes/reservations'
+import { Route as QuickGenerateRouteImport } from './routes/quick-generate'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortalRouteImport } from './routes/portal'
 import { Route as PlanRouteImport } from './routes/plan'
@@ -78,9 +80,19 @@ const TranslateRoute = TranslateRouteImport.update({
   path: '/translate',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TasteTunerRoute = TasteTunerRouteImport.update({
+  id: '/taste-tuner',
+  path: '/taste-tuner',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReservationsRoute = ReservationsRouteImport.update({
   id: '/reservations',
   path: '/reservations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuickGenerateRoute = QuickGenerateRouteImport.update({
+  id: '/quick-generate',
+  path: '/quick-generate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
@@ -378,7 +390,9 @@ export interface FileRoutesByFullPath {
   '/plan': typeof PlanRouteWithChildren
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
+  '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
+  '/taste-tuner': typeof TasteTunerRoute
   '/translate': typeof TranslateRoute
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
@@ -434,7 +448,9 @@ export interface FileRoutesByTo {
   '/onboarding': typeof OnboardingRoute
   '/plan': typeof PlanRouteWithChildren
   '/pricing': typeof PricingRoute
+  '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
+  '/taste-tuner': typeof TasteTunerRoute
   '/translate': typeof TranslateRoute
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
@@ -495,7 +511,9 @@ export interface FileRoutesById {
   '/plan': typeof PlanRouteWithChildren
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
+  '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
+  '/taste-tuner': typeof TasteTunerRoute
   '/translate': typeof TranslateRoute
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
@@ -557,7 +575,9 @@ export interface FileRouteTypes {
     | '/plan'
     | '/portal'
     | '/pricing'
+    | '/quick-generate'
     | '/reservations'
+    | '/taste-tuner'
     | '/translate'
     | '/weather'
     | '/admin/ad-analytics'
@@ -613,7 +633,9 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/plan'
     | '/pricing'
+    | '/quick-generate'
     | '/reservations'
+    | '/taste-tuner'
     | '/translate'
     | '/weather'
     | '/admin/ad-analytics'
@@ -673,7 +695,9 @@ export interface FileRouteTypes {
     | '/plan'
     | '/portal'
     | '/pricing'
+    | '/quick-generate'
     | '/reservations'
+    | '/taste-tuner'
     | '/translate'
     | '/weather'
     | '/admin/ad-analytics'
@@ -734,7 +758,9 @@ export interface RootRouteChildren {
   PlanRoute: typeof PlanRouteWithChildren
   PortalRoute: typeof PortalRouteWithChildren
   PricingRoute: typeof PricingRoute
+  QuickGenerateRoute: typeof QuickGenerateRoute
   ReservationsRoute: typeof ReservationsRoute
+  TasteTunerRoute: typeof TasteTunerRoute
   TranslateRoute: typeof TranslateRoute
   WeatherRoute: typeof WeatherRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -766,11 +792,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TranslateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/taste-tuner': {
+      id: '/taste-tuner'
+      path: '/taste-tuner'
+      fullPath: '/taste-tuner'
+      preLoaderRoute: typeof TasteTunerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reservations': {
       id: '/reservations'
       path: '/reservations'
       fullPath: '/reservations'
       preLoaderRoute: typeof ReservationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quick-generate': {
+      id: '/quick-generate'
+      path: '/quick-generate'
+      fullPath: '/quick-generate'
+      preLoaderRoute: typeof QuickGenerateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -1288,7 +1328,9 @@ const rootRouteChildren: RootRouteChildren = {
   PlanRoute: PlanRouteWithChildren,
   PortalRoute: PortalRouteWithChildren,
   PricingRoute: PricingRoute,
+  QuickGenerateRoute: QuickGenerateRoute,
   ReservationsRoute: ReservationsRoute,
+  TasteTunerRoute: TasteTunerRoute,
   TranslateRoute: TranslateRoute,
   WeatherRoute: WeatherRoute,
   ApiChatRoute: ApiChatRoute,

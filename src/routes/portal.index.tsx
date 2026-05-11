@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { getMyReferralStats, getOrCreateMyReferralCode, buildReferralLink, type MyReferralStats } from "@/lib/referrals";
 import { useAuth } from "@/lib/auth-context";
 import { NearbyVenues } from "@/components/NearbyVenues";
+import { GooglePhotos } from "@/components/GooglePhotos";
 import { ViralNow } from "@/components/ViralNow";
 import { PromotedSlot } from "@/components/PromotedSlot";
 import { buildAndSaveItinerary } from "@/lib/itineraries";
@@ -492,7 +493,11 @@ function FeaturedCard({ venue, title, subtitle }: { venue: Venue; title: string 
       params={{ id: venue.id }}
       className="group block overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-pop hover:-translate-y-0.5 hover:shadow-pop"
     >
-      {venue.image_url && <img src={venue.image_url} alt={venue.name} className="h-40 w-full object-cover" />}
+      {venue.image_url ? (
+        <img src={venue.image_url} alt={venue.name} className="h-40 w-full object-cover" />
+      ) : (
+        <GooglePhotos venue={venue.name} neighborhood={venue.neighborhood} variant="hero" className="h-40 w-full" />
+      )}
       <div className="p-4">
         <div className="text-[10px] font-mono uppercase tracking-wider text-primary">{title ?? "Featured"}</div>
         <h3 className="mt-1 font-display text-lg font-bold">{venue.name}</h3>
@@ -516,7 +521,7 @@ function VenueCard({ v }: { v: Venue }) {
       {v.image_url ? (
         <img src={v.image_url} alt={v.name} className="h-36 w-full object-cover" />
       ) : (
-        <div className="grid h-36 place-items-center bg-muted text-muted-foreground"><Star className="h-6 w-6" /></div>
+        <GooglePhotos venue={v.name} neighborhood={v.neighborhood} variant="hero" className="h-36 w-full" />
       )}
       <div className="p-4">
         <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">{v.category}</div>

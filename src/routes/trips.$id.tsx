@@ -64,6 +64,7 @@ import {
 } from "@/lib/trip-status";
 import { GooglePhotos } from "@/components/GooglePhotos";
 import { VibeFilter } from "@/components/VibeFilter";
+import { ActivityFeed } from "@/components/activity/ActivityFeed";
 import {
   CROWD_LABEL,
   DRESS_LABEL,

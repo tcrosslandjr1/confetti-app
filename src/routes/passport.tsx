@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Award, Compass, Moon, Pizza, Users, Map as MapIcon, Crown, Gift, Sparkles, ArrowLeft } from "lucide-react";
-import { getConfetti } from "@/lib/loop-store";
+import { getConfetti, subscribeConfetti } from "@/lib/loop-store";
 
 export const Route = createFileRoute("/passport")({
   head: () => ({ meta: [{ title: "Passport — Loop" }] }),

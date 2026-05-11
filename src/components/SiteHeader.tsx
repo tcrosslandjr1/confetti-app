@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { WizardButton } from "@/components/wizard/WizardButton";
 import { NotificationsBell } from "@/components/NotificationsBell";
+import { Oloid } from "@/components/brand/Oloid";
 import { useAuth } from "@/lib/auth-context";
 
 const marketingLinks = [

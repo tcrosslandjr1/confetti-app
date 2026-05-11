@@ -349,6 +349,36 @@ function AdminTestimonialsPage() {
             </div>
           </div>
 
+          <div className="space-y-1.5">
+            <Label>Rating</Label>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-0.5">
+                {[1, 2, 3, 4, 5].map((n) => (
+                  <button
+                    key={n}
+                    type="button"
+                    onClick={() => setForm({ ...form, rating: n })}
+                    aria-label={`${n} star${n === 1 ? "" : "s"}`}
+                    className="p-0.5 text-amber-500"
+                  >
+                    <Star
+                      className={`h-5 w-5 ${
+                        form.rating !== null && n <= form.rating ? "fill-current" : "opacity-30"
+                      }`}
+                    />
+                  </button>
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={() => setForm({ ...form, rating: null })}
+                className="text-xs text-muted-foreground underline"
+              >
+                Clear
+              </button>
+            </div>
+          </div>
+
           <div className="flex items-center justify-between rounded-md border border-border px-3 py-2">
             <Label htmlFor="t-active" className="text-sm">
               Live

@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { PURPOSE_LABELS, dayCount, type CorporateEvent, type CorporateAttendee, type RsvpStatus } from "@/lib/corporate";
+import { TonightAtAGlance, ConciergeQuickAsk, NextBookingCountdown, SpendBudgetTracker } from "@/components/widgets/AppWidgets";
 
 export const Route = createFileRoute("/teams/$id")({
   component: TeamEventPage,
@@ -92,6 +93,13 @@ function TeamEventPage() {
               Status: <span className="font-bold text-coral">{event.status}</span>
             </div>
           </header>
+
+          <section aria-label="Quick widgets" className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <TonightAtAGlance />
+            <NextBookingCountdown />
+            <ConciergeQuickAsk />
+            <SpendBudgetTracker />
+          </section>
 
           <nav className="mt-8 flex gap-1 border-b-2 border-ink">
             {(["overview","attendees","budget","share"] as Tab[]).map((t) => (

@@ -11,6 +11,7 @@ import { PromotedSlot } from "@/components/PromotedSlot";
 import { buildAndSaveItinerary } from "@/lib/itineraries";
 import { loadPrefs } from "@/lib/taste";
 import { toast } from "sonner";
+import { TonightAtAGlance, NextBookingCountdown, ConciergeQuickAsk, SpendBudgetTracker } from "@/components/widgets/AppWidgets";
 
 export const Route = createFileRoute("/portal/")({
   head: () => ({
@@ -198,6 +199,16 @@ function PortalDiscoverPage() {
       </header>
 
       {/* (Top stats moved to /portal/profile) */}
+
+      {/* In-app widgets */}
+      {user && (
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <TonightAtAGlance />
+          <NextBookingCountdown />
+          <ConciergeQuickAsk />
+          <SpendBudgetTracker />
+        </div>
+      )}
 
       {/* Personalized next-best-actions */}
       {user && (

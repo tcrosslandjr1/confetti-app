@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { getStoredLocation, requestUserLocation, clearStoredLocation, type UserLocation } from "@/lib/location";
+import { TonightAtAGlance, NextBookingCountdown, ConciergeQuickAsk, SpendBudgetTracker } from "@/components/widgets/AppWidgets";
 
 export const Route = createFileRoute("/portal/profile")({
   component: ProfilePage,
@@ -127,6 +128,18 @@ function ProfilePage() {
                   <StatTile icon={CalendarCheck} label="Upcoming bookings" value={bookingTotals.upcoming.toString()} hint={`${bookingTotals.past} completed`} to="/portal/bookings" />
                   <StatTile icon={Users} label="Referrals signed up" value={refStats.signedUp.toString()} hint={`${refStats.invited} invited · ${refStats.completed} completed`} to="/portal/refer" />
                   <StatTile icon={Trophy} label="Achievements" value={`${achTotals.unlocked}/${achTotals.total || "—"}`} hint={achTotals.total ? `${achTotals.xpEarned} XP earned` : "Unlock by exploring"} />
+                </section>
+              ),
+            },
+            {
+              id: "widgets",
+              title: "Widgets",
+              node: (
+                <section aria-label="Widgets" className="grid gap-3 sm:grid-cols-2">
+                  <TonightAtAGlance />
+                  <NextBookingCountdown />
+                  <ConciergeQuickAsk />
+                  <SpendBudgetTracker />
                 </section>
               ),
             },

@@ -132,6 +132,18 @@ function ProfilePage() {
               ),
             },
             {
+              id: "widgets",
+              title: "Widgets",
+              node: (
+                <section aria-label="Widgets" className="grid gap-3 sm:grid-cols-2">
+                  <TonightAtAGlance />
+                  <NextBookingCountdown />
+                  <ConciergeQuickAsk />
+                  <SpendBudgetTracker />
+                </section>
+              ),
+            },
+            {
               id: "progress",
               title: "Level, XP & streak",
               node: (

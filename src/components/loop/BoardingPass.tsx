@@ -1,9 +1,12 @@
-import { Plane, Check, Wallet, Apple, ChevronRight, Loader2, X, Smartphone } from "lucide-react";
+import { Plane, Check, Wallet, Apple, ChevronRight, Loader2, X, Smartphone, Navigation } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import type { ActiveLoop, LoopStop } from "@/lib/loop-store";
+import { ConfettiMap } from "@/components/maps/ConfettiMap";
+import { buildDirectionsUrl } from "@/lib/geocode";
+import type { GeocodeResult } from "@/lib/geocode";
 
 function isAndroid() {
   if (typeof navigator === "undefined") return false;
@@ -13,6 +16,9 @@ function isAndroid() {
 export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   const [googleLoading, setGoogleLoading] = useState(false);
   const [qrUrl, setQrUrl] = useState<string | null>(null);
+  const [routePoints, setRoutePoints] = useState<GeocodeResult[]>([]);
+
+  const directionsUrl = buildDirectionsUrl(routePoints, "walking");
 
   async function addToGoogleWallet() {
     setGoogleLoading(true);
@@ -160,6 +166,25 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
               </li>
             ))}
           </ol>
+        </div>
+
+        {/* Map strip */}
+        <div className="relative h-[160px] w-full overflow-hidden border-t-2 border-dashed border-ink/40">
+          <ConfettiMap
+            stops={loop.stops.map((s) => ({ id: s.id, name: s.name, area: s.area }))}
+            fallbackCity={loop.stops[0]?.area || "Washington, DC"}
+            height="100%"
+            interactive={false}
+            onPointsReady={setRoutePoints}
+          />
+          <a
+            href={directionsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5"
+          >
+            <Navigation className="h-3 w-3" /> Get Directions
+          </a>
         </div>
 
         {/* Barcode */}

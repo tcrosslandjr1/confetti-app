@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles, BadgeCheck } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { VenueMap } from "@/components/maps/VenueMap";
 
 export const Route = createFileRoute("/venue/$id")({
   head: () => ({ meta: [{ title: "Venue — Confetti" }] }),
@@ -211,6 +212,14 @@ function VenuePage() {
             <p className="mt-2 text-sm">{venue.description}</p>
           </div>
         )}
+
+        <div className="mt-4">
+          <VenueMap
+            name={venue.name}
+            address={venue.address}
+            area={venue.neighborhood}
+          />
+        </div>
 
         <div className="mt-4 grid gap-2">
           <InfoRow icon={Clock} label="Hours" value="Tue–Sun · 5pm – 1am" />

@@ -28,6 +28,7 @@ import { Route as MeRouteImport } from './routes/me'
 import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as FeaturesRouteImport } from './routes/features'
+import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as DataTermsRouteImport } from './routes/data-terms'
 import { Route as CreateRouteImport } from './routes/create'
 import { Route as CookiesRouteImport } from './routes/cookies'
@@ -189,6 +190,11 @@ const HowItWorksRoute = HowItWorksRouteImport.update({
 const FeaturesRoute = FeaturesRouteImport.update({
   id: '/features',
   path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiscoverRoute = DiscoverRouteImport.update({
+  id: '/discover',
+  path: '/discover',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DataTermsRoute = DataTermsRouteImport.update({
@@ -549,6 +555,7 @@ export interface FileRoutesByFullPath {
   '/cookies': typeof CookiesRoute
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
+  '/discover': typeof DiscoverRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
@@ -634,6 +641,7 @@ export interface FileRoutesByTo {
   '/cookies': typeof CookiesRoute
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
+  '/discover': typeof DiscoverRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
@@ -722,6 +730,7 @@ export interface FileRoutesById {
   '/cookies': typeof CookiesRoute
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
+  '/discover': typeof DiscoverRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
@@ -812,6 +821,7 @@ export interface FileRouteTypes {
     | '/cookies'
     | '/create'
     | '/data-terms'
+    | '/discover'
     | '/features'
     | '/how-it-works'
     | '/investors'
@@ -897,6 +907,7 @@ export interface FileRouteTypes {
     | '/cookies'
     | '/create'
     | '/data-terms'
+    | '/discover'
     | '/features'
     | '/how-it-works'
     | '/investors'
@@ -984,6 +995,7 @@ export interface FileRouteTypes {
     | '/cookies'
     | '/create'
     | '/data-terms'
+    | '/discover'
     | '/features'
     | '/how-it-works'
     | '/investors'
@@ -1073,6 +1085,7 @@ export interface RootRouteChildren {
   CookiesRoute: typeof CookiesRoute
   CreateRoute: typeof CreateRoute
   DataTermsRoute: typeof DataTermsRoute
+  DiscoverRoute: typeof DiscoverRoute
   FeaturesRoute: typeof FeaturesRoute
   HowItWorksRoute: typeof HowItWorksRoute
   InvestorsRoute: typeof InvestorsRoute
@@ -1244,6 +1257,13 @@ declare module '@tanstack/react-router' {
       path: '/features'
       fullPath: '/features'
       preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/discover': {
+      id: '/discover'
+      path: '/discover'
+      fullPath: '/discover'
+      preLoaderRoute: typeof DiscoverRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/data-terms': {
@@ -1865,6 +1885,7 @@ const rootRouteChildren: RootRouteChildren = {
   CookiesRoute: CookiesRoute,
   CreateRoute: CreateRoute,
   DataTermsRoute: DataTermsRoute,
+  DiscoverRoute: DiscoverRoute,
   FeaturesRoute: FeaturesRoute,
   HowItWorksRoute: HowItWorksRoute,
   InvestorsRoute: InvestorsRoute,

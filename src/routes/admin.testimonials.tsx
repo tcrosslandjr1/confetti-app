@@ -28,6 +28,7 @@ type Testimonial = {
   country: string | null;
   position: number;
   active: boolean;
+  rating: number | null;
   created_at: string;
   updated_at: string;
 };
@@ -42,6 +43,7 @@ const EMPTY: FormState = {
   country: "",
   position: 0,
   active: true,
+  rating: 5,
 };
 
 function AdminTestimonialsPage() {

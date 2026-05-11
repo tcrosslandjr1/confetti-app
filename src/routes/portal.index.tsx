@@ -41,6 +41,57 @@ function PortalDiscoverPage() {
   const [referralCode, setReferralCode] = useState<string | null>(null);
   const [achievements, setAchievements] = useState<Achievement[]>([]);
 
+  const nav = useNavigate();
+  const [quickBusy, setQuickBusy] = useState(false);
+
+  const quickGenerate = async () => {
+    if (!user) {
+      nav({ to: "/auth" });
+      return;
+    }
+    setQuickBusy(true);
+    try {
+      const prefs = await loadPrefs();
+      const tp = prefs.taste_profile ?? {};
+      const loves = (tp.loves ?? []).slice(0, 4).join(", ");
+      const scenes = (tp.scene_keywords ?? []).slice(0, 3).join(", ");
+      const vibeBits = [scenes, loves].filter(Boolean).join(" · ");
+      const occasion =
+        tp.life_stage === "with_kids" ? "Family night"
+        : tp.energy === "high_energy" ? "Night out"
+        : tp.energy === "chill" ? "Chill evening"
+        : "Surprise me";
+      const today = new Date();
+      const dateIso = today.toISOString().slice(0, 10);
+      const startTime = today.getHours() < 16 ? "17:00" : "19:00";
+      const budget =
+        prefs.budget_max >= 200 ? "$$$"
+        : prefs.budget_max >= 100 ? "$$"
+        : prefs.budget_min > 0 || prefs.budget_max > 0 ? "$" : "$$";
+      const toastId = toast.loading("Generating your plan from your taste profile…");
+      try {
+        const { id } = await buildAndSaveItinerary({
+          occasion,
+          vibe: vibeBits || "Personalized for you",
+          occasionSlug: "spontaneous",
+          city: tp.cities?.[0],
+          date: dateIso,
+          startTime,
+          durationHours: 4,
+          budget,
+          notes: prefs.about_me || prefs.social_signals || undefined,
+          transportMode: "auto",
+        });
+        toast.success("Your plan is ready", { id: toastId });
+        nav({ to: "/trips/$id", params: { id } });
+      } catch (e) {
+        toast.error((e as Error).message, { id: toastId });
+      }
+    } finally {
+      setQuickBusy(false);
+    }
+  };
+
   useEffect(() => {
     supabase
       .from("featured_content")

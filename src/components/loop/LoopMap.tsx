@@ -92,7 +92,7 @@ function RouteLayer({ stops, currentIdx, fallbackCity }: Props & { fallbackCity:
 
   // Merge live `done` state from props onto geocoded coords each render
   const liveGeo = useMemo<GeoStop[]>(() => {
-    const byId = new Map(stops.map((s) => [s.id, s]));
+    const byId = new globalThis.Map<string, LoopStop>(stops.map((s) => [s.id, s] as const));
     return geo.map((g) => ({ ...g, done: !!byId.get(g.id)?.done }));
   }, [geo, stops]);
 

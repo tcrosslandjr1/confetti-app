@@ -201,6 +201,57 @@ export type Database = {
         }
         Relationships: []
       }
+      booking_notification_deliveries: {
+        Row: {
+          body: string | null
+          booking_id: string | null
+          channel: string
+          created_at: string
+          error: string | null
+          id: string
+          recipient_email: string | null
+          source: string
+          status: string
+          subject: string | null
+          test: boolean
+          updated_at: string
+          venue_id: string | null
+          venue_name: string | null
+        }
+        Insert: {
+          body?: string | null
+          booking_id?: string | null
+          channel?: string
+          created_at?: string
+          error?: string | null
+          id?: string
+          recipient_email?: string | null
+          source?: string
+          status?: string
+          subject?: string | null
+          test?: boolean
+          updated_at?: string
+          venue_id?: string | null
+          venue_name?: string | null
+        }
+        Update: {
+          body?: string | null
+          booking_id?: string | null
+          channel?: string
+          created_at?: string
+          error?: string | null
+          id?: string
+          recipient_email?: string | null
+          source?: string
+          status?: string
+          subject?: string | null
+          test?: boolean
+          updated_at?: string
+          venue_id?: string | null
+          venue_name?: string | null
+        }
+        Relationships: []
+      }
       bookings: {
         Row: {
           admin_notes: string | null

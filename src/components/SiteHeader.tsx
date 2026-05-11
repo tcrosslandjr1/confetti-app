@@ -1,8 +1,38 @@
 import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { WizardButton } from "@/components/wizard/WizardButton";
 import { NotificationsBell } from "@/components/NotificationsBell";
 import { Oloid } from "@/components/brand/Oloid";
 import { useAuth } from "@/lib/auth-context";
+
+const TAGLINES = [
+  "your city, on a loop",
+  "tonight, sorted",
+  "plans that actually happen",
+  "from craving → calendar",
+  "your night, on autopilot",
+] as const;
+
+function RotatingTagline() {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const id = window.setInterval(() => setI((n) => (n + 1) % TAGLINES.length), 3200);
+    return () => window.clearInterval(id);
+  }, []);
+  return (
+    <span className="ml-2 hidden items-center gap-1.5 rounded-full border border-ink/15 bg-ink/[0.03] px-2 py-[3px] font-mono text-[10px] uppercase tracking-[0.22em] text-ink/70 sm:inline-flex">
+      <span className="relative inline-flex h-1.5 w-1.5">
+        <span className="absolute inset-0 animate-ping rounded-full bg-coral/70" />
+        <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-coral" />
+      </span>
+      <span className="relative inline-block h-[1em] overflow-hidden">
+        <span key={i} className="block animate-tagline-in whitespace-nowrap">
+          / {TAGLINES[i]}
+        </span>
+      </span>
+    </span>
+  );
+}
 
 const marketingLinks = [
   { to: "/features", label: "Features" },

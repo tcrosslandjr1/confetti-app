@@ -38,6 +38,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { SiteHeader } from "@/components/SiteHeader";
+import { buildAppleMapsDirectionsUrl, buildGoogleMapsDirectionsUrl, isAppleDevice } from "@/lib/maps-links";
 import { useAuth } from "@/lib/auth-context";
 import {
   completeItinerary,
@@ -870,7 +871,7 @@ function TravelLegCard({ leg, from, to }: { leg: TravelLeg; from: Stop; to: Stop
       href: `https://ride.lyft.com/ridetype?destination[address]=${toQ}`,
     });
   }
-  const gmapsMode =
+  const travelMode: "walking" | "driving" | "transit" | "bicycling" =
     leg.mode === "transit"
       ? "transit"
       : leg.mode === "walk"
@@ -878,10 +879,18 @@ function TravelLegCard({ leg, from, to }: { leg: TravelLeg; from: Stop; to: Stop
         : leg.mode === "bike"
           ? "bicycling"
           : "driving";
-  links.push({
-    label: "Maps",
-    href: `https://www.google.com/maps/dir/?api=1&origin=${fromQ}&destination=${toQ}&travelmode=${gmapsMode}`,
-  });
+  const fromPlace = { name: from.name, address: from.address };
+  const toPlace = { name: to.name, address: to.address };
+  const apple = buildAppleMapsDirectionsUrl([fromPlace, toPlace], travelMode);
+  const google = buildGoogleMapsDirectionsUrl([fromPlace, toPlace], travelMode);
+  // Order: preferred map first
+  if (isAppleDevice()) {
+    links.push({ label: "Apple Maps", href: apple });
+    links.push({ label: "Google Maps", href: google });
+  } else {
+    links.push({ label: "Google Maps", href: google });
+    links.push({ label: "Apple Maps", href: apple });
+  }
 
   return (
     <div className="mb-4 ml-2 flex items-start gap-3 rounded-xl border border-dashed border-border/70 bg-muted/30 p-3 text-sm">

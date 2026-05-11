@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { useWizard } from "./wizard-context";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
+import { buildSmartSearchUrl } from "@/lib/maps-links";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
@@ -1666,7 +1667,7 @@ export function BuildMyNightWizard() {
                     [s.address, s.neighborhood].filter(Boolean).join(" · ");
                   const mapsHref =
                     live?.googleMapsUri ??
-                    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`)}`;
+                    buildSmartSearchUrl({ name: `${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}` });
                   return (
                     <li
                       key={`${variant}-${i}`}

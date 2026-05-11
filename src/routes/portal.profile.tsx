@@ -150,6 +150,38 @@ function ProfilePage() {
               ),
             },
             {
+              id: "achievements",
+              title: "Achievements",
+              node: (
+                <section aria-label="Achievements" className="rounded-3xl border border-border bg-card p-6 shadow-card">
+                  <div className="mb-4 flex items-center justify-between gap-2">
+                    <h2 className="flex items-center gap-2 font-display text-xl font-bold"><Trophy className="h-5 w-5 text-primary" /> Achievements</h2>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{achTotals.unlocked}/{achTotals.total || "—"} unlocked</span>
+                  </div>
+                  {achievements.length === 0 ? (
+                    <p className="rounded-xl border border-dashed border-border bg-background/40 p-5 text-center text-sm text-muted-foreground">Achievements unlock as you explore.</p>
+                  ) : (
+                    <ul className="grid gap-2 sm:grid-cols-2">
+                      {achievements.map((a) => (
+                        <li key={a.id} className={`flex items-start gap-3 rounded-xl border p-2.5 ${a.unlocked ? "border-primary/40 bg-primary/5" : "border-border bg-background/40 opacity-70"}`}>
+                          <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg ${a.unlocked ? "bg-gradient-vibe text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
+                            {a.unlocked ? <AchIcon name={a.icon} /> : <Lock className="h-4 w-4" />}
+                          </span>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center justify-between gap-2">
+                              <div className="truncate font-display text-sm font-bold">{a.title}</div>
+                              <span className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">+{a.xp_reward} XP</span>
+                            </div>
+                            <div className="line-clamp-2 text-xs text-muted-foreground">{a.description}</div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
+              ),
+            },
+            {
               id: "progress",
               title: "Level, XP & streak",
               node: (

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2, Shield, Compass, Coffee, Sparkle, Eye } from "lucide-react";
+import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2, Shield, Compass, Coffee, Sparkle, Eye, SlidersHorizontal } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
@@ -94,6 +94,45 @@ function ProfilePage() {
           <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="What should we call you?" className="max-w-sm" />
           <Button onClick={save}>Save</Button>
         </div>
+      </section>
+
+      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+        <h2 className="mb-4 font-display text-xl font-bold">Connected Socials</h2>
+        <div className="grid gap-2 sm:grid-cols-2">
+          {[
+            { key: "ig", label: "Instagram", icon: "📸", color: "#E1306C", connected: true },
+            { key: "tt", label: "TikTok", icon: "🎵", color: "#000000", connected: false },
+            { key: "yelp", label: "Yelp", icon: "⭐", color: "#D32323", connected: false },
+            { key: "google", label: "Google", icon: "🔍", color: "#4285F4", connected: true },
+            { key: "spotify", label: "Spotify", icon: "🎧", color: "#1DB954", connected: false },
+            { key: "x", label: "X / Twitter", icon: "𝕏", color: "#000000", connected: false },
+          ].map((s) => (
+            <button
+              key={s.key}
+              className="flex items-center gap-3 rounded-2xl border border-border bg-background p-3 text-left hover:bg-muted"
+              style={{ borderLeft: `4px solid ${s.color}` }}
+            >
+              <span className="text-2xl">{s.icon}</span>
+              <span className="flex-1 font-semibold">{s.label}</span>
+              {s.connected ? (
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-600">
+                  <span className="h-2 w-2 rounded-full bg-green-500" /> Connected
+                </span>
+              ) : (
+                <span className="text-xs font-semibold text-primary">Connect</span>
+              )}
+            </button>
+          ))}
+        </div>
+        <Link to="/taste-tuner" className="mt-4 flex items-center gap-3 rounded-2xl border border-border bg-gradient-to-r from-primary/10 to-accent/10 p-4 hover:bg-muted">
+          <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-vibe text-primary-foreground">
+            <SlidersHorizontal className="h-5 w-5" />
+          </div>
+          <div className="flex-1">
+            <div className="font-display font-bold">Tune My Taste</div>
+            <div className="text-xs text-muted-foreground">Swipe through experiences to refine your vibe</div>
+          </div>
+        </Link>
       </section>
 
       <section className="rounded-3xl border border-border bg-card p-6 shadow-card">

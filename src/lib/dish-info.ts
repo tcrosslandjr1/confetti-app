@@ -233,6 +233,92 @@ export type DietFilter = {
   avoidAllergens?: string[];
 };
 
+// Map of canonical allergen → synonyms users might type or that may appear in data.
+// Matching is bidirectional: a user's "lactose" matches a dish tagged "dairy", and vice versa.
+const ALLERGEN_SYNONYMS: Record<string, string[]> = {
+  dairy: ["milk", "lactose", "cheese", "butter", "cream", "yogurt", "whey", "casein", "ghee"],
+  eggs: ["egg", "albumin", "mayonnaise", "mayo"],
+  "wheat/gluten": [
+    "wheat",
+    "gluten",
+    "flour",
+    "bread",
+    "pasta",
+    "barley",
+    "rye",
+    "semolina",
+    "couscous",
+    "seitan",
+  ],
+  soy: ["soya", "soybean", "soybeans", "edamame", "tofu", "tempeh", "miso", "tamari"],
+  shellfish: [
+    "shrimp",
+    "prawn",
+    "prawns",
+    "lobster",
+    "crab",
+    "crayfish",
+    "crawfish",
+    "scallop",
+    "scallops",
+    "clam",
+    "clams",
+    "mussel",
+    "mussels",
+    "oyster",
+    "oysters",
+    "crustacean",
+    "crustaceans",
+  ],
+  fish: ["seafood", "anchovy", "anchovies", "tuna", "salmon", "cod", "sardine", "sardines", "bass"],
+  peanuts: ["peanut", "groundnut", "groundnuts"],
+  "tree nuts": [
+    "tree nut",
+    "nuts",
+    "almond",
+    "almonds",
+    "cashew",
+    "cashews",
+    "walnut",
+    "walnuts",
+    "pecan",
+    "pecans",
+    "pistachio",
+    "pistachios",
+    "hazelnut",
+    "hazelnuts",
+    "macadamia",
+  ],
+  sesame: ["tahini", "benne"],
+};
+
+export function expandAllergenTerms(term: string): string[] {
+  const t = term.trim().toLowerCase();
+  if (!t) return [];
+  const out = new Set<string>([t]);
+  for (const [canonical, syns] of Object.entries(ALLERGEN_SYNONYMS)) {
+    if (t === canonical || syns.includes(t)) {
+      out.add(canonical);
+      for (const s of syns) out.add(s);
+    }
+  }
+  return Array.from(out);
+}
+
+/**
+ * True if any user-avoided allergen overlaps any dish allergen tag,
+ * accounting for common synonyms (e.g. "lactose" ↔ "dairy").
+ */
+export function hasAllergenConflict(
+  dishAllergens: string[],
+  avoid: string[] | undefined,
+): boolean {
+  if (!avoid || avoid.length === 0) return false;
+  const dishExpanded = new Set<string>();
+  for (const a of dishAllergens) for (const e of expandAllergenTerms(a)) dishExpanded.add(e);
+  return avoid.some((a) => expandAllergenTerms(a).some((e) => dishExpanded.has(e)));
+}
+
 export function dishMatches(name: string, opts: DietFilter): boolean {
   const info = DISH_DB[name];
   if (!info) return true;
@@ -240,9 +326,6 @@ export function dishMatches(name: string, opts: DietFilter): boolean {
   if (opts.vegetarian && !info.vegetarian && !info.vegan) return false;
   if (opts.pescatarian && !info.vegetarian && !info.vegan && !info.pescatarian) return false;
   if (opts.glutenFree && !info.glutenFree) return false;
-  if (opts.avoidAllergens && opts.avoidAllergens.length > 0) {
-    const lower = info.allergens.map((a) => a.toLowerCase());
-    if (opts.avoidAllergens.some((a) => lower.includes(a.toLowerCase()))) return false;
-  }
+  if (hasAllergenConflict(info.allergens, opts.avoidAllergens)) return false;
   return true;
 }

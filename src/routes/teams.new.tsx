@@ -246,7 +246,7 @@ function NewTeamEventPage() {
           </div>
 
           {prefilled && fromTrip && (
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border-2 border-ink bg-mint/40 p-4 text-sm">
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border-2 border-ink bg-gold/40 p-4 text-sm">
               <div className="flex items-start gap-2">
                 <Sparkles className="mt-0.5 h-4 w-4" />
                 <span>

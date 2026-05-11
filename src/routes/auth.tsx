@@ -95,7 +95,7 @@ function AuthPage() {
     setOauthBusy(provider);
     try {
       const { error, redirected } = await lovable.auth.signInWithOAuth(provider, {
-        redirect_uri: `${window.location.origin}/auth`,
+        redirect_uri: `${window.location.origin}/auth?redirect=${encodeURIComponent(redirectTo)}`,
       });
       if (error) {
         setError(explainOAuthError(provider, error.message));

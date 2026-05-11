@@ -139,11 +139,24 @@ function getDetails(venue: string, vibe: string) {
   const popularDishes = [0, 1, 2].map((i) => ALL_DISHES[(h >> (i * 3)) % ALL_DISHES.length]);
   // De-dupe
   const dishes = Array.from(new Set(popularDishes)).slice(0, 3);
-  // Popular booking times
+  // Popular booking times + per-slot availability (deterministic per venue)
   const TIME_SLOTS = ["6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM", "9:00 PM", "9:30 PM", "10:00 PM"];
   const startIdx = h % (TIME_SLOTS.length - 2);
   const popularTimes = TIME_SLOTS.slice(startIdx, startIdx + 3);
   const peakTime = popularTimes[1];
+  type SlotLevel = "open" | "limited" | "few" | "full";
+  const popularAvailability: { time: string; level: SlotLevel; seatsLeft: number }[] = popularTimes.map((t, i) => {
+    const r = (h >> (i * 5)) & 0xff;
+    const isPeak = t === peakTime;
+    // Peak slot skews scarcer; off-peak skews more open
+    const seatsLeft = isPeak ? (r % 4) : 2 + (r % 8);
+    let level: SlotLevel;
+    if (seatsLeft === 0) level = "full";
+    else if (seatsLeft <= 2) level = "few";
+    else if (seatsLeft <= 5) level = "limited";
+    else level = "open";
+    return { time: t, level, seatsLeft };
+  });
   // The vibe descriptors
   const CROWDS = ["Date-night locals", "Industry crowd", "After-work professionals", "Stylish regulars", "Creative scene", "Neighborhood loyalists"];
   const NOISE = ["Hushed", "Conversational", "Lively", "Buzzy", "Loud + electric"];

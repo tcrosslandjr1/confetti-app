@@ -245,6 +245,25 @@ function NewTeamEventPage() {
             </div>
           </div>
 
+          {prefilled && fromTrip && (
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border-2 border-ink bg-mint/40 p-4 text-sm">
+              <div className="flex items-start gap-2">
+                <Sparkles className="mt-0.5 h-4 w-4" />
+                <span>
+                  Prefilled from{" "}
+                  <Link
+                    to="/trips/$id"
+                    params={{ id: fromTrip }}
+                    className="font-bold underline"
+                  >
+                    your trip
+                  </Link>
+                  . Edit anything below.
+                </span>
+              </div>
+            </div>
+          )}
+
           {!user && (
             <div className="mt-6 flex items-start gap-3 rounded-2xl border-2 border-ink bg-gold/40 p-4">
               <AlertCircle className="mt-0.5 h-5 w-5" />

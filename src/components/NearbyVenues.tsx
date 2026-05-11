@@ -150,7 +150,8 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
           {venues.map((v) => (
             <Link
               key={v.id}
-              to="/portal/bookings"
+              to="/venue/$id"
+              params={{ id: v.id }}
               className="group overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-pop hover:-translate-y-0.5 hover:shadow-pop"
             >
               {v.image_url ? (

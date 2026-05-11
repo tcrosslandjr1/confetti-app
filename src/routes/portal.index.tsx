@@ -487,7 +487,11 @@ function QuickAction({ to, icon: Icon, label, hint }: { to: string; icon: typeof
 
 function FeaturedCard({ venue, title, subtitle }: { venue: Venue; title: string | null; subtitle: string | null }) {
   return (
-    <article className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+    <Link
+      to="/venue/$id"
+      params={{ id: venue.id }}
+      className="group block overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-pop hover:-translate-y-0.5 hover:shadow-pop"
+    >
       {venue.image_url && <img src={venue.image_url} alt={venue.name} className="h-40 w-full object-cover" />}
       <div className="p-4">
         <div className="text-[10px] font-mono uppercase tracking-wider text-primary">{title ?? "Featured"}</div>
@@ -498,13 +502,17 @@ function FeaturedCard({ venue, title, subtitle }: { venue: Venue; title: string 
           <span>{"$".repeat(venue.price_level)}</span>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
 
 function VenueCard({ v }: { v: Venue }) {
   return (
-    <article className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+    <Link
+      to="/venue/$id"
+      params={{ id: v.id }}
+      className="group block overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-pop hover:-translate-y-0.5 hover:shadow-pop"
+    >
       {v.image_url ? (
         <img src={v.image_url} alt={v.name} className="h-36 w-full object-cover" />
       ) : (
@@ -519,7 +527,7 @@ function VenueCard({ v }: { v: Venue }) {
           <span>{"$".repeat(v.price_level)}</span>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
 

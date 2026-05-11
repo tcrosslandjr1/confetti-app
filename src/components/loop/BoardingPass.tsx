@@ -275,7 +275,75 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
 
   return (
     <div className="mx-auto max-w-md">
-      <div className="relative rounded-3xl border-2 border-ink bg-cream shadow-brut-lg overflow-hidden">
+      {/* Share toolbar — sits above the pass card so it stays out of the captured image */}
+      <div className="mb-2 flex items-center justify-end gap-2 print:hidden">
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => setShareOpen((v) => !v)}
+            aria-expanded={shareOpen}
+            aria-haspopup="menu"
+            className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5"
+          >
+            <Share2 className="h-3.5 w-3.5" />
+            Share
+          </button>
+          {shareOpen && (
+            <div
+              role="menu"
+              className="absolute right-0 z-30 mt-2 w-64 rounded-2xl border-2 border-ink bg-cream p-2 shadow-brut text-ink"
+            >
+              <button
+                type="button"
+                onClick={handleShareLink}
+                disabled={shareBusy === "link"}
+                className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-[12px] font-bold hover:bg-gold/40 disabled:opacity-50"
+              >
+                {shareBusy === "link" ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Share2 className="h-4 w-4" />
+                )}
+                Share link…
+              </button>
+              <button
+                type="button"
+                onClick={handleCopyLink}
+                className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-[12px] font-bold hover:bg-gold/40"
+              >
+                {linkCopied ? <Check className="h-4 w-4 text-coral" /> : <Link2 className="h-4 w-4" />}
+                {linkCopied ? "Link copied" : "Copy link"}
+              </button>
+              <button
+                type="button"
+                onClick={handleSaveImage}
+                disabled={shareBusy === "image"}
+                className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-[12px] font-bold hover:bg-gold/40 disabled:opacity-50"
+              >
+                {shareBusy === "image" ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <ImageIcon className="h-4 w-4" />
+                )}
+                Save as image (PNG)
+              </button>
+              <button
+                type="button"
+                onClick={handleSavePdf}
+                className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-[12px] font-bold hover:bg-gold/40"
+              >
+                <FileText className="h-4 w-4" />
+                Save / Print as PDF
+              </button>
+              <div className="mt-1 truncate border-t border-ink/15 px-3 py-1.5 font-mono text-[9px] text-ink/50">
+                {shareUrl}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+      <div ref={passRef} className="relative rounded-3xl border-2 border-ink bg-cream shadow-brut-lg overflow-hidden">
+
         {/* ── Header ── */}
         <div className="bg-ink px-6 py-5 text-cream">
           <div className="flex items-start justify-between gap-3">

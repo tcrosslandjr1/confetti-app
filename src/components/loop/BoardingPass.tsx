@@ -2,7 +2,7 @@ import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { QRCodeSVG } from "qrcode.react";
-import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane, Printer, Share2, Link2, Image as ImageIcon, FileText, Check, Repeat } from "lucide-react";
+import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane, Printer, Share2, Link2, Image as ImageIcon, FileText, Check, Repeat, Mail } from "lucide-react";
 import type { ActiveLoop, LoopStop, StopKind } from "@/lib/loop-store";
 import { checkInStop, setActiveLoop, PLAN_PRESETS } from "@/lib/loop-store";
 import { appendNotifications } from "@/lib/trip-status";
@@ -315,6 +315,27 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
               >
                 {linkCopied ? <Check className="h-4 w-4 text-coral" /> : <Link2 className="h-4 w-4" />}
                 {linkCopied ? "Link copied" : "Copy link"}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  const subject = encodeURIComponent(shareTitle);
+                  const lines = [
+                    shareText,
+                    "",
+                    "View the full boarding pass:",
+                    shareUrl,
+                  ];
+                  const body = encodeURIComponent(lines.join("\n"));
+                  // Open the user's default mail client with a prefilled message.
+                  window.location.href = `mailto:?subject=${subject}&body=${body}`;
+                  setShareOpen(false);
+                  toast.success("Opening your email app…");
+                }}
+                className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-[12px] font-bold hover:bg-gold/40"
+              >
+                <Mail className="h-4 w-4" />
+                Email link…
               </button>
               <button
                 type="button"

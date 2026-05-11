@@ -40,6 +40,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdvertiseRouteImport } from './routes/advertise'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ActiveLoopRouteImport } from './routes/active-loop'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
@@ -243,6 +244,11 @@ const AdminRoute = AdminRouteImport.update({
 const ActiveLoopRoute = ActiveLoopRouteImport.update({
   id: '/active-loop',
   path: '/active-loop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -497,6 +503,7 @@ const ApiPublicHooksDiscoverViralRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
   '/active-loop': typeof ActiveLoopRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRouteWithChildren
@@ -579,6 +586,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
   '/active-loop': typeof ActiveLoopRoute
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
@@ -658,6 +666,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
   '/active-loop': typeof ActiveLoopRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRouteWithChildren
@@ -742,6 +751,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/accessibility'
     | '/active-loop'
     | '/admin'
     | '/advertise'
@@ -824,6 +834,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/accessibility'
     | '/active-loop'
     | '/auth'
     | '/boarding-pass'
@@ -902,6 +913,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/accessibility'
     | '/active-loop'
     | '/admin'
     | '/advertise'
@@ -985,6 +997,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AccessibilityRoute: typeof AccessibilityRoute
   ActiveLoopRoute: typeof ActiveLoopRoute
   AdminRoute: typeof AdminRouteWithChildren
   AdvertiseRoute: typeof AdvertiseRouteWithChildren
@@ -1249,6 +1262,13 @@ declare module '@tanstack/react-router' {
       path: '/active-loop'
       fullPath: '/active-loop'
       preLoaderRoute: typeof ActiveLoopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -1728,6 +1748,7 @@ const TripsIdRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AccessibilityRoute: AccessibilityRoute,
   ActiveLoopRoute: ActiveLoopRoute,
   AdminRoute: AdminRouteWithChildren,
   AdvertiseRoute: AdvertiseRouteWithChildren,

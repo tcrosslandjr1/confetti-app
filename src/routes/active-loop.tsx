@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MapPin, Check, Navigation, X, Footprints, Car } from "lucide-react";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
 import {
@@ -14,6 +14,10 @@ import {
 } from "@/lib/loop-store";
 import { LoopMap, type ActiveLegInfo, type TravelMode } from "@/components/loop/LoopMap";
 import { DirectionsPanel } from "@/components/loop/DirectionsPanel";
+import { StopSearchBox } from "@/components/loop/StopSearchBox";
+import { PlanEditFab } from "@/components/loop/PlanEditFab";
+import { ActivityFeed } from "@/components/activity/ActivityFeed";
+import { logActivity } from "@/lib/activity-log";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/active-loop")({

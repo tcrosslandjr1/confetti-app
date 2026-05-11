@@ -91,6 +91,14 @@ function PlanPage() {
     );
   };
 
+  // Auto-size the day length based on how many vibes are picked (~2hr each)
+  useEffect(() => {
+    if (durationTouched) return;
+    const count = occasionSlugs.filter((s) => s !== "__custom__").length + (isCustom ? 1 : 0);
+    const suggested = Math.min(14, Math.max(3, count * 2));
+    setDurationHours(suggested);
+  }, [occasionSlugs, isCustom, durationTouched]);
+
   useEffect(() => {
     if (!loading && !user) {
       logAccessDenial({

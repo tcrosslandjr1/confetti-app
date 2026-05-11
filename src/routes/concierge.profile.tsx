@@ -199,6 +199,48 @@ function Profile() {
 
             <div className="lg:col-span-2">
               <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Diet
+              </label>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {DIET_OPTIONS.map((d) => (
+                  <Chip key={d.k} active={diet === d.k} onClick={() => setDiet(d.k)}>
+                    {d.label}
+                  </Chip>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-2">
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Allergens to avoid
+              </label>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {ALLERGEN_OPTIONS.map((a) => (
+                  <Chip
+                    key={a}
+                    active={allergens.includes(a)}
+                    onClick={() => toggle(allergens, setAllergens, a)}
+                  >
+                    ⚠ {a}
+                  </Chip>
+                ))}
+                {allergens.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => setAllergens([])}
+                    className="text-xs font-semibold uppercase tracking-wider text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Dish picks re-filter immediately — these flow into the planner and concierge chat.
+              </p>
+            </div>
+
+            <div className="lg:col-span-2">
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Budget
               </label>
               <div className="mt-3 grid gap-3 sm:grid-cols-4">

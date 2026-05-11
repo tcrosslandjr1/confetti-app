@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2, Shield, Compass, Coffee, Sparkle, Eye, SlidersHorizontal, CalendarCheck, Users, Trophy } from "lucide-react";
+import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2, Shield, Compass, Coffee, Sparkle, Eye, SlidersHorizontal, CalendarCheck, Users, Trophy, Flame } from "lucide-react";
 import { getMyReferralStats, type MyReferralStats } from "@/lib/referrals";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
@@ -121,6 +121,13 @@ function ProfilePage() {
           <StatTile icon={CalendarCheck} label="Upcoming bookings" value={bookingTotals.upcoming.toString()} hint={`${bookingTotals.past} completed`} to="/portal/bookings" />
           <StatTile icon={Users} label="Referrals signed up" value={refStats.signedUp.toString()} hint={`${refStats.invited} invited · ${refStats.completed} completed`} to="/portal/refer" />
           <StatTile icon={Trophy} label="Achievements" value={`${achTotals.unlocked}/${achTotals.total || "—"}`} hint={achTotals.total ? `${achTotals.xpEarned} XP earned` : "Unlock by exploring"} />
+        </section>
+      )}
+
+      {user && (
+        <section aria-label="Your progress" className="grid gap-3 md:grid-cols-2">
+          <LevelProgress xp={profile?.xp ?? 0} level={profile?.level ?? 1} />
+          <StreakCard pastBookings={bookingTotals.past} unlocked={achTotals.unlocked} />
         </section>
       )}
 

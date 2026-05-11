@@ -478,6 +478,24 @@ function Layer({
     const currentZoom = map.getZoom() ?? 13;
     if (currentZoom < 14) map.setZoom(15);
     marker.setAnimation(google.maps.Animation.BOUNCE);
+    // Pin and open info window for the focused stop
+    const stop = stops[idx];
+    if (stop && infoWindowRef.current) {
+      const status = statusOf(stop, idx, currentIdx);
+      const dot = STATUS_COLOR[status];
+      const eta = stop.time ? `<div style="font:600 11px/1.2 ui-monospace,monospace;color:#1A1410cc;margin-top:2px">ETA · ${stop.time}</div>` : "";
+      infoWindowRef.current.setContent(`
+        <div style="font-family:ui-sans-serif,system-ui;color:#1A1410;min-width:140px;padding:2px 4px">
+          <div style="display:flex;align-items:center;gap:6px">
+            <span style="display:inline-grid;place-items:center;width:18px;height:18px;border:2px solid #1A1410;border-radius:999px;background:${dot};color:#fff;font:700 10px/1 ui-monospace,monospace">${idx + 1}</span>
+            <strong style="font-size:13px;line-height:1.2">${stop.name.replace(/</g, "&lt;")}</strong>
+          </div>
+          ${eta}
+          <div style="display:inline-block;margin-top:4px;padding:1px 6px;border:1.5px solid #1A1410;border-radius:999px;background:${dot};color:#fff;font:700 9px/1.4 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase">${STATUS_LABEL[status]}</div>
+        </div>`);
+      infoWindowRef.current.open({ map, anchor: marker });
+      pinnedStopIdRef.current = stop.id;
+    }
     const t = window.setTimeout(() => marker.setAnimation(null), 1400);
     return () => window.clearTimeout(t);
   }, [map, focusStopId, points, stops]);

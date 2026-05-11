@@ -980,7 +980,7 @@ export function BuildMyNightWizard() {
     return () => {
       cancelled = true;
     };
-  }, [open, user, favorites]);
+  }, [open, user, favorites, prefsVersion]);
 
   // Seed wizard's editable diet prefs from saved personalization
   useEffect(() => {

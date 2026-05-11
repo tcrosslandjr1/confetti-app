@@ -176,12 +176,12 @@ function PlanPage() {
           <Field label="Pick your vibe">
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
               {OCCASIONS.map((o) => {
-                const active = occasionSlug === o.slug;
+                const active = occasionSlugs.includes(o.slug);
                 return (
                   <button
                     key={o.slug}
                     type="button"
-                    onClick={() => setOccasionSlug(o.slug)}
+                    onClick={() => toggleOccasion(o.slug)}
                     className={`group relative overflow-hidden rounded-2xl border p-3 text-left transition-all ${
                       active
                         ? "border-primary bg-primary/5 shadow-pop scale-[1.02]"

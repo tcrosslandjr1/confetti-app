@@ -1,9 +1,48 @@
-import { Plane, Check, Wallet, Apple, ChevronRight } from "lucide-react";
+import { Plane, Check, Wallet, Apple, ChevronRight, Loader2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
+import { useState } from "react";
 import type { ActiveLoop, LoopStop } from "@/lib/loop-store";
 
 export function BoardingPass({ loop }: { loop: ActiveLoop }) {
+  const [googleLoading, setGoogleLoading] = useState(false);
+
+  async function addToGoogleWallet() {
+    setGoogleLoading(true);
+    try {
+      const res = await fetch("/api/public/wallet/google", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          loopId: loop.id,
+          passenger: loop.passenger,
+          from: loop.from,
+          to: loop.to,
+          date: loop.date,
+          gate: loop.gate,
+          boardingTime: loop.boardingTime,
+          stops: loop.stops.map((s) => ({
+            id: s.id,
+            name: s.name,
+            type: s.type,
+            time: s.time,
+            area: s.area,
+          })),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        toast.error(data.error || "Could not generate Google Wallet pass");
+        return;
+      }
+      window.open(data.saveUrl, "_blank", "noopener,noreferrer");
+    } catch (err) {
+      toast.error("Network error talking to Wallet service");
+    } finally {
+      setGoogleLoading(false);
+    }
+  }
+
   return (
     <div className="mx-auto max-w-md">
       <div className="relative rounded-3xl border-2 border-ink bg-cream shadow-brut-lg overflow-hidden">
@@ -133,10 +172,12 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           <Apple className="h-4 w-4" /> Add to Apple Wallet
         </button>
         <button
-          onClick={() => toast.success("Google Wallet pass coming soon")}
-          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-y-0.5"
+          onClick={addToGoogleWallet}
+          disabled={googleLoading}
+          className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-60"
         >
-          <Wallet className="h-4 w-4" /> Add to Google Wallet
+          {googleLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Wallet className="h-4 w-4" />}
+          Add to Google Wallet
         </button>
       </div>
     </div>

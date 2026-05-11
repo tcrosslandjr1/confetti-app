@@ -87,6 +87,7 @@ import { Route as AdminAdAnalyticsRouteImport } from './routes/admin.ad-analytic
 import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
 import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
+import { Route as ApiPublicWalletGoogleRouteImport } from './routes/api/public/wallet/google'
 import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public/tiktok.callback'
 import { Route as ApiPublicInstagramCallbackRouteImport } from './routes/api/public/instagram.callback'
 import { Route as ApiPublicHooksTiktokRefreshRouteImport } from './routes/api/public/hooks/tiktok-refresh'
@@ -482,6 +483,11 @@ const ConciergeChatThreadIdRoute = ConciergeChatThreadIdRouteImport.update({
   path: '/chat/$threadId',
   getParentRoute: () => ConciergeRoute,
 } as any)
+const ApiPublicWalletGoogleRoute = ApiPublicWalletGoogleRouteImport.update({
+  id: '/api/public/wallet/google',
+  path: '/api/public/wallet/google',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicTiktokCallbackRoute = ApiPublicTiktokCallbackRouteImport.update({
   id: '/api/public/tiktok/callback',
   path: '/api/public/tiktok/callback',
@@ -589,6 +595,7 @@ export interface FileRoutesByFullPath {
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
+  '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -669,6 +676,7 @@ export interface FileRoutesByTo {
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
+  '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -754,6 +762,7 @@ export interface FileRoutesById {
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
+  '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -840,6 +849,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
     | '/api/public/tiktok/callback'
+    | '/api/public/wallet/google'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -920,6 +930,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
     | '/api/public/tiktok/callback'
+    | '/api/public/wallet/google'
   id:
     | '__root__'
     | '/'
@@ -1004,6 +1015,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
     | '/api/public/tiktok/callback'
+    | '/api/public/wallet/google'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -1056,6 +1068,7 @@ export interface RootRouteChildren {
   ApiPublicHooksTiktokRefreshRoute: typeof ApiPublicHooksTiktokRefreshRoute
   ApiPublicInstagramCallbackRoute: typeof ApiPublicInstagramCallbackRoute
   ApiPublicTiktokCallbackRoute: typeof ApiPublicTiktokCallbackRoute
+  ApiPublicWalletGoogleRoute: typeof ApiPublicWalletGoogleRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1606,6 +1619,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConciergeChatThreadIdRouteImport
       parentRoute: typeof ConciergeRoute
     }
+    '/api/public/wallet/google': {
+      id: '/api/public/wallet/google'
+      path: '/api/public/wallet/google'
+      fullPath: '/api/public/wallet/google'
+      preLoaderRoute: typeof ApiPublicWalletGoogleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/tiktok/callback': {
       id: '/api/public/tiktok/callback'
       path: '/api/public/tiktok/callback'
@@ -1815,6 +1835,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicHooksTiktokRefreshRoute: ApiPublicHooksTiktokRefreshRoute,
   ApiPublicInstagramCallbackRoute: ApiPublicInstagramCallbackRoute,
   ApiPublicTiktokCallbackRoute: ApiPublicTiktokCallbackRoute,
+  ApiPublicWalletGoogleRoute: ApiPublicWalletGoogleRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

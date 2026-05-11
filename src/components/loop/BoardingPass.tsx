@@ -371,7 +371,16 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         </button>
       </div>
 
-      {qrUrl && <WalletQrModal url={qrUrl} onClose={() => setQrUrl(null)} />}
+      {qrUrl && (
+        <WalletQrModal
+          url={qrUrl}
+          pending={qrPending}
+          onClose={() => {
+            setQrUrl(null);
+            setQrPending(false);
+          }}
+        />
+      )}
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} loop={loop} reward={reward} />
     </div>
   );

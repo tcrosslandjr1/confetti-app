@@ -230,3 +230,145 @@ export async function getCampaignStats(
   }
   return stats;
 }
+
+// ---------- Admin actions ----------
+
+export async function updateAdvertiserStatus(id: string, status: AdvertiserStatus) {
+  const { error } = await supabase
+    .from("advertisers" as never)
+    .update({ status } as never)
+    .eq("id", id);
+  if (error) throw error;
+}
+
+export async function updateAdvertiser(id: string, patch: Partial<Advertiser>) {
+  const { error } = await supabase
+    .from("advertisers" as never)
+    .update(patch as never)
+    .eq("id", id);
+  if (error) throw error;
+}
+
+export async function deleteCampaign(id: string) {
+  const { error } = await supabase.from("ad_campaigns" as never).delete().eq("id", id);
+  if (error) throw error;
+}
+
+export async function updateCampaign(id: string, patch: Partial<Campaign>) {
+  const { error } = await supabase
+    .from("ad_campaigns" as never)
+    .update(patch as never)
+    .eq("id", id);
+  if (error) throw error;
+}
+
+export async function setCampaignTier(id: string, tier: PackageTier) {
+  return updateCampaign(id, { package_tier: tier });
+}
+
+// ---------- Analytics ----------
+
+export type AdEventRow = {
+  id: string;
+  campaign_id: string | null;
+  kind: "impression" | "click";
+  surface: string | null;
+  created_at: string;
+};
+
+export async function listRecentAdEvents(sinceDays = 30): Promise<AdEventRow[]> {
+  const since = new Date(Date.now() - sinceDays * 86400_000).toISOString();
+  const { data } = await supabase
+    .from("ad_events" as never)
+    .select("id,campaign_id,kind,surface,created_at")
+    .gte("created_at", since)
+    .order("created_at", { ascending: true })
+    .limit(5000);
+  return (data as unknown as AdEventRow[]) ?? [];
+}
+
+export type DailyPoint = { date: string; impressions: number; clicks: number };
+
+export function bucketEventsByDay(events: AdEventRow[], days = 30): DailyPoint[] {
+  const buckets: Record<string, DailyPoint> = {};
+  const today = new Date();
+  today.setUTCHours(0, 0, 0, 0);
+  for (let i = days - 1; i >= 0; i--) {
+    const d = new Date(today.getTime() - i * 86400_000);
+    const key = d.toISOString().slice(0, 10);
+    buckets[key] = { date: key, impressions: 0, clicks: 0 };
+  }
+  for (const e of events) {
+    const key = e.created_at.slice(0, 10);
+    if (!buckets[key]) continue;
+    if (e.kind === "click") buckets[key].clicks++;
+    else buckets[key].impressions++;
+  }
+  return Object.values(buckets);
+}
+
+// ---------- Billing ----------
+
+export const PACKAGE_PRICE_CENTS: Record<PackageTier, number> = {
+  starter: 0,
+  featured: 19900,
+  spotlight: 49900,
+};
+
+export function estimateMrrCents(campaigns: Campaign[]): number {
+  return campaigns
+    .filter((c) => c.status === "approved")
+    .reduce((sum, c) => sum + (PACKAGE_PRICE_CENTS[c.package_tier] ?? 0), 0);
+}
+
+export function formatCents(cents: number): string {
+  return `$${(cents / 100).toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
+}
+
+// ---------- Venues (admin) ----------
+
+export type AdminVenue = {
+  id: string;
+  name: string;
+  category: string | null;
+  city: string | null;
+  neighborhood: string | null;
+  image_url: string | null;
+  verified: boolean;
+  featured: boolean;
+  advertiser_id: string | null;
+};
+
+export async function listAdminVenues(): Promise<AdminVenue[]> {
+  const { data } = await supabase
+    .from("venues" as never)
+    .select("id,name,category,city,neighborhood,image_url,verified,featured,advertiser_id")
+    .order("featured", { ascending: false })
+    .order("name", { ascending: true })
+    .limit(500);
+  return (data as unknown as AdminVenue[]) ?? [];
+}
+
+export async function setVenueVerified(id: string, verified: boolean) {
+  const { error } = await supabase
+    .from("venues" as never)
+    .update({ verified } as never)
+    .eq("id", id);
+  if (error) throw error;
+}
+
+export async function setVenueFeatured(id: string, featured: boolean) {
+  const { error } = await supabase
+    .from("venues" as never)
+    .update({ featured } as never)
+    .eq("id", id);
+  if (error) throw error;
+}
+
+export async function linkVenueToAdvertiser(venueId: string, advertiserId: string | null) {
+  const { error } = await supabase
+    .from("venues" as never)
+    .update({ advertiser_id: advertiserId } as never)
+    .eq("id", venueId);
+  if (error) throw error;
+}

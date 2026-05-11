@@ -40,6 +40,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "Loop killed our group-chat purgatory. Friday plans in 30 seconds.",
     img: "https://randomuser.me/api/portraits/women/32.jpg",
     country: "🇦🇺 Sydney",
+    rating: 5,
   },
   {
     name: "Ana Miller",
@@ -47,6 +48,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "I'm the planner friend. This out-planned me.",
     img: "https://randomuser.me/api/portraits/women/68.jpg",
     country: "🇩🇪 Berlin",
+    rating: 5,
   },
   {
     name: "Mateo Rossi",
@@ -54,6 +56,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "Booked a date night dive bar I'd driven past 100 times. Chef's kiss.",
     img: "https://randomuser.me/api/portraits/men/51.jpg",
     country: "🇮🇹 Milan",
+    rating: 4,
   },
   {
     name: "Maya Patel",
@@ -61,6 +64,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "Kids day-out: museum + ice cream + a nap. Saved my Saturday.",
     img: "https://randomuser.me/api/portraits/women/53.jpg",
     country: "🇮🇳 Mumbai",
+    rating: 5,
   },
   {
     name: "Noah Smith",
@@ -68,6 +72,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "The routing alone is worth it. One-tap directions between every stop.",
     img: "https://randomuser.me/api/portraits/men/33.jpg",
     country: "🇺🇸 Brooklyn",
+    rating: 5,
   },
   {
     name: "Lucas Stone",
@@ -75,6 +80,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "Used it for a bachelorette. Glam dinner → karaoke → 2am pizza. Perfect.",
     img: "https://randomuser.me/api/portraits/men/22.jpg",
     country: "🇫🇷 Paris",
+    rating: 5,
   },
   {
     name: "Haruto Sato",
@@ -82,6 +88,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "Out-of-towner mode: 4 hours, 3 stops, every single one a banger.",
     img: "https://randomuser.me/api/portraits/men/85.jpg",
     country: "🇯🇵 Tokyo",
+    rating: 4,
   },
   {
     name: "Emma Lee",
@@ -89,6 +96,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "It feels like a friend planned it. The good friend.",
     img: "https://randomuser.me/api/portraits/women/45.jpg",
     country: "🇨🇦 Toronto",
+    rating: 5,
   },
   {
     name: "Carlos Ray",
@@ -96,6 +104,7 @@ const fallbackTestimonials: Testimonial[] = [
     body: "First date energy: low-key, high spark. Loop nailed the vibe.",
     img: "https://randomuser.me/api/portraits/men/61.jpg",
     country: "🇪🇸 Madrid",
+    rating: 5,
   },
 ];
 

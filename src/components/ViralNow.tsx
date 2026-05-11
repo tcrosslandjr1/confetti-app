@@ -123,6 +123,6 @@ function ViralCard({ v }: { v: ViralVenue }) {
         )}
         {v.summary && <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2">{v.summary}</p>}
       </div>
-    </article>
+    </Link>
   );
 }

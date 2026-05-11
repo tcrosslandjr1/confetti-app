@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { getStoredLocation, requestUserLocation, clearStoredLocation, type UserLocation } from "@/lib/location";
+import { TonightAtAGlance, NextBookingCountdown, ConciergeQuickAsk, SpendBudgetTracker } from "@/components/widgets/AppWidgets";
 
 export const Route = createFileRoute("/portal/profile")({
   component: ProfilePage,

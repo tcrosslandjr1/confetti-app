@@ -19,7 +19,7 @@ import { LiveElapsed } from "@/components/LiveElapsed";
 export const Route = createFileRoute("/collab/$tripId")({
   head: () => ({
     meta: [
-      { title: "Build the night together — Confetti" },
+      { title: "Build the night together — Loop" },
       { name: "description", content: "Vote on each stop with your crew. Live tallies, no account needed." },
     ],
   }),
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/collab/$tripId")({
 });
 
 const TRIP_PREVIEW = {
-  title: "Confetti — Date Night Day",
+  title: "Loop — Date Night Day",
   date: "This Saturday",
   window: "11:30 AM – 7:30 PM",
   city: "Old Market & East Side",

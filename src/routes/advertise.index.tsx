@@ -77,7 +77,7 @@ function AdvertiseLanding() {
             Be the plan, <span className="text-gradient">not an afterthought.</span>
           </h1>
           <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-            Confetti is where people decide what to do tonight. Get your venue in front of
+            Loop is where people decide what to do tonight. Get your venue in front of
             planners the moment they're choosing — with promoted rails, itinerary boosts, and
             home-page spotlight slots.
           </p>
@@ -156,7 +156,7 @@ function AdvertiseLanding() {
               We'll set you up with the <strong>{PACKAGES[tier].label}</strong> package and reach out within 1 business day.
             </p>
             <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
-              <li>✓ Verification keeps Confetti recommendations trustworthy.</li>
+              <li>✓ Verification keeps Loop recommendations trustworthy.</li>
               <li>✓ You stay in control — pause or edit campaigns anytime.</li>
               <li>✓ No long-term contract.</li>
             </ul>

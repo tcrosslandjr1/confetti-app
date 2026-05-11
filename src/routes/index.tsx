@@ -22,13 +22,13 @@ import { getAdImpressionConfig } from "@/lib/ad-impression-config";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Confetti — Plans with a pulse. Outings worth showing up for." },
+      { title: "Loop — Plans with a pulse. Outings worth showing up for." },
       {
         name: "description",
         content:
-          "Confetti is the loud, opinionated planner that turns 'I'm bored' into a whole night. AI itineraries, door-to-door routing, reservations on lock.",
+          "Loop is the loud, opinionated planner that turns 'I'm bored' into a whole night. AI itineraries, door-to-door routing, reservations on lock.",
       },
-      { property: "og:title", content: "Confetti — Plans with a pulse." },
+      { property: "og:title", content: "Loop — Plans with a pulse." },
       { property: "og:description", content: "From vibe to door-to-door plan in under a minute." },
     ],
   }),
@@ -212,7 +212,7 @@ function Landing() {
             </h1>
 
             <p className="mt-8 max-w-xl text-lg leading-snug">
-              Confetti is the loud, opinionated planner. Tell it the vibe — it builds the night.
+              Loop is the loud, opinionated planner. Tell it the vibe — it builds the night.
               Real stops, real timings, real reservations. <span className="font-serif italic">No more group-chat purgatory.</span>
             </p>
 
@@ -331,7 +331,7 @@ function Landing() {
               Someone screenshots a TikTok. Friday becomes pizza on the couch. <span className="font-serif italic">Again.</span>
             </p>
             <p>
-              Confetti kills that loop. One vibe in — one full evening out. Stops, times, routes, reservations,
+              Loop kills that loop. One vibe in — one full evening out. Stops, times, routes, reservations,
               the dress code, the cost, the conversation starter. The whole damn night, in under a minute.
             </p>
             <div className="flex flex-wrap gap-2 pt-2">
@@ -493,7 +493,7 @@ function Landing() {
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
           <div className="grid gap-px bg-ink lg:grid-cols-3">
             {[
-              { icon: Clock, k: "timing", t: "Down to the minute.", b: "Reservations, sunset, last call — Confetti backs into the schedule so you’re never early or stranded." },
+              { icon: Clock, k: "timing", t: "Down to the minute.", b: "Reservations, sunset, last call — Loop backs into the schedule so you’re never early or stranded." },
               { icon: Car, k: "routing", t: "Door to door.", b: "Walk, drive, transit, Uber, Lyft — chosen per leg. One tap launches the right app." },
               { icon: MapPin, k: "taste", t: "Knows your taste.", b: "A live taste profile that learns from chats, playlists, even pasted social posts. Skips the basics." },
             ].map((f) => (

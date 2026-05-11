@@ -3,18 +3,18 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/data-terms")({
   head: () => ({
     meta: [
-      { title: "Data sharing terms — Confettiplan" },
+      { title: "Data sharing terms — Loopplan" },
       {
         name: "description",
         content:
-          "How Confettiplan's AI agents use the social, photo, and engagement signals you share to learn what you love and plan better nights out.",
+          "How Loopplan's AI agents use the social, photo, and engagement signals you share to learn what you love and plan better nights out.",
       },
       { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Data sharing terms — Confettiplan" },
+      { property: "og:title", content: "Data sharing terms — Loopplan" },
       {
         property: "og:description",
         content:
-          "Plain-language terms for connecting your social media, photos, and engagement signals to Confettiplan's AI.",
+          "Plain-language terms for connecting your social media, photos, and engagement signals to Loopplan's AI.",
       },
     ],
   }),
@@ -76,7 +76,7 @@ function DataTermsPage() {
       <div className="space-y-10">
         <Section id="scope" title="1. What these terms cover">
           <p>
-            Confettiplan uses AI agents to plan outings that match your real-life taste. To do this
+            Loopplan uses AI agents to plan outings that match your real-life taste. To do this
             well, the agents learn from signals you choose to share — including your social handles,
             pasted bios, hashtags, favorite creators, photos of places you've been or want to go,
             and which followers you most engage with. These terms describe what we collect, how the
@@ -193,7 +193,7 @@ function DataTermsPage() {
       </div>
 
       <footer className="mt-12 border-t border-border pt-6 text-xs text-muted-foreground">
-        <Link to="/" className="underline">← Back to Confettiplan</Link>
+        <Link to="/" className="underline">← Back to Loopplan</Link>
       </footer>
     </main>
   );

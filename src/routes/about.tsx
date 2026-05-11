@@ -5,10 +5,10 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Confetti" },
-      { name: "description", content: "Confetti is the joyful planner for outings — built to get you off the couch and into the world." },
-      { property: "og:title", content: "About — Confetti" },
-      { property: "og:description", content: "Why we built Confetti and what we believe about going out." },
+      { title: "About — Loop" },
+      { name: "description", content: "Loop is the joyful planner for outings — built to get you off the couch and into the world." },
+      { property: "og:title", content: "About — Loop" },
+      { property: "og:description", content: "Why we built Loop and what we believe about going out." },
     ],
   }),
   component: AboutPage,
@@ -25,7 +25,7 @@ function AboutPage() {
           </h1>
           <div className="mt-8 space-y-5 text-lg text-muted-foreground">
             <p>
-              Confetti started with one frustration: it's harder to decide what to do than to actually do it. Group chats stall. Tabs pile up. Saturday becomes another night on the couch.
+              Loop started with one frustration: it's harder to decide what to do than to actually do it. Group chats stall. Tabs pile up. Saturday becomes another night on the couch.
             </p>
             <p>
               So we built a planner that does the messy part — picking the spots, timing the day, sorting the route, holding the reservations — and leaves you with the fun part: showing up.

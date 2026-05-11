@@ -7,10 +7,10 @@ import { Sparkles, Calendar, MapPin, Heart, Compass, Users, Wand2, Car } from "l
 export const Route = createFileRoute("/features")({
   head: () => ({
     meta: [
-      { title: "Features — Confetti" },
+      { title: "Features — Loop" },
       { name: "description", content: "AI-planned outings, multi-stop routing, saved reservations, and a taste profile that learns what you love." },
-      { property: "og:title", content: "Features — Confetti" },
-      { property: "og:description", content: "Everything Confetti does to plan outings worth showing up for." },
+      { property: "og:title", content: "Features — Loop" },
+      { property: "og:description", content: "Everything Loop does to plan outings worth showing up for." },
     ],
   }),
   component: FeaturesPage,
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/features")({
 
 const features = [
   { icon: Wand2, title: "AI-planned itineraries", body: "Pick a vibe — date night, kids day out, guys' night — and get a full schedule in seconds." },
-  { icon: Car, title: "Door-to-door routing", body: "Car, transit, walking, Uber or Lyft. Confetti picks the best mode and gives you one-tap directions." },
+  { icon: Car, title: "Door-to-door routing", body: "Car, transit, walking, Uber or Lyft. Loop picks the best mode and gives you one-tap directions." },
   { icon: Calendar, title: "Saved reservations", body: "Store confirmations, party size, contact info and times for every stop in one place." },
   { icon: Heart, title: "Taste profile", body: "Tell us what you love. We learn from your social vibe and tune every suggestion to match." },
   { icon: MapPin, title: "Local discoveries", body: "Jump parks, paint nights, Home Depot kids days, hidden patios — not the same five chain restaurants." },
@@ -38,7 +38,7 @@ function FeaturesPage() {
             Everything you need to <span className="text-gradient">actually go out.</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
-            Confetti turns "what should we do?" into a full plan — with stops, timing, transit and reservations.
+            Loop turns "what should we do?" into a full plan — with stops, timing, transit and reservations.
           </p>
         </div>
       </section>

@@ -7,7 +7,7 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/plan/ready")({
   head: () => ({
     meta: [
-      { title: "You're ready to roll — Confetti" },
+      { title: "You're ready to roll — Loop" },
       { name: "description", content: "Your day is saved. Share it, add it to your calendar, or rally the crew." },
     ],
   }),
@@ -23,8 +23,8 @@ const STOPS = [
 
 const TRIP = {
   id: "PLN-A7K2",
-  title: "Confetti — Date Night Day",
-  description: "A little romance, end-to-end. 4 stops curated by Confetti.",
+  title: "Loop — Date Night Day",
+  description: "A little romance, end-to-end. 4 stops curated by Loop.",
   // Saturday 11:30 AM – 7:30 PM (next Saturday)
   start: nextSaturdayAt(11, 30),
   end:   nextSaturdayAt(19, 30),
@@ -82,7 +82,7 @@ function buildIcs() {
   const lines: string[] = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Confetti//Plan//EN",
+    "PRODID:-//Loop//Plan//EN",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
     `X-WR-CALNAME:${icsEscape(TRIP.title)}`,
@@ -156,7 +156,7 @@ function makeToken() {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function ReadyPage() {
-  const [showConfetti, setShowConfetti] = useState(true);
+  const [showLoop, setShowLoop] = useState(true);
   const [copied, setCopied] = useState(false);
   const [emailInput, setEmailInput] = useState("");
   const [invites, setInvitesState] = useState<Invite[]>([]);
@@ -286,7 +286,7 @@ function ReadyPage() {
   }
 
   useEffect(() => {
-    const t = setTimeout(() => setShowConfetti(false), 2500);
+    const t = setTimeout(() => setShowLoop(false), 2500);
     return () => clearTimeout(t);
   }, []);
 
@@ -404,8 +404,8 @@ function ReadyPage() {
       {/* Soft glow background */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-0 h-[420px] bg-gradient-to-b from-primary/15 via-coral/10 to-transparent blur-2xl" />
 
-      {/* Confetti burst */}
-      {showConfetti && (
+      {/* Loop burst */}
+      {showLoop && (
         <div aria-hidden className="pointer-events-none absolute inset-x-0 top-24 z-0 mx-auto h-64 max-w-3xl">
           {Array.from({ length: 28 }).map((_, i) => {
             const left = (i * 37) % 100;

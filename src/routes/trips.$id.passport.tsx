@@ -78,7 +78,7 @@ function Passport() {
         <article className="mt-5 overflow-hidden rounded-3xl border-2 border-dashed border-primary/40 bg-gradient-to-br from-amber-50 via-background to-rose-50 dark:from-amber-950/20 dark:to-rose-950/20 p-8 shadow-pop">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Confetti Passport</p>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Loop Passport</p>
               <h1 className="mt-2 font-display text-4xl font-bold tracking-tight">{it.title}</h1>
               {it.city && (
                 <p className="mt-1 inline-flex items-center gap-1 text-sm text-muted-foreground">

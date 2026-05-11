@@ -18,15 +18,15 @@ export const Route = createFileRoute("/rsvp/$tripId")({
   validateSearch: zodValidator(rsvpSearchSchema),
   head: () => ({
     meta: [
-      { title: "You're invited — Confetti" },
-      { name: "description", content: "Accept or decline your Confetti invite." },
+      { title: "You're invited — Loop" },
+      { name: "description", content: "Accept or decline your Loop invite." },
     ],
   }),
   component: RsvpPage,
 });
 
 const TRIP_PREVIEW = {
-  title: "Confetti — Date Night Day",
+  title: "Loop — Date Night Day",
   date: "This Saturday",
   window: "11:30 AM – 7:30 PM",
   city: "Old Market & East Side",

@@ -4,7 +4,7 @@ import { Heart, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/taste-tuner")({
-  head: () => ({ meta: [{ title: "Taste Tuner — Confetti" }] }),
+  head: () => ({ meta: [{ title: "Taste Tuner — Loop" }] }),
   component: TasteTuner,
 });
 

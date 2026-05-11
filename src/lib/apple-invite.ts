@@ -42,7 +42,7 @@ export function buildICS(evt: AppleInviteEvent): string {
   const lines = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//ConfettiPlan//Apple Invites//EN",
+    "PRODID:-//LoopPlan//Apple Invites//EN",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
     "BEGIN:VEVENT",

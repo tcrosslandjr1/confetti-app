@@ -11,7 +11,7 @@ import {
 export const Route = createFileRoute("/ideas/$slug")({
   head: ({ params }) => {
     const o = getOccasion(params.slug);
-    const title = o ? `${o.title} ideas — Confetti` : "Ideas — Confetti";
+    const title = o ? `${o.title} ideas — Loop` : "Ideas — Loop";
     const desc = o
       ? `Swipeable outing ideas for ${o.title.toLowerCase()}. ${o.tagline}.`
       : "Personalized outing ideas.";

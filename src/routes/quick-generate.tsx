@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 
 export const Route = createFileRoute("/quick-generate")({
-  head: () => ({ meta: [{ title: "Quick Generate — Confetti" }] }),
+  head: () => ({ meta: [{ title: "Quick Generate — Loop" }] }),
   component: QuickGenerate,
 });
 

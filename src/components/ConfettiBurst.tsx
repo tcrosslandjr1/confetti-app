@@ -52,7 +52,7 @@ export function useConfettiBurst() {
 }
 
 /** Wrap children with a click handler that fires confetti from the click point. */
-export function ConfettiClick({
+export function LoopClick({
   children,
   onClick,
   className = "",

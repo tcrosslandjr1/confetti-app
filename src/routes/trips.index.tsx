@@ -8,7 +8,7 @@ import { listItineraries, type Itinerary } from "@/lib/itineraries";
 export const Route = createFileRoute("/trips/")({
   head: () => ({
     meta: [
-      { title: "My trips — Confetti" },
+      { title: "My trips — Loop" },
       { name: "description", content: "All your saved day plans and reservations in one place." },
     ],
   }),

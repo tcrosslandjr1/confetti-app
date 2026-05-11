@@ -580,7 +580,7 @@ export function BuildMyNightWizard() {
       Object.entries(hourCounts).forEach(([h, c]) => { if (c > max) { max = c; preferredHour = parseInt(h, 10); } });
       const topVenues = new Set<string>(Object.keys(venueCounts).filter((v) => venueCounts[v] >= 1));
       Object.keys(favorites).forEach((v) => topVenues.add(v));
-      setPersonalize({ preferredHour, diet, topVenues, bookingsCount: bookings?.length ?? 0, dietLabel });
+      setPersonalize({ preferredHour, diet, topVenues, bookingsCount: bookings?.length ?? 0, dietLabel, hourCounts, venueCounts });
     })();
     return () => { cancelled = true; };
   }, [open, user, favorites]);

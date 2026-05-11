@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles, BadgeCheck } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { VenueMap } from "@/components/maps/VenueMap";
 
 export const Route = createFileRoute("/venue/$id")({
   head: () => ({ meta: [{ title: "Venue — Confetti" }] }),

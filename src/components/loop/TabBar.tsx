@@ -12,10 +12,10 @@ type Tab = {
 const TABS: Tab[] = [
   { to: "/", label: "Home", icon: Compass, match: (p) => p === "/" || p === "/portal" },
   {
-    to: "/viral",
+    to: "/discover",
     label: "Discover",
     icon: Search,
-    match: (p) => p.startsWith("/viral") || p.startsWith("/venue"),
+    match: (p) => p.startsWith("/discover") || p.startsWith("/viral") || p.startsWith("/venue"),
   },
   {
     to: "/create",

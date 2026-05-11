@@ -72,6 +72,7 @@ const tagToneClass: Record<NonNullable<LoopStop["tags"]>[number]["variant"], str
 export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   const [googleLoading, setGoogleLoading] = useState(false);
   const [qrUrl, setQrUrl] = useState<string | null>(null);
+  const [qrPending, setQrPending] = useState(false);
   const [routePoints, setRoutePoints] = useState<GeocodeResult[]>([]);
   const [bookingOpen, setBookingOpen] = useState(false);
 
@@ -100,6 +101,18 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
       });
       const data = await res.json().catch(() => ({}));
       if (res.status === 503) {
+        // Wallet issuer creds aren't wired up yet — surface the QR modal in
+        // "pending" mode with a placeholder URL so users still see what the
+        // pass-handoff experience will look like.
+        const previewUrl =
+          data?.saveUrl ||
+          `https://pay.google.com/gp/v/save/preview?loop=${encodeURIComponent(loop.id)}`;
+        setQrPending(true);
+        setQrUrl(previewUrl);
+        trackWalletEvent("wallet_qr_modal_open", {
+          loopId: loop.id,
+          meta: { reason: "missing_credentials_503" },
+        });
         toast("Google Wallet launching soon", {
           description: "We're finalizing our Wallet issuer setup before launch.",
         });
@@ -358,7 +371,16 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         </button>
       </div>
 
-      {qrUrl && <WalletQrModal url={qrUrl} onClose={() => setQrUrl(null)} />}
+      {qrUrl && (
+        <WalletQrModal
+          url={qrUrl}
+          pending={qrPending}
+          onClose={() => {
+            setQrUrl(null);
+            setQrPending(false);
+          }}
+        />
+      )}
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} loop={loop} reward={reward} />
     </div>
   );
@@ -718,7 +740,15 @@ function BookingModal({
 }
 
 // ─── Wallet QR modal (preserved) ───────────────────────────────────────
-function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
+function WalletQrModal({
+  url,
+  onClose,
+  pending = false,
+}: {
+  url: string;
+  onClose: () => void;
+  pending?: boolean;
+}) {
   const qrWrapRef = useRef<HTMLDivElement | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const closeBtnRef = useRef<HTMLButtonElement | null>(null);
@@ -851,14 +881,31 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
         <div className="flex items-center gap-2">
           <Smartphone className="h-4 w-4 text-coral" aria-hidden="true" />
           <h2 id={headingId} className="font-display text-lg font-extrabold tracking-tight text-ink">
-            Scan to add to Google Wallet
+            {pending ? "Google Wallet — preview" : "Scan to add to Google Wallet"}
           </h2>
         </div>
-        <p id={descId} className="mt-1 text-xs text-ink/70">
-          Open your Android phone's camera and point it at this QR code. The pass will open in
-          Google Wallet for you to save. Press Escape to close.
-        </p>
-        <div ref={qrWrapRef} className="mt-4 grid place-items-center rounded-2xl border-2 border-ink bg-cream p-4">
+        {pending ? (
+          <div className="mt-3 rounded-xl border-2 border-ink bg-gold/40 px-3 py-2">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+              ⚠ launching soon
+            </p>
+            <p id={descId} className="mt-1 text-xs leading-snug text-ink/80">
+              Our Google Wallet issuer credentials aren't live yet, so this is a preview of how
+              the hand-off will work. Once we're approved, the QR will sign you straight into
+              your pass. Press Escape to close.
+            </p>
+          </div>
+        ) : (
+          <p id={descId} className="mt-1 text-xs text-ink/70">
+            Open your Android phone's camera and point it at this QR code. The pass will open in
+            Google Wallet for you to save. Press Escape to close.
+          </p>
+        )}
+        <div
+          ref={qrWrapRef}
+          className={`mt-4 grid place-items-center rounded-2xl border-2 border-ink bg-cream p-4 ${pending ? "opacity-60" : ""}`}
+          aria-hidden={pending ? "true" : undefined}
+        >
           <QRCodeSVG value={url} size={208} bgColor="#FFF7EC" fgColor="#1B1B1B" level="M" includeMargin={false} />
         </div>
         <a

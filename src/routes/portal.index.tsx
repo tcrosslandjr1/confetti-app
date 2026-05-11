@@ -292,34 +292,6 @@ function PortalDiscoverPage() {
               </div>
             </DashCard>
 
-            {/* Achievements */}
-            <DashCard
-              title="Achievements"
-              actionLabel={achievements.length > 4 ? "View all" : undefined}
-              actionTo="/portal/refer"
-              icon={Trophy}
-            >
-              {achievements.length === 0 ? (
-                <EmptyState icon={Trophy} text="Achievements unlock as you explore." />
-              ) : (
-                <ul className="space-y-2">
-                  {achievements.slice(0, 4).map((a) => (
-                    <li key={a.id} className={`flex items-start gap-3 rounded-xl border p-2.5 ${a.unlocked ? "border-primary/40 bg-primary/5" : "border-border bg-background/40 opacity-70"}`}>
-                      <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg ${a.unlocked ? "bg-gradient-vibe text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
-                        {a.unlocked ? <AchIcon name={a.icon} /> : <Lock className="h-4 w-4" />}
-                      </span>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center justify-between gap-2">
-                          <div className="truncate font-display text-sm font-bold">{a.title}</div>
-                          <span className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">+{a.xp_reward} XP</span>
-                        </div>
-                        <div className="line-clamp-2 text-xs text-muted-foreground">{a.description}</div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </DashCard>
           </section>
 
           {/* Right sidebar: weekly challenge — stats moved to /portal/profile */}

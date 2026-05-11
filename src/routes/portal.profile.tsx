@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2, Shield, Compass, Coffee, Sparkle, Eye, SlidersHorizontal, CalendarCheck, Users, Trophy, Flame, GripVertical, RotateCcw } from "lucide-react";
+import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2, Shield, Compass, Coffee, Sparkle, Eye, SlidersHorizontal, CalendarCheck, Users, Trophy, Flame, GripVertical, RotateCcw, Lock, Crown, Star, Medal } from "lucide-react";
 import { getMyReferralStats, type MyReferralStats } from "@/lib/referrals";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
@@ -16,6 +16,7 @@ export const Route = createFileRoute("/portal/profile")({
 });
 
 type Profile = { id: string; display_name: string | null; xp: number; level: number };
+type Achievement = { id: string; code: string; title: string; description: string; icon: string; xp_reward: number; unlocked: boolean; unlocked_at: string | null };
 
 function ProfilePage() {
   const { user, signOut } = useAuth();
@@ -26,6 +27,7 @@ function ProfilePage() {
   const [bookingTotals, setBookingTotals] = useState({ upcoming: 0, past: 0 });
   const [refStats, setRefStats] = useState<MyReferralStats>({ invited: 0, signedUp: 0, completed: 0, earnedCents: 0 });
   const [achTotals, setAchTotals] = useState({ unlocked: 0, total: 0, xpEarned: 0 });
+  const [achievements, setAchievements] = useState<Achievement[]>([]);
 
   useEffect(() => { setLocation(getStoredLocation()); }, []);
 
@@ -63,16 +65,20 @@ function ProfilePage() {
         supabase.from("bookings").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("starts_at", nowIso),
         supabase.from("bookings").select("id", { count: "exact", head: true }).eq("user_id", user.id).lt("starts_at", nowIso),
         getMyReferralStats(),
-        supabase.from("achievements").select("id, xp_reward"),
-        supabase.from("user_achievements").select("achievement_id").eq("user_id", user.id),
+        supabase.from("achievements").select("id, code, title, description, icon, xp_reward"),
+        supabase.from("user_achievements").select("achievement_id, unlocked_at").eq("user_id", user.id),
       ]);
       if (cancelled) return;
-      const unlockedIds = new Set(((userAch.data ?? []) as { achievement_id: string }[]).map((r) => r.achievement_id));
-      const allAch = (achRows.data ?? []) as { id: string; xp_reward: number }[];
-      const xpEarned = allAch.reduce((s, a) => s + (unlockedIds.has(a.id) ? a.xp_reward : 0), 0);
+      const unlockedMap = new Map(((userAch.data ?? []) as { achievement_id: string; unlocked_at: string | null }[]).map((r) => [r.achievement_id, r.unlocked_at]));
+      const allAch = (achRows.data ?? []) as Omit<Achievement, "unlocked" | "unlocked_at">[];
+      const xpEarned = allAch.reduce((s, a) => s + (unlockedMap.has(a.id) ? a.xp_reward : 0), 0);
+      const merged: Achievement[] = allAch
+        .map((d) => ({ ...d, unlocked: unlockedMap.has(d.id), unlocked_at: unlockedMap.get(d.id) ?? null }))
+        .sort((a, b) => Number(b.unlocked) - Number(a.unlocked) || a.xp_reward - b.xp_reward);
       setBookingTotals({ upcoming: upRes.count ?? 0, past: pastRes.count ?? 0 });
       setRefStats(refs);
-      setAchTotals({ unlocked: unlockedIds.size, total: allAch.length, xpEarned });
+      setAchTotals({ unlocked: unlockedMap.size, total: allAch.length, xpEarned });
+      setAchievements(merged);
     })();
     return () => { cancelled = true; };
   }, [user]);
@@ -140,6 +146,38 @@ function ProfilePage() {
                   <NextBookingCountdown />
                   <ConciergeQuickAsk />
                   <SpendBudgetTracker />
+                </section>
+              ),
+            },
+            {
+              id: "achievements",
+              title: "Achievements",
+              node: (
+                <section aria-label="Achievements" className="rounded-3xl border border-border bg-card p-6 shadow-card">
+                  <div className="mb-4 flex items-center justify-between gap-2">
+                    <h2 className="flex items-center gap-2 font-display text-xl font-bold"><Trophy className="h-5 w-5 text-primary" /> Achievements</h2>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{achTotals.unlocked}/{achTotals.total || "—"} unlocked</span>
+                  </div>
+                  {achievements.length === 0 ? (
+                    <p className="rounded-xl border border-dashed border-border bg-background/40 p-5 text-center text-sm text-muted-foreground">Achievements unlock as you explore.</p>
+                  ) : (
+                    <ul className="grid gap-2 sm:grid-cols-2">
+                      {achievements.map((a) => (
+                        <li key={a.id} className={`flex items-start gap-3 rounded-xl border p-2.5 ${a.unlocked ? "border-primary/40 bg-primary/5" : "border-border bg-background/40 opacity-70"}`}>
+                          <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg ${a.unlocked ? "bg-gradient-vibe text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
+                            {a.unlocked ? <AchIcon name={a.icon} /> : <Lock className="h-4 w-4" />}
+                          </span>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center justify-between gap-2">
+                              <div className="truncate font-display text-sm font-bold">{a.title}</div>
+                              <span className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">+{a.xp_reward} XP</span>
+                            </div>
+                            <div className="line-clamp-2 text-xs text-muted-foreground">{a.description}</div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </section>
               ),
             },
@@ -577,4 +615,16 @@ function ReorderableSections({ sections }: { sections: SectionDef[] }) {
       </div>
     </div>
   );
+}
+
+function AchIcon({ name }: { name: string }) {
+  const cls = "h-4 w-4";
+  switch (name) {
+    case "crown": return <Crown className={cls} />;
+    case "flame": return <Flame className={cls} />;
+    case "star": return <Star className={cls} />;
+    case "medal": return <Medal className={cls} />;
+    case "sparkles": return <Sparkles className={cls} />;
+    default: return <Trophy className={cls} />;
+  }
 }

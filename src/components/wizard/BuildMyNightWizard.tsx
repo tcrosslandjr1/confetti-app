@@ -422,7 +422,7 @@ export function BuildMyNightWizard() {
 
   // Fetch live Google Places data for the current stops as soon as results show.
   useEffect(() => {
-    if (step !== 6 || !stops?.length) return;
+    if (step !== 7 || !stops?.length) return;
     let cancelled = false;
     const queries = stops.map((s) => ({ venue: s.venue, address: s.address, neighborhood: s.neighborhood }));
     setPlacesLoading(true);

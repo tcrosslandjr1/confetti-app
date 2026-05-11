@@ -199,6 +199,16 @@ function PortalDiscoverPage() {
 
       {/* (Top stats moved to /portal/profile) */}
 
+      {/* In-app widgets */}
+      {user && (
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <TonightAtAGlance />
+          <NextBookingCountdown />
+          <ConciergeQuickAsk />
+          <SpendBudgetTracker />
+        </div>
+      )}
+
       {/* Personalized next-best-actions */}
       {user && (
         <NextSteps

@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { CalendarPlus, Loader2, Sparkles } from "lucide-react";
+import { CalendarPlus, Loader2, Sparkles, MapPin } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
 import { logAccessDenial } from "@/lib/access-denials";

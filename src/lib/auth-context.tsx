@@ -93,15 +93,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       .eq("user_id", uid)
       .eq("role", "admin")
       .maybeSingle()
-      .then(({ data }) => {
-        if (!cancelled) setIsAdmin(!!data);
-        if (!cancelled) setRoleLoading(false);
-      }, () => {
-        if (!cancelled) {
-          setIsAdmin(false);
-          setRoleLoading(false);
-        }
-      });
+      .then(
+        ({ data }) => {
+          if (!cancelled) setIsAdmin(!!data);
+          if (!cancelled) setRoleLoading(false);
+        },
+        () => {
+          if (!cancelled) {
+            setIsAdmin(false);
+            setRoleLoading(false);
+          }
+        },
+      );
     return () => {
       cancelled = true;
     };
@@ -125,14 +128,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<AuthCtx>(() => {
     const loading = sessionLoading || roleLoading;
-    const realRole: ViewAs = !session?.user
-      ? "visitor"
-      : isAdmin
-      ? "admin"
-      : "customer";
+    const realRole: ViewAs = !session?.user ? "visitor" : isAdmin ? "admin" : "customer";
 
     // Only admins can impersonate. For everyone else, viewAs = their real role.
-    const effective: ViewAs = isAdmin ? viewAsState ?? "admin" : realRole;
+    const effective: ViewAs = isAdmin ? (viewAsState ?? "admin") : realRole;
     const impersonating = isAdmin && effective !== "admin";
 
     return {
@@ -147,7 +146,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       exitImpersonation,
       signOut,
     };
-  }, [session, sessionLoading, roleLoading, isAdmin, viewAsState, setViewAs, exitImpersonation, signOut]);
+  }, [
+    session,
+    sessionLoading,
+    roleLoading,
+    isAdmin,
+    viewAsState,
+    setViewAs,
+    exitImpersonation,
+    signOut,
+  ]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

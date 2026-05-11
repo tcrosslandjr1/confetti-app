@@ -43,15 +43,105 @@ type User = {
 };
 
 const SEED: User[] = [
-  { id: "U-1042", name: "Sarah Klein", email: "sarah@k.co", role: "customer", status: "active", city: "Washington DC", bookings: 14, joined: "2024-08-12", lastActive: "2m ago" },
-  { id: "U-1041", name: "Marcus Tate", email: "m.tate@mail.com", role: "customer", status: "active", city: "Arlington VA", bookings: 8, joined: "2024-11-03", lastActive: "1h ago" },
-  { id: "U-1040", name: "Priya Rao", email: "priya@r.io", role: "moderator", status: "active", city: "Bethesda MD", bookings: 22, joined: "2024-02-19", lastActive: "12m ago" },
-  { id: "U-1039", name: "Jordan Liu", email: "jliu@mail.com", role: "customer", status: "suspended", city: "Washington DC", bookings: 3, joined: "2025-01-22", lastActive: "3d ago" },
-  { id: "U-1038", name: "Ana Ferreira", email: "ana.f@mail.com", role: "customer", status: "active", city: "Alexandria VA", bookings: 19, joined: "2023-09-08", lastActive: "5m ago" },
-  { id: "U-1037", name: "Devon Hale", email: "devon@h.dev", role: "admin", status: "active", city: "Washington DC", bookings: 41, joined: "2023-04-01", lastActive: "just now" },
-  { id: "U-1036", name: "Mia Chen", email: "mia@c.co", role: "customer", status: "invited", city: "Silver Spring MD", bookings: 0, joined: "2026-05-06", lastActive: "—" },
-  { id: "U-1035", name: "Tomas Reid", email: "tomas@r.dev", role: "customer", status: "active", city: "Washington DC", bookings: 6, joined: "2025-06-14", lastActive: "2h ago" },
-  { id: "U-1034", name: "Lena Park", email: "lena@p.co", role: "moderator", status: "active", city: "Arlington VA", bookings: 11, joined: "2024-10-30", lastActive: "30m ago" },
+  {
+    id: "U-1042",
+    name: "Sarah Klein",
+    email: "sarah@k.co",
+    role: "customer",
+    status: "active",
+    city: "Washington DC",
+    bookings: 14,
+    joined: "2024-08-12",
+    lastActive: "2m ago",
+  },
+  {
+    id: "U-1041",
+    name: "Marcus Tate",
+    email: "m.tate@mail.com",
+    role: "customer",
+    status: "active",
+    city: "Arlington VA",
+    bookings: 8,
+    joined: "2024-11-03",
+    lastActive: "1h ago",
+  },
+  {
+    id: "U-1040",
+    name: "Priya Rao",
+    email: "priya@r.io",
+    role: "moderator",
+    status: "active",
+    city: "Bethesda MD",
+    bookings: 22,
+    joined: "2024-02-19",
+    lastActive: "12m ago",
+  },
+  {
+    id: "U-1039",
+    name: "Jordan Liu",
+    email: "jliu@mail.com",
+    role: "customer",
+    status: "suspended",
+    city: "Washington DC",
+    bookings: 3,
+    joined: "2025-01-22",
+    lastActive: "3d ago",
+  },
+  {
+    id: "U-1038",
+    name: "Ana Ferreira",
+    email: "ana.f@mail.com",
+    role: "customer",
+    status: "active",
+    city: "Alexandria VA",
+    bookings: 19,
+    joined: "2023-09-08",
+    lastActive: "5m ago",
+  },
+  {
+    id: "U-1037",
+    name: "Devon Hale",
+    email: "devon@h.dev",
+    role: "admin",
+    status: "active",
+    city: "Washington DC",
+    bookings: 41,
+    joined: "2023-04-01",
+    lastActive: "just now",
+  },
+  {
+    id: "U-1036",
+    name: "Mia Chen",
+    email: "mia@c.co",
+    role: "customer",
+    status: "invited",
+    city: "Silver Spring MD",
+    bookings: 0,
+    joined: "2026-05-06",
+    lastActive: "—",
+  },
+  {
+    id: "U-1035",
+    name: "Tomas Reid",
+    email: "tomas@r.dev",
+    role: "customer",
+    status: "active",
+    city: "Washington DC",
+    bookings: 6,
+    joined: "2025-06-14",
+    lastActive: "2h ago",
+  },
+  {
+    id: "U-1034",
+    name: "Lena Park",
+    email: "lena@p.co",
+    role: "moderator",
+    status: "active",
+    city: "Arlington VA",
+    bookings: 11,
+    joined: "2024-10-30",
+    lastActive: "30m ago",
+  },
 ];
 
 const ROLE_TONE: Record<Role, string> = {
@@ -62,14 +152,29 @@ const ROLE_TONE: Record<Role, string> = {
 
 function StatusBadge({ status }: { status: Status }) {
   if (status === "active")
-    return <Badge className="bg-emerald-500/15 text-emerald-700 hover:bg-emerald-500/20"><UserCheck className="mr-1 h-3 w-3" />Active</Badge>;
+    return (
+      <Badge className="bg-emerald-500/15 text-emerald-700 hover:bg-emerald-500/20">
+        <UserCheck className="mr-1 h-3 w-3" />
+        Active
+      </Badge>
+    );
   if (status === "suspended")
-    return <Badge className="bg-destructive/15 text-destructive hover:bg-destructive/20"><UserX className="mr-1 h-3 w-3" />Suspended</Badge>;
+    return (
+      <Badge className="bg-destructive/15 text-destructive hover:bg-destructive/20">
+        <UserX className="mr-1 h-3 w-3" />
+        Suspended
+      </Badge>
+    );
   return <Badge className="bg-gold/20 text-foreground hover:bg-gold/30">Invited</Badge>;
 }
 
 function Avatar({ name }: { name: string }) {
-  const initials = name.split(" ").map((p) => p[0]).slice(0, 2).join("").toUpperCase();
+  const initials = name
+    .split(" ")
+    .map((p) => p[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
   return (
     <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-vibe text-xs font-bold text-primary-foreground">
       {initials}
@@ -130,7 +235,11 @@ function AdminUsersPage() {
     const u = users.find((x) => x.id === id);
     setUsers((prev) => prev.map((x) => (x.id === id ? { ...x, status } : x)));
     toast.success(
-      status === "active" ? "Account reactivated" : status === "suspended" ? "Account suspended" : "Invite re-sent",
+      status === "active"
+        ? "Account reactivated"
+        : status === "suspended"
+          ? "Account suspended"
+          : "Invite re-sent",
     );
     logAudit({
       admin: adminEmail,
@@ -149,7 +258,9 @@ function AdminUsersPage() {
           <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
             <Users className="h-7 w-7" /> Users
           </h1>
-          <p className="text-sm text-muted-foreground">Search the user base and manage roles or account status.</p>
+          <p className="text-sm text-muted-foreground">
+            Search the user base and manage roles or account status.
+          </p>
         </div>
         <div className="grid grid-cols-4 gap-2 text-center">
           {[
@@ -158,9 +269,14 @@ function AdminUsersPage() {
             { k: "suspended", label: "Suspended", v: counts.suspended },
             { k: "admins", label: "Admins", v: counts.admins },
           ].map((s) => (
-            <div key={s.k} className="rounded-xl border border-border bg-card px-4 py-2 shadow-card">
+            <div
+              key={s.k}
+              className="rounded-xl border border-border bg-card px-4 py-2 shadow-card"
+            >
               <div className="text-xl font-bold font-display">{s.v}</div>
-              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{s.label}</div>
+              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                {s.label}
+              </div>
             </div>
           ))}
         </div>
@@ -237,7 +353,9 @@ function AdminUsersPage() {
                   <TableCell>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <button className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold capitalize transition hover:opacity-80 ${ROLE_TONE[u.role]}`}>
+                        <button
+                          className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold capitalize transition hover:opacity-80 ${ROLE_TONE[u.role]}`}
+                        >
                           <Shield className="h-3 w-3" /> {u.role}
                         </button>
                       </DropdownMenuTrigger>
@@ -257,7 +375,9 @@ function AdminUsersPage() {
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </TableCell>
-                  <TableCell><StatusBadge status={u.status} /></TableCell>
+                  <TableCell>
+                    <StatusBadge status={u.status} />
+                  </TableCell>
                   <TableCell className="text-sm">{u.city}</TableCell>
                   <TableCell className="text-right font-mono text-sm">{u.bookings}</TableCell>
                   <TableCell className="text-xs text-muted-foreground">{u.joined}</TableCell>
@@ -286,7 +406,9 @@ function AdminUsersPage() {
                           </DropdownMenuItem>
                         )}
                         {u.status === "invited" && (
-                          <DropdownMenuItem onClick={() => toast.success(`Invite re-sent to ${u.email}`)}>
+                          <DropdownMenuItem
+                            onClick={() => toast.success(`Invite re-sent to ${u.email}`)}
+                          >
                             Resend invite
                           </DropdownMenuItem>
                         )}

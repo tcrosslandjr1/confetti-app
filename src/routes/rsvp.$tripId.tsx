@@ -2,11 +2,28 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { zodValidator, fallback } from "@tanstack/zod-adapter";
 import { z } from "zod";
 import { useEffect, useMemo, useState } from "react";
-import { AlertTriangle, Calendar, Check, CheckCircle2, Clock, MapPin, PartyPopper, Play, Sparkles, X } from "lucide-react";
+import {
+  AlertTriangle,
+  Calendar,
+  Check,
+  CheckCircle2,
+  Clock,
+  MapPin,
+  PartyPopper,
+  Play,
+  Sparkles,
+  X,
+} from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { findInviteByToken, loadInviteVideo, setInviteStatus, type Invite } from "@/lib/invites";
 import { checkStopFits } from "@/lib/hours";
-import { formatUpdatedAt, loadStatus, shiftTimeLabel, subscribeStatus, type TripStatus } from "@/lib/trip-status";
+import {
+  formatUpdatedAt,
+  loadStatus,
+  shiftTimeLabel,
+  subscribeStatus,
+  type TripStatus,
+} from "@/lib/trip-status";
 import { LiveElapsed } from "@/components/LiveElapsed";
 
 const rsvpSearchSchema = z.object({
@@ -32,10 +49,20 @@ const TRIP_PREVIEW = {
   city: "Old Market & East Side",
   day: "sat" as const,
   stops: [
-    { time: "11:30 AM", durationMin: 75,  name: "Bluebird Coffee Social", neighborhood: "East Side" },
-    { time: "1:15 PM",  durationMin: 90,  name: "The Marigold Rooftop",   neighborhood: "Warehouse District" },
-    { time: "3:15 PM",  durationMin: 90,  name: "Lantern Hill Overlook",  neighborhood: "Riverbend" },
-    { time: "5:30 PM",  durationMin: 120, name: "Osteria di Pesca",       neighborhood: "Old Market" },
+    {
+      time: "11:30 AM",
+      durationMin: 75,
+      name: "Bluebird Coffee Social",
+      neighborhood: "East Side",
+    },
+    {
+      time: "1:15 PM",
+      durationMin: 90,
+      name: "The Marigold Rooftop",
+      neighborhood: "Warehouse District",
+    },
+    { time: "3:15 PM", durationMin: 90, name: "Lantern Hill Overlook", neighborhood: "Riverbend" },
+    { time: "5:30 PM", durationMin: 120, name: "Osteria di Pesca", neighborhood: "Old Market" },
   ],
 };
 
@@ -52,7 +79,10 @@ function RsvpPage() {
   const [tripStatus, setTripStatus] = useState<TripStatus | null>(null);
 
   useEffect(() => {
-    if (!token) { setLoaded(true); return; }
+    if (!token) {
+      setLoaded(true);
+      return;
+    }
     setInvite(findInviteByToken(tripId, token));
     setLoaded(true);
   }, [tripId, token]);
@@ -66,7 +96,12 @@ function RsvpPage() {
   // Resolve video URL: prefer the one in the link (works cross-device), fall back to localStorage.
   useEffect(() => {
     if (videoFromUrl) {
-      try { setVideoUrl(decodeURIComponent(videoFromUrl)); return; } catch { /* ignore */ }
+      try {
+        setVideoUrl(decodeURIComponent(videoFromUrl));
+        return;
+      } catch {
+        /* ignore */
+      }
     }
     setVideoUrl(loadInviteVideo(tripId));
   }, [tripId, videoFromUrl]);
@@ -76,7 +111,7 @@ function RsvpPage() {
     if (videoUrl && !videoDone) return;
     setRevealedStops(0);
     const timers = TRIP_PREVIEW.stops.map((_, i) =>
-      setTimeout(() => setRevealedStops((n) => Math.max(n, i + 1)), 600 + i * 550)
+      setTimeout(() => setRevealedStops((n) => Math.max(n, i + 1)), 600 + i * 550),
     );
     return () => timers.forEach(clearTimeout);
   }, [videoUrl, videoDone]);
@@ -104,19 +139,32 @@ function RsvpPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
       <SiteHeader />
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-0 h-[420px] bg-gradient-to-b from-primary/15 via-coral/10 to-transparent blur-2xl" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -z-0 h-[420px] bg-gradient-to-b from-primary/15 via-coral/10 to-transparent blur-2xl"
+      />
 
       <div className="relative z-10 mx-auto max-w-2xl px-4 py-12 sm:px-6">
         <div className="text-center">
-          <div className={`mx-auto mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full text-primary-foreground shadow-pop transition-transform ${accepted ? "bg-gradient-to-br from-emerald-500 to-primary" : declined ? "bg-gradient-to-br from-muted-foreground to-foreground" : "bg-gradient-to-br from-primary to-coral"} ${pulse ? "scale-110" : ""}`}>
-            {accepted ? <CheckCircle2 className="h-8 w-8" strokeWidth={2.5} /> : declined ? <X className="h-8 w-8" strokeWidth={2.5} /> : <PartyPopper className="h-8 w-8" strokeWidth={2.5} />}
+          <div
+            className={`mx-auto mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full text-primary-foreground shadow-pop transition-transform ${accepted ? "bg-gradient-to-br from-emerald-500 to-primary" : declined ? "bg-gradient-to-br from-muted-foreground to-foreground" : "bg-gradient-to-br from-primary to-coral"} ${pulse ? "scale-110" : ""}`}
+          >
+            {accepted ? (
+              <CheckCircle2 className="h-8 w-8" strokeWidth={2.5} />
+            ) : declined ? (
+              <X className="h-8 w-8" strokeWidth={2.5} />
+            ) : (
+              <PartyPopper className="h-8 w-8" strokeWidth={2.5} />
+            )}
           </div>
 
           <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
             <Sparkles className="h-3 w-3 text-primary" /> Invite · {tripId}
           </span>
 
-          <h1 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">{headline}</h1>
+          <h1 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+            {headline}
+          </h1>
 
           {loaded && !token && (
             <p className="mx-auto mt-3 max-w-md text-muted-foreground">
@@ -126,19 +174,22 @@ function RsvpPage() {
 
           {loaded && token && !invite && (
             <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-              We couldn't find this invite. It may have been removed, or the link was opened on a different device than the one that created the plan.
+              We couldn't find this invite. It may have been removed, or the link was opened on a
+              different device than the one that created the plan.
             </p>
           )}
 
           {invite && !accepted && !declined && (
             <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-              <span className="font-semibold text-foreground">{invite.email}</span> — your friend rallied a day. Wanna join?
+              <span className="font-semibold text-foreground">{invite.email}</span> — your friend
+              rallied a day. Wanna join?
             </p>
           )}
 
           {invite && accepted && (
             <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-              We told the host — they'll see your name on the guest list. Add it to your calendar so you don't forget.
+              We told the host — they'll see your name on the guest list. Add it to your calendar so
+              you don't forget.
             </p>
           )}
 
@@ -153,8 +204,12 @@ function RsvpPage() {
         {videoUrl && (
           <section className="mt-8 overflow-hidden rounded-3xl border border-border bg-black shadow-card animate-rsvp-rise">
             <div className="flex items-center justify-between gap-2 bg-gradient-to-r from-primary/20 to-coral/20 px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-primary-foreground">
-              <span className="inline-flex items-center gap-2"><Play className="h-3.5 w-3.5" /> A note from your host</span>
-              <span className="text-[10px] opacity-80">{videoDone ? "Walkthrough ready" : "Intro playing…"}</span>
+              <span className="inline-flex items-center gap-2">
+                <Play className="h-3.5 w-3.5" /> A note from your host
+              </span>
+              <span className="text-[10px] opacity-80">
+                {videoDone ? "Walkthrough ready" : "Intro playing…"}
+              </span>
             </div>
             <div className="relative">
               <video
@@ -167,7 +222,10 @@ function RsvpPage() {
                   const v = e.currentTarget;
                   if (v.duration > 0) setVideoProgress((v.currentTime / v.duration) * 100);
                 }}
-                onEnded={() => { setVideoProgress(100); setVideoDone(true); }}
+                onEnded={() => {
+                  setVideoProgress(100);
+                  setVideoDone(true);
+                }}
                 className="aspect-video w-full bg-black object-cover"
               />
               {/* Lightweight playback progress indicator */}
@@ -183,7 +241,10 @@ function RsvpPage() {
                 <span className="opacity-80">Walkthrough unlocks when the intro finishes</span>
                 <button
                   type="button"
-                  onClick={() => { setVideoProgress(100); setVideoDone(true); }}
+                  onClick={() => {
+                    setVideoProgress(100);
+                    setVideoDone(true);
+                  }}
                   className="rounded-full border border-white/20 px-2.5 py-1 font-semibold text-white/90 transition-colors hover:border-white/60 hover:text-white"
                 >
                   Skip intro
@@ -194,10 +255,15 @@ function RsvpPage() {
         )}
 
         {/* Animated trip preview */}
-        <section className="mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card animate-rsvp-rise" style={{ animationDelay: "120ms" }}>
+        <section
+          className="mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card animate-rsvp-rise"
+          style={{ animationDelay: "120ms" }}
+        >
           <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-gradient-to-r from-primary/5 to-coral/5 p-5 sm:p-6">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{TRIP_PREVIEW.date}</p>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                {TRIP_PREVIEW.date}
+              </p>
               <p className="mt-0.5 font-display text-xl font-semibold">{TRIP_PREVIEW.title}</p>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
@@ -207,11 +273,17 @@ function RsvpPage() {
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
                   </span>
-                  Running ~{tripStatus.minutesLate} min late · {formatUpdatedAt(tripStatus.updatedAt)} · <LiveElapsed since={tripStatus.updatedAt} />
+                  Running ~{tripStatus.minutesLate} min late ·{" "}
+                  {formatUpdatedAt(tripStatus.updatedAt)} ·{" "}
+                  <LiveElapsed since={tripStatus.updatedAt} />
                 </span>
               )}
-              <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {TRIP_PREVIEW.window}</span>
-              <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {TRIP_PREVIEW.city}</span>
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5" /> {TRIP_PREVIEW.window}
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin className="h-3.5 w-3.5" /> {TRIP_PREVIEW.city}
+              </span>
             </div>
           </header>
 
@@ -251,11 +323,17 @@ function RsvpPage() {
                     <div className="flex shrink-0 flex-col items-end gap-1">
                       {tripStatus && tripStatus.minutesLate > 0 ? (
                         <span className="flex items-baseline gap-1.5">
-                          <span className="text-[11px] text-muted-foreground line-through">{s.time}</span>
-                          <span className="text-sm font-semibold text-amber-700">{shiftTimeLabel(s.time, tripStatus.minutesLate)}</span>
+                          <span className="text-[11px] text-muted-foreground line-through">
+                            {s.time}
+                          </span>
+                          <span className="text-sm font-semibold text-amber-700">
+                            {shiftTimeLabel(s.time, tripStatus.minutesLate)}
+                          </span>
                         </span>
                       ) : (
-                        <span className="text-sm font-semibold text-muted-foreground">{s.time}</span>
+                        <span className="text-sm font-semibold text-muted-foreground">
+                          {s.time}
+                        </span>
                       )}
                       {fit.state === "open" && (
                         <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
@@ -317,7 +395,10 @@ function RsvpPage() {
         )}
 
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <Link to="/" className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+          >
             <Calendar className="h-4 w-4" /> Build your own day
           </Link>
         </div>

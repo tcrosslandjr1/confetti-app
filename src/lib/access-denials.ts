@@ -3,7 +3,14 @@
 import { useSyncExternalStore } from "react";
 
 export type DenialSource = "gated-link" | "route-guard";
-export type DenialFeature = "planning" | "booking" | "portal" | "concierge" | "trips" | "reservations" | "other";
+export type DenialFeature =
+  | "planning"
+  | "booking"
+  | "portal"
+  | "concierge"
+  | "trips"
+  | "reservations"
+  | "other";
 
 export type DenialEntry = {
   id: string;
@@ -71,7 +78,11 @@ function subscribe(cb: () => void) {
 }
 
 export function useAccessDenials() {
-  return useSyncExternalStore(subscribe, () => entries, () => entries);
+  return useSyncExternalStore(
+    subscribe,
+    () => entries,
+    () => entries,
+  );
 }
 
 export function inferFeatureFromPath(path: string): DenialFeature {

@@ -2,14 +2,7 @@ import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import {
-  ArrowRightLeft,
-  Copy,
-  Check,
-  Loader2,
-  Languages,
-  AlertTriangle,
-} from "lucide-react";
+import { ArrowRightLeft, Copy, Check, Loader2, Languages, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -138,8 +131,8 @@ function TranslatePage() {
           Translate anything, instantly
         </h1>
         <p className="mx-auto max-w-xl text-sm text-muted-foreground">
-          Paste text, pick a language, and get a natural translation in
-          seconds. Powered by Lovable AI.
+          Paste text, pick a language, and get a natural translation in seconds. Powered by Lovable
+          AI.
         </p>
       </header>
 
@@ -169,11 +162,7 @@ function TranslatePage() {
               onClick={swap}
               disabled={source === "Auto-detect"}
               aria-label="Swap languages"
-              title={
-                source === "Auto-detect"
-                  ? "Pick a source language to swap"
-                  : "Swap languages"
-              }
+              title={source === "Auto-detect" ? "Pick a source language to swap" : "Swap languages"}
             >
               <ArrowRightLeft className="h-4 w-4" />
             </Button>
@@ -229,11 +218,7 @@ function TranslatePage() {
                 disabled={!output}
                 className="h-7 gap-1.5 px-2 text-xs"
               >
-                {copied ? (
-                  <Check className="h-3.5 w-3.5" />
-                ) : (
-                  <Copy className="h-3.5 w-3.5" />
-                )}
+                {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
                 {copied ? "Copied" : "Copy"}
               </Button>
             </div>
@@ -241,9 +226,7 @@ function TranslatePage() {
               id="output"
               value={output}
               readOnly
-              placeholder={
-                mut.isPending ? "Translating…" : "Your translation will appear here."
-              }
+              placeholder={mut.isPending ? "Translating…" : "Your translation will appear here."}
               rows={10}
               className="resize-none bg-muted/30"
             />
@@ -253,10 +236,7 @@ function TranslatePage() {
         <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div className="space-y-1.5">
             <Label className="text-xs">Tone</Label>
-            <Select
-              value={tone}
-              onValueChange={(v) => setTone(v as typeof tone)}
-            >
+            <Select value={tone} onValueChange={(v) => setTone(v as typeof tone)}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue />
               </SelectTrigger>
@@ -297,8 +277,8 @@ function TranslatePage() {
       </section>
 
       <p className="mt-6 text-center text-[11px] text-muted-foreground">
-        Translations are AI-generated and may contain errors. Review important
-        text before relying on it.
+        Translations are AI-generated and may contain errors. Review important text before relying
+        on it.
       </p>
     </main>
   );

@@ -62,7 +62,11 @@ export function findInviteByToken(tripId: string, token: string): Invite | null 
   return loadInvites(tripId).find((i) => i.token === token) ?? null;
 }
 
-export function setInviteStatus(tripId: string, token: string, status: InviteStatus): Invite | null {
+export function setInviteStatus(
+  tripId: string,
+  token: string,
+  status: InviteStatus,
+): Invite | null {
   const invites = loadInvites(tripId);
   const idx = invites.findIndex((i) => i.token === token);
   if (idx === -1) return null;

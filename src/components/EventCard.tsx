@@ -28,9 +28,7 @@ export function EventCard({ event }: { event: EventItem }) {
         </div>
       </div>
       <div className="flex flex-1 flex-col gap-2 p-5">
-        <h3 className="font-display text-lg font-bold leading-tight">
-          {event.title}
-        </h3>
+        <h3 className="font-display text-lg font-bold leading-tight">{event.title}</h3>
         <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
           <MapPin className="h-3.5 w-3.5" />
           {event.city}

@@ -17,7 +17,11 @@ function ConciergeHome() {
 
   useEffect(() => {
     if (!user) return;
-    supabase.from("profiles").select("display_name,xp").eq("id", user.id).maybeSingle()
+    supabase
+      .from("profiles")
+      .select("display_name,xp")
+      .eq("id", user.id)
+      .maybeSingle()
       .then(({ data }) => setProfile(data as any));
   }, [user]);
 
@@ -30,7 +34,11 @@ function ConciergeHome() {
       .single();
     if (thread) {
       const seed = `I'm in the mood for ${label.toLowerCase()}. Give me 3 spots in the DMV that fit and tell me why.`;
-      navigate({ to: "/concierge/chat/$threadId", params: { threadId: thread.id }, search: { seed } as any });
+      navigate({
+        to: "/concierge/chat/$threadId",
+        params: { threadId: thread.id },
+        search: { seed } as any,
+      });
     }
   };
 
@@ -42,13 +50,18 @@ function ConciergeHome() {
       {/* greeting */}
       <div className="flex items-center justify-between">
         <div>
-          <div className="text-xs uppercase tracking-wider text-muted-foreground">Tonight in the DMV</div>
+          <div className="text-xs uppercase tracking-wider text-muted-foreground">
+            Tonight in the DMV
+          </div>
           <h1 className="mt-1 font-display text-3xl font-bold leading-tight">
-            Hey {profile?.display_name?.split(" ")[0] ?? "friend"} <span className="text-gradient">👋</span>
+            Hey {profile?.display_name?.split(" ")[0] ?? "friend"}{" "}
+            <span className="text-gradient">👋</span>
           </h1>
         </div>
         <div className="rounded-2xl border border-border bg-card px-3 py-2 text-right">
-          <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Lvl {level}</div>
+          <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
+            Lvl {level}
+          </div>
           <div className="text-xs font-semibold">{rankName(level)}</div>
         </div>
       </div>
@@ -93,8 +106,19 @@ function ConciergeHome() {
           sub="What's open right now"
           onClick={async () => {
             if (!user) return;
-            const { data } = await supabase.from("threads").insert({ user_id: user.id, title: "Near me" }).select().single();
-            if (data) navigate({ to: "/concierge/chat/$threadId", params: { threadId: data.id }, search: { seed: "Find me 3 great spots open right now within 10 minutes of downtown DC." } as any });
+            const { data } = await supabase
+              .from("threads")
+              .insert({ user_id: user.id, title: "Near me" })
+              .select()
+              .single();
+            if (data)
+              navigate({
+                to: "/concierge/chat/$threadId",
+                params: { threadId: data.id },
+                search: {
+                  seed: "Find me 3 great spots open right now within 10 minutes of downtown DC.",
+                } as any,
+              });
           }}
         />
         <QuickCard
@@ -103,8 +127,19 @@ function ConciergeHome() {
           sub="Something you've never tried"
           onClick={async () => {
             if (!user) return;
-            const { data } = await supabase.from("threads").insert({ user_id: user.id, title: "Surprise me" }).select().single();
-            if (data) navigate({ to: "/concierge/chat/$threadId", params: { threadId: data.id }, search: { seed: "Surprise me with a hidden-gem night in the DMV I probably haven't tried." } as any });
+            const { data } = await supabase
+              .from("threads")
+              .insert({ user_id: user.id, title: "Surprise me" })
+              .select()
+              .single();
+            if (data)
+              navigate({
+                to: "/concierge/chat/$threadId",
+                params: { threadId: data.id },
+                search: {
+                  seed: "Surprise me with a hidden-gem night in the DMV I probably haven't tried.",
+                } as any,
+              });
           }}
         />
         <QuickCard
@@ -113,8 +148,19 @@ function ConciergeHome() {
           sub="Walk-in & last-minute spots"
           onClick={async () => {
             if (!user) return;
-            const { data } = await supabase.from("threads").insert({ user_id: user.id, title: "Book tonight" }).select().single();
-            if (data) navigate({ to: "/concierge/chat/$threadId", params: { threadId: data.id }, search: { seed: "Book me something for tonight — what walk-in friendly spots should I try?" } as any });
+            const { data } = await supabase
+              .from("threads")
+              .insert({ user_id: user.id, title: "Book tonight" })
+              .select()
+              .single();
+            if (data)
+              navigate({
+                to: "/concierge/chat/$threadId",
+                params: { threadId: data.id },
+                search: {
+                  seed: "Book me something for tonight — what walk-in friendly spots should I try?",
+                } as any,
+              });
           }}
         />
       </div>
@@ -132,12 +178,25 @@ function ConciergeHome() {
             >
               <div className="text-3xl">{p.emoji}</div>
               <div className="mt-3 font-display text-lg font-bold leading-tight">{p.name}</div>
-              <div className="mt-1 text-xs text-muted-foreground">{p.category} · {p.neighborhood}</div>
+              <div className="mt-1 text-xs text-muted-foreground">
+                {p.category} · {p.neighborhood}
+              </div>
               <button
                 onClick={async () => {
                   if (!user) return;
-                  const { data } = await supabase.from("threads").insert({ user_id: user.id, title: p.name }).select().single();
-                  if (data) navigate({ to: "/concierge/chat/$threadId", params: { threadId: data.id }, search: { seed: `Tell me about ${p.name} in ${p.neighborhood} and give me 2 similar spots.` } as any });
+                  const { data } = await supabase
+                    .from("threads")
+                    .insert({ user_id: user.id, title: p.name })
+                    .select()
+                    .single();
+                  if (data)
+                    navigate({
+                      to: "/concierge/chat/$threadId",
+                      params: { threadId: data.id },
+                      search: {
+                        seed: `Tell me about ${p.name} in ${p.neighborhood} and give me 2 similar spots.`,
+                      } as any,
+                    });
                 }}
                 className="mt-3 inline-flex rounded-full bg-gradient-vibe px-3 py-1.5 text-xs font-semibold text-primary-foreground"
               >
@@ -151,7 +210,17 @@ function ConciergeHome() {
   );
 }
 
-function QuickCard({ icon, title, sub, onClick }: { icon: React.ReactNode; title: string; sub: string; onClick: () => void }) {
+function QuickCard({
+  icon,
+  title,
+  sub,
+  onClick,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  sub: string;
+  onClick: () => void;
+}) {
   return (
     <button
       onClick={onClick}

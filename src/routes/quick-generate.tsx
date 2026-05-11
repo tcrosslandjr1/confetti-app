@@ -1,6 +1,14 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { WandSparkles, ArrowUp, ArrowDown, Repeat, Sparkles, Lock, ChevronDown } from "lucide-react";
+import {
+  WandSparkles,
+  ArrowUp,
+  ArrowDown,
+  Repeat,
+  Sparkles,
+  Lock,
+  ChevronDown,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
@@ -103,7 +111,13 @@ function QuickGenerate() {
       setActiveLoop(loop);
       navigate({ to: "/boarding-pass", replace: true });
     }, 2800);
-    return () => { clearInterval(iv); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(done); };
+    return () => {
+      clearInterval(iv);
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(done);
+    };
   }, [phase, navigate]);
 
   const move = (i: number, dir: -1 | 1) => {
@@ -168,52 +182,81 @@ function QuickGenerate() {
   return (
     <div className="mx-auto max-w-2xl space-y-6 p-4 pb-24 sm:p-6">
       <header>
-        <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Your Loop</p>
+        <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+          Your Loop
+        </p>
         <h1 className="mt-1 font-display text-3xl font-bold">Tonight's plan</h1>
       </header>
 
       <section className="rounded-3xl border border-border bg-gradient-to-br from-primary/15 via-background to-accent/10 p-6 shadow-card">
         <div className="flex items-center justify-between">
           <div>
-            <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Vibe Match Score</div>
+            <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+              Vibe Match Score
+            </div>
             <div className="mt-1 font-display text-5xl font-bold">94%</div>
           </div>
           <div className="grid h-16 w-16 place-items-center rounded-full bg-gradient-vibe text-primary-foreground">
             <Sparkles className="h-7 w-7" />
           </div>
         </div>
-        <p className="mt-2 text-sm text-muted-foreground">Curated from your taste profile and live trending data.</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Curated from your taste profile and live trending data.
+        </p>
       </section>
 
       <ul className="space-y-3">
         {stops.map((s, i) => (
           <li key={s.name + i} className="rounded-2xl border border-border bg-card p-4 shadow-card">
             <div className="flex items-start gap-3">
-              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-muted text-2xl">{s.emoji}</div>
+              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-muted text-2xl">
+                {s.emoji}
+              </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0">
                     <div className="font-display text-lg font-bold leading-tight">{s.name}</div>
-                    <div className="text-xs text-muted-foreground">{s.type} · {s.area} · {s.price}</div>
+                    <div className="text-xs text-muted-foreground">
+                      {s.type} · {s.area} · {s.price}
+                    </div>
                   </div>
-                  <span className="shrink-0 rounded-full bg-primary/15 px-2 py-0.5 text-[10px] font-bold text-primary">{s.match}%</span>
+                  <span className="shrink-0 rounded-full bg-primary/15 px-2 py-0.5 text-[10px] font-bold text-primary">
+                    {s.match}%
+                  </span>
                 </div>
-                <div className="mt-2 text-xs text-muted-foreground">{s.time} · {s.duration}</div>
+                <div className="mt-2 text-xs text-muted-foreground">
+                  {s.time} · {s.duration}
+                </div>
                 <div className="mt-3 flex flex-wrap items-center gap-2">
-                  <button onClick={() => move(i, -1)} disabled={i === 0} className="grid h-8 w-8 place-items-center rounded-full border border-border disabled:opacity-30">
+                  <button
+                    onClick={() => move(i, -1)}
+                    disabled={i === 0}
+                    className="grid h-8 w-8 place-items-center rounded-full border border-border disabled:opacity-30"
+                  >
                     <ArrowUp className="h-3.5 w-3.5" />
                   </button>
-                  <button onClick={() => move(i, 1)} disabled={i === stops.length - 1} className="grid h-8 w-8 place-items-center rounded-full border border-border disabled:opacity-30">
+                  <button
+                    onClick={() => move(i, 1)}
+                    disabled={i === stops.length - 1}
+                    className="grid h-8 w-8 place-items-center rounded-full border border-border disabled:opacity-30"
+                  >
                     <ArrowDown className="h-3.5 w-3.5" />
                   </button>
-                  <button onClick={() => setOpenSwap(openSwap === i ? null : i)} className="ml-auto inline-flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs font-semibold hover:bg-muted">
+                  <button
+                    onClick={() => setOpenSwap(openSwap === i ? null : i)}
+                    className="ml-auto inline-flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-xs font-semibold hover:bg-muted"
+                  >
                     <Repeat className="h-3.5 w-3.5" /> Swap
                   </button>
                 </div>
                 {openSwap === i && (
                   <div className="mt-3 space-y-2 border-t border-border pt-3 animate-fade-in">
                     {s.alternatives.map((a) => (
-                      <button key={a.name} onClick={() => swap(i, a)} className="flex w-full items-center gap-3 rounded-xl border border-border bg-background p-2.5 text-left hover:bg-muted">
+                      <button
+                        key={a.name}
+                        onClick={() => swap(i, a)}
+                        className="flex w-full items-center gap-3 rounded-xl border border-border bg-background p-2.5 text-left hover:bg-muted"
+                      >
                         <span className="text-xl">{a.emoji}</span>
                         <span className="min-w-0 flex-1">
                           <span className="block text-sm font-semibold">{a.name}</span>
@@ -230,21 +273,38 @@ function QuickGenerate() {
       </ul>
 
       <section className="rounded-2xl border border-border bg-card p-4 shadow-card">
-        <button onClick={() => setShowTweaks(!showTweaks)} className="flex w-full items-center justify-between font-semibold">
-          <span className="inline-flex items-center gap-2"><Repeat className="h-4 w-4" /> Regenerate with tweaks</span>
-          <ChevronDown className={`h-4 w-4 transition-transform ${showTweaks ? "rotate-180" : ""}`} />
+        <button
+          onClick={() => setShowTweaks(!showTweaks)}
+          className="flex w-full items-center justify-between font-semibold"
+        >
+          <span className="inline-flex items-center gap-2">
+            <Repeat className="h-4 w-4" /> Regenerate with tweaks
+          </span>
+          <ChevronDown
+            className={`h-4 w-4 transition-transform ${showTweaks ? "rotate-180" : ""}`}
+          />
         </button>
         {showTweaks && (
           <div className="mt-4 space-y-3 animate-fade-in">
             <div className="flex flex-wrap gap-2">
               {TWEAKS.map((t) => (
-                <button key={t} onClick={() => setTweak(tweak ? `${tweak}, ${t}` : t)} className="rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold hover:bg-muted">
+                <button
+                  key={t}
+                  onClick={() => setTweak(tweak ? `${tweak}, ${t}` : t)}
+                  className="rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold hover:bg-muted"
+                >
                   {t}
                 </button>
               ))}
             </div>
-            <Input value={tweak} onChange={(e) => setTweak(e.target.value)} placeholder="Anything else to adjust?" />
-            <Button onClick={regenerate} className="w-full">Regenerate</Button>
+            <Input
+              value={tweak}
+              onChange={(e) => setTweak(e.target.value)}
+              placeholder="Anything else to adjust?"
+            />
+            <Button onClick={regenerate} className="w-full">
+              Regenerate
+            </Button>
           </div>
         )}
       </section>

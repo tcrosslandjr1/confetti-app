@@ -8,7 +8,11 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Loop" },
-      { name: "description", content: "Get in touch with the Loop team. Feedback, partnerships, press — we read every message." },
+      {
+        name: "description",
+        content:
+          "Get in touch with the Loop team. Feedback, partnerships, press — we read every message.",
+      },
       { property: "og:title", content: "Contact — Loop" },
       { property: "og:description", content: "Send us a note. We read every message." },
     ],
@@ -31,7 +35,10 @@ function ContactPage() {
               Feedback, partnership ideas, press, or a vibe we should plan for — drop us a line.
             </p>
             <div className="mt-8 space-y-4 text-sm">
-              <a href="mailto:hello@confetti.app" className="flex items-center gap-3 text-foreground hover:text-primary">
+              <a
+                href="mailto:hello@confetti.app"
+                className="flex items-center gap-3 text-foreground hover:text-primary"
+              >
                 <Mail className="h-4 w-4" /> hello@confetti.app
               </a>
               <div className="flex items-center gap-3 text-muted-foreground">
@@ -40,7 +47,10 @@ function ContactPage() {
             </div>
           </div>
           <form
-            onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+            onSubmit={(e) => {
+              e.preventDefault();
+              setSent(true);
+            }}
             className="rounded-3xl border border-border bg-card p-6 shadow-card"
           >
             {sent ? (
@@ -51,16 +61,33 @@ function ContactPage() {
             ) : (
               <div className="space-y-4">
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Name</label>
-                  <input required className="mt-1 h-11 w-full rounded-xl border border-border bg-background px-3 text-sm" />
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Name
+                  </label>
+                  <input
+                    required
+                    className="mt-1 h-11 w-full rounded-xl border border-border bg-background px-3 text-sm"
+                  />
                 </div>
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email</label>
-                  <input required type="email" className="mt-1 h-11 w-full rounded-xl border border-border bg-background px-3 text-sm" />
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Email
+                  </label>
+                  <input
+                    required
+                    type="email"
+                    className="mt-1 h-11 w-full rounded-xl border border-border bg-background px-3 text-sm"
+                  />
                 </div>
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Message</label>
-                  <textarea required rows={5} className="mt-1 w-full rounded-xl border border-border bg-background p-3 text-sm" />
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Message
+                  </label>
+                  <textarea
+                    required
+                    rows={5}
+                    className="mt-1 w-full rounded-xl border border-border bg-background p-3 text-sm"
+                  />
                 </div>
                 <button className="h-11 w-full rounded-full bg-foreground text-sm font-semibold text-background transition-pop hover:scale-[1.02]">
                   Send message

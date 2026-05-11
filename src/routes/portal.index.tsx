@@ -1,8 +1,35 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Sparkles, MapPin, ArrowRight, Star, Bookmark, CalendarCheck, MessageCircle, Trophy, Users, Gift, Lock, Crown, Flame, Medal, Calendar as CalendarIcon, Target, Zap, TrendingUp, CheckCircle2, Clock, Wand2, Loader2, Sliders } from "lucide-react";
+import {
+  Sparkles,
+  MapPin,
+  ArrowRight,
+  Star,
+  Bookmark,
+  CalendarCheck,
+  MessageCircle,
+  Trophy,
+  Users,
+  Gift,
+  Crown,
+  Flame,
+  Medal,
+  Calendar as CalendarIcon,
+  Target,
+  Zap,
+  TrendingUp,
+  CheckCircle2,
+  Wand2,
+  Loader2,
+  Sliders,
+} from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { getMyReferralStats, getOrCreateMyReferralCode, buildReferralLink, type MyReferralStats } from "@/lib/referrals";
+import {
+  getMyReferralStats,
+  getOrCreateMyReferralCode,
+  buildReferralLink,
+  type MyReferralStats,
+} from "@/lib/referrals";
 import { useAuth } from "@/lib/auth-context";
 import { NearbyVenues } from "@/components/NearbyVenues";
 import { GooglePhotos } from "@/components/GooglePhotos";
@@ -11,24 +38,66 @@ import { PromotedSlot } from "@/components/PromotedSlot";
 import { buildAndSaveItinerary } from "@/lib/itineraries";
 import { loadPrefs } from "@/lib/taste";
 import { toast } from "sonner";
-import { TonightAtAGlance, NextBookingCountdown, ConciergeQuickAsk, SpendBudgetTracker } from "@/components/widgets/AppWidgets";
+import {
+  TonightAtAGlance,
+  NextBookingCountdown,
+  ConciergeQuickAsk,
+  SpendBudgetTracker,
+} from "@/components/widgets/AppWidgets";
 
 export const Route = createFileRoute("/portal/")({
   head: () => ({
     meta: [
       { title: "Your Portal — Loop" },
-      { name: "description", content: "Your bookings, referrals, achievements and curated picks — all in one dashboard." },
+      {
+        name: "description",
+        content: "Your bookings, referrals, achievements and curated picks — all in one dashboard.",
+      },
       { property: "og:title", content: "Your Portal — Loop" },
-      { property: "og:description", content: "Your bookings, referrals, achievements and curated picks — all in one dashboard." },
+      {
+        property: "og:description",
+        content: "Your bookings, referrals, achievements and curated picks — all in one dashboard.",
+      },
     ],
   }),
   component: PortalDiscoverPage,
 });
 
-type Venue = { id: string; name: string; category: string; neighborhood: string | null; price_level: number; image_url: string | null; description: string | null };
-type Featured = { id: string; venue_id: string | null; title: string | null; subtitle: string | null; collection_slug: string | null; venues: Venue | null };
-type Booking = { id: string; venue_name: string; party_size: number; status: string; total_cents: number; starts_at: string };
-type Achievement = { id: string; code: string; title: string; description: string; icon: string; xp_reward: number; unlocked: boolean; unlocked_at: string | null };
+type Venue = {
+  id: string;
+  name: string;
+  category: string;
+  neighborhood: string | null;
+  price_level: number;
+  image_url: string | null;
+  description: string | null;
+};
+type Featured = {
+  id: string;
+  venue_id: string | null;
+  title: string | null;
+  subtitle: string | null;
+  collection_slug: string | null;
+  venues: Venue | null;
+};
+type Booking = {
+  id: string;
+  venue_name: string;
+  party_size: number;
+  status: string;
+  total_cents: number;
+  starts_at: string;
+};
+type Achievement = {
+  id: string;
+  code: string;
+  title: string;
+  description: string;
+  icon: string;
+  xp_reward: number;
+  unlocked: boolean;
+  unlocked_at: string | null;
+};
 type Profile = { display_name: string | null; xp: number; level: number };
 
 function PortalDiscoverPage() {
@@ -40,7 +109,12 @@ function PortalDiscoverPage() {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [upcoming, setUpcoming] = useState<Booking[]>([]);
   const [bookingTotals, setBookingTotals] = useState({ upcoming: 0, past: 0 });
-  const [refStats, setRefStats] = useState<MyReferralStats>({ invited: 0, signedUp: 0, completed: 0, earnedCents: 0 });
+  const [refStats, setRefStats] = useState<MyReferralStats>({
+    invited: 0,
+    signedUp: 0,
+    completed: 0,
+    earnedCents: 0,
+  });
   const [referralCode, setReferralCode] = useState<string | null>(null);
   const [achievements, setAchievements] = useState<Achievement[]>([]);
 
@@ -60,17 +134,24 @@ function PortalDiscoverPage() {
       const scenes = (tp.scene_keywords ?? []).slice(0, 3).join(", ");
       const vibeBits = [scenes, loves].filter(Boolean).join(" · ");
       const occasion =
-        tp.life_stage === "with_kids" ? "Family night"
-        : tp.energy === "high_energy" ? "Night out"
-        : tp.energy === "chill" ? "Chill evening"
-        : "Surprise me";
+        tp.life_stage === "with_kids"
+          ? "Family night"
+          : tp.energy === "high_energy"
+            ? "Night out"
+            : tp.energy === "chill"
+              ? "Chill evening"
+              : "Surprise me";
       const today = new Date();
       const dateIso = today.toISOString().slice(0, 10);
       const startTime = today.getHours() < 16 ? "17:00" : "19:00";
       const budget =
-        prefs.budget_max >= 200 ? "$$$"
-        : prefs.budget_max >= 100 ? "$$"
-        : prefs.budget_min > 0 || prefs.budget_max > 0 ? "$" : "$$";
+        prefs.budget_max >= 200
+          ? "$$$"
+          : prefs.budget_max >= 100
+            ? "$$"
+            : prefs.budget_min > 0 || prefs.budget_max > 0
+              ? "$"
+              : "$$";
       const toastId = toast.loading("Generating your plan from your taste profile…");
       try {
         const { id } = await buildAndSaveItinerary({
@@ -98,7 +179,9 @@ function PortalDiscoverPage() {
   useEffect(() => {
     supabase
       .from("featured_content")
-      .select("id,venue_id,title,subtitle,collection_slug,venues(id,name,category,neighborhood,price_level,image_url,description)")
+      .select(
+        "id,venue_id,title,subtitle,collection_slug,venues(id,name,category,neighborhood,price_level,image_url,description)",
+      )
       .eq("active", true)
       .order("position")
       .then(({ data }) => setFeatured((data as unknown as Featured[]) ?? []));
@@ -134,7 +217,10 @@ function PortalDiscoverPage() {
         getMyReferralStats(),
         getOrCreateMyReferralCode(),
         supabase.from("achievements").select("id,code,title,description,icon,xp_reward"),
-        supabase.from("user_achievements").select("achievement_id,unlocked_at").eq("user_id", user.id),
+        supabase
+          .from("user_achievements")
+          .select("achievement_id,unlocked_at")
+          .eq("user_id", user.id),
       ]);
 
       if (cancelled) return;
@@ -145,7 +231,9 @@ function PortalDiscoverPage() {
       setReferralCode(code);
 
       const unlockedMap = new Map((ua.data ?? []).map((r) => [r.achievement_id, r.unlocked_at]));
-      const merged: Achievement[] = ((achDefs.data as Omit<Achievement, "unlocked" | "unlocked_at">[]) ?? [])
+      const merged: Achievement[] = (
+        (achDefs.data as Omit<Achievement, "unlocked" | "unlocked_at">[]) ?? []
+      )
         .map((d) => ({
           ...d,
           unlocked: unlockedMap.has(d.id),
@@ -154,7 +242,9 @@ function PortalDiscoverPage() {
         .sort((a, b) => Number(b.unlocked) - Number(a.unlocked) || a.xp_reward - b.xp_reward);
       setAchievements(merged);
     })();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [user]);
 
   const greeting = profile?.display_name ? `Hey, ${profile.display_name.split(" ")[0]}` : "Hey";
@@ -165,10 +255,15 @@ function PortalDiscoverPage() {
     <div className="space-y-10">
       <header className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">My Portal</p>
-          <h1 className="mt-1 font-display text-4xl font-bold leading-tight">{greeting} — here's your night out, all in one place.</h1>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            My Portal
+          </p>
+          <h1 className="mt-1 font-display text-4xl font-bold leading-tight">
+            {greeting} — here's your night out, all in one place.
+          </h1>
           <p className="mt-2 max-w-xl text-muted-foreground">
-            Upcoming bookings, referral rewards, badges you've earned, and fresh picks from the city.
+            Upcoming bookings, referral rewards, badges you've earned, and fresh picks from the
+            city.
           </p>
         </div>
         <div className="flex shrink-0 flex-col items-stretch gap-2 sm:items-end">
@@ -180,7 +275,11 @@ function PortalDiscoverPage() {
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-vibe px-6 py-3 font-display text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-pop transition-pop hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-70"
               title="Auto-build a plan from your taste profile and social signals"
             >
-              {quickBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Wand2 className="h-4 w-4" />}
+              {quickBusy ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Wand2 className="h-4 w-4" />
+              )}
               {quickBusy ? "Generating…" : "Quick generate"}
             </button>
             <Link
@@ -192,7 +291,10 @@ function PortalDiscoverPage() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
-          <Link to="/onboarding" className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground">
+          <Link
+            to="/onboarding"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground"
+          >
             <Sliders className="h-3 w-3" /> Tune what you like
           </Link>
         </div>
@@ -223,8 +325,18 @@ function PortalDiscoverPage() {
       <ViralNow city="Washington DC" />
 
       <div className="grid gap-3 sm:grid-cols-3">
-        <QuickAction to="/concierge/chat" icon={MessageCircle} label="Ask Concierge" hint="AI-powered planning" />
-        <QuickAction to="/portal/bookings" icon={CalendarCheck} label="My Bookings" hint="Upcoming & past" />
+        <QuickAction
+          to="/concierge/chat"
+          icon={MessageCircle}
+          label="Ask Concierge"
+          hint="AI-powered planning"
+        />
+        <QuickAction
+          to="/portal/bookings"
+          icon={CalendarCheck}
+          label="My Bookings"
+          hint="Upcoming & past"
+        />
         <QuickAction to="/portal/saved" icon={Bookmark} label="Saved Spots" hint="Your wishlist" />
       </div>
 
@@ -248,14 +360,19 @@ function PortalDiscoverPage() {
               ) : (
                 <ul className="space-y-2">
                   {upcoming.map((b) => (
-                    <li key={b.id} className="flex items-start justify-between gap-3 rounded-xl border border-border bg-background/50 p-3">
+                    <li
+                      key={b.id}
+                      className="flex items-start justify-between gap-3 rounded-xl border border-border bg-background/50 p-3"
+                    >
                       <div className="min-w-0">
                         <div className="truncate font-display font-bold">{b.venue_name}</div>
                         <div className="mt-0.5 text-xs text-muted-foreground">
                           {formatDateTime(b.starts_at)} · party of {b.party_size}
                         </div>
                       </div>
-                      <span className={`shrink-0 rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest ${statusTone(b.status)}`}>
+                      <span
+                        className={`shrink-0 rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest ${statusTone(b.status)}`}
+                      >
                         {b.status}
                       </span>
                     </li>
@@ -279,19 +396,25 @@ function PortalDiscoverPage() {
               <div className="mt-3 rounded-xl border border-dashed border-border bg-background/40 p-3">
                 <div className="flex items-center justify-between gap-2">
                   <div className="min-w-0">
-                    <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Earned</div>
-                    <div className="font-display text-lg font-bold">${(refStats.earnedCents / 100).toFixed(0)}</div>
+                    <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+                      Earned
+                    </div>
+                    <div className="font-display text-lg font-bold">
+                      ${(refStats.earnedCents / 100).toFixed(0)}
+                    </div>
                   </div>
                   <Gift className="h-5 w-5 text-primary" />
                 </div>
                 {referralLink && (
-                  <div className="mt-2 truncate font-mono text-[11px] text-muted-foreground" title={referralLink}>
+                  <div
+                    className="mt-2 truncate font-mono text-[11px] text-muted-foreground"
+                    title={referralLink}
+                  >
                     {referralCode ? `Code: ${referralCode}` : referralLink}
                   </div>
                 )}
               </div>
             </DashCard>
-
           </section>
 
           {/* Right sidebar: weekly challenge — stats moved to /portal/profile */}
@@ -308,15 +431,22 @@ function PortalDiscoverPage() {
 
       <NearbyVenues />
 
-      <PromotedSlot placement="featured_card" surface="portal_promoted_rail" variant="rail" title="Promoted picks near you" />
+      <PromotedSlot
+        placement="featured_card"
+        surface="portal_promoted_rail"
+        variant="rail"
+        title="Promoted picks near you"
+      />
 
       {featured.length > 0 && (
         <section>
           <h2 className="mb-4 font-display text-2xl font-bold">Editor's picks</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.filter((f) => f.venues).map((f) => (
-              <FeaturedCard key={f.id} venue={f.venues!} title={f.title} subtitle={f.subtitle} />
-            ))}
+            {featured
+              .filter((f) => f.venues)
+              .map((f) => (
+                <FeaturedCard key={f.id} venue={f.venues!} title={f.title} subtitle={f.subtitle} />
+              ))}
           </div>
         </section>
       )}
@@ -324,7 +454,12 @@ function PortalDiscoverPage() {
       <section>
         <div className="mb-4 flex items-baseline justify-between">
           <h2 className="font-display text-2xl font-bold">Fresh on Concierge</h2>
-          <Link to="/portal/bookings" className="text-sm font-semibold text-primary hover:underline">Book a spot →</Link>
+          <Link
+            to="/portal/bookings"
+            className="text-sm font-semibold text-primary hover:underline"
+          >
+            Book a spot →
+          </Link>
         </div>
         {venues.length === 0 ? (
           <p className="rounded-2xl border border-dashed border-border bg-card/50 p-8 text-center text-sm text-muted-foreground">
@@ -332,7 +467,9 @@ function PortalDiscoverPage() {
           </p>
         ) : (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {venues.map((v) => <VenueCard key={v.id} v={v} />)}
+            {venues.map((v) => (
+              <VenueCard key={v.id} v={v} />
+            ))}
           </div>
         )}
       </section>
@@ -340,23 +477,63 @@ function PortalDiscoverPage() {
   );
 }
 
-function StatTile({ icon: Icon, label, value, hint, to, tone }: { icon: typeof Sparkles; label: string; value: string; hint?: string; to?: string; tone?: string }) {
+function StatTile({
+  icon: Icon,
+  label,
+  value,
+  hint,
+  to,
+  tone,
+}: {
+  icon: typeof Sparkles;
+  label: string;
+  value: string;
+  hint?: string;
+  to?: string;
+  tone?: string;
+}) {
   const inner = (
-    <div className={`flex h-full items-center gap-3 rounded-2xl border border-border p-4 shadow-card transition-pop ${tone ?? "bg-card"} ${to ? "hover:scale-[1.02] hover:shadow-pop" : ""}`}>
-      <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tone ? "bg-white/15" : "bg-gradient-vibe text-primary-foreground"}`}>
+    <div
+      className={`flex h-full items-center gap-3 rounded-2xl border border-border p-4 shadow-card transition-pop ${tone ?? "bg-card"} ${to ? "hover:scale-[1.02] hover:shadow-pop" : ""}`}
+    >
+      <span
+        className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tone ? "bg-white/15" : "bg-gradient-vibe text-primary-foreground"}`}
+      >
         <Icon className="h-5 w-5" />
       </span>
       <div className="min-w-0">
-        <div className={`text-[10px] font-mono uppercase tracking-widest ${tone ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{label}</div>
+        <div
+          className={`text-[10px] font-mono uppercase tracking-widest ${tone ? "text-primary-foreground/80" : "text-muted-foreground"}`}
+        >
+          {label}
+        </div>
         <div className="font-display text-2xl font-extrabold leading-tight">{value}</div>
-        {hint && <div className={`truncate text-xs ${tone ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{hint}</div>}
+        {hint && (
+          <div
+            className={`truncate text-xs ${tone ? "text-primary-foreground/80" : "text-muted-foreground"}`}
+          >
+            {hint}
+          </div>
+        )}
       </div>
     </div>
   );
   return to ? <Link to={to as "/"}>{inner}</Link> : inner;
 }
 
-function DashCard({ title, icon: Icon, actionLabel, actionTo, children }: { title: string; icon: typeof Sparkles; actionLabel?: string; actionTo?: string; children: React.ReactNode }) {
+function DashCard({
+  title,
+  icon: Icon,
+  actionLabel,
+  actionTo,
+  children,
+}: {
+  title: string;
+  icon: typeof Sparkles;
+  actionLabel?: string;
+  actionTo?: string;
+  children: React.ReactNode;
+}) {
   return (
     <article className="rounded-2xl border border-border bg-card p-5 shadow-card">
       <header className="mb-3 flex items-center justify-between gap-2">
@@ -365,7 +542,9 @@ function DashCard({ title, icon: Icon, actionLabel, actionTo, children }: { titl
           <h2 className="font-display text-lg font-bold">{title}</h2>
         </div>
         {actionLabel && actionTo && (
-          <Link to={actionTo as "/"} className="text-xs font-semibold text-primary hover:underline">{actionLabel} →</Link>
+          <Link to={actionTo as "/"} className="text-xs font-semibold text-primary hover:underline">
+            {actionLabel} →
+          </Link>
         )}
       </header>
       {children}
@@ -377,18 +556,31 @@ function MiniStat({ label, value }: { label: string; value: number }) {
   return (
     <div className="rounded-xl border border-border bg-background/50 p-2">
       <div className="font-display text-xl font-extrabold leading-tight">{value}</div>
-      <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">{label}</div>
+      <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+        {label}
+      </div>
     </div>
   );
 }
 
-function EmptyState({ icon: Icon, text, cta }: { icon: typeof Sparkles; text: string; cta?: { to: string; label: string } }) {
+function EmptyState({
+  icon: Icon,
+  text,
+  cta,
+}: {
+  icon: typeof Sparkles;
+  text: string;
+  cta?: { to: string; label: string };
+}) {
   return (
     <div className="rounded-xl border border-dashed border-border bg-background/40 p-5 text-center">
       <Icon className="mx-auto h-6 w-6 text-muted-foreground" />
       <p className="mt-2 text-sm text-muted-foreground">{text}</p>
       {cta && (
-        <Link to={cta.to as "/"} className="mt-3 inline-block text-xs font-semibold text-primary hover:underline">
+        <Link
+          to={cta.to as "/"}
+          className="mt-3 inline-block text-xs font-semibold text-primary hover:underline"
+        >
           {cta.label} →
         </Link>
       )}
@@ -399,37 +591,67 @@ function EmptyState({ icon: Icon, text, cta }: { icon: typeof Sparkles; text: st
 function AchIcon({ name }: { name: string }) {
   const cls = "h-4 w-4";
   switch (name) {
-    case "crown": return <Crown className={cls} />;
-    case "flame": return <Flame className={cls} />;
-    case "star": return <Star className={cls} />;
-    case "medal": return <Medal className={cls} />;
-    case "sparkles": return <Sparkles className={cls} />;
-    default: return <Trophy className={cls} />;
+    case "crown":
+      return <Crown className={cls} />;
+    case "flame":
+      return <Flame className={cls} />;
+    case "star":
+      return <Star className={cls} />;
+    case "medal":
+      return <Medal className={cls} />;
+    case "sparkles":
+      return <Sparkles className={cls} />;
+    default:
+      return <Trophy className={cls} />;
   }
 }
 
 function statusTone(status: string) {
   switch (status) {
-    case "confirmed": return "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300";
-    case "pending": return "bg-amber-500/15 text-amber-700 dark:text-amber-300";
-    case "cancelled": return "bg-destructive/15 text-destructive";
-    default: return "bg-muted text-muted-foreground";
+    case "confirmed":
+      return "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300";
+    case "pending":
+      return "bg-amber-500/15 text-amber-700 dark:text-amber-300";
+    case "cancelled":
+      return "bg-destructive/15 text-destructive";
+    default:
+      return "bg-muted text-muted-foreground";
   }
 }
 
 function formatDateTime(iso: string) {
   try {
     const d = new Date(iso);
-    return d.toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+    return d.toLocaleString(undefined, {
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    });
   } catch {
     return iso;
   }
 }
 
-function QuickAction({ to, icon: Icon, label, hint }: { to: string; icon: typeof Sparkles; label: string; hint: string }) {
+function QuickAction({
+  to,
+  icon: Icon,
+  label,
+  hint,
+}: {
+  to: string;
+  icon: typeof Sparkles;
+  label: string;
+  hint: string;
+}) {
   return (
-    <Link to={to as "/"} className="group flex items-center gap-3 rounded-2xl border border-border bg-card p-4 shadow-card transition-pop hover:scale-[1.02] hover:shadow-pop">
-      <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-vibe text-primary-foreground"><Icon className="h-5 w-5" /></span>
+    <Link
+      to={to as "/"}
+      className="group flex items-center gap-3 rounded-2xl border border-border bg-card p-4 shadow-card transition-pop hover:scale-[1.02] hover:shadow-pop"
+    >
+      <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-vibe text-primary-foreground">
+        <Icon className="h-5 w-5" />
+      </span>
       <div className="min-w-0 flex-1">
         <div className="font-display font-bold">{label}</div>
         <div className="truncate text-xs text-muted-foreground">{hint}</div>
@@ -439,7 +661,15 @@ function QuickAction({ to, icon: Icon, label, hint }: { to: string; icon: typeof
   );
 }
 
-function FeaturedCard({ venue, title, subtitle }: { venue: Venue; title: string | null; subtitle: string | null }) {
+function FeaturedCard({
+  venue,
+  title,
+  subtitle,
+}: {
+  venue: Venue;
+  title: string | null;
+  subtitle: string | null;
+}) {
   return (
     <Link
       to="/venue/$id"
@@ -449,14 +679,28 @@ function FeaturedCard({ venue, title, subtitle }: { venue: Venue; title: string 
       {venue.image_url ? (
         <img src={venue.image_url} alt={venue.name} className="h-40 w-full object-cover" />
       ) : (
-        <GooglePhotos venue={venue.name} neighborhood={venue.neighborhood} variant="hero" className="h-40 w-full" />
+        <GooglePhotos
+          venue={venue.name}
+          neighborhood={venue.neighborhood}
+          variant="hero"
+          className="h-40 w-full"
+        />
       )}
       <div className="p-4">
-        <div className="text-[10px] font-mono uppercase tracking-wider text-primary">{title ?? "Featured"}</div>
+        <div className="text-[10px] font-mono uppercase tracking-wider text-primary">
+          {title ?? "Featured"}
+        </div>
         <h3 className="mt-1 font-display text-lg font-bold">{venue.name}</h3>
-        <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{subtitle ?? venue.description}</p>
+        <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+          {subtitle ?? venue.description}
+        </p>
         <div className="mt-3 flex items-center gap-3 text-xs text-muted-foreground">
-          {venue.neighborhood && <span className="inline-flex items-center gap-1"><MapPin className="h-3 w-3" />{venue.neighborhood}</span>}
+          {venue.neighborhood && (
+            <span className="inline-flex items-center gap-1">
+              <MapPin className="h-3 w-3" />
+              {venue.neighborhood}
+            </span>
+          )}
           <span>{"$".repeat(venue.price_level)}</span>
         </div>
       </div>
@@ -474,21 +718,32 @@ function VenueCard({ v }: { v: Venue }) {
       {v.image_url ? (
         <img src={v.image_url} alt={v.name} className="h-36 w-full object-cover" />
       ) : (
-        <GooglePhotos venue={v.name} neighborhood={v.neighborhood} variant="hero" className="h-36 w-full" />
+        <GooglePhotos
+          venue={v.name}
+          neighborhood={v.neighborhood}
+          variant="hero"
+          className="h-36 w-full"
+        />
       )}
       <div className="p-4">
-        <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">{v.category}</div>
+        <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+          {v.category}
+        </div>
         <h3 className="mt-1 font-display text-lg font-bold">{v.name}</h3>
         <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{v.description}</p>
         <div className="mt-3 flex items-center gap-3 text-xs text-muted-foreground">
-          {v.neighborhood && <span className="inline-flex items-center gap-1"><MapPin className="h-3 w-3" />{v.neighborhood}</span>}
+          {v.neighborhood && (
+            <span className="inline-flex items-center gap-1">
+              <MapPin className="h-3 w-3" />
+              {v.neighborhood}
+            </span>
+          )}
           <span>{"$".repeat(v.price_level)}</span>
         </div>
       </div>
     </Link>
   );
 }
-
 
 function WeeklyChallenge({ bookings, referrals }: { bookings: number; referrals: number }) {
   const goals = [
@@ -504,16 +759,26 @@ function WeeklyChallenge({ bookings, referrals }: { bookings: number; referrals:
           <Target className="h-4 w-4 text-primary" />
           <h3 className="font-display text-sm font-bold uppercase tracking-wider">This week</h3>
         </div>
-        <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{completed}/{goals.length}</span>
+        <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+          {completed}/{goals.length}
+        </span>
       </header>
       <ul className="space-y-2">
         {goals.map((g) => (
           <li key={g.label} className="flex items-center justify-between gap-2 text-xs">
-            <span className={`flex items-center gap-2 ${g.done ? "text-foreground line-through" : "text-foreground"}`}>
-              {g.done ? <CheckCircle2 className="h-4 w-4 text-emerald-500" /> : <span className="h-4 w-4 rounded-full border-2 border-muted-foreground/40" />}
+            <span
+              className={`flex items-center gap-2 ${g.done ? "text-foreground line-through" : "text-foreground"}`}
+            >
+              {g.done ? (
+                <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+              ) : (
+                <span className="h-4 w-4 rounded-full border-2 border-muted-foreground/40" />
+              )}
               {g.label}
             </span>
-            <span className="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-primary">{g.reward}</span>
+            <span className="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-primary">
+              {g.reward}
+            </span>
           </li>
         ))}
       </ul>
@@ -521,13 +786,50 @@ function WeeklyChallenge({ bookings, referrals }: { bookings: number; referrals:
   );
 }
 
-
-function NextSteps({ hasUpcoming, hasReferred, unlocked, totalAch }: { hasUpcoming: boolean; hasReferred: boolean; unlocked: number; totalAch: number }) {
-  const steps: { to: string; icon: typeof Sparkles; title: string; desc: string; tone: string }[] = [];
-  if (!hasUpcoming) steps.push({ to: "/plan", icon: Zap, title: "Plan your next night", desc: "Tell us the vibe — we'll build the route in 60 seconds.", tone: "from-primary/15 to-primary/5" });
-  if (!hasReferred) steps.push({ to: "/portal/refer", icon: Gift, title: "Invite a friend, earn $10", desc: "They get a free plan, you get credit on the next booking.", tone: "from-rose-500/15 to-rose-500/5" });
-  if (totalAch > 0 && unlocked < totalAch) steps.push({ to: "/portal/refer", icon: Trophy, title: `${totalAch - unlocked} badges left to unlock`, desc: "Each one is worth XP and bragging rights.", tone: "from-amber-500/15 to-amber-500/5" });
-  steps.push({ to: "/concierge/chat", icon: MessageCircle, title: "Ask the Concierge", desc: "Spitball ideas, swap a stop, or get a backup plan.", tone: "from-violet-500/15 to-violet-500/5" });
+function NextSteps({
+  hasUpcoming,
+  hasReferred,
+  unlocked,
+  totalAch,
+}: {
+  hasUpcoming: boolean;
+  hasReferred: boolean;
+  unlocked: number;
+  totalAch: number;
+}) {
+  const steps: { to: string; icon: typeof Sparkles; title: string; desc: string; tone: string }[] =
+    [];
+  if (!hasUpcoming)
+    steps.push({
+      to: "/plan",
+      icon: Zap,
+      title: "Plan your next night",
+      desc: "Tell us the vibe — we'll build the route in 60 seconds.",
+      tone: "from-primary/15 to-primary/5",
+    });
+  if (!hasReferred)
+    steps.push({
+      to: "/portal/refer",
+      icon: Gift,
+      title: "Invite a friend, earn $10",
+      desc: "They get a free plan, you get credit on the next booking.",
+      tone: "from-rose-500/15 to-rose-500/5",
+    });
+  if (totalAch > 0 && unlocked < totalAch)
+    steps.push({
+      to: "/portal/refer",
+      icon: Trophy,
+      title: `${totalAch - unlocked} badges left to unlock`,
+      desc: "Each one is worth XP and bragging rights.",
+      tone: "from-amber-500/15 to-amber-500/5",
+    });
+  steps.push({
+    to: "/concierge/chat",
+    icon: MessageCircle,
+    title: "Ask the Concierge",
+    desc: "Spitball ideas, swap a stop, or get a backup plan.",
+    tone: "from-violet-500/15 to-violet-500/5",
+  });
 
   return (
     <section aria-label="What to do next">

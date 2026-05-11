@@ -1,12 +1,31 @@
 export const CUISINES = [
-  "Ethiopian", "Thai", "Soul Food", "Japanese", "Mexican", "Italian",
-  "Korean", "Vietnamese", "Indian", "Mediterranean", "Caribbean", "American",
+  "Ethiopian",
+  "Thai",
+  "Soul Food",
+  "Japanese",
+  "Mexican",
+  "Italian",
+  "Korean",
+  "Vietnamese",
+  "Indian",
+  "Mediterranean",
+  "Caribbean",
+  "American",
 ] as const;
 
 export const ACTIVITIES = [
-  "Rooftop Bars", "Live Jazz", "Comedy Shows", "Wine Tastings",
-  "Date Night", "Brunch", "Dance Clubs", "Sports", "Art Galleries",
-  "Speakeasies", "Outdoor Patios", "Live Music",
+  "Rooftop Bars",
+  "Live Jazz",
+  "Comedy Shows",
+  "Wine Tastings",
+  "Date Night",
+  "Brunch",
+  "Dance Clubs",
+  "Sports",
+  "Art Galleries",
+  "Speakeasies",
+  "Outdoor Patios",
+  "Live Music",
 ] as const;
 
 export type Mood = {
@@ -18,10 +37,34 @@ export type Mood = {
 };
 
 export const MOODS: Mood[] = [
-  { id: "date_night",  label: "Date Night",   blurb: "Romantic, candlelit, swoon-worthy",       gradient: "bg-gradient-vibe", emoji: "💋" },
-  { id: "adventure",   label: "Adventure",    blurb: "Try something you've never done",        gradient: "bg-gradient-warm", emoji: "🚀" },
-  { id: "chill",       label: "Chill",        blurb: "Low-key, cozy, easy energy",             gradient: "bg-gradient-cool", emoji: "🌙" },
-  { id: "celebration", label: "Celebration",  blurb: "Big night, bottle service, hype",        gradient: "bg-gradient-gold", emoji: "🎉" },
+  {
+    id: "date_night",
+    label: "Date Night",
+    blurb: "Romantic, candlelit, swoon-worthy",
+    gradient: "bg-gradient-vibe",
+    emoji: "💋",
+  },
+  {
+    id: "adventure",
+    label: "Adventure",
+    blurb: "Try something you've never done",
+    gradient: "bg-gradient-warm",
+    emoji: "🚀",
+  },
+  {
+    id: "chill",
+    label: "Chill",
+    blurb: "Low-key, cozy, easy energy",
+    gradient: "bg-gradient-cool",
+    emoji: "🌙",
+  },
+  {
+    id: "celebration",
+    label: "Celebration",
+    blurb: "Big night, bottle service, hype",
+    gradient: "bg-gradient-gold",
+    emoji: "🎉",
+  },
 ];
 
 export const TRENDING_PICKS = [

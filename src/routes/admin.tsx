@@ -32,7 +32,10 @@ export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
       { title: "Admin Console — Concierge" },
-      { name: "description", content: "Internal admin console for managing the Concierge platform." },
+      {
+        name: "description",
+        content: "Internal admin console for managing the Concierge platform.",
+      },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
@@ -82,7 +85,13 @@ function AdminLayout() {
   );
 }
 
-function AdminShell({ user, pathname }: { user: ReturnType<typeof useAuth>["user"]; pathname: string }) {
+function AdminShell({
+  user,
+  pathname,
+}: {
+  user: ReturnType<typeof useAuth>["user"];
+  pathname: string;
+}) {
   const { isMobile, setOpenMobile } = useSidebar();
   const handleNav = () => {
     if (isMobile) setOpenMobile(false);
@@ -98,7 +107,9 @@ function AdminShell({ user, pathname }: { user: ReturnType<typeof useAuth>["user
             </div>
             <div className="text-sm">
               <div className="font-display font-bold leading-none">Concierge</div>
-              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Admin</div>
+              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                Admin
+              </div>
             </div>
           </div>
           <SidebarGroup>
@@ -110,7 +121,11 @@ function AdminShell({ user, pathname }: { user: ReturnType<typeof useAuth>["user
                   return (
                     <SidebarMenuItem key={item.to}>
                       <SidebarMenuButton asChild isActive={active}>
-                        <Link to={item.to as string as "/"} onClick={handleNav} className="flex items-center gap-2">
+                        <Link
+                          to={item.to as string as "/"}
+                          onClick={handleNav}
+                          className="flex items-center gap-2"
+                        >
                           <item.icon className="h-4 w-4" />
                           <span>{item.label}</span>
                         </Link>
@@ -144,7 +159,9 @@ function AdminShell({ user, pathname }: { user: ReturnType<typeof useAuth>["user
           <SidebarTrigger />
           <div className="text-sm font-semibold">Admin Console</div>
           <div className="ml-auto flex items-center gap-2">
-            <span className="hidden truncate text-xs text-muted-foreground sm:inline">{user?.email}</span>
+            <span className="hidden truncate text-xs text-muted-foreground sm:inline">
+              {user?.email}
+            </span>
             <NotificationsBell />
           </div>
         </header>

@@ -5,22 +5,9 @@ import artImg from "@/assets/event-art.jpg";
 import wellnessImg from "@/assets/event-wellness.jpg";
 import sportsImg from "@/assets/event-sports.jpg";
 
-export type EventCategory =
-  | "Music"
-  | "Tech"
-  | "Food"
-  | "Arts"
-  | "Wellness"
-  | "Sports";
+export type EventCategory = "Music" | "Tech" | "Food" | "Arts" | "Wellness" | "Sports";
 
-export const CATEGORIES: EventCategory[] = [
-  "Music",
-  "Tech",
-  "Food",
-  "Arts",
-  "Wellness",
-  "Sports",
-];
+export const CATEGORIES: EventCategory[] = ["Music", "Tech", "Food", "Arts", "Wellness", "Sports"];
 
 export type EventItem = {
   id: string;
@@ -46,8 +33,7 @@ export const EVENTS: EventItem[] = [
     price: 49,
     image: musicImg,
     organizer: "Riff Collective",
-    blurb:
-      "An electric night of rising indie pop acts under one roof, with rooftop afterparty.",
+    blurb: "An electric night of rising indie pop acts under one roof, with rooftop afterparty.",
   },
   {
     id: "founder-summit",

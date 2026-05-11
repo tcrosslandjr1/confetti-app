@@ -1,6 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { Flame, MapPin, ExternalLink, Star, TrendingUp, Sparkles, Search, X, Trophy, Crown, Medal } from "lucide-react";
+import {
+  Flame,
+  MapPin,
+  ExternalLink,
+  Star,
+  TrendingUp,
+  Sparkles,
+  Search,
+  X,
+  Trophy,
+  Crown,
+  Medal,
+} from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { ViralTagChip, ALL_VIRAL_TAGS, tagLabel, type ViralTag } from "@/components/ViralTagChip";
 
@@ -8,7 +20,10 @@ export const Route = createFileRoute("/portal/viral")({
   head: () => ({
     meta: [
       { title: "Viral Now — My Portal | Loop" },
-      { name: "description", content: "Top trending venues in your city, ranked by trend score and filterable by vibe." },
+      {
+        name: "description",
+        content: "Top trending venues in your city, ranked by trend score and filterable by vibe.",
+      },
     ],
   }),
   component: PortalViralPage,
@@ -65,13 +80,13 @@ function PortalViralPage() {
         sortBy === "score_desc" || sortBy === "score_asc"
           ? "trend_score"
           : sortBy === "mentions"
-          ? "mention_count"
-          : "last_mentioned_at";
+            ? "mention_count"
+            : "last_mentioned_at";
       const ascending = sortBy === "score_asc";
       const { data } = await supabase
         .from("viral_venues")
         .select(
-          "id,city,venue_name,neighborhood,address,photo_url,rating,trend_score,tags,summary,google_place_id,source_urls,last_mentioned_at,mention_count"
+          "id,city,venue_name,neighborhood,address,photo_url,rating,trend_score,tags,summary,google_place_id,source_urls,last_mentioned_at,mention_count",
         )
         .eq("city", city)
         .order(orderCol, { ascending })
@@ -89,7 +104,11 @@ function PortalViralPage() {
     return rows.filter((r) => {
       if (r.trend_score < minScore) return false;
       if (activeTags.length && !activeTags.some((t) => r.tags?.includes(t))) return false;
-      if (q && !`${r.venue_name} ${r.neighborhood ?? ""} ${r.summary ?? ""}`.toLowerCase().includes(q)) return false;
+      if (
+        q &&
+        !`${r.venue_name} ${r.neighborhood ?? ""} ${r.summary ?? ""}`.toLowerCase().includes(q)
+      )
+        return false;
       return true;
     });
   }, [rows, activeTags, minScore, query]);
@@ -104,7 +123,9 @@ function PortalViralPage() {
   );
   const trendingTag = useMemo<{ tag: ViralTag; n: number } | null>(() => {
     const counts = new Map<ViralTag, number>();
-    (rows ?? []).forEach((r) => (r.tags ?? []).forEach((t) => counts.set(t, (counts.get(t) ?? 0) + 1)));
+    (rows ?? []).forEach((r) =>
+      (r.tags ?? []).forEach((t) => counts.set(t, (counts.get(t) ?? 0) + 1)),
+    );
     let best: { tag: ViralTag; n: number } | null = null;
     counts.forEach((n, tag) => {
       if (!best || n > best.n) best = { tag, n };
@@ -129,10 +150,14 @@ function PortalViralPage() {
             <Flame className="h-3 w-3 animate-pulse" /> What's hot · live
           </p>
           <h1 className="font-display text-3xl font-extrabold leading-tight sm:text-4xl">
-            Viral Now in <span className="bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 bg-clip-text text-transparent">{city}</span>
+            Viral Now in{" "}
+            <span className="bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 bg-clip-text text-transparent">
+              {city}
+            </span>
           </h1>
           <p className="max-w-2xl text-sm text-muted-foreground">
-            The top venues trending across TikTok, Instagram, creators, and the press — ranked by Loop's trend score.
+            The top venues trending across TikTok, Instagram, creators, and the press — ranked by
+            Loop's trend score.
           </p>
 
           {/* Quick city pills */}
@@ -155,8 +180,18 @@ function PortalViralPage() {
 
           {/* KPIs */}
           <div className="grid gap-2 pt-3 sm:grid-cols-3">
-            <Kpi icon={Flame} label="Top score" value={rows ? topScore.toFixed(2) : "—"} accent="text-rose-500" />
-            <Kpi icon={TrendingUp} label="Total mentions" value={rows ? totalMentions.toLocaleString() : "—"} accent="text-orange-500" />
+            <Kpi
+              icon={Flame}
+              label="Top score"
+              value={rows ? topScore.toFixed(2) : "—"}
+              accent="text-rose-500"
+            />
+            <Kpi
+              icon={TrendingUp}
+              label="Total mentions"
+              value={rows ? totalMentions.toLocaleString() : "—"}
+              accent="text-orange-500"
+            />
             <Kpi
               icon={Sparkles}
               label="Trending vibe"
@@ -172,7 +207,9 @@ function PortalViralPage() {
         <div>
           <div className="mb-2 flex items-center gap-2">
             <Trophy className="h-4 w-4 text-amber-500" />
-            <h2 className="font-display text-sm font-bold uppercase tracking-wider">Top 3 right now</h2>
+            <h2 className="font-display text-sm font-bold uppercase tracking-wider">
+              Top 3 right now
+            </h2>
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
             {top3.map((v, i) => (
@@ -185,18 +222,24 @@ function PortalViralPage() {
       {/* Sticky filter bar */}
       <div className="sticky top-2 z-10 space-y-3 rounded-2xl border border-border bg-card/95 p-4 shadow-card backdrop-blur">
         <div className="flex flex-wrap items-center gap-2">
-          <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground">City</label>
+          <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground">
+            City
+          </label>
           <select
             value={city}
             onChange={(e) => setCity(e.target.value)}
             className="rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold"
           >
             {cities.map((c) => (
-              <option key={c} value={c}>{c}</option>
+              <option key={c} value={c}>
+                {c}
+              </option>
             ))}
           </select>
 
-          <label className="ml-2 text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground">Sort</label>
+          <label className="ml-2 text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground">
+            Sort
+          </label>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as SortKey)}
@@ -242,7 +285,11 @@ function PortalViralPage() {
           {hasFilters && (
             <button
               type="button"
-              onClick={() => { setActiveTags([]); setMinScore(0); setQuery(""); }}
+              onClick={() => {
+                setActiveTags([]);
+                setMinScore(0);
+                setQuery("");
+              }}
               className="ml-auto inline-flex items-center gap-1 rounded-full border border-border px-2.5 py-1 text-[11px] font-semibold text-muted-foreground hover:text-foreground"
             >
               <X className="h-3 w-3" /> Reset filters
@@ -296,7 +343,11 @@ function PortalViralPage() {
           {hasFilters && (
             <button
               type="button"
-              onClick={() => { setActiveTags([]); setMinScore(0); setQuery(""); }}
+              onClick={() => {
+                setActiveTags([]);
+                setMinScore(0);
+                setQuery("");
+              }}
               className="mt-4 rounded-full bg-foreground px-4 py-2 text-xs font-bold uppercase tracking-widest text-background"
             >
               Reset filters
@@ -308,7 +359,12 @@ function PortalViralPage() {
       {filtered && filtered.length > 0 && (
         <ol className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {filtered.map((v, i) => (
-            <ViralCard key={v.id} v={v} rank={sortBy === "score_desc" ? i + 1 : undefined} topScore={topScore} />
+            <ViralCard
+              key={v.id}
+              v={v}
+              rank={sortBy === "score_desc" ? i + 1 : undefined}
+              topScore={topScore}
+            />
           ))}
         </ol>
       )}
@@ -316,14 +372,26 @@ function PortalViralPage() {
   );
 }
 
-function Kpi({ icon: Icon, label, value, accent }: { icon: typeof Flame; label: string; value: string; accent: string }) {
+function Kpi({
+  icon: Icon,
+  label,
+  value,
+  accent,
+}: {
+  icon: typeof Flame;
+  label: string;
+  value: string;
+  accent: string;
+}) {
   return (
     <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/70 p-3 backdrop-blur">
       <span className={`grid h-9 w-9 place-items-center rounded-xl bg-background ${accent}`}>
         <Icon className="h-4 w-4" />
       </span>
       <div className="min-w-0">
-        <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">{label}</div>
+        <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+          {label}
+        </div>
         <div className="truncate font-display text-base font-extrabold leading-tight">{value}</div>
       </div>
     </div>
@@ -342,19 +410,28 @@ function SpotlightCard({ v, rank }: { v: Row; rank: number }) {
     <article className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:shadow-pop">
       <div className="relative aspect-[5/3] w-full overflow-hidden bg-muted">
         {v.photo_url ? (
-          <img src={v.photo_url} alt={v.venue_name} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+          <img
+            src={v.photo_url}
+            alt={v.venue_name}
+            loading="lazy"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          />
         ) : (
           <div className="grid h-full place-items-center text-4xl">🔥</div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
-        <div className={`absolute left-2 top-2 inline-flex items-center gap-1 rounded-full px-2 py-1 text-[10px] font-black uppercase tracking-widest shadow-pop ${color}`}>
+        <div
+          className={`absolute left-2 top-2 inline-flex items-center gap-1 rounded-full px-2 py-1 text-[10px] font-black uppercase tracking-widest shadow-pop ${color}`}
+        >
           <Icon className="h-3 w-3" /> #{rank}
         </div>
         <div className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-full bg-background/90 px-2 py-1 text-[10px] font-bold backdrop-blur">
           <Flame className="h-3 w-3 text-rose-500" /> {v.trend_score.toFixed(2)}
         </div>
         <div className="absolute inset-x-3 bottom-2 text-white">
-          <h3 className="font-display text-base font-extrabold leading-tight drop-shadow">{v.venue_name}</h3>
+          <h3 className="font-display text-base font-extrabold leading-tight drop-shadow">
+            {v.venue_name}
+          </h3>
           {v.neighborhood && <p className="text-[11px] opacity-90">{v.neighborhood}</p>}
         </div>
       </div>
@@ -382,7 +459,12 @@ function ViralCard({ v, rank, topScore }: { v: Row; rank?: number; topScore: num
     <li className="group overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:-translate-y-0.5 hover:shadow-pop">
       <div className="relative aspect-[5/3] w-full overflow-hidden bg-muted">
         {v.photo_url ? (
-          <img src={v.photo_url} alt={v.venue_name} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]" />
+          <img
+            src={v.photo_url}
+            alt={v.venue_name}
+            loading="lazy"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+          />
         ) : (
           <div className="grid h-full place-items-center text-4xl">🍽️</div>
         )}

@@ -167,9 +167,17 @@ async function verifyWithGooglePlaces(
     try {
       const res = await fetch(`${supabaseUrl}/functions/v1/google-places`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", apikey: anonKey, Authorization: `Bearer ${anonKey}` },
+        headers: {
+          "Content-Type": "application/json",
+          apikey: anonKey,
+          Authorization: `Bearer ${anonKey}`,
+        },
         body: JSON.stringify({
-          queries: chunk.map((c) => ({ venue: c.name, neighborhood: c.neighborhood, address: city })),
+          queries: chunk.map((c) => ({
+            venue: c.name,
+            neighborhood: c.neighborhood,
+            address: city,
+          })),
         }),
       });
       if (!res.ok) continue;
@@ -255,7 +263,9 @@ async function discoverForCity(city: string) {
 
     // 2. Extract candidates (parallel, capped)
     const extractions = await Promise.all(
-      allResults.slice(0, 40).map(({ result, query }) => extractCandidatesForResult(model, result, city, query)),
+      allResults
+        .slice(0, 40)
+        .map(({ result, query }) => extractCandidatesForResult(model, result, city, query)),
     );
     const flat = extractions.flat();
 
@@ -384,7 +394,11 @@ async function discoverForCity(city: string) {
     if (runId) {
       await admin
         .from("viral_discovery_runs")
-        .update({ finished_at: new Date().toISOString(), error: message, duration_ms: Date.now() - startedAt })
+        .update({
+          finished_at: new Date().toISOString(),
+          error: message,
+          duration_ms: Date.now() - startedAt,
+        })
         .eq("id", runId);
     }
     throw e;
@@ -415,10 +429,10 @@ export const Route = createFileRoute("/api/public/hooks/discover-viral")({
           return Response.json({ ok: true, ...result });
         } catch (e) {
           console.error("[discover-viral] failed", e);
-          return new Response(
-            JSON.stringify({ ok: false, error: (e as Error).message }),
-            { status: 500, headers: { "Content-Type": "application/json" } },
-          );
+          return new Response(JSON.stringify({ ok: false, error: (e as Error).message }), {
+            status: 500,
+            headers: { "Content-Type": "application/json" },
+          });
         }
       },
     },

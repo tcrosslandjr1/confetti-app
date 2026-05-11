@@ -146,9 +146,7 @@ async function fetchAlerts(
       effective: f.properties.effective ?? null,
       expires: f.properties.expires ?? null,
     }));
-    const severe = all.filter((a) =>
-      ["Severe", "Extreme"].includes(a.severity),
-    );
+    const severe = all.filter((a) => ["Severe", "Extreme"].includes(a.severity));
     return { alerts: severe.length > 0 ? severe : all, supported: true };
   } catch {
     return { alerts: [], supported: true };
@@ -303,10 +301,7 @@ function WeatherPage() {
     navigator.geolocation.getCurrentPosition(
       async (pos) => {
         try {
-          const p = await reverseGeocode(
-            pos.coords.latitude,
-            pos.coords.longitude,
-          );
+          const p = await reverseGeocode(pos.coords.latitude, pos.coords.longitude);
           await loadFor(p);
         } catch (e) {
           setError((e as Error).message);
@@ -317,9 +312,7 @@ function WeatherPage() {
       (err) => {
         setLocating(false);
         if (err.code === err.PERMISSION_DENIED) {
-          setError(
-            "Location access was denied. Search for a city instead.",
-          );
+          setError("Location access was denied. Search for a city instead.");
         } else {
           setError("Couldn't get your location. Search for a city instead.");
         }
@@ -364,12 +357,9 @@ function WeatherPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-10 sm:py-16">
       <header className="mb-6 space-y-2 text-center">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Local weather
-        </h1>
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Local weather</h1>
         <p className="text-sm text-muted-foreground">
-          Current conditions and a 7-day forecast for any city, or use your
-          current location.
+          Current conditions and a 7-day forecast for any city, or use your current location.
         </p>
       </header>
 
@@ -387,18 +377,9 @@ function WeatherPage() {
           </div>
           <div className="flex gap-2">
             <Button type="submit" disabled={searching || !query.trim()}>
-              {searching ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : (
-                "Search"
-              )}
+              {searching ? <Loader2 className="h-4 w-4 animate-spin" /> : "Search"}
             </Button>
-            <Button
-              type="button"
-              variant="outline"
-              onClick={useMyLocation}
-              disabled={locating}
-            >
+            <Button type="button" variant="outline" onClick={useMyLocation} disabled={locating}>
               {locating ? (
                 <Loader2 className="mr-1.5 h-4 w-4 animate-spin" />
               ) : (
@@ -482,8 +463,7 @@ function WeatherPage() {
                               minute: "2-digit",
                             });
                           const inEffect =
-                            (!eff || eff.getTime() <= now) &&
-                            (!exp || exp.getTime() > now);
+                            (!eff || eff.getTime() <= now) && (!exp || exp.getTime() > now);
                           const upcoming = !!eff && eff.getTime() > now;
                           const ended = !!exp && exp.getTime() <= now;
                           return (
@@ -514,9 +494,7 @@ function WeatherPage() {
                                     : `From ${fmt(eff!)}`}
                               </p>
                               {a.sender && (
-                                <p className="text-[11px] opacity-70">
-                                  Issued by {a.sender}
-                                </p>
+                                <p className="text-[11px] opacity-70">Issued by {a.sender}</p>
                               )}
                             </div>
                           );
@@ -530,9 +508,7 @@ function WeatherPage() {
                             )}
                             <button
                               type="button"
-                              onClick={() =>
-                                setExpandedAlertId(expanded ? null : a.id)
-                              }
+                              onClick={() => setExpandedAlertId(expanded ? null : a.id)}
                               className="text-[11px] font-medium underline underline-offset-2"
                             >
                               {expanded ? "Hide details" : "Show details"}
@@ -552,17 +528,14 @@ function WeatherPage() {
             )}
             {!alertsSupported && (
               <p className="text-[11px] text-muted-foreground">
-                Severe weather alerts aren't available for this region yet
-                (currently U.S. only).
+                Severe weather alerts aren't available for this region yet (currently U.S. only).
               </p>
             )}
             <div className="flex flex-col gap-4 rounded-xl bg-muted/40 p-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                   <MapPin className="h-3.5 w-3.5" />
-                  {[place.name, place.admin, place.country]
-                    .filter(Boolean)
-                    .join(", ")}
+                  {[place.name, place.admin, place.country].filter(Boolean).join(", ")}
                 </div>
                 <div className="mt-1 flex items-baseline gap-2">
                   <span className="text-5xl font-bold tracking-tight">
@@ -576,9 +549,7 @@ function WeatherPage() {
                 </p>
               </div>
               <CurrentIcon
-                className={`h-20 w-20 ${
-                  current.isDay ? "text-amber-500" : "text-indigo-400"
-                }`}
+                className={`h-20 w-20 ${current.isDay ? "text-amber-500" : "text-indigo-400"}`}
                 strokeWidth={1.5}
               />
             </div>
@@ -589,16 +560,8 @@ function WeatherPage() {
                 label="Feels like"
                 value={`${Math.round(current.apparent)}°C`}
               />
-              <Stat
-                Icon={Droplets}
-                label="Humidity"
-                value={`${current.humidity}%`}
-              />
-              <Stat
-                Icon={Wind}
-                label="Wind"
-                value={`${Math.round(current.windSpeed)} km/h`}
-              />
+              <Stat Icon={Droplets} label="Humidity" value={`${current.humidity}%`} />
+              <Stat Icon={Wind} label="Wind" value={`${Math.round(current.windSpeed)} km/h`} />
             </div>
 
             <div>
@@ -616,25 +579,14 @@ function WeatherPage() {
                           day: "numeric",
                         });
                   return (
-                    <li
-                      key={d.date}
-                      className="flex items-center gap-3 px-3 py-2.5 text-sm"
-                    >
+                    <li key={d.date} className="flex items-center gap-3 px-3 py-2.5 text-sm">
                       <span className="w-24 font-medium">{dayLabel}</span>
                       <Icon className="h-5 w-5 shrink-0 text-muted-foreground" />
-                      <span className="flex-1 truncate text-muted-foreground">
-                        {label}
-                      </span>
-                      <span className="w-12 text-right text-xs text-sky-600">
-                        {d.precipProb}%
-                      </span>
+                      <span className="flex-1 truncate text-muted-foreground">{label}</span>
+                      <span className="w-12 text-right text-xs text-sky-600">{d.precipProb}%</span>
                       <span className="w-20 text-right tabular-nums">
-                        <span className="font-semibold">
-                          {Math.round(d.tMax)}°
-                        </span>
-                        <span className="ml-1 text-muted-foreground">
-                          {Math.round(d.tMin)}°
-                        </span>
+                        <span className="font-semibold">{Math.round(d.tMax)}°</span>
+                        <span className="ml-1 text-muted-foreground">{Math.round(d.tMin)}°</span>
                       </span>
                     </li>
                   );
@@ -652,15 +604,7 @@ function WeatherPage() {
   );
 }
 
-function Stat({
-  Icon,
-  label,
-  value,
-}: {
-  Icon: typeof Sun;
-  label: string;
-  value: string;
-}) {
+function Stat({ Icon, label, value }: { Icon: typeof Sun; label: string; value: string }) {
   return (
     <div className="rounded-lg border border-border bg-background p-3">
       <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">

@@ -51,7 +51,7 @@ function AdminLoginPage() {
       if (!roleRow) {
         await supabase.auth.signOut();
         throw new Error(
-          "This account does not have admin access. Customers should sign in at /auth."
+          "This account does not have admin access. Customers should sign in at /auth.",
         );
       }
       navigate({ to: "/admin" });

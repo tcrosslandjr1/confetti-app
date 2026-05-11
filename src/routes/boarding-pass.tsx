@@ -21,16 +21,28 @@ function BoardingPassPage() {
     }
   }, []);
 
-  if (!loop) return <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">Loading…</div>;
+  if (!loop)
+    return (
+      <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">
+        Loading…
+      </div>
+    );
 
   return (
     <div className="min-h-screen bg-background pb-32">
       <div className="mx-auto max-w-md px-4 pt-6">
-        <Link to="/portal" className="inline-flex items-center gap-1 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 hover:text-ink">
+        <Link
+          to="/portal"
+          className="inline-flex items-center gap-1 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 hover:text-ink"
+        >
           <ArrowLeft className="h-3.5 w-3.5" /> Back
         </Link>
-        <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight">Your Loop is ready</h1>
-        <p className="mt-1 text-sm text-muted-foreground">Show this at each stop. Earn Confetti as you go.</p>
+        <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight">
+          Your Loop is ready
+        </h1>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Show this at each stop. Earn Confetti as you go.
+        </p>
       </div>
       <div className="mt-6 px-4">
         <BoardingPass loop={loop} />

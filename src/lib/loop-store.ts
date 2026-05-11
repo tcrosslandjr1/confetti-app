@@ -45,7 +45,9 @@ function emit(event: string) {
 /** Subscribe to active-loop changes (same-tab + cross-tab). Returns unsubscribe. */
 export function subscribeActiveLoop(cb: () => void): () => void {
   if (!isClient()) return () => {};
-  const onStorage = (e: StorageEvent) => { if (e.key === KEY_LOOP) cb(); };
+  const onStorage = (e: StorageEvent) => {
+    if (e.key === KEY_LOOP) cb();
+  };
   window.addEventListener(EVENT_LOOP, cb);
   window.addEventListener("storage", onStorage);
   return () => {
@@ -57,7 +59,9 @@ export function subscribeActiveLoop(cb: () => void): () => void {
 /** Subscribe to confetti changes (same-tab + cross-tab). Returns unsubscribe. */
 export function subscribeConfetti(cb: () => void): () => void {
   if (!isClient()) return () => {};
-  const onStorage = (e: StorageEvent) => { if (e.key === KEY_CONFETTI) cb(); };
+  const onStorage = (e: StorageEvent) => {
+    if (e.key === KEY_CONFETTI) cb();
+  };
   window.addEventListener(EVENT_CONFETTI, cb);
   window.addEventListener("storage", onStorage);
   return () => {
@@ -149,7 +153,9 @@ export function makeDemoLoop(input: Partial<ActiveLoop> = {}): ActiveLoop {
   return {
     id: `LP-${Math.random().toString(36).slice(2, 7).toUpperCase()}`,
     passenger: input.passenger || "GUEST",
-    date: input.date || today.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }),
+    date:
+      input.date ||
+      today.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }),
     groupSize: input.groupSize ?? 2,
     from: input.from || "HOME",
     to: input.to || "NIGHT OUT",
@@ -159,7 +165,13 @@ export function makeDemoLoop(input: Partial<ActiveLoop> = {}): ActiveLoop {
     vibe: input.vibe,
     stops: input.stops || [
       { id: "s1", name: "Lila's Patio", type: "Small plates", time: "6:30 PM", area: "Shaw" },
-      { id: "s2", name: "Mason St. Records", type: "Vinyl + nat wine", time: "8:15 PM", area: "U Street" },
+      {
+        id: "s2",
+        name: "Mason St. Records",
+        type: "Vinyl + nat wine",
+        time: "8:15 PM",
+        area: "U Street",
+      },
       { id: "s3", name: "Aera Rooftop", type: "Nightcap", time: "10:00 PM", area: "Logan Circle" },
     ],
   };

@@ -80,7 +80,9 @@ function StatCard({
   tone: string;
 }) {
   return (
-    <div className={`relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${tone} p-5 shadow-card`}>
+    <div
+      className={`relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${tone} p-5 shadow-card`}
+    >
       <div className="flex items-start justify-between">
         <div>
           <div className="text-xs uppercase tracking-wider text-muted-foreground">{label}</div>
@@ -112,7 +114,9 @@ function AdminAnalyticsPage() {
     <div className="space-y-6">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Insights</p>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            Insights
+          </p>
           <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
             <BarChart3 className="h-7 w-7" /> Analytics
           </h1>
@@ -126,7 +130,9 @@ function AdminAnalyticsPage() {
               key={r}
               onClick={() => setRange(r)}
               className={`rounded-full px-3 py-1.5 font-semibold transition ${
-                range === r ? "bg-gradient-vibe text-primary-foreground shadow-pop" : "text-muted-foreground hover:text-foreground"
+                range === r
+                  ? "bg-gradient-vibe text-primary-foreground shadow-pop"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {r === "7d" ? "Last 7 days" : r === "30d" ? "Last 30 days" : "Last 90 days"}
@@ -136,10 +142,34 @@ function AdminAnalyticsPage() {
       </header>
 
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Bookings" value={totals.bookings.toLocaleString()} delta="+14.2%" icon={CalendarCheck} tone="from-coral/30 to-coral/5" />
-        <StatCard label="Revenue" value={`$${(totals.revenue / 1000).toFixed(1)}k`} delta="+22.6%" icon={DollarSign} tone="from-gold/40 to-gold/5" />
-        <StatCard label="Avg ticket" value={`$${totals.avgTicket.toFixed(0)}`} delta="+3.1%" icon={TrendingUp} tone="from-purple/30 to-purple/5" />
-        <StatCard label="New users" value="312" delta="+9.4%" icon={Users} tone="from-coral/30 to-purple/10" />
+        <StatCard
+          label="Bookings"
+          value={totals.bookings.toLocaleString()}
+          delta="+14.2%"
+          icon={CalendarCheck}
+          tone="from-coral/30 to-coral/5"
+        />
+        <StatCard
+          label="Revenue"
+          value={`$${(totals.revenue / 1000).toFixed(1)}k`}
+          delta="+22.6%"
+          icon={DollarSign}
+          tone="from-gold/40 to-gold/5"
+        />
+        <StatCard
+          label="Avg ticket"
+          value={`$${totals.avgTicket.toFixed(0)}`}
+          delta="+3.1%"
+          icon={TrendingUp}
+          tone="from-purple/30 to-purple/5"
+        />
+        <StatCard
+          label="New users"
+          value="312"
+          delta="+9.4%"
+          icon={Users}
+          tone="from-coral/30 to-purple/10"
+        />
       </section>
 
       <section className="grid gap-6 lg:grid-cols-2">
@@ -158,7 +188,11 @@ function AdminAnalyticsPage() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
-                <XAxis dataKey="date" tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
+                <XAxis
+                  dataKey="date"
+                  tick={{ fontSize: 11 }}
+                  stroke="hsl(var(--muted-foreground))"
+                />
                 <YAxis tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
                 <Tooltip
                   contentStyle={{
@@ -168,7 +202,13 @@ function AdminAnalyticsPage() {
                     fontSize: 12,
                   }}
                 />
-                <Area type="monotone" dataKey="bookings" stroke="hsl(var(--primary))" strokeWidth={2} fill="url(#bk)" />
+                <Area
+                  type="monotone"
+                  dataKey="bookings"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth={2}
+                  fill="url(#bk)"
+                />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -183,8 +223,16 @@ function AdminAnalyticsPage() {
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
-                <XAxis dataKey="date" tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
-                <YAxis tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" tickFormatter={(v) => `$${v / 1000}k`} />
+                <XAxis
+                  dataKey="date"
+                  tick={{ fontSize: 11 }}
+                  stroke="hsl(var(--muted-foreground))"
+                />
+                <YAxis
+                  tick={{ fontSize: 11 }}
+                  stroke="hsl(var(--muted-foreground))"
+                  tickFormatter={(v) => `$${v / 1000}k`}
+                />
                 <Tooltip
                   formatter={(v: number) => [`$${v.toLocaleString()}`, "Revenue"]}
                   contentStyle={{
@@ -194,7 +242,13 @@ function AdminAnalyticsPage() {
                     fontSize: 12,
                   }}
                 />
-                <Line type="monotone" dataKey="revenue" stroke="hsl(var(--primary))" strokeWidth={2.5} dot={false} />
+                <Line
+                  type="monotone"
+                  dataKey="revenue"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth={2.5}
+                  dot={false}
+                />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -211,9 +265,27 @@ function AdminAnalyticsPage() {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={VENUE_PERF} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
-                <XAxis dataKey="name" tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" interval={0} angle={-15} dy={8} height={50} />
-                <YAxis yAxisId="left" tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
-                <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" tickFormatter={(v) => `$${v / 1000}k`} />
+                <XAxis
+                  dataKey="name"
+                  tick={{ fontSize: 11 }}
+                  stroke="hsl(var(--muted-foreground))"
+                  interval={0}
+                  angle={-15}
+                  dy={8}
+                  height={50}
+                />
+                <YAxis
+                  yAxisId="left"
+                  tick={{ fontSize: 11 }}
+                  stroke="hsl(var(--muted-foreground))"
+                />
+                <YAxis
+                  yAxisId="right"
+                  orientation="right"
+                  tick={{ fontSize: 11 }}
+                  stroke="hsl(var(--muted-foreground))"
+                  tickFormatter={(v) => `$${v / 1000}k`}
+                />
                 <Tooltip
                   contentStyle={{
                     background: "hsl(var(--card))",
@@ -223,8 +295,20 @@ function AdminAnalyticsPage() {
                   }}
                 />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
-                <Bar yAxisId="left" dataKey="bookings" name="Bookings" fill="hsl(var(--primary))" radius={[6, 6, 0, 0]} />
-                <Bar yAxisId="right" dataKey="revenue" name="Revenue" fill="oklch(0.78 0.15 85)" radius={[6, 6, 0, 0]} />
+                <Bar
+                  yAxisId="left"
+                  dataKey="bookings"
+                  name="Bookings"
+                  fill="hsl(var(--primary))"
+                  radius={[6, 6, 0, 0]}
+                />
+                <Bar
+                  yAxisId="right"
+                  dataKey="revenue"
+                  name="Revenue"
+                  fill="oklch(0.78 0.15 85)"
+                  radius={[6, 6, 0, 0]}
+                />
               </BarChart>
             </ResponsiveContainer>
           </div>

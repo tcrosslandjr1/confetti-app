@@ -22,7 +22,11 @@ export function ScrollProgress() {
     <div className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-1">
       <div
         className="h-full origin-left bg-gradient-to-r from-coral via-gold to-purple"
-        style={{ transform: `scaleX(${pct / 100})`, transformOrigin: "left center", transition: "transform 80ms linear" }}
+        style={{
+          transform: `scaleX(${pct / 100})`,
+          transformOrigin: "left center",
+          transition: "transform 80ms linear",
+        }}
       />
     </div>
   );

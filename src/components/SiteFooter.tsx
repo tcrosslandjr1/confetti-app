@@ -35,11 +35,36 @@ const cols = [
 ] as const;
 
 const socials = [
-  { Icon: Instagram, label: "Instagram", href: "https://instagram.com",  hover: "hover:bg-coral  hover:text-cream hover:border-coral"  },
-  { Icon: Twitter,   label: "Twitter",   href: "https://twitter.com",    hover: "hover:bg-teal   hover:text-ink   hover:border-teal"   },
-  { Icon: Music2,    label: "TikTok",    href: "https://tiktok.com",     hover: "hover:bg-pink   hover:text-cream hover:border-pink"   },
-  { Icon: Youtube,   label: "YouTube",   href: "https://youtube.com",    hover: "hover:bg-gold   hover:text-ink   hover:border-gold"   },
-  { Icon: Github,    label: "GitHub",    href: "https://github.com",     hover: "hover:bg-purple hover:text-cream hover:border-purple" },
+  {
+    Icon: Instagram,
+    label: "Instagram",
+    href: "https://instagram.com",
+    hover: "hover:bg-coral  hover:text-cream hover:border-coral",
+  },
+  {
+    Icon: Twitter,
+    label: "Twitter",
+    href: "https://twitter.com",
+    hover: "hover:bg-teal   hover:text-ink   hover:border-teal",
+  },
+  {
+    Icon: Music2,
+    label: "TikTok",
+    href: "https://tiktok.com",
+    hover: "hover:bg-pink   hover:text-cream hover:border-pink",
+  },
+  {
+    Icon: Youtube,
+    label: "YouTube",
+    href: "https://youtube.com",
+    hover: "hover:bg-gold   hover:text-ink   hover:border-gold",
+  },
+  {
+    Icon: Github,
+    label: "GitHub",
+    href: "https://github.com",
+    hover: "hover:bg-purple hover:text-cream hover:border-purple",
+  },
 ];
 
 export function SiteFooter() {

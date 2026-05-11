@@ -181,7 +181,8 @@ function AdminModerationPage() {
       if (typeFilter !== "all" && r.type !== typeFilter) return false;
       if (severityFilter !== "all" && r.severity !== severityFilter) return false;
       if (q) {
-        const hay = `${r.id} ${r.target} ${r.reason} ${r.content} ${r.context} ${r.reporter}`.toLowerCase();
+        const hay =
+          `${r.id} ${r.target} ${r.reason} ${r.content} ${r.context} ${r.reporter}`.toLowerCase();
         if (!hay.includes(q)) return false;
       }
       return true;
@@ -205,7 +206,9 @@ function AdminModerationPage() {
     <div className="space-y-6">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Trust & Safety</p>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            Trust & Safety
+          </p>
           <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
             <ShieldCheck className="h-7 w-7" /> Moderation
           </h1>
@@ -249,7 +252,9 @@ function AdminModerationPage() {
               }`}
             >
               {t.label}
-              <span className={`rounded-full px-1.5 text-[10px] ${active ? "bg-background/20" : "bg-muted"}`}>
+              <span
+                className={`rounded-full px-1.5 text-[10px] ${active ? "bg-background/20" : "bg-muted"}`}
+              >
                 {counts[t.key]}
               </span>
             </button>
@@ -300,11 +305,15 @@ function AdminModerationPage() {
                     </div>
                     <div>
                       <div className="text-xs font-mono text-muted-foreground">{r.id}</div>
-                      <div className="text-sm font-semibold capitalize">{r.type} · {r.context}</div>
+                      <div className="text-sm font-semibold capitalize">
+                        {r.type} · {r.context}
+                      </div>
                     </div>
                   </div>
                   <div className="flex flex-col items-end gap-1">
-                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${SEVERITY_TONE[r.severity]}`}>
+                    <span
+                      className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${SEVERITY_TONE[r.severity]}`}
+                    >
                       {r.severity}
                     </span>
                     <StatusBadge status={r.status} />
@@ -313,13 +322,17 @@ function AdminModerationPage() {
 
                 <div className="rounded-xl border border-border bg-background/60 p-3 text-sm">
                   <div className="mb-1 flex items-center gap-2 text-xs text-muted-foreground">
-                    <Flag className="h-3 w-3" /> {r.reason} · target: <span className="font-mono">{r.target}</span>
+                    <Flag className="h-3 w-3" /> {r.reason} · target:{" "}
+                    <span className="font-mono">{r.target}</span>
                   </div>
                   <p className="text-foreground/90">"{r.content}"</p>
                 </div>
 
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
-                  <span>Reported by <span className="font-semibold text-foreground">{r.reporter}</span> · {r.reportedAt}</span>
+                  <span>
+                    Reported by <span className="font-semibold text-foreground">{r.reporter}</span>{" "}
+                    · {r.reportedAt}
+                  </span>
                 </div>
 
                 <div className="flex flex-wrap gap-2">

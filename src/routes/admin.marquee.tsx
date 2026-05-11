@@ -11,7 +11,10 @@ import { Pencil, Plus, Trash2 } from "lucide-react";
 
 export const Route = createFileRoute("/admin/marquee")({
   head: () => ({
-    meta: [{ title: "Sponsored marquee — Admin" }, { name: "robots", content: "noindex, nofollow" }],
+    meta: [
+      { title: "Sponsored marquee — Admin" },
+      { name: "robots", content: "noindex, nofollow" },
+    ],
   }),
   component: AdminMarqueePage,
 });
@@ -145,7 +148,8 @@ function AdminMarqueePage() {
         <div>
           <h1 className="font-display text-2xl font-bold">Sponsored marquee</h1>
           <p className="text-sm text-muted-foreground">
-            Manage which occasions appear as paid placements in the homepage marquee. Schedule windows, target URLs, and CTA copy per brand.
+            Manage which occasions appear as paid placements in the homepage marquee. Schedule
+            windows, target URLs, and CTA copy per brand.
           </p>
         </div>
         <Button onClick={startNew} variant="outline">
@@ -156,7 +160,9 @@ function AdminMarqueePage() {
       <div className="grid gap-6 lg:grid-cols-[1fr_22rem]">
         {/* Table */}
         <div className="overflow-hidden rounded-xl border border-border bg-card">
-          <div className="border-b border-border px-4 py-3 text-sm font-semibold">All placements</div>
+          <div className="border-b border-border px-4 py-3 text-sm font-semibold">
+            All placements
+          </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-muted/40 text-xs uppercase tracking-wider text-muted-foreground">
@@ -205,7 +211,9 @@ function AdminMarqueePage() {
                         type="button"
                         onClick={() => toggleActive(r)}
                         className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
-                          r.active ? "bg-emerald-100 text-emerald-700" : "bg-muted text-muted-foreground"
+                          r.active
+                            ? "bg-emerald-100 text-emerald-700"
+                            : "bg-muted text-muted-foreground"
                         }`}
                       >
                         {r.active ? "Active" : "Paused"}
@@ -213,10 +221,20 @@ function AdminMarqueePage() {
                     </td>
                     <td className="px-3 py-2 text-right">
                       <div className="flex justify-end gap-1">
-                        <Button size="icon" variant="ghost" onClick={() => startEdit(r)} aria-label="Edit">
+                        <Button
+                          size="icon"
+                          variant="ghost"
+                          onClick={() => startEdit(r)}
+                          aria-label="Edit"
+                        >
                           <Pencil className="h-4 w-4" />
                         </Button>
-                        <Button size="icon" variant="ghost" onClick={() => remove(r)} aria-label="Delete">
+                        <Button
+                          size="icon"
+                          variant="ghost"
+                          onClick={() => remove(r)}
+                          aria-label="Delete"
+                        >
                           <Trash2 className="h-4 w-4 text-destructive" />
                         </Button>
                       </div>
@@ -230,11 +248,18 @@ function AdminMarqueePage() {
 
         {/* Form */}
         <aside className="space-y-3 rounded-xl border border-border bg-card p-4">
-          <div className="text-sm font-semibold">{editing ? "Edit sponsorship" : "New sponsorship"}</div>
+          <div className="text-sm font-semibold">
+            {editing ? "Edit sponsorship" : "New sponsorship"}
+          </div>
 
           <div className="space-y-1.5">
             <Label htmlFor="brand">Brand</Label>
-            <Input id="brand" value={form.brand} onChange={(e) => setForm({ ...form, brand: e.target.value })} placeholder="e.g. Aperol" />
+            <Input
+              id="brand"
+              value={form.brand}
+              onChange={(e) => setForm({ ...form, brand: e.target.value })}
+              placeholder="e.g. Aperol"
+            />
           </div>
 
           <div className="space-y-1.5">
@@ -250,7 +275,11 @@ function AdminMarqueePage() {
           <div className="grid grid-cols-2 gap-2">
             <div className="space-y-1.5">
               <Label htmlFor="cta_label">CTA label</Label>
-              <Input id="cta_label" value={form.cta_label} onChange={(e) => setForm({ ...form, cta_label: e.target.value })} />
+              <Input
+                id="cta_label"
+                value={form.cta_label}
+                onChange={(e) => setForm({ ...form, cta_label: e.target.value })}
+              />
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="position">Position</Label>
@@ -278,7 +307,9 @@ function AdminMarqueePage() {
             <select
               id="surface"
               value={form.surface}
-              onChange={(e) => setForm({ ...form, surface: e.target.value as FormState["surface"] })}
+              onChange={(e) =>
+                setForm({ ...form, surface: e.target.value as FormState["surface"] })
+              }
               className="h-9 w-full rounded-md border border-input bg-background px-2 text-sm"
             >
               <option value="both">Both marquees</option>
@@ -322,7 +353,11 @@ function AdminMarqueePage() {
             <Label htmlFor="active" className="text-sm">
               Active
             </Label>
-            <Switch id="active" checked={form.active} onCheckedChange={(v) => setForm({ ...form, active: v })} />
+            <Switch
+              id="active"
+              checked={form.active}
+              onCheckedChange={(v) => setForm({ ...form, active: v })}
+            />
           </div>
 
           <div className="flex gap-2">

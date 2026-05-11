@@ -9,8 +9,6 @@ import { getProvidersConfigStatus } from "./oauth-providers";
  * Used by the ConnectionsPanel to disable "Connect" buttons + show actionable
  * "Not configured" hints instead of letting the click fail mid-flow.
  */
-export const getOAuthProvidersStatus = createServerFn({ method: "GET" }).handler(
-  async () => {
-    return { providers: getProvidersConfigStatus() };
-  },
-);
+export const getOAuthProvidersStatus = createServerFn({ method: "GET" }).handler(async () => {
+  return { providers: getProvidersConfigStatus() };
+});

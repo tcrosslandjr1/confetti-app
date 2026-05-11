@@ -29,9 +29,7 @@ export const Route = createFileRoute("/events/$eventId")({
     <div className="grid min-h-screen place-items-center bg-background px-4">
       <div className="text-center">
         <h1 className="font-display text-5xl font-bold">Event not found</h1>
-        <p className="mt-3 text-muted-foreground">
-          That event may have ended or moved.
-        </p>
+        <p className="mt-3 text-muted-foreground">That event may have ended or moved.</p>
         <Link
           to="/events"
           className="mt-6 inline-flex rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background"
@@ -55,9 +53,10 @@ export const Route = createFileRoute("/events/$eventId")({
 function EventDetail() {
   const { event } = Route.useLoaderData();
   const d = formatEventDate(event.date);
-  const related = EVENTS.filter(
-    (e) => e.id !== event.id && e.category === event.category,
-  ).slice(0, 3);
+  const related = EVENTS.filter((e) => e.id !== event.id && e.category === event.category).slice(
+    0,
+    3,
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -66,11 +65,7 @@ function EventDetail() {
       {/* Hero image */}
       <section className="relative">
         <div className="relative h-[44vh] min-h-[320px] w-full overflow-hidden">
-          <img
-            src={event.image}
-            alt={event.title}
-            className="h-full w-full object-cover"
-          />
+          <img src={event.image} alt={event.title} className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         </div>
 
@@ -105,14 +100,11 @@ function EventDetail() {
               <div className="mt-8 h-px bg-border" />
 
               <div className="mt-8">
-                <h2 className="font-display text-xl font-bold">
-                  About this event
-                </h2>
+                <h2 className="font-display text-xl font-bold">About this event</h2>
                 <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                  {event.blurb} Whether you're coming solo or rolling with the
-                  crew, expect great vibes, friendly faces, and memories that
-                  will outlast your phone battery. Doors open 30 minutes before
-                  showtime.
+                  {event.blurb} Whether you're coming solo or rolling with the crew, expect great
+                  vibes, friendly faces, and memories that will outlast your phone battery. Doors
+                  open 30 minutes before showtime.
                 </p>
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                   {[
@@ -151,18 +143,12 @@ function EventDetail() {
 
                 <div className="mt-5 flex items-center gap-3 rounded-2xl bg-muted p-3">
                   <div className="flex h-14 w-14 flex-col items-center justify-center rounded-xl bg-background">
-                    <span className="text-[10px] font-bold uppercase text-primary">
-                      {d.month}
-                    </span>
-                    <span className="text-xl font-bold leading-none">
-                      {d.day}
-                    </span>
+                    <span className="text-[10px] font-bold uppercase text-primary">{d.month}</span>
+                    <span className="text-xl font-bold leading-none">{d.day}</span>
                   </div>
                   <div className="text-sm">
                     <div className="font-semibold">{d.full}</div>
-                    <div className="text-muted-foreground">
-                      {d.time} local time
-                    </div>
+                    <div className="text-muted-foreground">{d.time} local time</div>
                   </div>
                 </div>
 

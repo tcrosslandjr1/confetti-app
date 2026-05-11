@@ -21,7 +21,15 @@ export const Route = createFileRoute("/data-terms")({
   component: DataTermsPage,
 });
 
-function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
+function Section({
+  id,
+  title,
+  children,
+}: {
+  id: string;
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <section id={id} className="scroll-mt-24 space-y-3">
       <h2 className="font-display text-2xl font-bold">{title}</h2>
@@ -44,11 +52,15 @@ function DataTermsPage() {
         </h1>
         <p className="text-sm text-muted-foreground">
           Last updated: {updated}. These terms apply when you connect a social account, paste social
-          signals, upload photos, or otherwise share signals our AI agents use to understand your taste.
+          signals, upload photos, or otherwise share signals our AI agents use to understand your
+          taste.
         </p>
       </header>
 
-      <nav aria-label="Sections" className="mb-10 rounded-2xl border border-border bg-muted/30 p-4 text-sm">
+      <nav
+        aria-label="Sections"
+        className="mb-10 rounded-2xl border border-border bg-muted/30 p-4 text-sm"
+      >
         <p className="mb-2 font-semibold">On this page</p>
         <ul className="grid gap-1 sm:grid-cols-2">
           {[
@@ -92,12 +104,19 @@ function DataTermsPage() {
           <ul className="list-disc space-y-1.5 pl-5">
             <li>Public handles you enter (Instagram, TikTok, YouTube, Pinterest, Spotify, X).</li>
             <li>Text you paste: bios, hashtags, captions, creator lists, recent posts.</li>
-            <li>Photos you upload of places you've been or want to go, including any embedded location/EXIF metadata if present.</li>
+            <li>
+              Photos you upload of places you've been or want to go, including any embedded
+              location/EXIF metadata if present.
+            </li>
             <li>
               When you opt in, a derived list of your <em>most-engaged followers</em> (people you
-              like, comment on, or DM most) so the AI can infer how you spend quality time outside of work.
+              like, comment on, or DM most) so the AI can infer how you spend quality time outside
+              of work.
             </li>
-            <li>Inferred taste attributes the AI generates from those signals (e.g. "loves natural wine bars," "weekend hiker").</li>
+            <li>
+              Inferred taste attributes the AI generates from those signals (e.g. "loves natural
+              wine bars," "weekend hiker").
+            </li>
           </ul>
           <p>
             We do <strong>not</strong> scrape private accounts, private messages, or anything you
@@ -107,9 +126,14 @@ function DataTermsPage() {
 
         <Section id="how-we-use" title="3. How the AI uses your signals">
           <ul className="list-disc space-y-1.5 pl-5">
-            <li>To build a private taste profile that personalizes plans, picks, and recommendations.</li>
+            <li>
+              To build a private taste profile that personalizes plans, picks, and recommendations.
+            </li>
             <li>To match you with venues, occasions, and friends with similar vibes.</li>
-            <li>To improve quality of suggestions over time as you interact (likes, saves, plans completed).</li>
+            <li>
+              To improve quality of suggestions over time as you interact (likes, saves, plans
+              completed).
+            </li>
           </ul>
           <p>
             We do not use your social signals to train foundation models for third parties. Prompts
@@ -119,9 +143,7 @@ function DataTermsPage() {
         </Section>
 
         <Section id="photos-places" title="4. Photos of places (been & want-to-go)">
-          <p>
-            When you upload a photo tied to a place you've visited or want to visit, we may:
-          </p>
+          <p>When you upload a photo tied to a place you've visited or want to visit, we may:</p>
           <ul className="list-disc space-y-1.5 pl-5">
             <li>Read EXIF location/time metadata you chose to keep on the file.</li>
             <li>Run image recognition to identify the venue, cuisine, scene, or aesthetic.</li>
@@ -138,8 +160,8 @@ function DataTermsPage() {
             If you opt in to "learn from my most-engaged followers," we analyze the public profiles
             of the people you interact with most to infer the kinds of activities you do for fun
             outside of work — e.g., concerts, dinners, weekend trips. We store only the
-            <em> aggregated inferences</em> ("you spend weekends on outdoor brunches and live music"),
-            not a list of individuals or their personal data.
+            <em> aggregated inferences</em> ("you spend weekends on outdoor brunches and live
+            music"), not a list of individuals or their personal data.
           </p>
           <p>
             We never contact your followers, never publish that you analyzed them, and never sell or
@@ -150,9 +172,19 @@ function DataTermsPage() {
 
         <Section id="sharing" title="6. Who we share data with">
           <ul className="list-disc space-y-1.5 pl-5">
-            <li><strong>AI providers</strong> (e.g. OpenAI, Google Gemini via the Lovable AI Gateway) — only the prompt needed to generate a result; not retained for training.</li>
-            <li><strong>Infrastructure providers</strong> (Lovable Cloud / Supabase, Cloudflare) — for storage and delivery, under data-processing agreements.</li>
-            <li><strong>Venues, brands, advertisers</strong> — only aggregated, non-identifying audience signals (e.g. "rooftop fans, ages 25–34"). Never your handle, photo, or follower list.</li>
+            <li>
+              <strong>AI providers</strong> (e.g. OpenAI, Google Gemini via the Lovable AI Gateway)
+              — only the prompt needed to generate a result; not retained for training.
+            </li>
+            <li>
+              <strong>Infrastructure providers</strong> (Lovable Cloud / Supabase, Cloudflare) — for
+              storage and delivery, under data-processing agreements.
+            </li>
+            <li>
+              <strong>Venues, brands, advertisers</strong> — only aggregated, non-identifying
+              audience signals (e.g. "rooftop fans, ages 25–34"). Never your handle, photo, or
+              follower list.
+            </li>
           </ul>
           <p>We do not sell your personal data.</p>
         </Section>
@@ -161,39 +193,60 @@ function DataTermsPage() {
           <p>
             Signals are stored in our backend tied to your account. You can delete any individual
             signal (a handle, a photo, a pasted bio) at any time. Deleting your account removes all
-            associated taste-profile data within 30 days, except where we are legally required to retain logs.
+            associated taste-profile data within 30 days, except where we are legally required to
+            retain logs.
           </p>
         </Section>
 
         <Section id="your-controls" title="8. Your controls">
           <ul className="list-disc space-y-1.5 pl-5">
-            <li>Disconnect any social handle from your <Link to="/me" className="text-foreground underline">profile</Link>.</li>
+            <li>
+              Disconnect any social handle from your{" "}
+              <Link to="/me" className="text-foreground underline">
+                profile
+              </Link>
+              .
+            </li>
             <li>Pause AI learning entirely without losing your account.</li>
             <li>Export your taste profile as JSON.</li>
-            <li>Request full deletion via <a className="text-foreground underline" href="mailto:privacy@confettiplan.app">privacy@confettiplan.app</a>.</li>
+            <li>
+              Request full deletion via{" "}
+              <a className="text-foreground underline" href="mailto:privacy@confettiplan.app">
+                privacy@confettiplan.app
+              </a>
+              .
+            </li>
           </ul>
         </Section>
 
         <Section id="children" title="9. Age requirement">
-          <p>You must be 16 or older to connect social accounts or upload photos for AI learning.</p>
+          <p>
+            You must be 16 or older to connect social accounts or upload photos for AI learning.
+          </p>
         </Section>
 
         <Section id="changes" title="10. Changes to these terms">
           <p>
-            We'll post material updates here and notify you in-app before they take effect. Continued
-            use after the effective date constitutes acceptance.
+            We'll post material updates here and notify you in-app before they take effect.
+            Continued use after the effective date constitutes acceptance.
           </p>
         </Section>
 
         <Section id="contact" title="11. Contact">
           <p>
-            Questions or requests: <a className="text-foreground underline" href="mailto:privacy@confettiplan.app">privacy@confettiplan.app</a>.
+            Questions or requests:{" "}
+            <a className="text-foreground underline" href="mailto:privacy@confettiplan.app">
+              privacy@confettiplan.app
+            </a>
+            .
           </p>
         </Section>
       </div>
 
       <footer className="mt-12 border-t border-border pt-6 text-xs text-muted-foreground">
-        <Link to="/" className="underline">← Back to Loopplan</Link>
+        <Link to="/" className="underline">
+          ← Back to Loopplan
+        </Link>
       </footer>
     </main>
   );

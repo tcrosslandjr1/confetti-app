@@ -27,7 +27,9 @@ export function ViralNow({ city = "Washington DC", limit = 8 }: { city?: string;
     (async () => {
       const { data } = await supabase
         .from("viral_venues")
-        .select("id,city,venue_name,neighborhood,address,photo_url,rating,trend_score,tags,summary,google_place_id")
+        .select(
+          "id,city,venue_name,neighborhood,address,photo_url,rating,trend_score,tags,summary,google_place_id",
+        )
         .eq("city", city)
         .order("trend_score", { ascending: false })
         .limit(limit);
@@ -42,12 +44,17 @@ export function ViralNow({ city = "Washington DC", limit = 8 }: { city?: string;
     <section aria-label="Viral now" className="space-y-3">
       <header className="flex items-end justify-between gap-3">
         <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Trending in {city}</p>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            Trending in {city}
+          </p>
           <h2 className="font-display text-2xl font-bold leading-tight flex items-center gap-2">
             <Flame className="h-5 w-5 text-rose-500" /> Viral Now
           </h2>
         </div>
-        <Link to="/viral" className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline">
+        <Link
+          to="/viral"
+          className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+        >
           See all <ArrowRight className="h-3 w-3" />
         </Link>
       </header>
@@ -88,7 +95,12 @@ function ViralCard({ v }: { v: ViralVenue }) {
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
         {v.photo_url ? (
-          <img src={v.photo_url} alt={v.venue_name} loading="lazy" className="h-full w-full object-cover transition group-hover:scale-105" />
+          <img
+            src={v.photo_url}
+            alt={v.venue_name}
+            loading="lazy"
+            className="h-full w-full object-cover transition group-hover:scale-105"
+          />
         ) : (
           <div className="grid h-full place-items-center text-3xl">🍽️</div>
         )}
@@ -104,13 +116,17 @@ function ViralCard({ v }: { v: ViralVenue }) {
         )}
       </div>
       <div className="p-3">
-        <h3 className="font-display text-sm font-bold leading-tight line-clamp-1">{v.venue_name}</h3>
+        <h3 className="font-display text-sm font-bold leading-tight line-clamp-1">
+          {v.venue_name}
+        </h3>
         {v.neighborhood && (
           <p className="mt-0.5 flex items-center gap-1 text-[11px] text-muted-foreground">
             <MapPin className="h-3 w-3" /> {v.neighborhood}
           </p>
         )}
-        {v.summary && <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2">{v.summary}</p>}
+        {v.summary && (
+          <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2">{v.summary}</p>
+        )}
       </div>
     </Link>
   );

@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { listLiveCampaignsByPlacement, trackAdEvent, type Campaign, type Placement } from "@/lib/ads";
+import {
+  listLiveCampaignsByPlacement,
+  trackAdEvent,
+  type Campaign,
+  type Placement,
+} from "@/lib/ads";
 import { useAuth } from "@/lib/auth-context";
 import { withUtm } from "@/lib/utm";
 import { Megaphone, Sparkles, ArrowRight } from "lucide-react";
@@ -31,12 +36,17 @@ export function PromotedSlot({ placement, surface, variant = "rail", title, clas
 
   useEffect(() => {
     let cancelled = false;
-    listLiveCampaignsByPlacement(placement, variant === "spotlight" || variant === "boost" ? 1 : 4).then((cs) => {
+    listLiveCampaignsByPlacement(
+      placement,
+      variant === "spotlight" || variant === "boost" ? 1 : 4,
+    ).then((cs) => {
       if (cancelled) return;
       setItems(cs);
       cs.forEach((c) => trackAdEvent(c.id, "impression", surface, user?.id ?? null));
     });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [placement, surface, variant, user?.id]);
 
   if (items.length === 0) return null;
@@ -66,7 +76,8 @@ export function PromotedSlot({ placement, surface, variant = "rail", title, clas
           </div>
           {c.cta_url && (
             <span className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-bold text-background">
-              {c.cta_label || "Visit"} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+              {c.cta_label || "Visit"}{" "}
+              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </span>
           )}
         </div>
@@ -86,11 +97,15 @@ export function PromotedSlot({ placement, surface, variant = "rail", title, clas
       >
         <Megaphone className="h-4 w-4 flex-shrink-0 text-primary" />
         <div className="min-w-0 flex-1">
-          <div className="text-[10px] font-mono uppercase tracking-wider text-primary">Promoted add-on</div>
+          <div className="text-[10px] font-mono uppercase tracking-wider text-primary">
+            Promoted add-on
+          </div>
           <div className="font-semibold">{c.headline}</div>
           {c.blurb && <div className="truncate text-xs text-muted-foreground">{c.blurb}</div>}
         </div>
-        {c.cta_url && <ArrowRight className="h-4 w-4 text-muted-foreground transition group-hover:translate-x-0.5" />}
+        {c.cta_url && (
+          <ArrowRight className="h-4 w-4 text-muted-foreground transition group-hover:translate-x-0.5" />
+        )}
       </a>
     );
   }
@@ -100,7 +115,9 @@ export function PromotedSlot({ placement, surface, variant = "rail", title, clas
     <section className={className}>
       <div className="mb-3 flex items-end justify-between">
         <h3 className="font-display text-xl font-bold">{title ?? "Promoted picks"}</h3>
-        <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Sponsored</span>
+        <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+          Sponsored
+        </span>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {items.map((c) => (
@@ -114,8 +131,14 @@ export function PromotedSlot({ placement, surface, variant = "rail", title, clas
           >
             <PromotedBadge />
             <h4 className="mt-1 font-display text-base font-bold leading-tight">{c.headline}</h4>
-            {c.blurb && <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{c.blurb}</p>}
-            {c.city && <p className="mt-2 text-[11px] font-mono uppercase tracking-wider text-muted-foreground">{c.city}</p>}
+            {c.blurb && (
+              <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{c.blurb}</p>
+            )}
+            {c.city && (
+              <p className="mt-2 text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
+                {c.city}
+              </p>
+            )}
           </a>
         ))}
       </div>

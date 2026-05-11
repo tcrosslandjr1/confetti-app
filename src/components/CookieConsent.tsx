@@ -98,7 +98,10 @@ export function CookieConsent() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-foreground">
               We use cookies to improve your experience and analyze site usage. See our{" "}
-              <a href="/privacy" className="underline underline-offset-2">privacy policy</a>.
+              <a href="/privacy" className="underline underline-offset-2">
+                privacy policy
+              </a>
+              .
             </p>
             <div className="flex shrink-0 flex-wrap gap-2">
               <Button variant="outline" size="sm" onClick={() => setSettingsOpen(true)}>
@@ -153,8 +156,12 @@ export function CookieConsent() {
           </div>
 
           <DialogFooter className="gap-2 sm:gap-2">
-            <Button variant="outline" onClick={declineAll}>Decline all</Button>
-            <Button variant="outline" onClick={saveCurrent}>Save choices</Button>
+            <Button variant="outline" onClick={declineAll}>
+              Decline all
+            </Button>
+            <Button variant="outline" onClick={saveCurrent}>
+              Save choices
+            </Button>
             <Button onClick={acceptAll}>Accept all</Button>
           </DialogFooter>
         </DialogContent>

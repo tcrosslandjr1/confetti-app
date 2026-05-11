@@ -50,13 +50,16 @@ export type AdEvent = {
   created_at: string;
 };
 
-export const PACKAGES: Record<PackageTier, {
-  label: string;
-  price: string;
-  blurb: string;
-  perks: string[];
-  recommendedPlacement: Placement;
-}> = {
+export const PACKAGES: Record<
+  PackageTier,
+  {
+    label: string;
+    price: string;
+    blurb: string;
+    perks: string[];
+    recommendedPlacement: Placement;
+  }
+> = {
   starter: {
     label: "Starter",
     price: "$0 / mo",
@@ -135,7 +138,9 @@ export async function listMyCampaigns(advertiserId: string): Promise<Campaign[]>
   return (data as unknown as Campaign[]) ?? [];
 }
 
-export async function createCampaign(input: Partial<Campaign> & { advertiser_id: string; headline: string }): Promise<Campaign> {
+export async function createCampaign(
+  input: Partial<Campaign> & { advertiser_id: string; headline: string },
+): Promise<Campaign> {
   const { data, error } = await supabase
     .from("ad_campaigns" as never)
     .insert({ ...input, status: "pending" } as never)
@@ -145,21 +150,37 @@ export async function createCampaign(input: Partial<Campaign> & { advertiser_id:
   return data as unknown as Campaign;
 }
 
-export async function updateCampaignStatus(id: string, status: CampaignStatus, admin_note?: string) {
+export async function updateCampaignStatus(
+  id: string,
+  status: CampaignStatus,
+  admin_note?: string,
+) {
   const patch: Record<string, unknown> = { status };
   if (admin_note !== undefined) patch.admin_note = admin_note;
   if (status === "approved") {
     patch.runs_from = new Date().toISOString();
     patch.runs_until = new Date(Date.now() + 90 * 86400_000).toISOString();
   }
-  const { error } = await supabase.from("ad_campaigns" as never).update(patch as never).eq("id", id);
+  const { error } = await supabase
+    .from("ad_campaigns" as never)
+    .update(patch as never)
+    .eq("id", id);
   if (error) throw error;
 }
 
-export async function listAdminAdvertisers(): Promise<{ advertisers: Advertiser[]; campaigns: Campaign[] }> {
+export async function listAdminAdvertisers(): Promise<{
+  advertisers: Advertiser[];
+  campaigns: Campaign[];
+}> {
   const [a, c] = await Promise.all([
-    supabase.from("advertisers" as never).select("*").order("created_at", { ascending: false }),
-    supabase.from("ad_campaigns" as never).select("*").order("created_at", { ascending: false }),
+    supabase
+      .from("advertisers" as never)
+      .select("*")
+      .order("created_at", { ascending: false }),
+    supabase
+      .from("ad_campaigns" as never)
+      .select("*")
+      .order("created_at", { ascending: false }),
   ]);
   return {
     advertisers: (a.data as unknown as Advertiser[]) ?? [],
@@ -167,7 +188,10 @@ export async function listAdminAdvertisers(): Promise<{ advertisers: Advertiser[
   };
 }
 
-export async function listLiveCampaignsByPlacement(placement: Placement, limit = 6): Promise<Campaign[]> {
+export async function listLiveCampaignsByPlacement(
+  placement: Placement,
+  limit = 6,
+): Promise<Campaign[]> {
   const { data } = await supabase
     .from("ad_campaigns" as never)
     .select("*")
@@ -178,11 +202,20 @@ export async function listLiveCampaignsByPlacement(placement: Placement, limit =
   return (data as unknown as Campaign[]) ?? [];
 }
 
-export async function trackAdEvent(campaign_id: string, kind: "impression" | "click", surface: string, user_id?: string | null) {
-  await supabase.from("ad_events" as never).insert({ campaign_id, kind, surface, user_id: user_id ?? null } as never);
+export async function trackAdEvent(
+  campaign_id: string,
+  kind: "impression" | "click",
+  surface: string,
+  user_id?: string | null,
+) {
+  await supabase
+    .from("ad_events" as never)
+    .insert({ campaign_id, kind, surface, user_id: user_id ?? null } as never);
 }
 
-export async function getCampaignStats(campaignIds: string[]): Promise<Record<string, { impressions: number; clicks: number }>> {
+export async function getCampaignStats(
+  campaignIds: string[],
+): Promise<Record<string, { impressions: number; clicks: number }>> {
   if (campaignIds.length === 0) return {};
   const { data } = await supabase
     .from("ad_events" as never)

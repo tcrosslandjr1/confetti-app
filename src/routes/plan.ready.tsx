@@ -1,6 +1,24 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { Apple, Calendar, Check, CheckCircle2, Clock, Copy, Link as LinkIcon, Mail, MapPin, PartyPopper, Plus, Send, Sparkles, Upload, UserPlus, Video, X } from "lucide-react";
+import {
+  Apple,
+  Calendar,
+  Check,
+  CheckCircle2,
+  Clock,
+  Copy,
+  Link as LinkIcon,
+  Mail,
+  MapPin,
+  PartyPopper,
+  Plus,
+  Send,
+  Sparkles,
+  Upload,
+  UserPlus,
+  Video,
+  X,
+} from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { toast } from "sonner";
 
@@ -8,17 +26,44 @@ export const Route = createFileRoute("/plan/ready")({
   head: () => ({
     meta: [
       { title: "You're ready to roll — Loop" },
-      { name: "description", content: "Your day is saved. Share it, add it to your calendar, or rally the crew." },
+      {
+        name: "description",
+        content: "Your day is saved. Share it, add it to your calendar, or rally the crew.",
+      },
     ],
   }),
   component: ReadyPage,
 });
 
 const STOPS = [
-  { time: "11:30 AM", durationMin: 75,  name: "Bluebird Coffee Social", neighborhood: "East Side",          note: "Slow brews, sunlit corner table." },
-  { time: "1:15 PM",  durationMin: 90,  name: "The Marigold Rooftop",   neighborhood: "Warehouse District", note: "Aperitivo with skyline views." },
-  { time: "3:15 PM",  durationMin: 90,  name: "Lantern Hill Overlook",  neighborhood: "Riverbend",          note: "Golden-hour walk + photos." },
-  { time: "5:30 PM",  durationMin: 120, name: "Osteria di Pesca",       neighborhood: "Old Market",         note: "Hand-rolled pasta, cozy booth." },
+  {
+    time: "11:30 AM",
+    durationMin: 75,
+    name: "Bluebird Coffee Social",
+    neighborhood: "East Side",
+    note: "Slow brews, sunlit corner table.",
+  },
+  {
+    time: "1:15 PM",
+    durationMin: 90,
+    name: "The Marigold Rooftop",
+    neighborhood: "Warehouse District",
+    note: "Aperitivo with skyline views.",
+  },
+  {
+    time: "3:15 PM",
+    durationMin: 90,
+    name: "Lantern Hill Overlook",
+    neighborhood: "Riverbend",
+    note: "Golden-hour walk + photos.",
+  },
+  {
+    time: "5:30 PM",
+    durationMin: 120,
+    name: "Osteria di Pesca",
+    neighborhood: "Old Market",
+    note: "Hand-rolled pasta, cozy booth.",
+  },
 ];
 
 const TRIP = {
@@ -27,7 +72,7 @@ const TRIP = {
   description: "A little romance, end-to-end. 4 stops curated by Loop.",
   // Saturday 11:30 AM – 7:30 PM (next Saturday)
   start: nextSaturdayAt(11, 30),
-  end:   nextSaturdayAt(19, 30),
+  end: nextSaturdayAt(19, 30),
   location: "Old Market & East Side",
 };
 
@@ -41,7 +86,10 @@ function nextSaturdayAt(h: number, m: number) {
 
 function fmtUTC(d: Date) {
   // YYYYMMDDTHHmmssZ
-  return d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  return d
+    .toISOString()
+    .replace(/[-:]/g, "")
+    .replace(/\.\d{3}/, "");
 }
 
 // RFC 5545 text escaping: backslash, semicolon, comma, newline.
@@ -133,24 +181,43 @@ function buildGoogleUrl() {
     action: "TEMPLATE",
     text: TRIP.title,
     dates: `${fmtUTC(TRIP.start)}/${fmtUTC(TRIP.end)}`,
-    details: `${TRIP.description}\n\n` + STOPS.map((s) => `${s.time} — ${s.name} (${s.neighborhood})`).join("\n"),
+    details:
+      `${TRIP.description}\n\n` +
+      STOPS.map((s) => `${s.time} — ${s.name} (${s.neighborhood})`).join("\n"),
     location: TRIP.location,
   });
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
-import { loadInvites, loadInviteVideo, saveInvites, saveInviteVideo, subscribeInvites, type Invite } from "@/lib/invites";
+import {
+  loadInvites,
+  loadInviteVideo,
+  saveInvites,
+  saveInviteVideo,
+  subscribeInvites,
+  type Invite,
+} from "@/lib/invites";
 import { loadVotes, subscribeVotes, tallyStop, type TripVotes } from "@/lib/votes";
 import { supabase } from "@/integrations/supabase/client";
 import { Users, AlertTriangle, Timer, Zap } from "lucide-react";
 import { checkStopFits, dayKeyFromDate } from "@/lib/hours";
-import { clearStatus, formatUpdatedAt, loadStatus, setMinutesLate, shiftTimeLabel, subscribeStatus, type TripStatus } from "@/lib/trip-status";
+import {
+  clearStatus,
+  formatUpdatedAt,
+  loadStatus,
+  setMinutesLate,
+  shiftTimeLabel,
+  subscribeStatus,
+  type TripStatus,
+} from "@/lib/trip-status";
 import { LiveElapsed } from "@/components/LiveElapsed";
 
 function makeToken() {
   const bytes = new Uint8Array(8);
   crypto.getRandomValues(bytes);
-  return Array.from(bytes, (b) => b.toString(36).padStart(2, "0")).join("").slice(0, 10);
+  return Array.from(bytes, (b) => b.toString(36).padStart(2, "0"))
+    .join("")
+    .slice(0, 10);
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -168,7 +235,6 @@ function ReadyPage() {
   const [collabCopied, setCollabCopied] = useState(false);
   const [status, setStatus] = useState<TripStatus | null>(null);
   const [customLate, setCustomLate] = useState("");
-  
 
   const shareUrl = useMemo(() => {
     if (typeof window === "undefined") return `https://confetti.app/trips/${TRIP.id}`;
@@ -193,21 +259,28 @@ function ReadyPage() {
     setVideoUrl(loadInviteVideo(TRIP.id));
     setVotes(loadVotes(TRIP.id));
     setStatus(loadStatus(TRIP.id));
-    
+
     const unsub = subscribeInvites(TRIP.id, () => {
       setInvitesState(loadInvites(TRIP.id));
       setVideoUrl(loadInviteVideo(TRIP.id));
     });
     const unsubVotes = subscribeVotes(TRIP.id, () => setVotes(loadVotes(TRIP.id)));
     const unsubStatus = subscribeStatus(TRIP.id, () => setStatus(loadStatus(TRIP.id)));
-    return () => { unsub(); unsubVotes(); unsubStatus(); };
+    return () => {
+      unsub();
+      unsubVotes();
+      unsubStatus();
+    };
   }, []);
 
   function applyLate(minutes: number) {
     const next = setMinutesLate(TRIP.id, minutes);
     setStatus(next);
     if (minutes === 0) toast.success("Marked back on time ✓");
-    else toast.success(`Running ~${minutes} min late ✓`, { description: "Guests will see the updated status on their invite." });
+    else
+      toast.success(`Running ~${minutes} min late ✓`, {
+        description: "Guests will see the updated status on their invite.",
+      });
   }
 
   function applyCustomLate() {
@@ -230,7 +303,9 @@ function ReadyPage() {
     try {
       await navigator.clipboard.writeText(collabUrl);
       setCollabCopied(true);
-      toast.success("Collab link copied", { description: "Anyone with the link can vote on each stop." });
+      toast.success("Collab link copied", {
+        description: "Anyone with the link can vote on each stop.",
+      });
       setTimeout(() => setCollabCopied(false), 2000);
     } catch {
       toast.error("Couldn't copy — long-press the link instead.");
@@ -252,7 +327,10 @@ function ReadyPage() {
       const ext = (file.name.split(".").pop() || "mp4").toLowerCase();
       const path = `${TRIP.id}/${crypto.randomUUID()}.${ext}`;
       // Fake-progress ticker for UX (Supabase JS SDK doesn't expose upload progress yet)
-      const ticker = setInterval(() => setVideoProgress((p) => (p === null ? p : Math.min(p + 7, 90))), 250);
+      const ticker = setInterval(
+        () => setVideoProgress((p) => (p === null ? p : Math.min(p + 7, 90))),
+        250,
+      );
       const { error } = await supabase.storage.from("invite-videos").upload(path, file, {
         cacheControl: "3600",
         contentType: file.type,
@@ -302,7 +380,10 @@ function ReadyPage() {
       setEmailError("Already on the list.");
       return;
     }
-    persist([...invites, { id: crypto.randomUUID(), email: value, token: makeToken(), status: "pending" }]);
+    persist([
+      ...invites,
+      { id: crypto.randomUUID(), email: value, token: makeToken(), status: "pending" },
+    ]);
     setEmailInput("");
     setEmailError(null);
   }
@@ -340,7 +421,9 @@ function ReadyPage() {
     const url = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(intro + "\n" + body)}`;
     window.location.href = url;
     persist(invites.map((i) => (i.status === "pending" ? { ...i, status: "sent" as const } : i)));
-    toast.success("Opening your email app…", { description: `${invites.length} invite${invites.length > 1 ? "s" : ""} ready to send.` });
+    toast.success("Opening your email app…", {
+      description: `${invites.length} invite${invites.length > 1 ? "s" : ""} ready to send.`,
+    });
   }
   async function copyLink() {
     try {
@@ -394,7 +477,9 @@ function ReadyPage() {
       }
     }
     await navigator.clipboard?.writeText(text);
-    toast.success("Invite text copied", { description: "Paste it into Apple Invites or Messages." });
+    toast.success("Invite text copied", {
+      description: "Paste it into Apple Invites or Messages.",
+    });
   }
 
   return (
@@ -402,21 +487,37 @@ function ReadyPage() {
       <SiteHeader />
 
       {/* Soft glow background */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-0 h-[420px] bg-gradient-to-b from-primary/15 via-coral/10 to-transparent blur-2xl" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -z-0 h-[420px] bg-gradient-to-b from-primary/15 via-coral/10 to-transparent blur-2xl"
+      />
 
       {/* Loop burst */}
       {showLoop && (
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-24 z-0 mx-auto h-64 max-w-3xl">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-24 z-0 mx-auto h-64 max-w-3xl"
+        >
           {Array.from({ length: 28 }).map((_, i) => {
             const left = (i * 37) % 100;
             const delay = (i % 8) * 0.08;
-            const colors = ["bg-primary", "bg-coral", "bg-purple", "bg-amber-400", "bg-emerald-500"];
+            const colors = [
+              "bg-primary",
+              "bg-coral",
+              "bg-purple",
+              "bg-amber-400",
+              "bg-emerald-500",
+            ];
             const color = colors[i % colors.length];
             return (
               <span
                 key={i}
                 className={`absolute top-0 h-2.5 w-2.5 rounded-sm ${color} animate-confetti-fall`}
-                style={{ left: `${left}%`, animationDelay: `${delay}s`, transform: `rotate(${(i * 23) % 360}deg)` }}
+                style={{
+                  left: `${left}%`,
+                  animationDelay: `${delay}s`,
+                  transform: `rotate(${(i * 23) % 360}deg)`,
+                }}
               />
             );
           })}
@@ -435,7 +536,8 @@ function ReadyPage() {
             You're <span className="text-gradient">ready to roll.</span>
           </h1>
           <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-            Your date-night day is locked in. Share it with your crew, drop it in your calendar, and just show up.
+            Your date-night day is locked in. Share it with your crew, drop it in your calendar, and
+            just show up.
           </p>
         </div>
 
@@ -443,17 +545,31 @@ function ReadyPage() {
         <section className="mt-8 overflow-hidden rounded-3xl border border-border bg-card shadow-card">
           <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-gradient-to-r from-amber-500/10 to-coral/10 p-4 sm:px-5">
             <div className="flex items-center gap-2">
-              <span className={`relative grid h-9 w-9 place-items-center rounded-xl ${status && status.minutesLate > 0 ? "bg-amber-500/20 text-amber-700" : "bg-emerald-500/15 text-emerald-700"}`}>
-                {status && status.minutesLate > 0 ? <Timer className="h-4 w-4" /> : <Zap className="h-4 w-4" />}
+              <span
+                className={`relative grid h-9 w-9 place-items-center rounded-xl ${status && status.minutesLate > 0 ? "bg-amber-500/20 text-amber-700" : "bg-emerald-500/15 text-emerald-700"}`}
+              >
+                {status && status.minutesLate > 0 ? (
+                  <Timer className="h-4 w-4" />
+                ) : (
+                  <Zap className="h-4 w-4" />
+                )}
                 {status && status.minutesLate > 0 && (
                   <>
-                    <span aria-hidden className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-amber-500" />
-                    <span aria-hidden className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 animate-ping rounded-full bg-amber-500/70" />
+                    <span
+                      aria-hidden
+                      className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-amber-500"
+                    />
+                    <span
+                      aria-hidden
+                      className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 animate-ping rounded-full bg-amber-500/70"
+                    />
                   </>
                 )}
               </span>
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Day-of status</p>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Day-of status
+                </p>
                 <p className="mt-0.5 text-sm font-semibold">
                   {status && status.minutesLate > 0
                     ? `Running ~${status.minutesLate} min late`
@@ -463,7 +579,9 @@ function ReadyPage() {
             </div>
             {status && (
               <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
-                <span>{formatUpdatedAt(status.updatedAt)} · <LiveElapsed since={status.updatedAt} /></span>
+                <span>
+                  {formatUpdatedAt(status.updatedAt)} · <LiveElapsed since={status.updatedAt} />
+                </span>
                 <button
                   type="button"
                   onClick={resetStatus}
@@ -477,7 +595,8 @@ function ReadyPage() {
 
           <div className="space-y-3 p-4 sm:p-5">
             <p className="text-xs text-muted-foreground">
-              Tap a delay — guests on the shareable link see a live status badge and the times shift automatically.
+              Tap a delay — guests on the shareable link see a live status badge and the times shift
+              automatically.
             </p>
             <div className="flex flex-wrap gap-2">
               {[0, 15, 30, 45, 60].map((m) => {
@@ -507,7 +626,12 @@ function ReadyPage() {
                   placeholder="Custom"
                   value={customLate}
                   onChange={(e) => setCustomLate(e.target.value)}
-                  onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); applyCustomLate(); } }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault();
+                      applyCustomLate();
+                    }
+                  }}
                   className="w-16 bg-transparent text-xs outline-none placeholder:text-muted-foreground"
                 />
                 <span className="text-[10px] text-muted-foreground">min</span>
@@ -534,8 +658,12 @@ function ReadyPage() {
           )}
           <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-gradient-to-r from-primary/5 to-coral/5 p-5 sm:p-6">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Saturday · Date night</p>
-              <p className="mt-0.5 font-display text-xl font-semibold">A little romance, end-to-end</p>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                Saturday · Date night
+              </p>
+              <p className="mt-0.5 font-display text-xl font-semibold">
+                A little romance, end-to-end
+              </p>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
               {status?.cancelled && (
@@ -545,7 +673,11 @@ function ReadyPage() {
               )}
               {status?.rescheduledAt && !status.cancelled && (
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-500/15 px-2.5 py-1 font-semibold text-sky-700">
-                  <Calendar className="h-3 w-3" /> Rescheduled · {new Date(status.rescheduledAt).toLocaleDateString([], { month: "short", day: "numeric" })}
+                  <Calendar className="h-3 w-3" /> Rescheduled ·{" "}
+                  {new Date(status.rescheduledAt).toLocaleDateString([], {
+                    month: "short",
+                    day: "numeric",
+                  })}
                 </span>
               )}
               {status && status.minutesLate > 0 && !status.cancelled && (
@@ -554,11 +686,16 @@ function ReadyPage() {
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
                   </span>
-                  Running ~{status.minutesLate} min late · {formatUpdatedAt(status.updatedAt)} · <LiveElapsed since={status.updatedAt} />
+                  Running ~{status.minutesLate} min late · {formatUpdatedAt(status.updatedAt)} ·{" "}
+                  <LiveElapsed since={status.updatedAt} />
                 </span>
               )}
-              <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> 11:30 AM – 7:30 PM</span>
-              <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> 4 stops · ~6.5 mi</span>
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5" /> 11:30 AM – 7:30 PM
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin className="h-3.5 w-3.5" /> 4 stops · ~6.5 mi
+              </span>
             </div>
           </header>
           <ol className="divide-y divide-border">
@@ -573,14 +710,21 @@ function ReadyPage() {
                     <p className="truncate text-sm font-semibold">{s.name}</p>
                     <p className="truncate text-xs text-muted-foreground">
                       {s.neighborhood}
-                      {fit.state !== "unknown" && <> · <span className="font-medium">{fit.hoursLabel}</span></>}
+                      {fit.state !== "unknown" && (
+                        <>
+                          {" "}
+                          · <span className="font-medium">{fit.hoursLabel}</span>
+                        </>
+                      )}
                     </p>
                   </div>
                   <div className="flex shrink-0 flex-col items-end gap-1">
                     {status && status.minutesLate > 0 ? (
                       <span className="flex items-baseline gap-1.5">
                         <span className="text-xs text-muted-foreground line-through">{s.time}</span>
-                        <span className="text-sm font-semibold text-amber-700">{shiftTimeLabel(s.time, status.minutesLate)}</span>
+                        <span className="text-sm font-semibold text-amber-700">
+                          {shiftTimeLabel(s.time, status.minutesLate)}
+                        </span>
                       </span>
                     ) : (
                       <span className="text-sm font-semibold text-muted-foreground">{s.time}</span>
@@ -591,12 +735,18 @@ function ReadyPage() {
                       </span>
                     )}
                     {fit.state === "tight" && (
-                      <span title={`Runs ${fit.minutesAfterClose} min past close`} className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
+                      <span
+                        title={`Runs ${fit.minutesAfterClose} min past close`}
+                        className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700"
+                      >
                         <AlertTriangle className="h-3 w-3" /> Tight
                       </span>
                     )}
                     {fit.state === "closed" && (
-                      <span title={fit.reason} className="inline-flex items-center gap-1 rounded-full bg-destructive/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-destructive">
+                      <span
+                        title={fit.reason}
+                        className="inline-flex items-center gap-1 rounded-full bg-destructive/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-destructive"
+                      >
                         <AlertTriangle className="h-3 w-3" /> {fit.reason}
                       </span>
                     )}
@@ -631,21 +781,30 @@ function ReadyPage() {
 
         {/* Calendar + invites */}
         <div className="mt-4 grid gap-3 sm:grid-cols-3">
-          <button onClick={downloadIcs} className="group inline-flex flex-col items-start gap-1.5 rounded-2xl border border-border bg-card p-4 text-left transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-pop">
+          <button
+            onClick={downloadIcs}
+            className="group inline-flex flex-col items-start gap-1.5 rounded-2xl border border-border bg-card p-4 text-left transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-pop"
+          >
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-foreground text-background">
               <Apple className="h-4 w-4" />
             </span>
             <span className="text-sm font-semibold">Apple Calendar</span>
             <span className="text-[11px] text-muted-foreground">Downloads a .ics file</span>
           </button>
-          <button onClick={openGoogle} className="group inline-flex flex-col items-start gap-1.5 rounded-2xl border border-border bg-card p-4 text-left transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-pop">
+          <button
+            onClick={openGoogle}
+            className="group inline-flex flex-col items-start gap-1.5 rounded-2xl border border-border bg-card p-4 text-left transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-pop"
+          >
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 via-emerald-500 to-amber-500 text-white">
               <Calendar className="h-4 w-4" />
             </span>
             <span className="text-sm font-semibold">Google Calendar</span>
             <span className="text-[11px] text-muted-foreground">Opens a pre-filled event</span>
           </button>
-          <button onClick={appleInvites} className="group inline-flex flex-col items-start gap-1.5 rounded-2xl border border-border bg-card p-4 text-left transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-pop">
+          <button
+            onClick={appleInvites}
+            className="group inline-flex flex-col items-start gap-1.5 rounded-2xl border border-border bg-card p-4 text-left transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-pop"
+          >
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-purple-500 text-white">
               <Send className="h-4 w-4" />
             </span>
@@ -694,28 +853,50 @@ function ReadyPage() {
               return (
                 <li key={i} className="space-y-2 bg-muted/20 p-3">
                   <div className="flex items-center gap-3">
-                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-primary/10 text-[11px] font-bold text-primary">{i + 1}</span>
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-primary/10 text-[11px] font-bold text-primary">
+                      {i + 1}
+                    </span>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-semibold">{s.name}</p>
                       <p className="truncate text-[11px] text-muted-foreground">{s.neighborhood}</p>
                     </div>
-                    <span className="shrink-0 text-[11px] font-semibold text-muted-foreground">{total} vote{total === 1 ? "" : "s"}</span>
+                    <span className="shrink-0 text-[11px] font-semibold text-muted-foreground">
+                      {total} vote{total === 1 ? "" : "s"}
+                    </span>
                   </div>
                   {total > 0 ? (
                     <>
                       <div className="flex h-1.5 w-full overflow-hidden rounded-full bg-muted">
-                        <div className="h-full bg-emerald-500 transition-all duration-300" style={{ width: `${inPct}%` }} />
-                        <div className="h-full bg-amber-400 transition-all duration-300" style={{ width: `${maybePct}%` }} />
-                        <div className="h-full bg-muted-foreground transition-all duration-300" style={{ width: `${outPct}%` }} />
+                        <div
+                          className="h-full bg-emerald-500 transition-all duration-300"
+                          style={{ width: `${inPct}%` }}
+                        />
+                        <div
+                          className="h-full bg-amber-400 transition-all duration-300"
+                          style={{ width: `${maybePct}%` }}
+                        />
+                        <div
+                          className="h-full bg-muted-foreground transition-all duration-300"
+                          style={{ width: `${outPct}%` }}
+                        />
                       </div>
                       <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-[10px] text-muted-foreground">
-                        <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> {t.in} in</span>
-                        <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-amber-400" /> {t.maybe} maybe</span>
-                        <span className="inline-flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-muted-foreground" /> {t.out} out</span>
+                        <span className="inline-flex items-center gap-1">
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> {t.in} in
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                          <span className="h-1.5 w-1.5 rounded-full bg-amber-400" /> {t.maybe} maybe
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                          <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground" /> {t.out}{" "}
+                          out
+                        </span>
                       </div>
                     </>
                   ) : (
-                    <p className="text-[11px] text-muted-foreground">No votes yet — share the link to get the crew involved.</p>
+                    <p className="text-[11px] text-muted-foreground">
+                      No votes yet — share the link to get the crew involved.
+                    </p>
                   )}
                 </li>
               );
@@ -723,7 +904,8 @@ function ReadyPage() {
           </ul>
 
           <p className="mt-3 text-[11px] text-muted-foreground">
-            Anyone with the link can weigh in on each stop. Tallies update live so you can swap what's not landing.
+            Anyone with the link can weigh in on each stop. Tallies update live so you can swap
+            what's not landing.
           </p>
         </section>
 
@@ -746,12 +928,18 @@ function ReadyPage() {
                 <Upload className="h-5 w-5" />
               </span>
               <span className="text-sm font-semibold">Upload a short video</span>
-              <span className="text-[11px] text-muted-foreground">MP4, MOV or WebM · up to 100 MB</span>
+              <span className="text-[11px] text-muted-foreground">
+                MP4, MOV or WebM · up to 100 MB
+              </span>
               <input
                 type="file"
                 accept="video/mp4,video/quicktime,video/webm,video/ogg"
                 className="hidden"
-                onChange={(e) => { const f = e.target.files?.[0]; if (f) handleVideoUpload(f); e.currentTarget.value = ""; }}
+                onChange={(e) => {
+                  const f = e.target.files?.[0];
+                  if (f) handleVideoUpload(f);
+                  e.currentTarget.value = "";
+                }}
               />
             </label>
           )}
@@ -786,7 +974,11 @@ function ReadyPage() {
                     type="file"
                     accept="video/mp4,video/quicktime,video/webm,video/ogg"
                     className="hidden"
-                    onChange={(e) => { const f = e.target.files?.[0]; if (f) handleVideoUpload(f); e.currentTarget.value = ""; }}
+                    onChange={(e) => {
+                      const f = e.target.files?.[0];
+                      if (f) handleVideoUpload(f);
+                      e.currentTarget.value = "";
+                    }}
                   />
                 </label>
                 <button
@@ -811,14 +1003,17 @@ function ReadyPage() {
             <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
               <UserPlus className="h-3.5 w-3.5 text-primary" /> Invite the crew
             </div>
-            {invites.length > 0 && (() => {
-              const going = invites.filter((i) => i.status === "accepted").length;
-              return (
-                <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
-                  {going > 0 ? `${going} going · ${invites.length} invited` : `${invites.length} invited`}
-                </span>
-              );
-            })()}
+            {invites.length > 0 &&
+              (() => {
+                const going = invites.filter((i) => i.status === "accepted").length;
+                return (
+                  <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
+                    {going > 0
+                      ? `${going} going · ${invites.length} invited`
+                      : `${invites.length} invited`}
+                  </span>
+                );
+              })()}
           </div>
 
           <form onSubmit={addInvite} className="mt-3 flex flex-col gap-2 sm:flex-row">
@@ -830,7 +1025,10 @@ function ReadyPage() {
                 autoComplete="email"
                 placeholder="friend@email.com"
                 value={emailInput}
-                onChange={(e) => { setEmailInput(e.target.value); if (emailError) setEmailError(null); }}
+                onChange={(e) => {
+                  setEmailInput(e.target.value);
+                  if (emailError) setEmailError(null);
+                }}
                 aria-invalid={!!emailError}
                 aria-describedby={emailError ? "invite-email-error" : undefined}
                 className={`w-full rounded-xl border bg-background py-2.5 pl-9 pr-3 text-sm outline-none transition-colors focus:border-primary ${emailError ? "border-destructive" : "border-border"}`}
@@ -844,7 +1042,9 @@ function ReadyPage() {
             </button>
           </form>
           {emailError && (
-            <p id="invite-email-error" className="mt-1.5 text-[11px] font-medium text-destructive">{emailError}</p>
+            <p id="invite-email-error" className="mt-1.5 text-[11px] font-medium text-destructive">
+              {emailError}
+            </p>
           )}
 
           {invites.length > 0 ? (
@@ -857,7 +1057,9 @@ function ReadyPage() {
                     </span>
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-semibold">{i.email}</p>
-                      <p className="truncate font-mono text-[11px] text-muted-foreground">{inviteUrl(i.token)}</p>
+                      <p className="truncate font-mono text-[11px] text-muted-foreground">
+                        {inviteUrl(i.token)}
+                      </p>
                     </div>
                     {i.status === "accepted" ? (
                       <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
@@ -902,7 +1104,8 @@ function ReadyPage() {
                   onClick={sendInvites}
                   className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-pop transition-all hover:-translate-y-0.5"
                 >
-                  <Send className="h-4 w-4" /> Send {invites.length} invite{invites.length > 1 ? "s" : ""}
+                  <Send className="h-4 w-4" /> Send {invites.length} invite
+                  {invites.length > 1 ? "s" : ""}
                 </button>
                 <button
                   type="button"
@@ -915,23 +1118,28 @@ function ReadyPage() {
             </>
           ) : (
             <p className="mt-3 text-[11px] text-muted-foreground">
-              Add anyone you want to invite. Each gets a unique link they can RSVP with — no account needed.
+              Add anyone you want to invite. Each gets a unique link they can RSVP with — no account
+              needed.
             </p>
           )}
         </section>
 
         {/* Primary CTAs */}
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <Link to="/trips" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-pop transition-pop hover:scale-[1.02] sm:w-auto">
+          <Link
+            to="/trips"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-pop transition-pop hover:scale-[1.02] sm:w-auto"
+          >
             <PartyPopper className="h-4 w-4" /> View in my trips
           </Link>
-          <Link to="/plan" className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:w-auto">
+          <Link
+            to="/plan"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:w-auto"
+          >
             Plan another day
           </Link>
         </div>
-
       </div>
-
     </div>
   );
 }

@@ -18,10 +18,7 @@ import {
   disconnectTiktok,
   getMyLinkedAccounts,
 } from "@/lib/tiktok-oauth.functions";
-import {
-  startInstagramLink,
-  disconnectInstagram,
-} from "@/lib/instagram-oauth.functions";
+import { startInstagramLink, disconnectInstagram } from "@/lib/instagram-oauth.functions";
 import { getOAuthProvidersStatus } from "@/lib/oauth-providers.functions";
 import { ProviderSetupDialog } from "@/components/ProviderSetupDialog";
 
@@ -84,10 +81,8 @@ const PROVIDERS: ProviderRow[] = [
     label: "Instagram",
     description: "Learns from your aesthetic",
     Icon: Instagram,
-    iconWrapClass:
-      "bg-gradient-to-br from-fuchsia-500 via-rose-500 to-amber-400 text-white",
-    buttonClass:
-      "bg-gradient-to-r from-fuchsia-500 via-rose-500 to-amber-400 text-white",
+    iconWrapClass: "bg-gradient-to-br from-fuchsia-500 via-rose-500 to-amber-400 text-white",
+    buttonClass: "bg-gradient-to-r from-fuchsia-500 via-rose-500 to-amber-400 text-white",
     source: "linked_social_accounts",
   },
 ];
@@ -103,9 +98,7 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
 
   const [error, setError] = useState<string | null>(null);
   const [busyKey, setBusyKey] = useState<ProviderKey | null>(null);
-  const [setupProvider, setSetupProvider] = useState<
-    "tiktok" | "instagram" | null
-  >(null);
+  const [setupProvider, setSetupProvider] = useState<"tiktok" | "instagram" | null>(null);
 
   // ----- Linked accounts (TikTok / Instagram) -----
   const { data: linkedData, isLoading: linkedLoading } = useQuery({
@@ -113,8 +106,7 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
     queryFn: () => listFn({}),
   });
   const linkedByProvider = useMemo(() => {
-    const m: Record<string, NonNullable<typeof linkedData>["accounts"][number]> =
-      {};
+    const m: Record<string, NonNullable<typeof linkedData>["accounts"][number]> = {};
     for (const a of linkedData?.accounts ?? []) m[a.provider] = a;
     return m;
   }, [linkedData]);
@@ -174,17 +166,11 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
     if (touched) {
       sp.delete("reason");
       const qs = sp.toString();
-      window.history.replaceState(
-        {},
-        "",
-        window.location.pathname + (qs ? `?${qs}` : ""),
-      );
+      window.history.replaceState({}, "", window.location.pathname + (qs ? `?${qs}` : ""));
     }
 
     // Native identity link feedback (Google / Apple).
-    const hash = window.location.hash.startsWith("#")
-      ? window.location.hash.slice(1)
-      : "";
+    const hash = window.location.hash.startsWith("#") ? window.location.hash.slice(1) : "";
     if (hash) {
       const hp = new URLSearchParams(hash);
       const err = hp.get("error_description") ?? hp.get("error");
@@ -217,8 +203,7 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
     }
     const linked = linkedByProvider[p.key];
     if (!linked) return "Not connected";
-    const handle =
-      linked.username ?? linked.display_name ?? linked.provider_user_id;
+    const handle = linked.username ?? linked.display_name ?? linked.provider_user_id;
     return `Connected as @${handle}`;
   }
 
@@ -260,9 +245,7 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
         // Supabase requires at least one remaining identity (incl. email) to unlink.
         const total = (identityData ?? []).length;
         if (total <= 1) {
-          throw new Error(
-            "You can't unlink your only sign-in method. Add another one first.",
-          );
+          throw new Error("You can't unlink your only sign-in method. Add another one first.");
         }
         const { error } = await supabase.auth.unlinkIdentity(id);
         if (error) throw error;
@@ -301,10 +284,8 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
           // Custom OAuth providers (TikTok/IG) need credentials configured.
           // Native providers (Google/Apple) are managed by Lovable Cloud.
           const cfg = configByProvider[p.key];
-          const notConfigured =
-            p.source === "linked_social_accounts" && cfg && !cfg.configured;
-          const blockedByConsent =
-            !connected && !consent && p.source === "linked_social_accounts";
+          const notConfigured = p.source === "linked_social_accounts" && cfg && !cfg.configured;
+          const blockedByConsent = !connected && !consent && p.source === "linked_social_accounts";
           const connectDisabled = busy || blockedByConsent || Boolean(notConfigured);
           const connectTitle = notConfigured
             ? `Missing credentials: ${cfg!.missing.join(", ")}`
@@ -318,17 +299,13 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
               className="flex items-center justify-between gap-3 rounded-xl border border-border bg-background p-3"
             >
               <div className="flex min-w-0 items-center gap-2.5">
-                <span
-                  className={`grid h-8 w-8 place-items-center rounded-lg ${p.iconWrapClass}`}
-                >
+                <span className={`grid h-8 w-8 place-items-center rounded-lg ${p.iconWrapClass}`}>
                   <p.Icon className="h-4 w-4" />
                 </span>
                 <div className="min-w-0">
                   <div className="flex items-center gap-1.5 text-sm font-semibold">
                     {p.label}
-                    {connected && (
-                      <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
-                    )}
+                    {connected && <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />}
                     {notConfigured && !connected && (
                       <span className="rounded-full bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-800">
                         Not configured
@@ -363,8 +340,7 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
                     onClick={() => {
                       setError(null);
                       const total = (identityData ?? []).length;
-                      const onlyMethod =
-                        p.source === "native" && total <= 1;
+                      const onlyMethod = p.source === "native" && total <= 1;
                       const msg = onlyMethod
                         ? `${p.label} is your only sign-in method. Add another before disconnecting.`
                         : `Disconnect ${p.label}? You'll need another way to sign in.`;
@@ -412,11 +388,7 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
         <p
           className={`mt-3 inline-flex items-center gap-1.5 text-[11px] ${flash.ok ? "text-emerald-600" : "text-destructive"}`}
         >
-          {flash.ok ? (
-            <CheckCircle2 className="h-3 w-3" />
-          ) : (
-            <AlertTriangle className="h-3 w-3" />
-          )}
+          {flash.ok ? <CheckCircle2 className="h-3 w-3" /> : <AlertTriangle className="h-3 w-3" />}
           {flash.text}
         </p>
       )}
@@ -427,9 +399,8 @@ export function ConnectionsPanel({ consent }: { consent: boolean }) {
       )}
 
       <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
-        Tokens for TikTok and Instagram are stored server-side in
-        linked_social_accounts and never exposed to the browser. Your AI agent
-        reads from this table to personalize plans.
+        Tokens for TikTok and Instagram are stored server-side in linked_social_accounts and never
+        exposed to the browser. Your AI agent reads from this table to personalize plans.
       </p>
 
       <ProviderSetupDialog

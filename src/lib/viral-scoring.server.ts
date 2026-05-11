@@ -75,14 +75,15 @@ export function computeTrendScore({ mentions, rating, appEngagement = 0 }: Score
   const authority = mentions.length
     ? mentions.reduce((s, m) => s + authorityFor(m.sourceUrl), 0) / mentions.length
     : 0;
-  const ratingSignal = typeof rating === "number" ? Math.max(0, Math.min(1, (rating - 3.5) / 1.5)) : 0.5;
+  const ratingSignal =
+    typeof rating === "number" ? Math.max(0, Math.min(1, (rating - 3.5) / 1.5)) : 0.5;
 
   const score =
-    0.30 * damp(tiktok) +
+    0.3 * damp(tiktok) +
     0.25 * damp(insta) +
-    0.20 * recency +
-    0.10 * authority +
-    0.10 * ratingSignal +
+    0.2 * recency +
+    0.1 * authority +
+    0.1 * ratingSignal +
     0.05 * appEngagement;
 
   return Math.round(score * 100) / 100;

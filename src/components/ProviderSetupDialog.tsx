@@ -177,11 +177,7 @@ interface ProviderSetupDialogProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export function ProviderSetupDialog({
-  provider,
-  open,
-  onOpenChange,
-}: ProviderSetupDialogProps) {
+export function ProviderSetupDialog({ provider, open, onOpenChange }: ProviderSetupDialogProps) {
   const qc = useQueryClient();
   const submitFn = useServerFn(submitProviderCredentials);
   const listFn = useServerFn(getMyProviderSubmissions);
@@ -189,9 +185,7 @@ export function ProviderSetupDialog({
   const callbackUrl = useMemo(() => {
     if (!provider) return "";
     const origin =
-      typeof window !== "undefined"
-        ? window.location.origin
-        : "https://confettiplan.lovable.app";
+      typeof window !== "undefined" ? window.location.origin : "https://confettiplan.lovable.app";
     return `${origin}${COPY[provider].callbackPath}`;
   }, [provider]);
 
@@ -202,9 +196,7 @@ export function ProviderSetupDialog({
   });
   const latest = useMemo(() => {
     if (!provider) return null;
-    return (
-      subs?.submissions.find((s) => s.provider === provider) ?? null
-    );
+    return subs?.submissions.find((s) => s.provider === provider) ?? null;
   }, [subs, provider]);
 
   const [clientId, setClientId] = useState("");
@@ -224,8 +216,7 @@ export function ProviderSetupDialog({
     [provider, clientId],
   );
   const clientSecretError = useMemo(
-    () =>
-      provider ? COPY[provider].clientSecretFormat.validate(clientSecret) : null,
+    () => (provider ? COPY[provider].clientSecretFormat.validate(clientSecret) : null),
     [provider, clientSecret],
   );
   const formValid = !clientIdError && !clientSecretError;
@@ -273,8 +264,7 @@ export function ProviderSetupDialog({
         <DialogHeader>
           <DialogTitle>Set up {c.label} sign-in</DialogTitle>
           <DialogDescription>
-            Register a {c.label} developer app, then submit its credentials
-            for review.
+            Register a {c.label} developer app, then submit its credentials for review.
           </DialogDescription>
         </DialogHeader>
 
@@ -301,9 +291,7 @@ export function ProviderSetupDialog({
               </li>
             ))}
           </ol>
-          <p className="text-[11px] italic text-muted-foreground">
-            {c.scopesNote}
-          </p>
+          <p className="text-[11px] italic text-muted-foreground">{c.scopesNote}</p>
         </section>
 
         <section className="space-y-2 rounded-lg border border-border bg-muted/40 p-3">
@@ -319,11 +307,7 @@ export function ProviderSetupDialog({
               onClick={copyCallback}
               className="shrink-0"
             >
-              {copied ? (
-                <Check className="h-3.5 w-3.5" />
-              ) : (
-                <Copy className="h-3.5 w-3.5" />
-              )}
+              {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
             </Button>
           </div>
           <p className="text-[11px] text-muted-foreground">
@@ -338,9 +322,7 @@ export function ProviderSetupDialog({
             // Surface any pending format errors before hitting the server.
             setTouched({ id: true, secret: true });
             if (clientIdError || clientSecretError) {
-              setError(
-                "Fix the highlighted fields before submitting for review.",
-              );
+              setError("Fix the highlighted fields before submitting for review.");
               return;
             }
             submitMut.mutate();
@@ -378,10 +360,7 @@ export function ProviderSetupDialog({
                 {clientIdError}
               </p>
             ) : (
-              <p
-                id="clientId-help"
-                className="text-[11px] text-muted-foreground"
-              >
+              <p id="clientId-help" className="text-[11px] text-muted-foreground">
                 {c.clientIdFormat.hint}
               </p>
             )}
@@ -417,10 +396,7 @@ export function ProviderSetupDialog({
                 {clientSecretError}
               </p>
             ) : (
-              <p
-                id="clientSecret-help"
-                className="text-[11px] text-muted-foreground"
-              >
+              <p id="clientSecret-help" className="text-[11px] text-muted-foreground">
                 {c.clientSecretFormat.hint}
               </p>
             )}
@@ -446,28 +422,18 @@ export function ProviderSetupDialog({
           )}
 
           <DialogFooter className="gap-2 sm:gap-2">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => onOpenChange(false)}
-            >
+            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
               Close
             </Button>
-            <Button
-              type="submit"
-              disabled={submitMut.isPending || !formValid}
-            >
-              {submitMut.isPending && (
-                <Loader2 className="mr-1.5 h-3.5 w-3.5 animate-spin" />
-              )}
+            <Button type="submit" disabled={submitMut.isPending || !formValid}>
+              {submitMut.isPending && <Loader2 className="mr-1.5 h-3.5 w-3.5 animate-spin" />}
               Submit for review
             </Button>
           </DialogFooter>
 
           <p className="text-[11px] leading-relaxed text-muted-foreground">
-            Credentials are stored encrypted at rest with row-level security
-            and only visible to you and reviewers. They aren't activated until
-            an admin approves them.
+            Credentials are stored encrypted at rest with row-level security and only visible to you
+            and reviewers. They aren't activated until an admin approves them.
           </p>
         </form>
       </DialogContent>
@@ -508,9 +474,7 @@ function SubmissionStatusBanner({
   } as const;
   const s = map[sub.status];
   return (
-    <div
-      className={`flex items-start gap-2 rounded-lg border p-2.5 text-xs ${s.tone}`}
-    >
+    <div className={`flex items-start gap-2 rounded-lg border p-2.5 text-xs ${s.tone}`}>
       <s.Icon className="mt-0.5 h-3.5 w-3.5 shrink-0" />
       <div className="space-y-0.5">
         <div className="flex items-center gap-2 font-semibold">

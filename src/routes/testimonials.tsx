@@ -10,7 +10,11 @@ export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
       { title: "Testimonials — Loop" },
-      { name: "description", content: "Real plans, real nights, real reviews from people who use Loop to actually go out." },
+      {
+        name: "description",
+        content:
+          "Real plans, real nights, real reviews from people who use Loop to actually go out.",
+      },
       { property: "og:title", content: "Testimonials — Loop" },
       { property: "og:description", content: "What people say after Loop plans their night." },
     ],
@@ -19,15 +23,69 @@ export const Route = createFileRoute("/testimonials")({
 });
 
 const testimonials = [
-  { name: "Ava Green", username: "@ava", body: "Loop killed our group-chat purgatory. Friday plans in 30 seconds.", img: "https://randomuser.me/api/portraits/women/32.jpg", country: "🇦🇺 Sydney" },
-  { name: "Ana Miller", username: "@ana", body: "I'm the planner friend. This out-planned me.", img: "https://randomuser.me/api/portraits/women/68.jpg", country: "🇩🇪 Berlin" },
-  { name: "Mateo Rossi", username: "@mat", body: "Booked a date night dive bar I'd driven past 100 times. Chef's kiss.", img: "https://randomuser.me/api/portraits/men/51.jpg", country: "🇮🇹 Milan" },
-  { name: "Maya Patel", username: "@maya", body: "Kids day-out: museum + ice cream + a nap. Saved my Saturday.", img: "https://randomuser.me/api/portraits/women/53.jpg", country: "🇮🇳 Mumbai" },
-  { name: "Noah Smith", username: "@noah", body: "The routing alone is worth it. One-tap directions between every stop.", img: "https://randomuser.me/api/portraits/men/33.jpg", country: "🇺🇸 Brooklyn" },
-  { name: "Lucas Stone", username: "@luc", body: "Used it for a bachelorette. Glam dinner → karaoke → 2am pizza. Perfect.", img: "https://randomuser.me/api/portraits/men/22.jpg", country: "🇫🇷 Paris" },
-  { name: "Haruto Sato", username: "@haru", body: "Out-of-towner mode: 4 hours, 3 stops, every single one a banger.", img: "https://randomuser.me/api/portraits/men/85.jpg", country: "🇯🇵 Tokyo" },
-  { name: "Emma Lee", username: "@emma", body: "It feels like a friend planned it. The good friend.", img: "https://randomuser.me/api/portraits/women/45.jpg", country: "🇨🇦 Toronto" },
-  { name: "Carlos Ray", username: "@carl", body: "First date energy: low-key, high spark. Loop nailed the vibe.", img: "https://randomuser.me/api/portraits/men/61.jpg", country: "🇪🇸 Madrid" },
+  {
+    name: "Ava Green",
+    username: "@ava",
+    body: "Loop killed our group-chat purgatory. Friday plans in 30 seconds.",
+    img: "https://randomuser.me/api/portraits/women/32.jpg",
+    country: "🇦🇺 Sydney",
+  },
+  {
+    name: "Ana Miller",
+    username: "@ana",
+    body: "I'm the planner friend. This out-planned me.",
+    img: "https://randomuser.me/api/portraits/women/68.jpg",
+    country: "🇩🇪 Berlin",
+  },
+  {
+    name: "Mateo Rossi",
+    username: "@mat",
+    body: "Booked a date night dive bar I'd driven past 100 times. Chef's kiss.",
+    img: "https://randomuser.me/api/portraits/men/51.jpg",
+    country: "🇮🇹 Milan",
+  },
+  {
+    name: "Maya Patel",
+    username: "@maya",
+    body: "Kids day-out: museum + ice cream + a nap. Saved my Saturday.",
+    img: "https://randomuser.me/api/portraits/women/53.jpg",
+    country: "🇮🇳 Mumbai",
+  },
+  {
+    name: "Noah Smith",
+    username: "@noah",
+    body: "The routing alone is worth it. One-tap directions between every stop.",
+    img: "https://randomuser.me/api/portraits/men/33.jpg",
+    country: "🇺🇸 Brooklyn",
+  },
+  {
+    name: "Lucas Stone",
+    username: "@luc",
+    body: "Used it for a bachelorette. Glam dinner → karaoke → 2am pizza. Perfect.",
+    img: "https://randomuser.me/api/portraits/men/22.jpg",
+    country: "🇫🇷 Paris",
+  },
+  {
+    name: "Haruto Sato",
+    username: "@haru",
+    body: "Out-of-towner mode: 4 hours, 3 stops, every single one a banger.",
+    img: "https://randomuser.me/api/portraits/men/85.jpg",
+    country: "🇯🇵 Tokyo",
+  },
+  {
+    name: "Emma Lee",
+    username: "@emma",
+    body: "It feels like a friend planned it. The good friend.",
+    img: "https://randomuser.me/api/portraits/women/45.jpg",
+    country: "🇨🇦 Toronto",
+  },
+  {
+    name: "Carlos Ray",
+    username: "@carl",
+    body: "First date energy: low-key, high spark. Loop nailed the vibe.",
+    img: "https://randomuser.me/api/portraits/men/61.jpg",
+    country: "🇪🇸 Madrid",
+  },
 ];
 
 function TestimonialCard({ img, name, username, body, country }: (typeof testimonials)[number]) {
@@ -43,7 +101,9 @@ function TestimonialCard({ img, name, username, body, country }: (typeof testimo
             <div className="flex items-center gap-1 truncate font-display text-sm font-bold text-ink">
               {name} <span className="text-xs">{country}</span>
             </div>
-            <div className="font-mono text-[10px] uppercase tracking-widest text-ink/60">{username}</div>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+              {username}
+            </div>
           </div>
         </div>
         <p className="mt-3 text-sm leading-snug text-ink/80">{body}</p>
@@ -92,16 +152,24 @@ function TestimonialsPage() {
             }}
           >
             <Marquee vertical pauseOnHover className="[--duration:40s]">
-              {testimonials.map((t) => <TestimonialCard key={`a-${t.username}`} {...t} />)}
+              {testimonials.map((t) => (
+                <TestimonialCard key={`a-${t.username}`} {...t} />
+              ))}
             </Marquee>
             <Marquee vertical reverse pauseOnHover className="[--duration:50s]">
-              {testimonials.map((t) => <TestimonialCard key={`b-${t.username}`} {...t} />)}
+              {testimonials.map((t) => (
+                <TestimonialCard key={`b-${t.username}`} {...t} />
+              ))}
             </Marquee>
             <Marquee vertical pauseOnHover className="[--duration:45s]">
-              {testimonials.map((t) => <TestimonialCard key={`c-${t.username}`} {...t} />)}
+              {testimonials.map((t) => (
+                <TestimonialCard key={`c-${t.username}`} {...t} />
+              ))}
             </Marquee>
             <Marquee vertical reverse pauseOnHover className="[--duration:55s]">
-              {testimonials.map((t) => <TestimonialCard key={`d-${t.username}`} {...t} />)}
+              {testimonials.map((t) => (
+                <TestimonialCard key={`d-${t.username}`} {...t} />
+              ))}
             </Marquee>
           </div>
 

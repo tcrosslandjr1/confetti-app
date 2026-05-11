@@ -8,19 +8,42 @@ export const Route = createFileRoute("/teams")({
   head: () => ({
     meta: [
       { title: "For Teams — Corporate event planning | Loop" },
-      { name: "description", content: "Plan team offsites, client dinners, and multi-day company trips in minutes. Curated venues, RSVPs, and budgets in one place." },
+      {
+        name: "description",
+        content:
+          "Plan team offsites, client dinners, and multi-day company trips in minutes. Curated venues, RSVPs, and budgets in one place.",
+      },
       { property: "og:title", content: "For Teams — Corporate event planning" },
-      { property: "og:description", content: "Plan team offsites, client dinners, and multi-day company trips in minutes." },
+      {
+        property: "og:description",
+        content: "Plan team offsites, client dinners, and multi-day company trips in minutes.",
+      },
     ],
   }),
   component: TeamsPage,
 });
 
 const USE_CASES = [
-  { icon: Wine, title: "Client dinner", body: "One-night, high-touch venue with the right room and a curated wine list." },
-  { icon: Users2, title: "Team night out", body: "End-of-quarter celebration: dinner, a venue change, late-night vibes." },
-  { icon: Briefcase, title: "Multi-day offsite", body: "2–4 days of work sessions, dinners, and downtime — without the spreadsheet." },
-  { icon: Mic2, title: "Conference add-on", body: "Curate the after-hours your attendees will actually remember." },
+  {
+    icon: Wine,
+    title: "Client dinner",
+    body: "One-night, high-touch venue with the right room and a curated wine list.",
+  },
+  {
+    icon: Users2,
+    title: "Team night out",
+    body: "End-of-quarter celebration: dinner, a venue change, late-night vibes.",
+  },
+  {
+    icon: Briefcase,
+    title: "Multi-day offsite",
+    body: "2–4 days of work sessions, dinners, and downtime — without the spreadsheet.",
+  },
+  {
+    icon: Mic2,
+    title: "Conference add-on",
+    body: "Curate the after-hours your attendees will actually remember.",
+  },
 ];
 
 const FEATURES = [
@@ -44,10 +67,13 @@ function TeamsPage() {
                 <Briefcase className="h-3 w-3" /> For Teams
               </span>
               <h1 className="mt-5 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-7xl">
-                Plan the night <span className="font-serif italic font-normal text-coral">your team</span> still talks about.
+                Plan the night{" "}
+                <span className="font-serif italic font-normal text-coral">your team</span> still
+                talks about.
               </h1>
               <p className="mt-5 max-w-xl text-lg text-ink/80">
-                From a single client dinner to a 4-day company offsite — Loop does the venue research, the RSVPs, and the budgeting so you can show up and look like a hero.
+                From a single client dinner to a 4-day company offsite — Loop does the venue
+                research, the RSVPs, and the budgeting so you can show up and look like a hero.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <GatedAction
@@ -79,7 +105,9 @@ function TeamsPage() {
                     className="rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut transition-pop hover:-translate-y-1 hover:rotate-0"
                   >
                     <Icon className="h-6 w-6" />
-                    <div className="mt-3 font-display text-xl font-extrabold leading-tight">{u.title}</div>
+                    <div className="mt-3 font-display text-xl font-extrabold leading-tight">
+                      {u.title}
+                    </div>
                     <p className="mt-1 text-sm text-ink/70">{u.body}</p>
                   </div>
                 );
@@ -95,7 +123,10 @@ function TeamsPage() {
             </h2>
             <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {FEATURES.map((f) => (
-                <li key={f} className="flex items-start gap-3 rounded-2xl border border-cream/15 bg-cream/[0.03] p-4">
+                <li
+                  key={f}
+                  className="flex items-start gap-3 rounded-2xl border border-cream/15 bg-cream/[0.03] p-4"
+                >
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
                   <span className="text-sm">{f}</span>
                 </li>

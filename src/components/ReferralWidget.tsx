@@ -46,7 +46,8 @@ export function ReferralWidget() {
           Give $25 off, get a $25 gift card
         </h3>
         <p className="mt-1 text-xs text-muted-foreground">
-          Friends get a discount on their first booking. You get a $25 gift card the moment they book.
+          Friends get a discount on their first booking. You get a $25 gift card the moment they
+          book.
         </p>
 
         <div className="mt-4 flex items-center gap-2">
@@ -86,7 +87,9 @@ function Stat({ label, value }: { label: string; value: number | string }) {
   return (
     <div className="rounded-xl bg-background/70 py-2">
       <div className="font-display text-lg font-bold leading-none">{value}</div>
-      <div className="mt-0.5 text-[10px] uppercase tracking-wider text-muted-foreground">{label}</div>
+      <div className="mt-0.5 text-[10px] uppercase tracking-wider text-muted-foreground">
+        {label}
+      </div>
     </div>
   );
 }

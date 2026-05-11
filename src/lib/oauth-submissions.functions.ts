@@ -35,16 +35,14 @@ export const submitProviderCredentials = createServerFn({ method: "POST" })
     const origin = process.env.SITE_URL ?? "https://confettiplan.lovable.app";
     const callbackUrl = `${origin.replace(/\/$/, "")}${spec.callbackPath}`;
 
-    const { error } = await context.supabase
-      .from("oauth_credential_submissions")
-      .insert({
-        user_id: context.userId,
-        provider,
-        client_id: data.clientId,
-        client_secret: data.clientSecret,
-        callback_url: callbackUrl,
-        notes: data.notes || null,
-      });
+    const { error } = await context.supabase.from("oauth_credential_submissions").insert({
+      user_id: context.userId,
+      provider,
+      client_id: data.clientId,
+      client_secret: data.clientSecret,
+      callback_url: callbackUrl,
+      notes: data.notes || null,
+    });
 
     if (error) {
       // Unique partial index → friendly message for "already pending".

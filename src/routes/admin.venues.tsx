@@ -178,7 +178,13 @@ function AdminVenuesPage() {
     }
     setVenues((prev) => [data as Venue, ...prev]);
     toast.success(`Added ${draft.name}`);
-    logAudit({ admin: adminEmail, action: "edit", entity: "venue", targetId: (data as Venue).id, summary: `Added venue "${draft.name}"` });
+    logAudit({
+      admin: adminEmail,
+      action: "edit",
+      entity: "venue",
+      targetId: (data as Venue).id,
+      summary: `Added venue "${draft.name}"`,
+    });
     return true;
   };
 
@@ -192,7 +198,13 @@ function AdminVenuesPage() {
     }
     setVenues((prev) => prev.map((v) => (v.id === id ? next : v)));
     toast.success(`Saved ${next.name}`);
-    logAudit({ admin: adminEmail, action: "edit", entity: "venue", targetId: id, summary: `Edited venue "${next.name}"` });
+    logAudit({
+      admin: adminEmail,
+      action: "edit",
+      entity: "venue",
+      targetId: id,
+      summary: `Edited venue "${next.name}"`,
+    });
     return true;
   };
 
@@ -205,14 +217,22 @@ function AdminVenuesPage() {
     }
     setVenues((prev) => prev.filter((x) => x.id !== v.id));
     toast.success(`Deleted ${v.name}`);
-    logAudit({ admin: adminEmail, action: "remove", entity: "venue", targetId: v.id, summary: `Deleted venue "${v.name}"` });
+    logAudit({
+      admin: adminEmail,
+      action: "remove",
+      entity: "venue",
+      targetId: v.id,
+      summary: `Deleted venue "${v.name}"`,
+    });
   };
 
   return (
     <div className="space-y-6">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Catalog</p>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            Catalog
+          </p>
           <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
             <Store className="h-7 w-7" /> Venues
           </h1>
@@ -258,12 +278,17 @@ function AdminVenuesPage() {
         </div>
       ) : filtered.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-border bg-card/50 p-10 text-center text-sm text-muted-foreground">
-          {venues.length === 0 ? "No venues yet — click Add venue to create the first one." : "No venues match your search."}
+          {venues.length === 0
+            ? "No venues yet — click Add venue to create the first one."
+            : "No venues match your search."}
         </div>
       ) : (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {filtered.map((v) => (
-            <article key={v.id} className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-5 shadow-card">
+            <article
+              key={v.id}
+              className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-5 shadow-card"
+            >
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
                   <h3 className="truncate font-display text-lg font-bold">{v.name}</h3>
@@ -391,7 +416,12 @@ function VenueDialog({
         <div className="grid grid-cols-2 gap-3">
           <div className="grid gap-1.5">
             <Label htmlFor="category">Category</Label>
-            <Input id="category" placeholder="Restaurant, Bar…" value={draft.category} onChange={(e) => update("category", e.target.value)} />
+            <Input
+              id="category"
+              placeholder="Restaurant, Bar…"
+              value={draft.category}
+              onChange={(e) => update("category", e.target.value)}
+            />
           </div>
           <div className="grid gap-1.5">
             <Label htmlFor="price">Price level</Label>
@@ -411,16 +441,29 @@ function VenueDialog({
         <div className="grid grid-cols-2 gap-3">
           <div className="grid gap-1.5">
             <Label htmlFor="hood">Neighborhood</Label>
-            <Input id="hood" value={draft.neighborhood ?? ""} onChange={(e) => update("neighborhood", e.target.value)} />
+            <Input
+              id="hood"
+              value={draft.neighborhood ?? ""}
+              onChange={(e) => update("neighborhood", e.target.value)}
+            />
           </div>
           <div className="grid gap-1.5">
             <Label htmlFor="city">City</Label>
-            <Input id="city" value={draft.city ?? ""} onChange={(e) => update("city", e.target.value)} />
+            <Input
+              id="city"
+              value={draft.city ?? ""}
+              onChange={(e) => update("city", e.target.value)}
+            />
           </div>
         </div>
         <div className="grid gap-1.5">
           <Label htmlFor="image">Image URL</Label>
-          <Input id="image" placeholder="https://…" value={draft.image_url ?? ""} onChange={(e) => update("image_url", e.target.value)} />
+          <Input
+            id="image"
+            placeholder="https://…"
+            value={draft.image_url ?? ""}
+            onChange={(e) => update("image_url", e.target.value)}
+          />
         </div>
         <div className="grid gap-1.5">
           <Label htmlFor="desc">Description</Label>
@@ -448,7 +491,9 @@ function VenueDialog({
           </select>
           {linkedAdvertiser && !draft.staff_email?.trim() && (
             <p className="text-xs text-muted-foreground">
-              Notifications will auto-route to <span className="font-mono">{linkedAdvertiser.contact_email}</span> from the linked advertiser.
+              Notifications will auto-route to{" "}
+              <span className="font-mono">{linkedAdvertiser.contact_email}</span> from the linked
+              advertiser.
             </p>
           )}
         </div>
@@ -462,9 +507,14 @@ function VenueDialog({
             onChange={(e) => update("staff_email", e.target.value)}
           />
           <p className="text-xs text-muted-foreground">
-            {effectiveStaffEmail
-              ? <>Booking notifications go to <span className="font-mono">{effectiveStaffEmail}</span>.</>
-              : "Leave blank to fall back to the global ops inbox."}
+            {effectiveStaffEmail ? (
+              <>
+                Booking notifications go to <span className="font-mono">{effectiveStaffEmail}</span>
+                .
+              </>
+            ) : (
+              "Leave blank to fall back to the global ops inbox."
+            )}
           </p>
         </div>
       </div>

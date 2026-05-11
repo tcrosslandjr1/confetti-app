@@ -23,9 +23,14 @@ const PICKS: Pick[] = [
     duration: "4h",
     cost: "$80–$120 pp",
     stops: [
-      { time: "6:30p", venue: "Aera Terrace",  address: "77 Pearl St, 22F",  neighborhood: "Financial District" },
-      { time: "8:15p", venue: "Twelve Story",  address: "1201 Broadway, R", neighborhood: "NoMad" },
-      { time: "10:00p", venue: "Halo Skybar",  address: "230 5th Ave, R",   neighborhood: "Flatiron" },
+      {
+        time: "6:30p",
+        venue: "Aera Terrace",
+        address: "77 Pearl St, 22F",
+        neighborhood: "Financial District",
+      },
+      { time: "8:15p", venue: "Twelve Story", address: "1201 Broadway, R", neighborhood: "NoMad" },
+      { time: "10:00p", venue: "Halo Skybar", address: "230 5th Ave, R", neighborhood: "Flatiron" },
     ],
   },
   {
@@ -37,9 +42,19 @@ const PICKS: Pick[] = [
     duration: "3.5h",
     cost: "$95–$140 pp",
     stops: [
-      { time: "7:00p", venue: "Lila's Patio",      address: "418 W 14th St", neighborhood: "Meatpacking" },
-      { time: "8:45p", venue: "The Velvet Door",   address: "12 Crosby St",  neighborhood: "SoHo" },
-      { time: "10:15p", venue: "Mason St. Records", address: "210 Mason St", neighborhood: "Lower East Side" },
+      {
+        time: "7:00p",
+        venue: "Lila's Patio",
+        address: "418 W 14th St",
+        neighborhood: "Meatpacking",
+      },
+      { time: "8:45p", venue: "The Velvet Door", address: "12 Crosby St", neighborhood: "SoHo" },
+      {
+        time: "10:15p",
+        venue: "Mason St. Records",
+        address: "210 Mason St",
+        neighborhood: "Lower East Side",
+      },
     ],
   },
   {
@@ -51,9 +66,14 @@ const PICKS: Pick[] = [
     duration: "4.5h",
     cost: "$160–$240 pp",
     stops: [
-      { time: "6:00p", venue: "Kettle & Char",  address: "55 Hudson St",     neighborhood: "Tribeca" },
+      { time: "6:00p", venue: "Kettle & Char", address: "55 Hudson St", neighborhood: "Tribeca" },
       { time: "8:30p", venue: "Suite 9 Lounge", address: "9 Great Jones St", neighborhood: "NoHo" },
-      { time: "10:30p", venue: "Aera Rooftop",  address: "77 Pearl St, 22F", neighborhood: "Financial District" },
+      {
+        time: "10:30p",
+        venue: "Aera Rooftop",
+        address: "77 Pearl St, 22F",
+        neighborhood: "Financial District",
+      },
     ],
   },
   {
@@ -65,9 +85,14 @@ const PICKS: Pick[] = [
     duration: "5h",
     cost: "$60–$110 pp",
     stops: [
-      { time: "9:00p", venue: "Marigold Pizza", address: "94 Orchard St",  neighborhood: "Lower East Side" },
-      { time: "10:45p", venue: "Saturn Lounge", address: "388 Bowery",     neighborhood: "NoHo" },
-      { time: "12:30a", venue: "Basement 47",   address: "47 Canal St",    neighborhood: "Chinatown" },
+      {
+        time: "9:00p",
+        venue: "Marigold Pizza",
+        address: "94 Orchard St",
+        neighborhood: "Lower East Side",
+      },
+      { time: "10:45p", venue: "Saturn Lounge", address: "388 Bowery", neighborhood: "NoHo" },
+      { time: "12:30a", venue: "Basement 47", address: "47 Canal St", neighborhood: "Chinatown" },
     ],
   },
   {
@@ -79,9 +104,24 @@ const PICKS: Pick[] = [
     duration: "5h",
     cost: "$45–$75 pp",
     stops: [
-      { time: "11:00a", venue: "Six Spoons",         address: "162 Wythe Ave",   neighborhood: "Williamsburg" },
-      { time: "1:30p",  venue: "Glasshouse Gallery", address: "548 W 22nd St",   neighborhood: "Chelsea" },
-      { time: "3:15p",  venue: "Harbor Promenade",   address: "Pier 17, South St", neighborhood: "Seaport" },
+      {
+        time: "11:00a",
+        venue: "Six Spoons",
+        address: "162 Wythe Ave",
+        neighborhood: "Williamsburg",
+      },
+      {
+        time: "1:30p",
+        venue: "Glasshouse Gallery",
+        address: "548 W 22nd St",
+        neighborhood: "Chelsea",
+      },
+      {
+        time: "3:15p",
+        venue: "Harbor Promenade",
+        address: "Pier 17, South St",
+        neighborhood: "Seaport",
+      },
     ],
   },
   {
@@ -93,9 +133,19 @@ const PICKS: Pick[] = [
     duration: "4h",
     cost: "$55–$95 pp",
     stops: [
-      { time: "7:30p", venue: "Loose Leaf Live",    address: "311 Bleecker St", neighborhood: "West Village" },
-      { time: "9:15p", venue: "Mason St. Records",  address: "210 Mason St",    neighborhood: "Lower East Side" },
-      { time: "10:45p", venue: "Underline Club",    address: "199 Bowery",      neighborhood: "NoHo" },
+      {
+        time: "7:30p",
+        venue: "Loose Leaf Live",
+        address: "311 Bleecker St",
+        neighborhood: "West Village",
+      },
+      {
+        time: "9:15p",
+        venue: "Mason St. Records",
+        address: "210 Mason St",
+        neighborhood: "Lower East Side",
+      },
+      { time: "10:45p", venue: "Underline Club", address: "199 Bowery", neighborhood: "NoHo" },
     ],
   },
 ];
@@ -107,11 +157,15 @@ export function QuickPicks() {
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">/ steal a night</span>
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">
+                / steal a night
+              </span>
               <h2 className="mt-2 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
                 Steal a <span className="font-serif italic font-normal text-coral">night.</span>
               </h2>
-              <p className="mt-3 max-w-md text-lg">Grab a ready-made plan and go. Tap, tweak, show up.</p>
+              <p className="mt-3 max-w-md text-lg">
+                Grab a ready-made plan and go. Tap, tweak, show up.
+              </p>
             </div>
             <span className="hidden font-mono text-[11px] uppercase tracking-widest text-ink/60 sm:inline">
               ← drag to scroll →
@@ -125,10 +179,14 @@ export function QuickPicks() {
               <article
                 className={`group relative flex w-[300px] shrink-0 flex-col rounded-3xl border-2 border-ink ${p.bg} p-5 shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg sm:w-[340px]`}
               >
-                <span className={`inline-flex w-fit items-center rounded-full border-2 border-ink ${p.vibeTone} px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest`}>
+                <span
+                  className={`inline-flex w-fit items-center rounded-full border-2 border-ink ${p.vibeTone} px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest`}
+                >
                   {p.vibe}
                 </span>
-                <h3 className="mt-4 font-display text-3xl font-extrabold leading-[0.95]">{p.title}</h3>
+                <h3 className="mt-4 font-display text-3xl font-extrabold leading-[0.95]">
+                  {p.title}
+                </h3>
 
                 <ol className="mt-5 space-y-2 border-t-2 border-dashed border-ink/30 pt-4">
                   {p.stops.map((s, idx) => (
@@ -136,14 +194,20 @@ export function QuickPicks() {
                       <span className="grid h-7 w-12 shrink-0 place-items-center rounded-md border-2 border-ink bg-cream/90 font-mono text-[10px] font-bold">
                         {s.time}
                       </span>
-                      <span className="min-w-0 flex-1 truncate font-display text-base font-bold">{s.venue}</span>
-                      <span className="font-mono text-[10px] font-bold text-ink/40">0{idx + 1}</span>
+                      <span className="min-w-0 flex-1 truncate font-display text-base font-bold">
+                        {s.venue}
+                      </span>
+                      <span className="font-mono text-[10px] font-bold text-ink/40">
+                        0{idx + 1}
+                      </span>
                     </li>
                   ))}
                 </ol>
 
                 <div className="mt-5 flex items-center justify-between border-t-2 border-dashed border-ink/30 pt-3 font-mono text-[11px] uppercase tracking-widest text-ink/70">
-                  <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {p.duration}</span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <Clock className="h-3.5 w-3.5" /> {p.duration}
+                  </span>
                   <span>{p.cost}</span>
                 </div>
 

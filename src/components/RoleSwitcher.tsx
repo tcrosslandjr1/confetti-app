@@ -1,6 +1,15 @@
 import { useAuth, type ViewAs } from "@/lib/auth-context";
 import { useNavigate } from "@tanstack/react-router";
-import { Shield, User as UserIcon, Eye, X, ChevronUp, ChevronDown, Repeat, Briefcase } from "lucide-react";
+import {
+  Shield,
+  User as UserIcon,
+  Eye,
+  X,
+  ChevronUp,
+  ChevronDown,
+  Repeat,
+  Briefcase,
+} from "lucide-react";
 import { useState } from "react";
 
 type Option = {
@@ -94,9 +103,7 @@ export function RoleSwitcher() {
               <span>
                 Viewing as <span className="uppercase tracking-wide">{current.label}</span>
               </span>
-              <span className="hidden text-amber-950/70 sm:inline">
-                — {current.blurb}
-              </span>
+              <span className="hidden text-amber-950/70 sm:inline">— {current.blurb}</span>
               {user?.email && (
                 <span className="hidden rounded-full bg-amber-950/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider md:inline">
                   signed in as {user.email}
@@ -143,9 +150,7 @@ export function RoleSwitcher() {
       {/* Bottom-right dock */}
       <div
         className={`fixed bottom-4 right-4 z-[60] rounded-2xl border bg-card/95 shadow-pop backdrop-blur transition ${
-          isImpersonating
-            ? "border-amber-500 ring-2 ring-amber-500/60"
-            : "border-border"
+          isImpersonating ? "border-amber-500 ring-2 ring-amber-500/60" : "border-border"
         }`}
       >
         {open ? (

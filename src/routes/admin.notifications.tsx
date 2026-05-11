@@ -73,9 +73,7 @@ function AdminNotificationsPage() {
   const onResend = async (r: Delivery) => {
     setResendingId(r.id);
     try {
-      const result = r.venue_id
-        ? await resolveEmail({ data: { venueId: r.venue_id } })
-        : null;
+      const result = r.venue_id ? await resolveEmail({ data: { venueId: r.venue_id } }) : null;
       const recipient = result?.email ?? r.recipient_email ?? null;
       const source = result?.source ?? r.source;
 
@@ -158,7 +156,10 @@ function AdminNotificationsPage() {
   }, [rows, query, status]);
 
   const counts = useMemo(() => {
-    const c = { total: rows.length, pending: 0, sent: 0, failed: 0, skipped: 0 } as Record<string, number>;
+    const c = { total: rows.length, pending: 0, sent: 0, failed: 0, skipped: 0 } as Record<
+      string,
+      number
+    >;
     for (const r of rows) c[r.status] = (c[r.status] ?? 0) + 1;
     return c;
   }, [rows]);
@@ -167,12 +168,15 @@ function AdminNotificationsPage() {
     <div className="space-y-6">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Notifications</p>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            Notifications
+          </p>
           <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
             <Bell className="h-7 w-7" /> Booking notification log
           </h1>
           <p className="text-sm text-muted-foreground">
-            Every booking notification: which address it routed to, the source, status, and a preview of the message.
+            Every booking notification: which address it routed to, the source, status, and a
+            preview of the message.
           </p>
         </div>
         <Button variant="outline" size="sm" onClick={() => void load()}>
@@ -189,7 +193,9 @@ function AdminNotificationsPage() {
           { k: "skipped", label: "Skipped" },
         ].map((s) => (
           <div key={s.k} className="rounded-2xl border border-border bg-card p-4 shadow-card">
-            <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">{s.label}</div>
+            <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+              {s.label}
+            </div>
             <div className="mt-1 font-display text-2xl font-bold">{counts[s.k] ?? 0}</div>
           </div>
         ))}
@@ -202,7 +208,9 @@ function AdminNotificationsPage() {
               key={s}
               onClick={() => setStatus(s)}
               className={`rounded-full border px-3 py-1 text-xs capitalize transition ${
-                status === s ? "border-foreground bg-foreground text-background" : "border-border bg-card text-muted-foreground hover:text-foreground"
+                status === s
+                  ? "border-foreground bg-foreground text-background"
+                  : "border-border bg-card text-muted-foreground hover:text-foreground"
               }`}
             >
               {s}
@@ -246,47 +254,60 @@ function AdminNotificationsPage() {
               {filtered.map((r) => {
                 const canResend = r.status === "failed" || r.status === "pending";
                 return (
-                <tr key={r.id} className="border-t border-border/60">
-                  <td className="px-4 py-2 align-top text-xs text-muted-foreground">
-                    {timeAgo(r.created_at)}
-                    {r.test && <span className="ml-1 rounded bg-muted px-1 py-0.5 font-mono text-[10px] uppercase">test</span>}
-                  </td>
-                  <td className="px-4 py-2 align-top font-medium">{r.venue_name || "—"}</td>
-                  <td className="px-4 py-2 align-top font-mono text-xs">
-                    {r.recipient_email || <span className="text-muted-foreground">—</span>}
-                  </td>
-                  <td className="px-4 py-2 align-top text-xs text-muted-foreground">
-                    {SOURCE_LABEL[r.source] ?? r.source}
-                  </td>
-                  <td className="px-4 py-2 align-top">
-                    <span className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] capitalize ${STATUS_BADGE[r.status] ?? "border-border bg-muted text-muted-foreground"}`}>
-                      {r.status}
-                    </span>
-                    {r.error && <p className="mt-1 max-w-[28ch] truncate text-[11px] text-destructive" title={r.error}>{r.error}</p>}
-                  </td>
-                  <td className="px-4 py-2 text-right align-top">
-                    <div className="flex justify-end gap-1">
-                      {canResend && (
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          disabled={resendingId === r.id}
-                          onClick={() => void onResend(r)}
-                        >
-                          {resendingId === r.id ? (
-                            <Loader2 className="mr-1 h-3.5 w-3.5 animate-spin" />
-                          ) : (
-                            <Send className="mr-1 h-3.5 w-3.5" />
-                          )}
-                          Resend
-                        </Button>
+                  <tr key={r.id} className="border-t border-border/60">
+                    <td className="px-4 py-2 align-top text-xs text-muted-foreground">
+                      {timeAgo(r.created_at)}
+                      {r.test && (
+                        <span className="ml-1 rounded bg-muted px-1 py-0.5 font-mono text-[10px] uppercase">
+                          test
+                        </span>
                       )}
-                      <Button size="sm" variant="ghost" onClick={() => setPreview(r)}>
-                        <Mail className="mr-1 h-3.5 w-3.5" /> View
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
+                    </td>
+                    <td className="px-4 py-2 align-top font-medium">{r.venue_name || "—"}</td>
+                    <td className="px-4 py-2 align-top font-mono text-xs">
+                      {r.recipient_email || <span className="text-muted-foreground">—</span>}
+                    </td>
+                    <td className="px-4 py-2 align-top text-xs text-muted-foreground">
+                      {SOURCE_LABEL[r.source] ?? r.source}
+                    </td>
+                    <td className="px-4 py-2 align-top">
+                      <span
+                        className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] capitalize ${STATUS_BADGE[r.status] ?? "border-border bg-muted text-muted-foreground"}`}
+                      >
+                        {r.status}
+                      </span>
+                      {r.error && (
+                        <p
+                          className="mt-1 max-w-[28ch] truncate text-[11px] text-destructive"
+                          title={r.error}
+                        >
+                          {r.error}
+                        </p>
+                      )}
+                    </td>
+                    <td className="px-4 py-2 text-right align-top">
+                      <div className="flex justify-end gap-1">
+                        {canResend && (
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            disabled={resendingId === r.id}
+                            onClick={() => void onResend(r)}
+                          >
+                            {resendingId === r.id ? (
+                              <Loader2 className="mr-1 h-3.5 w-3.5 animate-spin" />
+                            ) : (
+                              <Send className="mr-1 h-3.5 w-3.5" />
+                            )}
+                            Resend
+                          </Button>
+                        )}
+                        <Button size="sm" variant="ghost" onClick={() => setPreview(r)}>
+                          <Mail className="mr-1 h-3.5 w-3.5" /> View
+                        </Button>
+                      </div>
+                    </td>
+                  </tr>
                 );
               })}
             </tbody>
@@ -301,8 +322,8 @@ function AdminNotificationsPage() {
               <DialogHeader>
                 <DialogTitle>{preview.subject || "Booking notification"}</DialogTitle>
                 <DialogDescription>
-                  To <span className="font-mono">{preview.recipient_email || "(unresolved)"}</span> ·{" "}
-                  {SOURCE_LABEL[preview.source] ?? preview.source}
+                  To <span className="font-mono">{preview.recipient_email || "(unresolved)"}</span>{" "}
+                  · {SOURCE_LABEL[preview.source] ?? preview.source}
                 </DialogDescription>
               </DialogHeader>
               <div className="space-y-3 text-sm">
@@ -310,10 +331,16 @@ function AdminNotificationsPage() {
                   {preview.body || "(no body)"}
                 </div>
                 <dl className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
-                  <dt>Venue</dt><dd className="text-foreground">{preview.venue_name || "—"}</dd>
-                  <dt>Channel</dt><dd className="text-foreground">{preview.channel}</dd>
-                  <dt>Status</dt><dd className="text-foreground capitalize">{preview.status}</dd>
-                  <dt>Logged</dt><dd className="text-foreground">{new Date(preview.created_at).toLocaleString()}</dd>
+                  <dt>Venue</dt>
+                  <dd className="text-foreground">{preview.venue_name || "—"}</dd>
+                  <dt>Channel</dt>
+                  <dd className="text-foreground">{preview.channel}</dd>
+                  <dt>Status</dt>
+                  <dd className="text-foreground capitalize">{preview.status}</dd>
+                  <dt>Logged</dt>
+                  <dd className="text-foreground">
+                    {new Date(preview.created_at).toLocaleString()}
+                  </dd>
                 </dl>
                 {preview.error && (
                   <p className="rounded-md border border-destructive/30 bg-destructive/10 p-2 text-xs text-destructive">

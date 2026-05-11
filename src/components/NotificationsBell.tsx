@@ -49,7 +49,12 @@ export function NotificationsBell() {
       .channel(`notifications:${user.id}`)
       .on(
         "postgres_changes",
-        { event: "INSERT", schema: "public", table: "notifications", filter: `user_id=eq.${user.id}` },
+        {
+          event: "INSERT",
+          schema: "public",
+          table: "notifications",
+          filter: `user_id=eq.${user.id}`,
+        },
         (payload) => {
           setItems((prev) => [payload.new as Notification, ...prev].slice(0, 20));
         },
@@ -67,12 +72,19 @@ export function NotificationsBell() {
   const markAllRead = async () => {
     if (!user || unread === 0) return;
     const ids = items.filter((n) => !n.read_at).map((n) => n.id);
-    setItems((prev) => prev.map((n) => (ids.includes(n.id) ? { ...n, read_at: new Date().toISOString() } : n)));
-    await supabase.from("notifications").update({ read_at: new Date().toISOString() }).in("id", ids);
+    setItems((prev) =>
+      prev.map((n) => (ids.includes(n.id) ? { ...n, read_at: new Date().toISOString() } : n)),
+    );
+    await supabase
+      .from("notifications")
+      .update({ read_at: new Date().toISOString() })
+      .in("id", ids);
   };
 
   const markOneRead = async (id: string) => {
-    setItems((prev) => prev.map((n) => (n.id === id ? { ...n, read_at: new Date().toISOString() } : n)));
+    setItems((prev) =>
+      prev.map((n) => (n.id === id ? { ...n, read_at: new Date().toISOString() } : n)),
+    );
     await supabase.from("notifications").update({ read_at: new Date().toISOString() }).eq("id", id);
   };
 
@@ -101,7 +113,9 @@ export function NotificationsBell() {
         </div>
         <div className="max-h-96 overflow-y-auto">
           {items.length === 0 ? (
-            <div className="px-3 py-8 text-center text-sm text-muted-foreground">You're all caught up.</div>
+            <div className="px-3 py-8 text-center text-sm text-muted-foreground">
+              You're all caught up.
+            </div>
           ) : (
             items.map((n) => {
               const Inner = (
@@ -113,10 +127,14 @@ export function NotificationsBell() {
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div className="text-sm font-medium leading-snug">{n.title}</div>
-                    {!n.read_at && <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />}
+                    {!n.read_at && (
+                      <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                    )}
                   </div>
                   {n.body && <div className="text-xs text-muted-foreground">{n.body}</div>}
-                  <div className="text-[10px] uppercase tracking-wide text-muted-foreground/70">{timeAgo(n.created_at)}</div>
+                  <div className="text-[10px] uppercase tracking-wide text-muted-foreground/70">
+                    {timeAgo(n.created_at)}
+                  </div>
                 </div>
               );
               return n.link ? (
@@ -132,7 +150,12 @@ export function NotificationsBell() {
                   {Inner}
                 </Link>
               ) : (
-                <button key={n.id} type="button" onClick={() => void markOneRead(n.id)} className="block w-full">
+                <button
+                  key={n.id}
+                  type="button"
+                  onClick={() => void markOneRead(n.id)}
+                  className="block w-full"
+                >
                   {Inner}
                 </button>
               );

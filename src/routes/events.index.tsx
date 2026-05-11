@@ -14,8 +14,7 @@ export const Route = createFileRoute("/events/")({
       { title: "Browse events — Loop" },
       {
         name: "description",
-        content:
-          "Search and filter events by category, city, and date. Find your next night out.",
+        content: "Search and filter events by category, city, and date. Find your next night out.",
       },
       { property: "og:title", content: "Browse events — Loop" },
       {
@@ -62,8 +61,7 @@ function BrowseEvents() {
             Browse <span className="text-gradient">events</span>
           </h1>
           <p className="mt-3 max-w-xl text-muted-foreground">
-            {filtered.length} event{filtered.length === 1 ? "" : "s"} matching
-            your vibe.
+            {filtered.length} event{filtered.length === 1 ? "" : "s"} matching your vibe.
           </p>
 
           <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-center">
@@ -117,9 +115,7 @@ function BrowseEvents() {
         {filtered.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-border p-16 text-center">
             <p className="font-display text-2xl font-bold">No events found</p>
-            <p className="mt-2 text-muted-foreground">
-              Try a different category or search term.
-            </p>
+            <p className="mt-2 text-muted-foreground">Try a different category or search term.</p>
           </div>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

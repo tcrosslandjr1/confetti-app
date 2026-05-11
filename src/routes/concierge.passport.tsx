@@ -11,8 +11,21 @@ export const Route = createFileRoute("/concierge/passport")({
   component: Passport,
 });
 
-type Visit = { id: string; venue_name: string; visited_at: string; xp_earned: number; notes: string | null };
-type Achievement = { id: string; code: string; title: string; description: string; xp_reward: number; icon: string };
+type Visit = {
+  id: string;
+  venue_name: string;
+  visited_at: string;
+  xp_earned: number;
+  notes: string | null;
+};
+type Achievement = {
+  id: string;
+  code: string;
+  title: string;
+  description: string;
+  xp_reward: number;
+  icon: string;
+};
 type Unlocked = { achievement_id: string };
 
 function Passport() {
@@ -29,7 +42,11 @@ function Passport() {
     if (!user) return;
     const [{ data: p }, { data: v }, { data: a }, { data: ua }] = await Promise.all([
       supabase.from("profiles").select("xp,display_name").eq("id", user.id).maybeSingle(),
-      supabase.from("visits").select("*").eq("user_id", user.id).order("visited_at", { ascending: false }),
+      supabase
+        .from("visits")
+        .select("*")
+        .eq("user_id", user.id)
+        .order("visited_at", { ascending: false }),
       supabase.from("achievements").select("*"),
       supabase.from("user_achievements").select("achievement_id").eq("user_id", user.id),
     ]);
@@ -39,7 +56,9 @@ function Passport() {
     setUnlocked(new Set((ua ?? []).map((x: any) => x.achievement_id)));
   };
 
-  useEffect(() => { reload(); }, [user]);
+  useEffect(() => {
+    reload();
+  }, [user]);
 
   const addVisit = async (e: FormEvent) => {
     e.preventDefault();
@@ -53,17 +72,24 @@ function Passport() {
     });
     // Award XP
     const newXp = (profile?.xp ?? 0) + xpEarned;
-    await supabase.from("profiles").update({ xp: newXp, level: levelFromXp(newXp) }).eq("id", user.id);
+    await supabase
+      .from("profiles")
+      .update({ xp: newXp, level: levelFromXp(newXp) })
+      .eq("id", user.id);
 
     // Unlock first_visit
     const firstVisit = achievements.find((a) => a.code === "first_visit");
     if (firstVisit && !unlocked.has(firstVisit.id)) {
-      await supabase.from("user_achievements").insert({ user_id: user.id, achievement_id: firstVisit.id });
+      await supabase
+        .from("user_achievements")
+        .insert({ user_id: user.id, achievement_id: firstVisit.id });
     }
     // Unlock dmv_native at 10 visits
     const dmvNative = achievements.find((a) => a.code === "dmv_native");
     if (dmvNative && !unlocked.has(dmvNative.id) && visits.length + 1 >= 10) {
-      await supabase.from("user_achievements").insert({ user_id: user.id, achievement_id: dmvNative.id });
+      await supabase
+        .from("user_achievements")
+        .insert({ user_id: user.id, achievement_id: dmvNative.id });
     }
 
     setName("");
@@ -97,14 +123,19 @@ function Passport() {
             <div className="h-full bg-white" style={{ width: `${pct}%` }} />
           </div>
           <div className="mt-2 flex justify-between text-[11px] opacity-90">
-            <span>{current} / {needed} XP</span>
+            <span>
+              {current} / {needed} XP
+            </span>
             <span>Next: {next} XP</span>
           </div>
         </div>
       </div>
 
       {/* Quick add */}
-      <form onSubmit={addVisit} className="mt-6 flex gap-2 rounded-2xl border border-border bg-card p-2 shadow-card">
+      <form
+        onSubmit={addVisit}
+        className="mt-6 flex gap-2 rounded-2xl border border-border bg-card p-2 shadow-card"
+      >
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -130,7 +161,9 @@ function Passport() {
               <div
                 key={a.id}
                 className={`rounded-2xl border p-4 ${
-                  got ? "border-transparent bg-gradient-warm text-primary-foreground shadow-pop" : "border-border bg-card opacity-70"
+                  got
+                    ? "border-transparent bg-gradient-warm text-primary-foreground shadow-pop"
+                    : "border-border bg-card opacity-70"
                 }`}
               >
                 <div className="grid h-9 w-9 place-items-center rounded-xl bg-black/15">
@@ -138,7 +171,9 @@ function Passport() {
                 </div>
                 <div className="mt-3 font-display text-sm font-bold">{a.title}</div>
                 <div className="mt-1 text-[11px] opacity-90">{a.description}</div>
-                <div className="mt-2 text-[10px] font-semibold uppercase tracking-wider">+{a.xp_reward} XP</div>
+                <div className="mt-2 text-[10px] font-semibold uppercase tracking-wider">
+                  +{a.xp_reward} XP
+                </div>
               </div>
             );
           })}
@@ -152,7 +187,9 @@ function Passport() {
           <div className="mt-3 rounded-3xl border border-dashed border-border bg-card/50 p-6 text-center">
             <BookMarked className="mx-auto h-7 w-7 text-muted-foreground" />
             <div className="mt-3 font-semibold">No stamps yet</div>
-            <div className="mt-1 text-xs text-muted-foreground">Log your first visit to start your map.</div>
+            <div className="mt-1 text-xs text-muted-foreground">
+              Log your first visit to start your map.
+            </div>
             <button
               onClick={() => navigate({ to: "/concierge" })}
               className="mt-4 inline-flex items-center gap-1 rounded-full bg-gradient-vibe px-4 py-2 text-xs font-semibold text-primary-foreground"
@@ -163,7 +200,10 @@ function Passport() {
         ) : (
           <div className="mt-3 space-y-2">
             {visits.map((v) => (
-              <div key={v.id} className="flex items-center gap-3 rounded-2xl border border-border bg-card p-4 shadow-card">
+              <div
+                key={v.id}
+                className="flex items-center gap-3 rounded-2xl border border-border bg-card p-4 shadow-card"
+              >
                 <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-cool text-primary-foreground">
                   <MapPin className="h-4 w-4" />
                 </span>

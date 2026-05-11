@@ -35,9 +35,16 @@ export const Route = createFileRoute("/teams/new")({
   head: () => ({
     meta: [
       { title: "Plan a team event — Loop" },
-      { name: "description", content: "Build a multi-day team event in minutes — venues, RSVPs, and budgets handled, end to end." },
+      {
+        name: "description",
+        content:
+          "Build a multi-day team event in minutes — venues, RSVPs, and budgets handled, end to end.",
+      },
       { property: "og:title", content: "Plan a team event — Loop" },
-      { property: "og:description", content: "From client dinners to multi-day offsites: build it in minutes with Loop." },
+      {
+        property: "og:description",
+        content: "From client dinners to multi-day offsites: build it in minutes with Loop.",
+      },
     ],
   }),
   component: NewTeamEventPage,
@@ -124,7 +131,8 @@ function NewTeamEventPage() {
 
   const composeNotes = () => {
     const lines: string[] = [];
-    if (city || neighborhood) lines.push(`Location preference: ${[neighborhood, city].filter(Boolean).join(", ")}`);
+    if (city || neighborhood)
+      lines.push(`Location preference: ${[neighborhood, city].filter(Boolean).join(", ")}`);
     if (vibes.size) lines.push(`Vibe: ${[...vibes].join(", ")}`);
     if (dietary.size) lines.push(`Dietary: ${[...dietary].join(", ")}`);
     if (notes.trim()) lines.push(notes.trim());
@@ -177,7 +185,10 @@ function NewTeamEventPage() {
       <SiteHeader />
       <main className="bg-cream">
         <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-          <Link to="/teams" className="font-mono text-[11px] uppercase tracking-widest text-ink/60 hover:text-ink">
+          <Link
+            to="/teams"
+            className="font-mono text-[11px] uppercase tracking-widest text-ink/60 hover:text-ink"
+          >
             ← For Teams
           </Link>
           <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
@@ -199,24 +210,44 @@ function NewTeamEventPage() {
               <AlertCircle className="mt-0.5 h-5 w-5" />
               <div className="text-sm">
                 You'll need a free account to save your event and send invites.
-                <Link to="/auth" className="ml-2 font-bold underline">Sign in →</Link>
+                <Link to="/auth" className="ml-2 font-bold underline">
+                  Sign in →
+                </Link>
               </div>
             </div>
           )}
 
-          <Stepper stepIdx={stepIdx} stepValid={stepValid} onJump={(i) => i <= stepIdx && setStepIdx(i)} />
+          <Stepper
+            stepIdx={stepIdx}
+            stepValid={stepValid}
+            onJump={(i) => i <= stepIdx && setStepIdx(i)}
+          />
 
           <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
             <div className="rounded-3xl border-2 border-ink bg-cream p-6 shadow-brut">
               {currentStep.id === "basics" && (
                 <div className="space-y-6">
-                  <SectionHeading icon={Briefcase} title="The basics" hint="Who's hosting and what are we calling it?" />
+                  <SectionHeading
+                    icon={Briefcase}
+                    title="The basics"
+                    hint="Who's hosting and what are we calling it?"
+                  />
                   <div className="grid gap-4 sm:grid-cols-2">
                     <Field label="Organization" required>
-                      <Input value={orgName} onChange={(e) => setOrgName(e.target.value)} placeholder="Acme Inc." maxLength={100} />
+                      <Input
+                        value={orgName}
+                        onChange={(e) => setOrgName(e.target.value)}
+                        placeholder="Acme Inc."
+                        maxLength={100}
+                      />
                     </Field>
                     <Field label="Event title" required>
-                      <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Q3 client dinner" maxLength={120} />
+                      <Input
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        placeholder="Q3 client dinner"
+                        maxLength={120}
+                      />
                     </Field>
                   </div>
                   <Field label="What kind of event is it?">
@@ -238,13 +269,26 @@ function NewTeamEventPage() {
 
               {currentStep.id === "schedule" && (
                 <div className="space-y-6">
-                  <SectionHeading icon={CalendarIcon} title="When is it?" hint="Single evening or multi-day — both work." />
+                  <SectionHeading
+                    icon={CalendarIcon}
+                    title="When is it?"
+                    hint="Single evening or multi-day — both work."
+                  />
                   <div className="grid gap-4 sm:grid-cols-2">
                     <Field label="Start date" required>
-                      <Input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+                      <Input
+                        type="date"
+                        value={startDate}
+                        onChange={(e) => setStartDate(e.target.value)}
+                      />
                     </Field>
                     <Field label="End date (leave blank for single day)">
-                      <Input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} min={startDate} />
+                      <Input
+                        type="date"
+                        value={endDate}
+                        onChange={(e) => setEndDate(e.target.value)}
+                        min={startDate}
+                      />
                     </Field>
                   </div>
                   {startDate && (
@@ -257,18 +301,39 @@ function NewTeamEventPage() {
 
               {currentStep.id === "people" && (
                 <div className="space-y-6">
-                  <SectionHeading icon={UsersIcon} title="Who's coming?" hint="Set headcount, budget, and (optionally) attendees." />
+                  <SectionHeading
+                    icon={UsersIcon}
+                    title="Who's coming?"
+                    hint="Set headcount, budget, and (optionally) attendees."
+                  />
                   <div className="grid gap-6 sm:grid-cols-2">
                     <Field label={`Headcount: ${headcount}`}>
-                      <input type="range" min={2} max={250} value={headcount} onChange={(e) => setHeadcount(parseInt(e.target.value))} className="w-full accent-ink" />
+                      <input
+                        type="range"
+                        min={2}
+                        max={250}
+                        value={headcount}
+                        onChange={(e) => setHeadcount(parseInt(e.target.value))}
+                        className="w-full accent-ink"
+                      />
                       <div className="mt-1 flex justify-between font-mono text-[10px] uppercase tracking-widest text-ink/50">
-                        <span>2</span><span>250</span>
+                        <span>2</span>
+                        <span>250</span>
                       </div>
                     </Field>
                     <Field label={`Budget per person · per day: $${budget}`}>
-                      <input type="range" min={25} max={500} step={5} value={budget} onChange={(e) => setBudget(parseInt(e.target.value))} className="w-full accent-ink" />
+                      <input
+                        type="range"
+                        min={25}
+                        max={500}
+                        step={5}
+                        value={budget}
+                        onChange={(e) => setBudget(parseInt(e.target.value))}
+                        className="w-full accent-ink"
+                      />
                       <div className="mt-1 flex justify-between font-mono text-[10px] uppercase tracking-widest text-ink/50">
-                        <span>$25</span><span>$500</span>
+                        <span>$25</span>
+                        <span>$500</span>
                       </div>
                     </Field>
                   </div>
@@ -289,13 +354,25 @@ function NewTeamEventPage() {
 
               {currentStep.id === "vibe" && (
                 <div className="space-y-6">
-                  <SectionHeading icon={Sparkles} title="Vibe & preferences" hint="Helps us pick the right venues from the jump." />
+                  <SectionHeading
+                    icon={Sparkles}
+                    title="Vibe & preferences"
+                    hint="Helps us pick the right venues from the jump."
+                  />
                   <div className="grid gap-4 sm:grid-cols-2">
                     <Field label="City">
-                      <Input value={city} onChange={(e) => setCity(e.target.value)} placeholder="Washington DC" />
+                      <Input
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
+                        placeholder="Washington DC"
+                      />
                     </Field>
                     <Field label="Neighborhood (optional)">
-                      <Input value={neighborhood} onChange={(e) => setNeighborhood(e.target.value)} placeholder="Shaw, Capitol Hill…" />
+                      <Input
+                        value={neighborhood}
+                        onChange={(e) => setNeighborhood(e.target.value)}
+                        placeholder="Shaw, Capitol Hill…"
+                      />
                     </Field>
                   </div>
                   <Field label="Vibe">
@@ -333,36 +410,71 @@ function NewTeamEventPage() {
                     </div>
                   </Field>
                   <Field label="Anything else? (optional)">
-                    <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={3} maxLength={1000} placeholder="2 vegetarians, one wheelchair-accessible venue, no late nights." />
+                    <Textarea
+                      value={notes}
+                      onChange={(e) => setNotes(e.target.value)}
+                      rows={3}
+                      maxLength={1000}
+                      placeholder="2 vegetarians, one wheelchair-accessible venue, no late nights."
+                    />
                   </Field>
                 </div>
               )}
 
               {currentStep.id === "review" && (
                 <div className="space-y-5">
-                  <SectionHeading icon={ClipboardList} title="Review & launch" hint="Confirm the basics and we'll spin up your event." />
+                  <SectionHeading
+                    icon={ClipboardList}
+                    title="Review & launch"
+                    hint="Confirm the basics and we'll spin up your event."
+                  />
                   <ReviewRow label="Organization" value={orgName || "—"} />
                   <ReviewRow label="Title" value={title || "—"} />
                   <ReviewRow label="Purpose" value={PURPOSE_LABELS[purpose]} />
-                  <ReviewRow label="When" value={startDate ? `${startDate}${endDate ? ` → ${endDate}` : ""} (${days} ${days === 1 ? "day" : "days"})` : "—"} />
+                  <ReviewRow
+                    label="When"
+                    value={
+                      startDate
+                        ? `${startDate}${endDate ? ` → ${endDate}` : ""} (${days} ${days === 1 ? "day" : "days"})`
+                        : "—"
+                    }
+                  />
                   <ReviewRow label="Headcount" value={`${headcount} people`} />
                   <ReviewRow label="Budget" value={`$${budget}/person/day`} />
-                  <ReviewRow label="Attendees" value={`${parsed.length} email${parsed.length === 1 ? "" : "s"} on file`} />
+                  <ReviewRow
+                    label="Attendees"
+                    value={`${parsed.length} email${parsed.length === 1 ? "" : "s"} on file`}
+                  />
                   {(city || neighborhood) && (
-                    <ReviewRow label="Where" value={[neighborhood, city].filter(Boolean).join(", ")} />
+                    <ReviewRow
+                      label="Where"
+                      value={[neighborhood, city].filter(Boolean).join(", ")}
+                    />
                   )}
                   {vibes.size > 0 && <ReviewRow label="Vibe" value={[...vibes].join(" · ")} />}
-                  {dietary.size > 0 && <ReviewRow label="Dietary" value={[...dietary].join(" · ")} />}
+                  {dietary.size > 0 && (
+                    <ReviewRow label="Dietary" value={[...dietary].join(" · ")} />
+                  )}
                 </div>
               )}
 
               <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t-2 border-dashed border-ink/30 pt-5">
-                <Button type="button" variant="outline" onClick={back} disabled={stepIdx === 0 || busy} className="gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={back}
+                  disabled={stepIdx === 0 || busy}
+                  className="gap-2"
+                >
                   <ArrowLeft className="h-4 w-4" /> Back
                 </Button>
                 {currentStep.id === "review" ? (
                   <Button onClick={submit} disabled={busy} size="lg" className="gap-2">
-                    {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
+                    {busy ? (
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                    ) : (
+                      <Check className="h-4 w-4" />
+                    )}
                     Create event
                   </Button>
                 ) : (
@@ -375,21 +487,31 @@ function NewTeamEventPage() {
 
             <aside className="lg:sticky lg:top-24 lg:self-start">
               <div className="rounded-3xl border-2 border-ink bg-ink p-6 text-cream shadow-brut">
-                <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">Live summary</div>
+                <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
+                  Live summary
+                </div>
                 <div className="mt-2 font-display text-2xl font-extrabold">
                   {title || "Your event"}
                 </div>
-                <div className="mt-1 text-sm text-cream/70">{orgName || "Set an organization →"}</div>
+                <div className="mt-1 text-sm text-cream/70">
+                  {orgName || "Set an organization →"}
+                </div>
 
                 <dl className="mt-5 grid grid-cols-2 gap-3 text-sm">
-                  <SummaryStat icon={CalendarIcon} label="Dates" value={startDate ? `${startDate}${endDate ? ` → ${endDate}` : ""}` : "—"} />
+                  <SummaryStat
+                    icon={CalendarIcon}
+                    label="Dates"
+                    value={startDate ? `${startDate}${endDate ? ` → ${endDate}` : ""}` : "—"}
+                  />
                   <SummaryStat icon={UsersIcon} label="Headcount" value={`${headcount}`} />
                   <SummaryStat icon={DollarSign} label="Per person" value={`$${budget}/day`} />
                   <SummaryStat icon={MapPin} label="City" value={city || "—"} />
                 </dl>
 
                 <div className="mt-5 rounded-2xl border border-cream/20 bg-cream/5 p-4">
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">Estimated total</div>
+                  <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
+                    Estimated total
+                  </div>
                   <div className="mt-1 font-display text-3xl font-extrabold">
                     ${(totalCents / 100).toLocaleString()}
                   </div>
@@ -401,7 +523,10 @@ function NewTeamEventPage() {
                 {(vibes.size > 0 || dietary.size > 0) && (
                   <div className="mt-5 flex flex-wrap gap-1.5">
                     {[...vibes, ...dietary].slice(0, 8).map((t) => (
-                      <span key={t} className="rounded-full border border-cream/30 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest">
+                      <span
+                        key={t}
+                        className="rounded-full border border-cream/30 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest"
+                      >
                         {t}
                       </span>
                     ))}
@@ -444,10 +569,14 @@ function Stepper({
               disabled={!reachable}
               className={`flex w-full items-center gap-2 rounded-xl border-2 px-3 py-2 text-left transition-pop ${active ? "border-ink bg-ink text-cream shadow-brut" : done ? "border-ink bg-gold/60" : "border-ink/30 bg-cream"} ${reachable ? "hover:border-ink" : "cursor-not-allowed opacity-60"}`}
             >
-              <span className={`grid h-6 w-6 shrink-0 place-items-center rounded-full border ${active ? "border-cream/60" : "border-ink/30"}`}>
+              <span
+                className={`grid h-6 w-6 shrink-0 place-items-center rounded-full border ${active ? "border-cream/60" : "border-ink/30"}`}
+              >
                 {done ? <Check className="h-3.5 w-3.5" /> : <Icon className="h-3.5 w-3.5" />}
               </span>
-              <span className="hidden font-mono text-[11px] font-bold uppercase tracking-widest sm:inline">{s.label}</span>
+              <span className="hidden font-mono text-[11px] font-bold uppercase tracking-widest sm:inline">
+                {s.label}
+              </span>
             </button>
           </li>
         );
@@ -456,7 +585,15 @@ function Stepper({
   );
 }
 
-function SectionHeading({ icon: Icon, title, hint }: { icon: typeof Briefcase; title: string; hint?: string }) {
+function SectionHeading({
+  icon: Icon,
+  title,
+  hint,
+}: {
+  icon: typeof Briefcase;
+  title: string;
+  hint?: string;
+}) {
   return (
     <div>
       <h2 className="flex items-center gap-2 font-display text-2xl font-extrabold">
@@ -467,7 +604,15 @@ function SectionHeading({ icon: Icon, title, hint }: { icon: typeof Briefcase; t
   );
 }
 
-function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
+function Field({
+  label,
+  required,
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  children: React.ReactNode;
+}) {
   return (
     <div>
       <Label className="mb-1.5 block font-mono text-[11px] uppercase tracking-widest text-ink/70">
@@ -487,7 +632,15 @@ function ReviewRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-function SummaryStat({ icon: Icon, label, value }: { icon: typeof Briefcase; label: string; value: string }) {
+function SummaryStat({
+  icon: Icon,
+  label,
+  value,
+}: {
+  icon: typeof Briefcase;
+  label: string;
+  value: string;
+}) {
   return (
     <div>
       <div className="flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-cream/60">

@@ -35,16 +35,14 @@ export function WidgetShell({
     tone === "ink"
       ? "border-ink bg-ink text-cream"
       : tone === "coral"
-      ? "border-ink bg-coral/30"
-      : "border-ink bg-cream";
+        ? "border-ink bg-coral/30"
+        : "border-ink bg-cream";
   return (
     <article className={`rounded-3xl border-2 p-5 shadow-brut ${styles}`}>
       <header className="mb-3 flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
           <Icon className="h-4 w-4" />
-          <h3 className="font-display text-base font-extrabold uppercase tracking-wide">
-            {title}
-          </h3>
+          <h3 className="font-display text-base font-extrabold uppercase tracking-wide">{title}</h3>
         </div>
         {action && (
           <Link
@@ -127,18 +125,23 @@ export function TonightAtAGlance() {
   }, [loc]);
 
   const hour = now.getHours();
-  const phase = hour < 12 ? "Morning" : hour < 17 ? "Afternoon" : hour < 21 ? "Evening" : "Late night";
+  const phase =
+    hour < 12 ? "Morning" : hour < 17 ? "Afternoon" : hour < 21 ? "Evening" : "Late night";
   const tip =
     hour < 12
       ? "Brunch reservations move fast on weekends."
       : hour < 17
-      ? "Happy hour windows usually open at 4-6pm."
-      : hour < 21
-      ? "Prime dinner slots — book within the next 30 min."
-      : "Late-night spots: cocktails, dessert, or live music.";
+        ? "Happy hour windows usually open at 4-6pm."
+        : hour < 21
+          ? "Prime dinner slots — book within the next 30 min."
+          : "Late-night spots: cocktails, dessert, or live music.";
 
   return (
-    <WidgetShell title="Tonight at a glance" icon={Sparkles} action={{ label: "Plan", to: "/concierge/chat" }}>
+    <WidgetShell
+      title="Tonight at a glance"
+      icon={Sparkles}
+      action={{ label: "Plan", to: "/concierge/chat" }}
+    >
       <div className="grid grid-cols-3 gap-3">
         <div className="rounded-xl bg-ink/5 p-3">
           <div className="font-mono text-[9px] uppercase tracking-widest text-ink/60">Now</div>
@@ -153,7 +156,7 @@ export function TonightAtAGlance() {
             {w ? `${w.tempF}°` : "—"}
           </div>
           <div className="mt-1 truncate text-[11px] text-ink/60">
-            {w ? WEATHER_LABEL[w.code] ?? "—" : loc ? "Loading…" : "Set location"}
+            {w ? (WEATHER_LABEL[w.code] ?? "—") : loc ? "Loading…" : "Set location"}
           </div>
         </div>
         <div className="rounded-xl bg-ink/5 p-3">
@@ -237,7 +240,11 @@ export function NextBookingCountdown() {
 
   if (!b) {
     return (
-      <WidgetShell title="Next up" icon={CalendarCheck} action={{ label: "Plan", to: "/concierge/chat" }}>
+      <WidgetShell
+        title="Next up"
+        icon={CalendarCheck}
+        action={{ label: "Plan", to: "/concierge/chat" }}
+      >
         <p className="text-sm text-ink/60">No upcoming bookings yet.</p>
         <Link
           to="/concierge/chat"
@@ -299,7 +306,9 @@ function CountdownCell({ label, value }: { label: string; value: number }) {
       <div className="font-display text-2xl font-extrabold leading-none">
         {value.toString().padStart(2, "0")}
       </div>
-      <div className="mt-1 font-mono text-[9px] uppercase tracking-widest text-cream/60">{label}</div>
+      <div className="mt-1 font-mono text-[9px] uppercase tracking-widest text-cream/60">
+        {label}
+      </div>
     </div>
   );
 }
@@ -412,12 +421,14 @@ export function SpendBudgetTracker() {
   }, [user]);
 
   const pct = budget > 0 ? Math.min(100, Math.round((spent / budget) * 100)) : 0;
-  const monthLabel = useMemo(
-    () => new Date().toLocaleDateString([], { month: "long" }),
-    [],
-  );
+  const monthLabel = useMemo(() => new Date().toLocaleDateString([], { month: "long" }), []);
   const remaining = Math.max(0, budget - spent);
-  const tone = pct < 70 ? "from-emerald-500 to-emerald-400" : pct < 100 ? "from-amber-500 to-amber-400" : "from-coral to-coral";
+  const tone =
+    pct < 70
+      ? "from-emerald-500 to-emerald-400"
+      : pct < 100
+        ? "from-amber-500 to-amber-400"
+        : "from-coral to-coral";
 
   const saveBudget = () => {
     const dollars = parseInt(draft, 10);
@@ -432,7 +443,11 @@ export function SpendBudgetTracker() {
   };
 
   return (
-    <WidgetShell title={`${monthLabel} spend`} icon={Wallet} action={{ label: "Bookings", to: "/portal/bookings" }}>
+    <WidgetShell
+      title={`${monthLabel} spend`}
+      icon={Wallet}
+      action={{ label: "Bookings", to: "/portal/bookings" }}
+    >
       <div className="flex items-end justify-between gap-3">
         <div>
           <div className="font-display text-3xl font-extrabold leading-none">
@@ -447,7 +462,10 @@ export function SpendBudgetTracker() {
         </div>
       </div>
       <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-ink/10">
-        <div className={`h-full bg-gradient-to-r ${tone} transition-all`} style={{ width: `${pct}%` }} />
+        <div
+          className={`h-full bg-gradient-to-r ${tone} transition-all`}
+          style={{ width: `${pct}%` }}
+        />
       </div>
       <div className="mt-2 flex items-center justify-between text-[11px] text-ink/60">
         <span>{remaining > 0 ? `$${(remaining / 100).toLocaleString()} left` : "Over budget"}</span>

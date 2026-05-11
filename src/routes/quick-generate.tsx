@@ -1,9 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { WandSparkles, ArrowUp, ArrowDown, Repeat, Sparkles, Lock, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
+import { makeDemoLoop, setActiveLoop } from "@/lib/loop-store";
 
 export const Route = createFileRoute("/quick-generate")({
   head: () => ({ meta: [{ title: "Quick Generate — Loop" }] }),
@@ -70,6 +71,7 @@ const STOPS: Stop[] = [
 const TWEAKS = ["More chill", "Add dessert", "Make it fancy", "Kid-friendly"];
 
 function QuickGenerate() {
+  const navigate = useNavigate();
   const [phase, setPhase] = useState<"gen" | "ready">("gen");
   const [progress, setProgress] = useState(0);
   const [statusStep, setStatusStep] = useState(0);
@@ -235,11 +237,26 @@ function QuickGenerate() {
         )}
       </section>
 
-      <Link to="/portal/bookings" className="fixed inset-x-0 bottom-4 mx-auto block w-[calc(100%-2rem)] max-w-2xl">
-        <Button className="h-14 w-full gap-2 rounded-2xl bg-gradient-vibe text-base font-bold shadow-pop">
+      <div className="fixed inset-x-0 bottom-4 mx-auto w-[calc(100%-2rem)] max-w-2xl">
+        <Button
+          onClick={() => {
+            const loop = makeDemoLoop({
+              stops: stops.map((s, i) => ({
+                id: `s${i + 1}`,
+                name: s.name,
+                type: s.type,
+                time: s.time,
+                area: s.area,
+              })),
+            });
+            setActiveLoop(loop);
+            navigate({ to: "/boarding-pass" });
+          }}
+          className="h-14 w-full gap-2 rounded-2xl bg-gradient-vibe text-base font-bold shadow-pop"
+        >
           <Lock className="h-5 w-5" /> Lock In This Loop
         </Button>
-      </Link>
+      </div>
     </div>
   );
 }

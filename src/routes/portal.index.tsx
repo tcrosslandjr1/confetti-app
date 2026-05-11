@@ -313,9 +313,7 @@ function PortalDiscoverPage() {
 
           {/* Right sidebar: progress strip */}
           <aside aria-label="Your progress" className="space-y-4 lg:col-span-1">
-            <LevelProgress xp={profile?.xp ?? 0} level={profile?.level ?? 1} />
             <WeeklyChallenge bookings={bookingTotals.upcoming} referrals={refStats.signedUp} />
-            <StreakCard pastBookings={bookingTotals.past} unlocked={unlockedCount} />
           </aside>
         </div>
       )}
@@ -505,31 +503,6 @@ function VenueCard({ v }: { v: Venue }) {
   );
 }
 
-function LevelProgress({ xp, level }: { xp: number; level: number }) {
-  const xpForNext = level * 500;
-  const xpThisLevel = xp % xpForNext;
-  const pct = Math.min(100, Math.round((xpThisLevel / xpForNext) * 100));
-  const remaining = xpForNext - xpThisLevel;
-  return (
-    <article className="rounded-2xl border border-border bg-card p-5 shadow-card">
-      <header className="mb-3 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Sparkles className="h-4 w-4 text-primary" />
-          <h3 className="font-display text-sm font-bold uppercase tracking-wider">Level {level}</h3>
-        </div>
-        <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{xp.toLocaleString()} XP</span>
-      </header>
-      <div className="h-3 w-full overflow-hidden rounded-full bg-muted">
-        <div className="h-full rounded-full bg-gradient-vibe transition-all" style={{ width: `${pct}%` }} />
-      </div>
-      <div className="mt-2 flex items-center justify-between text-xs">
-        <span className="text-muted-foreground">{pct}% to Level {level + 1}</span>
-        <span className="font-semibold text-primary">{remaining} XP to go</span>
-      </div>
-      <p className="mt-3 text-xs text-muted-foreground">Book a stop (+50), complete it (+100), refer a friend (+250).</p>
-    </article>
-  );
-}
 
 function WeeklyChallenge({ bookings, referrals }: { bookings: number; referrals: number }) {
   const goals = [
@@ -562,36 +535,6 @@ function WeeklyChallenge({ bookings, referrals }: { bookings: number; referrals:
   );
 }
 
-function StreakCard({ pastBookings, unlocked }: { pastBookings: number; unlocked: number }) {
-  const streak = Math.min(pastBookings, 7);
-  return (
-    <article className="rounded-2xl border border-border bg-gradient-to-br from-orange-500/10 via-amber-400/5 to-transparent p-5 shadow-card">
-      <header className="mb-3 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Flame className="h-4 w-4 text-orange-500" />
-          <h3 className="font-display text-sm font-bold uppercase tracking-wider">Going-out streak</h3>
-        </div>
-        <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{unlocked} badges</span>
-      </header>
-      <div className="flex items-baseline gap-2">
-        <span className="font-display text-4xl font-extrabold leading-none">{streak}</span>
-        <span className="text-xs text-muted-foreground">night{streak === 1 ? "" : "s"} out</span>
-      </div>
-      <div className="mt-3 grid grid-cols-7 gap-1">
-        {Array.from({ length: 7 }).map((_, i) => (
-          <div
-            key={i}
-            className={`h-2 rounded-full ${i < streak ? "bg-gradient-to-r from-orange-500 to-amber-400" : "bg-muted"}`}
-            aria-hidden
-          />
-        ))}
-      </div>
-      <p className="mt-3 text-xs text-muted-foreground">
-        {streak === 0 ? "Plan your first night to start the streak." : streak < 3 ? "Keep it rolling — 3 nights unlocks a badge." : "You're on fire. Don't let it cool."}
-      </p>
-    </article>
-  );
-}
 
 function NextSteps({ hasUpcoming, hasReferred, unlocked, totalAch }: { hasUpcoming: boolean; hasReferred: boolean; unlocked: number; totalAch: number }) {
   const steps: { to: string; icon: typeof Sparkles; title: string; desc: string; tone: string }[] = [];

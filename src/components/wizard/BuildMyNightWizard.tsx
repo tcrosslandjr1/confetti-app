@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowUpRight, Check, ChevronDown, Clock, DollarSign, Flame, Globe, Heart, Loader2, MapPin, Phone, RefreshCw, Save, Sparkles, Star, Utensils, Wine, X } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, ChevronDown, Clock, DollarSign, Flame, Globe, Heart, Loader2, MapPin, Phone, RefreshCw, Save, Share2, Sparkles, Star, Utensils, Wine, X } from "lucide-react";
 import { useWizard } from "./wizard-context";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
 import { toast } from "sonner";

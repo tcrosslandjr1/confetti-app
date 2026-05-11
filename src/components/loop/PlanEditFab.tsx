@@ -3,6 +3,7 @@ import { Pencil, Repeat2, CalendarClock, X, Bell } from "lucide-react";
 import { toast } from "sonner";
 import { setActiveLoop, type ActiveLoop, type LoopStop } from "@/lib/loop-store";
 import { logActivity } from "@/lib/activity-log";
+import { appendNotifications, type NotificationKind } from "@/lib/trip-status";
 
 type Props = {
   loop: ActiveLoop;

@@ -11,6 +11,8 @@ import { BoardingPass } from "@/components/BoardingPass";
 import { PromotedSlot } from "@/components/PromotedSlot";
 import { clearNotifications, formatUpdatedAt, loadNotifications, loadStatus, subscribeNotifications, subscribeStatus, type SentNotification, type TripStatus } from "@/lib/trip-status";
 import { GooglePhotos } from "@/components/GooglePhotos";
+import { VibeFilter } from "@/components/VibeFilter";
+import { CROWD_LABEL, DRESS_LABEL, NOISE_LABEL, inferStopVibe, loadVibePrefs, matchLevel, saveVibePrefs, vibeMatchScore, type VibePrefs } from "@/lib/vibe";
 
 export const Route = createFileRoute("/trips/$id")({
   component: TripDetail,

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { CheckCircle2, ExternalLink, KeyRound, Loader2, Plug, RefreshCw, XCircle } from "lucide-react";
+import { CheckCircle2, ExternalLink, Flame, KeyRound, Loader2, Plug, RefreshCw, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
@@ -156,11 +156,87 @@ function AdminIntegrationsPage() {
         })}
       </div>
 
+      <ViralRefreshPanel />
+
       <section className="rounded-2xl border border-dashed border-border bg-card/50 p-5 text-sm text-muted-foreground">
         Need to add a new integration (e.g. Resend for email, Stripe for payments)? Open Lovable Cloud →
         Secrets to add the API key, then drop a new entry into{" "}
         <code className="font-mono text-foreground">src/routes/admin.integrations.tsx</code>.
       </section>
     </div>
+  );
+}
+
+function ViralRefreshPanel() {
+  const [city, setCity] = useState("Washington DC");
+  const [busy, setBusy] = useState(false);
+  const [result, setResult] = useState<string | null>(null);
+  const [runs, setRuns] = useState<Array<{ id: string; city: string | null; started_at: string; finished_at: string | null; venues_upserted: number; candidates_found: number; error: string | null; duration_ms: number | null }>>([]);
+
+  const loadRuns = async () => {
+    const { data } = await supabase
+      .from("viral_discovery_runs")
+      .select("id,city,started_at,finished_at,venues_upserted,candidates_found,error,duration_ms")
+      .order("started_at", { ascending: false })
+      .limit(8);
+    setRuns(data ?? []);
+  };
+  useEffect(() => { void loadRuns(); }, []);
+
+  const refresh = async () => {
+    setBusy(true);
+    setResult(null);
+    try {
+      const anonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
+      const res = await fetch("/api/public/hooks/discover-viral", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", apikey: anonKey },
+        body: JSON.stringify({ city }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error ?? `HTTP ${res.status}`);
+      setResult(`✓ ${json.venuesUpserted ?? 0} venues from ${json.candidatesFound ?? 0} candidates · ${json.durationMs}ms`);
+      toast.success("Viral feed refreshed", { description: `${json.venuesUpserted} venues for ${city}` });
+      void loadRuns();
+    } catch (e) {
+      const msg = (e as Error).message;
+      setResult(`✗ ${msg}`);
+      toast.error("Refresh failed", { description: msg });
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <section className="space-y-3 rounded-2xl border border-border bg-card p-5 shadow-card">
+      <div>
+        <h3 className="font-display text-lg font-bold flex items-center gap-2"><Flame className="h-5 w-5 text-rose-500" /> Viral discovery</h3>
+        <p className="text-sm text-muted-foreground">Pulls trending venues from Firecrawl + Lovable AI, verifies via Google Places, and caches scored results.</p>
+      </div>
+      <div className="flex flex-wrap items-center gap-2">
+        <input value={city} onChange={(e) => setCity(e.target.value)} className="rounded-xl border border-border bg-background px-3 py-2 text-sm" placeholder="City" />
+        <Button onClick={refresh} disabled={busy} size="sm">
+          {busy ? <Loader2 className="mr-1 h-3.5 w-3.5 animate-spin" /> : <RefreshCw className="mr-1 h-3.5 w-3.5" />}
+          Refresh now
+        </Button>
+        {result && <span className="text-xs text-muted-foreground">{result}</span>}
+      </div>
+      {runs.length > 0 && (
+        <div className="space-y-1.5 pt-2">
+          <p className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Recent runs</p>
+          <ul className="divide-y divide-border rounded-xl border border-border bg-background text-xs">
+            {runs.map((r) => (
+              <li key={r.id} className="flex items-center justify-between gap-2 px-3 py-2">
+                <span className="font-mono">{r.city ?? "—"}</span>
+                <span className="text-muted-foreground">{new Date(r.started_at).toLocaleString()}</span>
+                <span className={r.error ? "text-destructive" : "text-emerald-600"}>
+                  {r.error ? `error: ${r.error.slice(0, 40)}` : `${r.venues_upserted}/${r.candidates_found} · ${r.duration_ms ?? 0}ms`}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </section>
   );
 }

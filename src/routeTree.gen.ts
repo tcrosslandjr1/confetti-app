@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeatherRouteImport } from './routes/weather'
+import { Route as ViralRouteImport } from './routes/viral'
 import { Route as TranslateRouteImport } from './routes/translate'
 import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
 import { Route as ReservationsRouteImport } from './routes/reservations'
@@ -69,10 +70,16 @@ import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.ch
 import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public/tiktok.callback'
 import { Route as ApiPublicInstagramCallbackRouteImport } from './routes/api/public/instagram.callback'
 import { Route as ApiPublicHooksTiktokRefreshRouteImport } from './routes/api/public/hooks/tiktok-refresh'
+import { Route as ApiPublicHooksDiscoverViralRouteImport } from './routes/api/public/hooks/discover-viral'
 
 const WeatherRoute = WeatherRouteImport.update({
   id: '/weather',
   path: '/weather',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ViralRoute = ViralRouteImport.update({
+  id: '/viral',
+  path: '/viral',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TranslateRoute = TranslateRouteImport.update({
@@ -372,6 +379,12 @@ const ApiPublicHooksTiktokRefreshRoute =
     path: '/api/public/hooks/tiktok-refresh',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicHooksDiscoverViralRoute =
+  ApiPublicHooksDiscoverViralRouteImport.update({
+    id: '/api/public/hooks/discover-viral',
+    path: '/api/public/hooks/discover-viral',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -394,6 +407,7 @@ export interface FileRoutesByFullPath {
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/translate': typeof TranslateRoute
+  '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
@@ -431,6 +445,7 @@ export interface FileRoutesByFullPath {
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
+  '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
@@ -452,6 +467,7 @@ export interface FileRoutesByTo {
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/translate': typeof TranslateRoute
+  '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
@@ -489,6 +505,7 @@ export interface FileRoutesByTo {
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat': typeof ConciergeChatIndexRoute
+  '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
@@ -515,6 +532,7 @@ export interface FileRoutesById {
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/translate': typeof TranslateRoute
+  '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
@@ -552,6 +570,7 @@ export interface FileRoutesById {
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
+  '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
@@ -579,6 +598,7 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/taste-tuner'
     | '/translate'
+    | '/viral'
     | '/weather'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
@@ -616,6 +636,7 @@ export interface FileRouteTypes {
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat/'
+    | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
     | '/api/public/tiktok/callback'
@@ -637,6 +658,7 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/taste-tuner'
     | '/translate'
+    | '/viral'
     | '/weather'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
@@ -674,6 +696,7 @@ export interface FileRouteTypes {
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat'
+    | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
     | '/api/public/tiktok/callback'
@@ -699,6 +722,7 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/taste-tuner'
     | '/translate'
+    | '/viral'
     | '/weather'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
@@ -736,6 +760,7 @@ export interface FileRouteTypes {
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat/'
+    | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
     | '/api/public/tiktok/callback'
@@ -762,6 +787,7 @@ export interface RootRouteChildren {
   ReservationsRoute: typeof ReservationsRoute
   TasteTunerRoute: typeof TasteTunerRoute
   TranslateRoute: typeof TranslateRoute
+  ViralRoute: typeof ViralRoute
   WeatherRoute: typeof WeatherRoute
   ApiChatRoute: typeof ApiChatRoute
   CollabTripIdRoute: typeof CollabTripIdRoute
@@ -771,6 +797,7 @@ export interface RootRouteChildren {
   TripsIdRoute: typeof TripsIdRouteWithChildren
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
+  ApiPublicHooksDiscoverViralRoute: typeof ApiPublicHooksDiscoverViralRoute
   ApiPublicHooksTiktokRefreshRoute: typeof ApiPublicHooksTiktokRefreshRoute
   ApiPublicInstagramCallbackRoute: typeof ApiPublicInstagramCallbackRoute
   ApiPublicTiktokCallbackRoute: typeof ApiPublicTiktokCallbackRoute
@@ -783,6 +810,13 @@ declare module '@tanstack/react-router' {
       path: '/weather'
       fullPath: '/weather'
       preLoaderRoute: typeof WeatherRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/viral': {
+      id: '/viral'
+      path: '/viral'
+      fullPath: '/viral'
+      preLoaderRoute: typeof ViralRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/translate': {
@@ -1198,6 +1232,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicHooksTiktokRefreshRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/hooks/discover-viral': {
+      id: '/api/public/hooks/discover-viral'
+      path: '/api/public/hooks/discover-viral'
+      fullPath: '/api/public/hooks/discover-viral'
+      preLoaderRoute: typeof ApiPublicHooksDiscoverViralRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1332,6 +1373,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReservationsRoute: ReservationsRoute,
   TasteTunerRoute: TasteTunerRoute,
   TranslateRoute: TranslateRoute,
+  ViralRoute: ViralRoute,
   WeatherRoute: WeatherRoute,
   ApiChatRoute: ApiChatRoute,
   CollabTripIdRoute: CollabTripIdRoute,
@@ -1341,6 +1383,7 @@ const rootRouteChildren: RootRouteChildren = {
   TripsIdRoute: TripsIdRouteWithChildren,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
+  ApiPublicHooksDiscoverViralRoute: ApiPublicHooksDiscoverViralRoute,
   ApiPublicHooksTiktokRefreshRoute: ApiPublicHooksTiktokRefreshRoute,
   ApiPublicInstagramCallbackRoute: ApiPublicInstagramCallbackRoute,
   ApiPublicTiktokCallbackRoute: ApiPublicTiktokCallbackRoute,

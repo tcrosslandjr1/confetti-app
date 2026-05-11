@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { getMyReferralStats, getOrCreateMyReferralCode, buildReferralLink, type MyReferralStats } from "@/lib/referrals";
 import { useAuth } from "@/lib/auth-context";
 import { NearbyVenues } from "@/components/NearbyVenues";
+import { ViralNow } from "@/components/ViralNow";
 import { PromotedSlot } from "@/components/PromotedSlot";
 import { buildAndSaveItinerary } from "@/lib/itineraries";
 import { loadPrefs } from "@/lib/taste";
@@ -246,6 +247,8 @@ function PortalDiscoverPage() {
           totalAch={achievements.length}
         />
       )}
+
+      <ViralNow city="Washington DC" />
 
       <div className="grid gap-3 sm:grid-cols-3">
         <QuickAction to="/concierge/chat" icon={MessageCircle} label="Ask Concierge" hint="AI-powered planning" />

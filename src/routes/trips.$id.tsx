@@ -35,6 +35,12 @@ function TripDetail() {
 
   const [tripStatus, setTripStatus] = useState<TripStatus | null>(null);
   const [notifications, setNotifications] = useState<SentNotification[]>([]);
+  const [vibePrefs, setVibePrefs] = useState<VibePrefs>(() => loadVibePrefs());
+
+  function updateVibePrefs(next: VibePrefs) {
+    setVibePrefs(next);
+    saveVibePrefs(next);
+  }
 
   useEffect(() => {
     if (authLoading) return;

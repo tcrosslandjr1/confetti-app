@@ -817,6 +817,7 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackWalletEvent("wallet_open_link_click")}
           className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
         >
           <Wallet className="h-4 w-4" /> Open save link in new tab
@@ -832,6 +833,7 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
           type="button"
           onClick={() => {
             navigator.clipboard?.writeText(url);
+            trackWalletEvent("wallet_copy_link");
             toast.success("Save link copied");
           }}
           className="mt-2 w-full text-center font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink"

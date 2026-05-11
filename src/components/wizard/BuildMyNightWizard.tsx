@@ -293,6 +293,8 @@ export function BuildMyNightWizard() {
     topVenues: Set<string>;
     bookingsCount: number;
     dietLabel: string | null;
+    hourCounts: Record<number, number>;
+    venueCounts: Record<string, number>;
   };
   const [personalize, setPersonalize] = useState<Personalize | null>(null);
   type DietPrefs = { vegan: boolean; vegetarian: boolean; pescatarian: boolean; glutenFree: boolean; allergens: string[] };
@@ -322,7 +324,45 @@ export function BuildMyNightWizard() {
     if (error) { toast.error(error.message); return; }
     setBookedSlots((p) => ({ ...p, [key]: startsAt }));
     burst(window.innerWidth / 2, window.innerHeight / 3);
-    toast.success(`Reserved ${venueName} at ${slot} ✓`);
+
+    // Continuously update peak hour + "your usual" venue from this reservation.
+    const slotParsed = parseSlot(slot);
+    let peakBumped = false;
+    let usualBumped = false;
+    setPersonalize((p) => {
+      if (!p) return p;
+      const hourCounts = { ...p.hourCounts };
+      const venueCounts = { ...p.venueCounts };
+      if (slotParsed && slotParsed.h >= 17 && slotParsed.h <= 23) {
+        hourCounts[slotParsed.h] = (hourCounts[slotParsed.h] ?? 0) + 1;
+      }
+      venueCounts[venueName] = (venueCounts[venueName] ?? 0) + 1;
+      let preferredHour: number | null = null;
+      let max = 0;
+      Object.entries(hourCounts).forEach(([h, c]) => { if (c > max) { max = c; preferredHour = parseInt(h, 10); } });
+      const topVenues = new Set(p.topVenues);
+      const wasUsual = topVenues.has(venueName);
+      topVenues.add(venueName);
+      peakBumped = preferredHour !== p.preferredHour;
+      usualBumped = !wasUsual;
+      return {
+        ...p,
+        hourCounts,
+        venueCounts,
+        preferredHour,
+        topVenues,
+        bookingsCount: p.bookingsCount + 1,
+      };
+    });
+
+    const extras: string[] = [];
+    if (usualBumped) extras.push(`${venueName} added to your usuals`);
+    if (peakBumped && slotParsed) {
+      const hr12 = ((slotParsed.h + 11) % 12) + 1;
+      const ampm = slotParsed.h >= 12 ? "pm" : "am";
+      extras.push(`peak hour now ~${hr12}${ampm}`);
+    }
+    toast.success(`Reserved ${venueName} at ${slot} ✓`, extras.length ? { description: extras.join(" · ") } : undefined);
   }, [user, pickedDate, crew, burst]);
 
   const shareStopCard = useCallback(async (data: StopShareData) => {
@@ -578,7 +618,7 @@ export function BuildMyNightWizard() {
       Object.entries(hourCounts).forEach(([h, c]) => { if (c > max) { max = c; preferredHour = parseInt(h, 10); } });
       const topVenues = new Set<string>(Object.keys(venueCounts).filter((v) => venueCounts[v] >= 1));
       Object.keys(favorites).forEach((v) => topVenues.add(v));
-      setPersonalize({ preferredHour, diet, topVenues, bookingsCount: bookings?.length ?? 0, dietLabel });
+      setPersonalize({ preferredHour, diet, topVenues, bookingsCount: bookings?.length ?? 0, dietLabel, hourCounts, venueCounts });
     })();
     return () => { cancelled = true; };
   }, [open, user, favorites]);

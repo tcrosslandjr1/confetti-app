@@ -104,7 +104,7 @@ function AuthPage() {
       }
       if (!redirected) {
         // Tokens already exchanged — auth-context will pick the session up.
-        navigate({ to: redirectTo });
+        navigate({ to: redirectTo as never });
       }
       // If redirected === true, the browser is navigating away; leave busy on.
     } catch (e: any) {
@@ -133,7 +133,7 @@ function AuthPage() {
   };
 
   useEffect(() => {
-    if (user) navigate({ to: redirectTo });
+    if (user) navigate({ to: redirectTo as never });
   }, [user, navigate, redirectTo]);
 
   const onSubmit = async (e: FormEvent) => {
@@ -172,7 +172,7 @@ function AuthPage() {
         // Refresh location opportunistically on sign-in too.
         void requestUserLocation();
       }
-      navigate({ to: redirectTo });
+      navigate({ to: redirectTo as never });
     } catch (err: any) {
       setError(err?.message ?? "Something went wrong");
     } finally {

@@ -1,6 +1,6 @@
 import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { Bookmark, CalendarCheck, Compass, MessageCircle, BookMarked, User, Gift } from "lucide-react";
+import { Bookmark, CalendarCheck, Compass, MessageCircle, BookMarked, User, Gift, Flame } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { inferFeatureFromPath, logAccessDenial } from "@/lib/access-denials";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -19,6 +19,7 @@ export const Route = createFileRoute("/portal")({
 type NavItem = { to: string; label: string; icon: typeof Compass; exact?: boolean };
 const NAV: NavItem[] = [
   { to: "/portal", label: "Discover", icon: Compass, exact: true },
+  { to: "/portal/viral", label: "Viral Now", icon: Flame },
   { to: "/concierge/chat", label: "Concierge", icon: MessageCircle },
   { to: "/portal/bookings", label: "Bookings", icon: CalendarCheck },
   { to: "/concierge/passport", label: "Passport", icon: BookMarked },

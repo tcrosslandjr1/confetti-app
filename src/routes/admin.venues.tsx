@@ -88,6 +88,40 @@ function AdminVenuesPage() {
   const [query, setQuery] = useState("");
   const [editing, setEditing] = useState<Venue | null>(null);
   const [adding, setAdding] = useState(false);
+  const [testingId, setTestingId] = useState<string | null>(null);
+  const resolveEmail = useServerFn(resolveVenueNotificationEmail);
+
+  const onTestNotification = async (v: Venue) => {
+    setTestingId(v.id);
+    try {
+      const result = await resolveEmail({ data: { venueId: v.id } });
+      if (!result?.email) {
+        toast.error("No recipient resolved", {
+          description: "Set a staff email, link an advertiser, or configure the ops inbox.",
+        });
+        return;
+      }
+      const sourceLabel = {
+        venue_staff_email: "venue staff email",
+        linked_advertiser: "linked advertiser",
+        ops_fallback: "ops inbox fallback",
+      }[result.source];
+      toast.success(`Test would deliver to ${result.email}`, {
+        description: `Routed via ${sourceLabel}.`,
+      });
+      logAudit({
+        admin: adminEmail,
+        action: "edit",
+        entity: "venue",
+        targetId: v.id,
+        summary: `Tested notification routing for "${v.name}" → ${result.email} (${result.source})`,
+      });
+    } catch (e) {
+      toast.error("Test failed", { description: (e as Error).message });
+    } finally {
+      setTestingId(null);
+    }
+  };
 
   const load = async () => {
     setLoading(true);

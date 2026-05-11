@@ -9,6 +9,7 @@ import {
   User,
   Gift,
   Flame,
+  Activity,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { inferFeatureFromPath, logAccessDenial } from "@/lib/access-denials";

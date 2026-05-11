@@ -114,6 +114,40 @@ function NewTeamEventPage() {
   const [dietary, setDietary] = useState<Set<Dietary>>(new Set());
   const [notes, setNotes] = useState("");
 
+  // Prefill from an existing trip when arriving via /teams/new?fromTrip=<id>
+  useEffect(() => {
+    if (!fromTrip || !user) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const { itinerary } = await getItinerary(fromTrip);
+        if (cancelled || !itinerary) return;
+        if (itinerary.title) setTitle(itinerary.title);
+        if (itinerary.city) setCity(itinerary.city);
+        if (itinerary.date) setStartDate(itinerary.date);
+        if (itinerary.end_date) setEndDate(itinerary.end_date);
+        if (itinerary.vibe) {
+          const matched = VIBE_TAGS.filter((v) =>
+            itinerary.vibe!.toLowerCase().includes(v.toLowerCase()),
+          );
+          if (matched.length) setVibes(new Set(matched));
+        }
+        const noteParts: string[] = [];
+        if (itinerary.summary) noteParts.push(itinerary.summary);
+        if (itinerary.est_total_cost)
+          noteParts.push(`Original trip budget: ${itinerary.est_total_cost}`);
+        if (noteParts.length) setNotes(noteParts.join("\n\n"));
+        setPrefilled(true);
+        toast.success("Prefilled from your trip — tweak anything and continue");
+      } catch (err) {
+        console.error("[teams/new] prefill failed", err);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [fromTrip, user]);
+
   const parsed = useMemo(() => parseAttendeeList(attendeesRaw), [attendeesRaw]);
   const days = startDate ? dayCount(startDate, endDate || startDate) : 1;
   const totalCents = headcount * budget * 100 * days;

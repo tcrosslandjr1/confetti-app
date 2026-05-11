@@ -727,6 +727,7 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
       toast.error("Could not prepare print view");
       return;
     }
+    trackWalletEvent("wallet_print_qr");
     // Inline the SVG at large size for crisp scanning from across the room.
     const clone = svgEl.cloneNode(true) as SVGSVGElement;
     clone.setAttribute("width", "560");

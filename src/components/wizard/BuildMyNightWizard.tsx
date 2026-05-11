@@ -952,6 +952,34 @@ export function BuildMyNightWizard() {
                           >
                             <Heart className={`h-3.5 w-3.5 ${isFav ? "fill-cream" : ""}`} />
                           </button>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              shareStopCard({
+                                venue: s.venue,
+                                vibe: s.vibe,
+                                time: s.time,
+                                address: s.address,
+                                neighborhood: s.neighborhood,
+                                rating: d.rating,
+                                priceLevel: d.priceLevel,
+                                knownFor: d.knownFor,
+                                popularAvailability: d.popularAvailability,
+                                peakTime: d.peakTime,
+                                dishes: d.dishes,
+                                vibeProfile: d.vibeProfile,
+                                dietary: d.dietary,
+                                isUsual: d.isUsual,
+                              });
+                            }}
+                            disabled={sharing === s.venue}
+                            aria-label={`Share ${s.venue} stop card`}
+                            title="Share stop card"
+                            className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-cream text-ink transition-pop hover:-translate-y-0.5 hover:bg-gold/30 disabled:opacity-50"
+                          >
+                            {sharing === s.venue ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Share2 className="h-3.5 w-3.5" />}
+                          </button>
                           <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">{displayIdx + 1}</span>
                           <ChevronDown className={`h-4 w-4 text-ink/60 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                         </div>

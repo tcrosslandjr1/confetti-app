@@ -263,7 +263,7 @@ export function BuildMyNightWizard() {
     setReservingKey(null);
     if (error) { toast.error(error.message); return; }
     setBookedSlots((p) => ({ ...p, [key]: startsAt }));
-    burst?.();
+    burst(window.innerWidth / 2, window.innerHeight / 3);
     toast.success(`Reserved ${venueName} at ${slot} ✓`);
   }, [user, pickedDate, crew, burst]);
 

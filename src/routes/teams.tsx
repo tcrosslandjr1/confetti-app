@@ -89,7 +89,7 @@ function TeamsPage() {
         <section className="border-b-2 border-ink bg-ink text-cream">
           <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
             <h2 className="font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-              Everything you'd hire an EA to do.
+              Every task you'd hand an executive assistant — handled.
             </h2>
             <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {FEATURES.map((f) => (

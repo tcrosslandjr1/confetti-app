@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2, Shield, Compass, Coffee, Sparkle, Eye, SlidersHorizontal, CalendarCheck, Users, Trophy, Flame } from "lucide-react";
+import { useEffect, useState, type ReactNode } from "react";
+import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2, Shield, Compass, Coffee, Sparkle, Eye, SlidersHorizontal, CalendarCheck, Users, Trophy, Flame, GripVertical, RotateCcw } from "lucide-react";
 import { getMyReferralStats, type MyReferralStats } from "@/lib/referrals";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
@@ -116,175 +116,191 @@ function ProfilePage() {
       </section>
 
       {user && (
-        <section aria-label="Your stats" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <StatTile tone="bg-gradient-vibe text-primary-foreground" icon={Sparkles} label="XP" value={(profile?.xp ?? 0).toLocaleString()} hint={`Level ${profile?.level ?? 1}`} />
-          <StatTile icon={CalendarCheck} label="Upcoming bookings" value={bookingTotals.upcoming.toString()} hint={`${bookingTotals.past} completed`} to="/portal/bookings" />
-          <StatTile icon={Users} label="Referrals signed up" value={refStats.signedUp.toString()} hint={`${refStats.invited} invited · ${refStats.completed} completed`} to="/portal/refer" />
-          <StatTile icon={Trophy} label="Achievements" value={`${achTotals.unlocked}/${achTotals.total || "—"}`} hint={achTotals.total ? `${achTotals.xpEarned} XP earned` : "Unlock by exploring"} />
-        </section>
+        <ReorderableSections
+          sections={[
+            {
+              id: "stats",
+              title: "Your stats",
+              node: (
+                <section aria-label="Your stats" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  <StatTile tone="bg-gradient-vibe text-primary-foreground" icon={Sparkles} label="XP" value={(profile?.xp ?? 0).toLocaleString()} hint={`Level ${profile?.level ?? 1}`} />
+                  <StatTile icon={CalendarCheck} label="Upcoming bookings" value={bookingTotals.upcoming.toString()} hint={`${bookingTotals.past} completed`} to="/portal/bookings" />
+                  <StatTile icon={Users} label="Referrals signed up" value={refStats.signedUp.toString()} hint={`${refStats.invited} invited · ${refStats.completed} completed`} to="/portal/refer" />
+                  <StatTile icon={Trophy} label="Achievements" value={`${achTotals.unlocked}/${achTotals.total || "—"}`} hint={achTotals.total ? `${achTotals.xpEarned} XP earned` : "Unlock by exploring"} />
+                </section>
+              ),
+            },
+            {
+              id: "progress",
+              title: "Level, XP & streak",
+              node: (
+                <section aria-label="Your progress" className="grid gap-3 md:grid-cols-2">
+                  <LevelProgress xp={profile?.xp ?? 0} level={profile?.level ?? 1} />
+                  <StreakCard pastBookings={bookingTotals.past} unlocked={achTotals.unlocked} />
+                </section>
+              ),
+            },
+            {
+              id: "name",
+              title: "Display name",
+              node: (
+                <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+                  <h2 className="mb-4 font-display text-xl font-bold">Display name</h2>
+                  <div className="flex flex-wrap gap-2">
+                    <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="What should we call you?" className="max-w-sm" />
+                    <Button onClick={save}>Save</Button>
+                  </div>
+                </section>
+              ),
+            },
+            {
+              id: "socials",
+              title: "Connected socials",
+              node: (
+                <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+                  <h2 className="mb-4 font-display text-xl font-bold">Connected Socials</h2>
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    {[
+                      { key: "ig", label: "Instagram", icon: "📸", color: "#E1306C", connected: true },
+                      { key: "tt", label: "TikTok", icon: "🎵", color: "#000000", connected: false },
+                      { key: "yelp", label: "Yelp", icon: "⭐", color: "#D32323", connected: false },
+                      { key: "google", label: "Google", icon: "🔍", color: "#4285F4", connected: true },
+                      { key: "spotify", label: "Spotify", icon: "🎧", color: "#1DB954", connected: false },
+                      { key: "x", label: "X / Twitter", icon: "𝕏", color: "#000000", connected: false },
+                    ].map((s) => (
+                      <button
+                        key={s.key}
+                        className="flex items-center gap-3 rounded-2xl border border-border bg-background p-3 text-left hover:bg-muted"
+                        style={{ borderLeft: `4px solid ${s.color}` }}
+                      >
+                        <span className="text-2xl">{s.icon}</span>
+                        <span className="flex-1 font-semibold">{s.label}</span>
+                        {s.connected ? (
+                          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-600">
+                            <span className="h-2 w-2 rounded-full bg-green-500" /> Connected
+                          </span>
+                        ) : (
+                          <span className="text-xs font-semibold text-primary">Connect</span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  <Link to="/taste-tuner" className="mt-4 flex items-center gap-3 rounded-2xl border border-border bg-gradient-to-r from-primary/10 to-accent/10 p-4 hover:bg-muted">
+                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-vibe text-primary-foreground">
+                      <SlidersHorizontal className="h-5 w-5" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="font-display font-bold">Tune My Taste</div>
+                      <div className="text-xs text-muted-foreground">Swipe through experiences to refine your vibe</div>
+                    </div>
+                  </Link>
+                </section>
+              ),
+            },
+            {
+              id: "links",
+              title: "Quick links",
+              node: (
+                <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+                  <h2 className="mb-4 font-display text-xl font-bold">Quick links</h2>
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    <Link to="/concierge/profile" className="flex items-center gap-3 rounded-2xl border border-border p-3 hover:bg-muted">
+                      <Settings className="h-4 w-4" /> <span className="font-semibold">Preferences & taste</span>
+                    </Link>
+                    <Link to="/concierge/passport" className="flex items-center gap-3 rounded-2xl border border-border p-3 hover:bg-muted">
+                      <Sparkles className="h-4 w-4" /> <span className="font-semibold">View Passport</span>
+                    </Link>
+                  </div>
+                </section>
+              ),
+            },
+            {
+              id: "location",
+              title: "Location",
+              node: (
+                <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+                  <div className="flex items-center justify-between gap-3">
+                    <h2 className="flex items-center gap-2 font-display text-xl font-bold">
+                      <MapPin className="h-5 w-5" /> Location
+                    </h2>
+                    <span className={`text-xs font-mono uppercase tracking-wider ${location ? "text-primary" : "text-muted-foreground"}`}>
+                      {location ? "Enabled" : "Not set"}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Used to recommend nearby venues and tailor your concierge picks.
+                  </p>
+
+                  {location ? (
+                    <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                      <div className="rounded-2xl bg-muted/50 px-4 py-3">
+                        <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Latitude</div>
+                        <div className="mt-0.5 font-mono text-sm">{location.lat.toFixed(6)}</div>
+                      </div>
+                      <div className="rounded-2xl bg-muted/50 px-4 py-3">
+                        <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Longitude</div>
+                        <div className="mt-0.5 font-mono text-sm">{location.lng.toFixed(6)}</div>
+                      </div>
+                      <div className="rounded-2xl bg-muted/50 px-4 py-3">
+                        <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Accuracy</div>
+                        <div className="mt-0.5 font-mono text-sm">
+                          {location.accuracy ? `±${Math.round(location.accuracy)} m` : "—"}
+                        </div>
+                      </div>
+                      <div className="text-xs text-muted-foreground sm:col-span-3">
+                        Last updated {new Date(location.capturedAt).toLocaleString()}
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="mt-4 text-sm text-muted-foreground">
+                      No saved coordinates yet. Tap below to share your location.
+                    </p>
+                  )}
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <Button onClick={refreshLocation} disabled={locLoading} className="gap-2">
+                      {locLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <MapPin className="h-4 w-4" />}
+                      {location ? "Update location" : "Enable location"}
+                    </Button>
+                    {location && (
+                      <Button variant="outline" onClick={forgetLocation}>Clear saved location</Button>
+                    )}
+                  </div>
+
+                  <div className="mt-6 rounded-2xl border border-border bg-muted/30 p-4">
+                    <div className="flex items-center gap-2 text-sm font-semibold">
+                      <Shield className="h-4 w-4 text-primary" /> How your location is used
+                    </div>
+                    <ul className="mt-3 space-y-2 text-xs text-muted-foreground">
+                      <li className="flex gap-2"><Compass className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" /><span>Sort venues and events by distance from your current spot.</span></li>
+                      <li className="flex gap-2"><Coffee className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" /><span>Bias concierge picks toward neighborhoods near you right now.</span></li>
+                      <li className="flex gap-2"><Sparkle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" /><span>Estimate travel times between stops on your itineraries.</span></li>
+                      <li className="flex gap-2"><Eye className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" /><span>Stored only on this device (browser local storage). Never shared with third parties or tied to your public profile.</span></li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-4 rounded-2xl border border-destructive/30 bg-destructive/5 p-4">
+                    <div className="flex items-center gap-2 text-sm font-semibold text-destructive">
+                      <Shield className="h-4 w-4" /> Privacy controls
+                    </div>
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      Clear the saved coordinates from this device at any time. Recommendations will fall back to your default city until you re-enable location.
+                    </p>
+                    <Button
+                      variant="outline"
+                      onClick={forgetLocation}
+                      disabled={!location}
+                      className="mt-3 border-destructive/40 text-destructive hover:bg-destructive/10 hover:text-destructive"
+                    >
+                      Clear stored location data
+                    </Button>
+                  </div>
+                </section>
+              ),
+            },
+          ]}
+        />
       )}
-
-      {user && (
-        <section aria-label="Your progress" className="grid gap-3 md:grid-cols-2">
-          <LevelProgress xp={profile?.xp ?? 0} level={profile?.level ?? 1} />
-          <StreakCard pastBookings={bookingTotals.past} unlocked={achTotals.unlocked} />
-        </section>
-      )}
-
-      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
-        <h2 className="mb-4 font-display text-xl font-bold">Display name</h2>
-        <div className="flex flex-wrap gap-2">
-          <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="What should we call you?" className="max-w-sm" />
-          <Button onClick={save}>Save</Button>
-        </div>
-      </section>
-
-      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
-        <h2 className="mb-4 font-display text-xl font-bold">Connected Socials</h2>
-        <div className="grid gap-2 sm:grid-cols-2">
-          {[
-            { key: "ig", label: "Instagram", icon: "📸", color: "#E1306C", connected: true },
-            { key: "tt", label: "TikTok", icon: "🎵", color: "#000000", connected: false },
-            { key: "yelp", label: "Yelp", icon: "⭐", color: "#D32323", connected: false },
-            { key: "google", label: "Google", icon: "🔍", color: "#4285F4", connected: true },
-            { key: "spotify", label: "Spotify", icon: "🎧", color: "#1DB954", connected: false },
-            { key: "x", label: "X / Twitter", icon: "𝕏", color: "#000000", connected: false },
-          ].map((s) => (
-            <button
-              key={s.key}
-              className="flex items-center gap-3 rounded-2xl border border-border bg-background p-3 text-left hover:bg-muted"
-              style={{ borderLeft: `4px solid ${s.color}` }}
-            >
-              <span className="text-2xl">{s.icon}</span>
-              <span className="flex-1 font-semibold">{s.label}</span>
-              {s.connected ? (
-                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-600">
-                  <span className="h-2 w-2 rounded-full bg-green-500" /> Connected
-                </span>
-              ) : (
-                <span className="text-xs font-semibold text-primary">Connect</span>
-              )}
-            </button>
-          ))}
-        </div>
-        <Link to="/taste-tuner" className="mt-4 flex items-center gap-3 rounded-2xl border border-border bg-gradient-to-r from-primary/10 to-accent/10 p-4 hover:bg-muted">
-          <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-vibe text-primary-foreground">
-            <SlidersHorizontal className="h-5 w-5" />
-          </div>
-          <div className="flex-1">
-            <div className="font-display font-bold">Tune My Taste</div>
-            <div className="text-xs text-muted-foreground">Swipe through experiences to refine your vibe</div>
-          </div>
-        </Link>
-      </section>
-
-      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
-        <h2 className="mb-4 font-display text-xl font-bold">Quick links</h2>
-        <div className="grid gap-2 sm:grid-cols-2">
-          <Link to="/concierge/profile" className="flex items-center gap-3 rounded-2xl border border-border p-3 hover:bg-muted">
-            <Settings className="h-4 w-4" /> <span className="font-semibold">Preferences & taste</span>
-          </Link>
-          <Link to="/concierge/passport" className="flex items-center gap-3 rounded-2xl border border-border p-3 hover:bg-muted">
-            <Sparkles className="h-4 w-4" /> <span className="font-semibold">View Passport</span>
-          </Link>
-        </div>
-      </section>
-
-      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
-        <div className="flex items-center justify-between gap-3">
-          <h2 className="flex items-center gap-2 font-display text-xl font-bold">
-            <MapPin className="h-5 w-5" /> Location
-          </h2>
-          <span className={`text-xs font-mono uppercase tracking-wider ${location ? "text-primary" : "text-muted-foreground"}`}>
-            {location ? "Enabled" : "Not set"}
-          </span>
-        </div>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Used to recommend nearby venues and tailor your concierge picks.
-        </p>
-
-        {location ? (
-          <div className="mt-4 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-2xl bg-muted/50 px-4 py-3">
-              <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Latitude</div>
-              <div className="mt-0.5 font-mono text-sm">{location.lat.toFixed(6)}</div>
-            </div>
-            <div className="rounded-2xl bg-muted/50 px-4 py-3">
-              <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Longitude</div>
-              <div className="mt-0.5 font-mono text-sm">{location.lng.toFixed(6)}</div>
-            </div>
-            <div className="rounded-2xl bg-muted/50 px-4 py-3">
-              <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Accuracy</div>
-              <div className="mt-0.5 font-mono text-sm">
-                {location.accuracy ? `±${Math.round(location.accuracy)} m` : "—"}
-              </div>
-            </div>
-            <div className="text-xs text-muted-foreground sm:col-span-3">
-              Last updated {new Date(location.capturedAt).toLocaleString()}
-            </div>
-          </div>
-        ) : (
-          <p className="mt-4 text-sm text-muted-foreground">
-            No saved coordinates yet. Tap below to share your location.
-          </p>
-        )}
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          <Button onClick={refreshLocation} disabled={locLoading} className="gap-2">
-            {locLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <MapPin className="h-4 w-4" />}
-            {location ? "Update location" : "Enable location"}
-          </Button>
-          {location && (
-            <Button variant="outline" onClick={forgetLocation}>Clear saved location</Button>
-          )}
-        </div>
-
-        <div className="mt-6 rounded-2xl border border-border bg-muted/30 p-4">
-          <div className="flex items-center gap-2 text-sm font-semibold">
-            <Shield className="h-4 w-4 text-primary" /> How your location is used
-          </div>
-          <ul className="mt-3 space-y-2 text-xs text-muted-foreground">
-            <li className="flex gap-2">
-              <Compass className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
-              <span>Sort venues and events by distance from your current spot.</span>
-            </li>
-            <li className="flex gap-2">
-              <Coffee className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
-              <span>Bias concierge picks toward neighborhoods near you right now.</span>
-            </li>
-            <li className="flex gap-2">
-              <Sparkle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
-              <span>Estimate travel times between stops on your itineraries.</span>
-            </li>
-            <li className="flex gap-2">
-              <Eye className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
-              <span>
-                Stored only on this device (browser local storage). Never shared with third parties or
-                tied to your public profile.
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        <div className="mt-4 rounded-2xl border border-destructive/30 bg-destructive/5 p-4">
-          <div className="flex items-center gap-2 text-sm font-semibold text-destructive">
-            <Shield className="h-4 w-4" /> Privacy controls
-          </div>
-          <p className="mt-1 text-xs text-muted-foreground">
-            Clear the saved coordinates from this device at any time. Recommendations will fall back to
-            your default city until you re-enable location.
-          </p>
-          <Button
-            variant="outline"
-            onClick={forgetLocation}
-            disabled={!location}
-            className="mt-3 border-destructive/40 text-destructive hover:bg-destructive/10 hover:text-destructive"
-          >
-            Clear stored location data
-          </Button>
-        </div>
-      </section>
-
       <Button variant="outline" onClick={signOut} className="gap-2"><LogOut className="h-4 w-4" /> Sign out</Button>
     </div>
   );

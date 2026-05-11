@@ -386,5 +386,22 @@ function Layer({
     };
   }, [map, user]);
 
+  // Focus a stop on demand: pan, zoom and bounce its marker briefly.
+  useEffect(() => {
+    if (!map || !focusStopId) return;
+    const idx = stops.findIndex((s) => s.id === focusStopId);
+    if (idx < 0) return;
+    const pt = points.find((p) => p.id === focusStopId);
+    const marker = stopMarkersRef.current[idx];
+    if (!pt || !marker) return;
+    map.panTo({ lat: pt.lat, lng: pt.lng });
+    const currentZoom = map.getZoom() ?? 13;
+    if (currentZoom < 14) map.setZoom(15);
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+    const t = window.setTimeout(() => marker.setAnimation(null), 1400);
+    return () => window.clearTimeout(t);
+  }, [map, focusStopId, points, stops]);
+
   return null;
 }
+

@@ -176,6 +176,22 @@ function BookingCard({ b, onCancel, onUpdated }: { b: Booking; onCancel?: (id: s
 
       <div className="mt-3 flex flex-wrap gap-2">
         {confirmed && <PreorderDialog booking={b} onSaved={onUpdated} />}
+        {!cancelled && (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() =>
+              downloadAppleInvite({
+                id: b.id,
+                title: b.venue_name,
+                startsAt: b.starts_at,
+                notes: `Party of ${b.party_size}${b.notes ? ` — ${b.notes}` : ""}`,
+              })
+            }
+          >
+            <Apple className="mr-1 h-3.5 w-3.5" /> Add to Apple Invites
+          </Button>
+        )}
         {!cancelled && onCancel && (
           <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive" onClick={() => onCancel(b.id)}>
             <X className="mr-1 h-3.5 w-3.5" /> Cancel

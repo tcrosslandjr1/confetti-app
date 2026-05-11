@@ -213,6 +213,26 @@ function Layer({
       .filter((p): p is GeocodeResult => !!p);
     if (ordered.length === 0) return;
 
+    if (!infoWindowRef.current) {
+      infoWindowRef.current = new google.maps.InfoWindow({ disableAutoPan: true });
+    }
+    const iw = infoWindowRef.current;
+
+    const renderInfo = (stop: MapStop, i: number) => {
+      const status = statusOf(stop, i, currentIdx);
+      const dot = STATUS_COLOR[status];
+      const eta = stop.time ? `<div style="font:600 11px/1.2 ui-monospace,monospace;color:#1A1410cc;margin-top:2px">ETA · ${stop.time}</div>` : "";
+      return `
+        <div style="font-family:ui-sans-serif,system-ui;color:#1A1410;min-width:140px;padding:2px 4px">
+          <div style="display:flex;align-items:center;gap:6px">
+            <span style="display:inline-grid;place-items:center;width:18px;height:18px;border:2px solid #1A1410;border-radius:999px;background:${dot};color:#fff;font:700 10px/1 ui-monospace,monospace">${i + 1}</span>
+            <strong style="font-size:13px;line-height:1.2">${stop.name.replace(/</g, "&lt;")}</strong>
+          </div>
+          ${eta}
+          <div style="display:inline-block;margin-top:4px;padding:1px 6px;border:1.5px solid #1A1410;border-radius:999px;background:${dot};color:#fff;font:700 9px/1.4 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase">${STATUS_LABEL[status]}</div>
+        </div>`;
+    };
+
     // Markers
     stops.forEach((stop, i) => {
       const pt = points.find((p) => p.id === stop.id);
@@ -248,10 +268,29 @@ function Layer({
           ? google.maps.Animation.DROP
           : null,
         zIndex: isCurrent ? 999 : isNext ? 800 : 100 - i,
-        title: stop.name,
+        title: `${stop.name}${stop.time ? ` · ${stop.time}` : ""} · ${STATUS_LABEL[statusOf(stop, i, currentIdx)]}`,
       });
-      if (onStopClick) marker.addListener("click", () => onStopClick(stop));
+      marker.addListener("mouseover", () => {
+        if (pinnedStopIdRef.current) return;
+        iw.setContent(renderInfo(stop, i));
+        iw.open({ map, anchor: marker });
+      });
+      marker.addListener("mouseout", () => {
+        if (pinnedStopIdRef.current) return;
+        iw.close();
+      });
+      marker.addListener("click", () => {
+        pinnedStopIdRef.current = stop.id;
+        iw.setContent(renderInfo(stop, i));
+        iw.open({ map, anchor: marker });
+        onStopClick?.(stop);
+      });
       stopMarkersRef.current.push(marker);
+    });
+
+    const closeListener = map.addListener("click", () => {
+      pinnedStopIdRef.current = null;
+      iw.close();
     });
 
     // Per-segment polylines

@@ -317,6 +317,107 @@ export type Database = {
           },
         ]
       }
+      corporate_attendees: {
+        Row: {
+          created_at: string
+          dietary: string | null
+          email: string
+          event_id: string
+          id: string
+          name: string | null
+          responded_at: string | null
+          role: string
+          rsvp_status: string
+          rsvp_token: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          dietary?: string | null
+          email: string
+          event_id: string
+          id?: string
+          name?: string | null
+          responded_at?: string | null
+          role?: string
+          rsvp_status?: string
+          rsvp_token?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          dietary?: string | null
+          email?: string
+          event_id?: string
+          id?: string
+          name?: string | null
+          responded_at?: string | null
+          role?: string
+          rsvp_status?: string
+          rsvp_token?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "corporate_attendees_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "corporate_events"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      corporate_events: {
+        Row: {
+          budget_per_person_cents: number
+          created_at: string
+          ends_at: string | null
+          headcount: number
+          id: string
+          itinerary_id: string | null
+          notes: string | null
+          org_name: string
+          owner_id: string
+          purpose: string
+          starts_at: string
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          budget_per_person_cents?: number
+          created_at?: string
+          ends_at?: string | null
+          headcount?: number
+          id?: string
+          itinerary_id?: string | null
+          notes?: string | null
+          org_name: string
+          owner_id: string
+          purpose?: string
+          starts_at: string
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          budget_per_person_cents?: number
+          created_at?: string
+          ends_at?: string | null
+          headcount?: number
+          id?: string
+          itinerary_id?: string | null
+          notes?: string | null
+          org_name?: string
+          owner_id?: string
+          purpose?: string
+          starts_at?: string
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       favorite_stops: {
         Row: {
           address: string | null
@@ -430,6 +531,8 @@ export type Database = {
           completed_at: string | null
           created_at: string
           date: string | null
+          day_count: number
+          end_date: string | null
           est_total_cost: string | null
           id: string
           occasion_slug: string | null
@@ -440,6 +543,7 @@ export type Database = {
           summary: string | null
           title: string
           transport_mode: string | null
+          trip_type: string
           updated_at: string
           user_id: string
           vibe: string | null
@@ -449,6 +553,8 @@ export type Database = {
           completed_at?: string | null
           created_at?: string
           date?: string | null
+          day_count?: number
+          end_date?: string | null
           est_total_cost?: string | null
           id?: string
           occasion_slug?: string | null
@@ -459,6 +565,7 @@ export type Database = {
           summary?: string | null
           title: string
           transport_mode?: string | null
+          trip_type?: string
           updated_at?: string
           user_id: string
           vibe?: string | null
@@ -468,6 +575,8 @@ export type Database = {
           completed_at?: string | null
           created_at?: string
           date?: string | null
+          day_count?: number
+          end_date?: string | null
           est_total_cost?: string | null
           id?: string
           occasion_slug?: string | null
@@ -478,6 +587,7 @@ export type Database = {
           summary?: string | null
           title?: string
           transport_mode?: string | null
+          trip_type?: string
           updated_at?: string
           user_id?: string
           vibe?: string | null
@@ -497,6 +607,7 @@ export type Database = {
           contact_email: string | null
           contact_phone: string | null
           created_at: string
+          day_index: number
           description: string | null
           dress_code: string | null
           duration_minutes: number | null
@@ -510,6 +621,7 @@ export type Database = {
           reservation_time: string | null
           review_snippets: Json | null
           start_time: string | null
+          stop_date: string | null
           tips: Json | null
           travel_from_prev: Json | null
           user_notes: string | null
@@ -529,6 +641,7 @@ export type Database = {
           contact_email?: string | null
           contact_phone?: string | null
           created_at?: string
+          day_index?: number
           description?: string | null
           dress_code?: string | null
           duration_minutes?: number | null
@@ -542,6 +655,7 @@ export type Database = {
           reservation_time?: string | null
           review_snippets?: Json | null
           start_time?: string | null
+          stop_date?: string | null
           tips?: Json | null
           travel_from_prev?: Json | null
           user_notes?: string | null
@@ -561,6 +675,7 @@ export type Database = {
           contact_email?: string | null
           contact_phone?: string | null
           created_at?: string
+          day_index?: number
           description?: string | null
           dress_code?: string | null
           duration_minutes?: number | null
@@ -574,6 +689,7 @@ export type Database = {
           reservation_time?: string | null
           review_snippets?: Json | null
           start_time?: string | null
+          stop_date?: string | null
           tips?: Json | null
           travel_from_prev?: Json | null
           user_notes?: string | null
@@ -1386,11 +1502,31 @@ export type Database = {
     }
     Functions: {
       gen_referral_code: { Args: never; Returns: string }
+      get_attendee_by_token: {
+        Args: { _token: string }
+        Returns: {
+          attendee_email: string
+          attendee_id: string
+          attendee_name: string
+          dietary: string
+          ends_at: string
+          event_id: string
+          event_title: string
+          org_name: string
+          purpose: string
+          rsvp_status: string
+          starts_at: string
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
           _user_id: string
         }
+        Returns: boolean
+      }
+      record_rsvp_by_token: {
+        Args: { _dietary: string; _status: string; _token: string }
         Returns: boolean
       }
       referral_leaderboard: {

@@ -437,6 +437,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                     shareUrl,
                   ];
                   const body = encodeURIComponent(lines.join("\n"));
+                  trackShareEvent("share_email_link", { loopId: loop.id });
                   // Open the user's default mail client with a prefilled message.
                   window.location.href = `mailto:?subject=${subject}&body=${body}`;
                   setShareOpen(false);

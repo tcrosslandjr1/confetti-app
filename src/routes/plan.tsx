@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { CalendarPlus, Loader2, Sparkles } from "lucide-react";
+import { CalendarPlus, Loader2, Sparkles, MapPin } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
 import { logAccessDenial } from "@/lib/access-denials";
@@ -33,6 +33,49 @@ function PlanPage() {
   const [transportMode, setTransportMode] = useState<"auto" | "car" | "transit" | "lyft" | "uber" | "walk">("auto");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const [locating, setLocating] = useState(false);
+  const [locErr, setLocErr] = useState<string | null>(null);
+
+  const detectLocation = () => {
+    setLocErr(null);
+    if (typeof navigator === "undefined" || !navigator.geolocation) {
+      setLocErr("Geolocation isn't available in this browser.");
+      return;
+    }
+    setLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        try {
+          const { latitude, longitude } = pos.coords;
+          const res = await fetch(
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+          );
+          if (!res.ok) throw new Error("Lookup failed");
+          const data = await res.json();
+          const detectedCity = data.city || data.locality || data.principalSubdivision || "";
+          const detectedHood = data.localityInfo?.administrative?.find((a: { adminLevel: number; name: string }) => a.adminLevel >= 8)?.name
+            || data.localityInfo?.informative?.[0]?.name
+            || "";
+          if (detectedCity) setCity(detectedCity);
+          if (detectedHood && detectedHood !== detectedCity) setNeighborhood(detectedHood);
+          if (!detectedCity) setLocErr("Couldn't resolve a city from your location.");
+        } catch {
+          setLocErr("Couldn't look up your location. Type it in instead.");
+        } finally {
+          setLocating(false);
+        }
+      },
+      (geoErr) => {
+        setLocating(false);
+        setLocErr(
+          geoErr.code === geoErr.PERMISSION_DENIED
+            ? "Location permission denied. Type your city instead."
+            : "Couldn't get your location. Type it in instead."
+        );
+      },
+      { enableHighAccuracy: false, timeout: 8000, maximumAge: 60_000 }
+    );
+  };
 
   useEffect(() => {
     if (!loading && !user) {
@@ -145,7 +188,20 @@ function PlanPage() {
 
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label="City">
-              <input value={city} onChange={(e) => setCity(e.target.value)} placeholder="e.g. Austin" className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+              <div className="flex gap-2">
+                <input value={city} onChange={(e) => setCity(e.target.value)} placeholder="e.g. Austin" className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+                <button
+                  type="button"
+                  onClick={detectLocation}
+                  disabled={locating}
+                  className="inline-flex shrink-0 items-center gap-1.5 rounded-xl border border-border bg-background px-3 py-2.5 text-xs font-semibold text-foreground transition hover:bg-muted disabled:opacity-60"
+                  title="Use my current location"
+                >
+                  {locating ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <MapPin className="h-3.5 w-3.5" />}
+                  {locating ? "Locating…" : "Use my location"}
+                </button>
+              </div>
+              {locErr && <p className="mt-1.5 text-xs text-destructive">{locErr}</p>}
             </Field>
             <Field label="Neighborhood (optional)">
               <input value={neighborhood} onChange={(e) => setNeighborhood(e.target.value)} placeholder="e.g. East Side" className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />

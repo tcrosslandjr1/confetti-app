@@ -87,6 +87,36 @@ function hashStr(s: string) {
   for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
   return h;
 }
+
+function partySizeFromCrew(crew: string | null): number {
+  switch (crew) {
+    case "solo": return 1;
+    case "date": return 2;
+    case "small": return 4;
+    case "squad": return 6;
+    default: return 2;
+  }
+}
+
+/** Parse "7:30 PM" into { h:19, m:30 } */
+function parseSlot(label: string): { h: number; m: number } | null {
+  const m = label.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+  if (!m) return null;
+  let hh = parseInt(m[1], 10) % 12;
+  if (m[3].toUpperCase() === "PM") hh += 12;
+  return { h: hh, m: parseInt(m[2], 10) };
+}
+
+/** Resolve an ISO timestamp from the wizard's pickedDate + a "7:00 PM" slot. Falls back to today. */
+function slotToIso(pickedDate: string, slot: string): string | null {
+  const t = parseSlot(slot);
+  if (!t) return null;
+  const base = pickedDate ? new Date(`${pickedDate}T00:00:00`) : new Date();
+  base.setHours(t.h, t.m, 0, 0);
+  // If picking "today" and the time has already passed, push to tomorrow
+  if (!pickedDate && base.getTime() < Date.now()) base.setDate(base.getDate() + 1);
+  return base.toISOString();
+}
 const KNOWN_FOR = [
   "tasting menu", "natural wine list", "house cocktails", "wood-fired pies",
   "raw bar", "live jazz nights", "rooftop sunsets", "vinyl listening room",
@@ -139,11 +169,24 @@ function getDetails(venue: string, vibe: string) {
   const popularDishes = [0, 1, 2].map((i) => ALL_DISHES[(h >> (i * 3)) % ALL_DISHES.length]);
   // De-dupe
   const dishes = Array.from(new Set(popularDishes)).slice(0, 3);
-  // Popular booking times
+  // Popular booking times + per-slot availability (deterministic per venue)
   const TIME_SLOTS = ["6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM", "9:00 PM", "9:30 PM", "10:00 PM"];
   const startIdx = h % (TIME_SLOTS.length - 2);
   const popularTimes = TIME_SLOTS.slice(startIdx, startIdx + 3);
   const peakTime = popularTimes[1];
+  type SlotLevel = "open" | "limited" | "few" | "full";
+  const popularAvailability: { time: string; level: SlotLevel; seatsLeft: number }[] = popularTimes.map((t, i) => {
+    const r = (h >> (i * 5)) & 0xff;
+    const isPeak = t === peakTime;
+    // Peak slot skews scarcer; off-peak skews more open
+    const seatsLeft = isPeak ? (r % 4) : 2 + (r % 8);
+    let level: SlotLevel;
+    if (seatsLeft === 0) level = "full";
+    else if (seatsLeft <= 2) level = "few";
+    else if (seatsLeft <= 5) level = "limited";
+    else level = "open";
+    return { time: t, level, seatsLeft };
+  });
   // The vibe descriptors
   const CROWDS = ["Date-night locals", "Industry crowd", "After-work professionals", "Stylish regulars", "Creative scene", "Neighborhood loyalists"];
   const NOISE = ["Hushed", "Conversational", "Lively", "Buzzy", "Loud + electric"];
@@ -175,6 +218,7 @@ function getDetails(venue: string, vibe: string) {
     dishes,
     popularTimes,
     peakTime,
+    popularAvailability,
     vibeProfile,
   };
 }
@@ -197,8 +241,31 @@ export function BuildMyNightWizard() {
   const [placesLoading, setPlacesLoading] = useState(false);
   const [favorites, setFavorites] = useState<Record<string, FavRow>>({});
   const [showFavorites, setShowFavorites] = useState(false);
+  const [reservingKey, setReservingKey] = useState<string | null>(null);
+  const [bookedSlots, setBookedSlots] = useState<Record<string, string>>({});
   const { user } = useAuth();
   const { burst, layer } = useConfettiBurst();
+
+  const reserveSlot = useCallback(async (venueName: string, slot: string, level: "open" | "limited" | "few" | "full") => {
+    if (level === "full") { toast.error("That slot is full — try another time."); return; }
+    if (!user) { toast.error("Sign in to reserve a table."); return; }
+    const startsAt = slotToIso(pickedDate, slot);
+    if (!startsAt) { toast.error("Invalid time slot."); return; }
+    const key = `${venueName}|${slot}`;
+    setReservingKey(key);
+    const { error } = await supabase.from("bookings").insert({
+      user_id: user.id,
+      venue_name: venueName,
+      starts_at: startsAt,
+      party_size: partySizeFromCrew(crew),
+      status: "pending",
+    });
+    setReservingKey(null);
+    if (error) { toast.error(error.message); return; }
+    setBookedSlots((p) => ({ ...p, [key]: startsAt }));
+    burst(window.innerWidth / 2, window.innerHeight / 3);
+    toast.success(`Reserved ${venueName} at ${slot} ✓`);
+  }, [user, pickedDate, crew, burst]);
 
   const fallbackTones = ["bg-coral", "bg-purple", "bg-gold", "bg-emerald-400", "bg-pink-300", "bg-amber-300"];
   const presetStops = useMemo(
@@ -822,24 +889,61 @@ export function BuildMyNightWizard() {
 
                           <div className="mt-3 grid gap-3 sm:grid-cols-2">
                             <div className="rounded-xl border-2 border-ink/15 bg-cream/60 p-3">
-                              <p className="font-mono text-[10px] uppercase tracking-widest text-ink/60">Popular booked</p>
-                              <div className="mt-2 flex flex-wrap gap-1.5">
-                                {d.popularTimes.map((t) => (
-                                  <span
-                                    key={t}
-                                    className={
-                                      "inline-flex items-center gap-1 rounded-full border px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-widest " +
-                                      (t === d.peakTime
-                                        ? "border-ink bg-gold text-ink"
-                                        : "border-ink/30 bg-cream text-ink/85")
-                                    }
-                                  >
-                                    {t === d.peakTime && "★ "}{t}
-                                  </span>
-                                ))}
+                              <div className="flex items-center justify-between gap-2">
+                                <p className="font-mono text-[10px] uppercase tracking-widest text-ink/60">Popular booked · live availability</p>
+                                <span className="font-mono text-[9px] uppercase tracking-widest text-ink/45">Party of {partySizeFromCrew(crew)}</span>
+                              </div>
+                              <div className="mt-2 grid gap-1.5 sm:grid-cols-3">
+                                {d.popularAvailability.map(({ time, level, seatsLeft }) => {
+                                  const key = `${s.venue}|${time}`;
+                                  const booked = !!bookedSlots[key];
+                                  const busy = reservingKey === key;
+                                  const isPeak = time === d.peakTime;
+                                  const tone =
+                                    booked ? "border-ink bg-mint text-ink"
+                                    : level === "full" ? "border-ink/20 bg-cream/60 text-ink/40 cursor-not-allowed"
+                                    : level === "few" ? "border-coral/60 bg-coral/15 text-ink hover:bg-coral/25"
+                                    : level === "limited" ? "border-gold/70 bg-gold/20 text-ink hover:bg-gold/35"
+                                    : "border-ink/40 bg-mint/40 text-ink hover:bg-mint/70";
+                                  const dot =
+                                    booked ? "bg-emerald-600"
+                                    : level === "full" ? "bg-ink/30"
+                                    : level === "few" ? "bg-coral"
+                                    : level === "limited" ? "bg-gold"
+                                    : "bg-emerald-500";
+                                  const label =
+                                    booked ? "Reserved"
+                                    : level === "full" ? "Fully booked"
+                                    : level === "few" ? `Only ${seatsLeft} left`
+                                    : level === "limited" ? `${seatsLeft} seats`
+                                    : "Plenty open";
+                                  return (
+                                    <button
+                                      key={time}
+                                      type="button"
+                                      onClick={() => reserveSlot(s.venue, time, level)}
+                                      disabled={level === "full" || booked || busy}
+                                      aria-label={`Reserve ${s.venue} at ${time} — ${label}`}
+                                      className={`group flex flex-col items-start gap-1 rounded-xl border-2 px-2.5 py-2 text-left transition-pop ${tone}`}
+                                    >
+                                      <div className="flex w-full items-center justify-between font-mono text-[11px] font-bold uppercase tracking-widest">
+                                        <span>{isPeak && !booked && "★ "}{time}</span>
+                                        <span className="relative inline-flex h-2 w-2">
+                                          {level !== "full" && !booked && (
+                                            <span className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-60 ${dot}`} />
+                                          )}
+                                          <span className={`relative inline-flex h-2 w-2 rounded-full ${dot}`} />
+                                        </span>
+                                      </div>
+                                      <span className="font-mono text-[10px] uppercase tracking-wider text-ink/70">
+                                        {busy ? "Reserving…" : label}
+                                      </span>
+                                    </button>
+                                  );
+                                })}
                               </div>
                               <p className="mt-2 text-[11px] text-ink/65">
-                                Most booked around <span className="font-semibold text-ink">{d.peakTime}</span> — reserve 2–3 days ahead.
+                                Tap a slot to reserve — peak around <span className="font-semibold text-ink">{d.peakTime}</span>. Availability refreshes per venue.
                               </p>
                               {d.dishes.length > 0 && (
                                 <>

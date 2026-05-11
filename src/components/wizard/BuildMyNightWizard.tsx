@@ -992,9 +992,17 @@ export function BuildMyNightWizard() {
                           <div className="mt-3 grid gap-3 sm:grid-cols-2">
                             <div className="rounded-xl border-2 border-ink/15 bg-cream/60 p-3">
                               <div className="flex items-center justify-between gap-2">
-                                <p className="font-mono text-[10px] uppercase tracking-widest text-ink/60">Popular booked · live availability</p>
+                                <p className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                                  Popular booked · live availability
+                                  {d.isUsual && <span className="ml-1.5 rounded-full bg-coral/20 px-1.5 py-0.5 text-[9px] text-ink/80">★ your usual spot</span>}
+                                </p>
                                 <span className="font-mono text-[9px] uppercase tracking-widest text-ink/45">Party of {partySizeFromCrew(crew)}</span>
                               </div>
+                              {d.personalNote && (
+                                <p className="mt-1 inline-flex items-center gap-1 rounded-full bg-mint/40 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-ink/75">
+                                  <Sparkles className="h-2.5 w-2.5" /> {d.personalNote}
+                                </p>
+                              )}
                               <div className="mt-2 grid gap-1.5 sm:grid-cols-3">
                                 {d.popularAvailability.map(({ time, level, seatsLeft }) => {
                                   const key = `${s.venue}|${time}`;

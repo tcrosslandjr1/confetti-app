@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { getDishInfo } from "@/lib/dish-info";
+import { getDishInfo, dishMatches, ALL_DISH_NAMES, type DietFilter } from "@/lib/dish-info";
 
 type FavRow = { venue_name: string; vibe: string | null; tone: string | null; address: string | null; neighborhood: string | null };
 

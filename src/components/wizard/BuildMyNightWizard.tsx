@@ -111,7 +111,44 @@ function parseSlot(label: string): { h: number; m: number } | null {
   return { h: hh, m: parseInt(m[2], 10) };
 }
 
-/** Resolve an ISO timestamp from the wizard's pickedDate + a "7:00 PM" slot. Falls back to today. */
+/** Why this dish was suggested for the user, given their personalization. */
+function dishReasons(name: string, p: { diet: DietFilter; topVenues: Set<string>; bookingsCount: number; dietLabel: string | null } | null, isUsualVenue: boolean): string[] {
+  const out: string[] = [];
+  const info = getDishInfo(name);
+  if (!info) return out;
+  if (p) {
+    const d = p.diet;
+    if (d.vegan && info.vegan) out.push("Vegan ✓");
+    else if (d.vegetarian && (info.vegetarian || info.vegan)) out.push("Vegetarian ✓");
+    else if (d.pescatarian && (info.pescatarian || info.vegetarian || info.vegan)) out.push("Pescatarian ✓");
+    if (d.glutenFree && info.glutenFree) out.push("Gluten-free ✓");
+    const avoid = (d.avoidAllergens ?? []).map((a) => a.toLowerCase());
+    if (avoid.length > 0) {
+      const lower = info.allergens.map((a) => a.toLowerCase());
+      const conflicts = avoid.filter((a) => lower.includes(a));
+      if (conflicts.length === 0) out.push(`Skips ${avoid.slice(0, 2).join(" + ")}`);
+    }
+    if (typeof info.spice === "number" && info.spice >= 2) out.push("Bold + spicy");
+  }
+  if (isUsualVenue) out.push("Crowd favorite at your usual spot");
+  if (out.length === 0) out.push("Top-ordered here");
+  return out.slice(0, 2);
+}
+
+/** Why this time slot is highlighted as peak for the user. */
+function peakReason(p: { preferredHour: number | null; bookingsCount: number } | null, peakTime: string): string {
+  const slot = parseSlot(peakTime);
+  if (p?.preferredHour != null && slot) {
+    const ph = p.preferredHour;
+    const diff = Math.abs(slot.h * 60 + slot.m - ph * 60);
+    if (diff <= 45) {
+      const hr12 = ((ph + 11) % 12) + 1;
+      const ampm = ph >= 12 ? "pm" : "am";
+      return `Matches your usual ~${hr12}${ampm} window (${p.bookingsCount} past bookings)`;
+    }
+  }
+  return "Most-booked slot here right now";
+}
 function slotToIso(pickedDate: string, slot: string): string | null {
   const t = parseSlot(slot);
   if (!t) return null;

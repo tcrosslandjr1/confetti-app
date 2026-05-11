@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Marquee } from "@/components/ui/3d-testimonails";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Star } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/testimonials")({

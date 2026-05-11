@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useMemo, useState } from "react";
-import { Bell, Loader2, Mail, RefreshCw, Search } from "lucide-react";
+import { Bell, Loader2, Mail, RefreshCw, Search, Send } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,6 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { resolveVenueNotificationEmail } from "@/lib/booking-notifications.functions";
 
 export const Route = createFileRoute("/admin/notifications")({
   component: AdminNotificationsPage,
@@ -65,6 +67,54 @@ function AdminNotificationsPage() {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<(typeof STATUSES)[number]>("all");
   const [preview, setPreview] = useState<Delivery | null>(null);
+  const [resendingId, setResendingId] = useState<string | null>(null);
+  const resolveEmail = useServerFn(resolveVenueNotificationEmail);
+
+  const onResend = async (r: Delivery) => {
+    setResendingId(r.id);
+    try {
+      const result = r.venue_id
+        ? await resolveEmail({ data: { venueId: r.venue_id } })
+        : null;
+      const recipient = result?.email ?? r.recipient_email ?? null;
+      const source = result?.source ?? r.source;
+
+      const insertRow = {
+        booking_id: r.booking_id,
+        venue_id: r.venue_id,
+        venue_name: r.venue_name,
+        recipient_email: recipient,
+        source,
+        channel: r.channel,
+        status: recipient ? "sent" : "failed",
+        error: recipient ? null : "No recipient resolved on retry",
+        subject: r.subject ? `${r.subject} (retry)` : "Booking notification (retry)",
+        body: r.body,
+        test: r.test,
+      };
+      const { error: insErr } = await supabase
+        .from("booking_notification_deliveries")
+        .insert(insertRow);
+      if (insErr) throw insErr;
+
+      // Mark the original as resolved so it stops appearing in failed counts.
+      const { error: updErr } = await supabase
+        .from("booking_notification_deliveries")
+        .update({ status: "skipped", error: "Superseded by retry" })
+        .eq("id", r.id);
+      if (updErr) throw updErr;
+
+      if (recipient) {
+        toast.success(`Resent to ${recipient}`, { description: `Via ${source}.` });
+      } else {
+        toast.error("Retry still failed", { description: "No recipient could be resolved." });
+      }
+    } catch (e) {
+      toast.error("Resend failed", { description: (e as Error).message });
+    } finally {
+      setResendingId(null);
+    }
+  };
 
   const load = async () => {
     setLoading(true);
@@ -189,11 +239,13 @@ function AdminNotificationsPage() {
                 <th className="px-4 py-2 text-left font-medium">Recipient</th>
                 <th className="px-4 py-2 text-left font-medium">Source</th>
                 <th className="px-4 py-2 text-left font-medium">Status</th>
-                <th className="px-4 py-2 text-right font-medium">Preview</th>
+                <th className="px-4 py-2 text-right font-medium">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {filtered.map((r) => (
+              {filtered.map((r) => {
+                const canResend = r.status === "failed" || r.status === "pending";
+                return (
                 <tr key={r.id} className="border-t border-border/60">
                   <td className="px-4 py-2 align-top text-xs text-muted-foreground">
                     {timeAgo(r.created_at)}
@@ -213,12 +265,30 @@ function AdminNotificationsPage() {
                     {r.error && <p className="mt-1 max-w-[28ch] truncate text-[11px] text-destructive" title={r.error}>{r.error}</p>}
                   </td>
                   <td className="px-4 py-2 text-right align-top">
-                    <Button size="sm" variant="ghost" onClick={() => setPreview(r)}>
-                      <Mail className="mr-1 h-3.5 w-3.5" /> View
-                    </Button>
+                    <div className="flex justify-end gap-1">
+                      {canResend && (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          disabled={resendingId === r.id}
+                          onClick={() => void onResend(r)}
+                        >
+                          {resendingId === r.id ? (
+                            <Loader2 className="mr-1 h-3.5 w-3.5 animate-spin" />
+                          ) : (
+                            <Send className="mr-1 h-3.5 w-3.5" />
+                          )}
+                          Resend
+                        </Button>
+                      )}
+                      <Button size="sm" variant="ghost" onClick={() => setPreview(r)}>
+                        <Mail className="mr-1 h-3.5 w-3.5" /> View
+                      </Button>
+                    </div>
                   </td>
                 </tr>
-              ))}
+                );
+              })}
             </tbody>
           </table>
         </div>

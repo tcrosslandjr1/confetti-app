@@ -1,11 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Sparkles, MapPin, ArrowRight, Star, Bookmark, CalendarCheck, MessageCircle, Trophy, Users, Gift, Lock, Crown, Flame, Medal, Calendar as CalendarIcon, Target, Zap, TrendingUp, CheckCircle2, Clock } from "lucide-react";
+import { Sparkles, MapPin, ArrowRight, Star, Bookmark, CalendarCheck, MessageCircle, Trophy, Users, Gift, Lock, Crown, Flame, Medal, Calendar as CalendarIcon, Target, Zap, TrendingUp, CheckCircle2, Clock, Wand2, Loader2, Sliders } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { getMyReferralStats, getOrCreateMyReferralCode, buildReferralLink, type MyReferralStats } from "@/lib/referrals";
 import { useAuth } from "@/lib/auth-context";
 import { NearbyVenues } from "@/components/NearbyVenues";
 import { PromotedSlot } from "@/components/PromotedSlot";
+import { buildAndSaveItinerary } from "@/lib/itineraries";
+import { loadPrefs } from "@/lib/taste";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/portal/")({
   head: () => ({

@@ -336,3 +336,56 @@ function QuickGenerate() {
     </div>
   );
 }
+
+function RoutePreview({ stops }: { stops: Stop[] }) {
+  const inputs = stops.map((s, i) => ({
+    id: `qg-${i}`,
+    query: `${s.name}, ${s.area}`,
+  }));
+  const points = useGeocodedPoints(inputs);
+
+  // Rough distance/time estimate from straight-line geometry
+  const meta = (() => {
+    if (points.length < 2) return null;
+    let meters = 0;
+    for (let i = 1; i < points.length; i++) {
+      const a = points[i - 1];
+      const b = points[i];
+      const R = 6371000;
+      const toRad = (d: number) => (d * Math.PI) / 180;
+      const dLat = toRad(b.lat - a.lat);
+      const dLng = toRad(b.lng - a.lng);
+      const lat1 = toRad(a.lat);
+      const lat2 = toRad(b.lat);
+      const h =
+        Math.sin(dLat / 2) ** 2 +
+        Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+      meters += 2 * R * Math.asin(Math.sqrt(h));
+    }
+    const miles = meters / 1609.34;
+    // Rough urban driving estimate: 18 mph average + 5 min per stop dwell skipped for travel time
+    const minutes = Math.round((miles / 18) * 60);
+    return { miles: miles.toFixed(1), minutes };
+  })();
+
+  return (
+    <section className="rounded-2xl border border-border bg-card p-3 shadow-card">
+      <div className="overflow-hidden rounded-xl">
+        <ConfettiMap
+          stops={stops.map((s, i) => ({ id: `qg-${i}`, name: s.name, area: s.area }))}
+          fallbackCity={stops[0]?.area || "Los Angeles"}
+          height={140}
+          interactive={false}
+        />
+      </div>
+      <div className="mt-2 flex items-center justify-between px-1 text-xs">
+        <span className="font-mono uppercase tracking-widest text-muted-foreground">
+          Route preview
+        </span>
+        <span className="font-semibold text-ink">
+          {meta ? `~${meta.minutes} min total · ${meta.miles} mi` : "Calculating route…"}
+        </span>
+      </div>
+    </section>
+  );
+}

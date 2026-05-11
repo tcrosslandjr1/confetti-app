@@ -117,6 +117,7 @@ function Layer({
   onPointsReady,
   travelMode,
   onActiveStepsChange,
+  focusStopId,
 }: {
   stops: MapStop[];
   currentIdx: number;
@@ -126,6 +127,7 @@ function Layer({
   onPointsReady?: (points: GeocodeResult[]) => void;
   travelMode: TravelMode;
   onActiveStepsChange?: Props["onActiveStepsChange"];
+  focusStopId?: string | null;
 }) {
   const map = useMap();
   const [user, setUser] = useState<{ lat: number; lng: number } | null>(null);

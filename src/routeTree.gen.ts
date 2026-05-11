@@ -46,6 +46,7 @@ import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as VenueIdRouteImport } from './routes/venue.$id'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
+import { Route as PortalViralRouteImport } from './routes/portal.viral'
 import { Route as PortalSavedRouteImport } from './routes/portal.saved'
 import { Route as PortalReferRouteImport } from './routes/portal.refer'
 import { Route as PortalProfileRouteImport } from './routes/portal.profile'
@@ -263,6 +264,11 @@ const RsvpTripIdRoute = RsvpTripIdRouteImport.update({
   id: '/rsvp/$tripId',
   path: '/rsvp/$tripId',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PortalViralRoute = PortalViralRouteImport.update({
+  id: '/viral',
+  path: '/viral',
+  getParentRoute: () => PortalRoute,
 } as any)
 const PortalSavedRoute = PortalSavedRouteImport.update({
   id: '/saved',
@@ -482,6 +488,7 @@ export interface FileRoutesByFullPath {
   '/portal/profile': typeof PortalProfileRoute
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
+  '/portal/viral': typeof PortalViralRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
@@ -549,6 +556,7 @@ export interface FileRoutesByTo {
   '/portal/profile': typeof PortalProfileRoute
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
+  '/portal/viral': typeof PortalViralRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
@@ -621,6 +629,7 @@ export interface FileRoutesById {
   '/portal/profile': typeof PortalProfileRoute
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
+  '/portal/viral': typeof PortalViralRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
@@ -694,6 +703,7 @@ export interface FileRouteTypes {
     | '/portal/profile'
     | '/portal/refer'
     | '/portal/saved'
+    | '/portal/viral'
     | '/rsvp/$tripId'
     | '/trips/$id'
     | '/venue/$id'
@@ -761,6 +771,7 @@ export interface FileRouteTypes {
     | '/portal/profile'
     | '/portal/refer'
     | '/portal/saved'
+    | '/portal/viral'
     | '/rsvp/$tripId'
     | '/trips/$id'
     | '/venue/$id'
@@ -832,6 +843,7 @@ export interface FileRouteTypes {
     | '/portal/profile'
     | '/portal/refer'
     | '/portal/saved'
+    | '/portal/viral'
     | '/rsvp/$tripId'
     | '/trips/$id'
     | '/venue/$id'
@@ -1155,6 +1167,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RsvpTripIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portal/viral': {
+      id: '/portal/viral'
+      path: '/viral'
+      fullPath: '/portal/viral'
+      preLoaderRoute: typeof PortalViralRouteImport
+      parentRoute: typeof PortalRoute
+    }
     '/portal/saved': {
       id: '/portal/saved'
       path: '/saved'
@@ -1467,6 +1486,7 @@ interface PortalRouteChildren {
   PortalProfileRoute: typeof PortalProfileRoute
   PortalReferRoute: typeof PortalReferRoute
   PortalSavedRoute: typeof PortalSavedRoute
+  PortalViralRoute: typeof PortalViralRoute
   PortalIndexRoute: typeof PortalIndexRoute
 }
 
@@ -1475,6 +1495,7 @@ const PortalRouteChildren: PortalRouteChildren = {
   PortalProfileRoute: PortalProfileRoute,
   PortalReferRoute: PortalReferRoute,
   PortalSavedRoute: PortalSavedRoute,
+  PortalViralRoute: PortalViralRoute,
   PortalIndexRoute: PortalIndexRoute,
 }
 

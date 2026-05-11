@@ -134,6 +134,45 @@ export function setStopDone(stopId: string, done = true): ActiveLoop | null {
   return updated;
 }
 
+export type CheckInResult = {
+  loop: ActiveLoop;
+  stop: LoopStop;
+  awarded: number;
+  alreadyAwarded: boolean;
+};
+
+/**
+ * Idempotent check-in for a stop. Marks it done, stamps checkedInAt, awards
+ * Confetti points (only the first time), and returns what changed so callers
+ * can show a toast / log activity.
+ */
+export function checkInStop(stopId: string): CheckInResult | null {
+  const loop = getActiveLoop();
+  if (!loop) return null;
+  const target = loop.stops.find((s) => s.id === stopId);
+  if (!target) return null;
+
+  const alreadyAwarded = !!target.awarded;
+  const perStopDefault = Math.round((loop.confettiPoints ?? 250) / Math.max(1, loop.stops.length));
+  const award = alreadyAwarded ? 0 : (target.points ?? perStopDefault);
+  const stamp = target.checkedInAt ?? new Date().toISOString();
+
+  const updatedStop: LoopStop = {
+    ...target,
+    done: true,
+    checkedInAt: stamp,
+    awarded: true,
+  };
+  const updated: ActiveLoop = {
+    ...loop,
+    stops: loop.stops.map((s) => (s.id === stopId ? updatedStop : s)),
+  };
+  setActiveLoop(updated);
+  if (award > 0) addConfetti(award);
+
+  return { loop: updated, stop: updatedStop, awarded: award, alreadyAwarded };
+}
+
 export function getConfetti(): number {
   if (!isClient()) return 0;
   return Number(localStorage.getItem(KEY_CONFETTI) || 0);

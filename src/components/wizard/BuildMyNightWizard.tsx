@@ -707,7 +707,7 @@ export function BuildMyNightWizard() {
         </div>
 
         {/* Progress bar */}
-        {step <= 4 && (
+        {step <= 5 && (
           <div className="h-1.5 w-full bg-ink/10">
             <div
               className="h-full bg-gradient-to-r from-coral via-gold to-purple transition-[width] duration-500 ease-out"

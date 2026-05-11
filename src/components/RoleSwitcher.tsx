@@ -84,7 +84,7 @@ export function RoleSwitcher() {
         <div
           role="status"
           aria-live="polite"
-          className="sticky top-0 z-[70] border-b border-amber-600/40 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-amber-950 shadow-md"
+          className="relative z-[70] border-b border-amber-600/40 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-amber-950 shadow-md"
         >
           <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2 text-xs sm:text-sm">
             <div className="flex items-center gap-2 font-semibold">

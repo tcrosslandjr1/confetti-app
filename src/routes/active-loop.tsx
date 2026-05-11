@@ -131,14 +131,26 @@ function ActiveLoopPage() {
           </span>
         </div>
 
+        {/* Search + quick edit toolbar */}
+        <div className="mt-4 flex flex-wrap items-center gap-2">
+          <StopSearchBox
+            stops={loop.stops}
+            currentIdx={currentIdx}
+            onJump={jumpToStop}
+            className="min-w-0 flex-1"
+          />
+          <PlanEditFab loop={loop} actor="You" />
+        </div>
+
         {/* Interactive Google Map: numbered markers, polyline route, user pulse, current bounce */}
-        <div className="mt-4 relative h-[220px] overflow-hidden rounded-3xl border-2 border-ink shadow-brut bg-cream">
+        <div className="mt-3 relative h-[220px] overflow-hidden rounded-3xl border-2 border-ink shadow-brut bg-cream">
           <LoopMap
             stops={loop.stops}
             currentIdx={currentIdx}
             fallbackCity={loop.stops[0]?.area || "Washington, DC"}
             travelMode={travelMode}
             onActiveLegChange={setActiveLeg}
+            focusStopId={focusStopId}
           />
           <div className="pointer-events-none absolute bottom-2 left-2 rounded-full bg-cream/95 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink shadow-sm">
             Live route · {loop.stops.length} stops

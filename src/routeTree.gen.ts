@@ -30,6 +30,7 @@ import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as DataTermsRouteImport } from './routes/data-terms'
 import { Route as CreateRouteImport } from './routes/create'
+import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConfirmationRouteImport } from './routes/confirmation'
 import { Route as ConciergeRouteImport } from './routes/concierge'
@@ -192,6 +193,11 @@ const DataTermsRoute = DataTermsRouteImport.update({
 const CreateRoute = CreateRouteImport.update({
   id: '/create',
   path: '/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -500,6 +506,7 @@ export interface FileRoutesByFullPath {
   '/concierge': typeof ConciergeRouteWithChildren
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/features': typeof FeaturesRoute
@@ -578,6 +585,7 @@ export interface FileRoutesByTo {
   '/chat': typeof ChatRoute
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/features': typeof FeaturesRoute
@@ -659,6 +667,7 @@ export interface FileRoutesById {
   '/concierge': typeof ConciergeRouteWithChildren
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/features': typeof FeaturesRoute
@@ -742,6 +751,7 @@ export interface FileRouteTypes {
     | '/concierge'
     | '/confirmation'
     | '/contact'
+    | '/cookies'
     | '/create'
     | '/data-terms'
     | '/features'
@@ -820,6 +830,7 @@ export interface FileRouteTypes {
     | '/chat'
     | '/confirmation'
     | '/contact'
+    | '/cookies'
     | '/create'
     | '/data-terms'
     | '/features'
@@ -900,6 +911,7 @@ export interface FileRouteTypes {
     | '/concierge'
     | '/confirmation'
     | '/contact'
+    | '/cookies'
     | '/create'
     | '/data-terms'
     | '/features'
@@ -982,6 +994,7 @@ export interface RootRouteChildren {
   ConciergeRoute: typeof ConciergeRouteWithChildren
   ConfirmationRoute: typeof ConfirmationRoute
   ContactRoute: typeof ContactRoute
+  CookiesRoute: typeof CookiesRoute
   CreateRoute: typeof CreateRoute
   DataTermsRoute: typeof DataTermsRoute
   FeaturesRoute: typeof FeaturesRoute
@@ -1166,6 +1179,13 @@ declare module '@tanstack/react-router' {
       path: '/create'
       fullPath: '/create'
       preLoaderRoute: typeof CreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -1717,6 +1737,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConciergeRoute: ConciergeRouteWithChildren,
   ConfirmationRoute: ConfirmationRoute,
   ContactRoute: ContactRoute,
+  CookiesRoute: CookiesRoute,
   CreateRoute: CreateRoute,
   DataTermsRoute: DataTermsRoute,
   FeaturesRoute: FeaturesRoute,

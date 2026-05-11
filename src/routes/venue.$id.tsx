@@ -154,7 +154,21 @@ function VenuePage() {
               #{id.slice(0, 6)}
             </span>
           </div>
-          <div className="text-sm text-muted-foreground">
+          {(venue.verified || venue.featured) && (
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {venue.verified && (
+                <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-emerald-400/30 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest">
+                  <BadgeCheck className="h-3 w-3" /> Verified business
+                </span>
+              )}
+              {venue.featured && (
+                <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-gold/40 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest">
+                  <Star className="h-3 w-3 fill-ink" /> Featured
+                </span>
+              )}
+            </div>
+          )}
+          <div className="mt-3 text-sm text-muted-foreground">
             {venue.category ?? "Venue"}
             {venue.neighborhood ? ` · ${venue.neighborhood}` : ""}
           </div>

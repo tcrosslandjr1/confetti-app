@@ -12,6 +12,31 @@ export type MapStop = {
   lat?: number;
   lng?: number;
   done?: boolean;
+  /** Scheduled ETA for this stop, e.g. "6:30 PM". */
+  time?: string;
+};
+
+export type StopStatus = "done" | "current" | "next" | "upcoming";
+
+function statusOf(stop: MapStop, idx: number, currentIdx: number): StopStatus {
+  if (stop.done) return "done";
+  if (idx === currentIdx) return "current";
+  if (currentIdx >= 0 && idx === currentIdx + 1) return "next";
+  return "upcoming";
+}
+
+const STATUS_LABEL: Record<StopStatus, string> = {
+  done: "Done",
+  current: "Current",
+  next: "Next",
+  upcoming: "Upcoming",
+};
+
+const STATUS_COLOR: Record<StopStatus, string> = {
+  done: "#3FA66B",
+  current: "#F05537",
+  next: "#F2C744",
+  upcoming: "#1A1410",
 };
 
 export type DirectionsStepLite = {
@@ -136,6 +161,8 @@ function Layer({
   const segmentsRef = useRef<google.maps.Polyline[]>([]);
   const directionsServiceRef = useRef<google.maps.DirectionsService | null>(null);
   const activeRouteRequestRef = useRef(0);
+  const infoWindowRef = useRef<google.maps.InfoWindow | null>(null);
+  const pinnedStopIdRef = useRef<string | null>(null);
 
   const inputs = useMemo(
     () =>
@@ -186,6 +213,26 @@ function Layer({
       .filter((p): p is GeocodeResult => !!p);
     if (ordered.length === 0) return;
 
+    if (!infoWindowRef.current) {
+      infoWindowRef.current = new google.maps.InfoWindow({ disableAutoPan: true });
+    }
+    const iw = infoWindowRef.current;
+
+    const renderInfo = (stop: MapStop, i: number) => {
+      const status = statusOf(stop, i, currentIdx);
+      const dot = STATUS_COLOR[status];
+      const eta = stop.time ? `<div style="font:600 11px/1.2 ui-monospace,monospace;color:#1A1410cc;margin-top:2px">ETA · ${stop.time}</div>` : "";
+      return `
+        <div style="font-family:ui-sans-serif,system-ui;color:#1A1410;min-width:140px;padding:2px 4px">
+          <div style="display:flex;align-items:center;gap:6px">
+            <span style="display:inline-grid;place-items:center;width:18px;height:18px;border:2px solid #1A1410;border-radius:999px;background:${dot};color:#fff;font:700 10px/1 ui-monospace,monospace">${i + 1}</span>
+            <strong style="font-size:13px;line-height:1.2">${stop.name.replace(/</g, "&lt;")}</strong>
+          </div>
+          ${eta}
+          <div style="display:inline-block;margin-top:4px;padding:1px 6px;border:1.5px solid #1A1410;border-radius:999px;background:${dot};color:#fff;font:700 9px/1.4 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase">${STATUS_LABEL[status]}</div>
+        </div>`;
+    };
+
     // Markers
     stops.forEach((stop, i) => {
       const pt = points.find((p) => p.id === stop.id);
@@ -221,10 +268,29 @@ function Layer({
           ? google.maps.Animation.DROP
           : null,
         zIndex: isCurrent ? 999 : isNext ? 800 : 100 - i,
-        title: stop.name,
+        title: `${stop.name}${stop.time ? ` · ${stop.time}` : ""} · ${STATUS_LABEL[statusOf(stop, i, currentIdx)]}`,
       });
-      if (onStopClick) marker.addListener("click", () => onStopClick(stop));
+      marker.addListener("mouseover", () => {
+        if (pinnedStopIdRef.current) return;
+        iw.setContent(renderInfo(stop, i));
+        iw.open({ map, anchor: marker });
+      });
+      marker.addListener("mouseout", () => {
+        if (pinnedStopIdRef.current) return;
+        iw.close();
+      });
+      marker.addListener("click", () => {
+        pinnedStopIdRef.current = stop.id;
+        iw.setContent(renderInfo(stop, i));
+        iw.open({ map, anchor: marker });
+        onStopClick?.(stop);
+      });
       stopMarkersRef.current.push(marker);
+    });
+
+    const closeListener = map.addListener("click", () => {
+      pinnedStopIdRef.current = null;
+      iw.close();
     });
 
     // Per-segment polylines
@@ -302,10 +368,13 @@ function Layer({
     }
 
     return () => {
+      google.maps.event.removeListener(closeListener);
       stopMarkersRef.current.forEach((m) => m.setMap(null));
       stopMarkersRef.current = [];
       segmentsRef.current.forEach((s) => s.setMap(null));
       segmentsRef.current = [];
+      infoWindowRef.current?.close();
+      pinnedStopIdRef.current = null;
     };
   }, [map, points, stops, currentIdx, user, onStopClick, activeLeg]);
 
@@ -409,9 +478,27 @@ function Layer({
     const currentZoom = map.getZoom() ?? 13;
     if (currentZoom < 14) map.setZoom(15);
     marker.setAnimation(google.maps.Animation.BOUNCE);
+    // Pin and open info window for the focused stop
+    const stop = stops[idx];
+    if (stop && infoWindowRef.current) {
+      const status = statusOf(stop, idx, currentIdx);
+      const dot = STATUS_COLOR[status];
+      const eta = stop.time ? `<div style="font:600 11px/1.2 ui-monospace,monospace;color:#1A1410cc;margin-top:2px">ETA · ${stop.time}</div>` : "";
+      infoWindowRef.current.setContent(`
+        <div style="font-family:ui-sans-serif,system-ui;color:#1A1410;min-width:140px;padding:2px 4px">
+          <div style="display:flex;align-items:center;gap:6px">
+            <span style="display:inline-grid;place-items:center;width:18px;height:18px;border:2px solid #1A1410;border-radius:999px;background:${dot};color:#fff;font:700 10px/1 ui-monospace,monospace">${idx + 1}</span>
+            <strong style="font-size:13px;line-height:1.2">${stop.name.replace(/</g, "&lt;")}</strong>
+          </div>
+          ${eta}
+          <div style="display:inline-block;margin-top:4px;padding:1px 6px;border:1.5px solid #1A1410;border-radius:999px;background:${dot};color:#fff;font:700 9px/1.4 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase">${STATUS_LABEL[status]}</div>
+        </div>`);
+      infoWindowRef.current.open({ map, anchor: marker });
+      pinnedStopIdRef.current = stop.id;
+    }
     const t = window.setTimeout(() => marker.setAnimation(null), 1400);
     return () => window.clearTimeout(t);
-  }, [map, focusStopId, points, stops]);
+  }, [map, focusStopId, points, stops, currentIdx]);
 
   return null;
 }

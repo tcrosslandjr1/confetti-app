@@ -482,12 +482,15 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                 lat: s.lat,
                 lng: s.lng,
                 done: s.done,
+                time: s.time,
               }))}
               currentIdx={loop.stops.findIndex((s) => !s.done)}
               fallbackCity={loop.stops[0]?.area || "Washington, DC"}
               height="100%"
               interactive={false}
               onPointsReady={setRoutePoints}
+              focusStopId={selectedStopId}
+              onStopClick={(s) => setSelectedStopId(s.id)}
             />
             <div className="absolute right-3 top-3 flex flex-col items-end gap-1.5">
               <button
@@ -582,39 +585,85 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
               )}
             </div>
           </div>
-          {/* Numbered legend — tap to pick which stop to navigate to */}
-          <div className="flex items-center gap-2 overflow-x-auto px-6 py-2 border-t border-ink/10 bg-cream/40">
-            {loop.stops.map((s, i) => {
-              const done = !!s.done;
-              const active = s.id === selectedStopId;
-              return (
-                <div key={s.id} className="flex shrink-0 items-center gap-1.5">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSelectedStopId(s.id);
-                      setDirOpen(true);
-                    }}
-                    aria-pressed={active}
-                    className={`flex items-center gap-1.5 rounded-full border-2 px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-pop ${
-                      active
-                        ? "border-ink bg-ink text-cream shadow-brut"
-                        : "border-transparent text-ink/70 hover:border-ink/30"
-                    }`}
-                  >
-                    <span
-                      className={`grid h-5 w-5 place-items-center rounded-full border-2 border-ink text-[9px] ${
-                        done ? "bg-coral text-cream" : active ? "bg-cream text-ink" : "bg-cream text-ink"
-                      }`}
-                    >
-                      {i + 1}
-                    </span>
-                    <span className="max-w-[8rem] truncate">{s.name}</span>
-                  </button>
-                  {i < loop.stops.length - 1 && <span className="text-ink/30">→</span>}
-                </div>
-              );
-            })}
+          {/* Side panel — each stop with ETA + status. Tap to focus the marker. */}
+          <div className="border-t border-ink/10 bg-cream/50 px-4 py-3">
+            <div className="mb-2 flex items-center justify-between">
+              <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">
+                Stops · ETA · Status
+              </div>
+              <div className="flex items-center gap-1.5 font-mono text-[8px] font-bold uppercase tracking-wider text-ink/50">
+                <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-[#3FA66B] border border-ink" />Done</span>
+                <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-coral border border-ink" />Now</span>
+                <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-gold border border-ink" />Next</span>
+              </div>
+            </div>
+            <ul className="flex flex-col gap-1.5">
+              {(() => {
+                const currentIdx = loop.stops.findIndex((s) => !s.done);
+                return loop.stops.map((s, i) => {
+                  const status: "done" | "current" | "next" | "upcoming" = s.done
+                    ? "done"
+                    : i === currentIdx
+                    ? "current"
+                    : currentIdx >= 0 && i === currentIdx + 1
+                    ? "next"
+                    : "upcoming";
+                  const active = s.id === selectedStopId;
+                  const dotClass =
+                    status === "done"
+                      ? "bg-[#3FA66B] text-cream"
+                      : status === "current"
+                      ? "bg-coral text-cream"
+                      : status === "next"
+                      ? "bg-gold text-ink"
+                      : "bg-cream text-ink";
+                  const badgeClass =
+                    status === "done"
+                      ? "border-ink/40 bg-[#3FA66B]/15 text-[#1A1410]"
+                      : status === "current"
+                      ? "border-coral bg-coral text-cream"
+                      : status === "next"
+                      ? "border-ink bg-gold text-ink"
+                      : "border-ink/30 bg-cream text-ink/70";
+                  return (
+                    <li key={s.id}>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedStopId(s.id)}
+                        aria-pressed={active}
+                        className={`group flex w-full items-center gap-2.5 rounded-xl border-2 px-2 py-1.5 text-left transition-pop ${
+                          active
+                            ? "border-ink bg-cream shadow-brut"
+                            : "border-transparent hover:border-ink/20 hover:bg-cream/70"
+                        }`}
+                      >
+                        <span
+                          className={`grid h-6 w-6 shrink-0 place-items-center rounded-full border-2 border-ink font-mono text-[10px] font-bold ${dotClass}`}
+                        >
+                          {i + 1}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block truncate font-display text-[13px] font-extrabold leading-tight text-ink">
+                            {s.name}
+                          </span>
+                          <span className="block truncate font-mono text-[10px] text-ink/55">
+                            {s.area || s.type}
+                          </span>
+                        </span>
+                        <span className="font-mono text-[11px] font-bold tabular-nums text-ink/80">
+                          {s.time || "—"}
+                        </span>
+                        <span
+                          className={`shrink-0 rounded-full border px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest ${badgeClass}`}
+                        >
+                          {status === "current" ? "Now" : status === "done" ? "Done" : status === "next" ? "Next" : "Up"}
+                        </span>
+                      </button>
+                    </li>
+                  );
+                });
+              })()}
+            </ul>
           </div>
         </div>
 

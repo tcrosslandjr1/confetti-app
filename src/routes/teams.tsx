@@ -2,7 +2,6 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Briefcase, Users2, Wine, Mic2, ArrowRight, CheckCircle2 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { GatedAction } from "@/components/GatedAction";
 
 export const Route = createFileRoute("/teams")({
   head: () => ({
@@ -85,7 +84,6 @@ function TeamsPage() {
                 <button
                   type="button"
                   onClick={openTeamPlanner}
-                  feature="team event planning"
                   className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
                 >
                   Plan an event <ArrowRight className="h-4 w-4" />

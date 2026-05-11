@@ -56,7 +56,14 @@ function RouteLayer({ stops, currentIdx, fallbackCity }: Props & { fallbackCity:
   const rendererRef = useRef<google.maps.DirectionsRenderer | null>(null);
   const [steps, setSteps] = useState<{ instruction: string; distance?: string; duration?: string }[]>([]);
 
-  // Geocode each stop's area (or name) once
+  // Stable signature so geocoding only re-runs when stop identity/location changes,
+  // NOT when `done` flips. This keeps marker highlight responsive without API spam.
+  const geoKey = useMemo(
+    () => stops.map((s) => `${s.id}|${s.name}|${s.area || ""}`).join("::"),
+    [stops]
+  );
+
+  // Geocode each stop's area (or name)
   useEffect(() => {
     if (!geocoding || stops.length === 0) return;
     let cancelled = false;
@@ -80,7 +87,14 @@ function RouteLayer({ stops, currentIdx, fallbackCity }: Props & { fallbackCity:
     return () => {
       cancelled = true;
     };
-  }, [geocoding, stops, fallbackCity]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [geocoding, geoKey, fallbackCity]);
+
+  // Merge live `done` state from props onto geocoded coords each render
+  const liveGeo = useMemo<GeoStop[]>(() => {
+    const byId = new Map(stops.map((s) => [s.id, s]));
+    return geo.map((g) => ({ ...g, done: !!byId.get(g.id)?.done }));
+  }, [geo, stops]);
 
   // Fit bounds to all stops
   useEffect(() => {

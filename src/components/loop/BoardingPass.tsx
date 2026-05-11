@@ -6,6 +6,7 @@ import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane, Printer } fro
 import type { ActiveLoop, LoopStop, StopKind } from "@/lib/loop-store";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";
+import { trackWalletEvent } from "@/lib/wallet-analytics";
 
 function isAndroid() {
   if (typeof navigator === "undefined") return false;
@@ -110,13 +111,21 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
       }
       if (isAndroid()) {
         window.open(data.saveUrl, "_blank", "noopener,noreferrer");
+        trackWalletEvent("wallet_direct_open_success", { loopId: loop.id });
       } else if (isIOS()) {
         // iOS-specific: try the new-tab handoff first; only fall back to the
         // QR modal if the popup was blocked or refused.
         const opened = tryOpenInNewTab(data.saveUrl);
-        if (!opened) setQrUrl(data.saveUrl);
+        if (opened) {
+          trackWalletEvent("wallet_direct_open_success", { loopId: loop.id });
+        } else {
+          trackWalletEvent("wallet_direct_open_blocked", { loopId: loop.id });
+          setQrUrl(data.saveUrl);
+          trackWalletEvent("wallet_qr_modal_open", { loopId: loop.id, meta: { reason: "ios_popup_blocked" } });
+        }
       } else {
         setQrUrl(data.saveUrl);
+        trackWalletEvent("wallet_qr_modal_open", { loopId: loop.id, meta: { reason: "desktop" } });
       }
     } catch {
       toast.error("Network error talking to Wallet service");
@@ -718,6 +727,7 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
       toast.error("Could not prepare print view");
       return;
     }
+    trackWalletEvent("wallet_print_qr");
     // Inline the SVG at large size for crisp scanning from across the room.
     const clone = svgEl.cloneNode(true) as SVGSVGElement;
     clone.setAttribute("width", "560");
@@ -807,6 +817,7 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackWalletEvent("wallet_open_link_click")}
           className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
         >
           <Wallet className="h-4 w-4" /> Open save link in new tab
@@ -822,6 +833,7 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
           type="button"
           onClick={() => {
             navigator.clipboard?.writeText(url);
+            trackWalletEvent("wallet_copy_link");
             toast.success("Save link copied");
           }}
           className="mt-2 w-full text-center font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink"

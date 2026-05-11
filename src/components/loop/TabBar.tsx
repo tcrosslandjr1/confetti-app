@@ -11,7 +11,11 @@ const TABS: Tab[] = [
   { to: "/portal/profile", label: "Profile", icon: User, match: (p) => p.startsWith("/portal/profile") || p.startsWith("/me") },
 ];
 
-const HIDE_PREFIXES = ["/admin", "/auth", "/onboarding", "/about", "/pricing", "/features", "/how-it-works", "/contact", "/investors", "/advertise", "/data-terms", "/api"];
+const HIDE_PREFIXES = [
+  "/admin", "/auth", "/onboarding", "/about", "/pricing", "/features",
+  "/how-it-works", "/contact", "/investors", "/advertise", "/data-terms",
+  "/api", "/concierge", "/taste-tuner",
+];
 
 export function TabBar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });

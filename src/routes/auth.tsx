@@ -11,6 +11,12 @@ import { rememberReferralCode, getPendingReferralCode } from "@/lib/referrals";
 import { requestUserLocation } from "@/lib/location";
 
 export const Route = createFileRoute("/auth")({
+  validateSearch: (search: Record<string, unknown>) => {
+    const raw = typeof search.redirect === "string" ? search.redirect : "";
+    // Only allow internal paths to avoid open-redirect to off-site URLs.
+    const safe = raw.startsWith("/") && !raw.startsWith("//") ? raw : "/";
+    return { redirect: safe };
+  },
   head: () => ({ meta: [{ title: "Sign in — Concierge" }] }),
   component: AuthPage,
 });
@@ -18,6 +24,7 @@ export const Route = createFileRoute("/auth")({
 function AuthPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { redirect: redirectTo } = Route.useSearch();
   const [mode, setMode] = useState<"signin" | "signup">("signup");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -88,7 +95,7 @@ function AuthPage() {
     setOauthBusy(provider);
     try {
       const { error, redirected } = await lovable.auth.signInWithOAuth(provider, {
-        redirect_uri: `${window.location.origin}/auth`,
+        redirect_uri: `${window.location.origin}/auth?redirect=${encodeURIComponent(redirectTo)}`,
       });
       if (error) {
         setError(explainOAuthError(provider, error.message));
@@ -97,7 +104,7 @@ function AuthPage() {
       }
       if (!redirected) {
         // Tokens already exchanged — auth-context will pick the session up.
-        navigate({ to: "/" });
+        navigate({ to: redirectTo as never });
       }
       // If redirected === true, the browser is navigating away; leave busy on.
     } catch (e: any) {
@@ -126,8 +133,8 @@ function AuthPage() {
   };
 
   useEffect(() => {
-    if (user) navigate({ to: "/" });
-  }, [user, navigate]);
+    if (user) navigate({ to: redirectTo as never });
+  }, [user, navigate, redirectTo]);
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -165,7 +172,7 @@ function AuthPage() {
         // Refresh location opportunistically on sign-in too.
         void requestUserLocation();
       }
-      navigate({ to: "/" });
+      navigate({ to: redirectTo as never });
     } catch (err: any) {
       setError(err?.message ?? "Something went wrong");
     } finally {

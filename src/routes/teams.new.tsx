@@ -329,7 +329,7 @@ function NewTeamEventPage() {
   const submit = async () => {
     if (!user) {
       toast.error("Sign in first to save your event");
-      nav({ to: "/auth" });
+      nav({ to: "/auth", search: { redirect: "/teams/new" } });
       return;
     }
     if (!stepValid.basics || !stepValid.schedule || !stepValid.people) {
@@ -446,7 +446,11 @@ function NewTeamEventPage() {
               <AlertCircle className="mt-0.5 h-5 w-5" />
               <div className="text-sm">
                 You'll need a free account to save your event and send invites.
-                <Link to="/auth" className="ml-2 font-bold underline">
+                <Link
+                  to="/auth"
+                  search={{ redirect: "/teams/new" }}
+                  className="ml-2 font-bold underline"
+                >
                   Sign in →
                 </Link>
               </div>

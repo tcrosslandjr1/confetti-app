@@ -43,6 +43,9 @@ import {
   NextBookingCountdown,
   ConciergeQuickAsk,
   SpendBudgetTracker,
+  SavedSpotsWidget,
+  XpProgressWidget,
+  TrendingNearYouWidget,
 } from "@/components/widgets/AppWidgets";
 
 export const Route = createFileRoute("/portal/")({

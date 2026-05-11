@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { MapPin, Check, Navigation, X } from "lucide-react";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
-import { addConfetti, getActiveLoop, getConfetti, makeDemoLoop, setActiveLoop, type ActiveLoop } from "@/lib/loop-store";
+import { addConfetti, getActiveLoop, getConfetti, makeDemoLoop, setActiveLoop, subscribeActiveLoop, subscribeConfetti, type ActiveLoop } from "@/lib/loop-store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/active-loop")({

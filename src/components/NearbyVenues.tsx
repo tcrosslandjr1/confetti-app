@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { getStoredLocation, requestUserLocation, type UserLocation } from "@/lib/location";
 import { Button } from "@/components/ui/button";
+import { GooglePhotos } from "@/components/GooglePhotos";
 
 type Venue = {
   id: string;

@@ -1257,7 +1257,7 @@ export function BuildMyNightWizard() {
         )}
       </div>
       {layer}
-      <DishQuickView open={openDish} onOpenChange={(o) => !o && setOpenDish(null)} />
+      <DishQuickView open={openDish} onOpenChange={(o) => !o && setOpenDish(null)} avoidAllergens={personalize?.diet.avoidAllergens ?? []} />
       {shareData && (
         <div
           aria-hidden

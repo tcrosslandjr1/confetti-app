@@ -1,4 +1,13 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Outlet } from "@tanstack/react-router";
+
+export const Route = createFileRoute("/teams")({
+  component: TeamsLayout,
+});
+
+function TeamsLayout() {
+  return <Outlet />;
+}
+
 import { Briefcase, Users2, Wine, Mic2, ArrowRight, CheckCircle2 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";

@@ -11,6 +11,7 @@ import { ConfettiMap } from "@/components/maps/ConfettiMap";
 import { ParkingPin } from "@/components/loop/ParkingPin";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";
 import { trackWalletEvent } from "@/lib/wallet-analytics";
+import { trackShareEvent } from "@/lib/share-analytics";
 
 function isAndroid() {
   if (typeof navigator === "undefined") return false;
@@ -130,19 +131,26 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
       const nav = typeof navigator !== "undefined" ? navigator : null;
       if (nav && typeof nav.share === "function") {
         await nav.share({ title: shareTitle, text: shareText, url: shareUrl });
+        trackShareEvent("share_link_native", { loopId: loop.id });
         setShareOpen(false);
       } else if (nav?.clipboard) {
         await nav.clipboard.writeText(shareUrl);
+        trackShareEvent("share_link_clipboard", { loopId: loop.id, meta: { reason: "no_native_share" } });
         setLinkCopied(true);
         toast.success("Link copied to clipboard");
         setTimeout(() => setLinkCopied(false), 2000);
       } else {
+        trackShareEvent("share_error", { loopId: loop.id, meta: { source: "share_link", reason: "unsupported" } });
         toast.error("Sharing isn't supported on this device");
       }
     } catch (err) {
       // User-cancelled share rejects with AbortError — stay silent for that.
-      if ((err as { name?: string })?.name !== "AbortError") {
+      const name = (err as { name?: string })?.name;
+      if (name !== "AbortError") {
+        trackShareEvent("share_error", { loopId: loop.id, meta: { source: "share_link", error: name } });
         toast.error("Couldn't share this plan");
+      } else {
+        trackShareEvent("share_error", { loopId: loop.id, meta: { source: "share_link", reason: "user_cancelled" } });
       }
     } finally {
       setShareBusy(null);
@@ -152,10 +160,12 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   async function handleCopyLink() {
     try {
       await navigator.clipboard.writeText(shareUrl);
+      trackShareEvent("share_copy_link", { loopId: loop.id });
       setLinkCopied(true);
       toast.success("Link copied");
       setTimeout(() => setLinkCopied(false), 2000);
     } catch {
+      trackShareEvent("share_error", { loopId: loop.id, meta: { source: "copy_link" } });
       toast.error("Couldn't copy link");
     }
   }
@@ -178,19 +188,23 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
       a.remove();
 
       // If the device supports sharing files, also offer a native share sheet.
+      let nativeShared = false;
       try {
         const blob = await (await fetch(dataUrl)).blob();
         const file = new File([blob], `confetti-${loop.id}.png`, { type: "image/png" });
         const navAny = navigator as Navigator & { canShare?: (d: { files: File[] }) => boolean };
         if (navAny.canShare && navAny.canShare({ files: [file] })) {
           await navigator.share({ title: shareTitle, text: shareText, files: [file] });
+          nativeShared = true;
         }
       } catch {
         /* native share is best-effort */
       }
+      trackShareEvent("share_save_image", { loopId: loop.id, meta: { nativeShared } });
       toast.success("Image saved");
       setShareOpen(false);
     } catch {
+      trackShareEvent("share_error", { loopId: loop.id, meta: { source: "save_image" } });
       toast.error("Couldn't generate image");
     } finally {
       setShareBusy(null);
@@ -200,6 +214,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   function handleSavePdf() {
     setShareBusy("pdf");
     try {
+      trackShareEvent("share_save_pdf", { loopId: loop.id });
       window.print();
       setShareOpen(false);
     } finally {
@@ -286,9 +301,11 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
       a.click();
       a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
+      trackShareEvent("share_add_to_calendar", { loopId: loop.id, meta: { stops: loop.stops.length } });
       setShareOpen(false);
       toast.success("Calendar event downloaded");
     } catch {
+      trackShareEvent("share_error", { loopId: loop.id, meta: { source: "add_to_calendar" } });
       toast.error("Couldn't create calendar event");
     }
   }
@@ -370,7 +387,12 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         <div className="relative">
           <button
             type="button"
-            onClick={() => setShareOpen((v) => !v)}
+            onClick={() => {
+              setShareOpen((v) => {
+                if (!v) trackShareEvent("share_menu_open", { loopId: loop.id });
+                return !v;
+              });
+            }}
             aria-expanded={shareOpen}
             aria-haspopup="menu"
             className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5"
@@ -415,6 +437,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                     shareUrl,
                   ];
                   const body = encodeURIComponent(lines.join("\n"));
+                  trackShareEvent("share_email_link", { loopId: loop.id });
                   // Open the user's default mail client with a prefilled message.
                   window.location.href = `mailto:?subject=${subject}&body=${body}`;
                   setShareOpen(false);

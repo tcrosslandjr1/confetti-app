@@ -48,7 +48,10 @@ async function resolvePhoto(name: string, key: string, maxHeightPx = 600): Promi
 
 async function lookup(q: Query, key: string): Promise<PlaceResult> {
   const text = [q.venue, q.address, q.neighborhood].filter(Boolean).join(" ");
-  const attempts = [text, [q.venue, q.address, q.neighborhood, "Washington DC"].filter(Boolean).join(" ")];
+  const attempts = [
+    text,
+    [q.venue, q.address, q.neighborhood, "Washington DC"].filter(Boolean).join(" "),
+  ];
   try {
     let p;
     for (const textQuery of attempts) {
@@ -69,9 +72,12 @@ async function lookup(q: Query, key: string): Promise<PlaceResult> {
     }
     if (!p) return { venue: q.venue, found: false };
 
-    const photoNames: string[] = (p.photos ?? []).slice(0, 3).map((ph: { name: string }) => ph.name).filter(Boolean);
+    const photoNames: string[] = (p.photos ?? [])
+      .slice(0, 3)
+      .map((ph: { name: string }) => ph.name)
+      .filter(Boolean);
     const photos = (await Promise.all(photoNames.map((n) => resolvePhoto(n, key)))).filter(
-      (u): u is string => !!u
+      (u): u is string => !!u,
     );
 
     return {

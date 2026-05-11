@@ -91,7 +91,11 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
       if (cancelled) return;
 
       const coordsByName = new Map<string, { lat: number; lng: number }>();
-      for (const c of (cRes.data ?? []) as { name: string | null; latitude: number; longitude: number }[]) {
+      for (const c of (cRes.data ?? []) as {
+        name: string | null;
+        latitude: number;
+        longitude: number;
+      }[]) {
         if (!c.name) continue;
         const key = c.name.trim().toLowerCase();
         if (!coordsByName.has(key)) coordsByName.set(key, { lat: c.latitude, lng: c.longitude });
@@ -109,13 +113,19 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
           venue: v.name,
           neighborhood: [v.neighborhood, v.city].filter(Boolean).join(" ") || undefined,
         }));
-        const { data } = await supabase.functions.invoke("google-places", { body: { queries: lookups } });
+        const { data } = await supabase.functions.invoke("google-places", {
+          body: { queries: lookups },
+        });
         if (cancelled) return;
         const liveCoords = new Map<string, { lat: number; lng: number }>();
         for (const p of (data?.results ?? []) as PlaceCoordinate[]) {
           if (typeof p.latitude !== "number" || typeof p.longitude !== "number") continue;
           liveCoords.set(p.venue.trim().toLowerCase(), { lat: p.latitude, lng: p.longitude });
-          if (p.displayName) liveCoords.set(p.displayName.trim().toLowerCase(), { lat: p.latitude, lng: p.longitude });
+          if (p.displayName)
+            liveCoords.set(p.displayName.trim().toLowerCase(), {
+              lat: p.latitude,
+              lng: p.longitude,
+            });
         }
         for (const v of (vRes.data ?? []) as Venue[]) {
           const coords = liveCoords.get(v.name.trim().toLowerCase());
@@ -143,7 +153,11 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
 
   const enable = async () => {
     setRequesting(true);
-    const loc = await requestUserLocation({ enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
+    const loc = await requestUserLocation({
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0,
+    });
     setRequesting(false);
     if (loc) setLocation(loc);
     else toast.error("Couldn't get your location. Check browser permissions.");
@@ -151,7 +165,11 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
 
   const refresh = async () => {
     setRequesting(true);
-    const loc = await requestUserLocation({ enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
+    const loc = await requestUserLocation({
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0,
+    });
     setRequesting(false);
     if (loc) {
       setLocation(loc);
@@ -174,8 +192,18 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
             </span>
           )}
           {location && (
-            <Button variant="outline" size="sm" onClick={refresh} disabled={requesting} className="gap-1.5">
-              {requesting ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <RefreshCw className="h-3.5 w-3.5" />}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={refresh}
+              disabled={requesting}
+              className="gap-1.5"
+            >
+              {requesting ? (
+                <Loader2 className="h-3.5 w-3.5 animate-spin" />
+              ) : (
+                <RefreshCw className="h-3.5 w-3.5" />
+              )}
               Refresh nearby
             </Button>
           )}
@@ -189,7 +217,11 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
             Share your location to see venues ranked by how close they are right now.
           </p>
           <Button onClick={enable} disabled={requesting} className="mt-4 gap-2">
-            {requesting ? <Loader2 className="h-4 w-4 animate-spin" /> : <MapPin className="h-4 w-4" />}
+            {requesting ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <MapPin className="h-4 w-4" />
+            )}
             Enable location
           </Button>
         </div>
@@ -211,7 +243,12 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
               className="group overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-pop hover:-translate-y-0.5 hover:shadow-pop"
             >
               {v.image_url ? (
-                <img src={v.image_url} alt={v.name} className="h-36 w-full object-cover" loading="lazy" />
+                <img
+                  src={v.image_url}
+                  alt={v.name}
+                  className="h-36 w-full object-cover"
+                  loading="lazy"
+                />
               ) : (
                 <GooglePhotos venue={v.name} neighborhood={v.neighborhood} variant="hero" />
               )}

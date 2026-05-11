@@ -773,9 +773,6 @@ function BookingModal({
     const planRef = `CF-${loop.id}-${Math.random().toString(36).slice(2, 5).toUpperCase()}`;
     const updated: ActiveLoop = {
       ...loop,
-      stops: loop.stops.map((s) =>
-        refs[s.id] ? { ...s, bookingRef: refs[s.id], bookingStatus: "confirmed" } : s,
-      ),
       booking: {
         ref: planRef,
         bookedAt: new Date().toISOString(),

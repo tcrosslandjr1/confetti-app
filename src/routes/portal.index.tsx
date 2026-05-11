@@ -168,14 +168,31 @@ function PortalDiscoverPage() {
             Upcoming bookings, referral rewards, badges you've earned, and fresh picks from the city.
           </p>
         </div>
-        <Link
-          to="/plan"
-          className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-vibe px-6 py-3 font-display text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-pop transition-pop hover:scale-[1.03]"
-        >
-          <Sparkles className="h-4 w-4" />
-          Create plan now
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </Link>
+        <div className="flex shrink-0 flex-col items-stretch gap-2 sm:items-end">
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={quickGenerate}
+              disabled={quickBusy}
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-vibe px-6 py-3 font-display text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-pop transition-pop hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-70"
+              title="Auto-build a plan from your taste profile and social signals"
+            >
+              {quickBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Wand2 className="h-4 w-4" />}
+              {quickBusy ? "Generating…" : "Quick generate"}
+            </button>
+            <Link
+              to="/plan"
+              className="group inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-5 py-3 font-display text-sm font-bold uppercase tracking-wide text-foreground transition-pop hover:scale-[1.02]"
+            >
+              <Sparkles className="h-4 w-4" />
+              Customize
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+          <Link to="/onboarding" className="inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground">
+            <Sliders className="h-3 w-3" /> Tune what you like
+          </Link>
+        </div>
       </header>
 
       {/* Top stats strip */}

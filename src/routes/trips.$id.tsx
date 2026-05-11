@@ -151,6 +151,9 @@ function TripDetail() {
 
       {/* Timeline */}
       <section className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mb-6">
+          <VibeFilter prefs={vibePrefs} onChange={updateVibePrefs} />
+        </div>
         <ol className="relative space-y-6 border-l-2 border-dashed border-border pl-6">
           {stops.map((s, i) => {
             const Icon = CAT_ICONS[s.category as string] ?? Sparkles;

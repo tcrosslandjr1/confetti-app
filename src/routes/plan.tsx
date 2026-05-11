@@ -24,9 +24,13 @@ export const Route = createFileRoute("/plan")({
 function PlanPage() {
   const { user, loading } = useAuth();
   const nav = useNavigate();
-  const [occasionSlug, setOccasionSlug] = useState<string>(OCCASIONS[0].slug);
+  const [occasionSlugs, setOccasionSlugs] = useState<string[]>([OCCASIONS[0].slug]);
   const [customVibe, setCustomVibe] = useState("");
-  const isCustom = occasionSlug === "__custom__";
+  const isCustom = occasionSlugs.includes("__custom__");
+  const toggleOccasion = (slug: string) =>
+    setOccasionSlugs((prev) =>
+      prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug],
+    );
   const [city, setCity] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
   const [date, setDate] = useState("");
@@ -103,23 +107,32 @@ function PlanPage() {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("[plan] submit clicked", { occasionSlug, isCustom, user: !!user });
+    console.log("[plan] submit clicked", { occasionSlugs, isCustom, user: !!user });
     setErr(null);
     setBusy(true);
     try {
       if (!user) {
         throw new Error("Sign in required — please log in and try again.");
       }
-      const occ = OCCASIONS.find((o) => o.slug === occasionSlug);
+      const selected = OCCASIONS.filter((o) => occasionSlugs.includes(o.slug));
       const customText = customVibe.trim();
       if (isCustom && !customText) {
         throw new Error("Tell us your vibe — type a few words to describe your day.");
       }
+      if (selected.length === 0 && !isCustom) {
+        throw new Error("Pick at least one vibe to plan your day.");
+      }
+      const titles = selected.map((o) => o.title);
+      const taglines = selected.map((o) => o.tagline);
+      if (isCustom && customText) {
+        titles.push(customText);
+        taglines.push(customText);
+      }
       console.log("[plan] calling buildAndSaveItinerary…");
       const { id } = await buildAndSaveItinerary({
-        occasion: occ ? occ.title : customText,
-        vibe: occ ? occ.tagline : customText,
-        occasionSlug: occ ? occ.slug : "spontaneous",
+        occasion: titles.join(" + "),
+        vibe: taglines.join(" · "),
+        occasionSlug: selected[0]?.slug ?? "spontaneous",
         city: city || undefined,
         neighborhood: neighborhood || undefined,
         date: date || undefined,
@@ -163,12 +176,12 @@ function PlanPage() {
           <Field label="Pick your vibe">
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
               {OCCASIONS.map((o) => {
-                const active = occasionSlug === o.slug;
+                const active = occasionSlugs.includes(o.slug);
                 return (
                   <button
                     key={o.slug}
                     type="button"
-                    onClick={() => setOccasionSlug(o.slug)}
+                    onClick={() => toggleOccasion(o.slug)}
                     className={`group relative overflow-hidden rounded-2xl border p-3 text-left transition-all ${
                       active
                         ? "border-primary bg-primary/5 shadow-pop scale-[1.02]"
@@ -189,7 +202,7 @@ function PlanPage() {
               })}
               <button
                 type="button"
-                onClick={() => setOccasionSlug("__custom__")}
+                onClick={() => toggleOccasion("__custom__")}
                 className={`group relative overflow-hidden rounded-2xl border-2 border-dashed p-3 text-left transition-all ${
                   isCustom
                     ? "border-primary bg-primary/5 shadow-pop scale-[1.02]"

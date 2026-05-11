@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowUpRight, Check, ChevronDown, Clock, DollarSign, Flame, Globe, Heart, Loader2, MapPin, Phone, RefreshCw, Save, Sparkles, Star, Utensils, Wine, X } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { ArrowLeft, ArrowUpRight, Check, ChevronDown, Clock, DollarSign, Flame, Globe, Heart, Loader2, MapPin, Phone, RefreshCw, Save, Share2, Sparkles, Star, Utensils, Wine, X } from "lucide-react";
 import { useWizard } from "./wizard-context";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
 import { toast } from "sonner";
@@ -7,6 +7,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { getDishInfo, dishMatches, ALL_DISH_NAMES, type DietFilter } from "@/lib/dish-info";
+import { StopShareCard, type StopShareData } from "./StopShareCard";
+import { toPng } from "html-to-image";
 
 type FavRow = { venue_name: string; vibe: string | null; tone: string | null; address: string | null; neighborhood: string | null };
 
@@ -254,6 +256,9 @@ export function BuildMyNightWizard() {
     dietLabel: string | null;
   };
   const [personalize, setPersonalize] = useState<Personalize | null>(null);
+  const [shareData, setShareData] = useState<StopShareData | null>(null);
+  const [sharing, setSharing] = useState<string | null>(null);
+  const shareRef = useRef<HTMLDivElement>(null);
   const { user } = useAuth();
   const { burst, layer } = useConfettiBurst();
 
@@ -277,6 +282,49 @@ export function BuildMyNightWizard() {
     burst(window.innerWidth / 2, window.innerHeight / 3);
     toast.success(`Reserved ${venueName} at ${slot} ✓`);
   }, [user, pickedDate, crew, burst]);
+
+  const shareStopCard = useCallback(async (data: StopShareData) => {
+    setShareData(data);
+    setSharing(data.venue);
+    // Wait for the offscreen card to render
+    await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+    try {
+      if (!shareRef.current) throw new Error("Card not mounted");
+      const dataUrl = await toPng(shareRef.current, {
+        pixelRatio: 2,
+        cacheBust: true,
+        backgroundColor: "#FAF6EF",
+      });
+      const blob = await (await fetch(dataUrl)).blob();
+      const filename = `${data.venue.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}-stop-card.png`;
+
+      // Try Web Share API with file (mobile)
+      const file = new File([blob], filename, { type: "image/png" });
+      const navAny = navigator as Navigator & { canShare?: (d: { files: File[] }) => boolean; share?: (d: ShareData & { files?: File[] }) => Promise<void> };
+      if (navAny.canShare?.({ files: [file] }) && navAny.share) {
+        try {
+          await navAny.share({ files: [file], title: data.venue, text: `${data.venue} — ${data.time} · ${data.vibe}` });
+          toast.success("Shared ✓");
+          return;
+        } catch (err) {
+          // user cancelled — fall through to download
+          if ((err as Error).name === "AbortError") return;
+        }
+      }
+      // Fallback: download
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.download = filename;
+      link.click();
+      toast.success("Stop card downloaded");
+    } catch (e) {
+      console.error("[share]", e);
+      toast.error("Couldn't generate share card");
+    } finally {
+      setSharing(null);
+      setShareData(null);
+    }
+  }, []);
 
   const fallbackTones = ["bg-coral", "bg-purple", "bg-gold", "bg-emerald-400", "bg-pink-300", "bg-amber-300"];
   const presetStops = useMemo(
@@ -904,6 +952,34 @@ export function BuildMyNightWizard() {
                           >
                             <Heart className={`h-3.5 w-3.5 ${isFav ? "fill-cream" : ""}`} />
                           </button>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              shareStopCard({
+                                venue: s.venue,
+                                vibe: s.vibe,
+                                time: s.time,
+                                address: s.address,
+                                neighborhood: s.neighborhood,
+                                rating: d.rating,
+                                priceLevel: d.priceLevel,
+                                knownFor: d.knownFor,
+                                popularAvailability: d.popularAvailability,
+                                peakTime: d.peakTime,
+                                dishes: d.dishes,
+                                vibeProfile: d.vibeProfile,
+                                dietary: d.dietary,
+                                isUsual: d.isUsual,
+                              });
+                            }}
+                            disabled={sharing === s.venue}
+                            aria-label={`Share ${s.venue} stop card`}
+                            title="Share stop card"
+                            className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-cream text-ink transition-pop hover:-translate-y-0.5 hover:bg-gold/30 disabled:opacity-50"
+                          >
+                            {sharing === s.venue ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Share2 className="h-3.5 w-3.5" />}
+                          </button>
                           <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">{displayIdx + 1}</span>
                           <ChevronDown className={`h-4 w-4 text-ink/60 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                         </div>
@@ -1182,6 +1258,20 @@ export function BuildMyNightWizard() {
       </div>
       {layer}
       <DishQuickView open={openDish} onOpenChange={(o) => !o && setOpenDish(null)} />
+      {shareData && (
+        <div
+          aria-hidden
+          style={{
+            position: "fixed",
+            left: -10000,
+            top: 0,
+            pointerEvents: "none",
+            opacity: 0,
+          }}
+        >
+          <StopShareCard ref={shareRef} data={shareData} />
+        </div>
+      )}
     </div>
   );
 }

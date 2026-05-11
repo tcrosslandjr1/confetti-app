@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeatherRouteImport } from './routes/weather'
 import { Route as ViralRouteImport } from './routes/viral'
 import { Route as TranslateRouteImport } from './routes/translate'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TeamsRouteImport } from './routes/teams'
 import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
 import { Route as ReservationsRouteImport } from './routes/reservations'
@@ -97,6 +98,11 @@ const ViralRoute = ViralRouteImport.update({
 const TranslateRoute = TranslateRouteImport.update({
   id: '/translate',
   path: '/translate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TeamsRoute = TeamsRouteImport.update({
@@ -485,6 +491,7 @@ export interface FileRoutesByFullPath {
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
+  '/testimonials': typeof TestimonialsRoute
   '/translate': typeof TranslateRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
@@ -557,6 +564,7 @@ export interface FileRoutesByTo {
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
+  '/testimonials': typeof TestimonialsRoute
   '/translate': typeof TranslateRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
@@ -634,6 +642,7 @@ export interface FileRoutesById {
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
+  '/testimonials': typeof TestimonialsRoute
   '/translate': typeof TranslateRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
@@ -712,6 +721,7 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/taste-tuner'
     | '/teams'
+    | '/testimonials'
     | '/translate'
     | '/viral'
     | '/weather'
@@ -784,6 +794,7 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/taste-tuner'
     | '/teams'
+    | '/testimonials'
     | '/translate'
     | '/viral'
     | '/weather'
@@ -860,6 +871,7 @@ export interface FileRouteTypes {
     | '/reservations'
     | '/taste-tuner'
     | '/teams'
+    | '/testimonials'
     | '/translate'
     | '/viral'
     | '/weather'
@@ -937,6 +949,7 @@ export interface RootRouteChildren {
   ReservationsRoute: typeof ReservationsRoute
   TasteTunerRoute: typeof TasteTunerRoute
   TeamsRoute: typeof TeamsRouteWithChildren
+  TestimonialsRoute: typeof TestimonialsRoute
   TranslateRoute: typeof TranslateRoute
   ViralRoute: typeof ViralRoute
   WeatherRoute: typeof WeatherRoute
@@ -977,6 +990,13 @@ declare module '@tanstack/react-router' {
       path: '/translate'
       fullPath: '/translate'
       preLoaderRoute: typeof TranslateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/teams': {
@@ -1630,6 +1650,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReservationsRoute: ReservationsRoute,
   TasteTunerRoute: TasteTunerRoute,
   TeamsRoute: TeamsRouteWithChildren,
+  TestimonialsRoute: TestimonialsRoute,
   TranslateRoute: TranslateRoute,
   ViralRoute: ViralRoute,
   WeatherRoute: WeatherRoute,

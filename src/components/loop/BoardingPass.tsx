@@ -1,11 +1,18 @@
-import { Plane, Check, Wallet, Apple, ChevronRight, Loader2 } from "lucide-react";
+import { Plane, Check, Wallet, Apple, ChevronRight, Loader2, X, Smartphone } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { useState } from "react";
+import { QRCodeSVG } from "qrcode.react";
 import type { ActiveLoop, LoopStop } from "@/lib/loop-store";
+
+function isAndroid() {
+  if (typeof navigator === "undefined") return false;
+  return /android/i.test(navigator.userAgent);
+}
 
 export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   const [googleLoading, setGoogleLoading] = useState(false);
+  const [qrUrl, setQrUrl] = useState<string | null>(null);
 
   async function addToGoogleWallet() {
     setGoogleLoading(true);
@@ -41,7 +48,12 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         toast.error(data.error || "Could not generate Google Wallet pass");
         return;
       }
-      window.open(data.saveUrl, "_blank", "noopener,noreferrer");
+      // Android: open Wallet directly. Desktop / iOS: show QR fallback.
+      if (isAndroid()) {
+        window.open(data.saveUrl, "_blank", "noopener,noreferrer");
+      } else {
+        setQrUrl(data.saveUrl);
+      }
     } catch (err) {
       toast.error("Network error talking to Wallet service");
     } finally {
@@ -184,6 +196,66 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         >
           {googleLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Wallet className="h-4 w-4" />}
           Add to Google Wallet
+        </button>
+      </div>
+
+      {qrUrl && <WalletQrModal url={qrUrl} onClose={() => setQrUrl(null)} />}
+    </div>
+  );
+}
+
+function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Add to Google Wallet"
+      className="fixed inset-0 z-50 grid place-items-center bg-ink/60 p-4 backdrop-blur-sm animate-fade-in"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-sm rounded-3xl border-2 border-ink bg-cream p-6 shadow-brut-lg animate-scale-in"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream text-ink hover:bg-coral hover:text-cream"
+        >
+          <X className="h-4 w-4" />
+        </button>
+        <div className="flex items-center gap-2">
+          <Smartphone className="h-4 w-4 text-coral" />
+          <h2 className="font-display text-lg font-extrabold tracking-tight text-ink">
+            Scan to add to Google Wallet
+          </h2>
+        </div>
+        <p className="mt-1 text-xs text-ink/70">
+          Open your Android phone's camera and point it at this QR code. The pass will open in
+          Google Wallet for you to save.
+        </p>
+
+        <div className="mt-4 grid place-items-center rounded-2xl border-2 border-ink bg-cream p-4">
+          <QRCodeSVG value={url} size={208} bgColor="#FFF7EC" fgColor="#1B1B1B" level="M" includeMargin={false} />
+        </div>
+
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+        >
+          <Wallet className="h-4 w-4" /> Open save link in new tab
+        </a>
+        <button
+          type="button"
+          onClick={() => {
+            navigator.clipboard?.writeText(url);
+            toast.success("Save link copied");
+          }}
+          className="mt-2 w-full text-center font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink"
+        >
+          Copy link instead
         </button>
       </div>
     </div>

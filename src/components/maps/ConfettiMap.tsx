@@ -21,6 +21,8 @@ export type DirectionsStepLite = {
   maneuver?: string;
 };
 
+export type TravelMode = "WALKING" | "DRIVING";
+
 type Props = {
   stops: MapStop[];
   currentIdx?: number;
@@ -32,6 +34,8 @@ type Props = {
   className?: string;
   /** Called once geocoding finishes so the parent can build directions links. */
   onPointsReady?: (points: GeocodeResult[]) => void;
+  /** Travel mode for the active leg's directions. Defaults to DRIVING. */
+  travelMode?: TravelMode;
   /** Steps for the currently active leg (between the previous and current stop). */
   onActiveStepsChange?: (info: {
     fromIdx: number;
@@ -39,6 +43,7 @@ type Props = {
     steps: DirectionsStepLite[];
     distanceText?: string;
     durationText?: string;
+    travelMode: TravelMode;
   } | null) => void;
 };
 
@@ -52,6 +57,7 @@ export function ConfettiMap({
   onStopClick,
   className = "",
   onPointsReady,
+  travelMode = "DRIVING",
   onActiveStepsChange,
 }: Props) {
   if (!GOOGLE_MAPS_API_KEY) {
@@ -90,6 +96,7 @@ export function ConfettiMap({
           showUserLocation={showUserLocation}
           onStopClick={onStopClick}
           onPointsReady={onPointsReady}
+          travelMode={travelMode}
           onActiveStepsChange={onActiveStepsChange}
         />
       </Map>

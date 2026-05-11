@@ -368,10 +368,13 @@ function Layer({
     }
 
     return () => {
+      google.maps.event.removeListener(closeListener);
       stopMarkersRef.current.forEach((m) => m.setMap(null));
       stopMarkersRef.current = [];
       segmentsRef.current.forEach((s) => s.setMap(null));
       segmentsRef.current = [];
+      infoWindowRef.current?.close();
+      pinnedStopIdRef.current = null;
     };
   }, [map, points, stops, currentIdx, user, onStopClick, activeLeg]);
 

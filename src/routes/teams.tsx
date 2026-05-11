@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Briefcase, Users2, Wine, Mic2, ArrowRight, CheckCircle2 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { GatedAction } from "@/components/GatedAction";
 
 export const Route = createFileRoute("/teams")({
   head: () => ({

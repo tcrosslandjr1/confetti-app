@@ -177,18 +177,28 @@ function RouteLayer({ stops, currentIdx, fallbackCity }: Props & { fallbackCity:
 
   return (
     <>
-      {geo.map((s, i) => {
-        const isCurrent = i === currentIdx;
+      {liveGeo.map((s, i) => {
         const isDone = !!s.done;
+        const isCurrent = !isDone && i === currentIdx;
+        const isNext = !isDone && i === currentIdx + 1;
+        const bg = isDone ? "#FF5C4D" : isCurrent ? "#FFC846" : isNext ? "#FFE6A8" : "#FFF7EC";
         return (
           <AdvancedMarker key={s.id} position={{ lat: s.lat, lng: s.lng }} title={s.name}>
-            <Pin
-              background={isDone ? "#FF5C4D" : isCurrent ? "#FFC846" : "#FFF7EC"}
-              borderColor="#1B1B1B"
-              glyphColor="#1B1B1B"
-              glyph={isDone ? "✓" : String(i + 1)}
-              scale={isCurrent ? 1.25 : 1}
-            />
+            <div className="relative">
+              {isCurrent && (
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 animate-ping rounded-full bg-coral/60"
+                />
+              )}
+              <Pin
+                background={bg}
+                borderColor="#1B1B1B"
+                glyphColor="#1B1B1B"
+                glyph={isDone ? "✓" : String(i + 1)}
+                scale={isCurrent ? 1.3 : isNext ? 1.05 : 1}
+              />
+            </div>
           </AdvancedMarker>
         );
       })}

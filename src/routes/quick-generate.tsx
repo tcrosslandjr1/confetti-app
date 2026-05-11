@@ -207,6 +207,8 @@ function QuickGenerate() {
         </p>
       </section>
 
+      <RoutePreview stops={stops} />
+
       <ul className="space-y-3">
         {stops.map((s, i) => (
           <li key={s.name + i} className="rounded-2xl border border-border bg-card p-4 shadow-card">

@@ -408,7 +408,7 @@ function Barcode({ code }: { code: string }) {
       return ((h >>> 0) % 1000) / 1000;
     };
     const COUNT = 64;
-    const bars = Array.from({ length: COUNT }, (_, i) => {
+    const bars: { width: number; isGap: boolean }[] = Array.from({ length: COUNT }, (_, i) => {
       const r = rand();
       // Mix thin/thick bars and gaps for a barcode-like rhythm
       const isGap = r < 0.18 && i > 0 && i < COUNT - 1;

@@ -35,6 +35,7 @@ const NAV: NavItem[] = [
   { to: "/portal/viral", label: "Viral Now", icon: Flame },
   { to: "/concierge/chat", label: "Concierge", icon: MessageCircle },
   { to: "/portal/bookings", label: "Bookings", icon: CalendarCheck },
+  { to: "/portal/activity", label: "Activity", icon: Activity },
   { to: "/concierge/passport", label: "Passport", icon: BookMarked },
   { to: "/portal/saved", label: "Saved", icon: Bookmark },
   { to: "/portal/profile", label: "Profile", icon: User },

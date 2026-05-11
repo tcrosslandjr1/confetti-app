@@ -136,8 +136,5 @@ export function buildDirectionsUrl(
   points: { lat: number; lng: number }[],
   travelMode: "walking" | "driving" | "transit" | "bicycling" = "walking",
 ) {
-  // re-export through smart picker so all callers benefit from device detection
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { buildSmartDirectionsUrl } = require("./maps-links") as typeof import("./maps-links");
   return buildSmartDirectionsUrl(points, travelMode);
 }

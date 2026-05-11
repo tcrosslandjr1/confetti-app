@@ -820,6 +820,58 @@ export function BuildMyNightWizard() {
                             </div>
                           </div>
 
+                          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                            <div className="rounded-xl border-2 border-ink/15 bg-cream/60 p-3">
+                              <p className="font-mono text-[10px] uppercase tracking-widest text-ink/60">Popular booked</p>
+                              <div className="mt-2 flex flex-wrap gap-1.5">
+                                {d.popularTimes.map((t) => (
+                                  <span
+                                    key={t}
+                                    className={
+                                      "inline-flex items-center gap-1 rounded-full border px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-widest " +
+                                      (t === d.peakTime
+                                        ? "border-ink bg-gold text-ink"
+                                        : "border-ink/30 bg-cream text-ink/85")
+                                    }
+                                  >
+                                    {t === d.peakTime && "★ "}{t}
+                                  </span>
+                                ))}
+                              </div>
+                              <p className="mt-2 text-[11px] text-ink/65">
+                                Most booked around <span className="font-semibold text-ink">{d.peakTime}</span> — reserve 2–3 days ahead.
+                              </p>
+                              {d.dishes.length > 0 && (
+                                <>
+                                  <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-ink/60">Most ordered</p>
+                                  <ul className="mt-1.5 space-y-1">
+                                    {d.dishes.map((dish) => (
+                                      <li key={dish} className="flex items-center gap-1.5 text-[12px] text-ink/85">
+                                        <span aria-hidden>🔥</span> {dish}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </>
+                              )}
+                            </div>
+
+                            <div className="rounded-xl border-2 border-ink/15 bg-cream/60 p-3">
+                              <p className="font-mono text-[10px] uppercase tracking-widest text-ink/60">The vibe</p>
+                              <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 text-[12px]">
+                                <dt className="text-ink/55">Crowd</dt>
+                                <dd className="text-ink/90">{d.vibeProfile.crowd}</dd>
+                                <dt className="text-ink/55">Noise</dt>
+                                <dd className="text-ink/90">{d.vibeProfile.noise}</dd>
+                                <dt className="text-ink/55">Dress</dt>
+                                <dd className="text-ink/90">{d.vibeProfile.dress}</dd>
+                                <dt className="text-ink/55">Lighting</dt>
+                                <dd className="text-ink/90">{d.vibeProfile.lighting}</dd>
+                                <dt className="text-ink/55">Music</dt>
+                                <dd className="text-ink/90">{d.vibeProfile.music}</dd>
+                              </dl>
+                            </div>
+                          </div>
+
 
                           <blockquote className="mt-3 rounded-xl border-2 border-ink/15 bg-cream px-3 py-2 font-serif text-sm italic text-ink/80">
                             {d.review}

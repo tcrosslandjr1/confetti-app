@@ -311,7 +311,10 @@ function Layer({
       {
         origin: { lat: a.lat, lng: a.lng },
         destination: { lat: b.lat, lng: b.lng },
-        travelMode: google.maps.TravelMode.DRIVING,
+        travelMode:
+          travelMode === "WALKING"
+            ? google.maps.TravelMode.WALKING
+            : google.maps.TravelMode.DRIVING,
       },
       (result, status) => {
         if (reqId !== activeRouteRequestRef.current) return; // superseded
@@ -320,6 +323,7 @@ function Layer({
             fromIdx: activeLeg.from,
             toIdx: activeLeg.to,
             steps: [],
+            travelMode,
           });
           return;
         }
@@ -346,10 +350,11 @@ function Layer({
           steps,
           distanceText: leg.distance?.text,
           durationText: leg.duration?.text,
+          travelMode,
         });
       }
     );
-  }, [map, points, stops, activeLeg, onActiveStepsChange]);
+  }, [map, points, stops, activeLeg, travelMode, onActiveStepsChange]);
 
   // User location pulsing dot
   useEffect(() => {

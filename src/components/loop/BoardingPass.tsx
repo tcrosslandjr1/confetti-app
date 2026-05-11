@@ -8,6 +8,7 @@ import { checkInStop, setActiveLoop, PLAN_PRESETS } from "@/lib/loop-store";
 import { appendNotifications } from "@/lib/trip-status";
 import { logActivity } from "@/lib/activity-log";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";
+import { ParkingPin } from "@/components/loop/ParkingPin";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";
 import { trackWalletEvent } from "@/lib/wallet-analytics";
 

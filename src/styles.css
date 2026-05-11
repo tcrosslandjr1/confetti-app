@@ -177,6 +177,13 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes tagline-in {
+  0%   { opacity: 0; transform: translateY(100%); }
+  15%  { opacity: 1; transform: translateY(0); }
+  85%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-100%); }
+}
+
 @layer base {
   * { border-color: var(--color-border); }
   html { font-family: var(--font-sans); }
@@ -228,6 +235,7 @@
   .animate-confetti-fall { animation: confetti-fall 2.4s cubic-bezier(.3,.7,.4,1) forwards; }
   .animate-wiggle-attention { animation: wiggle-attention 5s ease-in-out infinite; transform-origin: 50% 80%; }
   .animate-pulse-glow { animation: pulse-glow 2.4s ease-in-out infinite; }
+  .animate-tagline-in { animation: tagline-in 3.2s ease-in-out both; }
   .reveal { opacity: 0; will-change: transform, opacity; }
   .reveal.in { animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
   .reveal-scale.in { animation: reveal-scale 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards; }

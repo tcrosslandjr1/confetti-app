@@ -1,6 +1,8 @@
 // Lightweight localStorage-backed store for the plan demo features.
 // Holds the active loop itinerary, confetti currency, and onboarding flag.
 
+export type StopKind = "departure" | "layover" | "destination";
+
 export type LoopStop = {
   id: string;
   name: string;
@@ -9,6 +11,18 @@ export type LoopStop = {
   area?: string;
   done?: boolean;
   venueId?: string;
+  // Rich boarding-pass extras (all optional for back-compat)
+  kind?: StopKind;
+  emoji?: string;
+  detail?: string;
+  address?: string;
+  parking?: { primary: string; secondary?: string };
+  sundayParking?: string;
+  ev?: { brand: string; spec: string; chargeTime: string; sub?: string };
+  driveAfter?: { minutes: number; destination: string };
+  tags?: { label: string; variant: "vibe" | "ev" | "time" }[];
+  bookable?: boolean;
+  bookingType?: "reservation" | "parking" | "both";
 };
 
 export type ActiveLoop = {
@@ -23,6 +37,13 @@ export type ActiveLoop = {
   occasion?: string;
   vibe?: string;
   stops: LoopStop[];
+  // Rich boarding-pass extras (all optional)
+  occasionEmoji?: string;
+  day?: string;
+  vibes?: string[];
+  confettiPoints?: number;
+  fromName?: string;
+  toName?: string;
 };
 
 const KEY_LOOP = "loop:active";

@@ -52,7 +52,7 @@ const HIDE_PREFIXES = [
 
 export function TabBar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  if (pathname === "/" || HIDE_PREFIXES.some((p) => pathname.startsWith(p))) return null;
+  if (HIDE_PREFIXES.some((p) => pathname.startsWith(p))) return null;
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-50 border-t-2 border-ink bg-cream/95 backdrop-blur-xl pb-[env(safe-area-inset-bottom)] lg:hidden">

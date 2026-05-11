@@ -740,7 +740,15 @@ function BookingModal({
 }
 
 // ─── Wallet QR modal (preserved) ───────────────────────────────────────
-function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
+function WalletQrModal({
+  url,
+  onClose,
+  pending = false,
+}: {
+  url: string;
+  onClose: () => void;
+  pending?: boolean;
+}) {
   const qrWrapRef = useRef<HTMLDivElement | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const closeBtnRef = useRef<HTMLButtonElement | null>(null);

@@ -98,7 +98,7 @@ const fallbackTestimonials: Testimonial[] = [
   },
 ];
 
-function TestimonialCard({ img, name, username, body, country }: (typeof testimonials)[number]) {
+function TestimonialCard({ img, name, username, body, country }: Testimonial) {
   return (
     <Card className="w-72 border-2 border-ink bg-cream shadow-brut">
       <CardContent className="p-4">
@@ -123,6 +123,33 @@ function TestimonialCard({ img, name, username, body, country }: (typeof testimo
 }
 
 function TestimonialsPage() {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>(fallbackTestimonials);
+
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      const { data, error } = await supabase
+        .from("testimonials")
+        .select("name, username, body, image_url, country")
+        .eq("active", true)
+        .order("position", { ascending: true })
+        .order("created_at", { ascending: false });
+      if (cancelled || error || !data || data.length === 0) return;
+      setTestimonials(
+        data.map((r) => ({
+          name: r.name,
+          username: r.username,
+          body: r.body,
+          img: r.image_url ?? "",
+          country: r.country ?? "",
+        })),
+      );
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-cream text-ink">
       <SiteHeader />

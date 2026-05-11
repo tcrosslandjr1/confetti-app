@@ -140,7 +140,7 @@ function TestimonialsPage() {
     void (async () => {
       const { data, error } = await supabase
         .from("testimonials")
-        .select("name, username, body, image_url, country")
+        .select("name, username, body, image_url, country, rating")
         .eq("active", true)
         .order("position", { ascending: true })
         .order("created_at", { ascending: false });
@@ -152,6 +152,7 @@ function TestimonialsPage() {
           body: r.body,
           img: r.image_url ?? "",
           country: r.country ?? "",
+          rating: r.rating ?? null,
         })),
       );
     })();

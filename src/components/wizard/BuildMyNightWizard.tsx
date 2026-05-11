@@ -1088,3 +1088,94 @@ function StepShell({ title, sub, children }: { title: string; sub: string; child
     </div>
   );
 }
+
+function DishQuickView({
+  open,
+  onOpenChange,
+}: {
+  open: { name: string; venue: string } | null;
+  onOpenChange: (next: boolean) => void;
+}) {
+  const info = open ? getDishInfo(open.name) : null;
+  const pairingTone =
+    info?.pairing.type === "wine" ? "bg-purple/15 text-purple border-purple/40"
+    : info?.pairing.type === "beer" ? "bg-gold/20 text-ink border-gold/50"
+    : info?.pairing.type === "non-alcoholic" ? "bg-mint/40 text-ink border-ink/30"
+    : "bg-coral/15 text-coral border-coral/40";
+
+  return (
+    <Dialog open={!!open} onOpenChange={onOpenChange}>
+      <DialogContent className="max-w-md">
+        {open && info && (
+          <>
+            <DialogHeader>
+              <div className="flex items-center gap-2">
+                <span className="grid h-9 w-9 place-items-center rounded-xl bg-coral/15 text-coral">
+                  <Flame className="h-4 w-4" />
+                </span>
+                <div className="min-w-0">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink/55">
+                    Most ordered at {open.venue}
+                  </p>
+                  <DialogTitle className="font-display text-2xl">{open.name}</DialogTitle>
+                </div>
+              </div>
+              <DialogDescription className="pt-2 text-sm text-ink/80">
+                {info.description}
+              </DialogDescription>
+            </DialogHeader>
+
+            {typeof info.spice === "number" && info.spice > 0 && (
+              <div className="flex items-center gap-1.5 text-[12px] text-ink/70">
+                <span className="font-mono uppercase tracking-widest text-ink/55">Spice</span>
+                <span aria-label={`${info.spice} of 3`}>
+                  {Array.from({ length: 3 }).map((_, i) => (
+                    <Flame
+                      key={i}
+                      className={`inline h-3.5 w-3.5 ${i < info.spice! ? "fill-coral text-coral" : "text-ink/20"}`}
+                    />
+                  ))}
+                </span>
+              </div>
+            )}
+
+            <div className="rounded-xl border-2 border-ink/15 bg-cream/60 p-3">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-ink/55">
+                Allergens — let your server know
+              </p>
+              <div className="mt-1.5 flex flex-wrap gap-1.5">
+                {info.allergens.length > 0 ? (
+                  info.allergens.map((a) => (
+                    <span
+                      key={a}
+                      className="inline-flex items-center gap-1 rounded-full border border-coral/50 bg-coral/10 px-2 py-0.5 text-[11px] text-ink/85"
+                    >
+                      ⚠ {a}
+                    </span>
+                  ))
+                ) : (
+                  <span className="text-[11px] text-ink/65">
+                    No common allergens — confirm prep with the kitchen.
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className={`rounded-xl border-2 p-3 ${pairingTone}`}>
+              <div className="flex items-center gap-2">
+                <Wine className="h-4 w-4" />
+                <p className="font-mono text-[10px] uppercase tracking-widest opacity-80">
+                  Recommended pairing · {info.pairing.type}
+                </p>
+              </div>
+              <p className="mt-1 font-display text-lg font-bold leading-tight">
+                {info.pairing.name}
+              </p>
+              <p className="mt-1 text-[12px] opacity-90">{info.pairing.why}</p>
+            </div>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}

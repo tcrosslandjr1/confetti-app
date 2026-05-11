@@ -87,6 +87,36 @@ function hashStr(s: string) {
   for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
   return h;
 }
+
+function partySizeFromCrew(crew: string | null): number {
+  switch (crew) {
+    case "solo": return 1;
+    case "date": return 2;
+    case "small": return 4;
+    case "squad": return 6;
+    default: return 2;
+  }
+}
+
+/** Parse "7:30 PM" into { h:19, m:30 } */
+function parseSlot(label: string): { h: number; m: number } | null {
+  const m = label.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+  if (!m) return null;
+  let hh = parseInt(m[1], 10) % 12;
+  if (m[3].toUpperCase() === "PM") hh += 12;
+  return { h: hh, m: parseInt(m[2], 10) };
+}
+
+/** Resolve an ISO timestamp from the wizard's pickedDate + a "7:00 PM" slot. Falls back to today. */
+function slotToIso(pickedDate: string, slot: string): string | null {
+  const t = parseSlot(slot);
+  if (!t) return null;
+  const base = pickedDate ? new Date(`${pickedDate}T00:00:00`) : new Date();
+  base.setHours(t.h, t.m, 0, 0);
+  // If picking "today" and the time has already passed, push to tomorrow
+  if (!pickedDate && base.getTime() < Date.now()) base.setDate(base.getDate() + 1);
+  return base.toISOString();
+}
 const KNOWN_FOR = [
   "tasting menu", "natural wine list", "house cocktails", "wood-fired pies",
   "raw bar", "live jazz nights", "rooftop sunsets", "vinyl listening room",

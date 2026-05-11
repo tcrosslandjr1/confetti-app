@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { QRCodeSVG } from "qrcode.react";
 import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane, Printer } from "lucide-react";
 import type { ActiveLoop, LoopStop, StopKind } from "@/lib/loop-store";
-import { checkInStop } from "@/lib/loop-store";
+import { checkInStop, setActiveLoop } from "@/lib/loop-store";
 import { logActivity } from "@/lib/activity-log";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";

@@ -11,6 +11,7 @@ import { PromotedSlot } from "@/components/PromotedSlot";
 import { buildAndSaveItinerary } from "@/lib/itineraries";
 import { loadPrefs } from "@/lib/taste";
 import { toast } from "sonner";
+import { TonightAtAGlance, NextBookingCountdown, ConciergeQuickAsk, SpendBudgetTracker } from "@/components/widgets/AppWidgets";
 
 export const Route = createFileRoute("/portal/")({
   head: () => ({

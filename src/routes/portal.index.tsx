@@ -311,8 +311,11 @@ function PortalDiscoverPage() {
             </DashCard>
           </section>
 
-          {/* Right sidebar: progress strip */}
-          <aside aria-label="Your progress" className="space-y-4 lg:col-span-1">
+          {/* Right sidebar: progress strip — stacks on mobile, sticks to right on desktop */}
+          <aside
+            aria-label="Your progress"
+            className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:order-2 lg:col-span-1 lg:grid-cols-1 lg:sticky lg:top-24 lg:self-start"
+          >
             <WeeklyChallenge bookings={bookingTotals.upcoming} referrals={refStats.signedUp} />
           </aside>
         </div>

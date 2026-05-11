@@ -1107,6 +1107,7 @@ export type Database = {
           image_url: string | null
           name: string
           position: number
+          rating: number | null
           updated_at: string
           username: string
         }
@@ -1119,6 +1120,7 @@ export type Database = {
           image_url?: string | null
           name: string
           position?: number
+          rating?: number | null
           updated_at?: string
           username: string
         }
@@ -1131,6 +1133,7 @@ export type Database = {
           image_url?: string | null
           name?: string
           position?: number
+          rating?: number | null
           updated_at?: string
           username?: string
         }

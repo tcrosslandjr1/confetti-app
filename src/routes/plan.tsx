@@ -35,7 +35,8 @@ function PlanPage() {
   const [neighborhood, setNeighborhood] = useState("");
   const [date, setDate] = useState("");
   const [startTime, setStartTime] = useState("11:00");
-  const [durationHours, setDurationHours] = useState(6);
+  const [durationHours, setDurationHours] = useState(4);
+  const [durationTouched, setDurationTouched] = useState(false);
   const [budget, setBudget] = useState("$$");
   const [notes, setNotes] = useState("");
   const [transportMode, setTransportMode] = useState<
@@ -89,6 +90,14 @@ function PlanPage() {
       { enableHighAccuracy: false, timeout: 8000, maximumAge: 60_000 },
     );
   };
+
+  // Auto-size the day length based on how many vibes are picked (~2hr each)
+  useEffect(() => {
+    if (durationTouched) return;
+    const count = occasionSlugs.filter((s) => s !== "__custom__").length + (isCustom ? 1 : 0);
+    const suggested = Math.min(14, Math.max(3, count * 2));
+    setDurationHours(suggested);
+  }, [occasionSlugs, isCustom, durationTouched]);
 
   useEffect(() => {
     if (!loading && !user) {
@@ -288,9 +297,17 @@ function PlanPage() {
                 min={2}
                 max={14}
                 value={durationHours}
-                onChange={(e) => setDurationHours(Number(e.target.value))}
+                onChange={(e) => {
+                  setDurationTouched(true);
+                  setDurationHours(Number(e.target.value));
+                }}
                 className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
+              {!durationTouched && (
+                <p className="mt-1 text-[11px] text-muted-foreground">
+                  Auto-sized from your vibes — edit to override.
+                </p>
+              )}
             </Field>
           </div>
 

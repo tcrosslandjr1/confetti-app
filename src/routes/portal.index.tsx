@@ -43,6 +43,9 @@ import {
   NextBookingCountdown,
   ConciergeQuickAsk,
   SpendBudgetTracker,
+  SavedSpotsWidget,
+  XpProgressWidget,
+  TrendingNearYouWidget,
 } from "@/components/widgets/AppWidgets";
 
 export const Route = createFileRoute("/portal/")({
@@ -304,12 +307,33 @@ function PortalDiscoverPage() {
 
       {/* In-app widgets */}
       {user && (
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <TonightAtAGlance />
-          <NextBookingCountdown />
-          <ConciergeQuickAsk />
-          <SpendBudgetTracker />
-        </div>
+        <section aria-labelledby="widgets-heading" className="space-y-3">
+          <div className="flex items-end justify-between gap-3">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                Your dashboard
+              </p>
+              <h2 id="widgets-heading" className="font-display text-2xl font-bold">
+                Widgets
+              </h2>
+            </div>
+            <Link
+              to="/portal/profile"
+              className="font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground hover:text-foreground"
+            >
+              Customize →
+            </Link>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <TonightAtAGlance />
+            <NextBookingCountdown />
+            <ConciergeQuickAsk />
+            <SpendBudgetTracker />
+            <XpProgressWidget />
+            <SavedSpotsWidget />
+            <TrendingNearYouWidget />
+          </div>
+        </section>
       )}
 
       {/* Personalized next-best-actions */}

@@ -11,6 +11,9 @@ import {
   ArrowRight,
   Send,
   TrendingUp,
+  Bookmark,
+  Trophy,
+  Flame,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
@@ -496,6 +499,226 @@ export function SpendBudgetTracker() {
           </button>
         )}
       </div>
+    </WidgetShell>
+  );
+}
+
+/* ---------------- 5. Saved spots preview ---------------- */
+
+type SavedRow = {
+  venue_id: string;
+  venues: { id: string; name: string; neighborhood: string | null; image_url: string | null } | null;
+};
+
+export function SavedSpotsWidget() {
+  const { user } = useAuth();
+  const [items, setItems] = useState<SavedRow[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!user) {
+      setLoading(false);
+      return;
+    }
+    let cancelled = false;
+    void supabase
+      .from("saved_venues")
+      .select("venue_id,venues(id,name,neighborhood,image_url)")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false })
+      .limit(3)
+      .then(({ data }) => {
+        if (cancelled) return;
+        setItems((data as unknown as SavedRow[]) ?? []);
+        setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
+
+  return (
+    <WidgetShell
+      title="Saved spots"
+      icon={Bookmark}
+      action={{ label: "All", to: "/portal/saved" }}
+    >
+      {loading ? (
+        <p className="text-xs text-ink/50">Loading…</p>
+      ) : items.length === 0 ? (
+        <div className="text-sm text-ink/60">
+          Nothing saved yet.
+          <Link
+            to="/portal"
+            className="ml-1 font-mono text-[10px] font-bold uppercase tracking-widest text-coral hover:underline"
+          >
+            Browse venues →
+          </Link>
+        </div>
+      ) : (
+        <ul className="space-y-2">
+          {items.map((s) =>
+            s.venues ? (
+              <li key={s.venue_id} className="flex items-center gap-3">
+                <div
+                  className="h-10 w-10 shrink-0 rounded-lg border border-ink/20 bg-cover bg-center"
+                  style={{
+                    backgroundImage: s.venues.image_url
+                      ? `url(${s.venues.image_url})`
+                      : "linear-gradient(135deg,#f5e9d7,#e3c39a)",
+                  }}
+                />
+                <div className="min-w-0 flex-1">
+                  <div className="truncate font-display text-sm font-bold">{s.venues.name}</div>
+                  <div className="truncate text-[11px] text-ink/60">
+                    {s.venues.neighborhood ?? "—"}
+                  </div>
+                </div>
+                <Link
+                  to="/venue/$id"
+                  params={{ id: s.venues.id }}
+                  className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink"
+                >
+                  View →
+                </Link>
+              </li>
+            ) : null,
+          )}
+        </ul>
+      )}
+    </WidgetShell>
+  );
+}
+
+/* ---------------- 6. XP & level progress ---------------- */
+
+type XpProfile = { xp: number; level: number; display_name: string | null };
+
+const XP_PER_LEVEL = 500;
+
+export function XpProgressWidget() {
+  const { user } = useAuth();
+  const [p, setP] = useState<XpProfile | null>(null);
+
+  useEffect(() => {
+    if (!user) return;
+    let cancelled = false;
+    void supabase
+      .from("profiles")
+      .select("xp,level,display_name")
+      .eq("id", user.id)
+      .maybeSingle()
+      .then(({ data }) => {
+        if (!cancelled && data) setP(data as XpProfile);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
+
+  const xp = p?.xp ?? 0;
+  const level = p?.level ?? 1;
+  const intoLevel = xp % XP_PER_LEVEL;
+  const pct = Math.min(100, Math.round((intoLevel / XP_PER_LEVEL) * 100));
+  const remaining = XP_PER_LEVEL - intoLevel;
+
+  return (
+    <WidgetShell
+      title="Your level"
+      icon={Trophy}
+      tone="ink"
+      action={{ label: "Badges", to: "/portal/achievements" }}
+    >
+      <div className="flex items-end justify-between gap-3">
+        <div>
+          <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">Level</div>
+          <div className="font-display text-3xl font-extrabold leading-none">{level}</div>
+        </div>
+        <div className="text-right">
+          <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">XP</div>
+          <div className="font-display text-xl font-extrabold leading-none">
+            {xp.toLocaleString()}
+          </div>
+        </div>
+      </div>
+      <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-cream/15">
+        <div
+          className="h-full bg-gradient-to-r from-coral to-amber-400 transition-all"
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+      <div className="mt-2 flex items-center justify-between text-[11px] text-cream/70">
+        <span className="inline-flex items-center gap-1">
+          <Flame className="h-3 w-3" /> {pct}% to L{level + 1}
+        </span>
+        <span>{remaining} XP to go</span>
+      </div>
+    </WidgetShell>
+  );
+}
+
+/* ---------------- 7. Trending near you ---------------- */
+
+type TrendingVenue = {
+  id: string;
+  name: string;
+  category: string;
+  neighborhood: string | null;
+  price_level: number;
+};
+
+export function TrendingNearYouWidget() {
+  const [items, setItems] = useState<TrendingVenue[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    void supabase
+      .from("venues")
+      .select("id,name,category,neighborhood,price_level")
+      .order("created_at", { ascending: false })
+      .limit(4)
+      .then(({ data }) => {
+        if (cancelled) return;
+        setItems((data as TrendingVenue[]) ?? []);
+        setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  return (
+    <WidgetShell
+      title="Trending near you"
+      icon={TrendingUp}
+      tone="coral"
+      action={{ label: "More", to: "/portal" }}
+    >
+      {loading ? (
+        <p className="text-xs text-ink/60">Loading…</p>
+      ) : items.length === 0 ? (
+        <p className="text-xs text-ink/60">No venues yet.</p>
+      ) : (
+        <ul className="space-y-2">
+          {items.map((v) => (
+            <li key={v.id} className="flex items-center justify-between gap-2">
+              <Link
+                to="/venue/$id"
+                params={{ id: v.id }}
+                className="min-w-0 flex-1 truncate font-display text-sm font-bold hover:underline"
+              >
+                {v.name}
+              </Link>
+              <span className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                {v.neighborhood ?? v.category}
+                {" · "}
+                {"$".repeat(Math.max(1, v.price_level || 1))}
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
     </WidgetShell>
   );
 }

@@ -109,6 +109,103 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   const vibes = vibesOf(loop);
   const reward = loop.confettiPoints ?? 250;
 
+  // ─── Share ──────────────────────────────────────────────────────────
+  const passRef = useRef<HTMLDivElement>(null);
+  const [shareOpen, setShareOpen] = useState(false);
+  const [shareBusy, setShareBusy] = useState<null | "image" | "pdf" | "link">(null);
+  const [linkCopied, setLinkCopied] = useState(false);
+
+  const shareUrl = useMemo(() => {
+    if (typeof window === "undefined") return `/plan/${loop.id}`;
+    return `${window.location.origin}/plan/${encodeURIComponent(loop.id)}`;
+  }, [loop.id]);
+  const shareTitle = `${loop.passenger ?? "My"} · Confetti Plan ${loop.from} → ${loop.to}`;
+  const shareText = `Check out my Confetti plan: ${loop.from} → ${loop.to} (${loop.stops.length} stops). Boarding ${loop.boardingTime}.`;
+
+  async function handleShareLink() {
+    setShareBusy("link");
+    try {
+      const nav = typeof navigator !== "undefined" ? navigator : null;
+      if (nav && typeof nav.share === "function") {
+        await nav.share({ title: shareTitle, text: shareText, url: shareUrl });
+        setShareOpen(false);
+      } else if (nav?.clipboard) {
+        await nav.clipboard.writeText(shareUrl);
+        setLinkCopied(true);
+        toast.success("Link copied to clipboard");
+        setTimeout(() => setLinkCopied(false), 2000);
+      } else {
+        toast.error("Sharing isn't supported on this device");
+      }
+    } catch (err) {
+      // User-cancelled share rejects with AbortError — stay silent for that.
+      if ((err as { name?: string })?.name !== "AbortError") {
+        toast.error("Couldn't share this plan");
+      }
+    } finally {
+      setShareBusy(null);
+    }
+  }
+
+  async function handleCopyLink() {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setLinkCopied(true);
+      toast.success("Link copied");
+      setTimeout(() => setLinkCopied(false), 2000);
+    } catch {
+      toast.error("Couldn't copy link");
+    }
+  }
+
+  async function handleSaveImage() {
+    if (!passRef.current) return;
+    setShareBusy("image");
+    try {
+      const { toPng } = await import("html-to-image");
+      const dataUrl = await toPng(passRef.current, {
+        cacheBust: true,
+        pixelRatio: 2,
+        backgroundColor: "#FFF7EC",
+      });
+      const a = document.createElement("a");
+      a.href = dataUrl;
+      a.download = `confetti-${loop.id}.png`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      // If the device supports sharing files, also offer a native share sheet.
+      try {
+        const blob = await (await fetch(dataUrl)).blob();
+        const file = new File([blob], `confetti-${loop.id}.png`, { type: "image/png" });
+        const navAny = navigator as Navigator & { canShare?: (d: { files: File[] }) => boolean };
+        if (navAny.canShare && navAny.canShare({ files: [file] })) {
+          await navigator.share({ title: shareTitle, text: shareText, files: [file] });
+        }
+      } catch {
+        /* native share is best-effort */
+      }
+      toast.success("Image saved");
+      setShareOpen(false);
+    } catch {
+      toast.error("Couldn't generate image");
+    } finally {
+      setShareBusy(null);
+    }
+  }
+
+  function handleSavePdf() {
+    setShareBusy("pdf");
+    try {
+      window.print();
+      setShareOpen(false);
+    } finally {
+      setShareBusy(null);
+    }
+  }
+
+
   async function addToGoogleWallet() {
     setGoogleLoading(true);
     try {

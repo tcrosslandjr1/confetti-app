@@ -237,11 +237,26 @@ function QuickGenerate() {
         )}
       </section>
 
-      <Link to="/portal/bookings" className="fixed inset-x-0 bottom-4 mx-auto block w-[calc(100%-2rem)] max-w-2xl">
-        <Button className="h-14 w-full gap-2 rounded-2xl bg-gradient-vibe text-base font-bold shadow-pop">
+      <div className="fixed inset-x-0 bottom-4 mx-auto w-[calc(100%-2rem)] max-w-2xl">
+        <Button
+          onClick={() => {
+            const loop = makeDemoLoop({
+              stops: stops.map((s, i) => ({
+                id: `s${i + 1}`,
+                name: s.name,
+                type: s.type,
+                time: s.time,
+                area: s.area,
+              })),
+            });
+            setActiveLoop(loop);
+            navigate({ to: "/boarding-pass" });
+          }}
+          className="h-14 w-full gap-2 rounded-2xl bg-gradient-vibe text-base font-bold shadow-pop"
+        >
           <Lock className="h-5 w-5" /> Lock In This Loop
         </Button>
-      </Link>
+      </div>
     </div>
   );
 }

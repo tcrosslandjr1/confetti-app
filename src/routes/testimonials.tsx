@@ -11,13 +11,13 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
-      { title: "Testimonials — Loop" },
+      { title: "Testimonials — Confetti" },
       {
         name: "description",
         content:
           "Real plans, real nights, real reviews from people who use Loop to actually go out.",
       },
-      { property: "og:title", content: "Testimonials — Loop" },
+      { property: "og:title", content: "Testimonials — Confetti" },
       { property: "og:description", content: "What people say after Loop plans their night." },
     ],
   }),

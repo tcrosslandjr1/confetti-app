@@ -15,7 +15,7 @@ import { Progress } from "@/components/ui/progress";
 import { makeDemoLoop, setActiveLoop } from "@/lib/loop-store";
 
 export const Route = createFileRoute("/quick-generate")({
-  head: () => ({ meta: [{ title: "Quick Generate — Loop" }] }),
+  head: () => ({ meta: [{ title: "Quick Generate — Confetti" }] }),
   component: QuickGenerate,
 });
 
@@ -158,7 +158,7 @@ function QuickGenerate() {
               <WandSparkles className="h-10 w-10 text-primary" />
             </div>
           </div>
-          <h1 className="mt-8 font-display text-3xl font-bold">Generating your Loop…</h1>
+          <h1 className="mt-8 font-display text-3xl font-bold">Generating your plan…</h1>
           <ul className="mt-6 w-full space-y-2 text-sm">
             {lines.map((l, i) => (
               <li
@@ -183,7 +183,7 @@ function QuickGenerate() {
     <div className="mx-auto max-w-2xl space-y-6 p-4 pb-24 sm:p-6">
       <header>
         <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-          Your Loop
+          Your plan
         </p>
         <h1 className="mt-1 font-display text-3xl font-bold">Tonight's plan</h1>
       </header>
@@ -326,7 +326,7 @@ function QuickGenerate() {
           }}
           className="h-14 w-full gap-2 rounded-2xl bg-gradient-vibe text-base font-bold shadow-pop"
         >
-          <Lock className="h-5 w-5" /> Lock In This Loop
+          <Lock className="h-5 w-5" /> Lock In This Plan
         </Button>
       </div>
     </div>

@@ -8,16 +8,16 @@ import { ArrowUpRight, Sparkles, Heart, Users, Compass, Coffee } from "lucide-re
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Loop" },
+      { title: "About — Confetti" },
       {
         name: "description",
         content:
-          "Loop is the joyful planner for outings — built to get you off the couch and into the world.",
+          "Confetti is the joyful planner for outings — built to get you off the couch and into the world.",
       },
-      { property: "og:title", content: "About — Loop" },
+      { property: "og:title", content: "About — Confetti" },
       {
         property: "og:description",
-        content: "Why we built Loop and what we believe about going out.",
+        content: "Why we built Confetti and what we believe about going out.",
       },
     ],
   }),
@@ -133,7 +133,7 @@ function AboutPage() {
             <span className="font-serif italic font-normal text-coral">going out.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-snug">
-            Loop started with one frustration: it's harder to decide what to do than to actually do
+            Confetti started with one frustration: it's harder to decide what to do than to actually do
             it.
             <span className="font-serif italic"> We built the fix.</span>
           </p>

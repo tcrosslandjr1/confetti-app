@@ -85,7 +85,7 @@ function AdminLoginPage() {
         </div>
 
         <h1 className="mt-10 font-display text-3xl font-bold leading-tight">
-          Sign in to manage Loop.
+          Sign in to manage Confetti.
         </h1>
         <p className="mt-2 text-sm text-zinc-400">
           Venues, users, bookings, integrations. Admin accounts only.

@@ -19,13 +19,13 @@ import {
 export const Route = createFileRoute("/features")({
   head: () => ({
     meta: [
-      { title: "Features — Loop" },
+      { title: "Features — Confetti" },
       {
         name: "description",
         content:
           "AI-planned outings, multi-stop routing, saved reservations, and a taste profile that learns what you love.",
       },
-      { property: "og:title", content: "Features — Loop" },
+      { property: "og:title", content: "Features — Confetti" },
       {
         property: "og:description",
         content: "Everything Loop does to plan outings worth showing up for.",

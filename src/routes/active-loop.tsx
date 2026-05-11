@@ -15,7 +15,7 @@ import {
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/active-loop")({
-  head: () => ({ meta: [{ title: "Active Loop — Loop" }] }),
+  head: () => ({ meta: [{ title: "Active Confetti — Confetti" }] }),
   component: ActiveLoopPage,
 });
 
@@ -65,7 +65,7 @@ function ActiveLoopPage() {
   }
 
   function endEarly() {
-    if (confirm("End this Loop early?")) {
+    if (confirm("End this plan early?")) {
       navigate({ to: "/passport" });
     }
   }
@@ -109,7 +109,7 @@ function ActiveLoopPage() {
 
         {completed ? (
           <div className="mt-6 rounded-3xl border-2 border-ink bg-coral p-6 text-cream shadow-brut text-center">
-            <div className="font-display text-2xl font-extrabold">Loop complete 🎉</div>
+            <div className="font-display text-2xl font-extrabold">Plan complete 🎉</div>
             <p className="mt-1 text-sm opacity-90">You earned {confetti} Confetti tonight.</p>
             <Link
               to="/passport"
@@ -193,7 +193,7 @@ function ActiveLoopPage() {
               onClick={endEarly}
               className="inline-flex items-center justify-center gap-1 rounded-xl border border-border py-2 text-xs font-semibold text-muted-foreground hover:text-destructive"
             >
-              <X className="h-3 w-3" /> End Loop early
+              <X className="h-3 w-3" /> End plan early
             </button>
           )}
         </div>

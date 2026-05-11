@@ -143,7 +143,7 @@ export function CookieConsent() {
               <div className="space-y-1">
                 <h3 className="font-display text-base font-bold">Analytics</h3>
                 <p className="text-sm text-muted-foreground">
-                  Help us understand which pages and features people use, so we can make Loop
+                  Help us understand which pages and features people use, so we can make Confetti
                   better. Anonymous, aggregated only.
                 </p>
               </div>

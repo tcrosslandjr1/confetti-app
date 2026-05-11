@@ -13,10 +13,10 @@ export const Route = createFileRoute("/events/$eventId")({
   },
   head: ({ loaderData }) => {
     const e = loaderData?.event;
-    if (!e) return { meta: [{ title: "Event — Loop" }] };
+    if (!e) return { meta: [{ title: "Event — Confetti" }] };
     return {
       meta: [
-        { title: `${e.title} — Loop` },
+        { title: `${e.title} — Confetti` },
         { name: "description", content: e.blurb },
         { property: "og:title", content: e.title },
         { property: "og:description", content: e.blurb },

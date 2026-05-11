@@ -72,7 +72,7 @@ function TeamsPage() {
                 talks about.
               </h1>
               <p className="mt-5 max-w-xl text-lg text-ink/80">
-                From a single client dinner to a 4-day company offsite — Loop does the venue
+                From a single client dinner to a 4-day company offsite — Confetti does the venue
                 research, the RSVPs, and the budgeting so you can show up and look like a hero.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">

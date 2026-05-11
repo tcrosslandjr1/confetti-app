@@ -7,13 +7,13 @@ import { Mail, MessageCircle } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Loop" },
+      { title: "Contact — Confetti" },
       {
         name: "description",
         content:
-          "Get in touch with the Loop team. Feedback, partnerships, press — we read every message.",
+          "Get in touch with the plan team. Feedback, partnerships, press — we read every message.",
       },
-      { property: "og:title", content: "Contact — Loop" },
+      { property: "og:title", content: "Contact — Confetti" },
       { property: "og:description", content: "Send us a note. We read every message." },
     ],
   }),

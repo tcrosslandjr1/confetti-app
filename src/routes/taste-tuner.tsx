@@ -4,7 +4,7 @@ import { Heart, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/taste-tuner")({
-  head: () => ({ meta: [{ title: "Taste Tuner — Loop" }] }),
+  head: () => ({ meta: [{ title: "Taste Tuner — Confetti" }] }),
   component: TasteTuner,
 });
 
@@ -102,7 +102,7 @@ function TasteTuner() {
         </p>
         <Link to="/quick-generate" className="w-full">
           <Button className="h-14 w-full gap-2 rounded-2xl bg-gradient-vibe text-base font-bold shadow-pop">
-            <Sparkles className="h-5 w-5" /> Generate a Loop
+            <Sparkles className="h-5 w-5" /> Generate a plan
           </Button>
         </Link>
       </div>

@@ -5,13 +5,13 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/investors")({
   head: () => ({
     meta: [
-      { title: "Investors — Loop" },
+      { title: "Investors — Confetti" },
       {
         name: "description",
         content:
-          "Why Loop is the joyful planner category leader — traction, market, and how to back us.",
+          "Why Confetti is the joyful planner category leader — traction, market, and how to back us.",
       },
-      { property: "og:title", content: "Investors — Loop" },
+      { property: "og:title", content: "Investors — Confetti" },
       {
         property: "og:description",
         content: "Loop's investor brief: market, traction, model, and contact.",
@@ -144,7 +144,7 @@ function InvestorsPage() {
             Back the planner that gets <span className="text-gradient">people out the door.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-ink/70">
-            Loop is building the operating system for going out — itineraries, bookings, and venue
+            Confetti is building the operating system for going out — itineraries, bookings, and venue
             discovery in one joyful flow. We're raising to expand to 25 metros and double the
             advertiser base.
           </p>

@@ -29,7 +29,7 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/plan/ready")({
   head: () => ({
     meta: [
-      { title: "You're ready to roll — Loop" },
+      { title: "You're ready to roll — Confetti" },
       {
         name: "description",
         content: "Your day is saved. Share it, add it to your calendar, or rally the crew.",
@@ -72,7 +72,7 @@ const STOPS = [
 
 const TRIP = {
   id: "PLN-A7K2",
-  title: "Loop — Date Night Day",
+  title: "Confetti — Date Night Day",
   description: "A little romance, end-to-end. 4 stops curated by Loop.",
   // Saturday 11:30 AM – 7:30 PM (next Saturday)
   start: nextSaturdayAt(11, 30),

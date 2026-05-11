@@ -115,7 +115,7 @@ function Passport() {
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary">
-                Loop Passport
+                Confetti Passport
               </p>
               <h1 className="mt-2 font-display text-4xl font-bold tracking-tight">{it.title}</h1>
               {it.city && (

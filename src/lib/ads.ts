@@ -85,7 +85,7 @@ export const PACKAGES: Record<
   spotlight: {
     label: "Spotlight",
     price: "$499 / mo",
-    blurb: "Top-of-page placement — every Loop night starts here.",
+    blurb: "Top-of-page placement — every Confetti night starts here.",
     perks: [
       "Home + portal spotlight banner",
       "Featured rail + itinerary boost included",

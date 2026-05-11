@@ -1,6 +1,7 @@
 /// <reference types="google.maps" />
 import { useMapsLibrary } from "@vis.gl/react-google-maps";
 import { useEffect, useMemo, useState } from "react";
+import { buildSmartDirectionsUrl } from "./maps-links";
 
 export type GeocodeInput = { id: string; query: string; lat?: number; lng?: number };
 export type GeocodeResult = { id: string; lat: number; lng: number };

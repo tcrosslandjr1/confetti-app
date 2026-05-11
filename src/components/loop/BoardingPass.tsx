@@ -869,6 +869,9 @@ function BookingModal({
                   </div>
                   <div className="text-[11px] text-ink/60 truncate">
                     {stop.time} · {typeLabel}
+                    {refs[stop.id] && (
+                      <span className="ml-1 font-mono text-ink/80">· {refs[stop.id]}</span>
+                    )}
                   </div>
                 </div>
                 <button

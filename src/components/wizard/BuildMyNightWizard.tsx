@@ -188,6 +188,7 @@ function getDetails(venue: string, vibe: string) {
     dishes,
     popularTimes,
     peakTime,
+    popularAvailability,
     vibeProfile,
   };
 }

@@ -161,6 +161,8 @@ function Layer({
   const segmentsRef = useRef<google.maps.Polyline[]>([]);
   const directionsServiceRef = useRef<google.maps.DirectionsService | null>(null);
   const activeRouteRequestRef = useRef(0);
+  const infoWindowRef = useRef<google.maps.InfoWindow | null>(null);
+  const pinnedStopIdRef = useRef<string | null>(null);
 
   const inputs = useMemo(
     () =>

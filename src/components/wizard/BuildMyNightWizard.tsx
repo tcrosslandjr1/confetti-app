@@ -1053,7 +1053,7 @@ export function BuildMyNightWizard() {
                                 })}
                               </div>
                               <p className="mt-2 text-[11px] text-ink/65">
-                                Tap a slot to reserve — peak around <span className="font-semibold text-ink">{d.peakTime}</span>. Availability refreshes per venue.
+                                Tap a slot to reserve — {personalize?.preferredHour != null ? "your usual window" : "peak"} around <span className="font-semibold text-ink">{d.peakTime}</span>.
                               </p>
                               {d.dishes.length > 0 && (
                                 <>

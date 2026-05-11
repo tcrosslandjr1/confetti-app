@@ -202,7 +202,7 @@ function PlanPage() {
               })}
               <button
                 type="button"
-                onClick={() => setOccasionSlug("__custom__")}
+                onClick={() => toggleOccasion("__custom__")}
                 className={`group relative overflow-hidden rounded-2xl border-2 border-dashed p-3 text-left transition-all ${
                   isCustom
                     ? "border-primary bg-primary/5 shadow-pop scale-[1.02]"

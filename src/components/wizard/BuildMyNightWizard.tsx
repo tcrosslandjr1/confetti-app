@@ -256,6 +256,9 @@ export function BuildMyNightWizard() {
     dietLabel: string | null;
   };
   const [personalize, setPersonalize] = useState<Personalize | null>(null);
+  const [shareData, setShareData] = useState<StopShareData | null>(null);
+  const [sharing, setSharing] = useState<string | null>(null);
+  const shareRef = useRef<HTMLDivElement>(null);
   const { user } = useAuth();
   const { burst, layer } = useConfettiBurst();
 

@@ -23,7 +23,7 @@ export function CookieConsent() {
       role="dialog"
       aria-live="polite"
       aria-label="Cookie consent"
-      className="fixed inset-x-3 bottom-3 z-[80] mx-auto max-w-2xl rounded-xl border border-border bg-background/95 p-4 shadow-lg backdrop-blur sm:p-5"
+      className="fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+5rem)] z-[80] mx-auto max-w-2xl rounded-xl border-2 border-ink bg-cream p-4 text-ink shadow-lg sm:p-5 lg:bottom-4"
     >
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-foreground">

@@ -1,6 +1,6 @@
 import { useAuth, type ViewAs } from "@/lib/auth-context";
 import { useNavigate } from "@tanstack/react-router";
-import { Shield, User as UserIcon, Eye, X, ChevronUp, ChevronDown, Repeat } from "lucide-react";
+import { Shield, User as UserIcon, Eye, X, ChevronUp, ChevronDown, Repeat, Briefcase } from "lucide-react";
 import { useState } from "react";
 
 type Option = {

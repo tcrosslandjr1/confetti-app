@@ -256,6 +256,9 @@ export function BuildMyNightWizard() {
     dietLabel: string | null;
   };
   const [personalize, setPersonalize] = useState<Personalize | null>(null);
+  type DietPrefs = { vegan: boolean; vegetarian: boolean; pescatarian: boolean; glutenFree: boolean; allergens: string[] };
+  const [dietPrefs, setDietPrefs] = useState<DietPrefs>({ vegan: false, vegetarian: false, pescatarian: false, glutenFree: false, allergens: [] });
+  const [dietSavedFlash, setDietSavedFlash] = useState(false);
   const [shareData, setShareData] = useState<StopShareData | null>(null);
   const [sharing, setSharing] = useState<string | null>(null);
   const shareRef = useRef<HTMLDivElement>(null);

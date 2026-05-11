@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowLeft, Play } from "lucide-react";
 import { BoardingPass } from "@/components/loop/BoardingPass";
-import { getActiveLoop, makeDemoLoop, setActiveLoop, type ActiveLoop } from "@/lib/loop-store";
+import { getActiveLoop, makeDemoLoop, setActiveLoop, subscribeActiveLoop, type ActiveLoop } from "@/lib/loop-store";
 
 export const Route = createFileRoute("/boarding-pass")({
   head: () => ({ meta: [{ title: "Boarding Pass — Confetti" }] }),
@@ -12,13 +12,17 @@ export const Route = createFileRoute("/boarding-pass")({
 function BoardingPassPage() {
   const [loop, setLoop] = useState<ActiveLoop | null>(null);
   useEffect(() => {
-    const existing = getActiveLoop();
-    if (existing) setLoop(existing);
-    else {
-      const demo = makeDemoLoop();
-      setActiveLoop(demo);
-      setLoop(demo);
-    }
+    const sync = () => {
+      const existing = getActiveLoop();
+      if (existing) setLoop(existing);
+      else {
+        const demo = makeDemoLoop();
+        setActiveLoop(demo);
+        setLoop(demo);
+      }
+    };
+    sync();
+    return subscribeActiveLoop(sync);
   }, []);
 
   if (!loop)

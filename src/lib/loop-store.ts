@@ -250,5 +250,103 @@ export function makeDemoLoop(input: Partial<ActiveLoop> = {}): ActiveLoop {
       },
       { id: "s3", name: "Aera Rooftop", type: "Nightcap", time: "10:00 PM", area: "Logan Circle" },
     ],
+    ...input,
   };
 }
+
+// ─── Preset plan library — used by the "Switch plan" quick switcher ──
+export type PlanPreset = {
+  key: string;
+  label: string;
+  emoji: string;
+  blurb: string;
+  build: () => ActiveLoop;
+};
+
+export const PLAN_PRESETS: PlanPreset[] = [
+  {
+    key: "shaw-night",
+    label: "Shaw Night Out",
+    emoji: "🥂",
+    blurb: "Small plates → vinyl bar → rooftop nightcap",
+    build: () =>
+      makeDemoLoop({
+        from: "HOME",
+        to: "NIGHT OUT",
+        gate: "SHAW",
+        boardingTime: "6:30 PM",
+        occasion: "Date night",
+        occasionEmoji: "🌙",
+        vibes: ["✨ Date night", "🎶 Vinyl"],
+        stops: [
+          { id: "s1", name: "Lila's Patio", type: "Small plates", time: "6:30 PM", area: "Shaw" },
+          { id: "s2", name: "Mason St. Records", type: "Vinyl + nat wine", time: "8:15 PM", area: "U Street" },
+          { id: "s3", name: "Aera Rooftop", type: "Nightcap", time: "10:00 PM", area: "Logan Circle" },
+        ],
+      }),
+  },
+  {
+    key: "georgetown-brunch",
+    label: "Georgetown Brunch",
+    emoji: "🥞",
+    blurb: "Brunch → waterfront walk → coffee tasting",
+    build: () =>
+      makeDemoLoop({
+        from: "HOME",
+        to: "BRUNCH",
+        gate: "GTOWN",
+        boardingTime: "10:30 AM",
+        occasion: "Sunday brunch",
+        occasionEmoji: "☀",
+        vibes: ["🥐 Slow morning", "🚶 Stroll"],
+        stops: [
+          { id: "s1", name: "Bluestone Lane", type: "Brunch + flat whites", time: "10:30 AM", area: "Georgetown" },
+          { id: "s2", name: "Georgetown Waterfront", type: "Riverside walk", time: "12:00 PM", area: "Waterfront" },
+          { id: "s3", name: "Grace Street Coffee", type: "Tasting flight", time: "1:15 PM", area: "Georgetown" },
+        ],
+      }),
+  },
+  {
+    key: "h-street-crawl",
+    label: "H Street Crawl",
+    emoji: "🎤",
+    blurb: "Tacos → arcade bar → live music",
+    build: () =>
+      makeDemoLoop({
+        from: "HOME",
+        to: "H STREET",
+        gate: "ATLAS",
+        boardingTime: "7:00 PM",
+        occasion: "Friends night",
+        occasionEmoji: "🎉",
+        vibes: ["🎮 Playful", "🎤 Live music"],
+        stops: [
+          { id: "s1", name: "Taqueria Habanero", type: "Tacos + mezcal", time: "7:00 PM", area: "H Street" },
+          { id: "s2", name: "Atlas Arcade", type: "Arcade bar", time: "8:30 PM", area: "Atlas District" },
+          { id: "s3", name: "Pie Shop", type: "Live music + pie", time: "10:00 PM", area: "H Street" },
+        ],
+      }),
+  },
+  {
+    key: "wharf-sunset",
+    label: "Wharf Sunset",
+    emoji: "🌅",
+    blurb: "Oysters → sunset cruise → speakeasy",
+    build: () =>
+      makeDemoLoop({
+        from: "HOME",
+        to: "THE WHARF",
+        gate: "WHARF",
+        boardingTime: "5:30 PM",
+        occasion: "Anniversary",
+        occasionEmoji: "💐",
+        vibes: ["🌊 Waterfront", "🥂 Romantic"],
+        stops: [
+          { id: "s1", name: "Rappahannock Oyster Bar", type: "Oysters + bubbles", time: "5:30 PM", area: "The Wharf" },
+          { id: "s2", name: "Sunset Cruise", type: "Potomac River", time: "7:00 PM", area: "The Wharf" },
+          { id: "s3", name: "Bar Spero", type: "Speakeasy nightcap", time: "9:15 PM", area: "Capitol Crossing" },
+        ],
+      }),
+  },
+];
+

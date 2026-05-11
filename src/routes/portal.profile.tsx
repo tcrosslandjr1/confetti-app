@@ -357,9 +357,9 @@ function ProfilePage() {
   );
 }
 
-function StatTile({ icon: Icon, label, value, hint, to, tone }: { icon: typeof Sparkles; label: string; value: string; hint?: string; to?: string; tone?: string }) {
+function StatTile({ icon: Icon, label, value, hint, to, tone, onClick }: { icon: typeof Sparkles; label: string; value: string; hint?: string; to?: string; tone?: string; onClick?: () => void }) {
   const inner = (
-    <div className={`flex h-full items-center gap-3 rounded-2xl border border-border p-4 shadow-card transition-pop ${tone ?? "bg-card"} ${to ? "hover:scale-[1.02] hover:shadow-pop" : ""}`}>
+    <div className={`flex h-full items-center gap-3 rounded-2xl border border-border p-4 shadow-card transition-pop ${tone ?? "bg-card"} ${(to || onClick) ? "cursor-pointer hover:scale-[1.02] hover:shadow-pop" : ""}`}>
       <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tone ? "bg-white/15" : "bg-gradient-vibe text-primary-foreground"}`}>
         <Icon className="h-5 w-5" />
       </span>
@@ -370,7 +370,13 @@ function StatTile({ icon: Icon, label, value, hint, to, tone }: { icon: typeof S
       </div>
     </div>
   );
-  return to ? <Link to={to as "/"}>{inner}</Link> : inner;
+  if (to) {
+    return <Link to={to as "/"} onClick={onClick}>{inner}</Link>;
+  }
+  if (onClick) {
+    return <button type="button" onClick={onClick} className="w-full text-left">{inner}</button>;
+  }
+  return inner;
 }
 
 function LevelProgress({ xp, level }: { xp: number; level: number }) {

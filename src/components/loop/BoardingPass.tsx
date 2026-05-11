@@ -424,21 +424,51 @@ function TearDivider() {
 
 // ─── Stop card ─────────────────────────────────────────────────────────
 function StopCard({
+  loopId,
   stop,
   kind,
   index,
   isLast,
 }: {
+  loopId: string;
   stop: LoopStop;
   kind: StopKind;
   index: number;
   isLast: boolean;
 }) {
   const [visible, setVisible] = useState(false);
+  const [showQr, setShowQr] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 120 + index * 90);
     return () => clearTimeout(t);
   }, [index]);
+
+  const checkInUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/check-in?loop=${encodeURIComponent(loopId)}&stop=${encodeURIComponent(stop.id)}`
+      : `/check-in?loop=${loopId}&stop=${stop.id}`;
+
+  function handleTapCheckIn() {
+    const result = checkInStop(stop.id);
+    if (!result) {
+      toast.error("Couldn't find this stop");
+      return;
+    }
+    if (result.alreadyAwarded) {
+      toast(`Already checked in at ${stop.name}`, { description: "No double-dipping 🎉" });
+      return;
+    }
+    logActivity({
+      tripId: loopId,
+      actor: "You",
+      kind: "check_in",
+      message: `Checked in at ${stop.name}`,
+      detail: `+${result.awarded} Confetti`,
+    });
+    toast.success(`Checked in at ${stop.name}`, {
+      description: `+${result.awarded} Confetti added to your balance`,
+    });
+  }
 
   const tone = kindStyles[kind];
   const typeLabel = kind === "departure" ? "Departure" : kind === "destination" ? "Destination" : "Layover";

@@ -12,6 +12,31 @@ export type MapStop = {
   lat?: number;
   lng?: number;
   done?: boolean;
+  /** Scheduled ETA for this stop, e.g. "6:30 PM". */
+  time?: string;
+};
+
+export type StopStatus = "done" | "current" | "next" | "upcoming";
+
+function statusOf(stop: MapStop, idx: number, currentIdx: number): StopStatus {
+  if (stop.done) return "done";
+  if (idx === currentIdx) return "current";
+  if (currentIdx >= 0 && idx === currentIdx + 1) return "next";
+  return "upcoming";
+}
+
+const STATUS_LABEL: Record<StopStatus, string> = {
+  done: "Done",
+  current: "Current",
+  next: "Next",
+  upcoming: "Upcoming",
+};
+
+const STATUS_COLOR: Record<StopStatus, string> = {
+  done: "#3FA66B",
+  current: "#F05537",
+  next: "#F2C744",
+  upcoming: "#1A1410",
 };
 
 export type DirectionsStepLite = {

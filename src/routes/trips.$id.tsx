@@ -559,7 +559,7 @@ export function VibeRow({ stop, prefs }: { stop: Stop; prefs: VibePrefs }) {
   );
 
   return (
-    <div className={`mt-3 flex flex-wrap items-center gap-2 rounded-xl border px-3 py-2 ${tone}`}>
+    <div data-testid="vibe-row" className={`mt-3 flex flex-wrap items-center gap-2 rounded-xl border px-3 py-2 ${tone}`}>
       <span className="text-[11px] font-bold uppercase tracking-wider">{label} · {score}%</span>
       {chip(inferred.crowd === prefs.crowd, CROWD_LABEL[inferred.crowd], Users)}
       {chip(inferred.noise === prefs.noise, NOISE_LABEL[inferred.noise], Sparkles)}

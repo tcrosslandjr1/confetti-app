@@ -108,7 +108,7 @@ const fallbackTestimonials: Testimonial[] = [
   },
 ];
 
-function TestimonialCard({ img, name, username, body, country }: Testimonial) {
+function TestimonialCard({ img, name, username, body, country, rating }: Testimonial) {
   return (
     <Card className="w-72 border-2 border-ink bg-cream shadow-brut">
       <CardContent className="p-4">
@@ -126,6 +126,19 @@ function TestimonialCard({ img, name, username, body, country }: Testimonial) {
             </div>
           </div>
         </div>
+        {rating ? (
+          <div
+            className="mt-3 flex items-center gap-0.5 text-coral"
+            aria-label={`${rating} out of 5 stars`}
+          >
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star
+                key={i}
+                className={`h-3.5 w-3.5 ${i < rating ? "fill-current" : "opacity-30"}`}
+              />
+            ))}
+          </div>
+        ) : null}
         <p className="mt-3 text-sm leading-snug text-ink/80">{body}</p>
       </CardContent>
     </Card>

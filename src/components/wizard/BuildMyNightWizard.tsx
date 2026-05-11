@@ -149,6 +149,8 @@ function peakReason(p: { preferredHour: number | null; bookingsCount: number } |
   }
   return "Most-booked slot here right now";
 }
+
+/** Resolve an ISO timestamp from the wizard's pickedDate + a "7:00 PM" slot. Falls back to today. */
 function slotToIso(pickedDate: string, slot: string): string | null {
   const t = parseSlot(slot);
   if (!t) return null;

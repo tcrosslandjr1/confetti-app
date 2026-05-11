@@ -12,7 +12,9 @@
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "lint:fix": "eslint . --fix",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,css,md}\" \"*.{ts,js,json,md}\""
   },
   "dependencies": {
     "@ai-sdk/openai-compatible": "^2.0.47",

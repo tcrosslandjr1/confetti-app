@@ -1,0 +1,25 @@
+name: Lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+
+      # ESLint — fails on duplicate imports, unused imports,
+      # restricted imports, and other style errors.
+      - name: ESLint
+        run: bun run lint
+
+      # Prettier — fails if any tracked file isn't formatted.
+      - name: Prettier
+        run: bun run format:check

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Award, Compass, Moon, Pizza, Users, Map as MapIcon, Crown, Gift, Sparkles, ArrowLeft } from "lucide-react";
-import { getConfetti } from "@/lib/loop-store";
+import { getConfetti, subscribeConfetti } from "@/lib/loop-store";
 
 export const Route = createFileRoute("/passport")({
   head: () => ({ meta: [{ title: "Passport — Loop" }] }),
@@ -25,7 +25,10 @@ const REWARDS = [
 
 function PassportPage() {
   const [confetti, setConfettiCount] = useState(0);
-  useEffect(() => setConfettiCount(getConfetti()), []);
+  useEffect(() => {
+    setConfettiCount(getConfetti());
+    return subscribeConfetti(() => setConfettiCount(getConfetti()));
+  }, []);
   const level = Math.floor(confetti / 250) + 1;
   const nextLevelAt = level * 250;
   const progress = Math.min(100, ((confetti % 250) / 250) * 100);

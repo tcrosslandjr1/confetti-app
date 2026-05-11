@@ -449,7 +449,7 @@ export function NextBookingCountdown() {
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
         <a
-          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(b.venue_name)}`}
+          href={buildSmartSearchUrl({ name: b.venue_name })}
           target="_blank"
           rel="noreferrer"
           className="inline-flex h-9 items-center gap-1.5 rounded-full border-2 border-cream/30 px-3 font-mono text-[10px] font-bold uppercase tracking-widest text-cream hover:bg-cream/10"

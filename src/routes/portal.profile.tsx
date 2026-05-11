@@ -130,10 +130,10 @@ function ProfilePage() {
               title: "Your stats",
               node: (
                 <section aria-label="Your stats" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                  <StatTile tone="bg-gradient-vibe text-primary-foreground" icon={Sparkles} label="XP" value={(profile?.xp ?? 0).toLocaleString()} hint={`Level ${profile?.level ?? 1}`} />
-                  <StatTile icon={CalendarCheck} label="Upcoming bookings" value={bookingTotals.upcoming.toString()} hint={`${bookingTotals.past} completed`} to="/portal/bookings" />
-                  <StatTile icon={Users} label="Referrals signed up" value={refStats.signedUp.toString()} hint={`${refStats.invited} invited · ${refStats.completed} completed`} to="/portal/refer" />
-                  <StatTile icon={Trophy} label="Achievements" value={`${achTotals.unlocked}/${achTotals.total || "—"}`} hint={achTotals.total ? `${achTotals.xpEarned} XP earned` : "Unlock by exploring"} />
+                  <StatTile tone="bg-gradient-vibe text-primary-foreground" icon={Sparkles} label="XP" value={(profile?.xp ?? 0).toLocaleString()} hint={`Level ${profile?.level ?? 1}`} onClick={() => toast.success(`${(profile?.xp ?? 0).toLocaleString()} XP banked`, { description: `You're Level ${profile?.level ?? 1}. Keep going to unlock the next tier.` })} />
+                  <StatTile icon={CalendarCheck} label="Upcoming bookings" value={bookingTotals.upcoming.toString()} hint={`${bookingTotals.past} completed`} to="/portal/bookings" onClick={() => toast(`${bookingTotals.upcoming} upcoming booking${bookingTotals.upcoming === 1 ? "" : "s"}`, { description: `${bookingTotals.past} completed so far. Opening your bookings…` })} />
+                  <StatTile icon={Users} label="Referrals signed up" value={refStats.signedUp.toString()} hint={`${refStats.invited} invited · ${refStats.completed} completed`} to="/portal/refer" onClick={() => toast(`${refStats.signedUp} friend${refStats.signedUp === 1 ? "" : "s"} on board`, { description: `${refStats.invited} invited · ${refStats.completed} completed. Earn more by sharing your link.` })} />
+                  <StatTile icon={Trophy} label="Achievements" value={`${achTotals.unlocked}/${achTotals.total || "—"}`} hint={achTotals.total ? `${achTotals.xpEarned} XP earned` : "Unlock by exploring"} onClick={() => toast.success(`${achTotals.unlocked}/${achTotals.total || "—"} achievements unlocked`, { description: achTotals.total ? `${achTotals.xpEarned} XP earned from badges so far.` : "Start exploring to unlock your first badge." })} />
                 </section>
               ),
             },
@@ -357,9 +357,9 @@ function ProfilePage() {
   );
 }
 
-function StatTile({ icon: Icon, label, value, hint, to, tone }: { icon: typeof Sparkles; label: string; value: string; hint?: string; to?: string; tone?: string }) {
+function StatTile({ icon: Icon, label, value, hint, to, tone, onClick }: { icon: typeof Sparkles; label: string; value: string; hint?: string; to?: string; tone?: string; onClick?: () => void }) {
   const inner = (
-    <div className={`flex h-full items-center gap-3 rounded-2xl border border-border p-4 shadow-card transition-pop ${tone ?? "bg-card"} ${to ? "hover:scale-[1.02] hover:shadow-pop" : ""}`}>
+    <div className={`flex h-full items-center gap-3 rounded-2xl border border-border p-4 shadow-card transition-pop ${tone ?? "bg-card"} ${(to || onClick) ? "cursor-pointer hover:scale-[1.02] hover:shadow-pop" : ""}`}>
       <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tone ? "bg-white/15" : "bg-gradient-vibe text-primary-foreground"}`}>
         <Icon className="h-5 w-5" />
       </span>
@@ -370,7 +370,13 @@ function StatTile({ icon: Icon, label, value, hint, to, tone }: { icon: typeof S
       </div>
     </div>
   );
-  return to ? <Link to={to as "/"}>{inner}</Link> : inner;
+  if (to) {
+    return <Link to={to as "/"} onClick={onClick}>{inner}</Link>;
+  }
+  if (onClick) {
+    return <button type="button" onClick={onClick} className="w-full text-left">{inner}</button>;
+  }
+  return inner;
 }
 
 function LevelProgress({ xp, level }: { xp: number; level: number }) {

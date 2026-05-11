@@ -357,9 +357,10 @@ function ProfilePage() {
   );
 }
 
-function StatTile({ icon: Icon, label, value, hint, to, tone, onClick }: { icon: typeof Sparkles; label: string; value: string; hint?: string; to?: string; tone?: string; onClick?: () => void }) {
-  const inner = (
-    <div className={`flex h-full items-center gap-3 rounded-2xl border border-border p-4 shadow-card transition-pop ${tone ?? "bg-card"} ${(to || onClick) ? "cursor-pointer hover:scale-[1.02] hover:shadow-pop" : ""}`}>
+function StatTile({ icon: Icon, label, value, hint, to, tone, onClick, cta }: { icon: typeof Sparkles; label: string; value: string; hint?: string; to?: string; tone?: string; onClick?: () => void; cta?: { label: string; to: string; icon?: typeof Sparkles } }) {
+  const CtaIcon = cta?.icon;
+  const body = (
+    <div className="flex min-w-0 flex-1 items-center gap-3">
       <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tone ? "bg-white/15" : "bg-gradient-vibe text-primary-foreground"}`}>
         <Icon className="h-5 w-5" />
       </span>
@@ -368,6 +369,31 @@ function StatTile({ icon: Icon, label, value, hint, to, tone, onClick }: { icon:
         <div className="font-display text-2xl font-extrabold leading-tight">{value}</div>
         {hint && <div className={`truncate text-xs ${tone ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{hint}</div>}
       </div>
+    </div>
+  );
+  const wrapperClass = `flex h-full items-center gap-3 rounded-2xl border border-border p-4 shadow-card transition-pop ${tone ?? "bg-card"}`;
+
+  if (cta) {
+    const ctaClass = tone
+      ? "shrink-0 inline-flex items-center gap-1 rounded-full bg-white px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-primary shadow-pop hover:scale-105 transition-pop"
+      : "shrink-0 inline-flex items-center gap-1 rounded-full bg-gradient-vibe text-primary-foreground px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest shadow-pop hover:scale-105 transition-pop";
+    const triggerClass = `${onClick ? "cursor-pointer text-left" : "text-left"} flex min-w-0 flex-1 items-center gap-3`;
+    return (
+      <div className={wrapperClass}>
+        {onClick ? (
+          <button type="button" onClick={onClick} className={triggerClass}>{body}</button>
+        ) : body}
+        <Link to={cta.to as "/"} className={ctaClass} aria-label={cta.label}>
+          {CtaIcon && <CtaIcon className="h-3.5 w-3.5" />}
+          {cta.label}
+        </Link>
+      </div>
+    );
+  }
+
+  const inner = (
+    <div className={`${wrapperClass} ${(to || onClick) ? "cursor-pointer hover:scale-[1.02] hover:shadow-pop" : ""}`}>
+      {body}
     </div>
   );
   if (to) {

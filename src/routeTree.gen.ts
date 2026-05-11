@@ -16,6 +16,7 @@ import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TeamsRouteImport } from './routes/teams'
 import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
+import { Route as ScanRouteImport } from './routes/scan'
 import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as QuickGenerateRouteImport } from './routes/quick-generate'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -35,6 +36,7 @@ import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConfirmationRouteImport } from './routes/confirmation'
 import { Route as ConciergeRouteImport } from './routes/concierge'
+import { Route as CheckInRouteImport } from './routes/check-in'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as BoardingPassRouteImport } from './routes/boarding-pass'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -133,6 +135,11 @@ const TasteTunerRoute = TasteTunerRouteImport.update({
   path: '/taste-tuner',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ScanRoute = ScanRouteImport.update({
+  id: '/scan',
+  path: '/scan',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReservationsRoute = ReservationsRouteImport.update({
   id: '/reservations',
   path: '/reservations',
@@ -226,6 +233,11 @@ const ConfirmationRoute = ConfirmationRouteImport.update({
 const ConciergeRoute = ConciergeRouteImport.update({
   id: '/concierge',
   path: '/concierge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckInRoute = CheckInRouteImport.update({
+  id: '/check-in',
+  path: '/check-in',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChatRoute = ChatRouteImport.update({
@@ -555,6 +567,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
+  '/check-in': typeof CheckInRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
@@ -574,6 +587,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
+  '/scan': typeof ScanRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
   '/terms': typeof TermsRoute
@@ -643,6 +657,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
+  '/check-in': typeof CheckInRoute
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
@@ -660,6 +675,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
+  '/scan': typeof ScanRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
   '/terms': typeof TermsRoute
@@ -732,6 +748,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
+  '/check-in': typeof CheckInRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
@@ -751,6 +768,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
+  '/scan': typeof ScanRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
   '/terms': typeof TermsRoute
@@ -824,6 +842,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/boarding-pass'
     | '/chat'
+    | '/check-in'
     | '/concierge'
     | '/confirmation'
     | '/contact'
@@ -843,6 +862,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/quick-generate'
     | '/reservations'
+    | '/scan'
     | '/taste-tuner'
     | '/teams'
     | '/terms'
@@ -912,6 +932,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/boarding-pass'
     | '/chat'
+    | '/check-in'
     | '/confirmation'
     | '/contact'
     | '/cookies'
@@ -929,6 +950,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/quick-generate'
     | '/reservations'
+    | '/scan'
     | '/taste-tuner'
     | '/teams'
     | '/terms'
@@ -1000,6 +1022,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/boarding-pass'
     | '/chat'
+    | '/check-in'
     | '/concierge'
     | '/confirmation'
     | '/contact'
@@ -1019,6 +1042,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/quick-generate'
     | '/reservations'
+    | '/scan'
     | '/taste-tuner'
     | '/teams'
     | '/terms'
@@ -1091,6 +1115,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   BoardingPassRoute: typeof BoardingPassRoute
   ChatRoute: typeof ChatRoute
+  CheckInRoute: typeof CheckInRoute
   ConciergeRoute: typeof ConciergeRouteWithChildren
   ConfirmationRoute: typeof ConfirmationRoute
   ContactRoute: typeof ContactRoute
@@ -1110,6 +1135,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   QuickGenerateRoute: typeof QuickGenerateRoute
   ReservationsRoute: typeof ReservationsRoute
+  ScanRoute: typeof ScanRoute
   TasteTunerRoute: typeof TasteTunerRoute
   TeamsRoute: typeof TeamsRouteWithChildren
   TermsRoute: typeof TermsRoute
@@ -1185,6 +1211,13 @@ declare module '@tanstack/react-router' {
       path: '/taste-tuner'
       fullPath: '/taste-tuner'
       preLoaderRoute: typeof TasteTunerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scan': {
+      id: '/scan'
+      path: '/scan'
+      fullPath: '/scan'
+      preLoaderRoute: typeof ScanRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reservations': {
@@ -1318,6 +1351,13 @@ declare module '@tanstack/react-router' {
       path: '/concierge'
       fullPath: '/concierge'
       preLoaderRoute: typeof ConciergeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/check-in': {
+      id: '/check-in'
+      path: '/check-in'
+      fullPath: '/check-in'
+      preLoaderRoute: typeof CheckInRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/chat': {
@@ -1900,6 +1940,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   BoardingPassRoute: BoardingPassRoute,
   ChatRoute: ChatRoute,
+  CheckInRoute: CheckInRoute,
   ConciergeRoute: ConciergeRouteWithChildren,
   ConfirmationRoute: ConfirmationRoute,
   ContactRoute: ContactRoute,
@@ -1919,6 +1960,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   QuickGenerateRoute: QuickGenerateRoute,
   ReservationsRoute: ReservationsRoute,
+  ScanRoute: ScanRoute,
   TasteTunerRoute: TasteTunerRoute,
   TeamsRoute: TeamsRouteWithChildren,
   TermsRoute: TermsRoute,

@@ -4,6 +4,8 @@ import { toast } from "sonner";
 import { QRCodeSVG } from "qrcode.react";
 import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane, Printer } from "lucide-react";
 import type { ActiveLoop, LoopStop, StopKind } from "@/lib/loop-store";
+import { checkInStop } from "@/lib/loop-store";
+import { logActivity } from "@/lib/activity-log";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";
 import { trackWalletEvent } from "@/lib/wallet-analytics";
@@ -257,6 +259,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
               return (
                 <div key={stop.id}>
                   <StopCard
+                    loopId={loop.id}
                     stop={stop}
                     kind={kind}
                     index={i}
@@ -423,21 +426,51 @@ function TearDivider() {
 
 // ─── Stop card ─────────────────────────────────────────────────────────
 function StopCard({
+  loopId,
   stop,
   kind,
   index,
   isLast,
 }: {
+  loopId: string;
   stop: LoopStop;
   kind: StopKind;
   index: number;
   isLast: boolean;
 }) {
   const [visible, setVisible] = useState(false);
+  const [showQr, setShowQr] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 120 + index * 90);
     return () => clearTimeout(t);
   }, [index]);
+
+  const checkInUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/check-in?loop=${encodeURIComponent(loopId)}&stop=${encodeURIComponent(stop.id)}`
+      : `/check-in?loop=${loopId}&stop=${stop.id}`;
+
+  function handleTapCheckIn() {
+    const result = checkInStop(stop.id);
+    if (!result) {
+      toast.error("Couldn't find this stop");
+      return;
+    }
+    if (result.alreadyAwarded) {
+      toast(`Already checked in at ${stop.name}`, { description: "No double-dipping 🎉" });
+      return;
+    }
+    logActivity({
+      tripId: loopId,
+      actor: "You",
+      kind: "check_in",
+      message: `Checked in at ${stop.name}`,
+      detail: `+${result.awarded} Confetti`,
+    });
+    toast.success(`Checked in at ${stop.name}`, {
+      description: `+${result.awarded} Confetti added to your balance`,
+    });
+  }
 
   const tone = kindStyles[kind];
   const typeLabel = kind === "departure" ? "Departure" : kind === "destination" ? "Destination" : "Layover";
@@ -564,6 +597,44 @@ function StopCard({
                 {tag.label}
               </span>
             ))}
+          </div>
+        )}
+
+        {/* Check-in: tap or QR-scan-from-staff */}
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={handleTapCheckIn}
+            disabled={stop.awarded}
+            className={`inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${
+              stop.awarded
+                ? "bg-emerald-200/70 text-ink/70 cursor-default hover:translate-y-0"
+                : "bg-coral text-cream"
+            }`}
+          >
+            {stop.awarded ? "✓ Checked in" : "📍 Tap to check in"}
+          </button>
+          <button
+            type="button"
+            onClick={() => setShowQr((v) => !v)}
+            aria-expanded={showQr}
+            className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-gold"
+          >
+            {showQr ? "Hide QR" : "Show QR for staff"}
+          </button>
+        </div>
+        {showQr && (
+          <div className="mt-2 inline-flex flex-col items-center gap-1 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut">
+            <QRCodeSVG
+              value={checkInUrl}
+              size={132}
+              bgColor="#FFF7EC"
+              fgColor="#1B1B1B"
+              level="M"
+            />
+            <span className="font-mono text-[9px] uppercase tracking-widest text-ink/60">
+              scan at venue
+            </span>
           </div>
         )}
       </div>

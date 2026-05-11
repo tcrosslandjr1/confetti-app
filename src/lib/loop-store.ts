@@ -10,6 +10,12 @@ export type LoopStop = {
   time: string;
   area?: string;
   done?: boolean;
+  /** True once Confetti points have been awarded for checking in here. */
+  awarded?: boolean;
+  /** ISO timestamp recorded the first time this stop was checked in. */
+  checkedInAt?: string;
+  /** Per-stop Confetti override; defaults to even split of loop.confettiPoints. */
+  points?: number;
   venueId?: string;
   /** Optional pre-resolved coordinates — skips geocoding lookup. */
   lat?: number;
@@ -126,6 +132,45 @@ export function setStopDone(stopId: string, done = true): ActiveLoop | null {
   };
   setActiveLoop(updated);
   return updated;
+}
+
+export type CheckInResult = {
+  loop: ActiveLoop;
+  stop: LoopStop;
+  awarded: number;
+  alreadyAwarded: boolean;
+};
+
+/**
+ * Idempotent check-in for a stop. Marks it done, stamps checkedInAt, awards
+ * Confetti points (only the first time), and returns what changed so callers
+ * can show a toast / log activity.
+ */
+export function checkInStop(stopId: string): CheckInResult | null {
+  const loop = getActiveLoop();
+  if (!loop) return null;
+  const target = loop.stops.find((s) => s.id === stopId);
+  if (!target) return null;
+
+  const alreadyAwarded = !!target.awarded;
+  const perStopDefault = Math.round((loop.confettiPoints ?? 250) / Math.max(1, loop.stops.length));
+  const award = alreadyAwarded ? 0 : (target.points ?? perStopDefault);
+  const stamp = target.checkedInAt ?? new Date().toISOString();
+
+  const updatedStop: LoopStop = {
+    ...target,
+    done: true,
+    checkedInAt: stamp,
+    awarded: true,
+  };
+  const updated: ActiveLoop = {
+    ...loop,
+    stops: loop.stops.map((s) => (s.id === stopId ? updatedStop : s)),
+  };
+  setActiveLoop(updated);
+  if (award > 0) addConfetti(award);
+
+  return { loop: updated, stop: updatedStop, awarded: award, alreadyAwarded };
 }
 
 export function getConfetti(): number {

@@ -1,11 +1,18 @@
-import { Plane, Check, Wallet, Apple, ChevronRight, Loader2 } from "lucide-react";
+import { Plane, Check, Wallet, Apple, ChevronRight, Loader2, X, Smartphone } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { useState } from "react";
+import { QRCodeSVG } from "qrcode.react";
 import type { ActiveLoop, LoopStop } from "@/lib/loop-store";
+
+function isAndroid() {
+  if (typeof navigator === "undefined") return false;
+  return /android/i.test(navigator.userAgent);
+}
 
 export function BoardingPass({ loop }: { loop: ActiveLoop }) {
   const [googleLoading, setGoogleLoading] = useState(false);
+  const [qrUrl, setQrUrl] = useState<string | null>(null);
 
   async function addToGoogleWallet() {
     setGoogleLoading(true);
@@ -41,7 +48,12 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         toast.error(data.error || "Could not generate Google Wallet pass");
         return;
       }
-      window.open(data.saveUrl, "_blank", "noopener,noreferrer");
+      // Android: open Wallet directly. Desktop / iOS: show QR fallback.
+      if (isAndroid()) {
+        window.open(data.saveUrl, "_blank", "noopener,noreferrer");
+      } else {
+        setQrUrl(data.saveUrl);
+      }
     } catch (err) {
       toast.error("Network error talking to Wallet service");
     } finally {

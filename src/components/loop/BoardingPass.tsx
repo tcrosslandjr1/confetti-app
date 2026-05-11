@@ -599,6 +599,44 @@ function StopCard({
             ))}
           </div>
         )}
+
+        {/* Check-in: tap or QR-scan-from-staff */}
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={handleTapCheckIn}
+            disabled={stop.awarded}
+            className={`inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${
+              stop.awarded
+                ? "bg-emerald-200/70 text-ink/70 cursor-default hover:translate-y-0"
+                : "bg-coral text-cream"
+            }`}
+          >
+            {stop.awarded ? "✓ Checked in" : "📍 Tap to check in"}
+          </button>
+          <button
+            type="button"
+            onClick={() => setShowQr((v) => !v)}
+            aria-expanded={showQr}
+            className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-gold"
+          >
+            {showQr ? "Hide QR" : "Show QR for staff"}
+          </button>
+        </div>
+        {showQr && (
+          <div className="mt-2 inline-flex flex-col items-center gap-1 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut">
+            <QRCodeSVG
+              value={checkInUrl}
+              size={132}
+              bgColor="#FFF7EC"
+              fgColor="#1B1B1B"
+              level="M"
+            />
+            <span className="font-mono text-[9px] uppercase tracking-widest text-ink/60">
+              scan at venue
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

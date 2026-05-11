@@ -5,6 +5,7 @@ import { QRCodeSVG } from "qrcode.react";
 import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane, Printer, Share2, Link2, Image as ImageIcon, FileText, Check, Repeat } from "lucide-react";
 import type { ActiveLoop, LoopStop, StopKind } from "@/lib/loop-store";
 import { checkInStop, setActiveLoop, PLAN_PRESETS } from "@/lib/loop-store";
+import { appendNotifications } from "@/lib/trip-status";
 import { logActivity } from "@/lib/activity-log";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";

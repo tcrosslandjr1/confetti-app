@@ -387,7 +387,12 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         <div className="relative">
           <button
             type="button"
-            onClick={() => setShareOpen((v) => !v)}
+            onClick={() => {
+              setShareOpen((v) => {
+                if (!v) trackShareEvent("share_menu_open", { loopId: loop.id });
+                return !v;
+              });
+            }}
             aria-expanded={shareOpen}
             aria-haspopup="menu"
             className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5"

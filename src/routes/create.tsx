@@ -1,7 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Users, User, Heart, Cake, Briefcase, Home, Sparkles, Wand2, ArrowRight, ArrowLeft, Calendar, Clock, Check } from "lucide-react";
-import { TabBar } from "@/components/loop/TabBar";
 import { makeDemoLoop, setActiveLoop } from "@/lib/loop-store";
 
 export const Route = createFileRoute("/create")({
@@ -205,7 +204,6 @@ function CreatePage() {
           </button>
         </div>
       </div>
-      <TabBar />
     </div>
   );
 }

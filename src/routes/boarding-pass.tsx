@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowLeft, Play } from "lucide-react";
 import { BoardingPass } from "@/components/loop/BoardingPass";
-import { TabBar } from "@/components/loop/TabBar";
 import { getActiveLoop, makeDemoLoop, setActiveLoop, type ActiveLoop } from "@/lib/loop-store";
 
 export const Route = createFileRoute("/boarding-pass")({
@@ -44,7 +43,6 @@ function BoardingPassPage() {
           </Link>
         </div>
       </div>
-      <TabBar />
     </div>
   );
 }

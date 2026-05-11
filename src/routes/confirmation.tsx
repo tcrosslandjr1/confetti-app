@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { Check, Wallet, Apple, Share2 } from "lucide-react";
-import { TabBar } from "@/components/loop/TabBar";
 import { getActiveLoop, makeDemoLoop, type ActiveLoop } from "@/lib/loop-store";
 import { toast } from "sonner";
 
@@ -86,7 +85,6 @@ function ConfirmationPage() {
           <Share2 className="h-3.5 w-3.5" /> Share with friends
         </button>
       </div>
-      <TabBar />
     </div>
   );
 }

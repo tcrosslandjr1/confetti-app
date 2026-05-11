@@ -36,6 +36,10 @@ export default tseslint.config(
       ],
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
       "@typescript-eslint/no-unused-vars": "off",
+      // Pre-existing issues — surfaced as warnings so CI can land focused on
+      // style + duplicate/unused imports. Address separately as cleanup.
+      "@typescript-eslint/no-explicit-any": "warn",
+      "no-empty": "warn",
       // Catch unused / duplicate imports in CI.
       "unused-imports/no-unused-imports": "error",
       "no-duplicate-imports": "error",

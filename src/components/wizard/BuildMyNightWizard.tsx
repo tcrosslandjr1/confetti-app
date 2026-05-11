@@ -548,10 +548,10 @@ export function BuildMyNightWizard() {
   useEffect(() => {
     if (!personalize) return;
     setDietPrefs({
-      vegan: personalize.diet.vegan,
-      vegetarian: personalize.diet.vegetarian,
-      pescatarian: personalize.diet.pescatarian,
-      glutenFree: personalize.diet.glutenFree,
+      vegan: !!personalize.diet.vegan,
+      vegetarian: !!personalize.diet.vegetarian,
+      pescatarian: !!personalize.diet.pescatarian,
+      glutenFree: !!personalize.diet.glutenFree,
       allergens: personalize.diet.avoidAllergens ?? [],
     });
   }, [personalize]);

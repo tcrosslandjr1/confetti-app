@@ -18,6 +18,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { ReferralCapture } from "@/components/ReferralCapture";
 import { TabBar } from "@/components/loop/TabBar";
 import { CookieConsent } from "@/components/CookieConsent";
+import { MapProvider } from "@/components/maps/MapProvider";
 
 function NotFoundComponent() {
   return (

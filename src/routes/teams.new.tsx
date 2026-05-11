@@ -1,5 +1,6 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { getItinerary } from "@/lib/itineraries";
 import {
   Briefcase,
   ArrowRight,
@@ -32,6 +33,9 @@ import {
 } from "@/lib/corporate";
 
 export const Route = createFileRoute("/teams/new")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    fromTrip: typeof search.fromTrip === "string" ? search.fromTrip : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Plan a team event — Loop" },
@@ -84,8 +88,10 @@ type StepId = (typeof STEPS)[number]["id"];
 function NewTeamEventPage() {
   const { user } = useAuth();
   const nav = useNavigate();
+  const { fromTrip } = Route.useSearch();
   const [busy, setBusy] = useState(false);
   const [stepIdx, setStepIdx] = useState(0);
+  const [prefilled, setPrefilled] = useState(false);
 
   // Basics
   const [orgName, setOrgName] = useState("");
@@ -107,6 +113,40 @@ function NewTeamEventPage() {
   const [vibes, setVibes] = useState<Set<Vibe>>(new Set());
   const [dietary, setDietary] = useState<Set<Dietary>>(new Set());
   const [notes, setNotes] = useState("");
+
+  // Prefill from an existing trip when arriving via /teams/new?fromTrip=<id>
+  useEffect(() => {
+    if (!fromTrip || !user) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const { itinerary } = await getItinerary(fromTrip);
+        if (cancelled || !itinerary) return;
+        if (itinerary.title) setTitle(itinerary.title);
+        if (itinerary.city) setCity(itinerary.city);
+        if (itinerary.date) setStartDate(itinerary.date);
+        // end_date isn't on the Itinerary type today; single-day trips are fine without it.
+        if (itinerary.vibe) {
+          const matched = VIBE_TAGS.filter((v) =>
+            itinerary.vibe!.toLowerCase().includes(v.toLowerCase()),
+          );
+          if (matched.length) setVibes(new Set(matched));
+        }
+        const noteParts: string[] = [];
+        if (itinerary.summary) noteParts.push(itinerary.summary);
+        if (itinerary.est_total_cost)
+          noteParts.push(`Original trip budget: ${itinerary.est_total_cost}`);
+        if (noteParts.length) setNotes(noteParts.join("\n\n"));
+        setPrefilled(true);
+        toast.success("Prefilled from your trip — tweak anything and continue");
+      } catch (err) {
+        console.error("[teams/new] prefill failed", err);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [fromTrip, user]);
 
   const parsed = useMemo(() => parseAttendeeList(attendeesRaw), [attendeesRaw]);
   const days = startDate ? dayCount(startDate, endDate || startDate) : 1;
@@ -204,6 +244,25 @@ function NewTeamEventPage() {
               Step {stepIdx + 1} of {STEPS.length}
             </div>
           </div>
+
+          {prefilled && fromTrip && (
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border-2 border-ink bg-gold/40 p-4 text-sm">
+              <div className="flex items-start gap-2">
+                <Sparkles className="mt-0.5 h-4 w-4" />
+                <span>
+                  Prefilled from{" "}
+                  <Link
+                    to="/trips/$id"
+                    params={{ id: fromTrip }}
+                    className="font-bold underline"
+                  >
+                    your trip
+                  </Link>
+                  . Edit anything below.
+                </span>
+              </div>
+            </div>
+          )}
 
           {!user && (
             <div className="mt-6 flex items-start gap-3 rounded-2xl border-2 border-ink bg-gold/40 p-4">

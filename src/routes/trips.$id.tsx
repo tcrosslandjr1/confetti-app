@@ -278,6 +278,13 @@ function TripDetail() {
             <Stamp className="h-3.5 w-3.5" />{" "}
             {it.completed_at ? "View passport" : "Complete day → Passport"}
           </button>
+          <Link
+            to="/teams/new"
+            search={{ fromTrip: it.id }}
+            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold text-foreground hover:bg-muted"
+          >
+            <Users className="h-3.5 w-3.5" /> Plan team event from this trip
+          </Link>
           <button
             onClick={removeTrip}
             className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:text-destructive"

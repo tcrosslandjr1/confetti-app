@@ -168,6 +168,25 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           </ol>
         </div>
 
+        {/* Map strip */}
+        <div className="relative h-[160px] w-full overflow-hidden border-t-2 border-dashed border-ink/40">
+          <ConfettiMap
+            stops={loop.stops.map((s) => ({ id: s.id, name: s.name, area: s.area }))}
+            fallbackCity={loop.stops[0]?.area || "Washington, DC"}
+            height="100%"
+            interactive={false}
+            onPointsReady={setRoutePoints}
+          />
+          <a
+            href={directionsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5"
+          >
+            <Navigation className="h-3 w-3" /> Get Directions
+          </a>
+        </div>
+
         {/* Barcode */}
         <div className="px-6 pb-5">
           <div className="rounded-xl border-2 border-ink bg-cream p-3">

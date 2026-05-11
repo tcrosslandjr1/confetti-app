@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { WizardButton } from "@/components/wizard/WizardButton";
+import { NotificationsBell } from "@/components/NotificationsBell";
 import { useAuth } from "@/lib/auth-context";
 
 const marketingLinks = [
@@ -71,12 +72,15 @@ export function SiteHeader() {
               Sign up free
             </Link>
           ) : (
-            <button
-              onClick={() => void signOut()}
-              className="hidden h-10 items-center rounded-full px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink sm:flex"
-            >
-              Sign out
-            </button>
+            <>
+              <NotificationsBell />
+              <button
+                onClick={() => void signOut()}
+                className="hidden h-10 items-center rounded-full px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink sm:flex"
+              >
+                Sign out
+              </button>
+            </>
           )}
           <WizardButton
             ariaLabel="Build a night"

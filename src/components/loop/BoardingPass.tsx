@@ -720,6 +720,51 @@ function BookingModal({
 // ─── Wallet QR modal (preserved) ───────────────────────────────────────
 function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
   const qrWrapRef = useRef<HTMLDivElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
+  const headingId = useId();
+  const descId = useId();
+  const [statusMsg, setStatusMsg] = useState("");
+
+  // Focus management: remember the trigger, focus close on open, restore on unmount.
+  useEffect(() => {
+    const previouslyFocused = (typeof document !== "undefined"
+      ? (document.activeElement as HTMLElement | null)
+      : null);
+    closeBtnRef.current?.focus();
+    return () => {
+      previouslyFocused?.focus?.();
+    };
+  }, []);
+
+  // ESC to close + Tab focus trap inside the dialog.
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+      if (e.key !== "Tab" || !dialogRef.current) return;
+      const focusables = dialogRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"]), input, select, textarea',
+      );
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (e.shiftKey && active === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
 
   function handlePrint() {
     const svgEl = qrWrapRef.current?.querySelector("svg");

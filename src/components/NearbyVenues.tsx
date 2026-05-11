@@ -19,6 +19,13 @@ type Venue = {
 
 type Ranked = Venue & { distanceKm: number };
 
+type PlaceCoordinate = {
+  venue: string;
+  displayName?: string;
+  latitude?: number;
+  longitude?: number;
+};
+
 function haversineKm(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
   const R = 6371;
   const toRad = (d: number) => (d * Math.PI) / 180;
@@ -76,6 +83,27 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
         if (!coords) continue;
         ranked.push({ ...v, distanceKm: haversineKm(location, coords) });
       }
+
+      if (ranked.length === 0 && vRes.data?.length) {
+        const lookups = ((vRes.data ?? []) as Venue[]).slice(0, 12).map((v) => ({
+          venue: v.name,
+          neighborhood: v.neighborhood ?? undefined,
+        }));
+        const { data } = await supabase.functions.invoke("google-places", { body: { queries: lookups } });
+        if (cancelled) return;
+        const liveCoords = new Map<string, { lat: number; lng: number }>();
+        for (const p of (data?.results ?? []) as PlaceCoordinate[]) {
+          if (typeof p.latitude !== "number" || typeof p.longitude !== "number") continue;
+          liveCoords.set(p.venue.trim().toLowerCase(), { lat: p.latitude, lng: p.longitude });
+          if (p.displayName) liveCoords.set(p.displayName.trim().toLowerCase(), { lat: p.latitude, lng: p.longitude });
+        }
+        for (const v of (vRes.data ?? []) as Venue[]) {
+          const coords = liveCoords.get(v.name.trim().toLowerCase());
+          if (!coords) continue;
+          ranked.push({ ...v, distanceKm: haversineKm(location, coords) });
+        }
+      }
+
       ranked.sort((a, b) => a.distanceKm - b.distanceKm);
       setVenues(ranked.slice(0, limit));
       setLoading(false);

@@ -24,7 +24,15 @@ export const Route = createFileRoute("/testimonials")({
   component: TestimonialsPage,
 });
 
-const testimonials = [
+type Testimonial = {
+  name: string;
+  username: string;
+  body: string;
+  img: string;
+  country: string;
+};
+
+const fallbackTestimonials: Testimonial[] = [
   {
     name: "Ava Green",
     username: "@ava",

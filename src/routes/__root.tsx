@@ -17,6 +17,7 @@ import { BuildMyNightWizard } from "@/components/wizard/BuildMyNightWizard";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ReferralCapture } from "@/components/ReferralCapture";
 import { TabBar } from "@/components/loop/TabBar";
+import { CookieConsent } from "@/components/CookieConsent";
 
 function NotFoundComponent() {
   return (

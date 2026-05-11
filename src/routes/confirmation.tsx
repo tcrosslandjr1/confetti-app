@@ -60,14 +60,45 @@ function ConfirmationPage() {
         </p>
 
         <div className="mt-6 rounded-3xl border-2 border-ink bg-card p-5 text-left shadow-brut">
-          <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
-            Plan summary
+          <div className="flex items-center justify-between">
+            <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+              Plan summary
+            </div>
+            {loop.booking?.ref && (
+              <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-coral">
+                {loop.booking.ref}
+              </div>
+            )}
           </div>
           <div className="mt-2 grid grid-cols-3 gap-2 text-center">
             <Stat label="Stops" value={loop.stops.length.toString()} />
             <Stat label="Date" value={loop.date.split(",")[0]} />
             <Stat label="Party" value={String(loop.groupSize)} />
           </div>
+
+          {loop.booking && (
+            <ul className="mt-4 space-y-1.5">
+              {loop.stops.map((s, i) => {
+                const ref = loop.booking!.stops[s.id];
+                return (
+                  <li
+                    key={s.id}
+                    className="flex items-center justify-between gap-2 rounded-lg border border-ink/15 bg-background px-2.5 py-1.5 text-xs"
+                  >
+                    <span className="flex items-center gap-2 truncate">
+                      <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full border-2 border-ink bg-cream font-mono text-[9px] font-bold">
+                        {i + 1}
+                      </span>
+                      <span className="truncate font-semibold">{s.name}</span>
+                    </span>
+                    <span className="font-mono text-[10px] text-ink/70">
+                      {ref ?? "—"}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
 
         <div className="mt-4 grid gap-2 sm:grid-cols-2">

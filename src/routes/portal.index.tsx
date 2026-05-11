@@ -346,6 +346,8 @@ function PortalDiscoverPage() {
         />
       )}
 
+      {user && <ActivityFeed title="Recent group activity" className="bg-card" limit={8} />}
+
       <ViralNow city="Washington DC" />
 
       <div className="grid gap-3 sm:grid-cols-3">

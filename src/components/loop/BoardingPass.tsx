@@ -318,6 +318,27 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
               </button>
               <button
                 type="button"
+                onClick={() => {
+                  const subject = encodeURIComponent(shareTitle);
+                  const lines = [
+                    shareText,
+                    "",
+                    "View the full boarding pass:",
+                    shareUrl,
+                  ];
+                  const body = encodeURIComponent(lines.join("\n"));
+                  // Open the user's default mail client with a prefilled message.
+                  window.location.href = `mailto:?subject=${subject}&body=${body}`;
+                  setShareOpen(false);
+                  toast.success("Opening your email app…");
+                }}
+                className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-[12px] font-bold hover:bg-gold/40"
+              >
+                <Mail className="h-4 w-4" />
+                Email link…
+              </button>
+              <button
+                type="button"
                 onClick={handleSaveImage}
                 disabled={shareBusy === "image"}
                 className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-[12px] font-bold hover:bg-gold/40 disabled:opacity-50"

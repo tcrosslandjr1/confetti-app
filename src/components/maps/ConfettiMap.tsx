@@ -45,6 +45,8 @@ type Props = {
     durationText?: string;
     travelMode: TravelMode;
   } | null) => void;
+  /** Pan + zoom + bounce the marker for this stop id. Changing the value re-triggers the focus. */
+  focusStopId?: string | null;
 };
 
 export function ConfettiMap({

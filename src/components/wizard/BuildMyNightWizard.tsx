@@ -827,7 +827,8 @@ export function BuildMyNightWizard() {
                 {sortedStops.map(({ s, i: origIdx }, displayIdx) => {
                   const i = origIdx;
                   const isOpen = openStop === i;
-                  const mock = getDetails(s.venue, s.vibe);
+                  const mockBase = getDetails(s.venue, s.vibe);
+                  const mock = personalizeDetails(mockBase, s.venue);
                   const live = placesData[s.venue];
                   const d = {
                     ...mock,

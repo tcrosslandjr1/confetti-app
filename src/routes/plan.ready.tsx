@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import {
+  AlertTriangle,
   Apple,
   Calendar,
   Check,
@@ -14,10 +15,13 @@ import {
   Plus,
   Send,
   Sparkles,
+  Timer,
   Upload,
   UserPlus,
+  Users,
   Video,
   X,
+  Zap,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { toast } from "sonner";
@@ -199,7 +203,7 @@ import {
 } from "@/lib/invites";
 import { loadVotes, subscribeVotes, tallyStop, type TripVotes } from "@/lib/votes";
 import { supabase } from "@/integrations/supabase/client";
-import { Users, AlertTriangle, Timer, Zap } from "lucide-react";
+
 import { checkStopFits, dayKeyFromDate } from "@/lib/hours";
 import {
   clearStatus,

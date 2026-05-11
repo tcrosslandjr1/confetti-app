@@ -29,7 +29,14 @@ export function LoopMap({
 }) {
   return (
     <ConfettiMap
-      stops={stops.map((s) => ({ id: s.id, name: s.name, area: s.area, done: s.done }))}
+      stops={stops.map((s) => ({
+        id: s.id,
+        name: s.name,
+        area: s.area,
+        done: s.done,
+        lat: s.lat,
+        lng: s.lng,
+      }))}
       currentIdx={currentIdx}
       fallbackCity={fallbackCity}
       height="100%"

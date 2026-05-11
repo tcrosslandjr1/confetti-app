@@ -5,15 +5,72 @@ import { useEffect, useMemo, useState } from "react";
 export type GeocodeInput = { id: string; query: string; lat?: number; lng?: number };
 export type GeocodeResult = { id: string; lat: number; lng: number };
 
-const cache = new Map<string, { lat: number; lng: number }>();
+// ─── Persistent + in-memory cache ──────────────────────────────────────
+const CACHE_KEY = "confetti:geocode-cache:v1";
+const CACHE_MAX = 500; // keep small to avoid localStorage bloat
+
+type CacheValue = { lat: number; lng: number };
+
+function loadCache(): Map<string, CacheValue> {
+  if (typeof window === "undefined") return new Map();
+  try {
+    const raw = localStorage.getItem(CACHE_KEY);
+    if (!raw) return new Map();
+    const obj = JSON.parse(raw) as Record<string, CacheValue>;
+    return new Map(Object.entries(obj));
+  } catch {
+    return new Map();
+  }
+}
+
+const cache = loadCache();
+
+function persist() {
+  if (typeof window === "undefined") return;
+  try {
+    // Trim to the most-recent CACHE_MAX entries (Map preserves insertion order)
+    const entries = Array.from(cache.entries());
+    const trimmed = entries.slice(Math.max(0, entries.length - CACHE_MAX));
+    localStorage.setItem(CACHE_KEY, JSON.stringify(Object.fromEntries(trimmed)));
+  } catch {
+    /* quota / disabled */
+  }
+}
+
+function setCache(query: string, value: CacheValue) {
+  cache.set(query.toLowerCase().trim(), value);
+  persist();
+}
+
+function getCache(query: string): CacheValue | undefined {
+  return cache.get(query.toLowerCase().trim());
+}
 
 /**
- * Batched, in-memory cached geocoder. Skips entries that already carry lat/lng.
- * Re-runs only when the query identity actually changes.
+ * Batched geocoder with persistent localStorage cache.
+ * - Uses provided lat/lng directly when present (no network call).
+ * - Otherwise consults the persistent cache.
+ * - Only calls the Google Geocoder for genuinely-new queries.
  */
 export function useGeocodedPoints(inputs: GeocodeInput[]) {
   const geocoding = useMapsLibrary("geocoding");
-  const [points, setPoints] = useState<GeocodeResult[]>([]);
+
+  // Synchronously seed from cache + provided coords so the map can render
+  // immediately on first paint instead of waiting for the effect to run.
+  const seeded = useMemo<GeocodeResult[]>(() => {
+    const out: GeocodeResult[] = [];
+    for (const i of inputs) {
+      if (typeof i.lat === "number" && typeof i.lng === "number") {
+        out.push({ id: i.id, lat: i.lat, lng: i.lng });
+        continue;
+      }
+      const hit = getCache(i.query);
+      if (hit) out.push({ id: i.id, ...hit });
+    }
+    return out;
+  }, [inputs]);
+
+  const [points, setPoints] = useState<GeocodeResult[]>(seeded);
 
   const key = useMemo(
     () => inputs.map((i) => `${i.id}|${i.query}|${i.lat ?? ""}|${i.lng ?? ""}`).join("::"),
@@ -21,10 +78,15 @@ export function useGeocodedPoints(inputs: GeocodeInput[]) {
   );
 
   useEffect(() => {
-    if (!geocoding || inputs.length === 0) {
-      setPoints([]);
-      return;
-    }
+    setPoints(seeded);
+    if (!geocoding || inputs.length === 0) return;
+
+    // Skip network entirely if every input already resolved synchronously.
+    const needsLookup = inputs.some(
+      (i) => !(typeof i.lat === "number" && typeof i.lng === "number") && !getCache(i.query)
+    );
+    if (!needsLookup) return;
+
     let cancelled = false;
     const geocoder = new geocoding.Geocoder();
 
@@ -35,7 +97,7 @@ export function useGeocodedPoints(inputs: GeocodeInput[]) {
           results.push({ id: i.id, lat: i.lat, lng: i.lng });
           continue;
         }
-        const cached = cache.get(i.query);
+        const cached = getCache(i.query);
         if (cached) {
           results.push({ id: i.id, ...cached });
           continue;
@@ -45,11 +107,11 @@ export function useGeocodedPoints(inputs: GeocodeInput[]) {
           const loc = r.results[0]?.geometry.location;
           if (loc) {
             const value = { lat: loc.lat(), lng: loc.lng() };
-            cache.set(i.query, value);
+            setCache(i.query, value);
             results.push({ id: i.id, ...value });
           }
         } catch {
-          // skip failed geocode
+          /* skip failed geocode */
         }
       }
       if (!cancelled) setPoints(results);
@@ -63,6 +125,7 @@ export function useGeocodedPoints(inputs: GeocodeInput[]) {
 
   return points;
 }
+
 
 /** Build a Google Maps directions URL for desktop/native handoff. */
 export function buildDirectionsUrl(points: { lat: number; lng: number }[], travelMode: "walking" | "driving" | "transit" = "walking") {

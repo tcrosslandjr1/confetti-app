@@ -188,7 +188,20 @@ function PlanPage() {
 
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label="City">
-              <input value={city} onChange={(e) => setCity(e.target.value)} placeholder="e.g. Austin" className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+              <div className="flex gap-2">
+                <input value={city} onChange={(e) => setCity(e.target.value)} placeholder="e.g. Austin" className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
+                <button
+                  type="button"
+                  onClick={detectLocation}
+                  disabled={locating}
+                  className="inline-flex shrink-0 items-center gap-1.5 rounded-xl border border-border bg-background px-3 py-2.5 text-xs font-semibold text-foreground transition hover:bg-muted disabled:opacity-60"
+                  title="Use my current location"
+                >
+                  {locating ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <MapPin className="h-3.5 w-3.5" />}
+                  {locating ? "Locating…" : "Use my location"}
+                </button>
+              </div>
+              {locErr && <p className="mt-1.5 text-xs text-destructive">{locErr}</p>}
             </Field>
             <Field label="Neighborhood (optional)">
               <input value={neighborhood} onChange={(e) => setNeighborhood(e.target.value)} placeholder="e.g. East Side" className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />

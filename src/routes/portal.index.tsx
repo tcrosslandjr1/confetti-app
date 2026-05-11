@@ -47,6 +47,7 @@ import {
   XpProgressWidget,
   TrendingNearYouWidget,
 } from "@/components/widgets/AppWidgets";
+import { ActivityFeed } from "@/components/activity/ActivityFeed";
 
 export const Route = createFileRoute("/portal/")({
   head: () => ({

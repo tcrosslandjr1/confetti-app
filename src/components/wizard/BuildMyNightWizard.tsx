@@ -834,6 +834,69 @@ export function BuildMyNightWizard() {
           )}
 
           {step === 5 && (
+            <StepShell title="Dietary needs?" sub="We'll filter dishes and warn you about allergens.">
+              <div className="space-y-5">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink/55">Diet</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {([
+                      { k: "vegan", label: "Vegan" },
+                      { k: "vegetarian", label: "Vegetarian" },
+                      { k: "pescatarian", label: "Pescatarian" },
+                      { k: "glutenFree", label: "Gluten-free" },
+                    ] as const).map((d) => {
+                      const active = dietPrefs[d.k];
+                      return (
+                        <button
+                          key={d.k}
+                          onClick={() => setDietPrefs((p) => {
+                            // Diet options are mutually exclusive; clicking active one clears it.
+                            const cleared: DietPrefs = { ...p, vegan: false, vegetarian: false, pescatarian: false, glutenFree: false };
+                            if (active) return cleared;
+                            const nextP = { ...cleared, [d.k]: true } as DietPrefs;
+                            // Vegan implies vegetarian
+                            if (d.k === "vegan") nextP.vegetarian = true;
+                            return nextP;
+                          })}
+                          className={`rounded-full border-2 border-ink px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-0.5 bg-mint text-ink shadow-brut-lg" : "bg-cream"}`}
+                        >
+                          {active && <Check className="-mt-0.5 mr-1 inline h-3.5 w-3.5" />}
+                          {d.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <p className="mt-1.5 text-[11px] text-ink/55">Pick one. Vegan automatically implies vegetarian.</p>
+                </div>
+
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-ink/55">Allergens to avoid</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {["peanuts", "tree nuts", "shellfish", "dairy", "eggs", "soy", "sesame", "wheat/gluten", "fish"].map((a) => {
+                      const active = dietPrefs.allergens.includes(a);
+                      return (
+                        <button
+                          key={a}
+                          onClick={() => toggleAllergen(a)}
+                          className={`inline-flex items-center gap-1 rounded-full border-2 border-ink px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-0.5 bg-coral text-cream shadow-brut-lg" : "bg-cream"}`}
+                        >
+                          {active ? <Check className="h-3 w-3" /> : <span>⚠</span>}
+                          {a}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <p className="mt-1.5 text-[11px] text-ink/55">We'll flag matches in dish details and skip risky picks where possible.</p>
+                </div>
+
+                {dietSavedFlash && (
+                  <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-mint-foreground">Saved to your profile</p>
+                )}
+              </div>
+            </StepShell>
+          )}
+
+          {step === 6 && (
             <div className="flex min-h-[260px] flex-col items-center justify-center gap-5 py-8">
               <Loader2 className="h-12 w-12 animate-spin text-coral" />
               <div key={loadingIdx} className="font-display text-2xl font-extrabold" style={{ animation: "reveal-up 0.4s ease-out forwards" }}>
@@ -847,7 +910,7 @@ export function BuildMyNightWizard() {
             </div>
           )}
 
-          {step === 6 && (
+          {step === 7 && (
             <div>
               <h2 className="font-display text-3xl font-extrabold leading-tight sm:text-4xl">
                 {preset ? preset.title : "Your night's "}

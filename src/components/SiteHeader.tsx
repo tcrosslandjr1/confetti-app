@@ -22,11 +22,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b-2 border-ink bg-cream/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="group flex items-baseline gap-1">
-          <span className="font-display text-2xl font-extrabold tracking-tight text-ink">
-            loop
-          </span>
-          <span className="font-serif text-2xl italic text-coral">.</span>
+        <Link to="/" className="group flex items-center gap-[2px]" aria-label="loop — home">
+          <span className="font-display text-2xl font-extrabold leading-none tracking-tight text-ink">l</span>
+          <Oloid className="h-[0.95em] w-[0.95em] -mx-[1px] text-ink transition-transform duration-500 group-hover:[transform:rotate(180deg)]" />
+          <Oloid className="h-[0.95em] w-[0.95em] -mx-[1px] text-ink transition-transform duration-500 group-hover:[transform:rotate(-180deg)]" style={{ transform: "rotate(60deg)" }} />
+          <span className="font-display text-2xl font-extrabold leading-none tracking-tight text-ink">p</span>
+          <span className="font-serif text-2xl italic leading-none text-coral">.</span>
           <span className="ml-2 hidden font-mono text-[10px] uppercase tracking-[0.25em] text-ink/60 sm:inline">
             / your city, on a loop
           </span>

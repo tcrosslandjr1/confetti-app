@@ -30,7 +30,13 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           })),
         }),
       });
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
+      if (res.status === 503) {
+        toast("Google Wallet launching soon", {
+          description: "We're finalizing our Wallet issuer setup before launch.",
+        });
+        return;
+      }
       if (!res.ok) {
         toast.error(data.error || "Could not generate Google Wallet pass");
         return;

@@ -249,9 +249,8 @@ function dishReasons(
     if (d.glutenFree && info.glutenFree) out.push("Gluten-free ✓");
     const avoid = (d.avoidAllergens ?? []).map((a) => a.toLowerCase());
     if (avoid.length > 0) {
-      const lower = info.allergens.map((a) => a.toLowerCase());
-      const conflicts = avoid.filter((a) => lower.includes(a));
-      if (conflicts.length === 0) out.push(`Skips ${avoid.slice(0, 2).join(" + ")}`);
+      const conflict = hasAllergenConflict(info.allergens, avoid);
+      if (!conflict) out.push(`Skips ${avoid.slice(0, 2).join(" + ")}`);
     }
     if (typeof info.spice === "number" && info.spice >= 2) out.push("Bold + spicy");
   }

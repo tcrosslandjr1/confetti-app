@@ -1,7 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { MapPin, Check, Navigation, X } from "lucide-react";
-import { TabBar } from "@/components/loop/TabBar";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
 import { addConfetti, getActiveLoop, getConfetti, makeDemoLoop, setActiveLoop, type ActiveLoop } from "@/lib/loop-store";
 import { toast } from "sonner";
@@ -144,7 +143,6 @@ function ActiveLoopPage() {
           )}
         </div>
       </div>
-      <TabBar />
     </div>
   );
 }

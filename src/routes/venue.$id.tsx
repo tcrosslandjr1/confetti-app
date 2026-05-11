@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles } from "lucide-react";
-import { TabBar } from "@/components/loop/TabBar";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -99,7 +98,6 @@ function VenuePage() {
           <div className="h-32 animate-pulse rounded-3xl bg-muted" />
           <div className="h-24 animate-pulse rounded-2xl bg-muted" />
         </div>
-        <TabBar />
       </div>
     );
   }
@@ -114,7 +112,6 @@ function VenuePage() {
             <ArrowLeft className="h-3 w-3" /> Browse trending spots
           </Link>
         </div>
-        <TabBar />
       </div>
     );
   }
@@ -212,7 +209,6 @@ function VenuePage() {
           </div>
         </div>
       </div>
-      <TabBar />
     </div>
   );
 }

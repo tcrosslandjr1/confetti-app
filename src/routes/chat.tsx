@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
 import { Sparkles, Send, ArrowLeft } from "lucide-react";
-import { TabBar } from "@/components/loop/TabBar";
 
 export const Route = createFileRoute("/chat")({
   head: () => ({ meta: [{ title: "Loop AI Chat — Loop" }] }),
@@ -120,7 +119,6 @@ function ChatPage() {
           </form>
         </div>
       </div>
-      <TabBar />
     </div>
   );
 }

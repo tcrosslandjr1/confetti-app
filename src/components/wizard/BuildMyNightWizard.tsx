@@ -1074,6 +1074,7 @@ export function BuildMyNightWizard() {
         )}
       </div>
       {layer}
+      <DishQuickView open={openDish} onOpenChange={(o) => !o && setOpenDish(null)} />
     </div>
   );
 }

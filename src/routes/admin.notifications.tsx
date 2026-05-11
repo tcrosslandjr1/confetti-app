@@ -67,6 +67,54 @@ function AdminNotificationsPage() {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<(typeof STATUSES)[number]>("all");
   const [preview, setPreview] = useState<Delivery | null>(null);
+  const [resendingId, setResendingId] = useState<string | null>(null);
+  const resolveEmail = useServerFn(resolveVenueNotificationEmail);
+
+  const onResend = async (r: Delivery) => {
+    setResendingId(r.id);
+    try {
+      const result = r.venue_id
+        ? await resolveEmail({ data: { venueId: r.venue_id } })
+        : null;
+      const recipient = result?.email ?? r.recipient_email ?? null;
+      const source = result?.source ?? r.source;
+
+      const insertRow = {
+        booking_id: r.booking_id,
+        venue_id: r.venue_id,
+        venue_name: r.venue_name,
+        recipient_email: recipient,
+        source,
+        channel: r.channel,
+        status: recipient ? "sent" : "failed",
+        error: recipient ? null : "No recipient resolved on retry",
+        subject: r.subject ? `${r.subject} (retry)` : "Booking notification (retry)",
+        body: r.body,
+        test: r.test,
+      };
+      const { error: insErr } = await supabase
+        .from("booking_notification_deliveries")
+        .insert(insertRow);
+      if (insErr) throw insErr;
+
+      // Mark the original as resolved so it stops appearing in failed counts.
+      const { error: updErr } = await supabase
+        .from("booking_notification_deliveries")
+        .update({ status: "skipped", error: "Superseded by retry" })
+        .eq("id", r.id);
+      if (updErr) throw updErr;
+
+      if (recipient) {
+        toast.success(`Resent to ${recipient}`, { description: `Via ${source}.` });
+      } else {
+        toast.error("Retry still failed", { description: "No recipient could be resolved." });
+      }
+    } catch (e) {
+      toast.error("Resend failed", { description: (e as Error).message });
+    } finally {
+      setResendingId(null);
+    }
+  };
 
   const load = async () => {
     setLoading(true);

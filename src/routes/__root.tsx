@@ -138,6 +138,7 @@ function RootComponent() {
           <Outlet />
           <BuildMyNightWizard />
           <TabBar />
+          <CookieConsent />
           <Toaster />
         </WizardProvider>
       </AuthProvider>

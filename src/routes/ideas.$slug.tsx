@@ -180,7 +180,8 @@ function IdeasPage() {
   const current = ideas[index];
   const remaining = ideas.length - index;
 
-  async function generateMore() {
+  async function generateMore({ showNew = false }: { showNew?: boolean } = {}) {
+    const firstNewIndex = ideas.length;
     setLoading(true);
     setError(null);
     try {
@@ -206,6 +207,7 @@ function IdeasPage() {
       );
       if (newOnes.length === 0) throw new Error("No ideas returned. Try again.");
       setIdeas((prev) => [...prev, ...newOnes]);
+      if (showNew) setIndex(firstNewIndex);
     } catch (e) {
       const fallback = fallbackIdeas(
         slug,
@@ -214,6 +216,7 @@ function IdeasPage() {
       );
       if (fallback.length) {
         setIdeas((prev) => [...prev, ...fallback]);
+        if (showNew) setIndex(firstNewIndex);
         setError(null);
       } else {
         setError((e as Error).message);
@@ -298,7 +301,7 @@ function IdeasPage() {
           {current ? (
             <FlashCard idea={current} format={format} occasionGradient={occasion.gradient} />
           ) : (
-            <EmptyDeck onReset={reset} onGenerate={generateMore} loading={loading} />
+            <EmptyDeck onReset={reset} onGenerate={() => generateMore({ showNew: true })} loading={loading} />
           )}
 
           {current && (
@@ -311,7 +314,7 @@ function IdeasPage() {
                 <X className="h-7 w-7" />
               </button>
               <button
-                onClick={generateMore}
+                onClick={() => generateMore({ showNew: true })}
                 disabled={loading}
                 className="grid h-12 w-12 place-items-center rounded-full bg-muted text-foreground transition-pop hover:scale-110 disabled:opacity-50"
                 aria-label="Generate more"

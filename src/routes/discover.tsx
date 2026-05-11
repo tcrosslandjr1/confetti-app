@@ -142,6 +142,7 @@ function DiscoverPage() {
 }
 
 function DiscoverMap({ rows }: { rows: VenueRow[] }) {
+  const [selected, setSelected] = useState<VenueRow | null>(null);
   if (!GOOGLE_MAPS_API_KEY) {
     return (
       <div className="grid h-[60vh] place-items-center rounded-2xl border-2 border-ink bg-cream text-sm text-muted-foreground">
@@ -163,8 +164,9 @@ function DiscoverMap({ rows }: { rows: VenueRow[] }) {
         clickableIcons={false}
         className="h-full w-full"
       >
-        <DiscoverMarkers rows={rows} />
+        <DiscoverMarkers rows={rows} onSelect={setSelected} />
       </Map>
+      {selected ? <SelectedCard row={selected} onClose={() => setSelected(null)} /> : null}
     </div>
   );
 }

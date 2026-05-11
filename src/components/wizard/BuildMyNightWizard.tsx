@@ -1409,11 +1409,34 @@ export function BuildMyNightWizard() {
                   </p>
                 </div>
 
-                {dietSavedFlash && (
-                  <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-mint-foreground">
-                    Saved to your profile
-                  </p>
-                )}
+                <div className="flex items-center justify-between gap-3 pt-1">
+                  {dietSavedFlash ? (
+                    <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-mint-foreground">
+                      Saved to your profile
+                    </p>
+                  ) : <span />}
+                  {(dietPrefs.vegan ||
+                    dietPrefs.vegetarian ||
+                    dietPrefs.pescatarian ||
+                    dietPrefs.glutenFree ||
+                    dietPrefs.allergens.length > 0) && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setDietPrefs({
+                          vegan: false,
+                          vegetarian: false,
+                          pescatarian: false,
+                          glutenFree: false,
+                          allergens: [],
+                        })
+                      }
+                      className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 underline-offset-4 hover:text-coral hover:underline"
+                    >
+                      Clear dietary needs
+                    </button>
+                  )}
+                </div>
               </div>
             </StepShell>
           )}

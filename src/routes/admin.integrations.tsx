@@ -240,6 +240,3 @@ function ViralRefreshPanel() {
     </section>
   );
 }
-    </div>
-  );
-}

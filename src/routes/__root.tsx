@@ -16,6 +16,7 @@ import { WizardProvider } from "@/components/wizard/wizard-context";
 import { BuildMyNightWizard } from "@/components/wizard/BuildMyNightWizard";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ReferralCapture } from "@/components/ReferralCapture";
+import { TabBar } from "@/components/loop/TabBar";
 
 function NotFoundComponent() {
   return (
@@ -135,6 +136,7 @@ function RootComponent() {
           <Outlet />
           <BuildMyNightWizard />
           <RoleSwitcher />
+          <TabBar />
           <Toaster />
         </WizardProvider>
       </AuthProvider>

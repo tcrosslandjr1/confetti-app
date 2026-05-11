@@ -171,9 +171,14 @@ function DiscoverMap({ rows }: { rows: VenueRow[] }) {
   );
 }
 
-function DiscoverMarkers({ rows }: { rows: VenueRow[] }) {
+function DiscoverMarkers({
+  rows,
+  onSelect,
+}: {
+  rows: VenueRow[];
+  onSelect: (row: VenueRow) => void;
+}) {
   const map = useMap();
-  const [selected, setSelected] = useState<VenueRow | null>(null);
   const markersRef = useRef<google.maps.Marker[]>([]);
   const inputs = useMemo(
     () =>
@@ -207,7 +212,7 @@ function DiscoverMarkers({ rows }: { rows: VenueRow[] }) {
         },
         title: row.name,
       });
-      marker.addListener("click", () => setSelected(row));
+      marker.addListener("click", () => onSelect(row));
       markersRef.current.push(marker);
     });
 
@@ -219,15 +224,19 @@ function DiscoverMarkers({ rows }: { rows: VenueRow[] }) {
       markersRef.current.forEach((m) => m.setMap(null));
       markersRef.current = [];
     };
-  }, [map, points, rows]);
+  }, [map, points, rows, onSelect]);
 
-  return selected ? (
-    <div className="pointer-events-auto absolute bottom-4 left-4 right-4 z-30 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut">
+  return null;
+}
+
+function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) {
+  return (
+    <div className="absolute bottom-4 left-4 right-4 z-30 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut">
       <div className="flex items-center gap-3">
-        {selected.photo ? (
+        {row.photo ? (
           <img
-            src={selected.photo}
-            alt={selected.name}
+            src={row.photo}
+            alt={row.name}
             className="h-14 w-14 shrink-0 rounded-xl border-2 border-ink object-cover"
           />
         ) : (
@@ -236,25 +245,25 @@ function DiscoverMarkers({ rows }: { rows: VenueRow[] }) {
           </div>
         )}
         <div className="min-w-0 flex-1">
-          <div className="font-display text-base font-bold leading-tight">{selected.name}</div>
+          <div className="font-display text-base font-bold leading-tight">{row.name}</div>
           <div className="truncate text-xs text-muted-foreground">
-            {selected.neighborhood ?? selected.address ?? "Nearby"}
+            {row.neighborhood ?? row.address ?? "Nearby"}
           </div>
-          {selected.rating != null && (
+          {row.rating != null && (
             <div className="mt-0.5 inline-flex items-center gap-1 text-xs">
-              <Star className="h-3 w-3 fill-gold text-gold" /> {selected.rating.toFixed(1)}
+              <Star className="h-3 w-3 fill-gold text-gold" /> {row.rating.toFixed(1)}
             </div>
           )}
         </div>
         <Link
           to="/venue/$id"
-          params={{ id: selected.id }}
+          params={{ id: row.id }}
           className="rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut"
         >
           View
         </Link>
         <button
-          onClick={() => setSelected(null)}
+          onClick={onClose}
           className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-cream font-bold"
           aria-label="Close"
         >
@@ -262,5 +271,6 @@ function DiscoverMarkers({ rows }: { rows: VenueRow[] }) {
         </button>
       </div>
     </div>
-  ) : null;
+  );
 }
+

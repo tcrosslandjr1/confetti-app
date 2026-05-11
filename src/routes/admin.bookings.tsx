@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
-import { CalendarCheck, CheckCircle2, Search, XCircle, Clock, Filter, Wine, Armchair, Eye } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { CalendarCheck, CheckCircle2, Search, XCircle, Clock, Filter, Wine, Armchair, Eye, Mail, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -13,6 +14,7 @@ import {
 } from "@/components/ui/table";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { resolveVenueNotificationEmail } from "@/lib/booking-notifications.functions";
 
 export const Route = createFileRoute("/admin/bookings")({
   component: AdminBookingsPage,
@@ -23,6 +25,7 @@ type DrinkItem = { name: string; qty: number; notes?: string };
 type Booking = {
   id: string;
   user_id: string;
+  venue_id: string | null;
   venue_name: string;
   starts_at: string;
   party_size: number;
@@ -33,6 +36,80 @@ type Booking = {
   seating_preference: string | null;
   profiles: { display_name: string | null } | null;
 };
+
+type Routing = { email: string | null; source: string; venueName: string | null };
+const SOURCE_LABEL: Record<string, string> = {
+  venue_staff_email: "Venue staff email",
+  linked_advertiser: "Linked advertiser",
+  ops_fallback: "Ops fallback",
+};
+const SOURCE_BADGE: Record<string, string> = {
+  venue_staff_email: "bg-emerald-500/15 text-emerald-700 border-emerald-500/30",
+  linked_advertiser: "bg-sky-500/15 text-sky-700 border-sky-500/30",
+  ops_fallback: "bg-amber-500/15 text-amber-700 border-amber-500/30",
+};
+
+function NotificationRoutingCell({
+  venueId,
+  cache,
+  resolve,
+}: {
+  venueId: string | null;
+  cache: Map<string, Routing | null>;
+  resolve: (id: string) => Promise<Routing | null>;
+}) {
+  const [routing, setRouting] = useState<Routing | null | undefined>(
+    venueId ? cache.get(venueId) : null,
+  );
+  useEffect(() => {
+    let cancelled = false;
+    if (!venueId) {
+      setRouting(null);
+      return;
+    }
+    if (cache.has(venueId)) {
+      setRouting(cache.get(venueId));
+      return;
+    }
+    setRouting(undefined);
+    resolve(venueId).then((r) => {
+      if (!cancelled) setRouting(r);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [venueId, cache, resolve]);
+
+  if (!venueId) {
+    return (
+      <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+        <Mail className="h-3 w-3" /> Ops fallback (no venue)
+      </span>
+    );
+  }
+  if (routing === undefined) {
+    return (
+      <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+        <Loader2 className="h-3 w-3 animate-spin" /> Resolving…
+      </span>
+    );
+  }
+  if (!routing?.email) {
+    return <span className="text-xs text-destructive">Unresolved</span>;
+  }
+  return (
+    <div className="space-y-1">
+      <div className="font-mono text-xs">{routing.email}</div>
+      <span
+        className={`inline-flex items-center rounded-full border px-1.5 py-0.5 text-[10px] ${
+          SOURCE_BADGE[routing.source] ?? "border-border bg-muted text-muted-foreground"
+        }`}
+      >
+        {SOURCE_LABEL[routing.source] ?? routing.source}
+      </span>
+    </div>
+  );
+}
 
 const STATUS_TABS: { key: "all" | Status; label: string }[] = [
   { key: "all", label: "All" },

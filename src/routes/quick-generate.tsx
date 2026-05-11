@@ -71,6 +71,7 @@ const STOPS: Stop[] = [
 const TWEAKS = ["More chill", "Add dessert", "Make it fancy", "Kid-friendly"];
 
 function QuickGenerate() {
+  const navigate = useNavigate();
   const [phase, setPhase] = useState<"gen" | "ready">("gen");
   const [progress, setProgress] = useState(0);
   const [statusStep, setStatusStep] = useState(0);

@@ -21,6 +21,8 @@ export type DirectionsStepLite = {
   maneuver?: string;
 };
 
+export type TravelMode = "WALKING" | "DRIVING";
+
 type Props = {
   stops: MapStop[];
   currentIdx?: number;
@@ -32,6 +34,8 @@ type Props = {
   className?: string;
   /** Called once geocoding finishes so the parent can build directions links. */
   onPointsReady?: (points: GeocodeResult[]) => void;
+  /** Travel mode for the active leg's directions. Defaults to DRIVING. */
+  travelMode?: TravelMode;
   /** Steps for the currently active leg (between the previous and current stop). */
   onActiveStepsChange?: (info: {
     fromIdx: number;
@@ -39,6 +43,7 @@ type Props = {
     steps: DirectionsStepLite[];
     distanceText?: string;
     durationText?: string;
+    travelMode: TravelMode;
   } | null) => void;
 };
 
@@ -52,6 +57,7 @@ export function ConfettiMap({
   onStopClick,
   className = "",
   onPointsReady,
+  travelMode = "DRIVING",
   onActiveStepsChange,
 }: Props) {
   if (!GOOGLE_MAPS_API_KEY) {
@@ -90,6 +96,7 @@ export function ConfettiMap({
           showUserLocation={showUserLocation}
           onStopClick={onStopClick}
           onPointsReady={onPointsReady}
+          travelMode={travelMode}
           onActiveStepsChange={onActiveStepsChange}
         />
       </Map>
@@ -104,6 +111,7 @@ function Layer({
   showUserLocation,
   onStopClick,
   onPointsReady,
+  travelMode,
   onActiveStepsChange,
 }: {
   stops: MapStop[];
@@ -112,6 +120,7 @@ function Layer({
   showUserLocation: boolean;
   onStopClick?: (stop: MapStop) => void;
   onPointsReady?: (points: GeocodeResult[]) => void;
+  travelMode: TravelMode;
   onActiveStepsChange?: Props["onActiveStepsChange"];
 }) {
   const map = useMap();
@@ -302,7 +311,10 @@ function Layer({
       {
         origin: { lat: a.lat, lng: a.lng },
         destination: { lat: b.lat, lng: b.lng },
-        travelMode: google.maps.TravelMode.DRIVING,
+        travelMode:
+          travelMode === "WALKING"
+            ? google.maps.TravelMode.WALKING
+            : google.maps.TravelMode.DRIVING,
       },
       (result, status) => {
         if (reqId !== activeRouteRequestRef.current) return; // superseded
@@ -311,6 +323,7 @@ function Layer({
             fromIdx: activeLeg.from,
             toIdx: activeLeg.to,
             steps: [],
+            travelMode,
           });
           return;
         }
@@ -337,10 +350,11 @@ function Layer({
           steps,
           distanceText: leg.distance?.text,
           durationText: leg.duration?.text,
+          travelMode,
         });
       }
     );
-  }, [map, points, stops, activeLeg, onActiveStepsChange]);
+  }, [map, points, stops, activeLeg, travelMode, onActiveStepsChange]);
 
   // User location pulsing dot
   useEffect(() => {

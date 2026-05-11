@@ -1,7 +1,9 @@
 // Back-compat shim. The shared ConfettiMap supersedes LoopMap.
 // Existing imports of <LoopMap /> continue to work.
-import { ConfettiMap, type DirectionsStepLite } from "@/components/maps/ConfettiMap";
+import { ConfettiMap, type DirectionsStepLite, type TravelMode } from "@/components/maps/ConfettiMap";
 import type { LoopStop } from "@/lib/loop-store";
+
+export type { TravelMode } from "@/components/maps/ConfettiMap";
 
 export type ActiveLegInfo = {
   fromIdx: number;
@@ -9,17 +11,20 @@ export type ActiveLegInfo = {
   steps: DirectionsStepLite[];
   distanceText?: string;
   durationText?: string;
+  travelMode: TravelMode;
 } | null;
 
 export function LoopMap({
   stops,
   currentIdx,
   fallbackCity = "Washington, DC",
+  travelMode = "DRIVING",
   onActiveLegChange,
 }: {
   stops: LoopStop[];
   currentIdx: number;
   fallbackCity?: string;
+  travelMode?: TravelMode;
   onActiveLegChange?: (info: ActiveLegInfo) => void;
 }) {
   return (
@@ -29,6 +34,7 @@ export function LoopMap({
       fallbackCity={fallbackCity}
       height="100%"
       showUserLocation
+      travelMode={travelMode}
       onActiveStepsChange={onActiveLegChange}
     />
   );

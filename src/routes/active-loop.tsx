@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { MapPin, Check, Navigation, X } from "lucide-react";
+import { MapPin, Check, Navigation, X, Footprints, Car } from "lucide-react";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
 import {
   addConfetti,
@@ -12,7 +12,7 @@ import {
   subscribeConfetti,
   type ActiveLoop,
 } from "@/lib/loop-store";
-import { LoopMap, type ActiveLegInfo } from "@/components/loop/LoopMap";
+import { LoopMap, type ActiveLegInfo, type TravelMode } from "@/components/loop/LoopMap";
 import { DirectionsPanel } from "@/components/loop/DirectionsPanel";
 import { toast } from "sonner";
 
@@ -25,6 +25,7 @@ function ActiveLoopPage() {
   const [loop, setLoop] = useState<ActiveLoop | null>(null);
   const [confetti, setConfettiCount] = useState(0);
   const [activeLeg, setActiveLeg] = useState<ActiveLegInfo>(null);
+  const [travelMode, setTravelMode] = useState<TravelMode>("DRIVING");
   const { burst, layer } = useConfettiBurst();
   const navigate = useNavigate();
 
@@ -95,10 +96,40 @@ function ActiveLoopPage() {
             stops={loop.stops}
             currentIdx={currentIdx}
             fallbackCity={loop.stops[0]?.area || "Washington, DC"}
+            travelMode={travelMode}
             onActiveLegChange={setActiveLeg}
           />
           <div className="pointer-events-none absolute bottom-2 left-2 rounded-full bg-cream/95 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink shadow-sm">
             Live route · {loop.stops.length} stops
+          </div>
+
+          {/* Travel mode toggle */}
+          <div
+            role="tablist"
+            aria-label="Directions mode"
+            className="absolute top-2 right-2 inline-flex rounded-full border-2 border-ink bg-cream p-0.5 shadow-brut"
+          >
+            {(
+              [
+                { mode: "WALKING" as const, label: "Walk", Icon: Footprints },
+                { mode: "DRIVING" as const, label: "Drive", Icon: Car },
+              ]
+            ).map(({ mode, label, Icon }) => {
+              const active = travelMode === mode;
+              return (
+                <button
+                  key={mode}
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => setTravelMode(mode)}
+                  className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest transition-colors ${
+                    active ? "bg-coral text-cream" : "text-ink hover:bg-ink/5"
+                  }`}
+                >
+                  <Icon className="h-3 w-3" /> {label}
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -109,6 +140,7 @@ function ActiveLoopPage() {
             steps={activeLeg.steps}
             distanceText={activeLeg.distanceText}
             durationText={activeLeg.durationText}
+            travelMode={activeLeg.travelMode}
           />
         )}
 

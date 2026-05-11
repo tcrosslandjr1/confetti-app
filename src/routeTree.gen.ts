@@ -47,6 +47,7 @@ import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as VenueIdRouteImport } from './routes/venue.$id'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
 import { Route as TeamsNewRouteImport } from './routes/teams.new'
+import { Route as TeamsIdRouteImport } from './routes/teams.$id'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
 import { Route as PortalViralRouteImport } from './routes/portal.viral'
 import { Route as PortalSavedRouteImport } from './routes/portal.saved'
@@ -270,6 +271,11 @@ const TripsIdRoute = TripsIdRouteImport.update({
 const TeamsNewRoute = TeamsNewRouteImport.update({
   id: '/new',
   path: '/new',
+  getParentRoute: () => TeamsRoute,
+} as any)
+const TeamsIdRoute = TeamsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
   getParentRoute: () => TeamsRoute,
 } as any)
 const RsvpTripIdRoute = RsvpTripIdRouteImport.update({
@@ -503,6 +509,7 @@ export interface FileRoutesByFullPath {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
+  '/teams/$id': typeof TeamsIdRoute
   '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
@@ -573,6 +580,7 @@ export interface FileRoutesByTo {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
+  '/teams/$id': typeof TeamsIdRoute
   '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
@@ -648,6 +656,7 @@ export interface FileRoutesById {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
+  '/teams/$id': typeof TeamsIdRoute
   '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
@@ -724,6 +733,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/rsvp/$tripId'
+    | '/teams/$id'
     | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
@@ -794,6 +804,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/rsvp/$tripId'
+    | '/teams/$id'
     | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
@@ -868,6 +879,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/rsvp/$tripId'
+    | '/teams/$id'
     | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
@@ -1197,6 +1209,13 @@ declare module '@tanstack/react-router' {
       path: '/new'
       fullPath: '/teams/new'
       preLoaderRoute: typeof TeamsNewRouteImport
+      parentRoute: typeof TeamsRoute
+    }
+    '/teams/$id': {
+      id: '/teams/$id'
+      path: '/$id'
+      fullPath: '/teams/$id'
+      preLoaderRoute: typeof TeamsIdRouteImport
       parentRoute: typeof TeamsRoute
     }
     '/rsvp/$tripId': {
@@ -1542,10 +1561,12 @@ const PortalRouteWithChildren =
   PortalRoute._addFileChildren(PortalRouteChildren)
 
 interface TeamsRouteChildren {
+  TeamsIdRoute: typeof TeamsIdRoute
   TeamsNewRoute: typeof TeamsNewRoute
 }
 
 const TeamsRouteChildren: TeamsRouteChildren = {
+  TeamsIdRoute: TeamsIdRoute,
   TeamsNewRoute: TeamsNewRoute,
 }
 

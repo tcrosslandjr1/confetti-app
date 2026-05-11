@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2, Shield, Compass, Coffee, Sparkle, Eye, SlidersHorizontal } from "lucide-react";
+import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2, Shield, Compass, Coffee, Sparkle, Eye, SlidersHorizontal, CalendarCheck, Users, Trophy } from "lucide-react";
+import { getMyReferralStats, type MyReferralStats } from "@/lib/referrals";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";

@@ -92,6 +92,7 @@ import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public
 import { Route as ApiPublicInstagramCallbackRouteImport } from './routes/api/public/instagram.callback'
 import { Route as ApiPublicHooksTiktokRefreshRouteImport } from './routes/api/public/hooks/tiktok-refresh'
 import { Route as ApiPublicHooksDiscoverViralRouteImport } from './routes/api/public/hooks/discover-viral'
+import { Route as ApiAdminWalletGoogleClassRouteImport } from './routes/api/admin/wallet/google-class'
 
 const WeatherRoute = WeatherRouteImport.update({
   id: '/weather',
@@ -511,6 +512,12 @@ const ApiPublicHooksDiscoverViralRoute =
     path: '/api/public/hooks/discover-viral',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiAdminWalletGoogleClassRoute =
+  ApiAdminWalletGoogleClassRouteImport.update({
+    id: '/api/admin/wallet/google-class',
+    path: '/api/admin/wallet/google-class',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -591,6 +598,7 @@ export interface FileRoutesByFullPath {
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
+  '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
@@ -672,6 +680,7 @@ export interface FileRoutesByTo {
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat': typeof ConciergeChatIndexRoute
+  '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
@@ -758,6 +767,7 @@ export interface FileRoutesById {
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
+  '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
@@ -845,6 +855,7 @@ export interface FileRouteTypes {
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat/'
+    | '/api/admin/wallet/google-class'
     | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
@@ -926,6 +937,7 @@ export interface FileRouteTypes {
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat'
+    | '/api/admin/wallet/google-class'
     | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
@@ -1011,6 +1023,7 @@ export interface FileRouteTypes {
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat/'
+    | '/api/admin/wallet/google-class'
     | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
@@ -1064,6 +1077,7 @@ export interface RootRouteChildren {
   VenueIdRoute: typeof VenueIdRoute
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
+  ApiAdminWalletGoogleClassRoute: typeof ApiAdminWalletGoogleClassRoute
   ApiPublicHooksDiscoverViralRoute: typeof ApiPublicHooksDiscoverViralRoute
   ApiPublicHooksTiktokRefreshRoute: typeof ApiPublicHooksTiktokRefreshRoute
   ApiPublicInstagramCallbackRoute: typeof ApiPublicInstagramCallbackRoute
@@ -1654,6 +1668,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicHooksDiscoverViralRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/admin/wallet/google-class': {
+      id: '/api/admin/wallet/google-class'
+      path: '/api/admin/wallet/google-class'
+      fullPath: '/api/admin/wallet/google-class'
+      preLoaderRoute: typeof ApiAdminWalletGoogleClassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1831,6 +1852,7 @@ const rootRouteChildren: RootRouteChildren = {
   VenueIdRoute: VenueIdRoute,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
+  ApiAdminWalletGoogleClassRoute: ApiAdminWalletGoogleClassRoute,
   ApiPublicHooksDiscoverViralRoute: ApiPublicHooksDiscoverViralRoute,
   ApiPublicHooksTiktokRefreshRoute: ApiPublicHooksTiktokRefreshRoute,
   ApiPublicInstagramCallbackRoute: ApiPublicInstagramCallbackRoute,

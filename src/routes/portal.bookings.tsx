@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { CalendarCheck, MapPin, Users, Clock, X, Plus, CheckCircle2, Gift, Wine, Armchair, Trash2 } from "lucide-react";
+import { CalendarCheck, MapPin, Users, Clock, X, Plus, CheckCircle2, Gift, Wine, Armchair, Trash2, Apple } from "lucide-react";
+import { downloadAppleInvite } from "@/lib/apple-invite";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";

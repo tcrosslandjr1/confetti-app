@@ -16,6 +16,7 @@ import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TeamsRouteImport } from './routes/teams'
 import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
+import { Route as ScanRouteImport } from './routes/scan'
 import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as QuickGenerateRouteImport } from './routes/quick-generate'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -132,6 +133,11 @@ const TeamsRoute = TeamsRouteImport.update({
 const TasteTunerRoute = TasteTunerRouteImport.update({
   id: '/taste-tuner',
   path: '/taste-tuner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScanRoute = ScanRouteImport.update({
+  id: '/scan',
+  path: '/scan',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReservationsRoute = ReservationsRouteImport.update({
@@ -581,6 +587,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
+  '/scan': typeof ScanRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
   '/terms': typeof TermsRoute
@@ -668,6 +675,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
+  '/scan': typeof ScanRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
   '/terms': typeof TermsRoute
@@ -760,6 +768,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
+  '/scan': typeof ScanRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
   '/terms': typeof TermsRoute
@@ -853,6 +862,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/quick-generate'
     | '/reservations'
+    | '/scan'
     | '/taste-tuner'
     | '/teams'
     | '/terms'
@@ -940,6 +950,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/quick-generate'
     | '/reservations'
+    | '/scan'
     | '/taste-tuner'
     | '/teams'
     | '/terms'
@@ -1031,6 +1042,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/quick-generate'
     | '/reservations'
+    | '/scan'
     | '/taste-tuner'
     | '/teams'
     | '/terms'
@@ -1123,6 +1135,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   QuickGenerateRoute: typeof QuickGenerateRoute
   ReservationsRoute: typeof ReservationsRoute
+  ScanRoute: typeof ScanRoute
   TasteTunerRoute: typeof TasteTunerRoute
   TeamsRoute: typeof TeamsRouteWithChildren
   TermsRoute: typeof TermsRoute
@@ -1198,6 +1211,13 @@ declare module '@tanstack/react-router' {
       path: '/taste-tuner'
       fullPath: '/taste-tuner'
       preLoaderRoute: typeof TasteTunerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scan': {
+      id: '/scan'
+      path: '/scan'
+      fullPath: '/scan'
+      preLoaderRoute: typeof ScanRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reservations': {
@@ -1940,6 +1960,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   QuickGenerateRoute: QuickGenerateRoute,
   ReservationsRoute: ReservationsRoute,
+  ScanRoute: ScanRoute,
   TasteTunerRoute: TasteTunerRoute,
   TeamsRoute: TeamsRouteWithChildren,
   TermsRoute: TermsRoute,

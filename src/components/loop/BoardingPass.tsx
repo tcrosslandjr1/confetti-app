@@ -830,7 +830,9 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Add to Google Wallet"
+      aria-labelledby={headingId}
+      aria-describedby={descId}
+      ref={dialogRef}
       className="fixed inset-0 z-50 grid place-items-center bg-ink/60 p-4 backdrop-blur-sm animate-fade-in"
       onClick={onClose}
     >
@@ -839,21 +841,22 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
         onClick={(e) => e.stopPropagation()}
       >
         <button
+          ref={closeBtnRef}
           onClick={onClose}
-          aria-label="Close"
-          className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream text-ink hover:bg-coral hover:text-cream"
+          aria-label="Close dialog"
+          className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream text-ink hover:bg-coral hover:text-cream focus:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
         >
           <X className="h-4 w-4" />
         </button>
         <div className="flex items-center gap-2">
-          <Smartphone className="h-4 w-4 text-coral" />
-          <h2 className="font-display text-lg font-extrabold tracking-tight text-ink">
+          <Smartphone className="h-4 w-4 text-coral" aria-hidden="true" />
+          <h2 id={headingId} className="font-display text-lg font-extrabold tracking-tight text-ink">
             Scan to add to Google Wallet
           </h2>
         </div>
-        <p className="mt-1 text-xs text-ink/70">
+        <p id={descId} className="mt-1 text-xs text-ink/70">
           Open your Android phone's camera and point it at this QR code. The pass will open in
-          Google Wallet for you to save.
+          Google Wallet for you to save. Press Escape to close.
         </p>
         <div ref={qrWrapRef} className="mt-4 grid place-items-center rounded-2xl border-2 border-ink bg-cream p-4">
           <QRCodeSVG value={url} size={208} bgColor="#FFF7EC" fgColor="#1B1B1B" level="M" includeMargin={false} />
@@ -863,28 +866,39 @@ function WalletQrModal({ url, onClose }: { url: string; onClose: () => void }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackWalletEvent("wallet_open_link_click")}
-          className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+          className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
         >
-          <Wallet className="h-4 w-4" /> Open save link in new tab
+          <Wallet className="h-4 w-4" aria-hidden="true" /> Open save link in new tab
         </a>
         <button
           type="button"
           onClick={handlePrint}
-          className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold"
+          className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
         >
-          <Printer className="h-4 w-4" /> Print large QR
+          <Printer className="h-4 w-4" aria-hidden="true" /> Print large QR
         </button>
         <button
           type="button"
-          onClick={() => {
-            navigator.clipboard?.writeText(url);
-            trackWalletEvent("wallet_copy_link");
-            toast.success("Save link copied");
+          onClick={async () => {
+            try {
+              await navigator.clipboard?.writeText(url);
+              trackWalletEvent("wallet_copy_link");
+              setStatusMsg("Save link copied to clipboard");
+              toast.success("Save link copied");
+            } catch {
+              setStatusMsg("Could not copy link — try again");
+              toast.error("Could not copy link");
+            }
           }}
-          className="mt-2 w-full text-center font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink"
+          className="mt-2 w-full text-center font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink focus:outline-none focus-visible:text-ink focus-visible:underline"
         >
           Copy link instead
         </button>
+
+        {/* Polite live region announces copy success/failure to screen readers. */}
+        <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+          {statusMsg}
+        </div>
       </div>
     </div>
   );

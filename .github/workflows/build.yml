@@ -1,0 +1,44 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+
+      # ---------- Typecheck ----------
+      - name: Typecheck (tsc --noEmit)
+        id: typecheck
+        run: |
+          set -o pipefail
+          bunx tsc --noEmit --pretty false 2>&1 | tee tsc.log
+
+      - name: Annotate typecheck failures
+        if: failure() && steps.typecheck.outcome == 'failure'
+        run: node .github/scripts/annotate-tsc.mjs tsc.log
+
+      # ---------- Vite build ----------
+      - name: Vite build
+        id: vite
+        if: success() || steps.typecheck.outcome == 'success'
+        run: |
+          set -o pipefail
+          bunx vite build 2>&1 | tee vite.log
+
+      - name: Annotate Vite failures
+        if: failure() && steps.vite.outcome == 'failure'
+        run: node .github/scripts/annotate-vite.mjs vite.log
+
+      # ---------- Summary ----------
+      - name: Failure summary
+        if: failure()
+        run: node .github/scripts/build-summary.mjs tsc.log vite.log

@@ -35,6 +35,7 @@ import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConfirmationRouteImport } from './routes/confirmation'
 import { Route as ConciergeRouteImport } from './routes/concierge'
+import { Route as CheckInRouteImport } from './routes/check-in'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as BoardingPassRouteImport } from './routes/boarding-pass'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -226,6 +227,11 @@ const ConfirmationRoute = ConfirmationRouteImport.update({
 const ConciergeRoute = ConciergeRouteImport.update({
   id: '/concierge',
   path: '/concierge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckInRoute = CheckInRouteImport.update({
+  id: '/check-in',
+  path: '/check-in',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChatRoute = ChatRouteImport.update({
@@ -555,6 +561,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
+  '/check-in': typeof CheckInRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
@@ -643,6 +650,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
+  '/check-in': typeof CheckInRoute
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
@@ -732,6 +740,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
+  '/check-in': typeof CheckInRoute
   '/concierge': typeof ConciergeRouteWithChildren
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
@@ -824,6 +833,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/boarding-pass'
     | '/chat'
+    | '/check-in'
     | '/concierge'
     | '/confirmation'
     | '/contact'
@@ -912,6 +922,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/boarding-pass'
     | '/chat'
+    | '/check-in'
     | '/confirmation'
     | '/contact'
     | '/cookies'
@@ -1000,6 +1011,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/boarding-pass'
     | '/chat'
+    | '/check-in'
     | '/concierge'
     | '/confirmation'
     | '/contact'
@@ -1091,6 +1103,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   BoardingPassRoute: typeof BoardingPassRoute
   ChatRoute: typeof ChatRoute
+  CheckInRoute: typeof CheckInRoute
   ConciergeRoute: typeof ConciergeRouteWithChildren
   ConfirmationRoute: typeof ConfirmationRoute
   ContactRoute: typeof ContactRoute
@@ -1318,6 +1331,13 @@ declare module '@tanstack/react-router' {
       path: '/concierge'
       fullPath: '/concierge'
       preLoaderRoute: typeof ConciergeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/check-in': {
+      id: '/check-in'
+      path: '/check-in'
+      fullPath: '/check-in'
+      preLoaderRoute: typeof CheckInRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/chat': {
@@ -1900,6 +1920,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   BoardingPassRoute: BoardingPassRoute,
   ChatRoute: ChatRoute,
+  CheckInRoute: CheckInRoute,
   ConciergeRoute: ConciergeRouteWithChildren,
   ConfirmationRoute: ConfirmationRoute,
   ContactRoute: ContactRoute,

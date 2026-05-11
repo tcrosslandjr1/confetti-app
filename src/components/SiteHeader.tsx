@@ -8,8 +8,8 @@ const marketingLinks = [
   { to: "/features", label: "Features" },
   { to: "/how-it-works", label: "How" },
   { to: "/pricing", label: "Pricing" },
+  { to: "/teams", label: "For Teams" },
   { to: "/advertise", label: "Advertise" },
-  { to: "/investors", label: "Investors" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;

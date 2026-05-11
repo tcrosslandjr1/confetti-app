@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeatherRouteImport } from './routes/weather'
 import { Route as ViralRouteImport } from './routes/viral'
 import { Route as TranslateRouteImport } from './routes/translate'
+import { Route as TeamsRouteImport } from './routes/teams'
 import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
 import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as QuickGenerateRouteImport } from './routes/quick-generate'
@@ -45,7 +46,10 @@ import { Route as AdvertiseIndexRouteImport } from './routes/advertise.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as VenueIdRouteImport } from './routes/venue.$id'
 import { Route as TripsIdRouteImport } from './routes/trips.$id'
+import { Route as TeamsNewRouteImport } from './routes/teams.new'
+import { Route as TeamsIdRouteImport } from './routes/teams.$id'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
+import { Route as RsvpTokenRouteImport } from './routes/rsvp.$token'
 import { Route as PortalViralRouteImport } from './routes/portal.viral'
 import { Route as PortalSavedRouteImport } from './routes/portal.saved'
 import { Route as PortalReferRouteImport } from './routes/portal.refer'
@@ -93,6 +97,11 @@ const ViralRoute = ViralRouteImport.update({
 const TranslateRoute = TranslateRouteImport.update({
   id: '/translate',
   path: '/translate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamsRoute = TeamsRouteImport.update({
+  id: '/teams',
+  path: '/teams',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasteTunerRoute = TasteTunerRouteImport.update({
@@ -260,9 +269,24 @@ const TripsIdRoute = TripsIdRouteImport.update({
   path: '/trips/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TeamsNewRoute = TeamsNewRouteImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => TeamsRoute,
+} as any)
+const TeamsIdRoute = TeamsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => TeamsRoute,
+} as any)
 const RsvpTripIdRoute = RsvpTripIdRouteImport.update({
   id: '/rsvp/$tripId',
   path: '/rsvp/$tripId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RsvpTokenRoute = RsvpTokenRouteImport.update({
+  id: '/rsvp/$token',
+  path: '/rsvp/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortalViralRoute = PortalViralRouteImport.update({
@@ -460,6 +484,7 @@ export interface FileRoutesByFullPath {
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
+  '/teams': typeof TeamsRouteWithChildren
   '/translate': typeof TranslateRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
@@ -489,7 +514,10 @@ export interface FileRoutesByFullPath {
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
+  '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
+  '/teams/$id': typeof TeamsIdRoute
+  '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/admin/': typeof AdminIndexRoute
@@ -528,6 +556,7 @@ export interface FileRoutesByTo {
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
+  '/teams': typeof TeamsRouteWithChildren
   '/translate': typeof TranslateRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
@@ -557,7 +586,10 @@ export interface FileRoutesByTo {
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
+  '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
+  '/teams/$id': typeof TeamsIdRoute
+  '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/admin': typeof AdminIndexRoute
@@ -601,6 +633,7 @@ export interface FileRoutesById {
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/taste-tuner': typeof TasteTunerRoute
+  '/teams': typeof TeamsRouteWithChildren
   '/translate': typeof TranslateRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
@@ -630,7 +663,10 @@ export interface FileRoutesById {
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
+  '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
+  '/teams/$id': typeof TeamsIdRoute
+  '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
   '/admin/': typeof AdminIndexRoute
@@ -675,6 +711,7 @@ export interface FileRouteTypes {
     | '/quick-generate'
     | '/reservations'
     | '/taste-tuner'
+    | '/teams'
     | '/translate'
     | '/viral'
     | '/weather'
@@ -704,7 +741,10 @@ export interface FileRouteTypes {
     | '/portal/refer'
     | '/portal/saved'
     | '/portal/viral'
+    | '/rsvp/$token'
     | '/rsvp/$tripId'
+    | '/teams/$id'
+    | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
     | '/admin/'
@@ -743,6 +783,7 @@ export interface FileRouteTypes {
     | '/quick-generate'
     | '/reservations'
     | '/taste-tuner'
+    | '/teams'
     | '/translate'
     | '/viral'
     | '/weather'
@@ -772,7 +813,10 @@ export interface FileRouteTypes {
     | '/portal/refer'
     | '/portal/saved'
     | '/portal/viral'
+    | '/rsvp/$token'
     | '/rsvp/$tripId'
+    | '/teams/$id'
+    | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
     | '/admin'
@@ -815,6 +859,7 @@ export interface FileRouteTypes {
     | '/quick-generate'
     | '/reservations'
     | '/taste-tuner'
+    | '/teams'
     | '/translate'
     | '/viral'
     | '/weather'
@@ -844,7 +889,10 @@ export interface FileRouteTypes {
     | '/portal/refer'
     | '/portal/saved'
     | '/portal/viral'
+    | '/rsvp/$token'
     | '/rsvp/$tripId'
+    | '/teams/$id'
+    | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
     | '/admin/'
@@ -888,6 +936,7 @@ export interface RootRouteChildren {
   QuickGenerateRoute: typeof QuickGenerateRoute
   ReservationsRoute: typeof ReservationsRoute
   TasteTunerRoute: typeof TasteTunerRoute
+  TeamsRoute: typeof TeamsRouteWithChildren
   TranslateRoute: typeof TranslateRoute
   ViralRoute: typeof ViralRoute
   WeatherRoute: typeof WeatherRoute
@@ -895,6 +944,7 @@ export interface RootRouteChildren {
   CollabTripIdRoute: typeof CollabTripIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   IdeasSlugRoute: typeof IdeasSlugRoute
+  RsvpTokenRoute: typeof RsvpTokenRoute
   RsvpTripIdRoute: typeof RsvpTripIdRoute
   TripsIdRoute: typeof TripsIdRouteWithChildren
   VenueIdRoute: typeof VenueIdRoute
@@ -927,6 +977,13 @@ declare module '@tanstack/react-router' {
       path: '/translate'
       fullPath: '/translate'
       preLoaderRoute: typeof TranslateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teams': {
+      id: '/teams'
+      path: '/teams'
+      fullPath: '/teams'
+      preLoaderRoute: typeof TeamsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/taste-tuner': {
@@ -1160,11 +1217,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TripsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/teams/new': {
+      id: '/teams/new'
+      path: '/new'
+      fullPath: '/teams/new'
+      preLoaderRoute: typeof TeamsNewRouteImport
+      parentRoute: typeof TeamsRoute
+    }
+    '/teams/$id': {
+      id: '/teams/$id'
+      path: '/$id'
+      fullPath: '/teams/$id'
+      preLoaderRoute: typeof TeamsIdRouteImport
+      parentRoute: typeof TeamsRoute
+    }
     '/rsvp/$tripId': {
       id: '/rsvp/$tripId'
       path: '/rsvp/$tripId'
       fullPath: '/rsvp/$tripId'
       preLoaderRoute: typeof RsvpTripIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rsvp/$token': {
+      id: '/rsvp/$token'
+      path: '/rsvp/$token'
+      fullPath: '/rsvp/$token'
+      preLoaderRoute: typeof RsvpTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portal/viral': {
@@ -1502,6 +1580,18 @@ const PortalRouteChildren: PortalRouteChildren = {
 const PortalRouteWithChildren =
   PortalRoute._addFileChildren(PortalRouteChildren)
 
+interface TeamsRouteChildren {
+  TeamsIdRoute: typeof TeamsIdRoute
+  TeamsNewRoute: typeof TeamsNewRoute
+}
+
+const TeamsRouteChildren: TeamsRouteChildren = {
+  TeamsIdRoute: TeamsIdRoute,
+  TeamsNewRoute: TeamsNewRoute,
+}
+
+const TeamsRouteWithChildren = TeamsRoute._addFileChildren(TeamsRouteChildren)
+
 interface TripsIdRouteChildren {
   TripsIdPassportRoute: typeof TripsIdPassportRoute
 }
@@ -1539,6 +1629,7 @@ const rootRouteChildren: RootRouteChildren = {
   QuickGenerateRoute: QuickGenerateRoute,
   ReservationsRoute: ReservationsRoute,
   TasteTunerRoute: TasteTunerRoute,
+  TeamsRoute: TeamsRouteWithChildren,
   TranslateRoute: TranslateRoute,
   ViralRoute: ViralRoute,
   WeatherRoute: WeatherRoute,
@@ -1546,6 +1637,7 @@ const rootRouteChildren: RootRouteChildren = {
   CollabTripIdRoute: CollabTripIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   IdeasSlugRoute: IdeasSlugRoute,
+  RsvpTokenRoute: RsvpTokenRoute,
   RsvpTripIdRoute: RsvpTripIdRoute,
   TripsIdRoute: TripsIdRouteWithChildren,
   VenueIdRoute: VenueIdRoute,

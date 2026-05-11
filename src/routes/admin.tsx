@@ -25,6 +25,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { useAuth } from "@/lib/auth-context";
+import { NotificationsBell } from "@/components/NotificationsBell";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({

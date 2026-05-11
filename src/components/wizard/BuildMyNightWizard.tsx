@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { useWizard } from "./wizard-context";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
+import { buildSmartSearchUrl } from "@/lib/maps-links";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";

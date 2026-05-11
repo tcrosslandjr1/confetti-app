@@ -71,6 +71,7 @@ import { Route as ConciergePassportRouteImport } from './routes/concierge.passpo
 import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdvertisePortalRouteImport } from './routes/advertise.portal'
+import { Route as AdminWalletDebugRouteImport } from './routes/admin.wallet-debug'
 import { Route as AdminVenuesRouteImport } from './routes/admin.venues'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
@@ -92,6 +93,7 @@ import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public
 import { Route as ApiPublicInstagramCallbackRouteImport } from './routes/api/public/instagram.callback'
 import { Route as ApiPublicHooksTiktokRefreshRouteImport } from './routes/api/public/hooks/tiktok-refresh'
 import { Route as ApiPublicHooksDiscoverViralRouteImport } from './routes/api/public/hooks/discover-viral'
+import { Route as ApiAdminWalletGoogleDebugRouteImport } from './routes/api/admin/wallet/google-debug'
 import { Route as ApiAdminWalletGoogleClassRouteImport } from './routes/api/admin/wallet/google-class'
 
 const WeatherRoute = WeatherRouteImport.update({
@@ -404,6 +406,11 @@ const AdvertisePortalRoute = AdvertisePortalRouteImport.update({
   path: '/portal',
   getParentRoute: () => AdvertiseRoute,
 } as any)
+const AdminWalletDebugRoute = AdminWalletDebugRouteImport.update({
+  id: '/wallet-debug',
+  path: '/wallet-debug',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminVenuesRoute = AdminVenuesRouteImport.update({
   id: '/venues',
   path: '/venues',
@@ -512,6 +519,12 @@ const ApiPublicHooksDiscoverViralRoute =
     path: '/api/public/hooks/discover-viral',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiAdminWalletGoogleDebugRoute =
+  ApiAdminWalletGoogleDebugRouteImport.update({
+    id: '/api/admin/wallet/google-debug',
+    path: '/api/admin/wallet/google-debug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiAdminWalletGoogleClassRoute =
   ApiAdminWalletGoogleClassRouteImport.update({
     id: '/api/admin/wallet/google-class',
@@ -568,6 +581,7 @@ export interface FileRoutesByFullPath {
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
+  '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/collab/$tripId': typeof CollabTripIdRoute
@@ -599,6 +613,7 @@ export interface FileRoutesByFullPath {
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
+  '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
@@ -650,6 +665,7 @@ export interface FileRoutesByTo {
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
+  '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/collab/$tripId': typeof CollabTripIdRoute
@@ -681,6 +697,7 @@ export interface FileRoutesByTo {
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat': typeof ConciergeChatIndexRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
+  '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
@@ -737,6 +754,7 @@ export interface FileRoutesById {
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
+  '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/collab/$tripId': typeof CollabTripIdRoute
@@ -768,6 +786,7 @@ export interface FileRoutesById {
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
+  '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
@@ -825,6 +844,7 @@ export interface FileRouteTypes {
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/venues'
+    | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
     | '/collab/$tripId'
@@ -856,6 +876,7 @@ export interface FileRouteTypes {
     | '/trips/$id/passport'
     | '/concierge/chat/'
     | '/api/admin/wallet/google-class'
+    | '/api/admin/wallet/google-debug'
     | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
@@ -907,6 +928,7 @@ export interface FileRouteTypes {
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/venues'
+    | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
     | '/collab/$tripId'
@@ -938,6 +960,7 @@ export interface FileRouteTypes {
     | '/trips/$id/passport'
     | '/concierge/chat'
     | '/api/admin/wallet/google-class'
+    | '/api/admin/wallet/google-debug'
     | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
@@ -993,6 +1016,7 @@ export interface FileRouteTypes {
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/venues'
+    | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
     | '/collab/$tripId'
@@ -1024,6 +1048,7 @@ export interface FileRouteTypes {
     | '/trips/$id/passport'
     | '/concierge/chat/'
     | '/api/admin/wallet/google-class'
+    | '/api/admin/wallet/google-debug'
     | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
@@ -1078,6 +1103,7 @@ export interface RootRouteChildren {
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
   ApiAdminWalletGoogleClassRoute: typeof ApiAdminWalletGoogleClassRoute
+  ApiAdminWalletGoogleDebugRoute: typeof ApiAdminWalletGoogleDebugRoute
   ApiPublicHooksDiscoverViralRoute: typeof ApiPublicHooksDiscoverViralRoute
   ApiPublicHooksTiktokRefreshRoute: typeof ApiPublicHooksTiktokRefreshRoute
   ApiPublicInstagramCallbackRoute: typeof ApiPublicInstagramCallbackRoute
@@ -1521,6 +1547,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdvertisePortalRouteImport
       parentRoute: typeof AdvertiseRoute
     }
+    '/admin/wallet-debug': {
+      id: '/admin/wallet-debug'
+      path: '/wallet-debug'
+      fullPath: '/admin/wallet-debug'
+      preLoaderRoute: typeof AdminWalletDebugRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/venues': {
       id: '/admin/venues'
       path: '/venues'
@@ -1668,6 +1701,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicHooksDiscoverViralRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/admin/wallet/google-debug': {
+      id: '/api/admin/wallet/google-debug'
+      path: '/api/admin/wallet/google-debug'
+      fullPath: '/api/admin/wallet/google-debug'
+      preLoaderRoute: typeof ApiAdminWalletGoogleDebugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/admin/wallet/google-class': {
       id: '/api/admin/wallet/google-class'
       path: '/api/admin/wallet/google-class'
@@ -1692,6 +1732,7 @@ interface AdminRouteChildren {
   AdminTestimonialsRoute: typeof AdminTestimonialsRoute
   AdminUsersRoute: typeof AdminUsersRoute
   AdminVenuesRoute: typeof AdminVenuesRoute
+  AdminWalletDebugRoute: typeof AdminWalletDebugRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
@@ -1709,6 +1750,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminTestimonialsRoute: AdminTestimonialsRoute,
   AdminUsersRoute: AdminUsersRoute,
   AdminVenuesRoute: AdminVenuesRoute,
+  AdminWalletDebugRoute: AdminWalletDebugRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
@@ -1853,6 +1895,7 @@ const rootRouteChildren: RootRouteChildren = {
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
   ApiAdminWalletGoogleClassRoute: ApiAdminWalletGoogleClassRoute,
+  ApiAdminWalletGoogleDebugRoute: ApiAdminWalletGoogleDebugRoute,
   ApiPublicHooksDiscoverViralRoute: ApiPublicHooksDiscoverViralRoute,
   ApiPublicHooksTiktokRefreshRoute: ApiPublicHooksTiktokRefreshRoute,
   ApiPublicInstagramCallbackRoute: ApiPublicInstagramCallbackRoute,

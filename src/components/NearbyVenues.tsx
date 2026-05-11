@@ -27,6 +27,25 @@ type PlaceCoordinate = {
   longitude?: number;
 };
 
+const NEIGHBORHOOD_COORDS: Record<string, { lat: number; lng: number }> = {
+  "adams morgan": { lat: 38.9215, lng: -77.0423 },
+  "14th street": { lat: 38.912, lng: -77.032 },
+  "buzzard point": { lat: 38.8683, lng: -77.0126 },
+  downtown: { lat: 38.9037, lng: -77.0365 },
+  georgetown: { lat: 38.9097, lng: -77.0655 },
+  "h street": { lat: 38.9005, lng: -76.9958 },
+  "logan circle": { lat: 38.9096, lng: -77.0296 },
+  "u street": { lat: 38.917, lng: -77.028 },
+  "union market": { lat: 38.9087, lng: -76.9974 },
+};
+
+function fallbackCoords(v: Venue) {
+  const neighborhood = v.neighborhood?.trim().toLowerCase();
+  if (neighborhood && NEIGHBORHOOD_COORDS[neighborhood]) return NEIGHBORHOOD_COORDS[neighborhood];
+  if (v.city?.toLowerCase().includes("washington")) return { lat: 38.9072, lng: -77.0369 };
+  return null;
+}
+
 function haversineKm(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
   const R = 6371;
   const toRad = (d: number) => (d * Math.PI) / 180;
@@ -100,6 +119,14 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
         }
         for (const v of (vRes.data ?? []) as Venue[]) {
           const coords = liveCoords.get(v.name.trim().toLowerCase());
+          if (!coords) continue;
+          ranked.push({ ...v, distanceKm: haversineKm(location, coords) });
+        }
+      }
+
+      if (ranked.length === 0) {
+        for (const v of (vRes.data ?? []) as Venue[]) {
+          const coords = fallbackCoords(v);
           if (!coords) continue;
           ranked.push({ ...v, distanceKm: haversineKm(location, coords) });
         }

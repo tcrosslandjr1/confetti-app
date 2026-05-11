@@ -35,7 +35,8 @@ function PlanPage() {
   const [neighborhood, setNeighborhood] = useState("");
   const [date, setDate] = useState("");
   const [startTime, setStartTime] = useState("11:00");
-  const [durationHours, setDurationHours] = useState(6);
+  const [durationHours, setDurationHours] = useState(4);
+  const [durationTouched, setDurationTouched] = useState(false);
   const [budget, setBudget] = useState("$$");
   const [notes, setNotes] = useState("");
   const [transportMode, setTransportMode] = useState<

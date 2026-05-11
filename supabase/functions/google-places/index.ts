@@ -13,6 +13,8 @@ type PlaceResult = {
   placeId?: string;
   displayName?: string;
   formattedAddress?: string;
+  latitude?: number;
+  longitude?: number;
   rating?: number;
   userRatingCount?: number;
   priceLevel?: number; // 0..4
@@ -53,7 +55,7 @@ async function lookup(q: Query, key: string): Promise<PlaceResult> {
         "Content-Type": "application/json",
         "X-Goog-Api-Key": key,
         "X-Goog-FieldMask":
-          "places.id,places.displayName,places.formattedAddress,places.rating,places.userRatingCount,places.priceLevel,places.currentOpeningHours.openNow,places.businessStatus,places.websiteUri,places.googleMapsUri,places.photos",
+          "places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.priceLevel,places.currentOpeningHours.openNow,places.businessStatus,places.websiteUri,places.googleMapsUri,places.photos",
       },
       body: JSON.stringify({ textQuery: text, pageSize: 1 }),
     });
@@ -72,6 +74,8 @@ async function lookup(q: Query, key: string): Promise<PlaceResult> {
       placeId: p.id,
       displayName: p.displayName?.text,
       formattedAddress: p.formattedAddress,
+      latitude: typeof p.location?.latitude === "number" ? p.location.latitude : undefined,
+      longitude: typeof p.location?.longitude === "number" ? p.location.longitude : undefined,
       rating: typeof p.rating === "number" ? p.rating : undefined,
       userRatingCount: p.userRatingCount,
       priceLevel: p.priceLevel ? PRICE_MAP[p.priceLevel] : undefined,

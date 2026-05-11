@@ -12,6 +12,7 @@ type Venue = {
   name: string;
   category: string;
   neighborhood: string | null;
+  city: string | null;
   price_level: number;
   image_url: string | null;
   description: string | null;
@@ -61,7 +62,7 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
       const [vRes, cRes] = await Promise.all([
         supabase
           .from("venues")
-          .select("id,name,category,neighborhood,price_level,image_url,description"),
+          .select("id,name,category,neighborhood,city,price_level,image_url,description"),
         supabase
           .from("venue_details_cache")
           .select("name,latitude,longitude")
@@ -87,7 +88,7 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
       if (ranked.length === 0 && vRes.data?.length) {
         const lookups = ((vRes.data ?? []) as Venue[]).slice(0, 12).map((v) => ({
           venue: v.name,
-          neighborhood: v.neighborhood ?? undefined,
+          neighborhood: [v.neighborhood, v.city].filter(Boolean).join(" ") || undefined,
         }));
         const { data } = await supabase.functions.invoke("google-places", { body: { queries: lookups } });
         if (cancelled) return;

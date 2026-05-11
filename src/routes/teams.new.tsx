@@ -446,7 +446,11 @@ function NewTeamEventPage() {
               <AlertCircle className="mt-0.5 h-5 w-5" />
               <div className="text-sm">
                 You'll need a free account to save your event and send invites.
-                <Link to="/auth" className="ml-2 font-bold underline">
+                <Link
+                  to="/auth"
+                  search={{ redirect: "/teams/new" }}
+                  className="ml-2 font-bold underline"
+                >
                   Sign in →
                 </Link>
               </div>

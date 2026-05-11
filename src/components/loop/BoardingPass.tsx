@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { QRCodeSVG } from "qrcode.react";
@@ -390,28 +390,56 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
 }
 
 // ─── Barcode ───────────────────────────────────────────────────────────
+// Deterministic Code-128-style faux barcode derived from `code`, so the bars
+// are stable across renders/SSR and visually unique per plan id.
 function Barcode({ code }: { code: string }) {
-  const widths = useRef(
-    Array.from({ length: 56 }, (_, i) => (i % 3 === 0 ? 3 : i % 5 === 0 ? 4 : i % 2 === 0 ? 2 : 1)),
-  );
-  const heights = useRef(widths.current.map(() => 28 + Math.round(Math.random() * 16)));
+  const { bars, label } = useMemo(() => {
+    const seed = code || "CONFETTI";
+    // Simple FNV-1a style hash → reproducible PRNG
+    let h = 2166136261;
+    for (let i = 0; i < seed.length; i++) {
+      h ^= seed.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    const rand = () => {
+      h ^= h << 13;
+      h ^= h >>> 17;
+      h ^= h << 5;
+      return ((h >>> 0) % 1000) / 1000;
+    };
+    const COUNT = 64;
+    const bars: { width: number; isGap: boolean }[] = Array.from({ length: COUNT }, (_, i) => {
+      const r = rand();
+      // Mix thin/thick bars and gaps for a barcode-like rhythm
+      const isGap = r < 0.18 && i > 0 && i < COUNT - 1;
+      const width = isGap ? 1 : r < 0.55 ? 2 : r < 0.85 ? 3 : 4;
+      return { width, isGap };
+    });
+    return { bars, label: seed };
+  }, [code]);
+
   return (
     <div className="rounded-xl border-2 border-ink bg-cream p-3">
-      <div className="flex h-12 items-end justify-center gap-[2px]">
-        {widths.current.map((w, i) => (
+      <div
+        className="flex h-12 items-stretch justify-center"
+        role="img"
+        aria-label={`Barcode for ${label}`}
+      >
+        {bars.map((b, i) => (
           <span
             key={i}
-            className="bg-ink"
-            style={{ width: w, height: heights.current[i] }}
+            className={b.isGap ? "bg-transparent" : "bg-ink"}
+            style={{ width: b.width, marginRight: 1 }}
           />
         ))}
       </div>
-      <div className="mt-2 text-center font-mono text-[10px] tracking-[0.3em] text-ink/60">
-        {code}
+      <div className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-ink/70 truncate">
+        {label}
       </div>
     </div>
   );
 }
+
 
 // ─── Tear divider with notches ─────────────────────────────────────────
 function TearDivider() {

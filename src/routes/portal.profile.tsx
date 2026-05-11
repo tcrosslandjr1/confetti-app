@@ -22,6 +22,9 @@ function ProfilePage() {
   const [name, setName] = useState("");
   const [location, setLocation] = useState<UserLocation | null>(null);
   const [locLoading, setLocLoading] = useState(false);
+  const [bookingTotals, setBookingTotals] = useState({ upcoming: 0, past: 0 });
+  const [refStats, setRefStats] = useState<MyReferralStats>({ invited: 0, signedUp: 0, completed: 0, earnedCents: 0 });
+  const [achTotals, setAchTotals] = useState({ unlocked: 0, total: 0, xpEarned: 0 });
 
   useEffect(() => { setLocation(getStoredLocation()); }, []);
 

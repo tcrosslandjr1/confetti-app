@@ -33,7 +33,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { getDishInfo, dishMatches, ALL_DISH_NAMES, type DietFilter } from "@/lib/dish-info";
+import { getDishInfo, dishMatches, hasAllergenConflict, ALL_DISH_NAMES, type DietFilter } from "@/lib/dish-info";
 import { StopShareCard, type StopShareData } from "./StopShareCard";
 import { toPng } from "html-to-image";
 

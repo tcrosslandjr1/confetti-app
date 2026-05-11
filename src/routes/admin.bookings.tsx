@@ -282,6 +282,7 @@ function AdminBookingsPage() {
               <TableHead>When</TableHead>
               <TableHead>Party</TableHead>
               <TableHead>Pre-arrival</TableHead>
+              <TableHead>Notify</TableHead>
               <TableHead>Status</TableHead>
             </TableRow>
           </TableHeader>

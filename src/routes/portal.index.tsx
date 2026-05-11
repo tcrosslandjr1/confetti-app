@@ -521,7 +521,7 @@ function VenueCard({ v }: { v: Venue }) {
       {v.image_url ? (
         <img src={v.image_url} alt={v.name} className="h-36 w-full object-cover" />
       ) : (
-        <div className="grid h-36 place-items-center bg-muted text-muted-foreground"><Star className="h-6 w-6" /></div>
+        <GooglePhotos venue={v.name} neighborhood={v.neighborhood} variant="hero" className="h-36 w-full" />
       )}
       <div className="p-4">
         <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">{v.category}</div>

@@ -6,6 +6,7 @@ import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane, Printer } fro
 import type { ActiveLoop, LoopStop, StopKind } from "@/lib/loop-store";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";
+import { trackWalletEvent } from "@/lib/wallet-analytics";
 
 function isAndroid() {
   if (typeof navigator === "undefined") return false;

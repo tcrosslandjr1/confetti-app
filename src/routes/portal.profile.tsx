@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2, Shield, Compass, Coffee, Sparkle, Eye, SlidersHorizontal } from "lucide-react";
+import { User, LogOut, Settings, Sparkles, Mail, MapPin, Loader2, Shield, Compass, Coffee, Sparkle, Eye, SlidersHorizontal, CalendarCheck, Users, Trophy } from "lucide-react";
+import { getMyReferralStats, type MyReferralStats } from "@/lib/referrals";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,9 @@ function ProfilePage() {
   const [name, setName] = useState("");
   const [location, setLocation] = useState<UserLocation | null>(null);
   const [locLoading, setLocLoading] = useState(false);
+  const [bookingTotals, setBookingTotals] = useState({ upcoming: 0, past: 0 });
+  const [refStats, setRefStats] = useState<MyReferralStats>({ invited: 0, signedUp: 0, completed: 0, earnedCents: 0 });
+  const [achTotals, setAchTotals] = useState({ unlocked: 0, total: 0, xpEarned: 0 });
 
   useEffect(() => { setLocation(getStoredLocation()); }, []);
 
@@ -47,6 +51,29 @@ function ProfilePage() {
     supabase.from("profiles").select("id,display_name,xp,level").eq("id", user.id).maybeSingle().then(({ data }) => {
       if (data) { setProfile(data as Profile); setName(data.display_name ?? ""); }
     });
+  }, [user]);
+
+  useEffect(() => {
+    if (!user) return;
+    let cancelled = false;
+    (async () => {
+      const nowIso = new Date().toISOString();
+      const [upRes, pastRes, refs, achRows, userAch] = await Promise.all([
+        supabase.from("bookings").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("starts_at", nowIso),
+        supabase.from("bookings").select("id", { count: "exact", head: true }).eq("user_id", user.id).lt("starts_at", nowIso),
+        getMyReferralStats(),
+        supabase.from("achievements").select("id, xp_reward"),
+        supabase.from("user_achievements").select("achievement_id").eq("user_id", user.id),
+      ]);
+      if (cancelled) return;
+      const unlockedIds = new Set(((userAch.data ?? []) as { achievement_id: string }[]).map((r) => r.achievement_id));
+      const allAch = (achRows.data ?? []) as { id: string; xp_reward: number }[];
+      const xpEarned = allAch.reduce((s, a) => s + (unlockedIds.has(a.id) ? a.xp_reward : 0), 0);
+      setBookingTotals({ upcoming: upRes.count ?? 0, past: pastRes.count ?? 0 });
+      setRefStats(refs);
+      setAchTotals({ unlocked: unlockedIds.size, total: allAch.length, xpEarned });
+    })();
+    return () => { cancelled = true; };
   }, [user]);
 
   const save = async () => {
@@ -87,6 +114,15 @@ function ProfilePage() {
           </div>
         )}
       </section>
+
+      {user && (
+        <section aria-label="Your stats" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <StatTile tone="bg-gradient-vibe text-primary-foreground" icon={Sparkles} label="XP" value={(profile?.xp ?? 0).toLocaleString()} hint={`Level ${profile?.level ?? 1}`} />
+          <StatTile icon={CalendarCheck} label="Upcoming bookings" value={bookingTotals.upcoming.toString()} hint={`${bookingTotals.past} completed`} to="/portal/bookings" />
+          <StatTile icon={Users} label="Referrals signed up" value={refStats.signedUp.toString()} hint={`${refStats.invited} invited · ${refStats.completed} completed`} to="/portal/refer" />
+          <StatTile icon={Trophy} label="Achievements" value={`${achTotals.unlocked}/${achTotals.total || "—"}`} hint={achTotals.total ? `${achTotals.xpEarned} XP earned` : "Unlock by exploring"} />
+        </section>
+      )}
 
       <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
         <h2 className="mb-4 font-display text-xl font-bold">Display name</h2>
@@ -245,4 +281,20 @@ function ProfilePage() {
       <Button variant="outline" onClick={signOut} className="gap-2"><LogOut className="h-4 w-4" /> Sign out</Button>
     </div>
   );
+}
+
+function StatTile({ icon: Icon, label, value, hint, to, tone }: { icon: typeof Sparkles; label: string; value: string; hint?: string; to?: string; tone?: string }) {
+  const inner = (
+    <div className={`flex h-full items-center gap-3 rounded-2xl border border-border p-4 shadow-card transition-pop ${tone ?? "bg-card"} ${to ? "hover:scale-[1.02] hover:shadow-pop" : ""}`}>
+      <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tone ? "bg-white/15" : "bg-gradient-vibe text-primary-foreground"}`}>
+        <Icon className="h-5 w-5" />
+      </span>
+      <div className="min-w-0">
+        <div className={`text-[10px] font-mono uppercase tracking-widest ${tone ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{label}</div>
+        <div className="font-display text-2xl font-extrabold leading-tight">{value}</div>
+        {hint && <div className={`truncate text-xs ${tone ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{hint}</div>}
+      </div>
+    </div>
+  );
+  return to ? <Link to={to as "/"}>{inner}</Link> : inner;
 }

@@ -74,7 +74,7 @@ export function SiteFooter() {
         <div className="grid gap-12 md:grid-cols-4">
           <div>
             <Link to="/" className="flex items-baseline gap-1">
-              <span className="font-display text-3xl font-extrabold tracking-tight">confetti</span>
+              <span className="font-display text-3xl font-extrabold tracking-tight">loop</span>
               <span className="font-serif text-3xl italic text-coral">.</span>
             </Link>
             <p className="mt-4 max-w-xs font-serif text-lg italic leading-snug">

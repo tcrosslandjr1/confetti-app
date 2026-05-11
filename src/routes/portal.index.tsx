@@ -311,18 +311,12 @@ function PortalDiscoverPage() {
             </DashCard>
           </section>
 
-          {/* Right sidebar: stats strip + progress — stacks on mobile, sticks to right on desktop */}
+          {/* Right sidebar: weekly challenge — stats moved to /portal/profile */}
           <aside
             aria-label="Your progress"
-            className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:order-2 lg:col-span-1 lg:grid-cols-1 lg:sticky lg:top-24 lg:self-start"
+            className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:order-2 lg:col-span-1 lg:grid-cols-1 lg:sticky lg:top-24 lg:self-start"
           >
-            <StatTile tone="bg-gradient-vibe text-primary-foreground" icon={Sparkles} label="XP" value={(profile?.xp ?? 0).toLocaleString()} hint={`Level ${profile?.level ?? 1}`} />
-            <StatTile icon={CalendarCheck} label="Bookings" value={bookingTotals.upcoming.toString()} hint={`${bookingTotals.past} completed`} to="/portal/bookings" />
-            <StatTile icon={Users} label="Referrals" value={refStats.signedUp.toString()} hint={`${refStats.invited} invited`} to="/portal/refer" />
-            <StatTile icon={Trophy} label="Achievements" value={`${unlockedCount}/${achievements.length || "—"}`} hint={achievements.length ? "Keep unlocking" : "Unlock by exploring"} />
-            <div className="col-span-full lg:col-span-1">
-              <WeeklyChallenge bookings={bookingTotals.upcoming} referrals={refStats.signedUp} />
-            </div>
+            <WeeklyChallenge bookings={bookingTotals.upcoming} referrals={refStats.signedUp} />
           </aside>
         </div>
       )}

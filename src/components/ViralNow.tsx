@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Flame, ArrowRight, MapPin } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { ViralTagChip, type ViralTag } from "./ViralTagChip";
+import { SmoothScrollRow } from "./SmoothScrollRow";
 
 type ViralVenue = {
   id: string;

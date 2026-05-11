@@ -87,15 +87,12 @@ function ActiveLoopPage() {
           </span>
         </div>
 
-        {/* Mini map (Google Maps embed) */}
-        <div className="mt-4 relative h-44 overflow-hidden rounded-3xl border-2 border-ink shadow-brut bg-cream">
-          <iframe
-            title="Route map"
-            aria-label="Map of your route"
-            className="absolute inset-0 h-full w-full"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            src={`https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(current?.area || loop.stops[0]?.area || "Washington, DC")}&zoom=14`}
+        {/* Interactive Google Map with markers + walking directions */}
+        <div className="mt-4 relative h-64 overflow-hidden rounded-3xl border-2 border-ink shadow-brut bg-cream">
+          <LoopMap
+            stops={loop.stops}
+            currentIdx={currentIdx}
+            fallbackCity={loop.stops[0]?.area || "Washington, DC"}
           />
           <div className="pointer-events-none absolute bottom-2 left-2 rounded-full bg-cream/95 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink shadow-sm">
             Live route · {loop.stops.length} stops

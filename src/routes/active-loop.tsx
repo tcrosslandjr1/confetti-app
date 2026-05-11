@@ -12,7 +12,7 @@ import {
   subscribeConfetti,
   type ActiveLoop,
 } from "@/lib/loop-store";
-import { GOOGLE_MAPS_API_KEY } from "@/lib/config";
+import { LoopMap } from "@/components/loop/LoopMap";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/active-loop")({

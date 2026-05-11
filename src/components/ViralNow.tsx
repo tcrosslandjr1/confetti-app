@@ -67,11 +67,11 @@ export function ViralNow({ city = "Washington DC", limit = 8 }: { city?: string;
       )}
 
       {venues && venues.length > 0 && (
-        <div ref={scrollRef} onWheel={handleWheel} className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-2 snap-x scroll-smooth">
+        <SmoothScrollRow className="-mx-1 px-1 snap-x">
           {venues.map((v) => (
             <ViralCard key={v.id} v={v} />
           ))}
-        </div>
+        </SmoothScrollRow>
       )}
     </section>
   );

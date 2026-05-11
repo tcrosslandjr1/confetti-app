@@ -544,6 +544,18 @@ export function BuildMyNightWizard() {
     return () => { cancelled = true; };
   }, [open, user, favorites]);
 
+  // Seed wizard's editable diet prefs from saved personalization
+  useEffect(() => {
+    if (!personalize) return;
+    setDietPrefs({
+      vegan: personalize.diet.vegan,
+      vegetarian: personalize.diet.vegetarian,
+      pescatarian: personalize.diet.pescatarian,
+      glutenFree: personalize.diet.glutenFree,
+      allergens: personalize.diet.avoidAllergens ?? [],
+    });
+  }, [personalize]);
+
   type SlotLevel = "open" | "limited" | "few" | "full";
   type Availability = { time: string; level: SlotLevel; seatsLeft: number };
   type Details = ReturnType<typeof getDetails>;

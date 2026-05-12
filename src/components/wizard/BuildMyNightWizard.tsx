@@ -886,7 +886,7 @@ export function BuildMyNightWizard() {
     (async () => {
       setDynamicLoading(true);
       try {
-        let loc = getStoredLocation();
+        let loc = getActiveLocation();
         if (!loc) loc = await requestUserLocation().catch(() => null);
         const { data, error } = await supabase.functions.invoke("wizard-itinerary", {
           body: {

@@ -2033,6 +2033,15 @@ export function BuildMyNightWizard() {
                           >
                             <RefreshCw className="h-3.5 w-3.5" />
                           </button>
+                          <button
+                            type="button"
+                            onClick={(e) => addStopToBoardingPass(s, e)}
+                            aria-label={`Add ${s.venue} to boarding pass`}
+                            title="Add to boarding pass"
+                            className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-coral text-cream transition-pop hover:-translate-y-0.5 hover:bg-ink"
+                          >
+                            <Plus className="h-3.5 w-3.5" />
+                          </button>
                           <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">
                             {displayIdx + 1}
                           </span>

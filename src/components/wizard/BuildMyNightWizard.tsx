@@ -683,6 +683,7 @@ export function BuildMyNightWizard() {
     }
   }, []);
 
+  const fallbackTones = [
     "bg-coral",
     "bg-purple",
     "bg-gold",

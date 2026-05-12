@@ -199,6 +199,12 @@ const PICKS: Pick[] = [
 ];
 
 export function QuickPicks() {
+  const [city, setCity] = useState<City>(() => getSelectedCity() ?? DEFAULT_CITY);
+  useEffect(() => subscribeSelectedCity(() => setCity(getSelectedCity() ?? DEFAULT_CITY)), []);
+  // Curated venue lists are tuned for DC. For any other city we let the wizard
+  // generate live picks from Google Places using the selected city's coords.
+  const isCurated = city.slug === "dmv";
+
   return (
     <section className="border-b-2 border-ink bg-cream">
       <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
@@ -214,6 +220,17 @@ export function QuickPicks() {
               <p className="mt-3 max-w-md text-lg">
                 Grab a ready-made plan and go. Tap, tweak, show up.
               </p>
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                  Picks for
+                </span>
+                <CitySelector compact />
+                {!isCurated && (
+                  <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-gold/40 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+                    <Sparkles className="h-3 w-3" /> Live picks
+                  </span>
+                )}
+              </div>
             </div>
             <span className="hidden font-mono text-[11px] uppercase tracking-widest text-ink/60 sm:inline">
               ← drag to scroll →
@@ -236,21 +253,34 @@ export function QuickPicks() {
                   {p.title}
                 </h3>
 
-                <ol className="mt-5 space-y-2 border-t-2 border-dashed border-ink/30 pt-4">
-                  {p.stops.map((s, idx) => (
-                    <li key={s.time} className="flex items-center gap-3">
-                      <span className="grid h-7 w-12 shrink-0 place-items-center rounded-md border-2 border-ink bg-cream/90 font-mono text-[10px] font-bold">
-                        {s.time}
-                      </span>
-                      <span className="min-w-0 flex-1 truncate font-display text-base font-bold">
-                        {s.venue}
-                      </span>
-                      <span className="font-mono text-[10px] font-bold text-ink/40">
-                        0{idx + 1}
-                      </span>
-                    </li>
-                  ))}
-                </ol>
+                {isCurated ? (
+                  <ol className="mt-5 space-y-2 border-t-2 border-dashed border-ink/30 pt-4">
+                    {p.stops.map((s, idx) => (
+                      <li key={s.time} className="flex items-center gap-3">
+                        <span className="grid h-7 w-12 shrink-0 place-items-center rounded-md border-2 border-ink bg-cream/90 font-mono text-[10px] font-bold">
+                          {s.time}
+                        </span>
+                        <span className="min-w-0 flex-1 truncate font-display text-base font-bold">
+                          {s.venue}
+                        </span>
+                        <span className="font-mono text-[10px] font-bold text-ink/40">
+                          0{idx + 1}
+                        </span>
+                      </li>
+                    ))}
+                  </ol>
+                ) : (
+                  <div className="mt-5 flex flex-1 flex-col justify-between gap-3 border-t-2 border-dashed border-ink/30 pt-4">
+                    <p className="font-mono text-[11px] leading-relaxed text-ink/70">
+                      We'll pull 3 real venues in{" "}
+                      <span className="font-bold text-ink">{city.name}</span> that match this
+                      vibe — based on live ratings &amp; hours.
+                    </p>
+                    <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                      <MapPin className="h-3 w-3 text-coral" /> {city.region}
+                    </div>
+                  </div>
+                )}
 
                 <div className="mt-5 flex items-center justify-between border-t-2 border-dashed border-ink/30 pt-3 font-mono text-[11px] uppercase tracking-widest text-ink/70">
                   <span className="inline-flex items-center gap-1.5">
@@ -267,11 +297,14 @@ export function QuickPicks() {
                     vibeLabel: p.vibe,
                     budgetLabel: p.cost,
                     crewLabel: p.duration,
-                    stops: p.stops,
+                    // Curated venues only apply when the user is browsing DC.
+                    // Otherwise let the wizard generate live picks for the chosen city.
+                    stops: isCurated ? p.stops : undefined,
                   }}
                   className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
                 >
-                  Use this plan <ArrowUpRight className="h-4 w-4" />
+                  {isCurated ? "Use this plan" : `Build for ${city.name}`}{" "}
+                  <ArrowUpRight className="h-4 w-4" />
                 </WizardButton>
               </article>
             </Reveal>

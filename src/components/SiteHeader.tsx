@@ -92,6 +92,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
+          <CitySelector compact className="hidden sm:block" />
           {isVisitor ? (
             <Link
               to="/auth"

@@ -105,15 +105,16 @@ async function resolvePhoto(name: string, key: string): Promise<string | null> {
   }
 }
 
-async function searchOne(
-  recipe: (typeof VIBE_RECIPES)[string],
+async function searchCandidates(
+  recipe: { query: string; types: string[] } | { query: string; types: string[] },
   body: Body,
   excludeIds: Set<string>,
   key: string,
+  pageSize = 8,
 ) {
   const reqBody: Record<string, unknown> = {
     textQuery: body.city ? `${recipe.query} in ${body.city}` : recipe.query,
-    pageSize: 8,
+    pageSize,
     includedType: recipe.types[0],
   };
   if (typeof body.lat === "number" && typeof body.lng === "number") {
@@ -137,7 +138,7 @@ async function searchOne(
   if (!res.ok) {
     const txt = await res.text().catch(() => "");
     console.error("[wizard-itinerary] places API error", res.status, txt);
-    return null;
+    return [];
   }
   const data = await res.json();
   const places = (data.places ?? []) as Array<{
@@ -153,7 +154,7 @@ async function searchOne(
     photos?: Array<{ name: string }>;
   }>;
   const maxLevel = budgetToMaxLevel(body.budget);
-  const candidates = places
+  return places
     .filter((p) => !excludeIds.has(p.id))
     .filter((p) => !p.businessStatus || p.businessStatus === "OPERATIONAL")
     .filter((p) => {
@@ -161,16 +162,28 @@ async function searchOne(
       return lvl == null || lvl <= maxLevel;
     })
     .sort((a, b) => {
-      // Prefer well-rated places with enough reviews
       const ar = (a.rating ?? 0) * Math.log10((a.userRatingCount ?? 0) + 10);
       const br = (b.rating ?? 0) * Math.log10((b.userRatingCount ?? 0) + 10);
       return br - ar;
     });
-  const pick = candidates[0];
-  if (!pick) return null;
+}
+
+async function shapeCandidate(
+  pick: {
+    id: string;
+    displayName?: { text?: string };
+    formattedAddress?: string;
+    shortFormattedAddress?: string;
+    location?: { latitude?: number; longitude?: number };
+    rating?: number;
+    userRatingCount?: number;
+    priceLevel?: string;
+    photos?: Array<{ name: string }>;
+  },
+  key: string,
+) {
   const photoName = pick.photos?.[0]?.name;
   const photo = photoName ? await resolvePhoto(photoName, key) : null;
-  // Try to extract a neighborhood-ish label from the address
   const addr = pick.shortFormattedAddress ?? pick.formattedAddress ?? "";
   const parts = addr.split(",").map((s) => s.trim()).filter(Boolean);
   const neighborhood = parts.length >= 2 ? parts[parts.length - 2] : undefined;
@@ -194,9 +207,36 @@ Deno.serve(async (req) => {
     const key = Deno.env.get("GOOGLE_PLACES_API_KEY");
     if (!key) return json({ error: "missing GOOGLE_PLACES_API_KEY" }, 500);
     const body = (await req.json()) as Body;
+
+    // ---- Alternatives mode: return multiple candidates for a single vibe/query
+    if (body.mode === "alternatives") {
+      const exclude = new Set(body.excludeIds ?? []);
+      const limit = Math.max(1, Math.min(body.limit ?? 6, 10));
+      const recipe = body.vibe && VIBE_RECIPES[body.vibe]
+        ? VIBE_RECIPES[body.vibe]
+        : {
+            query: body.query || "restaurant bar",
+            types: ["restaurant"],
+            time: "8:00 PM",
+            vibeLabel: body.query || "Pick",
+            tone: "bg-coral",
+          };
+      const raw = await searchCandidates(recipe, body, exclude, key, Math.max(limit + 2, 8));
+      const shaped = await Promise.all(raw.slice(0, limit).map((p) => shapeCandidate(p, key)));
+      return json({
+        candidates: shaped.map((s) => ({
+          ...s,
+          vibeKey: body.vibe ?? null,
+          vibeLabel: recipe.vibeLabel,
+          tone: recipe.tone,
+          time: recipe.time,
+        })),
+      });
+    }
+
+    // ---- Default: build a 3-stop itinerary
     const requestedVibes = (body.vibes ?? []).filter((v) => VIBE_RECIPES[v]);
     const vibeKeys = (requestedVibes.length ? requestedVibes : DEFAULT_VIBES).slice(0, 3);
-    // Pad to count = 3 if the user picked fewer vibes
     const count = Math.max(1, Math.min(body.count ?? 3, 4));
     while (vibeKeys.length < count) {
       const fill = DEFAULT_VIBES.find((v) => !vibeKeys.includes(v));
@@ -208,8 +248,10 @@ Deno.serve(async (req) => {
     const stops: Array<Record<string, unknown>> = [];
     for (const vibeKey of vibeKeys) {
       const recipe = VIBE_RECIPES[vibeKey];
-      const result = await searchOne(recipe, body, seen, key);
-      if (!result) continue;
+      const candidates = await searchCandidates(recipe, body, seen, key);
+      const pick = candidates[0];
+      if (!pick) continue;
+      const result = await shapeCandidate(pick, key);
       seen.add(result.id);
       stops.push({
         time: recipe.time,
@@ -225,6 +267,7 @@ Deno.serve(async (req) => {
         lat: result.lat,
         lng: result.lng,
         placeId: result.id,
+        vibeKey,
       });
     }
     return json({ stops });

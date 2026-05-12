@@ -15,7 +15,7 @@ export type WizardPreset = {
   vibeLabel?: string;
   crewLabel?: string;
   budgetLabel?: string;
-  stops: WizardPresetStop[];
+  stops?: WizardPresetStop[];
 };
 
 type Ctx = {

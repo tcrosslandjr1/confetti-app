@@ -1937,9 +1937,18 @@ export function BuildMyNightWizard() {
                               <Share2 className="h-3.5 w-3.5" />
                             )}
                           </button>
-                          <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">
-                            {displayIdx + 1}
-                          </span>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              openSwapForStop(i, s);
+                            }}
+                            aria-label={`Swap ${s.venue} for another venue`}
+                            title="Swap this stop"
+                            className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-cream text-ink transition-pop hover:-translate-y-0.5 hover:bg-mint/40"
+                          >
+                            <RefreshCw className="h-3.5 w-3.5" />
+                          </button>
                           <ChevronDown
                             className={`h-4 w-4 text-ink/60 transition-transform ${isOpen ? "rotate-180" : ""}`}
                           />

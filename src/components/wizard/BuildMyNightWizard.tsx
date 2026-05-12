@@ -2409,6 +2409,8 @@ export function BuildMyNightWizard() {
     </div>
   );
 }
+
+function StepShell({
   title,
   sub,
   children,

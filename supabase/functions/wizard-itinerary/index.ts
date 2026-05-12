@@ -15,6 +15,13 @@ type Body = {
   lng?: number | null;
   city?: string | null; // optional fallback when no coords
   count?: number; // default 3
+  // Alternatives mode — when set, returns up to `limit` candidates
+  // for a single vibe (or free-text query), excluding `excludeIds`.
+  mode?: "itinerary" | "alternatives";
+  vibe?: string | null; // vibe key for alternatives mode
+  query?: string | null; // free-text query fallback (e.g. "rooftop bar")
+  excludeIds?: string[];
+  limit?: number; // alternatives mode page size, default 6
 };
 
 // Map vibe key → Google Places text query + included place types + a default time slot.

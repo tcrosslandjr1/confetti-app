@@ -108,6 +108,28 @@ type Stop = {
   walk?: string;
   address?: string;
   neighborhood?: string;
+  vibeKey?: string;
+  placeId?: string;
+  photo?: string | null;
+  lat?: number;
+  lng?: number;
+};
+
+type SwapCandidate = {
+  id: string;
+  venue: string;
+  address?: string;
+  neighborhood?: string;
+  rating?: number;
+  userRatingCount?: number;
+  priceLevel?: number | null;
+  photo?: string | null;
+  lat?: number;
+  lng?: number;
+  vibeKey?: string | null;
+  vibeLabel?: string;
+  tone?: string;
+  time?: string;
 };
 
 const SAMPLE_STOPS: Stop[][] = [

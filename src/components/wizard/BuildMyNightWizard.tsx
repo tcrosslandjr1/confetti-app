@@ -676,7 +676,7 @@ export function BuildMyNightWizard() {
       })),
     [preset],
   );
-  const stops = presetStops ?? SAMPLE_STOPS[variant % SAMPLE_STOPS.length];
+  const stops = presetStops ?? dynamicStops ?? SAMPLE_STOPS[variant % SAMPLE_STOPS.length];
   const sortedStops = useMemo(() => {
     const parseWalk = (w?: string) => {
       const m = w?.match(/(\d+)/);

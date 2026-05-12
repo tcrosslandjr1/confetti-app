@@ -1,6 +1,14 @@
-import { ArrowUpRight, Clock } from "lucide-react";
+import { ArrowUpRight, Clock, MapPin, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { WizardButton } from "@/components/wizard/WizardButton";
+import { CitySelector } from "@/components/CitySelector";
+import {
+  DEFAULT_CITY,
+  getSelectedCity,
+  subscribeSelectedCity,
+  type City,
+} from "@/lib/cities";
 
 type Pick = {
   title: string;

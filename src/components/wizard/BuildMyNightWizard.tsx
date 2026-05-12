@@ -39,6 +39,14 @@ import {
 import { getDishInfo, dishMatches, hasAllergenConflict, ALL_DISH_NAMES, type DietFilter } from "@/lib/dish-info";
 import { StopShareCard, type StopShareData } from "./StopShareCard";
 import { toPng } from "html-to-image";
+import { useNavigate } from "@tanstack/react-router";
+import {
+  getActiveLoop,
+  setActiveLoop,
+  makeDemoLoop,
+  type ActiveLoop,
+  type LoopStop,
+} from "@/lib/loop-store";
 
 type FavRow = {
   venue_name: string;

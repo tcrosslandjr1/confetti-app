@@ -704,7 +704,7 @@ export function BuildMyNightWizard() {
   ];
   const presetStops = useMemo(
     () =>
-      preset?.stops.map((s, i) => ({
+      preset?.stops?.map((s, i) => ({
         time: s.time,
         venue: s.venue,
         vibe: s.vibe ?? "Curated pick",

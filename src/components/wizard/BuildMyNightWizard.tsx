@@ -28,6 +28,7 @@ import { buildSmartSearchUrl } from "@/lib/maps-links";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { getStoredLocation, requestUserLocation } from "@/lib/location";
+import { getActiveLocation, getSelectedCity } from "@/lib/cities";
 import { useAuth } from "@/lib/auth-context";
 import {
   Dialog,

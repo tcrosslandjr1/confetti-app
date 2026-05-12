@@ -26,6 +26,7 @@ import { useConfettiBurst } from "@/components/ConfettiBurst";
 import { buildSmartSearchUrl } from "@/lib/maps-links";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { getStoredLocation, requestUserLocation } from "@/lib/location";
 import { useAuth } from "@/lib/auth-context";
 import {
   Dialog,
@@ -485,6 +486,8 @@ export function BuildMyNightWizard() {
   };
   const [placesData, setPlacesData] = useState<Record<string, PlaceInfo>>({});
   const [placesLoading, setPlacesLoading] = useState(false);
+  const [dynamicStops, setDynamicStops] = useState<Stop[] | null>(null);
+  const [dynamicLoading, setDynamicLoading] = useState(false);
   const [favorites, setFavorites] = useState<Record<string, FavRow>>({});
   const [showFavorites, setShowFavorites] = useState(false);
   const [reservingKey, setReservingKey] = useState<string | null>(null);
@@ -674,7 +677,7 @@ export function BuildMyNightWizard() {
       })),
     [preset],
   );
-  const stops = presetStops ?? SAMPLE_STOPS[variant % SAMPLE_STOPS.length];
+  const stops = presetStops ?? dynamicStops ?? SAMPLE_STOPS[variant % SAMPLE_STOPS.length];
   const sortedStops = useMemo(() => {
     const parseWalk = (w?: string) => {
       const m = w?.match(/(\d+)/);
@@ -752,6 +755,7 @@ export function BuildMyNightWizard() {
       setMusts([]);
       setLoadingIdx(0);
       setVariant(0);
+      setDynamicStops(null);
     }, 220);
     return () => clearTimeout(t);
   }, [open]);
@@ -767,6 +771,44 @@ export function BuildMyNightWizard() {
       clearTimeout(done);
     };
   }, [step]);
+
+  // Build a real itinerary from Google Places using the user's location + selected vibes.
+  // Skips when a curated preset is in play.
+  useEffect(() => {
+    if (step !== 6 || preset) return;
+    let cancelled = false;
+    (async () => {
+      setDynamicLoading(true);
+      try {
+        let loc = getStoredLocation();
+        if (!loc) loc = await requestUserLocation().catch(() => null);
+        const { data, error } = await supabase.functions.invoke("wizard-itinerary", {
+          body: {
+            vibes: vibe,
+            budget,
+            lat: loc?.lat ?? null,
+            lng: loc?.lng ?? null,
+            count: 3,
+          },
+        });
+        if (cancelled) return;
+        if (error) {
+          console.warn("[wizard-itinerary]", error);
+          return;
+        }
+        const fetched = (data?.stops ?? []) as Stop[];
+        if (fetched.length) setDynamicStops(fetched);
+      } catch (err) {
+        if (!cancelled) console.warn("[wizard-itinerary]", err);
+      } finally {
+        if (!cancelled) setDynamicLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step, variant]);
 
   // Fetch live Google Places data for the current stops as soon as results show.
   useEffect(() => {

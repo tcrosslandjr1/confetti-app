@@ -747,7 +747,7 @@ export function BuildMyNightWizard() {
     [swapTarget],
   );
 
-
+  const fallbackTones = [
     "bg-coral",
     "bg-purple",
     "bg-gold",

@@ -108,6 +108,28 @@ type Stop = {
   walk?: string;
   address?: string;
   neighborhood?: string;
+  vibeKey?: string;
+  placeId?: string;
+  photo?: string | null;
+  lat?: number;
+  lng?: number;
+};
+
+type SwapCandidate = {
+  id: string;
+  venue: string;
+  address?: string;
+  neighborhood?: string;
+  rating?: number;
+  userRatingCount?: number;
+  priceLevel?: number | null;
+  photo?: string | null;
+  lat?: number;
+  lng?: number;
+  vibeKey?: string | null;
+  vibeLabel?: string;
+  tone?: string;
+  time?: string;
 };
 
 const SAMPLE_STOPS: Stop[][] = [
@@ -488,6 +510,11 @@ export function BuildMyNightWizard() {
   const [placesLoading, setPlacesLoading] = useState(false);
   const [dynamicStops, setDynamicStops] = useState<Stop[] | null>(null);
   const [dynamicLoading, setDynamicLoading] = useState(false);
+  const [replacements, setReplacements] = useState<Record<number, Stop>>({});
+  const [swapTarget, setSwapTarget] = useState<{ index: number; stop: Stop } | null>(null);
+  const [swapLoading, setSwapLoading] = useState(false);
+  const [swapCandidates, setSwapCandidates] = useState<SwapCandidate[]>([]);
+  const [swapError, setSwapError] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<Record<string, FavRow>>({});
   const [showFavorites, setShowFavorites] = useState(false);
   const [reservingKey, setReservingKey] = useState<string | null>(null);
@@ -677,7 +704,11 @@ export function BuildMyNightWizard() {
       })),
     [preset],
   );
-  const stops = presetStops ?? dynamicStops ?? SAMPLE_STOPS[variant % SAMPLE_STOPS.length];
+  const baseStops = presetStops ?? dynamicStops ?? SAMPLE_STOPS[variant % SAMPLE_STOPS.length];
+  const stops = useMemo(
+    () => baseStops.map((s, i) => replacements[i] ?? s),
+    [baseStops, replacements],
+  );
   const sortedStops = useMemo(() => {
     const parseWalk = (w?: string) => {
       const m = w?.match(/(\d+)/);
@@ -722,6 +753,69 @@ export function BuildMyNightWizard() {
     }
     return arr;
   }, [stops, sortBy, placesData]);
+
+  const openSwapForStop = useCallback(
+    async (index: number, stop: Stop) => {
+      setSwapTarget({ index, stop });
+      setSwapLoading(true);
+      setSwapError(null);
+      setSwapCandidates([]);
+      try {
+        let loc = getStoredLocation();
+        if (!loc) loc = await requestUserLocation().catch(() => null);
+        const excludeIds = stops
+          .map((s) => s.placeId)
+          .filter((id): id is string => !!id);
+        const { data, error } = await supabase.functions.invoke("wizard-itinerary", {
+          body: {
+            mode: "alternatives",
+            vibe: stop.vibeKey ?? null,
+            query: stop.vibeKey ? null : stop.vibe,
+            budget,
+            lat: loc?.lat ?? null,
+            lng: loc?.lng ?? null,
+            excludeIds,
+            limit: 6,
+          },
+        });
+        if (error) throw error;
+        const list = (data?.candidates ?? []) as SwapCandidate[];
+        if (!list.length) setSwapError("No other matches found nearby.");
+        setSwapCandidates(list);
+      } catch (e) {
+        console.warn("[wizard swap]", e);
+        setSwapError("Could not load alternatives. Try again.");
+      } finally {
+        setSwapLoading(false);
+      }
+    },
+    [stops, budget],
+  );
+
+  const applySwap = useCallback(
+    (candidate: SwapCandidate) => {
+      if (!swapTarget) return;
+      const { index, stop } = swapTarget;
+      const next: Stop = {
+        time: candidate.time ?? stop.time,
+        venue: candidate.venue,
+        vibe: candidate.vibeLabel ?? stop.vibe,
+        tone: candidate.tone ?? stop.tone,
+        address: candidate.address,
+        neighborhood: candidate.neighborhood,
+        vibeKey: candidate.vibeKey ?? stop.vibeKey,
+        placeId: candidate.id,
+        photo: candidate.photo,
+        lat: candidate.lat,
+        lng: candidate.lng,
+      };
+      setReplacements((prev) => ({ ...prev, [index]: next }));
+      setSwapTarget(null);
+      setSwapCandidates([]);
+      toast.success(`Swapped in ${candidate.venue}`);
+    },
+    [swapTarget],
+  );
   const totalSteps = 6;
 
   // If preset supplied, jump straight to result and seed vibe multi-select
@@ -756,6 +850,7 @@ export function BuildMyNightWizard() {
       setLoadingIdx(0);
       setVariant(0);
       setDynamicStops(null);
+      setReplacements({});
     }, 220);
     return () => clearTimeout(t);
   }, [open]);
@@ -797,7 +892,10 @@ export function BuildMyNightWizard() {
           return;
         }
         const fetched = (data?.stops ?? []) as Stop[];
-        if (fetched.length) setDynamicStops(fetched);
+        if (fetched.length) {
+          setDynamicStops(fetched);
+          setReplacements({});
+        }
       } catch (err) {
         if (!cancelled) console.warn("[wizard-itinerary]", err);
       } finally {
@@ -1839,6 +1937,18 @@ export function BuildMyNightWizard() {
                               <Share2 className="h-3.5 w-3.5" />
                             )}
                           </button>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              openSwapForStop(i, s);
+                            }}
+                            aria-label={`Swap ${s.venue} for another venue`}
+                            title="Swap this stop"
+                            className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-cream text-ink transition-pop hover:-translate-y-0.5 hover:bg-mint/40"
+                          >
+                            <RefreshCw className="h-3.5 w-3.5" />
+                          </button>
                           <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">
                             {displayIdx + 1}
                           </span>
@@ -2213,6 +2323,89 @@ export function BuildMyNightWizard() {
           <StopShareCard ref={shareRef} data={shareData} />
         </div>
       )}
+      <Dialog
+        open={!!swapTarget}
+        onOpenChange={(o) => {
+          if (!o) {
+            setSwapTarget(null);
+            setSwapCandidates([]);
+            setSwapError(null);
+          }
+        }}
+      >
+        <DialogContent className="max-w-lg border-2 border-ink bg-cream">
+          <DialogHeader>
+            <DialogTitle className="font-display text-2xl font-extrabold">
+              Swap this stop
+            </DialogTitle>
+            <DialogDescription className="font-mono text-xs text-ink/70">
+              {swapTarget
+                ? `Pick a different ${swapTarget.stop.vibe.toLowerCase()} venue for your ${swapTarget.stop.time} stop.`
+                : ""}
+            </DialogDescription>
+          </DialogHeader>
+          {swapLoading && (
+            <div className="flex items-center justify-center gap-2 py-8 font-mono text-xs text-ink/70">
+              <Loader2 className="h-4 w-4 animate-spin" /> Finding alternatives…
+            </div>
+          )}
+          {!swapLoading && swapError && (
+            <div className="rounded-xl border-2 border-ink bg-coral/10 p-3 font-mono text-xs text-ink/80">
+              {swapError}
+            </div>
+          )}
+          {!swapLoading && !swapError && swapCandidates.length > 0 && (
+            <ul className="max-h-[60vh] space-y-2 overflow-y-auto pr-1">
+              {swapCandidates.map((c) => (
+                <li key={c.id}>
+                  <button
+                    type="button"
+                    onClick={() => applySwap(c)}
+                    className="flex w-full items-stretch gap-3 rounded-2xl border-2 border-ink bg-cream p-2 text-left transition-pop hover:-translate-y-0.5 hover:bg-ink/[0.03]"
+                  >
+                    {c.photo ? (
+                      <img
+                        src={c.photo}
+                        alt={c.venue}
+                        loading="lazy"
+                        className="h-20 w-20 shrink-0 rounded-xl border-2 border-ink object-cover"
+                      />
+                    ) : (
+                      <div className="grid h-20 w-20 shrink-0 place-items-center rounded-xl border-2 border-ink bg-gold/40">
+                        <MapPin className="h-5 w-5" />
+                      </div>
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <div className="font-display text-base font-extrabold leading-tight">
+                        {c.venue}
+                      </div>
+                      <div className="mt-0.5 flex flex-wrap items-center gap-2 font-mono text-[11px] text-ink/70">
+                        {typeof c.rating === "number" && (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-gold px-2 py-0.5 text-[10px] font-bold text-ink">
+                            <Star className="h-2.5 w-2.5 fill-current" />
+                            {c.rating.toFixed(1)}
+                            {typeof c.userRatingCount === "number" &&
+                              ` · ${c.userRatingCount}`}
+                          </span>
+                        )}
+                        {typeof c.priceLevel === "number" && c.priceLevel > 0 && (
+                          <span>{"$".repeat(c.priceLevel)}</span>
+                        )}
+                      </div>
+                      {c.address && (
+                        <div className="mt-1 inline-flex items-center gap-1 font-mono text-[11px] text-ink/60">
+                          <MapPin className="h-3 w-3" />
+                          {c.address}
+                        </div>
+                      )}
+                    </div>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

@@ -753,6 +753,69 @@ export function BuildMyNightWizard() {
     }
     return arr;
   }, [stops, sortBy, placesData]);
+
+  const openSwapForStop = useCallback(
+    async (index: number, stop: Stop) => {
+      setSwapTarget({ index, stop });
+      setSwapLoading(true);
+      setSwapError(null);
+      setSwapCandidates([]);
+      try {
+        let loc = getStoredLocation();
+        if (!loc) loc = await requestUserLocation().catch(() => null);
+        const excludeIds = stops
+          .map((s) => s.placeId)
+          .filter((id): id is string => !!id);
+        const { data, error } = await supabase.functions.invoke("wizard-itinerary", {
+          body: {
+            mode: "alternatives",
+            vibe: stop.vibeKey ?? null,
+            query: stop.vibeKey ? null : stop.vibe,
+            budget,
+            lat: loc?.lat ?? null,
+            lng: loc?.lng ?? null,
+            excludeIds,
+            limit: 6,
+          },
+        });
+        if (error) throw error;
+        const list = (data?.candidates ?? []) as SwapCandidate[];
+        if (!list.length) setSwapError("No other matches found nearby.");
+        setSwapCandidates(list);
+      } catch (e) {
+        console.warn("[wizard swap]", e);
+        setSwapError("Could not load alternatives. Try again.");
+      } finally {
+        setSwapLoading(false);
+      }
+    },
+    [stops, budget],
+  );
+
+  const applySwap = useCallback(
+    (candidate: SwapCandidate) => {
+      if (!swapTarget) return;
+      const { index, stop } = swapTarget;
+      const next: Stop = {
+        time: candidate.time ?? stop.time,
+        venue: candidate.venue,
+        vibe: candidate.vibeLabel ?? stop.vibe,
+        tone: candidate.tone ?? stop.tone,
+        address: candidate.address,
+        neighborhood: candidate.neighborhood,
+        vibeKey: candidate.vibeKey ?? stop.vibeKey,
+        placeId: candidate.id,
+        photo: candidate.photo,
+        lat: candidate.lat,
+        lng: candidate.lng,
+      };
+      setReplacements((prev) => ({ ...prev, [index]: next }));
+      setSwapTarget(null);
+      setSwapCandidates([]);
+      toast.success(`Swapped in ${candidate.venue}`);
+    },
+    [swapTarget],
+  );
   const totalSteps = 6;
 
   // If preset supplied, jump straight to result and seed vibe multi-select

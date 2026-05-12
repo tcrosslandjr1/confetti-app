@@ -772,7 +772,7 @@ export function BuildMyNightWizard() {
       setSwapError(null);
       setSwapCandidates([]);
       try {
-        let loc = getStoredLocation();
+        let loc = getActiveLocation();
         if (!loc) loc = await requestUserLocation().catch(() => null);
         const excludeIds = stops
           .map((s) => s.placeId)

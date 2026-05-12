@@ -510,6 +510,11 @@ export function BuildMyNightWizard() {
   const [placesLoading, setPlacesLoading] = useState(false);
   const [dynamicStops, setDynamicStops] = useState<Stop[] | null>(null);
   const [dynamicLoading, setDynamicLoading] = useState(false);
+  const [replacements, setReplacements] = useState<Record<number, Stop>>({});
+  const [swapTarget, setSwapTarget] = useState<{ index: number; stop: Stop } | null>(null);
+  const [swapLoading, setSwapLoading] = useState(false);
+  const [swapCandidates, setSwapCandidates] = useState<SwapCandidate[]>([]);
+  const [swapError, setSwapError] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<Record<string, FavRow>>({});
   const [showFavorites, setShowFavorites] = useState(false);
   const [reservingKey, setReservingKey] = useState<string | null>(null);

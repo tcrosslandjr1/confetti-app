@@ -772,6 +772,44 @@ export function BuildMyNightWizard() {
     };
   }, [step]);
 
+  // Build a real itinerary from Google Places using the user's location + selected vibes.
+  // Skips when a curated preset is in play.
+  useEffect(() => {
+    if (step !== 6 || preset) return;
+    let cancelled = false;
+    (async () => {
+      setDynamicLoading(true);
+      try {
+        let loc = getStoredLocation();
+        if (!loc) loc = await requestUserLocation().catch(() => null);
+        const { data, error } = await supabase.functions.invoke("wizard-itinerary", {
+          body: {
+            vibes: vibe,
+            budget,
+            lat: loc?.lat ?? null,
+            lng: loc?.lng ?? null,
+            count: 3,
+          },
+        });
+        if (cancelled) return;
+        if (error) {
+          console.warn("[wizard-itinerary]", error);
+          return;
+        }
+        const fetched = (data?.stops ?? []) as Stop[];
+        if (fetched.length) setDynamicStops(fetched);
+      } catch (err) {
+        if (!cancelled) console.warn("[wizard-itinerary]", err);
+      } finally {
+        if (!cancelled) setDynamicLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step, variant]);
+
   // Fetch live Google Places data for the current stops as soon as results show.
   useEffect(() => {
     if (step !== 7 || !stops?.length) return;

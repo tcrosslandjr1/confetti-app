@@ -28,6 +28,7 @@ import { buildSmartSearchUrl } from "@/lib/maps-links";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { getStoredLocation, requestUserLocation } from "@/lib/location";
+import { getActiveLocation, getSelectedCity } from "@/lib/cities";
 import { useAuth } from "@/lib/auth-context";
 import {
   Dialog,
@@ -703,7 +704,7 @@ export function BuildMyNightWizard() {
   ];
   const presetStops = useMemo(
     () =>
-      preset?.stops.map((s, i) => ({
+      preset?.stops?.map((s, i) => ({
         time: s.time,
         venue: s.venue,
         vibe: s.vibe ?? "Curated pick",
@@ -771,7 +772,7 @@ export function BuildMyNightWizard() {
       setSwapError(null);
       setSwapCandidates([]);
       try {
-        let loc = getStoredLocation();
+        let loc = getActiveLocation();
         if (!loc) loc = await requestUserLocation().catch(() => null);
         const excludeIds = stops
           .map((s) => s.placeId)
@@ -880,12 +881,12 @@ export function BuildMyNightWizard() {
   // Build a real itinerary from Google Places using the user's location + selected vibes.
   // Skips when a curated preset is in play.
   useEffect(() => {
-    if (step !== 6 || preset) return;
+    if (step !== 6 || (preset && preset.stops?.length)) return;
     let cancelled = false;
     (async () => {
       setDynamicLoading(true);
       try {
-        let loc = getStoredLocation();
+        let loc = getActiveLocation();
         if (!loc) loc = await requestUserLocation().catch(() => null);
         const { data, error } = await supabase.functions.invoke("wizard-itinerary", {
           body: {

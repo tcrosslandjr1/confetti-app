@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { WizardButton } from "@/components/wizard/WizardButton";
 import { NotificationsBell } from "@/components/NotificationsBell";
+import { CitySelector } from "@/components/CitySelector";
 import { Oloid } from "@/components/brand/Oloid";
 import { useAuth } from "@/lib/auth-context";
 
@@ -91,6 +92,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
+          <CitySelector compact className="hidden sm:block" />
           {isVisitor ? (
             <Link
               to="/auth"

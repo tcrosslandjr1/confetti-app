@@ -2323,11 +2323,92 @@ export function BuildMyNightWizard() {
           <StopShareCard ref={shareRef} data={shareData} />
         </div>
       )}
+      <Dialog
+        open={!!swapTarget}
+        onOpenChange={(o) => {
+          if (!o) {
+            setSwapTarget(null);
+            setSwapCandidates([]);
+            setSwapError(null);
+          }
+        }}
+      >
+        <DialogContent className="max-w-lg border-2 border-ink bg-cream">
+          <DialogHeader>
+            <DialogTitle className="font-display text-2xl font-extrabold">
+              Swap this stop
+            </DialogTitle>
+            <DialogDescription className="font-mono text-xs text-ink/70">
+              {swapTarget
+                ? `Pick a different ${swapTarget.stop.vibe.toLowerCase()} venue for your ${swapTarget.stop.time} stop.`
+                : ""}
+            </DialogDescription>
+          </DialogHeader>
+          {swapLoading && (
+            <div className="flex items-center justify-center gap-2 py-8 font-mono text-xs text-ink/70">
+              <Loader2 className="h-4 w-4 animate-spin" /> Finding alternatives…
+            </div>
+          )}
+          {!swapLoading && swapError && (
+            <div className="rounded-xl border-2 border-ink bg-coral/10 p-3 font-mono text-xs text-ink/80">
+              {swapError}
+            </div>
+          )}
+          {!swapLoading && !swapError && swapCandidates.length > 0 && (
+            <ul className="max-h-[60vh] space-y-2 overflow-y-auto pr-1">
+              {swapCandidates.map((c) => (
+                <li key={c.id}>
+                  <button
+                    type="button"
+                    onClick={() => applySwap(c)}
+                    className="flex w-full items-stretch gap-3 rounded-2xl border-2 border-ink bg-cream p-2 text-left transition-pop hover:-translate-y-0.5 hover:bg-ink/[0.03]"
+                  >
+                    {c.photo ? (
+                      <img
+                        src={c.photo}
+                        alt={c.venue}
+                        loading="lazy"
+                        className="h-20 w-20 shrink-0 rounded-xl border-2 border-ink object-cover"
+                      />
+                    ) : (
+                      <div className="grid h-20 w-20 shrink-0 place-items-center rounded-xl border-2 border-ink bg-gold/40">
+                        <MapPin className="h-5 w-5" />
+                      </div>
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <div className="font-display text-base font-extrabold leading-tight">
+                        {c.venue}
+                      </div>
+                      <div className="mt-0.5 flex flex-wrap items-center gap-2 font-mono text-[11px] text-ink/70">
+                        {typeof c.rating === "number" && (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-gold px-2 py-0.5 text-[10px] font-bold text-ink">
+                            <Star className="h-2.5 w-2.5 fill-current" />
+                            {c.rating.toFixed(1)}
+                            {typeof c.userRatingCount === "number" &&
+                              ` · ${c.userRatingCount}`}
+                          </span>
+                        )}
+                        {typeof c.priceLevel === "number" && c.priceLevel > 0 && (
+                          <span>{"$".repeat(c.priceLevel)}</span>
+                        )}
+                      </div>
+                      {c.address && (
+                        <div className="mt-1 inline-flex items-center gap-1 font-mono text-[11px] text-ink/60">
+                          <MapPin className="h-3 w-3" />
+                          {c.address}
+                        </div>
+                      )}
+                    </div>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
-
-function StepShell({
   title,
   sub,
   children,

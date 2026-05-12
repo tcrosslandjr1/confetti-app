@@ -1949,7 +1949,9 @@ export function BuildMyNightWizard() {
                           >
                             <RefreshCw className="h-3.5 w-3.5" />
                           </button>
-                          <ChevronDown
+                          <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">
+                            {displayIdx + 1}
+                          </span>
                             className={`h-4 w-4 text-ink/60 transition-transform ${isOpen ? "rotate-180" : ""}`}
                           />
                         </div>

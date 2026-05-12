@@ -1300,11 +1300,85 @@ export function BuildMyNightWizard() {
     setVariant((v) => v + 1);
     setStep(6);
   }
+  function wizardStopToLoopStop(s: Stop, i: number): LoopStop {
+    return {
+      id: s.placeId ?? `ws-${Date.now()}-${i}`,
+      name: s.venue,
+      type: s.vibe,
+      time: s.time,
+      area: s.neighborhood,
+      address: s.address,
+      venueId: s.placeId,
+      lat: s.lat,
+      lng: s.lng,
+      kind: i === 0 ? "departure" : i === stops.length - 1 ? "destination" : "layover",
+      bookable: true,
+    };
+  }
+
+  function buildLoopFromWizard(): ActiveLoop {
+    const loopStops = stops.map((s, i) => wizardStopToLoopStop(s, i));
+    const existing = getActiveLoop();
+    return makeDemoLoop({
+      ...(existing ?? {}),
+      passenger: existing?.passenger || (user?.email?.split("@")[0]?.toUpperCase() ?? "GUEST"),
+      groupSize: crew?.k === "solo" ? 1 : crew?.k === "duo" ? 2 : crew?.k === "small" ? 4 : 6,
+      occasion: occasion ?? existing?.occasion,
+      vibe: vibesPicked[0] ?? existing?.vibe,
+      vibes: vibesPicked.length ? vibesPicked : existing?.vibes,
+      to: (occasion || vibesPicked[0] || "NIGHT OUT").toUpperCase(),
+      gate: stops[0]?.neighborhood?.toUpperCase().slice(0, 6) || existing?.gate || "GATE 1",
+      boardingTime: stops[0]?.time || existing?.boardingTime || "7:00 PM",
+      stops: loopStops,
+    });
+  }
+
   function savePlan(e: React.MouseEvent) {
     burst(e.clientX, e.clientY);
-    toast.success("Plan saved", { description: "Find it under My trips." });
-    setTimeout(closeWizard, 350);
+    const loop = buildLoopFromWizard();
+    setActiveLoop(loop);
+    toast.success("Added to boarding pass", {
+      description: `${loop.stops.length} stops · ${loop.boardingTime}`,
+    });
+    setTimeout(() => {
+      closeWizard();
+      navigate({ to: "/boarding-pass" });
+    }, 350);
   }
+
+  function addStopToBoardingPass(stop: Stop, e: React.MouseEvent) {
+    e.stopPropagation();
+    burst(e.clientX, e.clientY);
+    const existing = getActiveLoop();
+    const newStop = wizardStopToLoopStop(stop, existing?.stops.length ?? 0);
+    if (existing) {
+      const dup = existing.stops.some(
+        (s) => (s.venueId && s.venueId === newStop.venueId) || s.name === newStop.name,
+      );
+      if (dup) {
+        toast.info(`${stop.venue} is already on your boarding pass.`);
+        return;
+      }
+      const next: ActiveLoop = { ...existing, stops: [...existing.stops, newStop] };
+      setActiveLoop(next);
+      toast.success(`Added ${stop.venue} to boarding pass`, {
+        description: `${next.stops.length} stops total`,
+      });
+    } else {
+      const loop = makeDemoLoop({
+        passenger: user?.email?.split("@")[0]?.toUpperCase() ?? "GUEST",
+        to: stop.vibe.toUpperCase(),
+        gate: stop.neighborhood?.toUpperCase().slice(0, 6) || "GATE 1",
+        boardingTime: stop.time,
+        stops: [newStop],
+      });
+      setActiveLoop(loop);
+      toast.success(`Added ${stop.venue} to boarding pass`, {
+        description: "New trip created",
+      });
+    }
+  }
+
 
   return (
     <div className="fixed inset-0 z-[70] grid place-items-center p-3 sm:p-6">

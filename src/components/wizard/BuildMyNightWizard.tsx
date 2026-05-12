@@ -755,6 +755,7 @@ export function BuildMyNightWizard() {
       setMusts([]);
       setLoadingIdx(0);
       setVariant(0);
+      setDynamicStops(null);
     }, 220);
     return () => clearTimeout(t);
   }, [open]);

@@ -485,6 +485,8 @@ export function BuildMyNightWizard() {
   };
   const [placesData, setPlacesData] = useState<Record<string, PlaceInfo>>({});
   const [placesLoading, setPlacesLoading] = useState(false);
+  const [dynamicStops, setDynamicStops] = useState<Stop[] | null>(null);
+  const [dynamicLoading, setDynamicLoading] = useState(false);
   const [favorites, setFavorites] = useState<Record<string, FavRow>>({});
   const [showFavorites, setShowFavorites] = useState(false);
   const [reservingKey, setReservingKey] = useState<string | null>(null);

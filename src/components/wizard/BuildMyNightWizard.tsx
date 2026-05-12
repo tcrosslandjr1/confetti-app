@@ -559,6 +559,7 @@ export function BuildMyNightWizard() {
   const shareRef = useRef<HTMLDivElement>(null);
   const { user } = useAuth();
   const { burst, layer } = useConfettiBurst();
+  const navigate = useNavigate();
 
   const reserveSlot = useCallback(
     async (venueName: string, slot: string, level: "open" | "limited" | "few" | "full") => {

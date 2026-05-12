@@ -881,7 +881,7 @@ export function BuildMyNightWizard() {
   // Build a real itinerary from Google Places using the user's location + selected vibes.
   // Skips when a curated preset is in play.
   useEffect(() => {
-    if (step !== 6 || preset) return;
+    if (step !== 6 || (preset && preset.stops?.length)) return;
     let cancelled = false;
     (async () => {
       setDynamicLoading(true);

@@ -127,7 +127,11 @@ async function searchOne(
     },
     body: JSON.stringify(reqBody),
   });
-  if (!res.ok) return null;
+  if (!res.ok) {
+    const txt = await res.text().catch(() => "");
+    console.error("[wizard-itinerary] places API error", res.status, txt);
+    return null;
+  }
   const data = await res.json();
   const places = (data.places ?? []) as Array<{
     id: string;

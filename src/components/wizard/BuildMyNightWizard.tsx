@@ -829,7 +829,10 @@ export function BuildMyNightWizard() {
           return;
         }
         const fetched = (data?.stops ?? []) as Stop[];
-        if (fetched.length) setDynamicStops(fetched);
+        if (fetched.length) {
+          setDynamicStops(fetched);
+          setReplacements({});
+        }
       } catch (err) {
         if (!cancelled) console.warn("[wizard-itinerary]", err);
       } finally {

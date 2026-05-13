@@ -298,7 +298,8 @@ function VenuePage() {
 
         {(venue.address || venue.name) && (() => {
           const dest = { name: venue.name, address: venue.address ?? undefined };
-          const useOrigin = useMyLocation && !!origin;
+          const hasAddress = !!(venue.address && venue.address.trim());
+          const useOrigin = useMyLocation && !!origin && hasAddress;
           const points = useOrigin
             ? [{ name: "My location", lat: origin!.lat, lng: origin!.lng }, dest]
             : [dest];

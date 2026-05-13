@@ -329,7 +329,7 @@ Deno.serve(async (req) => {
       vibeKeys.push(fill);
     }
 
-    const seen = new Set<string>();
+    const seen = new Set<string>(blocked);
     const stops: Array<Record<string, unknown>> = [];
     const auditRows: Array<Record<string, unknown>> = [];
     for (const vibeKey of vibeKeys) {

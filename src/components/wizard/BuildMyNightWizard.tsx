@@ -1494,7 +1494,7 @@ export function BuildMyNightWizard() {
                     <button
                       key={c.k}
                       onClick={() => setCrew(c.k)}
-                      className={`rounded-2xl border-2 border-ink bg-cream p-5 text-left shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-gold shadow-brut-lg" : ""}`}
+                      className={`rounded-2xl border-2 border-ink p-5 text-left shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-gold text-ink shadow-brut-lg" : "bg-cream text-ink"}`}
                     >
                       <div className="font-display text-3xl font-extrabold">{c.sub}</div>
                       <div className="mt-1 font-mono text-[11px] uppercase tracking-widest">
@@ -1551,7 +1551,7 @@ export function BuildMyNightWizard() {
                       className={`rounded-2xl border-2 border-ink p-5 text-center shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-purple text-cream shadow-brut-lg" : "bg-cream text-ink"}`}
                     >
                       <div className="font-display text-3xl font-extrabold">{b.label}</div>
-                      <div className="mt-1 font-mono text-[10px] uppercase tracking-widest opacity-80">
+                      <div className={`mt-1 font-mono text-[10px] uppercase tracking-widest ${active ? "opacity-100" : "opacity-70"}`}>
                         {b.sub}
                       </div>
                     </button>

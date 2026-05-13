@@ -1,0 +1,242 @@
+import { createServerFn } from "@tanstack/react-start";
+import { z } from "zod";
+import { generateText, Output } from "ai";
+import { createLovableAiGatewayProvider } from "./ai-gateway.server";
+import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { findCity } from "./agents/city-context";
+import { findTemplate } from "./agents/templates";
+import type { GeneratedPlan } from "./agents/types";
+
+const PlanRequestSchema = z.object({
+  city: z.string().min(1).max(80).optional(),
+  occasionId: z.string().min(1).max(40).optional(),
+  occasionLabel: z.string().min(1).max(80).optional(),
+  vibeId: z.string().min(1).max(40).optional(),
+  vibeLabel: z.string().min(1).max(80).optional(),
+  groupSize: z.number().int().min(1).max(50).optional(),
+  date: z.string().min(1).max(40).optional(),
+  startTime: z.string().regex(/^\d{2}:\d{2}$/).optional(),
+  duration: z.string().min(1).max(20).optional(),
+  budget: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)]).optional(),
+});
+
+type CandidateVenue = {
+  id: string;
+  name: string;
+  category: string;
+  neighborhood: string | null;
+  rating: number | null;
+  trendScore: number | null;
+  mentionCount: number | null;
+  tags: string[];
+  summary: string | null;
+  placeId: string | null;
+  lat: number | null;
+  lng: number | null;
+};
+
+// ── Quality Guardrail (deterministic) ─────────────────────────────
+async function fetchQualifiedVenues(city: string): Promise<CandidateVenue[]> {
+  // Load up to 60 candidate venues from the discovered viral_venues pool.
+  const { data: rows, error } = await supabaseAdmin
+    .from("viral_venues")
+    .select(
+      "id, city, venue_name, neighborhood, rating, trend_score, tags, summary, google_place_id, mention_count, lat, lng",
+    )
+    .ilike("city", city)
+    .gte("rating", 4.0)
+    .order("trend_score", { ascending: false })
+    .limit(60);
+  if (error) {
+    console.error("[generatePlan] viral_venues query failed", error);
+    return [];
+  }
+
+  // Honor the blocked-by-reports list if any.
+  let blocked = new Set<string>();
+  try {
+    const { data: blockedRows } = await supabaseAdmin.rpc("blocked_place_ids_for_city", {
+      _city: city,
+    });
+    if (Array.isArray(blockedRows)) {
+      blocked = new Set(blockedRows.map((r: { place_id: string }) => r.place_id));
+    }
+  } catch {
+    /* RPC missing or empty — ignore */
+  }
+
+  return (rows ?? [])
+    .filter((r) => !r.google_place_id || !blocked.has(r.google_place_id))
+    .map((r) => ({
+      id: r.id,
+      name: r.venue_name,
+      category: (r.tags?.[0] as string | undefined) ?? "venue",
+      neighborhood: r.neighborhood,
+      rating: r.rating !== null ? Number(r.rating) : null,
+      trendScore: r.trend_score !== null ? Number(r.trend_score) : null,
+      mentionCount: r.mention_count,
+      tags: (r.tags as string[]) ?? [],
+      summary: r.summary,
+      placeId: r.google_place_id,
+      lat: r.lat !== null ? Number(r.lat) : null,
+      lng: r.lng !== null ? Number(r.lng) : null,
+    }));
+}
+
+// ── Schema for the model's structured output ──────────────────────
+const StopOutputSchema = z.object({
+  slot: z.string(),
+  venueId: z.string().describe("The id field from one of the provided candidate venues"),
+  time: z.string().describe("HH:MM 12-hour clock time, e.g. '7:30 PM'"),
+  rationale: z.string().min(8).max(200),
+});
+
+const PlanOutputSchema = z.object({
+  experienceName: z
+    .string()
+    .min(3)
+    .max(60)
+    .describe("Themed boarding-pass name, e.g. 'Salsa, Skylines & Secrets'"),
+  experienceTagline: z.string().min(8).max(140),
+  stops: z.array(StopOutputSchema).min(2).max(4),
+  bonus: z
+    .object({
+      name: z.string().min(2).max(60),
+      reason: z.string().min(8).max(160),
+      time: z.string().optional(),
+    })
+    .nullable()
+    .describe("Optional bonus move; null if none fits"),
+  estimatedSpend: z.string().describe("Per-person range, e.g. '$60–$90'"),
+  fitScore: z.number().min(0).max(1),
+  guardrailNote: z.string().max(160).nullable(),
+});
+
+export const generatePlan = createServerFn({ method: "POST" })
+  .inputValidator((input: unknown) => PlanRequestSchema.parse(input))
+  .handler(async ({ data: req }): Promise<GeneratedPlan> => {
+    const apiKey = process.env.LOVABLE_API_KEY;
+    if (!apiKey) throw new Error("Missing LOVABLE_API_KEY — Lovable AI Gateway is not configured.");
+
+    // 1. City Context Agent
+    const cityCtx = findCity(req.city);
+
+    // 2. Template Agent
+    const template = findTemplate(req.occasionId);
+
+    // 3. Quality Guardrail — pull candidate venues for the city
+    let candidates = await fetchQualifiedVenues(cityCtx.city);
+
+    // Filter out categories the template forbids (e.g. no club for in-laws).
+    const avoid = template.constraints.avoidCategories ?? [];
+    if (avoid.length) {
+      const lcAvoid = avoid.map((a) => a.toLowerCase());
+      candidates = candidates.filter(
+        (c) => !lcAvoid.some((a) => c.category.toLowerCase().includes(a) || c.tags.some((t) => t.toLowerCase().includes(a))),
+      );
+    }
+
+    // Trim to 30 most relevant candidates — keeps prompt cheap.
+    const topCandidates = candidates.slice(0, 30);
+
+    // 4 + 5 + 6. Itinerary + Naming + Impromptu + Relevance — single AI call.
+    const gateway = createLovableAiGatewayProvider(apiKey);
+    const model = gateway("google/gemini-3-flash-preview");
+
+    const startTime = req.startTime ?? "19:00";
+    const occasion = req.occasionLabel ?? template.blueprintName;
+    const vibe = req.vibeLabel ?? "easygoing";
+    const groupSize = req.groupSize ?? 2;
+    const budget = req.budget ?? template.constraints.priceCeiling;
+
+    const candidateBlock = topCandidates.length
+      ? topCandidates
+          .map(
+            (c, i) =>
+              `${i + 1}. id=${c.id} | "${c.name}" | ${c.category} | ${c.neighborhood ?? "—"} | rating=${c.rating ?? "?"} | trend=${(c.trendScore ?? 0).toFixed(2)} | tags=[${c.tags.slice(0, 4).join(", ")}] | ${c.summary?.slice(0, 110) ?? ""}`,
+          )
+          .join("\n")
+      : "(no discovered venues — invent on-vibe placeholders that match the city's allowed activities)";
+
+    const system = [
+      "You are Confetti's Itinerary Concierge — a multi-agent system that designs nights out.",
+      "You merge four agents in one response: Itinerary (slot fills), Relevance (vibe/occasion fit), Impromptu (one bonus move), and Naming (themed boarding-pass name).",
+      "Be specific, never generic. Match the city, occasion, vibe, and budget. Refuse to suggest categories the template forbids.",
+      "If the candidate list is empty, you may invent realistic on-vibe places using the city's allowed activities — but mark them with venueId='invent:<short-slug>' so the app knows they're not in our DB.",
+    ].join(" ");
+
+    const prompt = `# Plan request
+
+City: ${cityCtx.label} (tags: ${cityCtx.tags.join(", ")})
+Allowed activities: ${cityCtx.allowedActivities.join(", ")}
+${cityCtx.avoid?.length ? `Avoid: ${cityCtx.avoid.join(", ")}\n` : ""}Signature neighborhoods: ${(cityCtx.signatureNeighborhoods ?? []).join(", ") || "any"}
+
+Occasion: ${occasion}
+Vibe: ${vibe}
+Group size: ${groupSize}
+Start time: ${startTime}
+Duration: ${req.duration ?? "3 hr"}
+Budget ceiling: ${"$".repeat(budget)}
+
+# Template (Template Agent picked)
+Blueprint: ${template.blueprintName}
+Tone: ${template.tone}
+Constraints: noise<=${template.constraints.maxNoise}, chaos=${template.constraints.chaos}, accessibility=${template.constraints.accessibility ?? "any"}${template.constraints.avoidCategories?.length ? `, AVOID=[${template.constraints.avoidCategories.join(", ")}]` : ""}
+
+Required stops in order:
+${template.structure.map((s, i) => `${i + 1}. ${s.slot} — ${s.description} (cats: ${s.categoryHints.join(", ")}; ~${s.durationMin}m)`).join("\n")}
+
+# Candidate venues (Quality Guardrail pre-filtered: rating>=4.0, not blocked)
+${candidateBlock}
+
+# Your task
+Pick one venue per slot from the candidates (or invent if the list is empty).
+For each stop write a single-sentence rationale tying the pick to the occasion, vibe, or city.
+Add ONE optional bonus move ("Impromptu Ideas Agent") — something delightful and on-vibe (e.g. "20-min harbor walk before dinner", "quick blackjack stop"). Set bonus to null if nothing fits.
+Generate a Naming-Agent themed experienceName following pattern hints: ${template.namePatterns.join(" | ")}.
+Estimate per-person spend as a "$X–$Y" range honoring the budget ceiling.
+Return fitScore reflecting how well the picks match (0.85+ if every stop fits the slot's category hint and the city's allowed activities; lower it if you had to stretch).
+Use guardrailNote to flag any compromise (e.g. "swapped club for lounge — no in-laws-safe club found").`;
+
+    const { experimental_output: output } = await generateText({
+      model,
+      system,
+      prompt,
+      experimental_output: Output.object({ schema: PlanOutputSchema }),
+      maxRetries: 1,
+    });
+
+    // ── Post-pipeline guardrail: re-attach venue data and stamp ids ──
+    const byId = new Map(topCandidates.map((c) => [c.id, c]));
+    const stops = output.stops.map((s, i) => {
+      const v = byId.get(s.venueId);
+      return {
+        id: `s${i + 1}`,
+        slot: s.slot,
+        name: v?.name ?? s.venueId.replace(/^invent:/, "").replace(/-/g, " "),
+        type: v?.category ?? template.structure[i]?.categoryHints[0] ?? "venue",
+        time: s.time,
+        area: v?.neighborhood ?? undefined,
+        rationale: s.rationale,
+        venueId: v?.id,
+        lat: v?.lat ?? undefined,
+        lng: v?.lng ?? undefined,
+      };
+    });
+
+    return {
+      experienceName: output.experienceName,
+      experienceTagline: output.experienceTagline,
+      city: cityCtx.label,
+      occasionLabel: occasion,
+      vibeLabel: vibe,
+      blueprint: template.blueprintName,
+      stops,
+      bonus: output.bonus
+        ? { name: output.bonus.name, reason: output.bonus.reason, time: output.bonus.time }
+        : undefined,
+      estimatedSpend: output.estimatedSpend,
+      fitScore: output.fitScore,
+      guardrailNote: output.guardrailNote ?? undefined,
+    };
+  });

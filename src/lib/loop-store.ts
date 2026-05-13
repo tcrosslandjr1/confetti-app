@@ -20,6 +20,10 @@ export type LoopStop = {
   /** Optional pre-resolved coordinates — skips geocoding lookup. */
   lat?: number;
   lng?: number;
+  /** "Why this pick" rationale from the Itinerary Agent. */
+  rationale?: string;
+  /** Template slot the stop fills (e.g. "Pre-game", "Main"). */
+  slot?: string;
   // Rich boarding-pass extras (all optional for back-compat)
   kind?: StopKind;
   emoji?: string;
@@ -32,6 +36,12 @@ export type LoopStop = {
   tags?: { label: string; variant: "vibe" | "ev" | "time" }[];
   bookable?: boolean;
   bookingType?: "reservation" | "parking" | "both";
+};
+
+export type LoopBonusMove = {
+  name: string;
+  reason: string;
+  time?: string;
 };
 
 export type ActiveLoop = {
@@ -53,6 +63,23 @@ export type ActiveLoop = {
   confettiPoints?: number;
   fromName?: string;
   toName?: string;
+  // ── Multi-agent pipeline output (all optional for back-compat) ──
+  /** City the plan is anchored in, e.g. "Washington DC" */
+  city?: string;
+  /** Themed boarding-pass title from the Naming Agent */
+  experienceName?: string;
+  /** One-line tagline */
+  experienceTagline?: string;
+  /** Template Agent blueprint name, e.g. "Glitter & Giggles" */
+  blueprint?: string;
+  /** "$60–$90" per-person estimate */
+  estimatedSpend?: string;
+  /** 0-1 fit score from the Relevance Agent */
+  fitScore?: number;
+  /** Optional Quality Guardrail note */
+  guardrailNote?: string;
+  /** Optional Impromptu Ideas Agent bonus move */
+  bonusMove?: LoopBonusMove;
   /** Filled when the plan has been booked end-to-end via the BookingModal. */
   booking?: {
     ref: string;

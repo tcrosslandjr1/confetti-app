@@ -92,11 +92,49 @@ function ConfirmationPage() {
           <Check className="h-12 w-12" strokeWidth={3} />
         </div>
         <h1 className="mt-6 font-display text-4xl font-extrabold tracking-tight">
-          You're all set!
+          {loop.experienceName ?? "You're all set!"}
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Your plan is locked. Confirmation sent.
+          {loop.experienceTagline ?? "Your plan is locked. Confirmation sent."}
         </p>
+        {(loop.blueprint || loop.city) && (
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-1.5">
+            {loop.blueprint && (
+              <span className="rounded-full border-2 border-ink bg-cream px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest">
+                {loop.blueprint}
+              </span>
+            )}
+            {loop.city && (
+              <span className="rounded-full border border-ink/30 bg-background px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-widest text-ink/70">
+                {loop.city}
+              </span>
+            )}
+            {typeof loop.fitScore === "number" && (
+              <span className="rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-emerald-700">
+                {Math.round(loop.fitScore * 100)}% fit
+              </span>
+            )}
+          </div>
+        )}
+        {loop.estimatedSpend && (
+          <p className="mt-2 font-mono text-[11px] font-semibold uppercase tracking-widest text-ink/60">
+            Est. {loop.estimatedSpend} per person
+          </p>
+        )}
+        {loop.bonusMove && (
+          <div className="mt-4 rounded-2xl border-2 border-dashed border-coral/60 bg-coral/5 p-3 text-left">
+            <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-coral">
+              ✨ Bonus move{loop.bonusMove.time ? ` · ${loop.bonusMove.time}` : ""}
+            </div>
+            <div className="mt-1 font-display text-sm font-bold">{loop.bonusMove.name}</div>
+            <p className="mt-0.5 text-xs text-muted-foreground">{loop.bonusMove.reason}</p>
+          </div>
+        )}
+        {loop.guardrailNote && (
+          <p className="mt-2 text-[11px] italic text-muted-foreground">
+            Note: {loop.guardrailNote}
+          </p>
+        )}
 
         <div className="mt-6 rounded-3xl border-2 border-ink bg-card p-5 text-left shadow-brut">
           <div className="flex items-center justify-between">

@@ -1,22 +1,14 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import {
-  Users,
-  User,
-  Heart,
-  Cake,
-  Briefcase,
-  Home,
-  Sparkles,
-  Wand2,
-  ArrowRight,
-  ArrowLeft,
-  Calendar,
-  Clock,
-  Check,
+  Users, User, Heart, Cake, Briefcase, Home, Sparkles, Wand2,
+  ArrowRight, ArrowLeft, Calendar, Clock, Check, MapPin, Loader2,
 } from "lucide-react";
-import { makeDemoLoop, setActiveLoop } from "@/lib/loop-store";
+import { makeDemoLoop, setActiveLoop, type ActiveLoop } from "@/lib/loop-store";
 import { VIBES } from "@/lib/concierge-data";
+import { CITIES } from "@/lib/agents/city-context";
+import { generatePlan } from "@/lib/generate-plan.functions";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/create")({
@@ -44,6 +36,7 @@ const DURATIONS = ["2 hr", "3 hr", "4 hr", "All night"];
 
 function CreatePage() {
   const navigate = useNavigate();
+  const generate = useServerFn(generatePlan);
   const [step, setStep] = useState(0);
   const [group, setGroup] = useState<(typeof GROUP)[number] | null>(null);
   const [occasion, setOccasion] = useState<(typeof OCCASIONS)[number] | null>(null);
@@ -51,25 +44,81 @@ function CreatePage() {
   const [time, setTime] = useState("19:00");
   const [duration, setDuration] = useState("3 hr");
   const [vibe, setVibe] = useState<(typeof VIBES)[number] | null>(null);
+  const [city, setCity] = useState(CITIES[0].label);
+  const [generating, setGenerating] = useState(false);
 
   const totalSteps = 4;
   const canNext = [group, occasion, true, vibe][step];
 
-  function finish() {
+  async function finish() {
+    if (generating) return;
+    setGenerating(true);
     try {
-      const loop = makeDemoLoop({
-        passenger: "GUEST",
-        groupSize: group?.size ?? 2,
-        occasion: occasion?.label,
-        vibe: vibe?.label,
-        to: occasion?.label.toUpperCase() ?? "NIGHT OUT",
-        boardingTime: time.replace(/^0/, ""),
+      const plan = await generate({
+        data: {
+          city,
+          occasionId: occasion?.id,
+          occasionLabel: occasion?.label,
+          vibeId: vibe?.id,
+          vibeLabel: vibe?.label,
+          groupSize: group?.size ?? 2,
+          date,
+          startTime: time,
+          duration,
+        },
       });
+      const loop: ActiveLoop = {
+        ...makeDemoLoop({
+          passenger: "GUEST",
+          groupSize: group?.size ?? 2,
+          occasion: occasion?.label,
+          vibe: vibe?.label,
+          to: occasion?.label.toUpperCase() ?? "NIGHT OUT",
+          boardingTime: plan.stops[0]?.time ?? time.replace(/^0/, ""),
+          stops: plan.stops.map((s) => ({
+            id: s.id,
+            name: s.name,
+            type: s.type,
+            time: s.time,
+            area: s.area,
+            venueId: s.venueId,
+            lat: s.lat,
+            lng: s.lng,
+            rationale: s.rationale,
+            slot: s.slot,
+          })),
+        }),
+        city: plan.city,
+        experienceName: plan.experienceName,
+        experienceTagline: plan.experienceTagline,
+        blueprint: plan.blueprint,
+        estimatedSpend: plan.estimatedSpend,
+        fitScore: plan.fitScore,
+        guardrailNote: plan.guardrailNote,
+        bonusMove: plan.bonus,
+      };
       setActiveLoop(loop);
       navigate({ to: "/confirmation" });
     } catch (err) {
       console.error("[create] finish failed", err);
-      toast.error("Couldn't lock your plan. Try again.");
+      toast.error("Couldn't build your night. Try again.");
+      // Fallback so the user isn't stuck — drop them into the demo loop.
+      try {
+        const fallback = makeDemoLoop({
+          passenger: "GUEST",
+          groupSize: group?.size ?? 2,
+          occasion: occasion?.label,
+          vibe: vibe?.label,
+          to: occasion?.label.toUpperCase() ?? "NIGHT OUT",
+          boardingTime: time.replace(/^0/, ""),
+        });
+        setActiveLoop(fallback);
+        navigate({ to: "/confirmation" });
+      } catch {
+        /* swallow */
+      }
+    } finally {
+      setGenerating(false);
     }
   }
 
@@ -194,6 +243,20 @@ function CreatePage() {
                   className="mt-1 w-full rounded-xl border-2 border-ink bg-card px-4 py-3 font-display text-base font-bold"
                 />
               </label>
+              <label className="block">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 flex items-center gap-1">
+                  <MapPin className="h-3 w-3" /> City
+                </span>
+                <select
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  className="mt-1 w-full rounded-xl border-2 border-ink bg-card px-4 py-3 font-display text-base font-bold"
+                >
+                  {CITIES.map((c) => (
+                    <option key={c.slug} value={c.label}>{c.label}</option>
+                  ))}
+                </select>
+              </label>
               <div>
                 <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
                   Duration
@@ -256,12 +319,15 @@ function CreatePage() {
 
         <div className="mt-8">
           <button
-            disabled={!canNext}
+            disabled={!canNext || generating}
             onClick={() => (step < totalSteps - 1 ? setStep(step + 1) : finish())}
             className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink px-4 py-4 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-40"
           >
-            {step < totalSteps - 1 ? "Continue" : "Create My Plan"}
-            <ArrowRight className="h-4 w-4" />
+            {generating ? (
+              <><Loader2 className="h-4 w-4 animate-spin" /> Building your night…</>
+            ) : (
+              <>{step < totalSteps - 1 ? "Continue" : "Create My Plan"} <ArrowRight className="h-4 w-4" /></>
+            )}
           </button>
         </div>
       </div>

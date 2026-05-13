@@ -73,6 +73,11 @@ function fmt(p: Place): string {
   return p.address || p.name || "";
 }
 
+/** True when a place has a routable address or coordinates (name alone is not). */
+export function hasRoutableLocation(p: Place): boolean {
+  return (p.lat != null && p.lng != null) || !!(p.address && p.address.trim());
+}
+
 /* --------------------------- Apple Maps builders --------------------------- */
 
 export function buildAppleMapsSearchUrl(p: Place): string {

@@ -485,6 +485,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           )}
         </div>
       </div>
+      <RerunButtons loop={loop} />
       <div ref={passRef} className="relative rounded-3xl border-2 border-ink bg-cream shadow-brut-lg overflow-hidden">
 
         {/* ── Header ── */}

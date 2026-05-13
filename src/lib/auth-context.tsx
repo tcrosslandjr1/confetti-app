@@ -18,6 +18,9 @@ type AuthCtx = {
   user: User | null;
   session: Session | null;
   loading: boolean;
+  sessionLoading: boolean;
+  roleLoading: boolean;
+  viewAsLoaded: boolean;
   isAdmin: boolean;
   /** "admin" | "customer" | "visitor" — what the user is currently viewing the app AS */
   viewAs: ViewAs;

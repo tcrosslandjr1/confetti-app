@@ -4,6 +4,7 @@ import { Flame, ArrowRight, MapPin } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { ViralTagChip, type ViralTag } from "./ViralTagChip";
 import { SmoothScrollRow } from "./SmoothScrollRow";
+import { WhyThisPick, derivePickSignals } from "./WhyThisPick";
 
 type ViralVenue = {
   id: string;

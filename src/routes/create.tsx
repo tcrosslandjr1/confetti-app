@@ -16,6 +16,8 @@ import {
   Check,
 } from "lucide-react";
 import { makeDemoLoop, setActiveLoop } from "@/lib/loop-store";
+import { VIBES } from "@/lib/concierge-data";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/create")({
   head: () => ({ meta: [{ title: "Create a Plan — Confetti" }] }),

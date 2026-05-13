@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, Play, Share2, Check } from "lucide-react";
+import { ArrowLeft, Play, Share2, Check, Mail } from "lucide-react";
 import { toast } from "sonner";
 import {
   BoardingPassV2,

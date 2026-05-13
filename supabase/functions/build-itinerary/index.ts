@@ -114,12 +114,20 @@ function nameSimilar(a: string, b: string): boolean {
   return overlap >= Math.max(1, Math.min(at.size, bt.size) - 1);
 }
 
+function placeScore(rating?: number, count?: number): number {
+  return Number(((rating ?? 0) * Math.log10((count ?? 0) + 10)).toFixed(4));
+}
+
+type AuditRow = Record<string, unknown>;
+
 async function verifyStop(
   stop: Record<string, unknown>,
   cityLabel: string,
   bias: { lat: number; lng: number } | undefined,
   used: Set<string>,
   key: string,
+  audit: AuditRow[],
+  ctx: { userId: string | null; city: string | null },
 ): Promise<{ stop: Record<string, unknown>; verified: boolean }> {
   const name = String(stop.name ?? "").trim();
   const category = String(stop.category ?? "other");
@@ -133,6 +141,21 @@ async function verifyStop(
     const match = direct.find((h) => nameSimilar(h.displayName?.text ?? "", name) && !used.has(h.id));
     if (match) {
       used.add(match.id);
+      audit.push({
+        source: "build-itinerary",
+        user_id: ctx.userId,
+        city: ctx.city,
+        requested_name: name,
+        query: cityForQuery ? `${name} ${cityForQuery}` : name,
+        place_id: match.id,
+        matched_name: match.displayName?.text ?? null,
+        status: "matched",
+        score: placeScore(match.rating, match.userRatingCount),
+        rating: match.rating ?? null,
+        user_rating_count: match.userRatingCount ?? null,
+        business_status: match.businessStatus ?? null,
+        meta: { category, candidates: direct.length },
+      });
       return { stop: applyHit(stop, match), verified: true };
     }
   }
@@ -149,8 +172,38 @@ async function verifyStop(
   const pick = fb[0];
   if (pick) {
     used.add(pick.id);
+    audit.push({
+      source: "build-itinerary",
+      user_id: ctx.userId,
+      city: ctx.city,
+      requested_name: name || null,
+      query: fallbackQ,
+      place_id: pick.id,
+      matched_name: pick.displayName?.text ?? null,
+      status: "fallback",
+      score: placeScore(pick.rating, pick.userRatingCount),
+      rating: pick.rating ?? null,
+      user_rating_count: pick.userRatingCount ?? null,
+      business_status: pick.businessStatus ?? null,
+      meta: { category, candidates: fb.length },
+    });
     return { stop: applyHit(stop, pick), verified: true };
   }
+  audit.push({
+    source: "build-itinerary",
+    user_id: ctx.userId,
+    city: ctx.city,
+    requested_name: name || null,
+    query: fallbackQ,
+    place_id: null,
+    matched_name: null,
+    status: "unmatched",
+    score: 0,
+    rating: null,
+    user_rating_count: null,
+    business_status: null,
+    meta: { category },
+  });
   return { stop, verified: false };
 }
 

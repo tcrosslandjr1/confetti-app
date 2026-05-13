@@ -521,6 +521,7 @@ export function BuildMyNightWizard() {
   const [placesLoading, setPlacesLoading] = useState(false);
   const [dynamicStops, setDynamicStops] = useState<Stop[] | null>(null);
   const [dynamicLoading, setDynamicLoading] = useState(false);
+  const [dynamicError, setDynamicError] = useState<{ city: string | null; reason: "error" | "empty" } | null>(null);
   const [replacements, setReplacements] = useState<Record<number, Stop>>({});
   const [swapTarget, setSwapTarget] = useState<{ index: number; stop: Stop } | null>(null);
   const [swapLoading, setSwapLoading] = useState(false);

@@ -189,16 +189,14 @@ function CreatePage() {
           {picks.map((p) => {
             const isCurrent = step === p.step;
             return (
-              <button
+              <div
                 key={p.key}
-                onClick={() => setStep(p.step)}
-                aria-label={`${p.done ? "Edit" : "Go to"} ${STEP_LABELS[p.step]}: ${p.done ? p.label : "not selected yet"}`}
-                className={`group inline-flex items-center gap-1.5 rounded-full border pl-1.5 pr-1.5 py-1 text-[11px] font-medium transition-colors ${
+                className={`group inline-flex items-center gap-1 rounded-full border pl-1.5 pr-1 py-0.5 text-[11px] font-medium transition-colors ${
                   p.done
-                    ? "border-ink/20 bg-card text-ink/85 hover:border-ink hover:bg-cream"
+                    ? "border-ink/20 bg-card text-ink/85 hover:border-ink/60"
                     : isCurrent
                     ? "border-coral border-dashed bg-coral/5 text-ink/70"
-                    : "border-ink/15 border-dashed bg-transparent text-ink/40 hover:border-ink/40 hover:text-ink/70"
+                    : "border-ink/15 border-dashed bg-transparent text-ink/40"
                 }`}
               >
                 {/* status indicator */}
@@ -207,31 +205,49 @@ function CreatePage() {
                     <Check className="h-2.5 w-2.5" strokeWidth={3} />
                   </span>
                 ) : (
-                  <span
-                    className={`grid h-4 w-4 place-items-center rounded-full border ${
-                      isCurrent ? "border-coral" : "border-ink/30"
-                    }`}
-                  >
-                    <span
-                      className={`h-1.5 w-1.5 rounded-full ${
-                        isCurrent ? "bg-coral animate-pulse" : "bg-ink/30"
-                      }`}
-                    />
+                  <span className={`grid h-4 w-4 place-items-center rounded-full border ${isCurrent ? "border-coral" : "border-ink/30"}`}>
+                    <span className={`h-1.5 w-1.5 rounded-full ${isCurrent ? "bg-coral animate-pulse" : "bg-ink/30"}`} />
                   </span>
                 )}
-                <span className="px-0.5">{p.label}</span>
+
+                {/* label tap-target = jump to step */}
+                <button
+                  onClick={() => setStep(p.step)}
+                  aria-label={`Go to ${STEP_LABELS[p.step]} step`}
+                  className="px-1 py-0.5"
+                >
+                  {p.label}
+                </button>
+
                 {p.done ? (
-                  <span className="ml-0.5 inline-flex items-center gap-0.5 rounded-full bg-ink/5 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-ink/70 group-hover:bg-ink group-hover:text-cream">
-                    <Pencil className="h-2.5 w-2.5" /> Edit
-                  </span>
+                  <>
+                    {/* Action 1: full Edit (jump to step) */}
+                    <button
+                      onClick={() => setStep(p.step)}
+                      aria-label={`Edit ${STEP_LABELS[p.step]} in full step`}
+                      title="Edit in step"
+                      className="inline-flex items-center gap-0.5 rounded-full bg-ink/5 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-ink/70 hover:bg-ink hover:text-cream"
+                    >
+                      <Pencil className="h-2.5 w-2.5" /> Edit
+                    </button>
+                    {/* Action 2: quick Swap (inline popover, doesn't change step) */}
+                    <button
+                      onClick={() => setQuickEdit(p.key as typeof quickEdit)}
+                      aria-label={`Swap ${STEP_LABELS[p.step]} without leaving this step`}
+                      title="Swap just this"
+                      className="inline-flex items-center gap-0.5 rounded-full bg-coral/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-coral hover:bg-coral hover:text-cream"
+                    >
+                      <Replace className="h-2.5 w-2.5" /> Swap
+                    </button>
+                  </>
                 ) : (
-                  <span className={`ml-0.5 rounded-full px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider ${
+                  <span className={`rounded-full px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider ${
                     isCurrent ? "bg-coral/15 text-coral" : "bg-ink/5 text-ink/50"
                   }`}>
                     {isCurrent ? "Now" : "Pending"}
                   </span>
                 )}
-              </button>
+              </div>
             );
           })}
         </div>

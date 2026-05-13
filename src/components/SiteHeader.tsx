@@ -21,20 +21,19 @@ function RotatingTagline() {
     return () => window.clearInterval(id);
   }, []);
   return (
-    <span className="group ml-3 hidden h-7 items-center gap-3 rounded-full border border-ink/10 bg-white/40 px-3 shadow-[0_1px_2px_rgba(0,0,0,0.03)] backdrop-blur-[2px] transition-all duration-300 hover:border-ink/20 hover:bg-white/80 sm:inline-flex">
-      <span className="flex items-center gap-1.5">
-        <span className="relative inline-flex h-1.5 w-1.5">
-          <span className="absolute inset-0 animate-ping rounded-full bg-coral/30" />
-          <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-coral" />
-        </span>
-        <span className="h-1.5 w-1.5 rounded-full bg-ink/10 transition-colors group-hover:bg-ink/30" />
+    <span className="ml-3 hidden h-8 items-center gap-2 border-2 border-ink bg-white px-3 shadow-brut sm:inline-flex">
+      <span className="relative inline-flex h-2 w-2">
+        <span className="absolute inset-0 animate-ping rounded-full bg-coral/70" />
+        <span className="relative inline-block h-2 w-2 rounded-full bg-coral" />
       </span>
       <span className="relative inline-block h-[1em] overflow-hidden">
         <span
           key={i}
-          className="block translate-y-[0.5px] animate-tagline-in whitespace-nowrap font-serif text-[13px] italic leading-none text-ink/60"
+          className="block animate-tagline-in whitespace-nowrap font-mono text-[11px] font-bold uppercase leading-none tracking-widest text-ink"
         >
-          / {TAGLINES[i]}
+          {TAGLINES[i].split(",")[0]}
+          <span className="mx-1 text-coral/50">//</span>
+          {TAGLINES[i].split(",").slice(1).join(",").trim() || "live"}
         </span>
       </span>
     </span>

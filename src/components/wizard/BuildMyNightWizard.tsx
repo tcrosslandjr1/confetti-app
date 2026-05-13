@@ -8,6 +8,7 @@ import {
   DollarSign,
   Flame,
   Globe,
+  AlertTriangle,
   Heart,
   Loader2,
   MapPin,

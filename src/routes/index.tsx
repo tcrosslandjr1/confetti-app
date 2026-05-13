@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { RecapBanner } from "@/components/RecapBanner";
+import { TasteConfirmPrompt } from "@/components/TasteConfirmPrompt";
 import { SiteFooter } from "@/components/SiteFooter";
 import { TypingCounter } from "@/components/TypingCounter";
 import { StepsShowcase } from "@/components/StepsShowcase";

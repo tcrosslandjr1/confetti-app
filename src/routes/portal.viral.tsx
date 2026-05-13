@@ -12,7 +12,10 @@ import {
   Trophy,
   Crown,
   Medal,
+  Loader2,
+  Info,
 } from "lucide-react";
+import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { ViralTagChip, ALL_VIRAL_TAGS, tagLabel, type ViralTag } from "@/components/ViralTagChip";
 

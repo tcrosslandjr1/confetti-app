@@ -1,22 +1,14 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import {
-  Users,
-  User,
-  Heart,
-  Cake,
-  Briefcase,
-  Home,
-  Sparkles,
-  Wand2,
-  ArrowRight,
-  ArrowLeft,
-  Calendar,
-  Clock,
-  Check,
+  Users, User, Heart, Cake, Briefcase, Home, Sparkles, Wand2,
+  ArrowRight, ArrowLeft, Calendar, Clock, Check, MapPin, Loader2,
 } from "lucide-react";
-import { makeDemoLoop, setActiveLoop } from "@/lib/loop-store";
+import { makeDemoLoop, setActiveLoop, type ActiveLoop } from "@/lib/loop-store";
 import { VIBES } from "@/lib/concierge-data";
+import { CITIES } from "@/lib/agents/city-context";
+import { generatePlan } from "@/lib/generate-plan.functions";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/create")({

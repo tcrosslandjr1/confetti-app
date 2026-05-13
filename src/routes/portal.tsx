@@ -71,10 +71,16 @@ function PortalLayout() {
         note: "Visitor view blocked from portal route",
       });
       nav({ to: "/" });
+    } else if (viewAs === "admin") {
+      // Admins must switch to "Customer" view to use the booking/portal flow —
+      // we don't want admin accounts placing bookings while testing.
+      nav({ to: "/admin" });
+    } else if (viewAs === "business") {
+      nav({ to: "/advertise/portal" });
     }
   }, [user, loading, viewAs, nav, pathname]);
 
-  if (loading || !user || viewAs === "visitor") {
+  if (loading || !user || viewAs !== "customer") {
     return (
       <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">
         Loading…

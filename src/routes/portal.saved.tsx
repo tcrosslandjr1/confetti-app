@@ -116,7 +116,7 @@ function SavedPage() {
                 available.map((v) => (
                   <li
                     key={v.id}
-                    className="flex items-center justify-between rounded-lg border border-border p-2"
+                    className="flex items-center justify-between rounded-lg border-2 border-ink p-2"
                   >
                     <div>
                       <div className="font-semibold">{v.name}</div>
@@ -139,7 +139,7 @@ function SavedPage() {
       {loading ? (
         <p className="text-sm text-muted-foreground">Loading…</p>
       ) : items.length === 0 ? (
-        <div className="rounded-3xl border border-dashed border-border bg-card p-10 text-center">
+        <div className="rounded-3xl border border-dashed border-border bg-cream p-10 text-center">
           <Bookmark className="mx-auto h-10 w-10 text-muted-foreground" />
           <h2 className="mt-3 font-display text-2xl font-bold">Nothing saved yet</h2>
           <p className="mt-2 text-sm text-muted-foreground">
@@ -153,7 +153,7 @@ function SavedPage() {
             .map((i) => (
               <li
                 key={i.id}
-                className="overflow-hidden rounded-2xl border border-border bg-card shadow-card"
+                className="overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut"
               >
                 {i.venues!.image_url ? (
                   <img

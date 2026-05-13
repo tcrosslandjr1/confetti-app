@@ -148,7 +148,7 @@ function PortalActivityPage() {
       </div>
 
       {/* Filters */}
-      <div className="mt-5 rounded-2xl border-2 border-ink bg-card p-3 shadow-brut">
+      <div className="mt-5 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut">
         <div className="flex flex-wrap items-center gap-3">
           <div className="inline-flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
             <Filter className="h-3 w-3" /> Filter
@@ -209,7 +209,7 @@ function PortalActivityPage() {
               <h2 className="mb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
                 {group.day}
               </h2>
-              <ol className="space-y-2 rounded-2xl border-2 border-ink bg-card p-3 shadow-brut">
+              <ol className="space-y-2 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut">
                 {group.items.map((e) => {
                   const Icon = ICONS[e.kind] ?? Activity;
                   return (

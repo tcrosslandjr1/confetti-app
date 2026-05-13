@@ -126,7 +126,7 @@ function ReferPage() {
   return (
     <div className="space-y-8">
       {/* Hero */}
-      <section className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary/15 via-card to-card p-6 shadow-card sm:p-10">
+      <section className="relative overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br from-primary/15 via-card to-card p-6 shadow-brut sm:p-10">
         <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary/30 blur-3xl" />
         <div className="absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-secondary/30 blur-3xl" />
         <div className="relative max-w-2xl">
@@ -154,7 +154,7 @@ function ReferPage() {
       </section>
 
       {/* Share */}
-      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+      <section className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut">
         <h2 className="font-display text-xl font-bold">Your invite link</h2>
         <p className="mt-1 text-xs text-muted-foreground">
           Share this anywhere — texts, DMs, group chats.
@@ -175,7 +175,7 @@ function ReferPage() {
             <button
               onClick={onShare}
               disabled={!link}
-              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-2xl border border-border bg-background px-4 py-3 text-sm font-semibold transition hover:bg-accent disabled:opacity-50 sm:flex-initial"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-2xl border-2 border-ink bg-background px-4 py-3 text-sm font-semibold transition hover:bg-accent disabled:opacity-50 sm:flex-initial"
             >
               <Share2 className="h-4 w-4" /> Share
             </button>
@@ -190,7 +190,7 @@ function ReferPage() {
       </section>
 
       {/* Email invites */}
-      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+      <section className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut">
         <h2 className="flex items-center gap-2 font-display text-xl font-bold">
           <Mail className="h-5 w-5" /> Invite by email
         </h2>
@@ -203,13 +203,13 @@ function ReferPage() {
             onChange={(e) => setEmailsRaw(e.target.value)}
             placeholder="alex@example.com, sam@example.com"
             rows={3}
-            className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm outline-none ring-ring/30 focus:ring-2"
+            className="w-full rounded-2xl border-2 border-ink bg-background px-4 py-3 text-sm outline-none ring-ring/30 focus:ring-2"
           />
           <div className="flex items-center justify-between gap-3">
             <p className="text-xs text-muted-foreground">{sentMsg}</p>
             <button
               disabled={sending || !emailsRaw.trim()}
-              className="inline-flex items-center gap-1.5 rounded-2xl bg-gradient-vibe px-5 py-3 text-sm font-semibold text-primary-foreground shadow-pop transition-pop active:scale-95 disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 rounded-2xl bg-gradient-vibe px-5 py-3 text-sm font-semibold text-primary-foreground shadow-brut transition-pop active:scale-95 disabled:opacity-50"
             >
               {sending ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -223,7 +223,7 @@ function ReferPage() {
       </section>
 
       {/* Rewards */}
-      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+      <section className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut">
         <h2 className="font-display text-xl font-bold">Your rewards</h2>
         {rewards.length === 0 ? (
           <p className="mt-3 text-sm text-muted-foreground">
@@ -234,7 +234,7 @@ function ReferPage() {
             {rewards.map((r) => (
               <li
                 key={r.id}
-                className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-border bg-background px-4 py-3"
+                className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border-2 border-ink bg-background px-4 py-3"
               >
                 <div className="flex items-center gap-3">
                   <div className="grid h-9 w-9 place-items-center rounded-full bg-primary/15 text-primary">
@@ -269,7 +269,7 @@ function ReferPage() {
       </section>
 
       {/* Invites */}
-      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+      <section className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut">
         <h2 className="font-display text-xl font-bold">Invites</h2>
         {invites.length === 0 ? (
           <p className="mt-3 text-sm text-muted-foreground">No invites sent yet.</p>
@@ -307,7 +307,7 @@ function ReferPage() {
       </section>
 
       {/* Badges */}
-      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+      <section className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut">
         <h2 className="flex items-center gap-2 font-display text-xl font-bold">
           <Medal className="h-5 w-5" /> Referral badges
         </h2>
@@ -322,7 +322,7 @@ function ReferPage() {
       </section>
 
       {/* Leaderboard */}
-      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+      <section className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut">
         <h2 className="flex items-center gap-2 font-display text-xl font-bold">
           <Trophy className="h-5 w-5 text-primary" /> Top referrers
         </h2>
@@ -449,7 +449,7 @@ function Stat({
   value: number | string;
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-background/80 p-3 backdrop-blur">
+    <div className="rounded-2xl border-2 border-ink bg-background/80 p-3 backdrop-blur">
       <Icon className="h-4 w-4 text-primary" />
       <div className="mt-2 font-display text-2xl font-bold leading-none">{value}</div>
       <div className="mt-1 text-[10px] uppercase tracking-wider text-muted-foreground">{label}</div>

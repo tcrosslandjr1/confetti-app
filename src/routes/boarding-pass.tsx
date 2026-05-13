@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { ArrowLeft, Play, Share2, Check, Mail, Lock, Pencil } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowLeft, Play, Share2, Check, Mail, Lock, Pencil, ImageDown, Loader2 } from "lucide-react";
+import { trackShareEvent } from "@/lib/share-analytics";
 import { ChangeMyNight } from "@/components/ChangeMyNight";
 import { toast } from "sonner";
 import {

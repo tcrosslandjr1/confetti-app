@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { ArrowLeft, Play, Share2, Check, Mail, Lock, Pencil } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowLeft, Play, Share2, Check, Mail, Lock, Pencil, ImageDown, Loader2 } from "lucide-react";
+import { trackShareEvent } from "@/lib/share-analytics";
 import { ChangeMyNight } from "@/components/ChangeMyNight";
 import { toast } from "sonner";
 import {
@@ -115,6 +116,8 @@ function mapLoop(loop: ActiveLoop): BoardingPassData {
 function BoardingPassPage() {
   const [data, setData] = useState<BoardingPassData | null>(null);
   const [shared, setShared] = useState(false);
+  const [imageBusy, setImageBusy] = useState(false);
+  const passRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const sync = () => {
@@ -198,6 +201,66 @@ function BoardingPassPage() {
     }
   };
 
+  const loopId = data ? "active" : "sample";
+
+  const handleShareImage = async () => {
+    if (!passRef.current) return;
+    setImageBusy(true);
+    try {
+      const { toPng } = await import("html-to-image");
+      const dataUrl = await toPng(passRef.current, {
+        cacheBust: true,
+        pixelRatio: 3,
+        backgroundColor: "#fdf6ee",
+      });
+      const fileName = `confetti-${(passData.flightCode || "boarding-pass").toLowerCase()}.png`;
+
+      // Try native file share first (great on mobile)
+      let nativeShared = false;
+      try {
+        const blob = await (await fetch(dataUrl)).blob();
+        const file = new File([blob], fileName, { type: "image/png" });
+        const navAny = navigator as Navigator & {
+          canShare?: (d: { files: File[] }) => boolean;
+        };
+        if (navAny.canShare && navAny.canShare({ files: [file] })) {
+          await navigator.share({
+            title: `${passData.occasionEmoji} ${passData.occasionLabel}`,
+            text: `My Confetti vibe: ${passData.origin.name} → ${passData.destination.name}`,
+            files: [file],
+          });
+          nativeShared = true;
+        }
+      } catch {
+        /* best effort */
+      }
+
+      if (!nativeShared) {
+        const a = document.createElement("a");
+        a.href = dataUrl;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+
+      trackShareEvent("share_save_image", { loopId, meta: { nativeShared } });
+      toast.success(nativeShared ? "Shared!" : "Image saved", {
+        description: nativeShared
+          ? "Your boarding pass is on its way."
+          : "Check your downloads to share it anywhere.",
+        position: "bottom-center",
+        duration: 3500,
+      });
+    } catch (err) {
+      if ((err as { name?: string })?.name === "AbortError") return;
+      trackShareEvent("share_error", { loopId, meta: { source: "save_image" } });
+      toast.error("Couldn't generate image — try again", { position: "bottom-center" });
+    } finally {
+      setImageBusy(false);
+    }
+  };
+
   return (
     <div className="min-h-screen pb-32" style={{ background: "#fdf6ee" }}>
       <div className="mx-auto max-w-md px-4 pt-6">
@@ -231,7 +294,9 @@ function BoardingPassPage() {
         )}
       </div>
       <div className="mt-6 px-4">
-        <BoardingPassV2 data={passData} />
+        <div ref={passRef} className="bg-[#fdf6ee] p-2 rounded-3xl">
+          <BoardingPassV2 data={passData} />
+        </div>
 
         {/* Explore alternatives + edit before locking in */}
         {data && (
@@ -260,8 +325,18 @@ function BoardingPassPage() {
                 <Lock className="h-4 w-4" /> Lock in
               </Link>
             </div>
+            <button
+              type="button"
+              onClick={handleShareImage}
+              disabled={imageBusy}
+              aria-label="Generate and share a high-quality image of your boarding pass"
+              className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-3 py-3 font-display text-xs font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold disabled:opacity-60 disabled:hover:translate-y-0"
+            >
+              {imageBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImageDown className="h-4 w-4" />}
+              {imageBusy ? "Rendering…" : "Share as image"}
+            </button>
             <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-ink/50">
-              Share to get a vibe-check before you lock it in
+              Share a link, or save a high-res image of your vibe
             </p>
           </div>
         )}

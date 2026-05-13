@@ -307,7 +307,33 @@ function CreatePage() {
         {/* Step content */}
         <div className="mt-5">
           {step === 0 && (
-            <div className="space-y-2.5">
+            <div className="space-y-4">
+              {/* Tonight's mood — one-tap signal, distinct from long-term vibe */}
+              <div className="rounded-2xl border-2 border-dashed border-ink/20 bg-card/50 p-3">
+                <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+                  How are you feeling tonight?{" "}
+                  <span className="font-normal normal-case text-ink/40">(optional · shapes our picks)</span>
+                </div>
+                <div className="mt-2 flex flex-wrap gap-1.5">
+                  {MOOD_CHIPS.map((m) => {
+                    const active = currentMood === m.id;
+                    return (
+                      <button
+                        key={m.id}
+                        onClick={() => pickMood(m.id)}
+                        className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium transition-pop ${
+                          active
+                            ? "border-ink bg-ink text-cream"
+                            : "border-ink/20 bg-card hover:border-ink"
+                        }`}
+                      >
+                        <span>{m.emoji}</span> {m.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="space-y-2.5">
               {GROUP.map((g) => {
                 const active = group?.id === g.id;
                 return (

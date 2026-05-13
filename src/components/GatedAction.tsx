@@ -3,6 +3,7 @@ import { type ReactNode } from "react";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth-context";
 import { inferFeatureFromPath, logAccessDenial } from "@/lib/access-denials";
+import { logSecurityTrace } from "@/lib/security-trace";
 
 type Props = {
   to: string;

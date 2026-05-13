@@ -12,6 +12,7 @@ import { ParkingPin } from "@/components/loop/ParkingPin";
 import { buildDirectionsUrl, type GeocodeResult } from "@/lib/geocode";
 import { trackWalletEvent } from "@/lib/wallet-analytics";
 import { trackShareEvent } from "@/lib/share-analytics";
+import { RerunButtons } from "@/components/loop/RerunButtons";
 
 function isAndroid() {
   if (typeof navigator === "undefined") return false;
@@ -484,6 +485,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           )}
         </div>
       </div>
+      <RerunButtons loop={loop} />
       <div ref={passRef} className="relative rounded-3xl border-2 border-ink bg-cream shadow-brut-lg overflow-hidden">
 
         {/* ── Header ── */}

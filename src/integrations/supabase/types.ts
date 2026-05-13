@@ -1158,6 +1158,30 @@ export type Database = {
         }
         Relationships: []
       }
+      saved_events: {
+        Row: {
+          created_at: string
+          event_id: string
+          id: string
+          kind: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          event_id: string
+          id?: string
+          kind?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          event_id?: string
+          id?: string
+          kind?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       saved_venues: {
         Row: {
           created_at: string

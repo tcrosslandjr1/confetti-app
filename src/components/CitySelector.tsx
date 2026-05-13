@@ -8,7 +8,7 @@ import {
   subscribeSelectedCity,
   type City,
 } from "@/lib/cities";
-import { requestUserLocation, clearStoredLocation } from "@/lib/location";
+import { requestUserLocationDetailed, clearStoredLocation } from "@/lib/location";
 import { toast } from "sonner";
 
 type Props = {
@@ -54,17 +54,19 @@ export function CitySelector({ compact = false, className = "" }: Props) {
   async function useMyLocation() {
     setLocating(true);
     try {
-      const loc = await requestUserLocation({
+      const result = await requestUserLocationDetailed({
         enableHighAccuracy: false,
         timeout: 8000,
         maximumAge: 60_000,
       });
-      if (!loc) {
-        toast.error("Couldn't read your location.", {
-          description: "Pick a city instead, or check browser permissions.",
+      if (!result.ok) {
+        toast.error("Couldn't read your location", {
+          description: result.message,
+          duration: 6000,
         });
         return;
       }
+      const loc = result.location;
       // Snap to the nearest city in our registry.
       const nearest = CITIES.reduce((best, c) => {
         const d = Math.hypot(c.lat - loc.lat, c.lng - loc.lng);

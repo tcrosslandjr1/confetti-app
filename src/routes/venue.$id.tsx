@@ -436,19 +436,22 @@ function VenuePage() {
           />
         </div>
 
-        <div className="mt-5 grid grid-cols-2 gap-2">
+        <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-[auto_1fr]">
           <button
             onClick={() => toast.success(`${venue.name} added to your plan`)}
             className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold shadow-brut transition-pop hover:-translate-y-0.5"
           >
             <Plus className="h-4 w-4" /> Add to Plan
           </button>
-          <button
-            onClick={() => toast.success("Booking handoff coming soon")}
-            className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-4 py-3 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
-          >
-            <Calendar className="h-4 w-4" /> Book Now
-          </button>
+          <BookButton
+            ctx={{
+              venueName: venue.name,
+              city: venue.city,
+              partySize: 2,
+            }}
+            variant="primary"
+            className="w-full"
+          />
         </div>
 
         <div className="mt-3 flex justify-center">

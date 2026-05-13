@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { ViralTagChip, type ViralTag } from "./ViralTagChip";
 import { SmoothScrollRow } from "./SmoothScrollRow";
 import { WhyThisPick, derivePickSignals } from "./WhyThisPick";
+import { getSelectedCity, DEFAULT_CITY, subscribeSelectedCity } from "@/lib/cities";
 
 type ViralVenue = {
   id: string;
@@ -21,9 +22,16 @@ type ViralVenue = {
 };
 
 export function ViralNow({ city, limit = 8 }: { city?: string; limit?: number }) {
-  const resolvedCity = city ?? (typeof window !== "undefined"
-    ? (require("@/lib/cities").getSelectedCity()?.name ?? "Washington DC")
-    : "Washington DC");
+  const [selectedName, setSelectedName] = useState<string>(
+    () => city ?? (getSelectedCity() ?? DEFAULT_CITY).name,
+  );
+  useEffect(() => {
+    if (city) return;
+    return subscribeSelectedCity(() =>
+      setSelectedName((getSelectedCity() ?? DEFAULT_CITY).name),
+    );
+  }, [city]);
+  const resolvedCity = city ?? selectedName;
   const [venues, setVenues] = useState<ViralVenue[] | null>(null);
 
   useEffect(() => {
@@ -34,7 +42,7 @@ export function ViralNow({ city, limit = 8 }: { city?: string; limit?: number })
         .select(
           "id,city,venue_name,neighborhood,address,photo_url,rating,trend_score,tags,summary,google_place_id",
         )
-        .eq("city", city)
+        .eq("city", resolvedCity)
         .order("trend_score", { ascending: false })
         .limit(limit);
       if (!cancelled) setVenues((data as ViralVenue[]) ?? []);
@@ -42,7 +50,7 @@ export function ViralNow({ city, limit = 8 }: { city?: string; limit?: number })
     return () => {
       cancelled = true;
     };
-  }, [city, limit]);
+  }, [resolvedCity, limit]);
 
   return (
     <section aria-label="Viral now" className="space-y-3">

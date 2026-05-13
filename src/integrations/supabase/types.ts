@@ -967,6 +967,33 @@ export type Database = {
         }
         Relationships: []
       }
+      pick_signals: {
+        Row: {
+          context: Json
+          created_at: string
+          id: string
+          kind: string
+          user_id: string
+          value: string
+        }
+        Insert: {
+          context?: Json
+          created_at?: string
+          id?: string
+          kind: string
+          user_id: string
+          value: string
+        }
+        Update: {
+          context?: Json
+          created_at?: string
+          id?: string
+          kind?: string
+          user_id?: string
+          value?: string
+        }
+        Relationships: []
+      }
       places_match_audit: {
         Row: {
           business_status: string | null

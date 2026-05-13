@@ -11,6 +11,22 @@ import { CITIES } from "@/lib/agents/city-context";
 import { generatePlan } from "@/lib/generate-plan.functions";
 import { toast } from "sonner";
 import { ForecastForDate } from "@/components/ForecastForDate";
+import { recordPickSignal } from "@/lib/pick-signals.functions";
+
+const MOOD_CHIPS = [
+  { id: "hyped", label: "Hyped", emoji: "🔥" },
+  { id: "mellow", label: "Mellow", emoji: "🌿" },
+  { id: "romantic", label: "Romantic", emoji: "🌹" },
+  { id: "adventurous", label: "Adventurous", emoji: "🧭" },
+  { id: "recovering", label: "Recovering", emoji: "🫧" },
+];
+
+const SWAP_REASONS = [
+  { id: "too_pricey", label: "Too pricey", emoji: "💸" },
+  { id: "wrong_vibe", label: "Wrong vibe", emoji: "🎭" },
+  { id: "been_there", label: "Been there", emoji: "🔁" },
+  { id: "too_far", label: "Too far", emoji: "🗺️" },
+];
 
 export const Route = createFileRoute("/create")({
   head: () => ({ meta: [{ title: "Create a Plan — Confetti" }] }),
@@ -52,6 +68,7 @@ const STEP_HINTS = [
 function CreatePage() {
   const navigate = useNavigate();
   const generate = useServerFn(generatePlan);
+  const recordSignal = useServerFn(recordPickSignal);
   const [step, setStep] = useState(0);
   const [group, setGroup] = useState<(typeof GROUP)[number] | null>(null);
   const [occasion, setOccasion] = useState<(typeof OCCASIONS)[number] | null>(null);
@@ -62,6 +79,31 @@ function CreatePage() {
   const [city, setCity] = useState(CITIES[0].label);
   const [generating, setGenerating] = useState(false);
   const [quickEdit, setQuickEdit] = useState<null | "g" | "o" | "w" | "v">(null);
+  const [currentMood, setCurrentMood] = useState<string | null>(null);
+  const [pendingSwap, setPendingSwap] = useState<null | { field: string; from: string; to: string }>(null);
+
+  // Fire-and-forget signal logger; ignore failure (e.g. anon user).
+  function logSignal(kind: "mood" | "swap_reason", value: string, ctx: Record<string, unknown> = {}) {
+    recordSignal({ data: { kind, value, context: ctx } }).catch(() => {});
+  }
+
+  function pickMood(id: string) {
+    setCurrentMood(id);
+    logSignal("mood", id, { step: STEP_LABELS[step] });
+  }
+
+  // Wraps a quick-edit setter so we capture the swap + prompt for a reason.
+  function handleSwap(field: "group" | "occasion" | "vibe", fromLabel: string | undefined, toLabel: string) {
+    if (fromLabel && fromLabel !== toLabel) {
+      setPendingSwap({ field, from: fromLabel, to: toLabel });
+    }
+  }
+
+  function chooseSwapReason(reason: string) {
+    if (!pendingSwap) return;
+    logSignal("swap_reason", reason, pendingSwap);
+    setPendingSwap(null);
+  }
 
   const totalSteps = 4;
   const canNext = [group, occasion, true, vibe][step];
@@ -91,6 +133,7 @@ function CreatePage() {
           startTime: time,
           duration,
           tasteSummary: tasteSummaryStr,
+          currentMood: currentMood ?? undefined,
         },
       });
       const loop: ActiveLoop = {
@@ -264,7 +307,33 @@ function CreatePage() {
         {/* Step content */}
         <div className="mt-5">
           {step === 0 && (
-            <div className="space-y-2.5">
+            <div className="space-y-4">
+              {/* Tonight's mood — one-tap signal, distinct from long-term vibe */}
+              <div className="rounded-2xl border-2 border-dashed border-ink/20 bg-card/50 p-3">
+                <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+                  How are you feeling tonight?{" "}
+                  <span className="font-normal normal-case text-ink/40">(optional · shapes our picks)</span>
+                </div>
+                <div className="mt-2 flex flex-wrap gap-1.5">
+                  {MOOD_CHIPS.map((m) => {
+                    const active = currentMood === m.id;
+                    return (
+                      <button
+                        key={m.id}
+                        onClick={() => pickMood(m.id)}
+                        className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium transition-pop ${
+                          active
+                            ? "border-ink bg-ink text-cream"
+                            : "border-ink/20 bg-card hover:border-ink"
+                        }`}
+                      >
+                        <span>{m.emoji}</span> {m.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="space-y-2.5">
               {GROUP.map((g) => {
                 const active = group?.id === g.id;
                 return (
@@ -288,6 +357,7 @@ function CreatePage() {
                   </button>
                 );
               })}
+            </div>
             </div>
           )}
 

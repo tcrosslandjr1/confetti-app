@@ -6,6 +6,7 @@ import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { findCity } from "./agents/city-context";
 import { findTemplate } from "./agents/templates";
 import { impromptuPoolPrompt } from "./agents/impromptu";
+import { fetchForecastForCityDate, weatherGuidance } from "./weather.server";
 import type { GeneratedPlan } from "./agents/types";
 
 const PlanRequestSchema = z.object({
@@ -20,6 +21,8 @@ const PlanRequestSchema = z.object({
   duration: z.string().min(1).max(20).optional(),
   budget: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)]).optional(),
   tasteSummary: z.string().max(1200).optional(),
+  /** Tonight's mood — distinct from long-term vibe. e.g. "hyped", "mellow", "romantic". */
+  currentMood: z.string().min(1).max(40).optional(),
   /** "Change My Night" steering, e.g. "make it more chill", "cheaper", "more romantic". */
   tweakDirective: z.string().max(300).optional(),
 });
@@ -189,6 +192,19 @@ export const generatePlan = createServerFn({ method: "POST" })
       ? `# Taste Graph (Taste Learning Agent — nightlife-relevant signals only)\n${req.tasteSummary.trim()}\n\n`
       : "";
 
+    const moodBlock = req.currentMood?.trim()
+      ? `# Tonight's Mood (overrides default vibe energy if they conflict)\nUser feels: ${req.currentMood.trim()}. Bias venue energy toward this mood (e.g. "mellow" => quieter, slower-paced, low-stimulation; "hyped" => loud, dancey, social; "romantic" => candlelit, intimate; "adventurous" => unexpected/new spots; "recovering" => light food, no clubs, easy ambiance).\n\n`
+      : "";
+
+    // Fetch real weather for date+city and add as guidance to the prompt.
+    let weatherBlock = "";
+    if (req.date && cityCtx.city) {
+      const f = await fetchForecastForCityDate(cityCtx.city, req.date);
+      if (f) {
+        weatherBlock = `# Weather Context (real forecast — Quality Guardrail must respect this)\n${f.emoji} ${f.label} · ${f.tMinF}–${f.tMaxF}°F · ${f.precipProb}% precip\n${weatherGuidance(f)}\n\n`;
+      }
+    }
+
     const neighborhoodBlock = cityCtx.neighborhoods
       .map((n) => `  • ${n.name} — ${n.vibe}`)
       .join("\n");
@@ -220,7 +236,7 @@ Start time: ${startTime}
 Duration: ${req.duration ?? "3 hr"}
 Budget ceiling: ${"$".repeat(budget)}
 
-${tasteBlock}# Template (Occasion Template Agent)
+${moodBlock}${weatherBlock}${tasteBlock}# Template (Occasion Template Agent)
 Blueprint: ${template.blueprintName}
 Tone: ${template.tone}
 Constraints: noise<=${template.constraints.maxNoise}, chaos=${template.constraints.chaos}, accessibility=${template.constraints.accessibility ?? "any"}${template.constraints.avoidCategories?.length ? `, AVOID=[${template.constraints.avoidCategories.join(", ")}]` : ""}

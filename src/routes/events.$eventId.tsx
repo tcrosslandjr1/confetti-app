@@ -1,9 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Calendar, Heart, MapPin, Share2, Ticket, User } from "lucide-react";
+import { Calendar, MapPin, User } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { formatEventDate, getEvent, EVENTS } from "@/lib/events";
 import { EventCard } from "@/components/EventCard";
+import { EventSaveActions } from "@/components/EventSaveActions";
 
 export const Route = createFileRoute("/events/$eventId")({
   loader: ({ params }) => {

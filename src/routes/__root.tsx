@@ -187,11 +187,17 @@ function RootComponent() {
           <WizardProvider>
             <ScrollProgress />
             <ReferralCapture />
-            <RoleSwitcher />
+            <Suspense fallback={null}>
+              <RoleSwitcher />
+            </Suspense>
             <Outlet />
-            <BuildMyNightWizard />
+            <Suspense fallback={null}>
+              <BuildMyNightWizard />
+            </Suspense>
             <TabBar />
-            <CookieConsent />
+            <Suspense fallback={null}>
+              <CookieConsent />
+            </Suspense>
             <Toaster />
           </WizardProvider>
         </MapProvider>

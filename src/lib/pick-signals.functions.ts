@@ -17,7 +17,7 @@ export const recordPickSignal = createServerFn({ method: "POST" })
       user_id: userId,
       kind: data.kind,
       value: data.value,
-      context: data.context ?? {},
+      context: (data.context ?? {}) as never,
     });
     if (error) throw new Error(error.message);
     return { ok: true };

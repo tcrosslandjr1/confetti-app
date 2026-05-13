@@ -116,6 +116,8 @@ function mapLoop(loop: ActiveLoop): BoardingPassData {
 function BoardingPassPage() {
   const [data, setData] = useState<BoardingPassData | null>(null);
   const [shared, setShared] = useState(false);
+  const [imageBusy, setImageBusy] = useState(false);
+  const passRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const sync = () => {

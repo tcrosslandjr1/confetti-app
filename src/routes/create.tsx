@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import {
   Users, User, Heart, Cake, Briefcase, Home, Sparkles,
-  ArrowRight, ArrowLeft, Calendar, Clock, Check, MapPin, Loader2,
+  ArrowRight, ArrowLeft, Calendar, Clock, Check, MapPin, Loader2, Pencil,
 } from "lucide-react";
 import { makeDemoLoop, setActiveLoop, type ActiveLoop } from "@/lib/loop-store";
 import { MOODS } from "@/lib/concierge-data";
@@ -181,9 +181,14 @@ function CreatePage() {
               <button
                 key={p.key}
                 onClick={() => setStep(p.step)}
-                className="inline-flex items-center gap-1 rounded-full border border-ink/20 bg-card px-2.5 py-1 text-[11px] font-medium text-ink/80 hover:border-ink hover:bg-cream"
+                aria-label={`Edit ${STEP_LABELS[p.step]}: ${p.label}`}
+                className="group inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-card pl-2.5 pr-1.5 py-1 text-[11px] font-medium text-ink/80 hover:border-ink hover:bg-cream transition-colors"
               >
-                <Check className="h-3 w-3 text-coral" /> {p.label}
+                <Check className="h-3 w-3 text-coral" />
+                <span>{p.label}</span>
+                <span className="ml-0.5 inline-flex items-center gap-0.5 rounded-full bg-ink/5 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-ink/70 group-hover:bg-ink group-hover:text-cream">
+                  <Pencil className="h-2.5 w-2.5" /> Edit
+                </span>
               </button>
             ))}
           </div>

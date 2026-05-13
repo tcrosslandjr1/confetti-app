@@ -12,7 +12,10 @@ import {
   Trophy,
   Crown,
   Medal,
+  Loader2,
+  Info,
 } from "lucide-react";
+import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { ViralTagChip, ALL_VIRAL_TAGS, tagLabel, type ViralTag } from "@/components/ViralTagChip";
 
@@ -58,6 +61,46 @@ function PortalViralPage() {
   const [sortBy, setSortBy] = useState<SortKey>("score_desc");
   const [minScore, setMinScore] = useState(0);
   const [query, setQuery] = useState("");
+  const [discovering, setDiscovering] = useState(false);
+
+  const refetch = async () => {
+    setRows(null);
+    const orderCol =
+      sortBy === "score_desc" || sortBy === "score_asc"
+        ? "trend_score"
+        : sortBy === "mentions"
+          ? "mention_count"
+          : "last_mentioned_at";
+    const { data } = await supabase
+      .from("viral_venues")
+      .select(
+        "id,city,venue_name,neighborhood,address,photo_url,rating,trend_score,tags,summary,google_place_id,source_urls,last_mentioned_at,mention_count",
+      )
+      .eq("city", city)
+      .order(orderCol, { ascending: sortBy === "score_asc" })
+      .limit(60);
+    setRows((data as Row[]) ?? []);
+  };
+
+  const discoverNow = async () => {
+    setDiscovering(true);
+    try {
+      const anonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
+      const res = await fetch("/api/public/hooks/discover-viral", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", apikey: anonKey },
+        body: JSON.stringify({ city }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error ?? `HTTP ${res.status}`);
+      toast.success(`Found ${json.venuesUpserted ?? 0} viral spots in ${city}`);
+      await refetch();
+    } catch (e) {
+      toast.error("Couldn't refresh viral feed", { description: (e as Error).message });
+    } finally {
+      setDiscovering(false);
+    }
+  };
 
   useEffect(() => {
     (async () => {
@@ -159,6 +202,19 @@ function PortalViralPage() {
             The top venues trending across TikTok, Instagram, creators, and the press — ranked by
             Confetti's trend score.
           </p>
+
+          {/* How to use */}
+          <div className="flex flex-wrap items-start gap-2 rounded-2xl border border-border/60 bg-background/60 p-3 text-xs text-muted-foreground backdrop-blur">
+            <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-rose-500" />
+            <div className="space-y-1">
+              <p className="font-semibold text-foreground">How to use this page</p>
+              <ol className="ml-4 list-decimal space-y-0.5">
+                <li>Pick a <strong>city</strong> below to switch the feed.</li>
+                <li>Filter by <strong>vibe</strong> (TikTok Viral, Date Night…) or drag the <strong>Min score</strong> slider for only the hottest spots.</li>
+                <li>Tap any card to see the venue, photos, and the posts driving the buzz.</li>
+              </ol>
+            </div>
+          </div>
 
           {/* Quick city pills */}
           <div className="flex flex-wrap gap-1.5 pt-1">
@@ -334,13 +390,15 @@ function PortalViralPage() {
       {filtered !== null && filtered.length === 0 && (
         <div className="rounded-2xl border border-dashed border-border bg-card/50 p-10 text-center">
           <Flame className="mx-auto h-8 w-8 text-muted-foreground" />
-          <p className="mt-3 font-display text-lg font-bold">Nothing matches those filters</p>
-          <p className="text-sm text-muted-foreground">
+          <p className="mt-3 font-display text-lg font-bold">
+            {hasFilters ? "Nothing matches those filters" : `No viral spots loaded for ${city} yet`}
+          </p>
+          <p className="mx-auto mt-1 max-w-md text-sm text-muted-foreground">
             {hasFilters
               ? "Try clearing filters or lowering the minimum score."
-              : `We haven't discovered ${city} venues yet — admins can refresh from /admin/integrations.`}
+              : `Run a discovery pass to scan TikTok, Instagram, and the press for what's trending in ${city} right now. Takes ~30–60 seconds.`}
           </p>
-          {hasFilters && (
+          {hasFilters ? (
             <button
               type="button"
               onClick={() => {
@@ -351,6 +409,23 @@ function PortalViralPage() {
               className="mt-4 rounded-full bg-foreground px-4 py-2 text-xs font-bold uppercase tracking-widest text-background"
             >
               Reset filters
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={discoverNow}
+              disabled={discovering}
+              className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white shadow-pop transition hover:scale-105 disabled:opacity-60"
+            >
+              {discovering ? (
+                <>
+                  <Loader2 className="h-3.5 w-3.5 animate-spin" /> Discovering…
+                </>
+              ) : (
+                <>
+                  <Flame className="h-3.5 w-3.5" /> Discover viral spots in {city}
+                </>
+              )}
             </button>
           )}
         </div>

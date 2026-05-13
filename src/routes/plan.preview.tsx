@@ -12,6 +12,7 @@ import {
   Wine,
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
+import { WhyThisPick, type PickSignal } from "@/components/WhyThisPick";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/plan/preview")({

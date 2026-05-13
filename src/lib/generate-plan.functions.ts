@@ -6,6 +6,7 @@ import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { findCity } from "./agents/city-context";
 import { findTemplate } from "./agents/templates";
 import { impromptuPoolPrompt } from "./agents/impromptu";
+import { fetchForecastForCityDate, weatherGuidance } from "./weather.server";
 import type { GeneratedPlan } from "./agents/types";
 
 const PlanRequestSchema = z.object({
@@ -20,6 +21,8 @@ const PlanRequestSchema = z.object({
   duration: z.string().min(1).max(20).optional(),
   budget: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)]).optional(),
   tasteSummary: z.string().max(1200).optional(),
+  /** Tonight's mood — distinct from long-term vibe. e.g. "hyped", "mellow", "romantic". */
+  currentMood: z.string().min(1).max(40).optional(),
   /** "Change My Night" steering, e.g. "make it more chill", "cheaper", "more romantic". */
   tweakDirective: z.string().max(300).optional(),
 });

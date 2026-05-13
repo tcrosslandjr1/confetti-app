@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { Check, Wallet, Apple, Share2 } from "lucide-react";
-import { getActiveLoop, makeDemoLoop, type ActiveLoop } from "@/lib/loop-store";
+import { getActiveLoop, makeDemoLoop, subscribeActiveLoop, type ActiveLoop } from "@/lib/loop-store";
+import { TravelLeg } from "@/components/TravelLeg";
+import { ChangeMyNight } from "@/components/ChangeMyNight";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/confirmation")({

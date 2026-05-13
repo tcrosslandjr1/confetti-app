@@ -174,6 +174,9 @@ function SavedPage() {
                     {i.venues!.category}
                   </div>
                   <h3 className="mt-1 font-display text-lg font-bold">{i.venues!.name}</h3>
+                  <div className="mt-1.5">
+                    <VenueVerificationBadge venueName={i.venues!.name} size="xs" />
+                  </div>
                   <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
                     {i.venues!.description}
                   </p>

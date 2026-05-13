@@ -1,9 +1,12 @@
+/// <reference types="google.maps" />
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles, BadgeCheck, Navigation, Car, Footprints, Bus } from "lucide-react";
+import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles, BadgeCheck, Navigation, Car, Footprints, Bus, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useMapsLibrary } from "@vis.gl/react-google-maps";
 import { supabase } from "@/integrations/supabase/client";
 import { buildAppleMapsDirectionsUrl, buildGoogleMapsDirectionsUrl, type TravelMode } from "@/lib/maps-links";
+import { requestUserLocation, getStoredLocation, type UserLocation } from "@/lib/location";
 import { VenueVerificationBadge } from "@/components/VenueVerificationBadge";
 import { ReportVenueButton } from "@/components/ReportVenueButton";
 
@@ -40,6 +43,64 @@ function VenuePage() {
   const { id } = Route.useParams();
   const [venue, setVenue] = useState<Venue | null | undefined>(undefined);
   const [travelMode, setTravelMode] = useState<TravelMode>("driving");
+  const [origin, setOrigin] = useState<UserLocation | null>(() => getStoredLocation());
+  const [eta, setEta] = useState<{ distance: string; duration: string } | null>(null);
+  const [etaState, setEtaState] = useState<"idle" | "loading" | "ready" | "denied" | "error">(
+    "idle",
+  );
+  const routesLib = useMapsLibrary("routes");
+
+  // Lazily request geolocation once when the page mounts.
+  useEffect(() => {
+    if (origin) return;
+    let cancelled = false;
+    requestUserLocation().then((loc) => {
+      if (cancelled) return;
+      if (loc) setOrigin(loc);
+      else setEtaState("denied");
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [origin]);
+
+  // Compute ETA via Google Distance Matrix whenever inputs change.
+  useEffect(() => {
+    if (!routesLib || !origin || !venue) return;
+    const dest = venue.address || venue.name;
+    if (!dest) return;
+    setEtaState("loading");
+    setEta(null);
+    const svc = new routesLib.DistanceMatrixService();
+    const modeMap: Record<TravelMode, google.maps.TravelMode> = {
+      driving: google.maps.TravelMode.DRIVING,
+      walking: google.maps.TravelMode.WALKING,
+      transit: google.maps.TravelMode.TRANSIT,
+      bicycling: google.maps.TravelMode.BICYCLING,
+    };
+    let cancelled = false;
+    svc.getDistanceMatrix(
+      {
+        origins: [{ lat: origin.lat, lng: origin.lng }],
+        destinations: [dest],
+        travelMode: modeMap[travelMode],
+        unitSystem: google.maps.UnitSystem.IMPERIAL,
+      },
+      (res, status) => {
+        if (cancelled) return;
+        const el = res?.rows?.[0]?.elements?.[0];
+        if (status !== "OK" || !el || el.status !== "OK") {
+          setEtaState("error");
+          return;
+        }
+        setEta({ distance: el.distance.text, duration: el.duration.text });
+        setEtaState("ready");
+      },
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [routesLib, origin, venue, travelMode]);
 
   useEffect(() => {
     let cancelled = false;
@@ -229,30 +290,60 @@ function VenuePage() {
           ];
           return (
             <div className="mt-4 space-y-2">
-              <div
-                role="radiogroup"
-                aria-label="Travel mode"
-                className="inline-flex rounded-2xl border-2 border-ink bg-cream p-1 shadow-brut"
-              >
-                {modes.map(({ k, label, Icon }) => {
-                  const active = travelMode === k;
-                  return (
-                    <button
-                      key={k}
-                      type="button"
-                      role="radio"
-                      aria-checked={active}
-                      onClick={() => setTravelMode(k)}
-                      className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop ${
-                        active
-                          ? "bg-ink text-cream"
-                          : "text-ink/70 hover:bg-gold/40"
-                      }`}
-                    >
-                      <Icon className="h-3.5 w-3.5" /> {label}
-                    </button>
-                  );
-                })}
+              <div className="flex flex-wrap items-center gap-2">
+                <div
+                  role="radiogroup"
+                  aria-label="Travel mode"
+                  className="inline-flex rounded-2xl border-2 border-ink bg-cream p-1 shadow-brut"
+                >
+                  {modes.map(({ k, label, Icon }) => {
+                    const active = travelMode === k;
+                    return (
+                      <button
+                        key={k}
+                        type="button"
+                        role="radio"
+                        aria-checked={active}
+                        onClick={() => setTravelMode(k)}
+                        className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop ${
+                          active ? "bg-ink text-cream" : "text-ink/70 hover:bg-gold/40"
+                        }`}
+                      >
+                        <Icon className="h-3.5 w-3.5" /> {label}
+                      </button>
+                    );
+                  })}
+                </div>
+                <div
+                  aria-live="polite"
+                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-gold/30 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-ink"
+                >
+                  {etaState === "loading" && (
+                    <>
+                      <Loader2 className="h-3 w-3 animate-spin" /> Estimating…
+                    </>
+                  )}
+                  {etaState === "ready" && eta && (
+                    <>
+                      <Clock className="h-3 w-3" /> {eta.duration} · {eta.distance}
+                    </>
+                  )}
+                  {etaState === "denied" && (
+                    <>
+                      <MapPin className="h-3 w-3" /> Enable location for ETA
+                    </>
+                  )}
+                  {etaState === "error" && (
+                    <>
+                      <MapPin className="h-3 w-3" /> ETA unavailable
+                    </>
+                  )}
+                  {etaState === "idle" && (
+                    <>
+                      <Loader2 className="h-3 w-3 animate-spin" /> Locating…
+                    </>
+                  )}
+                </div>
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <a

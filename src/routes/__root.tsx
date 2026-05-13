@@ -29,6 +29,9 @@ const BuildMyNightWizard = lazy(() =>
 const CookieConsent = lazy(() =>
   import("@/components/CookieConsent").then((m) => ({ default: m.CookieConsent })),
 );
+const AuthDebugPanel = lazy(() =>
+  import("@/components/AuthDebugPanel").then((m) => ({ default: m.AuthDebugPanel })),
+);
 
 function NotFoundComponent() {
   return (

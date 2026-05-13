@@ -56,16 +56,21 @@ function CreatePage() {
   const canNext = [group, occasion, true, vibe][step];
 
   function finish() {
-    const loop = makeDemoLoop({
-      passenger: "GUEST",
-      groupSize: group?.size ?? 2,
-      occasion: occasion?.label,
-      vibe: vibe?.label,
-      to: occasion?.label.toUpperCase() ?? "NIGHT OUT",
-      boardingTime: time.replace(/^0/, ""),
-    });
-    setActiveLoop(loop);
-    navigate({ to: "/confirmation" });
+    try {
+      const loop = makeDemoLoop({
+        passenger: "GUEST",
+        groupSize: group?.size ?? 2,
+        occasion: occasion?.label,
+        vibe: vibe?.label,
+        to: occasion?.label.toUpperCase() ?? "NIGHT OUT",
+        boardingTime: time.replace(/^0/, ""),
+      });
+      setActiveLoop(loop);
+      navigate({ to: "/confirmation" });
+    } catch (err) {
+      console.error("[create] finish failed", err);
+      toast.error("Couldn't lock your plan. Try again.");
+    }
   }
 
   return (

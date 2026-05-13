@@ -42,85 +42,102 @@ function coords(city: string) {
   return CITY_COORDS[city] ?? { lat: 0, lng: 0 };
 }
 
-export const EVENTS: EventItem[] = [
-  {
-    id: "neon-nights",
-    title: "Neon Nights: Indie Pop Festival",
-    category: "Music",
-    date: "2026-06-12T20:00:00",
-    city: "Brooklyn, NY",
-    venue: "Warehouse 9",
-    price: 49,
-    image: musicImg,
-    organizer: "Riff Collective",
-    blurb: "An electric night of rising indie pop acts under one roof, with rooftop afterparty.",
-  },
-  {
-    id: "founder-summit",
-    title: "Founder Summit 2026",
-    category: "Tech",
-    date: "2026-05-22T09:00:00",
-    city: "San Francisco, CA",
-    venue: "Pier 27",
-    price: 199,
-    image: techImg,
-    organizer: "Build Forward",
-    blurb:
-      "A full day of talks, workshops, and unfiltered Q&As with founders building the next wave of AI products.",
-  },
-  {
-    id: "night-market",
-    title: "Sunset Night Market",
-    category: "Food",
-    date: "2026-05-30T17:30:00",
-    city: "Austin, TX",
-    venue: "Zilker Park",
-    price: 0,
-    image: foodImg,
-    organizer: "Hungry City",
-    blurb:
-      "60+ local vendors, live DJs, and string lights as the sun goes down. Free entry, eat your way through.",
-  },
-  {
-    id: "modern-canvas",
-    title: "Modern Canvas: Gallery Opening",
-    category: "Arts",
-    date: "2026-06-05T19:00:00",
-    city: "Chicago, IL",
-    venue: "Loft 41 Gallery",
-    price: 25,
-    image: artImg,
-    organizer: "Loft 41",
-    blurb:
-      "Opening night for ten emerging painters, with curator-led walkthrough and complimentary drinks.",
-  },
-  {
-    id: "sunrise-flow",
-    title: "Sunrise Flow Mountain Retreat",
-    category: "Wellness",
-    date: "2026-07-04T06:30:00",
-    city: "Boulder, CO",
-    venue: "Flagstaff Summit",
-    price: 65,
-    image: wellnessImg,
-    organizer: "Still Mind Co.",
-    blurb:
-      "Greet the day with 90 minutes of vinyasa, breathwork, and a hot herbal tea ceremony at the summit.",
-  },
-  {
-    id: "court-clash",
-    title: "Court Clash: Championship Finals",
-    category: "Sports",
-    date: "2026-06-18T19:30:00",
-    city: "Los Angeles, CA",
-    venue: "Crypto Arena",
-    price: 89,
-    image: sportsImg,
-    organizer: "West League",
-    blurb:
-      "The two best teams of the season face off for the title. Halftime show by surprise headliner.",
-  },
-];
+export const EVENTS: EventItem[] = (
+  [
+    {
+      id: "neon-nights",
+      title: "Neon Nights: Indie Pop Festival",
+      category: "Music" as const,
+      date: "2026-06-12T20:00:00",
+      city: "Brooklyn, NY",
+      venue: "Warehouse 9",
+      price: 49,
+      image: musicImg,
+      organizer: "Riff Collective",
+      blurb: "An electric night of rising indie pop acts under one roof, with rooftop afterparty.",
+    },
+    {
+      id: "founder-summit",
+      title: "Founder Summit 2026",
+      category: "Tech" as const,
+      date: "2026-05-22T09:00:00",
+      city: "San Francisco, CA",
+      venue: "Pier 27",
+      price: 199,
+      image: techImg,
+      organizer: "Build Forward",
+      blurb:
+        "A full day of talks, workshops, and unfiltered Q&As with founders building the next wave of AI products.",
+    },
+    {
+      id: "night-market",
+      title: "Sunset Night Market",
+      category: "Food" as const,
+      date: "2026-05-30T17:30:00",
+      city: "Austin, TX",
+      venue: "Zilker Park",
+      price: 0,
+      image: foodImg,
+      organizer: "Hungry City",
+      blurb:
+        "60+ local vendors, live DJs, and string lights as the sun goes down. Free entry, eat your way through.",
+    },
+    {
+      id: "modern-canvas",
+      title: "Modern Canvas: Gallery Opening",
+      category: "Arts" as const,
+      date: "2026-06-05T19:00:00",
+      city: "Chicago, IL",
+      venue: "Loft 41 Gallery",
+      price: 25,
+      image: artImg,
+      organizer: "Loft 41",
+      blurb:
+        "Opening night for ten emerging painters, with curator-led walkthrough and complimentary drinks.",
+    },
+    {
+      id: "sunrise-flow",
+      title: "Sunrise Flow Mountain Retreat",
+      category: "Wellness" as const,
+      date: "2026-07-04T06:30:00",
+      city: "Boulder, CO",
+      venue: "Flagstaff Summit",
+      price: 65,
+      image: wellnessImg,
+      organizer: "Still Mind Co.",
+      blurb:
+        "Greet the day with 90 minutes of vinyasa, breathwork, and a hot herbal tea ceremony at the summit.",
+    },
+    {
+      id: "court-clash",
+      title: "Court Clash: Championship Finals",
+      category: "Sports" as const,
+      date: "2026-06-18T19:30:00",
+      city: "Los Angeles, CA",
+      venue: "Crypto Arena",
+      price: 89,
+      image: sportsImg,
+      organizer: "West League",
+      blurb:
+        "The two best teams of the season face off for the title. Halftime show by surprise headliner.",
+    },
+  ] as Omit<EventItem, "lat" | "lng">[]
+).map((e) => ({ ...e, ...coords(e.city) }));
+
+export function distanceMiles(
+  a: { lat: number; lng: number },
+  b: { lat: number; lng: number },
+) {
+  const toRad = (n: number) => (n * Math.PI) / 180;
+  const R = 3958.8; // miles
+  const dLat = toRad(b.lat - a.lat);
+  const dLng = toRad(b.lng - a.lng);
+  const lat1 = toRad(a.lat);
+  const lat2 = toRad(b.lat);
+  const h =
+    Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
 
 export function getEvent(id: string) {
   return EVENTS.find((e) => e.id === id);

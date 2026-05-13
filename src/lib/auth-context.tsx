@@ -44,12 +44,15 @@ const Ctx = createContext<AuthCtx>({
 });
 
 export function AuthProvider({ children }: { children: ReactNode }) {
+  const isBrowser = typeof window !== "undefined";
   const [session, setSession] = useState<Session | null>(null);
-  const [sessionLoading, setSessionLoading] = useState(true);
+  // On the server we can't have a session yet — render as visitor instead of
+  // showing every consumer a permanent "Loading…" placeholder during SSR.
+  const [sessionLoading, setSessionLoading] = useState(isBrowser);
   const [roleLoading, setRoleLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [viewAsState, setViewAsState] = useState<ViewAs | null>(null);
-  const [viewAsLoaded, setViewAsLoaded] = useState(false);
+  const [viewAsLoaded, setViewAsLoaded] = useState(!isBrowser);
 
   // Keep the selected view stable across preview refreshes so admins don't jump back to /admin.
   useEffect(() => {
@@ -67,7 +70,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   // Auth state
   useEffect(() => {
     if (typeof window === "undefined") return;
+    let initialised = false;
     const { data: sub } = supabase.auth.onAuthStateChange((event, s) => {
+      initialised = true;
       setSession(s);
       setSessionLoading(false);
       if (event === "SIGNED_IN") {
@@ -78,10 +83,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setViewAsState(null);
       }
     });
-    supabase.auth.getSession().then(({ data }) => {
-      setSession(data.session);
-      setSessionLoading(false);
-    });
+    supabase.auth
+      .getSession()
+      .then(({ data }) => {
+        // Only seed from getSession if onAuthStateChange hasn't already fired —
+        // otherwise a late getSession can clobber a freshly signed-in session.
+        if (!initialised) {
+          setSession(data.session);
+          setSessionLoading(false);
+        }
+      })
+      .catch(() => {
+        if (!initialised) setSessionLoading(false);
+      });
     return () => sub.subscription.unsubscribe();
   }, []);
 

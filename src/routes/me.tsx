@@ -57,10 +57,17 @@ function MyVibe() {
       nav({ to: "/auth" });
       return;
     }
-    loadPrefs().then((p) => {
-      setPrefs(p);
-      setAboutMe(p.about_me ?? "");
-    });
+    loadPrefs()
+      .then((p) => {
+        setPrefs(p);
+        setAboutMe(p.about_me ?? "");
+      })
+      .catch((err) => {
+        console.error("[me] failed to load prefs", err);
+        // Fall back to empty prefs so the page can still render instead of
+        // hanging on "Loading…" forever when the network or RLS hiccups.
+        setPrefs({ taste_profile: {}, about_me: "" } as Prefs);
+      });
   }, [user, authLoading, nav]);
 
   useEffect(() => {

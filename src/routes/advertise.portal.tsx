@@ -34,7 +34,7 @@ function AdvertiserPortal() {
   const [advertiser, setAdvertiser] = useState<Advertiser | null>(null);
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [stats, setStats] = useState<Record<string, { impressions: number; clicks: number }>>({});
-  const [busy, setBusy] = useState(true);
+  const [busy, setBusy] = useState(false);
   const [showNew, setShowNew] = useState(false);
 
   const refresh = useCallback(async (uid: string) => {

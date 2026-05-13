@@ -38,7 +38,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { SiteHeader } from "@/components/SiteHeader";
-import { buildAppleMapsDirectionsUrl, buildGoogleMapsDirectionsUrl, isAppleDevice } from "@/lib/maps-links";
+import { buildAppleMapsDirectionsUrl, buildGoogleMapsDirectionsUrl, isAndroid, isAppleDevice, isIOS } from "@/lib/maps-links";
 import { useAuth } from "@/lib/auth-context";
 import {
   completeItinerary,

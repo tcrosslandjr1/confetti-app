@@ -229,10 +229,50 @@ function applyHit(stop: Record<string, unknown>, hit: PlaceHit): Record<string, 
   };
 }
 
+async function logAuditRows(rows: AuditRow[]) {
+  const url = Deno.env.get("SUPABASE_URL");
+  const srk = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (!url || !srk || rows.length === 0) return;
+  try {
+    await fetch(`${url}/rest/v1/places_match_audit`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: srk,
+        Authorization: `Bearer ${srk}`,
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify(rows),
+    });
+  } catch (e) {
+    console.warn("[build-itinerary] audit log failed", (e as Error).message);
+  }
+}
+
+async function getUserIdFromAuth(req: Request): Promise<string | null> {
+  try {
+    const auth = req.headers.get("Authorization") || req.headers.get("authorization");
+    if (!auth) return null;
+    const token = auth.replace(/^Bearer\s+/i, "");
+    const url = Deno.env.get("SUPABASE_URL");
+    const anon = Deno.env.get("SUPABASE_ANON_KEY");
+    if (!url || !anon) return null;
+    const r = await fetch(`${url}/auth/v1/user`, {
+      headers: { apikey: anon, Authorization: `Bearer ${token}` },
+    });
+    if (!r.ok) return null;
+    const j = await r.json();
+    return j?.id ?? null;
+  } catch {
+    return null;
+  }
+}
+
 async function verifyItinerary(
   itinerary: { stops?: Array<Record<string, unknown>> },
   body: Body,
   key: string,
+  ctx: { userId: string | null },
 ) {
   const stops = itinerary.stops ?? [];
   const cityLabel = [body.city, body.region].filter(Boolean).join(", ");
@@ -242,11 +282,14 @@ async function verifyItinerary(
       : undefined;
   const used = new Set<string>();
   const out: Array<Record<string, unknown>> = [];
+  const audit: AuditRow[] = [];
+  const auditCtx = { userId: ctx.userId, city: body.city ?? null };
   for (const s of stops) {
-    const { stop, verified } = await verifyStop(s, cityLabel, bias, used, key);
+    const { stop, verified } = await verifyStop(s, cityLabel, bias, used, key, audit, auditCtx);
     if (verified) out.push(stop);
     // Drop unverifiable stops entirely — never falsely advertise a venue.
   }
+  await logAuditRows(audit);
   return { ...itinerary, stops: out };
 }
 

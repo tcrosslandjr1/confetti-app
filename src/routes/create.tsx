@@ -138,13 +138,14 @@ function CreatePage() {
     }
   }
 
-  // Picks-so-far chips
-  const picks = [
-    group && { key: "g", label: `${group.label}`, step: 0 },
-    occasion && { key: "o", label: `${occasion.emoji} ${occasion.label}`, step: 1 },
-    step >= 2 && { key: "w", label: `${time} · ${duration}`, step: 2 },
-    vibe && { key: "v", label: `${vibe.emoji} ${vibe.label}`, step: 3 },
-  ].filter(Boolean) as { key: string; label: string; step: number }[];
+  // Picks-so-far chips — always show all 4 with completed/pending status
+  const picks: { key: string; label: string; step: number; done: boolean; placeholder: string }[] = [
+    { key: "g", step: 0, placeholder: "Group", done: !!group, label: group ? group.label : "Group" },
+    { key: "o", step: 1, placeholder: "Occasion", done: !!occasion, label: occasion ? `${occasion.emoji} ${occasion.label}` : "Occasion" },
+    { key: "w", step: 2, placeholder: "When", done: step >= 2, label: step >= 2 ? `${time} · ${duration}` : "When" },
+    { key: "v", step: 3, placeholder: "Vibe", done: !!vibe, label: vibe ? `${vibe.emoji} ${vibe.label}` : "Vibe" },
+  ];
+  const completedCount = picks.filter((p) => p.done).length;
 
   return (
     <div className="min-h-screen bg-background pb-32">

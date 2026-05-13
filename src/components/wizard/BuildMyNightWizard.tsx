@@ -889,32 +889,51 @@ export function BuildMyNightWizard() {
     let cancelled = false;
     (async () => {
       setDynamicLoading(true);
+      setDynamicError(null);
+      const sel = getSelectedCity();
+      const cityName = sel?.name ?? null;
       try {
         let loc = getActiveLocation();
         if (!loc) loc = await requestUserLocation().catch(() => null);
-        const sel = getSelectedCity();
         const { data, error } = await supabase.functions.invoke("wizard-itinerary", {
           body: {
             vibes: vibe,
             budget,
             lat: loc?.lat ?? null,
             lng: loc?.lng ?? null,
-            city: sel?.name ?? null,
+            city: cityName,
             count: 3,
           },
         });
         if (cancelled) return;
         if (error) {
           console.warn("[wizard-itinerary]", error);
+          setDynamicError({ city: cityName, reason: "error" });
+          toast.error(
+            cityName
+              ? `Couldn't reach venue data for ${cityName}. Check your connection or try again.`
+              : "Couldn't reach venue data. Check your connection or try again.",
+          );
           return;
         }
         const fetched = (data?.stops ?? []) as Stop[];
         if (fetched.length) {
           setDynamicStops(fetched);
           setReplacements({});
+        } else {
+          setDynamicError({ city: cityName, reason: "empty" });
+          toast.error(
+            cityName
+              ? `No verified venues found in ${cityName} for these vibes.`
+              : "No verified venues found for these vibes.",
+          );
         }
       } catch (err) {
-        if (!cancelled) console.warn("[wizard-itinerary]", err);
+        if (!cancelled) {
+          console.warn("[wizard-itinerary]", err);
+          setDynamicError({ city: cityName, reason: "error" });
+          toast.error("Something went wrong fetching venues. Try again.");
+        }
       } finally {
         if (!cancelled) setDynamicLoading(false);
       }

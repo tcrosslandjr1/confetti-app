@@ -43,10 +43,38 @@
   --color-tangerine: var(--coral);
   --color-grape: var(--purple);
 
-  --font-display: "Bricolage Grotesque", "Inter", sans-serif;
-  --font-serif: "Instrument Serif", "Times New Roman", serif;
+  --font-display: "Bricolage Grotesque", "Bricolage Fallback", "Inter", sans-serif;
+  --font-serif: "Instrument Serif", "Instrument Serif Fallback", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Metric-matched fallbacks to prevent CLS when web fonts swap in. */
+@font-face {
+  font-family: "Instrument Serif Fallback";
+  src: local("Times New Roman"), local("Times");
+  font-style: italic;
+  ascent-override: 92%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 108%;
+}
+@font-face {
+  font-family: "Instrument Serif Fallback";
+  src: local("Times New Roman"), local("Times");
+  font-style: normal;
+  ascent-override: 92%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 108%;
+}
+@font-face {
+  font-family: "Bricolage Fallback";
+  src: local("Arial");
+  ascent-override: 95%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 102%;
 }
 
 :root {

@@ -281,7 +281,7 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
                     vibeMatch: v.category,
                   });
                   return (
-                    <WhyThisPick signals={signals} rationale={rationale} className="mt-2.5" compact />
+                    <WhyThisPick signals={signals} rationale={rationale} className="mt-2.5" compact pickId={`nearby:${v.id}`} context="nearby" />
                   );
                 })()}
               </div>

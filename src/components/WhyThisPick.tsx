@@ -1,4 +1,6 @@
-import { Flame, Bookmark, CalendarCheck, Sparkles, Star, MapPin, Users, Info } from "lucide-react";
+import { Flame, Bookmark, CalendarCheck, Sparkles, Star, MapPin, Users, Info, ThumbsUp, ThumbsDown } from "lucide-react";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export type PickSignalKind =
   | "trending"
@@ -35,11 +37,65 @@ type Props = {
   rationale?: string;
   className?: string;
   compact?: boolean;
+  /** Stable id (e.g. venue id or stop id) used to persist feedback. */
+  pickId?: string;
+  /** Optional context attached to the feedback signal (e.g. "viral-now"). */
+  context?: string;
 };
 
-export function WhyThisPick({ signals, rationale, className = "", compact = false }: Props) {
+const FEEDBACK_KEY = "confetti.pickFeedback.v1";
+
+type FeedbackVote = "up" | "down";
+
+function readFeedback(): Record<string, FeedbackVote> {
+  if (typeof window === "undefined") return {};
+  try {
+    return JSON.parse(localStorage.getItem(FEEDBACK_KEY) || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function writeFeedback(map: Record<string, FeedbackVote>) {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.setItem(FEEDBACK_KEY, JSON.stringify(map));
+  } catch {
+    /* ignore quota */
+  }
+}
+
+export function WhyThisPick({ signals, rationale, className = "", compact = false, pickId, context }: Props) {
   const trimmed = signals.filter(Boolean).slice(0, 3);
+  const [vote, setVote] = useState<FeedbackVote | null>(null);
+
+  useEffect(() => {
+    if (!pickId) return;
+    setVote(readFeedback()[pickId] ?? null);
+  }, [pickId]);
+
   if (trimmed.length === 0 && !rationale) return null;
+
+  const submitVote = (next: FeedbackVote) => {
+    if (!pickId) return;
+    const current = readFeedback();
+    if (current[pickId] === next) {
+      delete current[pickId];
+      setVote(null);
+    } else {
+      current[pickId] = next;
+      setVote(next);
+      toast.success(next === "up" ? "Thanks — we'll show more like this." : "Got it — we'll tune this down.");
+    }
+    writeFeedback(current);
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("confetti:pick-feedback", {
+          detail: { pickId, vote: current[pickId] ?? null, context, signals: trimmed.map((s) => s.kind) },
+        }),
+      );
+    }
+  };
 
   return (
     <div
@@ -67,6 +123,39 @@ export function WhyThisPick({ signals, rationale, className = "", compact = fals
       )}
       {rationale && !compact && (
         <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground">{rationale}</p>
+      )}
+      {pickId && (
+        <div className="mt-1.5 flex items-center justify-between gap-2 border-t border-ink/10 pt-1.5">
+          <span className="text-[10px] text-muted-foreground">Was this helpful?</span>
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); e.preventDefault(); submitVote("up"); }}
+              aria-label="Helpful pick"
+              aria-pressed={vote === "up"}
+              className={`inline-flex h-6 w-6 items-center justify-center rounded-full border transition ${
+                vote === "up"
+                  ? "border-emerald-500/50 bg-emerald-500/15 text-emerald-700"
+                  : "border-ink/15 text-ink/60 hover:border-ink/30 hover:text-ink"
+              }`}
+            >
+              <ThumbsUp className="h-3 w-3" />
+            </button>
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); e.preventDefault(); submitVote("down"); }}
+              aria-label="Not helpful"
+              aria-pressed={vote === "down"}
+              className={`inline-flex h-6 w-6 items-center justify-center rounded-full border transition ${
+                vote === "down"
+                  ? "border-rose-500/50 bg-rose-500/15 text-rose-700"
+                  : "border-ink/15 text-ink/60 hover:border-ink/30 hover:text-ink"
+              }`}
+            >
+              <ThumbsDown className="h-3 w-3" />
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );

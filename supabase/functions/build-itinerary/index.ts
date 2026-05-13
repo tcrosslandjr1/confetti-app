@@ -243,7 +243,8 @@ ${seedBlock}
 
 Return a tight 3-6 stop plan that flows naturally — no backtracking, sensible drive/walk times between stops.
 Each stop must include a category, a clear "what to do" or "what to order", and a likely booking provider when relevant (opentable, resy, eventbrite, ticketmaster, or "website").
-Use realistic-sounding but generic venue names if exact names aren't known — never invent fake addresses; leave address as a neighborhood / cross-streets hint.
+
+CRITICAL — VENUE ACCURACY: Only name venues you are confident actually exist in ${b.city ?? "the user's city"}${b.region ? ` (${b.region})` : ""} RIGHT NOW. Do NOT invent venue names. If you are not sure of an exact open business, use a clearly generic descriptor like "A well-rated rooftop bar in <neighborhood>" — every named stop is independently verified against Google Places after you respond, and unverifiable / permanently-closed stops are dropped from the final plan. Never guess at addresses.
 For booking_url, provide a SEARCH URL (e.g. https://www.opentable.com/s?term=...&covers=2 or https://www.google.com/maps/search/...) so the user can confirm the real spot.
 
 For each stop also produce:

@@ -31,6 +31,11 @@ import {
 } from "@/components/ui/table";
 import { type AuditAction, type AuditEntity, clearAudit, useAuditLog } from "@/lib/audit-log";
 import { clearAccessDenials, useAccessDenials, type DenialEntry } from "@/lib/access-denials";
+import {
+  clearSecurityTrace,
+  useSecurityTrace,
+  type SecurityTraceEntry,
+} from "@/lib/security-trace";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/admin/audit")({

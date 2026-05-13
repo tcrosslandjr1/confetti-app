@@ -243,6 +243,20 @@ function CreatePage() {
                   className="mt-1 w-full rounded-xl border-2 border-ink bg-card px-4 py-3 font-display text-base font-bold"
                 />
               </label>
+              <label className="block">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 flex items-center gap-1">
+                  <MapPin className="h-3 w-3" /> City
+                </span>
+                <select
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  className="mt-1 w-full rounded-xl border-2 border-ink bg-card px-4 py-3 font-display text-base font-bold"
+                >
+                  {CITIES.map((c) => (
+                    <option key={c.slug} value={c.label}>{c.label}</option>
+                  ))}
+                </select>
+              </label>
               <div>
                 <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
                   Duration

@@ -236,6 +236,7 @@ function AdminAuditPage() {
         </Table>
       </div>
 
+      <PlacesMatchAuditSection />
       <AccessDenialsSection />
     </div>
   );

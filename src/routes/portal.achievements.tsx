@@ -186,7 +186,7 @@ function AchievementsPage() {
       </header>
 
       {/* Progress summary */}
-      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+      <section className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut">
         <div className="grid gap-4 sm:grid-cols-4">
           <Stat
             label="Unlocked"
@@ -228,7 +228,7 @@ function AchievementsPage() {
             className="pl-9"
           />
         </div>
-        <div role="tablist" className="flex rounded-full border border-border bg-card p-1 text-sm">
+        <div role="tablist" className="flex rounded-full border-2 border-ink bg-cream p-1 text-sm">
           {(["all", "unlocked", "locked"] as const).map((t) => (
             <button
               key={t}
@@ -244,11 +244,11 @@ function AchievementsPage() {
       </section>
 
       {loading ? (
-        <p className="rounded-2xl border border-dashed border-border bg-card/50 p-8 text-center text-sm text-muted-foreground">
+        <p className="rounded-2xl border border-dashed border-border bg-cream/50 p-8 text-center text-sm text-muted-foreground">
           Loading achievements…
         </p>
       ) : visible.length === 0 ? (
-        <p className="rounded-2xl border border-dashed border-border bg-card/50 p-8 text-center text-sm text-muted-foreground">
+        <p className="rounded-2xl border border-dashed border-border bg-cream/50 p-8 text-center text-sm text-muted-foreground">
           No badges match your search.
         </p>
       ) : (
@@ -262,10 +262,10 @@ function AchievementsPage() {
                 {unlocked.map((a) => (
                   <li
                     key={a.id}
-                    className="rounded-2xl border border-primary/40 bg-primary/5 p-4 shadow-card transition-pop hover:scale-[1.01] hover:shadow-pop"
+                    className="rounded-2xl border border-primary/40 bg-primary/5 p-4 shadow-brut transition-pop hover:scale-[1.01] hover:shadow-brut"
                   >
                     <div className="flex items-start gap-3">
-                      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-vibe text-primary-foreground">
+                      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-ink text-cream border-2 border-ink">
                         <AchIcon name={a.icon} />
                       </span>
                       <div className="min-w-0 flex-1">
@@ -298,7 +298,7 @@ function AchievementsPage() {
                 {locked.map((a) => (
                   <li
                     key={a.id}
-                    className="rounded-2xl border border-border bg-card p-4 shadow-card transition-pop hover:scale-[1.01] hover:shadow-pop"
+                    className="rounded-2xl border-2 border-ink bg-cream p-4 shadow-brut transition-pop hover:scale-[1.01] hover:shadow-brut"
                   >
                     <div className="flex items-start gap-3">
                       <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-muted text-muted-foreground">

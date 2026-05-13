@@ -186,7 +186,7 @@ function PortalViralPage() {
   return (
     <section className="space-y-6">
       {/* HERO */}
-      <header className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-rose-500/10 via-orange-500/10 to-amber-400/10 p-6 shadow-card sm:p-8">
+      <header className="relative overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br from-rose-500/10 via-orange-500/10 to-amber-400/10 p-6 shadow-brut sm:p-8">
         <div className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-rose-500/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-16 -left-10 h-56 w-56 rounded-full bg-amber-400/20 blur-3xl" />
         <div className="relative space-y-3">
@@ -205,7 +205,7 @@ function PortalViralPage() {
           </p>
 
           {/* How to use */}
-          <div className="flex flex-wrap items-start gap-2 rounded-2xl border border-border/60 bg-background/60 p-3 text-xs text-muted-foreground backdrop-blur">
+          <div className="flex flex-wrap items-start gap-2 rounded-2xl border-2 border-ink/60 bg-background/60 p-3 text-xs text-muted-foreground backdrop-blur">
             <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-rose-500" />
             <div className="space-y-1">
               <p className="font-semibold text-foreground">How to use this page</p>
@@ -226,8 +226,8 @@ function PortalViralPage() {
                 onClick={() => setCity(c)}
                 className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
                   c === city
-                    ? "bg-foreground text-background shadow-pop"
-                    : "border border-border bg-background/60 text-foreground hover:bg-background"
+                    ? "bg-foreground text-background shadow-brut"
+                    : "border-2 border-ink bg-background/60 text-foreground hover:bg-background"
                 }`}
               >
                 {c}
@@ -277,7 +277,7 @@ function PortalViralPage() {
       )}
 
       {/* Sticky filter bar */}
-      <div className="sticky top-2 z-10 space-y-3 rounded-2xl border border-border bg-card/95 p-4 shadow-card backdrop-blur">
+      <div className="sticky top-2 z-10 space-y-3 rounded-2xl border-2 border-ink bg-cream/95 p-4 shadow-brut backdrop-blur">
         <div className="flex flex-wrap items-center gap-2">
           <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted-foreground">
             City
@@ -285,7 +285,7 @@ function PortalViralPage() {
           <select
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            className="rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold"
+            className="rounded-xl border-2 border-ink bg-background px-3 py-2 text-sm font-semibold"
           >
             {cities.map((c) => (
               <option key={c} value={c}>
@@ -300,7 +300,7 @@ function PortalViralPage() {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as SortKey)}
-            className="rounded-xl border border-border bg-background px-3 py-2 text-sm font-semibold"
+            className="rounded-xl border-2 border-ink bg-background px-3 py-2 text-sm font-semibold"
           >
             <option value="score_desc">Trend score · high → low</option>
             <option value="score_asc">Trend score · low → high</option>
@@ -315,7 +315,7 @@ function PortalViralPage() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search venue, neighborhood…"
-              className="w-full rounded-xl border border-border bg-background py-2 pl-9 pr-3 text-sm"
+              className="w-full rounded-xl border-2 border-ink bg-background py-2 pl-9 pr-3 text-sm"
             />
           </div>
         </div>
@@ -341,7 +341,7 @@ function PortalViralPage() {
               aria-expanded={scoreInfoOpen}
               aria-controls="trend-score-info"
               title="How is trend score calculated?"
-              className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-border text-muted-foreground transition hover:border-rose-500 hover:text-rose-500"
+              className="inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-ink text-muted-foreground transition hover:border-rose-500 hover:text-rose-500"
             >
               <Info className="h-3.5 w-3.5" />
             </button>
@@ -357,7 +357,7 @@ function PortalViralPage() {
                 setMinScore(0);
                 setQuery("");
               }}
-              className="ml-auto inline-flex items-center gap-1 rounded-full border border-border px-2.5 py-1 text-[11px] font-semibold text-muted-foreground hover:text-foreground"
+              className="ml-auto inline-flex items-center gap-1 rounded-full border-2 border-ink px-2.5 py-1 text-[11px] font-semibold text-muted-foreground hover:text-foreground"
             >
               <X className="h-3 w-3" /> Reset filters
             </button>
@@ -435,7 +435,7 @@ function PortalViralPage() {
       {filtered === null && (
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="overflow-hidden rounded-2xl border border-border bg-card">
+            <div key={i} className="overflow-hidden rounded-2xl border-2 border-ink bg-cream">
               <div className="aspect-[5/3] w-full animate-pulse bg-muted" />
               <div className="space-y-2 p-4">
                 <div className="h-4 w-2/3 animate-pulse rounded bg-muted" />
@@ -448,7 +448,7 @@ function PortalViralPage() {
       )}
 
       {filtered !== null && filtered.length === 0 && (
-        <div className="rounded-2xl border border-dashed border-border bg-card/50 p-10 text-center">
+        <div className="rounded-2xl border border-dashed border-border bg-cream/50 p-10 text-center">
           <Flame className="mx-auto h-8 w-8 text-muted-foreground" />
           <p className="mt-3 font-display text-lg font-bold">
             {hasFilters ? "Nothing matches those filters" : `No viral spots loaded for ${city} yet`}
@@ -475,7 +475,7 @@ function PortalViralPage() {
               type="button"
               onClick={discoverNow}
               disabled={discovering}
-              className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white shadow-pop transition hover:scale-105 disabled:opacity-60"
+              className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white shadow-brut transition hover:scale-105 disabled:opacity-60"
             >
               {discovering ? (
                 <>
@@ -519,7 +519,7 @@ function Kpi({
   accent: string;
 }) {
   return (
-    <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/70 p-3 backdrop-blur">
+    <div className="flex items-center gap-3 rounded-2xl border-2 border-ink bg-background/70 p-3 backdrop-blur">
       <span className={`grid h-9 w-9 place-items-center rounded-xl bg-background ${accent}`}>
         <Icon className="h-4 w-4" />
       </span>
@@ -542,7 +542,7 @@ function rankBadge(rank: number) {
 function SpotlightCard({ v, rank }: { v: Row; rank: number }) {
   const { Icon, color } = rankBadge(rank);
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:shadow-pop">
+    <article className="group relative overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut transition hover:shadow-brut">
       <div className="relative aspect-[5/3] w-full overflow-hidden bg-muted">
         {v.photo_url ? (
           <img
@@ -556,7 +556,7 @@ function SpotlightCard({ v, rank }: { v: Row; rank: number }) {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
         <div
-          className={`absolute left-2 top-2 inline-flex items-center gap-1 rounded-full px-2 py-1 text-[10px] font-black uppercase tracking-widest shadow-pop ${color}`}
+          className={`absolute left-2 top-2 inline-flex items-center gap-1 rounded-full px-2 py-1 text-[10px] font-black uppercase tracking-widest shadow-brut ${color}`}
         >
           <Icon className="h-3 w-3" /> #{rank}
         </div>
@@ -591,7 +591,7 @@ function ViralCard({ v, rank, topScore }: { v: Row; rank?: number; topScore: num
     return `${Math.round(days / 30)}mo ago`;
   })();
   return (
-    <li className="group overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:-translate-y-0.5 hover:shadow-pop">
+    <li className="group overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut transition hover:-translate-y-0.5 hover:shadow-brut">
       <div className="relative aspect-[5/3] w-full overflow-hidden bg-muted">
         {v.photo_url ? (
           <img
@@ -604,7 +604,7 @@ function ViralCard({ v, rank, topScore }: { v: Row; rank?: number; topScore: num
           <div className="grid h-full place-items-center text-4xl">🍽️</div>
         )}
         {rank && (
-          <div className="absolute right-2 top-2 grid h-8 w-8 place-items-center rounded-full bg-foreground text-xs font-black text-background shadow-pop">
+          <div className="absolute right-2 top-2 grid h-8 w-8 place-items-center rounded-full bg-foreground text-xs font-black text-background shadow-brut">
             #{rank}
           </div>
         )}

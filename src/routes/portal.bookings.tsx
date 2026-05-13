@@ -145,7 +145,7 @@ function PortalBookingsPage() {
       {loading ? (
         <p className="text-sm text-muted-foreground">Loading…</p>
       ) : bookings.length === 0 ? (
-        <div className="rounded-3xl border border-dashed border-border bg-card p-10 text-center">
+        <div className="rounded-3xl border border-dashed border-border bg-cream p-10 text-center">
           <CalendarCheck className="mx-auto h-10 w-10 text-muted-foreground" />
           <h2 className="mt-3 font-display text-2xl font-bold">No bookings yet</h2>
           <p className="mt-2 text-sm text-muted-foreground">
@@ -208,7 +208,7 @@ function BookingCard({
   const drinks = Array.isArray(b.pre_order_drinks) ? b.pre_order_drinks : [];
   const hasPreorder = drinks.length > 0 || !!b.seating_preference;
   return (
-    <li className="rounded-2xl border border-border bg-card p-5 shadow-card">
+    <li className="rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut">
       <div className="flex items-start justify-between gap-3">
         <div>
           <h3 className="font-display text-xl font-bold">{b.venue_name}</h3>
@@ -244,7 +244,7 @@ function BookingCard({
       {b.notes && <p className="mt-2 text-sm text-muted-foreground">{b.notes}</p>}
 
       {confirmed && hasPreorder && (
-        <div className="mt-3 space-y-1.5 rounded-xl border border-border bg-background/60 p-3 text-xs">
+        <div className="mt-3 space-y-1.5 rounded-xl border-2 border-ink bg-background/60 p-3 text-xs">
           {drinks.length > 0 && (
             <div>
               <div className="mb-1 inline-flex items-center gap-1 font-semibold text-foreground">
@@ -485,7 +485,7 @@ function BookDialog({
             <select
               value={venueId}
               onChange={(e) => setVenueId(e.target.value)}
-              className="mt-1 w-full rounded-md border border-border bg-background px-3 py-2 text-sm"
+              className="mt-1 w-full rounded-md border-2 border-ink bg-background px-3 py-2 text-sm"
             >
               <option value="">Choose a venue…</option>
               {venues.map((v) => (

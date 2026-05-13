@@ -89,29 +89,32 @@ function PortalLayout() {
   }
 
   return (
-    <div className="min-h-screen bg-background pb-24 lg:pb-0">
+    <div className="min-h-screen bg-cream text-ink pb-24 lg:pb-0">
       <SiteHeader />
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:px-8 lg:py-12">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:px-8 lg:py-12">
         <aside className="hidden lg:block">
-          <nav className="sticky top-20 rounded-3xl border border-border bg-card p-3 shadow-card">
+          <nav className="sticky top-20 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut">
+            <div className="mb-3 border-b-2 border-dashed border-ink pb-2 px-2">
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/60">/ portal</span>
+            </div>
             {NAV.map(({ to, label, icon: Icon, exact }) => {
               const active = exact ? pathname === to : pathname.startsWith(to);
               return (
                 <Link
                   key={to}
                   to={to as "/"}
-                  className={`flex items-center gap-3 rounded-2xl px-3 py-3 text-sm font-semibold transition-pop ${
+                  className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-bold transition-pop ${
                     active
-                      ? "bg-muted text-foreground"
-                      : "text-muted-foreground hover:bg-muted/70 hover:text-foreground"
+                      ? "border-2 border-ink bg-gold text-ink shadow-brut -translate-x-0.5 -translate-y-0.5"
+                      : "border-2 border-transparent text-ink/70 hover:border-ink hover:bg-cream hover:text-ink"
                   }`}
                 >
                   <span
-                    className={`grid h-9 w-9 place-items-center rounded-full ${active ? "bg-gradient-vibe text-primary-foreground shadow-pop" : ""}`}
+                    className={`grid h-9 w-9 place-items-center rounded-lg border-2 ${active ? "border-ink bg-coral text-cream" : "border-ink/20 bg-cream text-ink/70"}`}
                   >
                     <Icon className="h-4 w-4" />
                   </span>
-                  {label}
+                  <span className="font-display tracking-tight">{label}</span>
                 </Link>
               );
             })}
@@ -123,7 +126,7 @@ function PortalLayout() {
       </div>
 
       {/* Mobile bottom nav */}
-      <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/90 backdrop-blur-xl lg:hidden">
+      <nav className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-ink bg-cream lg:hidden">
         <div className="mx-auto flex max-w-2xl items-stretch justify-around px-2 py-2">
           {NAV.slice(0, 5).map(({ to, label, icon: Icon, exact }) => {
             const active = exact ? pathname === to : pathname.startsWith(to);
@@ -131,11 +134,11 @@ function PortalLayout() {
               <Link
                 key={to}
                 to={to as "/"}
-                className={`flex flex-1 flex-col items-center gap-1 rounded-xl py-1.5 text-[10px] font-bold uppercase tracking-wider ${
-                  active ? "text-foreground" : "text-muted-foreground"
+                className={`flex flex-1 flex-col items-center gap-1 rounded-lg py-1.5 text-[10px] font-bold uppercase tracking-wider ${
+                  active ? "text-coral" : "text-ink/60"
                 }`}
               >
-                <Icon className={`h-5 w-5 ${active ? "text-primary" : ""}`} />
+                <Icon className={`h-5 w-5 ${active ? "text-coral" : ""}`} />
                 {label}
               </Link>
             );

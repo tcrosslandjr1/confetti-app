@@ -276,7 +276,7 @@ function PortalDiscoverPage() {
               type="button"
               onClick={quickGenerate}
               disabled={quickBusy}
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-vibe px-6 py-3 font-display text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-pop transition-pop hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-70"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-vibe px-6 py-3 font-display text-sm font-bold uppercase tracking-wide text-primary-foreground shadow-brut transition-pop hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-70"
               title="Auto-build a plan from your taste profile and social signals"
             >
               {quickBusy ? (
@@ -288,7 +288,7 @@ function PortalDiscoverPage() {
             </button>
             <Link
               to="/plan"
-              className="group inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-5 py-3 font-display text-sm font-bold uppercase tracking-wide text-foreground transition-pop hover:scale-[1.02]"
+              className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink bg-cream px-5 py-3 font-display text-sm font-bold uppercase tracking-wide text-foreground transition-pop hover:scale-[1.02]"
             >
               <Sparkles className="h-4 w-4" />
               Customize
@@ -349,7 +349,7 @@ function PortalDiscoverPage() {
 
       {user && (
         <div className="space-y-2">
-          <ActivityFeed title="Recent group activity" className="bg-card" limit={8} />
+          <ActivityFeed title="Recent group activity" className="bg-cream" limit={8} />
           <div className="flex justify-end">
             <Link
               to="/portal/activity"
@@ -401,7 +401,7 @@ function PortalDiscoverPage() {
                   {upcoming.map((b) => (
                     <li
                       key={b.id}
-                      className="flex items-start justify-between gap-3 rounded-xl border border-border bg-background/50 p-3"
+                      className="flex items-start justify-between gap-3 rounded-xl border-2 border-ink bg-background/50 p-3"
                     >
                       <div className="min-w-0">
                         <div className="truncate font-display font-bold">{b.venue_name}</div>
@@ -501,7 +501,7 @@ function PortalDiscoverPage() {
           </Link>
         </div>
         {venues.length === 0 ? (
-          <p className="rounded-2xl border border-dashed border-border bg-card/50 p-8 text-center text-sm text-muted-foreground">
+          <p className="rounded-2xl border border-dashed border-border bg-cream/50 p-8 text-center text-sm text-muted-foreground">
             No venues yet. Check back soon.
           </p>
         ) : (
@@ -533,10 +533,10 @@ function StatTile({
 }) {
   const inner = (
     <div
-      className={`flex h-full items-center gap-3 rounded-2xl border border-border p-4 shadow-card transition-pop ${tone ?? "bg-card"} ${to ? "hover:scale-[1.02] hover:shadow-pop" : ""}`}
+      className={`flex h-full items-center gap-3 rounded-2xl border-2 border-ink p-4 shadow-brut transition-pop ${tone ?? "bg-cream"} ${to ? "hover:scale-[1.02] hover:shadow-brut" : ""}`}
     >
       <span
-        className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tone ? "bg-white/15" : "bg-gradient-vibe text-primary-foreground"}`}
+        className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tone ? "bg-white/15" : "bg-ink text-cream border-2 border-ink"}`}
       >
         <Icon className="h-5 w-5" />
       </span>
@@ -574,7 +574,7 @@ function DashCard({
   children: React.ReactNode;
 }) {
   return (
-    <article className="rounded-2xl border border-border bg-card p-5 shadow-card">
+    <article className="rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut">
       <header className="mb-3 flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
           <Icon className="h-4 w-4 text-primary" />
@@ -593,7 +593,7 @@ function DashCard({
 
 function MiniStat({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-xl border border-border bg-background/50 p-2">
+    <div className="rounded-xl border-2 border-ink bg-background/50 p-2">
       <div className="font-display text-xl font-extrabold leading-tight">{value}</div>
       <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
         {label}
@@ -686,9 +686,9 @@ function QuickAction({
   return (
     <Link
       to={to as "/"}
-      className="group flex items-center gap-3 rounded-2xl border border-border bg-card p-4 shadow-card transition-pop hover:scale-[1.02] hover:shadow-pop"
+      className="group flex items-center gap-3 rounded-2xl border-2 border-ink bg-cream p-4 shadow-brut transition-pop hover:scale-[1.02] hover:shadow-brut"
     >
-      <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-vibe text-primary-foreground">
+      <span className="grid h-12 w-12 place-items-center rounded-xl bg-ink text-cream border-2 border-ink">
         <Icon className="h-5 w-5" />
       </span>
       <div className="min-w-0 flex-1">
@@ -713,7 +713,7 @@ function FeaturedCard({
     <Link
       to="/venue/$id"
       params={{ id: venue.id }}
-      className="group block overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-pop hover:-translate-y-0.5 hover:shadow-pop"
+      className="group block overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut"
     >
       {venue.image_url ? (
         <img src={venue.image_url} alt={venue.name} className="h-40 w-full object-cover" />
@@ -752,7 +752,7 @@ function VenueCard({ v }: { v: Venue }) {
     <Link
       to="/venue/$id"
       params={{ id: v.id }}
-      className="group block overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-pop hover:-translate-y-0.5 hover:shadow-pop"
+      className="group block overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut"
     >
       {v.image_url ? (
         <img src={v.image_url} alt={v.name} className="h-36 w-full object-cover" />
@@ -792,7 +792,7 @@ function WeeklyChallenge({ bookings, referrals }: { bookings: number; referrals:
   ];
   const completed = goals.filter((g) => g.done).length;
   return (
-    <article className="rounded-2xl border border-border bg-card p-5 shadow-card">
+    <article className="rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut">
       <header className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Target className="h-4 w-4 text-primary" />
@@ -881,7 +881,7 @@ function NextSteps({
           <Link
             key={s.title}
             to={s.to as "/"}
-            className={`group rounded-2xl border border-border bg-gradient-to-br ${s.tone} p-4 shadow-card transition-pop hover:scale-[1.02] hover:shadow-pop`}
+            className={`group rounded-2xl border-2 border-ink bg-gradient-to-br ${s.tone} p-4 shadow-brut transition-pop hover:scale-[1.02] hover:shadow-brut`}
           >
             <s.icon className="h-5 w-5 text-primary" />
             <div className="mt-2 font-display text-sm font-bold leading-tight">{s.title}</div>

@@ -187,7 +187,7 @@ function ProfilePage() {
         </h1>
       </header>
 
-      <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+      <section className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut">
         <div className="flex items-center gap-4">
           <div className="grid h-16 w-16 place-items-center rounded-full bg-gradient-vibe text-2xl font-bold text-primary-foreground">
             {(name || user?.email || "?")[0].toUpperCase()}
@@ -231,7 +231,7 @@ function ProfilePage() {
                   className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
                 >
                   <StatTile
-                    tone="bg-gradient-vibe text-primary-foreground"
+                    tone="bg-ink text-cream border-2 border-ink"
                     icon={Sparkles}
                     label="XP"
                     value={(profile?.xp ?? 0).toLocaleString()}
@@ -312,7 +312,7 @@ function ProfilePage() {
               node: (
                 <section
                   aria-label="Achievements"
-                  className="rounded-3xl border border-border bg-card p-6 shadow-card"
+                  className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut"
                 >
                   <div className="mb-4 flex items-center justify-between gap-2">
                     <h2 className="flex items-center gap-2 font-display text-xl font-bold">
@@ -337,7 +337,7 @@ function ProfilePage() {
                           className={`flex items-start gap-3 rounded-xl border p-2.5 ${a.unlocked ? "border-primary/40 bg-primary/5" : "border-border bg-background/40 opacity-70"}`}
                         >
                           <span
-                            className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg ${a.unlocked ? "bg-gradient-vibe text-primary-foreground" : "bg-muted text-muted-foreground"}`}
+                            className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg ${a.unlocked ? "bg-ink text-cream border-2 border-ink" : "bg-muted text-muted-foreground"}`}
                           >
                             {a.unlocked ? <AchIcon name={a.icon} /> : <Lock className="h-4 w-4" />}
                           </span>
@@ -375,7 +375,7 @@ function ProfilePage() {
               id: "name",
               title: "Display name",
               node: (
-                <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+                <section className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut">
                   <h2 className="mb-4 font-display text-xl font-bold">Display name</h2>
                   <div className="flex flex-wrap gap-2">
                     <Input
@@ -393,7 +393,7 @@ function ProfilePage() {
               id: "socials",
               title: "Connected socials",
               node: (
-                <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+                <section className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut">
                   <h2 className="mb-4 font-display text-xl font-bold">Connected Socials</h2>
                   <div className="grid gap-2 sm:grid-cols-2">
                     {[
@@ -442,7 +442,7 @@ function ProfilePage() {
                     ].map((s) => (
                       <button
                         key={s.key}
-                        className="flex items-center gap-3 rounded-2xl border border-border bg-background p-3 text-left hover:bg-muted"
+                        className="flex items-center gap-3 rounded-2xl border-2 border-ink bg-background p-3 text-left hover:bg-muted"
                         style={{ borderLeft: `4px solid ${s.color}` }}
                       >
                         <span className="text-2xl">{s.icon}</span>
@@ -459,9 +459,9 @@ function ProfilePage() {
                   </div>
                   <Link
                     to="/taste-tuner"
-                    className="mt-4 flex items-center gap-3 rounded-2xl border border-border bg-gradient-to-r from-primary/10 to-accent/10 p-4 hover:bg-muted"
+                    className="mt-4 flex items-center gap-3 rounded-2xl border-2 border-ink bg-gradient-to-r from-primary/10 to-accent/10 p-4 hover:bg-muted"
                   >
-                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-vibe text-primary-foreground">
+                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-ink text-cream border-2 border-ink">
                       <SlidersHorizontal className="h-5 w-5" />
                     </div>
                     <div className="flex-1">
@@ -478,19 +478,19 @@ function ProfilePage() {
               id: "links",
               title: "Quick links",
               node: (
-                <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+                <section className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut">
                   <h2 className="mb-4 font-display text-xl font-bold">Quick links</h2>
                   <div className="grid gap-2 sm:grid-cols-2">
                     <Link
                       to="/concierge/profile"
-                      className="flex items-center gap-3 rounded-2xl border border-border p-3 hover:bg-muted"
+                      className="flex items-center gap-3 rounded-2xl border-2 border-ink p-3 hover:bg-muted"
                     >
                       <Settings className="h-4 w-4" />{" "}
                       <span className="font-semibold">Preferences & taste</span>
                     </Link>
                     <Link
                       to="/concierge/passport"
-                      className="flex items-center gap-3 rounded-2xl border border-border p-3 hover:bg-muted"
+                      className="flex items-center gap-3 rounded-2xl border-2 border-ink p-3 hover:bg-muted"
                     >
                       <Sparkles className="h-4 w-4" />{" "}
                       <span className="font-semibold">View Passport</span>
@@ -503,7 +503,7 @@ function ProfilePage() {
               id: "location",
               title: "Location",
               node: (
-                <section className="rounded-3xl border border-border bg-card p-6 shadow-card">
+                <section className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut">
                   <div className="flex items-center justify-between gap-3">
                     <h2 className="flex items-center gap-2 font-display text-xl font-bold">
                       <MapPin className="h-5 w-5" /> Location
@@ -566,7 +566,7 @@ function ProfilePage() {
                     )}
                   </div>
 
-                  <div className="mt-6 rounded-2xl border border-border bg-muted/30 p-4">
+                  <div className="mt-6 rounded-2xl border-2 border-ink bg-muted/30 p-4">
                     <div className="flex items-center gap-2 text-sm font-semibold">
                       <Shield className="h-4 w-4 text-primary" /> How your location is used
                     </div>
@@ -646,7 +646,7 @@ function StatTile({
   const body = (
     <div className="flex min-w-0 flex-1 items-center gap-3">
       <span
-        className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tone ? "bg-white/15" : "bg-gradient-vibe text-primary-foreground"}`}
+        className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tone ? "bg-white/15" : "bg-ink text-cream border-2 border-ink"}`}
       >
         <Icon className="h-5 w-5" />
       </span>
@@ -667,12 +667,12 @@ function StatTile({
       </div>
     </div>
   );
-  const wrapperClass = `flex h-full items-center gap-3 rounded-2xl border border-border p-4 shadow-card transition-pop ${tone ?? "bg-card"}`;
+  const wrapperClass = `flex h-full items-center gap-3 rounded-2xl border-2 border-ink p-4 shadow-brut transition-pop ${tone ?? "bg-cream"}`;
 
   if (cta) {
     const ctaClass = tone
-      ? "shrink-0 inline-flex items-center gap-1 rounded-full bg-white px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-primary shadow-pop hover:scale-105 transition-pop"
-      : "shrink-0 inline-flex items-center gap-1 rounded-full bg-gradient-vibe text-primary-foreground px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest shadow-pop hover:scale-105 transition-pop";
+      ? "shrink-0 inline-flex items-center gap-1 rounded-full bg-white px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-primary shadow-brut hover:scale-105 transition-pop"
+      : "shrink-0 inline-flex items-center gap-1 rounded-full bg-ink text-cream border-2 border-ink px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut hover:scale-105 transition-pop";
     const triggerClass = `${onClick ? "cursor-pointer text-left" : "text-left"} flex min-w-0 flex-1 items-center gap-3`;
     return (
       <div className={wrapperClass}>
@@ -693,7 +693,7 @@ function StatTile({
 
   const inner = (
     <div
-      className={`${wrapperClass} ${to || onClick ? "cursor-pointer hover:scale-[1.02] hover:shadow-pop" : ""}`}
+      className={`${wrapperClass} ${to || onClick ? "cursor-pointer hover:scale-[1.02] hover:shadow-brut" : ""}`}
     >
       {body}
     </div>
@@ -721,7 +721,7 @@ function LevelProgress({ xp, level }: { xp: number; level: number }) {
   const pct = Math.min(100, Math.round((xpThisLevel / xpForNext) * 100));
   const remaining = xpForNext - xpThisLevel;
   return (
-    <article className="rounded-2xl border border-border bg-card p-5 shadow-card">
+    <article className="rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut">
       <header className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Sparkles className="h-4 w-4 text-primary" />
@@ -753,7 +753,7 @@ function LevelProgress({ xp, level }: { xp: number; level: number }) {
 function StreakCard({ pastBookings, unlocked }: { pastBookings: number; unlocked: number }) {
   const streak = Math.min(pastBookings, 7);
   return (
-    <article className="rounded-2xl border border-border bg-gradient-to-br from-orange-500/10 via-amber-400/5 to-transparent p-5 shadow-card">
+    <article className="rounded-2xl border-2 border-ink bg-gradient-to-br from-orange-500/10 via-amber-400/5 to-transparent p-5 shadow-brut">
       <header className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Flame className="h-4 w-4 text-orange-500" />
@@ -872,7 +872,7 @@ function ReorderableSections({ sections }: { sections: SectionDef[] }) {
         {isCustom && (
           <button
             onClick={reset}
-            className="inline-flex items-center gap-1 rounded-full border border-border px-2.5 py-1 text-[11px] font-semibold text-muted-foreground hover:bg-muted hover:text-foreground"
+            className="inline-flex items-center gap-1 rounded-full border-2 border-ink px-2.5 py-1 text-[11px] font-semibold text-muted-foreground hover:bg-muted hover:text-foreground"
           >
             <RotateCcw className="h-3 w-3" /> Reset order
           </button>

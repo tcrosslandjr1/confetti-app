@@ -47,11 +47,11 @@ function VenuePage() {
       // Try venues table first
       const v = await supabase
         .from("venues")
-        .select("id,name,category,neighborhood,image_url,description,price_level,verified,featured")
+        .select("id,name,category,neighborhood,city,image_url,description,price_level,verified,featured")
         .eq("id", id)
         .maybeSingle();
       if (!cancelled && v.data) {
-        const row = v.data as typeof v.data & { verified?: boolean; featured?: boolean };
+        const row = v.data as typeof v.data & { verified?: boolean; featured?: boolean; city?: string | null };
         setVenue({
           id: row.id,
           name: row.name,
@@ -66,13 +66,14 @@ function VenuePage() {
           source: "venues",
           verified: !!row.verified,
           featured: !!row.featured,
+          city: row.city ?? null,
         });
         return;
       }
       // Fall back to viral_venues
       const vv = await supabase
         .from("viral_venues")
-        .select("id,venue_name,neighborhood,address,photo_url,summary,rating,tags")
+        .select("id,venue_name,neighborhood,address,city,photo_url,summary,rating,tags")
         .eq("id", id)
         .maybeSingle();
       if (cancelled) return;
@@ -91,6 +92,7 @@ function VenuePage() {
           source: "viral_venues",
           verified: false,
           featured: false,
+          city: vv.data.city ?? null,
         });
       } else {
         setVenue(null);

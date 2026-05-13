@@ -11,6 +11,7 @@ import {
   Briefcase,
 } from "lucide-react";
 import { useState } from "react";
+import { logSecurityTrace } from "@/lib/security-trace";
 
 type Option = {
   value: ViewAs;

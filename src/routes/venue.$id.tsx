@@ -290,30 +290,60 @@ function VenuePage() {
           ];
           return (
             <div className="mt-4 space-y-2">
-              <div
-                role="radiogroup"
-                aria-label="Travel mode"
-                className="inline-flex rounded-2xl border-2 border-ink bg-cream p-1 shadow-brut"
-              >
-                {modes.map(({ k, label, Icon }) => {
-                  const active = travelMode === k;
-                  return (
-                    <button
-                      key={k}
-                      type="button"
-                      role="radio"
-                      aria-checked={active}
-                      onClick={() => setTravelMode(k)}
-                      className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop ${
-                        active
-                          ? "bg-ink text-cream"
-                          : "text-ink/70 hover:bg-gold/40"
-                      }`}
-                    >
-                      <Icon className="h-3.5 w-3.5" /> {label}
-                    </button>
-                  );
-                })}
+              <div className="flex flex-wrap items-center gap-2">
+                <div
+                  role="radiogroup"
+                  aria-label="Travel mode"
+                  className="inline-flex rounded-2xl border-2 border-ink bg-cream p-1 shadow-brut"
+                >
+                  {modes.map(({ k, label, Icon }) => {
+                    const active = travelMode === k;
+                    return (
+                      <button
+                        key={k}
+                        type="button"
+                        role="radio"
+                        aria-checked={active}
+                        onClick={() => setTravelMode(k)}
+                        className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop ${
+                          active ? "bg-ink text-cream" : "text-ink/70 hover:bg-gold/40"
+                        }`}
+                      >
+                        <Icon className="h-3.5 w-3.5" /> {label}
+                      </button>
+                    );
+                  })}
+                </div>
+                <div
+                  aria-live="polite"
+                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-gold/30 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-ink"
+                >
+                  {etaState === "loading" && (
+                    <>
+                      <Loader2 className="h-3 w-3 animate-spin" /> Estimating…
+                    </>
+                  )}
+                  {etaState === "ready" && eta && (
+                    <>
+                      <Clock className="h-3 w-3" /> {eta.duration} · {eta.distance}
+                    </>
+                  )}
+                  {etaState === "denied" && (
+                    <>
+                      <MapPin className="h-3 w-3" /> Enable location for ETA
+                    </>
+                  )}
+                  {etaState === "error" && (
+                    <>
+                      <MapPin className="h-3 w-3" /> ETA unavailable
+                    </>
+                  )}
+                  {etaState === "idle" && (
+                    <>
+                      <Loader2 className="h-3 w-3 animate-spin" /> Locating…
+                    </>
+                  )}
+                </div>
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <a

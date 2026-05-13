@@ -138,13 +138,14 @@ function CreatePage() {
     }
   }
 
-  // Picks-so-far chips
-  const picks = [
-    group && { key: "g", label: `${group.label}`, step: 0 },
-    occasion && { key: "o", label: `${occasion.emoji} ${occasion.label}`, step: 1 },
-    step >= 2 && { key: "w", label: `${time} · ${duration}`, step: 2 },
-    vibe && { key: "v", label: `${vibe.emoji} ${vibe.label}`, step: 3 },
-  ].filter(Boolean) as { key: string; label: string; step: number }[];
+  // Picks-so-far chips — always show all 4 with completed/pending status
+  const picks: { key: string; label: string; step: number; done: boolean; placeholder: string }[] = [
+    { key: "g", step: 0, placeholder: "Group", done: !!group, label: group ? group.label : "Group" },
+    { key: "o", step: 1, placeholder: "Occasion", done: !!occasion, label: occasion ? `${occasion.emoji} ${occasion.label}` : "Occasion" },
+    { key: "w", step: 2, placeholder: "When", done: step >= 2, label: step >= 2 ? `${time} · ${duration}` : "When" },
+    { key: "v", step: 3, placeholder: "Vibe", done: !!vibe, label: vibe ? `${vibe.emoji} ${vibe.label}` : "Vibe" },
+  ];
+  const completedCount = picks.filter((p) => p.done).length;
 
   return (
     <div className="min-h-screen bg-background pb-32">
@@ -174,25 +175,65 @@ function CreatePage() {
           ))}
         </div>
 
-        {/* Picks-so-far chip strip */}
-        {picks.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1.5">
-            {picks.map((p) => (
+        {/* Picks-so-far chip strip — shows status for every step */}
+        <div className="mt-3 flex items-center justify-between">
+          <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/50">
+            Your picks
+          </span>
+          <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/50">
+            {completedCount} / {picks.length} done
+          </span>
+        </div>
+        <div className="mt-1.5 flex flex-wrap gap-1.5">
+          {picks.map((p) => {
+            const isCurrent = step === p.step;
+            return (
               <button
                 key={p.key}
                 onClick={() => setStep(p.step)}
-                aria-label={`Edit ${STEP_LABELS[p.step]}: ${p.label}`}
-                className="group inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-card pl-2.5 pr-1.5 py-1 text-[11px] font-medium text-ink/80 hover:border-ink hover:bg-cream transition-colors"
+                aria-label={`${p.done ? "Edit" : "Go to"} ${STEP_LABELS[p.step]}: ${p.done ? p.label : "not selected yet"}`}
+                className={`group inline-flex items-center gap-1.5 rounded-full border pl-1.5 pr-1.5 py-1 text-[11px] font-medium transition-colors ${
+                  p.done
+                    ? "border-ink/20 bg-card text-ink/85 hover:border-ink hover:bg-cream"
+                    : isCurrent
+                    ? "border-coral border-dashed bg-coral/5 text-ink/70"
+                    : "border-ink/15 border-dashed bg-transparent text-ink/40 hover:border-ink/40 hover:text-ink/70"
+                }`}
               >
-                <Check className="h-3 w-3 text-coral" />
-                <span>{p.label}</span>
-                <span className="ml-0.5 inline-flex items-center gap-0.5 rounded-full bg-ink/5 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-ink/70 group-hover:bg-ink group-hover:text-cream">
-                  <Pencil className="h-2.5 w-2.5" /> Edit
-                </span>
+                {/* status indicator */}
+                {p.done ? (
+                  <span className="grid h-4 w-4 place-items-center rounded-full bg-coral text-cream">
+                    <Check className="h-2.5 w-2.5" strokeWidth={3} />
+                  </span>
+                ) : (
+                  <span
+                    className={`grid h-4 w-4 place-items-center rounded-full border ${
+                      isCurrent ? "border-coral" : "border-ink/30"
+                    }`}
+                  >
+                    <span
+                      className={`h-1.5 w-1.5 rounded-full ${
+                        isCurrent ? "bg-coral animate-pulse" : "bg-ink/30"
+                      }`}
+                    />
+                  </span>
+                )}
+                <span className="px-0.5">{p.label}</span>
+                {p.done ? (
+                  <span className="ml-0.5 inline-flex items-center gap-0.5 rounded-full bg-ink/5 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-ink/70 group-hover:bg-ink group-hover:text-cream">
+                    <Pencil className="h-2.5 w-2.5" /> Edit
+                  </span>
+                ) : (
+                  <span className={`ml-0.5 rounded-full px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider ${
+                    isCurrent ? "bg-coral/15 text-coral" : "bg-ink/5 text-ink/50"
+                  }`}>
+                    {isCurrent ? "Now" : "Pending"}
+                  </span>
+                )}
               </button>
-            ))}
-          </div>
-        )}
+            );
+          })}
+        </div>
 
         {/* Heading */}
         <div className="mt-6 space-y-1.5">

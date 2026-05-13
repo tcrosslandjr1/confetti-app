@@ -382,6 +382,9 @@ function CreatePage() {
                   })}
                 </div>
               </div>
+
+              {/* Weather forecast for selected date + city */}
+              <ForecastForDate city={city} date={date} />
             </div>
           )}
 

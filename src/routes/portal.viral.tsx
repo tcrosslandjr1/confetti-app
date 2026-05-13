@@ -390,13 +390,15 @@ function PortalViralPage() {
       {filtered !== null && filtered.length === 0 && (
         <div className="rounded-2xl border border-dashed border-border bg-card/50 p-10 text-center">
           <Flame className="mx-auto h-8 w-8 text-muted-foreground" />
-          <p className="mt-3 font-display text-lg font-bold">Nothing matches those filters</p>
-          <p className="text-sm text-muted-foreground">
+          <p className="mt-3 font-display text-lg font-bold">
+            {hasFilters ? "Nothing matches those filters" : `No viral spots loaded for ${city} yet`}
+          </p>
+          <p className="mx-auto mt-1 max-w-md text-sm text-muted-foreground">
             {hasFilters
               ? "Try clearing filters or lowering the minimum score."
-              : `We haven't discovered ${city} venues yet — admins can refresh from /admin/integrations.`}
+              : `Run a discovery pass to scan TikTok, Instagram, and the press for what's trending in ${city} right now. Takes ~30–60 seconds.`}
           </p>
-          {hasFilters && (
+          {hasFilters ? (
             <button
               type="button"
               onClick={() => {
@@ -407,6 +409,23 @@ function PortalViralPage() {
               className="mt-4 rounded-full bg-foreground px-4 py-2 text-xs font-bold uppercase tracking-widest text-background"
             >
               Reset filters
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={discoverNow}
+              disabled={discovering}
+              className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white shadow-pop transition hover:scale-105 disabled:opacity-60"
+            >
+              {discovering ? (
+                <>
+                  <Loader2 className="h-3.5 w-3.5 animate-spin" /> Discovering…
+                </>
+              ) : (
+                <>
+                  <Flame className="h-3.5 w-3.5" /> Discover viral spots in {city}
+                </>
+              )}
             </button>
           )}
         </div>

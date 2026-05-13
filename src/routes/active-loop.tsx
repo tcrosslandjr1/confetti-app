@@ -200,6 +200,10 @@ function ActiveLoopPage() {
           />
         )}
 
+        {!completed && (
+          <NightModeWarnings stops={loop.stops} onJump={jumpToStop} />
+        )}
+
         {completed ? (
           <div className="mt-6 rounded-3xl border-2 border-ink bg-coral p-6 text-cream shadow-brut text-center">
             <div className="font-display text-2xl font-extrabold">Plan complete 🎉</div>

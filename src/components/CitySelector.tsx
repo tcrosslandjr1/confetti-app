@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Check, ChevronDown, MapPin, Navigation } from "lucide-react";
+import { AlertTriangle, Check, ChevronDown, ExternalLink, MapPin, Navigation, RefreshCw } from "lucide-react";
 import {
   CITIES,
   DEFAULT_CITY,
@@ -8,8 +8,14 @@ import {
   subscribeSelectedCity,
   type City,
 } from "@/lib/cities";
-import { requestUserLocationDetailed, clearStoredLocation } from "@/lib/location";
+import {
+  requestUserLocationDetailed,
+  clearStoredLocation,
+  type LocationError,
+} from "@/lib/location";
 import { toast } from "sonner";
+
+type LocError = { error: LocationError; message: string; attempts: number };
 
 type Props = {
   /** Tighter visual style for use in dense headers. */

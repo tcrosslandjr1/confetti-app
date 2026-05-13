@@ -319,12 +319,15 @@ function CreatePage() {
 
         <div className="mt-8">
           <button
-            disabled={!canNext}
+            disabled={!canNext || generating}
             onClick={() => (step < totalSteps - 1 ? setStep(step + 1) : finish())}
             className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink px-4 py-4 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-40"
           >
-            {step < totalSteps - 1 ? "Continue" : "Create My Plan"}
-            <ArrowRight className="h-4 w-4" />
+            {generating ? (
+              <><Loader2 className="h-4 w-4 animate-spin" /> Building your night…</>
+            ) : (
+              <>{step < totalSteps - 1 ? "Continue" : "Create My Plan"} <ArrowRight className="h-4 w-4" /></>
+            )}
           </button>
         </div>
       </div>

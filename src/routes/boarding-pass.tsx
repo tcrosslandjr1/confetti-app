@@ -219,10 +219,10 @@ function BoardingPassPage() {
           </button>
         </div>
         <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight">
-          Your plan is ready
+          Review your plan
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Show this at each stop. Earn Confetti as you go.
+          Tap <span className="font-bold">Try a different vibe</span> to explore alternatives, or lock it in below.
         </p>
         {!data && (
           <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-ink/50">

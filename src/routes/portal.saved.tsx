@@ -12,6 +12,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { GooglePhotos } from "@/components/GooglePhotos";
+import { VenueVerificationBadge } from "@/components/VenueVerificationBadge";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/portal/saved")({

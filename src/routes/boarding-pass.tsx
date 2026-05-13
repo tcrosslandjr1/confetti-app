@@ -1,8 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
 import { ArrowLeft, Play } from "lucide-react";
-import { BoardingPass } from "@/components/loop/BoardingPass";
-import { getActiveLoop, makeDemoLoop, setActiveLoop, subscribeActiveLoop, type ActiveLoop } from "@/lib/loop-store";
+import { BoardingPassV2 } from "@/components/BoardingPassV2";
 
 export const Route = createFileRoute("/boarding-pass")({
   head: () => ({ meta: [{ title: "Boarding Pass — Confetti" }] }),
@@ -10,30 +8,8 @@ export const Route = createFileRoute("/boarding-pass")({
 });
 
 function BoardingPassPage() {
-  const [loop, setLoop] = useState<ActiveLoop | null>(null);
-  useEffect(() => {
-    const sync = () => {
-      const existing = getActiveLoop();
-      if (existing) setLoop(existing);
-      else {
-        const demo = makeDemoLoop();
-        setActiveLoop(demo);
-        setLoop(demo);
-      }
-    };
-    sync();
-    return subscribeActiveLoop(sync);
-  }, []);
-
-  if (!loop)
-    return (
-      <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">
-        Loading…
-      </div>
-    );
-
   return (
-    <div className="min-h-screen bg-background pb-32">
+    <div className="min-h-screen pb-32" style={{ background: "#fdf6ee" }}>
       <div className="mx-auto max-w-md px-4 pt-6">
         <Link
           to="/portal"
@@ -49,7 +25,7 @@ function BoardingPassPage() {
         </p>
       </div>
       <div className="mt-6 px-4">
-        <BoardingPass loop={loop} />
+        <BoardingPassV2 />
         <div className="mx-auto mt-5 max-w-md">
           <Link
             to="/active-loop"

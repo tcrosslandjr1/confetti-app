@@ -8,7 +8,23 @@ export const Route = createFileRoute("/onboarding")({
   component: Onboarding,
 });
 
-const CITIES = ["DC", "NYC", "LA", "Miami", "Atlanta", "Chicago"];
+const CITIES = [
+  "Washington DC",
+  "New York",
+  "Los Angeles",
+  "Chicago",
+  "Miami",
+  "San Francisco",
+  "Boston",
+  "Atlanta",
+  "Seattle",
+  "Philadelphia",
+  "Nashville",
+  "Austin",
+  "Denver",
+  "New Orleans",
+  "Toronto",
+];
 const CUISINES = [
   "Italian",
   "Mexican",

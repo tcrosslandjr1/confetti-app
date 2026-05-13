@@ -690,3 +690,194 @@ function PlacesMatchAuditSection() {
     </section>
   );
 }
+
+function SecurityTraceSection() {
+  const traces = useSecurityTrace();
+  const [q, setQ] = useState("");
+  const [kind, setKind] = useState<"all" | SecurityTraceEntry["kind"]>("all");
+
+  const filtered = useMemo(() => {
+    const needle = q.trim().toLowerCase();
+    return traces.filter((t) => {
+      if (kind !== "all" && t.kind !== kind) return false;
+      if (!needle) return true;
+      return [
+        t.actorRole,
+        t.realRole,
+        t.userEmail,
+        t.userId,
+        t.fromRole,
+        t.toRole,
+        t.action,
+        t.path,
+        t.note,
+      ]
+        .filter(Boolean)
+        .some((v) => String(v).toLowerCase().includes(needle));
+    });
+  }, [traces, q, kind]);
+
+  function exportCsv() {
+    const head = [
+      "id",
+      "at",
+      "kind",
+      "outcome",
+      "actorRole",
+      "realRole",
+      "userEmail",
+      "fromRole",
+      "toRole",
+      "action",
+      "path",
+      "note",
+    ];
+    const rows = filtered.map((t) =>
+      head
+        .map((k) => {
+          const v = (t as Record<string, unknown>)[k];
+          const s = v == null ? "" : String(v);
+          return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+        })
+        .join(","),
+    );
+    const csv = [head.join(","), ...rows].join("\n");
+    const blob = new Blob([csv], { type: "text/csv" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `security-trace-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  const KINDS: SecurityTraceEntry["kind"][] = [
+    "view-switch",
+    "view-exit",
+    "protected-attempt",
+  ];
+
+  return (
+    <section className="mt-12 space-y-4">
+      <header className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h2 className="flex items-center gap-2 text-2xl font-semibold tracking-tight">
+            <Shield className="h-5 w-5 text-muted-foreground" />
+            Security trace
+          </h2>
+          <p className="mt-1 text-sm text-muted-foreground">
+            View-as switches and protected action attempts. Stored locally for traceability.
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <Button variant="outline" size="sm" onClick={exportCsv}>
+            <Download className="mr-1.5 h-3.5 w-3.5" /> Export CSV
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => {
+              clearSecurityTrace();
+              toast.success("Security trace cleared");
+            }}
+          >
+            <Eraser className="mr-1.5 h-3.5 w-3.5" /> Clear
+          </Button>
+        </div>
+      </header>
+
+      <div className="flex flex-wrap gap-2">
+        <div className="relative">
+          <Search className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+          <Input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="Filter by role, email, action…"
+            className="h-9 w-72 pl-8"
+          />
+        </div>
+        <select
+          value={kind}
+          onChange={(e) => setKind(e.target.value as typeof kind)}
+          className="h-9 rounded-md border border-input bg-background px-2 text-sm"
+        >
+          <option value="all">All kinds</option>
+          {KINDS.map((k) => (
+            <option key={k} value={k}>
+              {k}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="overflow-x-auto rounded-lg border border-border">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>When</TableHead>
+              <TableHead>Kind</TableHead>
+              <TableHead>Actor</TableHead>
+              <TableHead>Detail</TableHead>
+              <TableHead>Path</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {filtered.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={5} className="py-10 text-center text-sm text-muted-foreground">
+                  No security trace entries yet.
+                </TableCell>
+              </TableRow>
+            ) : (
+              filtered.map((t) => {
+                const when = formatRelAbs(t.at);
+                return (
+                  <TableRow key={t.id}>
+                    <TableCell title={when.abs} className="whitespace-nowrap text-sm">
+                      {when.rel}
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant="outline" className="text-xs">
+                        {t.kind}
+                      </Badge>
+                      {t.outcome !== "info" ? (
+                        <span
+                          className={`ml-1.5 text-xs ${
+                            t.outcome === "denied" ? "text-destructive" : "text-emerald-600"
+                          }`}
+                        >
+                          {t.outcome}
+                        </span>
+                      ) : null}
+                    </TableCell>
+                    <TableCell className="text-sm">
+                      <div className="font-medium">{t.userEmail ?? t.userId ?? "—"}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {t.actorRole}
+                        {t.realRole && t.realRole !== t.actorRole ? ` (real ${t.realRole})` : ""}
+                      </div>
+                    </TableCell>
+                    <TableCell className="max-w-[360px] text-sm">
+                      {t.kind === "view-switch" || t.kind === "view-exit" ? (
+                        <span>
+                          {t.fromRole} → <strong>{t.toRole}</strong>
+                        </span>
+                      ) : (
+                        <span>{t.action ?? "—"}</span>
+                      )}
+                      {t.note ? (
+                        <div className="text-xs text-muted-foreground">{t.note}</div>
+                      ) : null}
+                    </TableCell>
+                    <TableCell className="font-mono text-xs text-muted-foreground">
+                      {t.path ?? "—"}
+                    </TableCell>
+                  </TableRow>
+                );
+              })
+            )}
+          </TableBody>
+        </Table>
+      </div>
+    </section>
+  );
+}

@@ -18,13 +18,32 @@ export function isAppleDevice(): boolean {
   if (typeof navigator === "undefined") return false;
   const ua = navigator.userAgent || "";
   const platform = navigator.platform || "";
-  // iPhone, iPad, iPod
   if (/iPhone|iPad|iPod/.test(ua)) return true;
-  // iPadOS 13+ reports as Mac with touch
   if (platform === "MacIntel" && (navigator as Navigator & { maxTouchPoints?: number }).maxTouchPoints! > 1) return true;
-  // macOS Safari
   if (/Macintosh/.test(ua)) return true;
   return false;
+}
+
+export function isIOS(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const ua = navigator.userAgent || "";
+  if (/iPhone|iPad|iPod/.test(ua)) return true;
+  // iPadOS 13+ masquerades as Mac with touch
+  if (
+    (navigator.platform || "") === "MacIntel" &&
+    (navigator as Navigator & { maxTouchPoints?: number }).maxTouchPoints! > 1
+  )
+    return true;
+  return false;
+}
+
+export function isAndroid(): boolean {
+  if (typeof navigator === "undefined") return false;
+  return /Android/i.test(navigator.userAgent || "");
+}
+
+export function isMobile(): boolean {
+  return isIOS() || isAndroid();
 }
 
 /* ------------------------------ apple flags -------------------------------- */
@@ -65,19 +84,26 @@ export function buildAppleMapsSearchUrl(p: Place): string {
   return `https://maps.apple.com/?${params.toString()}`;
 }
 
-export function buildAppleMapsDirectionsUrl(points: Place[], mode: TravelMode = "driving"): string {
-  if (points.length === 0) return "https://maps.apple.com/";
+export function buildAppleMapsDirectionsUrl(
+  points: Place[],
+  mode: TravelMode = "driving",
+  opts: { native?: boolean } = {},
+): string {
+  const scheme = opts.native ? "maps://" : "https://maps.apple.com/";
+  if (points.length === 0) return scheme;
   const dirflg = appleDirFlag(mode);
-  if (points.length === 1) return buildAppleMapsSearchUrl(points[0]);
-  // Apple supports multi-stop via "A to:B to:C" in daddr
+  if (points.length === 1) {
+    const p = points[0];
+    const q = fmt(p);
+    if (!q) return scheme;
+    const params = new URLSearchParams({ q });
+    if (p.lat != null && p.lng != null) params.set("ll", `${p.lat},${p.lng}`);
+    return `${scheme}?${params.toString()}`;
+  }
   const saddr = fmt(points[0]);
-  const daddr = points
-    .slice(1)
-    .map(fmt)
-    .filter(Boolean)
-    .join(" to:");
+  const daddr = points.slice(1).map(fmt).filter(Boolean).join(" to:");
   const params = new URLSearchParams({ saddr, daddr, dirflg });
-  return `https://maps.apple.com/?${params.toString()}`;
+  return `${scheme}?${params.toString()}`;
 }
 
 /* -------------------------- Google Maps builders --------------------------- */
@@ -87,12 +113,30 @@ export function buildGoogleMapsSearchUrl(p: Place): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 }
 
-export function buildGoogleMapsDirectionsUrl(points: Place[], mode: TravelMode = "driving"): string {
-  if (points.length === 0) return "https://www.google.com/maps";
-  if (points.length === 1) return buildGoogleMapsSearchUrl(points[0]);
+export function buildGoogleMapsDirectionsUrl(
+  points: Place[],
+  mode: TravelMode = "driving",
+  opts: { native?: boolean } = {},
+): string {
+  if (points.length === 0) {
+    return opts.native ? "comgooglemaps://" : "https://www.google.com/maps";
+  }
   const origin = fmt(points[0]);
   const destination = fmt(points[points.length - 1]);
   const waypoints = points.slice(1, -1).map(fmt).filter(Boolean).join("|");
+
+  if (opts.native) {
+    // comgooglemaps:// opens the Google Maps app directly on iOS/Android when installed.
+    const params = new URLSearchParams({
+      saddr: points.length > 1 ? origin : "",
+      daddr: destination,
+      directionsmode: googleMode(mode),
+    });
+    if (waypoints) params.set("waypoints", waypoints);
+    return `comgooglemaps://?${params.toString()}`;
+  }
+
+  if (points.length === 1) return buildGoogleMapsSearchUrl(points[0]);
   const params = new URLSearchParams({
     api: "1",
     origin,
@@ -111,17 +155,29 @@ export function buildSmartSearchUrl(p: Place): string {
 }
 
 export function buildSmartDirectionsUrl(points: Place[], mode: TravelMode = "driving"): string {
+  if (isIOS()) return buildAppleMapsDirectionsUrl(points, mode, { native: true });
+  if (isAndroid()) return buildGoogleMapsDirectionsUrl(points, mode, { native: true });
   return isAppleDevice()
     ? buildAppleMapsDirectionsUrl(points, mode)
     : buildGoogleMapsDirectionsUrl(points, mode);
 }
 
-/** Returns both URLs so callers can render side-by-side buttons if desired. */
+/**
+ * Returns both URLs so callers can render side-by-side buttons.
+ * On mobile, the matching platform's URL uses a native app scheme
+ * (maps:// on iOS, comgooglemaps:// on Android) so the OS opens the app
+ * directly without browser disambiguation. The other stays as a web URL
+ * for cross-app fallback.
+ */
 export function bothDirectionsUrls(points: Place[], mode: TravelMode = "driving") {
+  const ios = isIOS();
+  const android = isAndroid();
   return {
-    apple: buildAppleMapsDirectionsUrl(points, mode),
-    google: buildGoogleMapsDirectionsUrl(points, mode),
+    apple: buildAppleMapsDirectionsUrl(points, mode, { native: ios }),
+    google: buildGoogleMapsDirectionsUrl(points, mode, { native: android }),
     preferred: buildSmartDirectionsUrl(points, mode),
     isApple: isAppleDevice(),
+    isIOS: ios,
+    isAndroid: android,
   };
 }

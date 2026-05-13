@@ -5,7 +5,7 @@ import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles, BadgeC
 import { toast } from "sonner";
 import { useMapsLibrary } from "@vis.gl/react-google-maps";
 import { supabase } from "@/integrations/supabase/client";
-import { buildAppleMapsDirectionsUrl, buildGoogleMapsDirectionsUrl, type TravelMode } from "@/lib/maps-links";
+import { buildAppleMapsDirectionsUrl, buildGoogleMapsDirectionsUrl, isAndroid, isIOS, type TravelMode } from "@/lib/maps-links";
 import { requestUserLocation, getStoredLocation, type UserLocation } from "@/lib/location";
 import { VenueVerificationBadge } from "@/components/VenueVerificationBadge";
 import { ReportVenueButton } from "@/components/ReportVenueButton";
@@ -302,8 +302,8 @@ function VenuePage() {
           const points = useOrigin
             ? [{ name: "My location", lat: origin!.lat, lng: origin!.lng }, dest]
             : [dest];
-          const apple = buildAppleMapsDirectionsUrl(points, travelMode);
-          const google = buildGoogleMapsDirectionsUrl(points, travelMode);
+          const apple = buildAppleMapsDirectionsUrl(points, travelMode, { native: isIOS() });
+          const google = buildGoogleMapsDirectionsUrl(points, travelMode, { native: isAndroid() });
           const modes: { k: TravelMode; label: string; Icon: typeof Car }[] = [
             { k: "driving", label: "Drive", Icon: Car },
             { k: "walking", label: "Walk", Icon: Footprints },

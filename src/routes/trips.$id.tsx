@@ -38,7 +38,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { SiteHeader } from "@/components/SiteHeader";
-import { buildAppleMapsDirectionsUrl, buildGoogleMapsDirectionsUrl, isAppleDevice } from "@/lib/maps-links";
+import { buildAppleMapsDirectionsUrl, buildGoogleMapsDirectionsUrl, isAndroid, isAppleDevice, isIOS } from "@/lib/maps-links";
 import { useAuth } from "@/lib/auth-context";
 import {
   completeItinerary,
@@ -881,8 +881,8 @@ function TravelLegCard({ leg, from, to }: { leg: TravelLeg; from: Stop; to: Stop
           : "driving";
   const fromPlace = { name: from.name, address: from.address };
   const toPlace = { name: to.name, address: to.address };
-  const apple = buildAppleMapsDirectionsUrl([fromPlace, toPlace], travelMode);
-  const google = buildGoogleMapsDirectionsUrl([fromPlace, toPlace], travelMode);
+  const apple = buildAppleMapsDirectionsUrl([fromPlace, toPlace], travelMode, { native: isIOS() });
+  const google = buildGoogleMapsDirectionsUrl([fromPlace, toPlace], travelMode, { native: isAndroid() });
   // Order: preferred map first
   if (isAppleDevice()) {
     links.push({ label: "Apple Maps", href: apple });

@@ -4,6 +4,7 @@ import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles, BadgeC
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { VenueMap } from "@/components/maps/VenueMap";
+import { VenueVerificationBadge } from "@/components/VenueVerificationBadge";
 
 export const Route = createFileRoute("/venue/$id")({
   head: () => ({ meta: [{ title: "Venue — Confetti" }] }),

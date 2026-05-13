@@ -302,8 +302,8 @@ function VenuePage() {
           const points = useOrigin
             ? [{ name: "My location", lat: origin!.lat, lng: origin!.lng }, dest]
             : [dest];
-          const apple = buildAppleMapsDirectionsUrl(points, travelMode);
-          const google = buildGoogleMapsDirectionsUrl(points, travelMode);
+          const apple = buildAppleMapsDirectionsUrl(points, travelMode, { native: isIOS() });
+          const google = buildGoogleMapsDirectionsUrl(points, travelMode, { native: isAndroid() });
           const modes: { k: TravelMode; label: string; Icon: typeof Car }[] = [
             { k: "driving", label: "Drive", Icon: Car },
             { k: "walking", label: "Walk", Icon: Footprints },

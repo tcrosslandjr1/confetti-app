@@ -7,6 +7,7 @@ import { getStoredLocation, requestUserLocation, type UserLocation } from "@/lib
 import { Button } from "@/components/ui/button";
 import { GooglePhotos } from "@/components/GooglePhotos";
 import { VenueVerificationBadge } from "@/components/VenueVerificationBadge";
+import { WhyThisPick, derivePickSignals } from "@/components/WhyThisPick";
 
 type Venue = {
   id: string;

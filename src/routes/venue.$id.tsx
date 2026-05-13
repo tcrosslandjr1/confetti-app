@@ -250,6 +250,10 @@ function VenuePage() {
           </button>
         </div>
 
+        <div className="mt-3 flex justify-center">
+          <ReportVenueButton venueName={venue.name} city={venue.city} />
+        </div>
+
         <div className="mt-6">
           <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 mb-2">
             Photos

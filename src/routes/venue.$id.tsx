@@ -220,26 +220,58 @@ function VenuePage() {
 
         {(venue.address || venue.name) && (() => {
           const dest = { name: venue.name, address: venue.address ?? undefined };
-          const apple = buildAppleMapsDirectionsUrl([dest]);
-          const google = buildGoogleMapsDirectionsUrl([dest]);
+          const apple = buildAppleMapsDirectionsUrl([dest], travelMode);
+          const google = buildGoogleMapsDirectionsUrl([dest], travelMode);
+          const modes: { k: TravelMode; label: string; Icon: typeof Car }[] = [
+            { k: "driving", label: "Drive", Icon: Car },
+            { k: "walking", label: "Walk", Icon: Footprints },
+            { k: "transit", label: "Transit", Icon: Bus },
+          ];
           return (
-            <div className="mt-4 grid grid-cols-2 gap-2">
-              <a
-                href={apple}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold"
+            <div className="mt-4 space-y-2">
+              <div
+                role="radiogroup"
+                aria-label="Travel mode"
+                className="inline-flex rounded-2xl border-2 border-ink bg-cream p-1 shadow-brut"
               >
-                <Navigation className="h-4 w-4" /> Apple Maps
-              </a>
-              <a
-                href={google}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold"
-              >
-                <Navigation className="h-4 w-4" /> Google Maps
-              </a>
+                {modes.map(({ k, label, Icon }) => {
+                  const active = travelMode === k;
+                  return (
+                    <button
+                      key={k}
+                      type="button"
+                      role="radio"
+                      aria-checked={active}
+                      onClick={() => setTravelMode(k)}
+                      className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition-pop ${
+                        active
+                          ? "bg-ink text-cream"
+                          : "text-ink/70 hover:bg-gold/40"
+                      }`}
+                    >
+                      <Icon className="h-3.5 w-3.5" /> {label}
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href={apple}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold"
+                >
+                  <Navigation className="h-4 w-4" /> Apple Maps
+                </a>
+                <a
+                  href={google}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold"
+                >
+                  <Navigation className="h-4 w-4" /> Google Maps
+                </a>
+              </div>
             </div>
           );
         })()}

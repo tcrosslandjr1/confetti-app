@@ -87,6 +87,9 @@ export type BuildPayload = {
   occasion: string;
   vibe?: string;
   city?: string;
+  region?: string;
+  lat?: number | null;
+  lng?: number | null;
   date?: string;
   startTime?: string;
   durationHours?: number;

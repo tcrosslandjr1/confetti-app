@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import {
   Users, User, Heart, Cake, Briefcase, Home, Sparkles,
-  ArrowRight, ArrowLeft, Calendar, Clock, Check, MapPin, Loader2,
+  ArrowRight, ArrowLeft, Calendar, Clock, Check, MapPin, Loader2, Pencil,
 } from "lucide-react";
 import { makeDemoLoop, setActiveLoop, type ActiveLoop } from "@/lib/loop-store";
 import { MOODS } from "@/lib/concierge-data";

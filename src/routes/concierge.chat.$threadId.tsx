@@ -19,6 +19,12 @@ export const Route = createFileRoute("/concierge/chat/$threadId")({
 
 type Msg = { id: string; role: "user" | "assistant"; content: string };
 
+const DEFAULT_SUGGESTIONS = [
+  "Romantic dinner under $80pp tonight, not too loud",
+  "Build me a 3-stop date night starting in Shaw",
+  "Group dinner for 8 with strong cocktails — surprise me",
+] as const;
+
 function timeOfDayPrompts(d = new Date()): string[] {
   const h = d.getHours();
   if (h < 11)
@@ -60,7 +66,11 @@ function ChatThread() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
-  const suggestions = useMemo(() => timeOfDayPrompts(), []);
+  const [suggestions, setSuggestions] = useState<string[]>([...DEFAULT_SUGGESTIONS]);
+
+  useEffect(() => {
+    setSuggestions(timeOfDayPrompts(new Date()));
+  }, []);
 
   useEffect(() => {
     if (!user) return;

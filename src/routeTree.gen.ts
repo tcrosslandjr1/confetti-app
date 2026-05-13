@@ -94,6 +94,7 @@ import { Route as AdminAdAnalyticsRouteImport } from './routes/admin.ad-analytic
 import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
 import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
+import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pick-events'
 import { Route as ApiPublicWalletGoogleRouteImport } from './routes/api/public/wallet/google'
 import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public/tiktok.callback'
 import { Route as ApiPublicInstagramCallbackRouteImport } from './routes/api/public/instagram.callback'
@@ -527,6 +528,11 @@ const ConciergeChatThreadIdRoute = ConciergeChatThreadIdRouteImport.update({
   path: '/chat/$threadId',
   getParentRoute: () => ConciergeRoute,
 } as any)
+const ApiPublicPickEventsRoute = ApiPublicPickEventsRouteImport.update({
+  id: '/api/public/pick-events',
+  path: '/api/public/pick-events',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicWalletGoogleRoute = ApiPublicWalletGoogleRouteImport.update({
   id: '/api/public/wallet/google',
   path: '/api/public/wallet/google',
@@ -651,6 +657,7 @@ export interface FileRoutesByFullPath {
   '/portal/': typeof PortalIndexRoute
   '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
+  '/api/public/pick-events': typeof ApiPublicPickEventsRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
@@ -740,6 +747,7 @@ export interface FileRoutesByTo {
   '/portal': typeof PortalIndexRoute
   '/teams': typeof TeamsIndexRoute
   '/trips': typeof TripsIndexRoute
+  '/api/public/pick-events': typeof ApiPublicPickEventsRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat': typeof ConciergeChatIndexRoute
@@ -835,6 +843,7 @@ export interface FileRoutesById {
   '/portal/': typeof PortalIndexRoute
   '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
+  '/api/public/pick-events': typeof ApiPublicPickEventsRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
@@ -931,6 +940,7 @@ export interface FileRouteTypes {
     | '/portal/'
     | '/teams/'
     | '/trips/'
+    | '/api/public/pick-events'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat/'
@@ -1020,6 +1030,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/teams'
     | '/trips'
+    | '/api/public/pick-events'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat'
@@ -1114,6 +1125,7 @@ export interface FileRouteTypes {
     | '/portal/'
     | '/teams/'
     | '/trips/'
+    | '/api/public/pick-events'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat/'
@@ -1175,6 +1187,7 @@ export interface RootRouteChildren {
   VenueIdRoute: typeof VenueIdRoute
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
+  ApiPublicPickEventsRoute: typeof ApiPublicPickEventsRoute
   ApiAdminWalletGoogleClassRoute: typeof ApiAdminWalletGoogleClassRoute
   ApiAdminWalletGoogleDebugRoute: typeof ApiAdminWalletGoogleDebugRoute
   ApiPublicHooksDiscoverViralRoute: typeof ApiPublicHooksDiscoverViralRoute
@@ -1781,6 +1794,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConciergeChatThreadIdRouteImport
       parentRoute: typeof ConciergeRoute
     }
+    '/api/public/pick-events': {
+      id: '/api/public/pick-events'
+      path: '/api/public/pick-events'
+      fullPath: '/api/public/pick-events'
+      preLoaderRoute: typeof ApiPublicPickEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/wallet/google': {
       id: '/api/public/wallet/google'
       path: '/api/public/wallet/google'
@@ -2018,6 +2038,7 @@ const rootRouteChildren: RootRouteChildren = {
   VenueIdRoute: VenueIdRoute,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
+  ApiPublicPickEventsRoute: ApiPublicPickEventsRoute,
   ApiAdminWalletGoogleClassRoute: ApiAdminWalletGoogleClassRoute,
   ApiAdminWalletGoogleDebugRoute: ApiAdminWalletGoogleDebugRoute,
   ApiPublicHooksDiscoverViralRoute: ApiPublicHooksDiscoverViralRoute,

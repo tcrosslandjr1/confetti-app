@@ -67,7 +67,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   // Auth state
   useEffect(() => {
     if (typeof window === "undefined") return;
+    let initialised = false;
     const { data: sub } = supabase.auth.onAuthStateChange((event, s) => {
+      initialised = true;
       setSession(s);
       setSessionLoading(false);
       if (event === "SIGNED_IN") {
@@ -78,10 +80,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setViewAsState(null);
       }
     });
-    supabase.auth.getSession().then(({ data }) => {
-      setSession(data.session);
-      setSessionLoading(false);
-    });
+    supabase.auth
+      .getSession()
+      .then(({ data }) => {
+        // Only seed from getSession if onAuthStateChange hasn't already fired —
+        // otherwise a late getSession can clobber a freshly signed-in session.
+        if (!initialised) {
+          setSession(data.session);
+          setSessionLoading(false);
+        }
+      })
+      .catch(() => {
+        if (!initialised) setSessionLoading(false);
+      });
     return () => sub.subscription.unsubscribe();
   }, []);
 

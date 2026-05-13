@@ -5,6 +5,7 @@ import { createLovableAiGatewayProvider } from "./ai-gateway.server";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { findCity } from "./agents/city-context";
 import { findTemplate } from "./agents/templates";
+import { impromptuPoolPrompt } from "./agents/impromptu";
 import type { GeneratedPlan } from "./agents/types";
 
 const PlanRequestSchema = z.object({

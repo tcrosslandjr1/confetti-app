@@ -120,7 +120,7 @@ function CreatePage() {
         },
       };
       setActiveLoop(loop);
-      navigate({ to: "/confirmation" });
+      navigate({ to: "/boarding-pass" });
     } catch (err) {
       console.error("[create] finish failed", err);
       toast.error("Couldn't build your night. Try again.");

@@ -135,7 +135,7 @@ function CreatePage() {
           boardingTime: time.replace(/^0/, ""),
         });
         setActiveLoop(fallback);
-        navigate({ to: "/confirmation" });
+        navigate({ to: "/boarding-pass" });
       } catch {
         /* swallow */
       }

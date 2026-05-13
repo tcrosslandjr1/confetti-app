@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import {
   Users, User, Heart, Cake, Briefcase, Home, Sparkles,
-  ArrowRight, ArrowLeft, Calendar, Clock, Check, MapPin, Loader2, Pencil,
+  ArrowRight, ArrowLeft, Calendar, Clock, Check, MapPin, Loader2, Pencil, Replace, X,
 } from "lucide-react";
 import { makeDemoLoop, setActiveLoop, type ActiveLoop } from "@/lib/loop-store";
 import { MOODS } from "@/lib/concierge-data";
@@ -60,6 +60,7 @@ function CreatePage() {
   const [vibe, setVibe] = useState<(typeof MOODS)[number] | null>(null);
   const [city, setCity] = useState(CITIES[0].label);
   const [generating, setGenerating] = useState(false);
+  const [quickEdit, setQuickEdit] = useState<null | "g" | "o" | "w" | "v">(null);
 
   const totalSteps = 4;
   const canNext = [group, occasion, true, vibe][step];
@@ -188,16 +189,14 @@ function CreatePage() {
           {picks.map((p) => {
             const isCurrent = step === p.step;
             return (
-              <button
+              <div
                 key={p.key}
-                onClick={() => setStep(p.step)}
-                aria-label={`${p.done ? "Edit" : "Go to"} ${STEP_LABELS[p.step]}: ${p.done ? p.label : "not selected yet"}`}
-                className={`group inline-flex items-center gap-1.5 rounded-full border pl-1.5 pr-1.5 py-1 text-[11px] font-medium transition-colors ${
+                className={`group inline-flex items-center gap-1 rounded-full border pl-1.5 pr-1 py-0.5 text-[11px] font-medium transition-colors ${
                   p.done
-                    ? "border-ink/20 bg-card text-ink/85 hover:border-ink hover:bg-cream"
+                    ? "border-ink/20 bg-card text-ink/85 hover:border-ink/60"
                     : isCurrent
                     ? "border-coral border-dashed bg-coral/5 text-ink/70"
-                    : "border-ink/15 border-dashed bg-transparent text-ink/40 hover:border-ink/40 hover:text-ink/70"
+                    : "border-ink/15 border-dashed bg-transparent text-ink/40"
                 }`}
               >
                 {/* status indicator */}
@@ -206,31 +205,49 @@ function CreatePage() {
                     <Check className="h-2.5 w-2.5" strokeWidth={3} />
                   </span>
                 ) : (
-                  <span
-                    className={`grid h-4 w-4 place-items-center rounded-full border ${
-                      isCurrent ? "border-coral" : "border-ink/30"
-                    }`}
-                  >
-                    <span
-                      className={`h-1.5 w-1.5 rounded-full ${
-                        isCurrent ? "bg-coral animate-pulse" : "bg-ink/30"
-                      }`}
-                    />
+                  <span className={`grid h-4 w-4 place-items-center rounded-full border ${isCurrent ? "border-coral" : "border-ink/30"}`}>
+                    <span className={`h-1.5 w-1.5 rounded-full ${isCurrent ? "bg-coral animate-pulse" : "bg-ink/30"}`} />
                   </span>
                 )}
-                <span className="px-0.5">{p.label}</span>
+
+                {/* label tap-target = jump to step */}
+                <button
+                  onClick={() => setStep(p.step)}
+                  aria-label={`Go to ${STEP_LABELS[p.step]} step`}
+                  className="px-1 py-0.5"
+                >
+                  {p.label}
+                </button>
+
                 {p.done ? (
-                  <span className="ml-0.5 inline-flex items-center gap-0.5 rounded-full bg-ink/5 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-ink/70 group-hover:bg-ink group-hover:text-cream">
-                    <Pencil className="h-2.5 w-2.5" /> Edit
-                  </span>
+                  <>
+                    {/* Action 1: full Edit (jump to step) */}
+                    <button
+                      onClick={() => setStep(p.step)}
+                      aria-label={`Edit ${STEP_LABELS[p.step]} in full step`}
+                      title="Edit in step"
+                      className="inline-flex items-center gap-0.5 rounded-full bg-ink/5 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-ink/70 hover:bg-ink hover:text-cream"
+                    >
+                      <Pencil className="h-2.5 w-2.5" /> Edit
+                    </button>
+                    {/* Action 2: quick Swap (inline popover, doesn't change step) */}
+                    <button
+                      onClick={() => setQuickEdit(p.key as typeof quickEdit)}
+                      aria-label={`Swap ${STEP_LABELS[p.step]} without leaving this step`}
+                      title="Swap just this"
+                      className="inline-flex items-center gap-0.5 rounded-full bg-coral/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-coral hover:bg-coral hover:text-cream"
+                    >
+                      <Replace className="h-2.5 w-2.5" /> Swap
+                    </button>
+                  </>
                 ) : (
-                  <span className={`ml-0.5 rounded-full px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider ${
+                  <span className={`rounded-full px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider ${
                     isCurrent ? "bg-coral/15 text-coral" : "bg-ink/5 text-ink/50"
                   }`}>
                     {isCurrent ? "Now" : "Pending"}
                   </span>
                 )}
-              </button>
+              </div>
             );
           })}
         </div>
@@ -448,6 +465,159 @@ function CreatePage() {
           )}
         </div>
       </div>
+
+      {/* Quick-edit bottom sheet — swap one field without leaving the current step */}
+      {quickEdit && (
+        <div className="fixed inset-0 z-50 flex flex-col justify-end" role="dialog" aria-modal="true">
+          <button
+            aria-label="Close"
+            onClick={() => setQuickEdit(null)}
+            className="absolute inset-0 bg-ink/40 backdrop-blur-sm"
+          />
+          <div className="relative mx-auto w-full max-w-md rounded-t-3xl border-t-2 border-ink bg-background p-4 pb-6 shadow-brut animate-in slide-in-from-bottom duration-200">
+            <div className="mx-auto mb-3 h-1 w-10 rounded-full bg-ink/20" />
+            <div className="mb-3 flex items-center justify-between">
+              <div>
+                <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">
+                  Quick swap · stays on this step
+                </div>
+                <div className="font-display text-lg font-extrabold leading-tight">
+                  Change {quickEdit === "g" ? "group" : quickEdit === "o" ? "occasion" : quickEdit === "w" ? "when & where" : "vibe"}
+                </div>
+              </div>
+              <button
+                onClick={() => setQuickEdit(null)}
+                aria-label="Close"
+                className="grid h-8 w-8 place-items-center rounded-full border border-ink/15 hover:border-ink"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="max-h-[60vh] space-y-2 overflow-y-auto">
+              {quickEdit === "g" && GROUP.map((g) => {
+                const active = group?.id === g.id;
+                return (
+                  <button
+                    key={g.id}
+                    onClick={() => { setGroup(g); setQuickEdit(null); }}
+                    className={`flex w-full items-center gap-3 rounded-2xl border-2 p-3 text-left transition-pop ${active ? "border-ink bg-coral text-cream" : "border-ink/15 bg-card hover:border-ink"}`}
+                  >
+                    <g.Icon className="h-5 w-5 shrink-0" />
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-display text-sm font-bold leading-tight">{g.label}</span>
+                      <span className={`block text-[11px] leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}>{g.desc}</span>
+                    </span>
+                    {active && <Check className="h-4 w-4 shrink-0" />}
+                  </button>
+                );
+              })}
+
+              {quickEdit === "o" && OCCASIONS.map((o) => {
+                const active = occasion?.id === o.id;
+                return (
+                  <button
+                    key={o.id}
+                    onClick={() => { setOccasion(o); setQuickEdit(null); }}
+                    className={`flex w-full items-center gap-3 rounded-2xl border-2 p-3 text-left transition-pop ${active ? "border-ink bg-coral text-cream" : "border-ink/15 bg-card hover:border-ink"}`}
+                  >
+                    <span className="text-xl">{o.emoji}</span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-display text-sm font-bold leading-tight">{o.label}</span>
+                      <span className={`block text-[11px] leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}>{o.desc}</span>
+                    </span>
+                    {active && <Check className="h-4 w-4 shrink-0" />}
+                  </button>
+                );
+              })}
+
+              {quickEdit === "v" && MOODS.map((m) => {
+                const active = vibe?.id === m.id;
+                return (
+                  <button
+                    key={m.id}
+                    onClick={() => { setVibe(m); setQuickEdit(null); }}
+                    className={`flex w-full items-center gap-3 rounded-2xl border-2 p-3 text-left transition-pop ${active ? "border-ink bg-coral text-cream" : "border-ink/15 bg-card hover:border-ink"}`}
+                  >
+                    <span className="text-xl">{m.emoji}</span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-display text-sm font-bold leading-tight">{m.label}</span>
+                      <span className={`block text-[11px] leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}>{m.blurb}</span>
+                    </span>
+                    {active && <Check className="h-4 w-4 shrink-0" />}
+                  </button>
+                );
+              })}
+
+              {quickEdit === "w" && (
+                <div className="space-y-3">
+                  <div className="grid grid-cols-2 gap-2">
+                    <label className="block">
+                      <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60 flex items-center gap-1">
+                        <Calendar className="h-3 w-3" /> Date
+                      </span>
+                      <input
+                        type="date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        className="mt-1 w-full rounded-xl border-2 border-ink bg-card px-3 py-2.5 font-display text-sm font-bold"
+                      />
+                    </label>
+                    <label className="block">
+                      <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60 flex items-center gap-1">
+                        <Clock className="h-3 w-3" /> Start
+                      </span>
+                      <input
+                        type="time"
+                        value={time}
+                        onChange={(e) => setTime(e.target.value)}
+                        className="mt-1 w-full rounded-xl border-2 border-ink bg-card px-3 py-2.5 font-display text-sm font-bold"
+                      />
+                    </label>
+                  </div>
+                  <label className="block">
+                    <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60 flex items-center gap-1">
+                      <MapPin className="h-3 w-3" /> City
+                    </span>
+                    <select
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
+                      className="mt-1 w-full rounded-xl border-2 border-ink bg-card px-3 py-2.5 font-display text-sm font-bold"
+                    >
+                      {CITIES.map((c) => (
+                        <option key={c.slug} value={c.label}>{c.label}</option>
+                      ))}
+                    </select>
+                  </label>
+                  <div>
+                    <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">Duration</span>
+                    <div className="mt-1 grid grid-cols-4 gap-2">
+                      {DURATIONS.map((d) => {
+                        const active = duration === d.value;
+                        return (
+                          <button
+                            key={d.value}
+                            onClick={() => setDuration(d.value)}
+                            className={`rounded-xl border-2 py-2 font-display text-xs font-bold transition-pop ${active ? "border-ink bg-coral text-cream" : "border-ink/15 bg-card hover:border-ink"}`}
+                          >
+                            {d.value}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setQuickEdit(null)}
+                    className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink px-4 py-3 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut"
+                  >
+                    Done
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

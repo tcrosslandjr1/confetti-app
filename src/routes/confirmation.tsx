@@ -17,19 +17,23 @@ function ConfirmationPage() {
   const [loop, setLoop] = useState<ActiveLoop | null>(null);
   const [hydrated, setHydrated] = useState(false);
   useEffect(() => {
-    let next: ActiveLoop | null = null;
-    try {
-      next = getActiveLoop() || makeDemoLoop();
-    } catch (err) {
-      console.error("[confirmation] failed to read active loop", err);
+    const load = () => {
+      let next: ActiveLoop | null = null;
       try {
-        next = makeDemoLoop();
-      } catch (err2) {
-        console.error("[confirmation] makeDemoLoop also failed", err2);
+        next = getActiveLoop() || makeDemoLoop();
+      } catch (err) {
+        console.error("[confirmation] failed to read active loop", err);
+        try {
+          next = makeDemoLoop();
+        } catch (err2) {
+          console.error("[confirmation] makeDemoLoop also failed", err2);
+        }
       }
-    }
-    setLoop(next);
-    setHydrated(true);
+      setLoop(next);
+      setHydrated(true);
+    };
+    load();
+    return subscribeActiveLoop(load);
   }, []);
 
   const pieces = useMemo(

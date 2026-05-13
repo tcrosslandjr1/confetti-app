@@ -13,11 +13,15 @@ import { useAuth, type ViewAs } from "@/lib/auth-context";
  * Never rely on this hook for security decisions.
  */
 export function useHasRole(role: ViewAs): { ok: boolean; loading: boolean } {
-  const { isAdmin, loading, user } = useAuth();
+  const { isAdmin, viewAs, loading, user } = useAuth();
   if (loading) return { ok: false, loading: true };
-  if (role === "admin") return { ok: isAdmin, loading: false };
-  if (role === "customer") return { ok: !!user, loading: false };
-  if (role === "visitor") return { ok: true, loading: false };
+  // Honor the impersonated view: an admin viewing as "visitor" should see
+  // exactly what a visitor sees (no admin/customer/business surfaces), and
+  // an admin viewing as "customer" can use customer surfaces (booking, etc.).
+  if (role === "visitor") return { ok: viewAs === "visitor", loading: false };
+  if (role === "admin") return { ok: isAdmin && viewAs === "admin", loading: false };
+  if (role === "business") return { ok: viewAs === "business", loading: false };
+  if (role === "customer") return { ok: !!user && viewAs === "customer", loading: false };
   return { ok: false, loading: false };
 }
 

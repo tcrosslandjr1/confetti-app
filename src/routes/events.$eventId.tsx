@@ -153,19 +153,7 @@ function EventDetail() {
                   </div>
                 </div>
 
-                <button className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-vibe px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-pop transition-pop hover:scale-[1.02]">
-                  <Ticket className="h-4 w-4" />
-                  {event.price === 0 ? "Reserve a spot" : "Get tickets"}
-                </button>
-
-                <div className="mt-3 grid grid-cols-2 gap-2">
-                  <button className="flex items-center justify-center gap-2 rounded-full border border-border px-4 py-2.5 text-xs font-semibold transition-colors hover:bg-muted">
-                    <Heart className="h-3.5 w-3.5" /> Save
-                  </button>
-                  <button className="flex items-center justify-center gap-2 rounded-full border border-border px-4 py-2.5 text-xs font-semibold transition-colors hover:bg-muted">
-                    <Share2 className="h-3.5 w-3.5" /> Share
-                  </button>
-                </div>
+                <EventSaveActions event={event} />
 
                 <div className="mt-5 flex items-center gap-2 text-xs text-muted-foreground">
                   <Calendar className="h-3.5 w-3.5" />

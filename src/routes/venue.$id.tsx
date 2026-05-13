@@ -365,6 +365,37 @@ function VenuePage() {
                     </>
                   )}
                 </div>
+                {origin ? (
+                  <button
+                    type="button"
+                    role="switch"
+                    aria-checked={useMyLocation}
+                    onClick={() => setUseMyLocation((v) => !v)}
+                    title={
+                      useMyLocation
+                        ? "Directions start from your current location"
+                        : "Maps app will pick the starting point"
+                    }
+                    className={`inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${
+                      useMyLocation ? "bg-coral text-cream" : "bg-cream text-ink"
+                    }`}
+                  >
+                    {useMyLocation ? (
+                      <LocateFixed className="h-3 w-3" />
+                    ) : (
+                      <LocateOff className="h-3 w-3" />
+                    )}
+                    From my location
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={requestLocationNow}
+                    className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold"
+                  >
+                    <LocateFixed className="h-3 w-3" /> Use my location
+                  </button>
+                )}
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <a

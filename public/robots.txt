@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /portal
+Disallow: /concierge
+Disallow: /me
+Disallow: /onboarding
+Disallow: /auth
+Disallow: /trips
+Disallow: /collab
+Disallow: /rsvp
+Disallow: /scan
+Disallow: /check-in
+
+Sitemap: https://confettiplan.lovable.app/sitemap.xml

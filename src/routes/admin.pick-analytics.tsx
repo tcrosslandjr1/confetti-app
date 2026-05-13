@@ -327,5 +327,3 @@ function PickAnalyticsPage() {
   );
 }
 
-// Silence unused warning when react-fast-refresh re-evaluates.
-useEffect;

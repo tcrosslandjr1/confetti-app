@@ -39,6 +39,7 @@ function AdvertiserPortal() {
   const { user, loading, viewAs } = useAuth();
   const nav = useNavigate();
   const [advertiser, setAdvertiser] = useState<Advertiser | null>(null);
+  const [subscription, setSubscription] = useState<AdvertiserSubscription | null>(null);
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [stats, setStats] = useState<Record<string, { impressions: number; clicks: number }>>({});
   const [busy, setBusy] = useState(false);
@@ -49,12 +50,17 @@ function AdvertiserPortal() {
     const a = await getMyAdvertiser(uid);
     setAdvertiser(a);
     if (a) {
-      const cs = await listMyCampaigns(a.id);
+      const [cs, sub] = await Promise.all([
+        listMyCampaigns(a.id),
+        getMySubscription(a.id),
+      ]);
       setCampaigns(cs);
+      setSubscription(sub);
       setStats(await getCampaignStats(cs.map((c) => c.id)));
     }
     setBusy(false);
   }, []);
+
 
   useEffect(() => {
     if (loading) return;

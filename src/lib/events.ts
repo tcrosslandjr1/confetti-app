@@ -20,6 +20,7 @@ export type EventItem = {
   image: string;
   blurb: string;
   organizer: string;
+  ticketUrl?: string;
 };
 
 export const EVENTS: EventItem[] = [

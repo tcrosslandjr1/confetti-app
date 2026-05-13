@@ -80,6 +80,7 @@ import { Route as AdminWalletDebugRouteImport } from './routes/admin.wallet-debu
 import { Route as AdminVenuesRouteImport } from './routes/admin.venues'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
+import { Route as AdminPickAnalyticsRouteImport } from './routes/admin.pick-analytics'
 import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
 import { Route as AdminModerationRouteImport } from './routes/admin.moderation'
 import { Route as AdminMarqueeRouteImport } from './routes/admin.marquee'
@@ -458,6 +459,11 @@ const AdminTestimonialsRoute = AdminTestimonialsRouteImport.update({
   path: '/testimonials',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminPickAnalyticsRoute = AdminPickAnalyticsRouteImport.update({
+  id: '/pick-analytics',
+  path: '/pick-analytics',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
   id: '/notifications',
   path: '/notifications',
@@ -624,6 +630,7 @@ export interface FileRoutesByFullPath {
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
@@ -714,6 +721,7 @@ export interface FileRoutesByTo {
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
@@ -810,6 +818,7 @@ export interface FileRoutesById {
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/venues': typeof AdminVenuesRoute
@@ -907,6 +916,7 @@ export interface FileRouteTypes {
     | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/notifications'
+    | '/admin/pick-analytics'
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/venues'
@@ -997,6 +1007,7 @@ export interface FileRouteTypes {
     | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/notifications'
+    | '/admin/pick-analytics'
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/venues'
@@ -1092,6 +1103,7 @@ export interface FileRouteTypes {
     | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/notifications'
+    | '/admin/pick-analytics'
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/venues'
@@ -1696,6 +1708,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminTestimonialsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/pick-analytics': {
+      id: '/admin/pick-analytics'
+      path: '/pick-analytics'
+      fullPath: '/admin/pick-analytics'
+      preLoaderRoute: typeof AdminPickAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/notifications': {
       id: '/admin/notifications'
       path: '/notifications'
@@ -1865,6 +1884,7 @@ interface AdminRouteChildren {
   AdminMarqueeRoute: typeof AdminMarqueeRoute
   AdminModerationRoute: typeof AdminModerationRoute
   AdminNotificationsRoute: typeof AdminNotificationsRoute
+  AdminPickAnalyticsRoute: typeof AdminPickAnalyticsRoute
   AdminTestimonialsRoute: typeof AdminTestimonialsRoute
   AdminUsersRoute: typeof AdminUsersRoute
   AdminVenuesRoute: typeof AdminVenuesRoute
@@ -1884,6 +1904,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminMarqueeRoute: AdminMarqueeRoute,
   AdminModerationRoute: AdminModerationRoute,
   AdminNotificationsRoute: AdminNotificationsRoute,
+  AdminPickAnalyticsRoute: AdminPickAnalyticsRoute,
   AdminTestimonialsRoute: AdminTestimonialsRoute,
   AdminUsersRoute: AdminUsersRoute,
   AdminVenuesRoute: AdminVenuesRoute,

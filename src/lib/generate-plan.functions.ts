@@ -192,6 +192,19 @@ export const generatePlan = createServerFn({ method: "POST" })
       ? `# Taste Graph (Taste Learning Agent — nightlife-relevant signals only)\n${req.tasteSummary.trim()}\n\n`
       : "";
 
+    const moodBlock = req.currentMood?.trim()
+      ? `# Tonight's Mood (overrides default vibe energy if they conflict)\nUser feels: ${req.currentMood.trim()}. Bias venue energy toward this mood (e.g. "mellow" => quieter, slower-paced, low-stimulation; "hyped" => loud, dancey, social; "romantic" => candlelit, intimate; "adventurous" => unexpected/new spots; "recovering" => light food, no clubs, easy ambiance).\n\n`
+      : "";
+
+    // Fetch real weather for date+city and add as guidance to the prompt.
+    let weatherBlock = "";
+    if (req.date && cityCtx.city) {
+      const f = await fetchForecastForCityDate(cityCtx.city, req.date);
+      if (f) {
+        weatherBlock = `# Weather Context (real forecast — Quality Guardrail must respect this)\n${f.emoji} ${f.label} · ${f.tMinF}–${f.tMaxF}°F · ${f.precipProb}% precip\n${weatherGuidance(f)}\n\n`;
+      }
+    }
+
     const neighborhoodBlock = cityCtx.neighborhoods
       .map((n) => `  • ${n.name} — ${n.vibe}`)
       .join("\n");

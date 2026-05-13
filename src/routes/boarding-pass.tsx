@@ -294,7 +294,9 @@ function BoardingPassPage() {
         )}
       </div>
       <div className="mt-6 px-4">
-        <BoardingPassV2 data={passData} />
+        <div ref={passRef} className="bg-[#fdf6ee] p-2 rounded-3xl">
+          <BoardingPassV2 data={passData} />
+        </div>
 
         {/* Explore alternatives + edit before locking in */}
         {data && (

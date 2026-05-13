@@ -49,11 +49,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [roleLoading, setRoleLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [viewAsState, setViewAsState] = useState<ViewAs | null>(null);
+  const [viewAsLoaded, setViewAsLoaded] = useState(false);
 
-  // Clear any stale impersonation from older sessions; role previews should not survive reloads.
+  // Keep the selected view stable across preview refreshes so admins don't jump back to /admin.
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    sessionStorage.removeItem(VIEW_KEY);
+    if (typeof window === "undefined") {
+      setViewAsLoaded(true);
+      return;
+    }
+    const stored = sessionStorage.getItem(VIEW_KEY) as ViewAs | null;
+    if (stored && ["admin", "business", "customer", "visitor"].includes(stored)) {
+      setViewAsState(stored);
+    }
+    setViewAsLoaded(true);
   }, []);
 
   // Auth state
@@ -112,7 +120,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const setViewAs = useCallback((v: ViewAs) => {
     setViewAsState(v);
-    if (typeof window !== "undefined") sessionStorage.removeItem(VIEW_KEY);
+    if (typeof window !== "undefined") sessionStorage.setItem(VIEW_KEY, v);
   }, []);
 
   const exitImpersonation = useCallback(() => {
@@ -127,7 +135,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const value = useMemo<AuthCtx>(() => {
-    const loading = sessionLoading || roleLoading;
+    const loading = sessionLoading || roleLoading || !viewAsLoaded;
     const realRole: ViewAs = !session?.user ? "visitor" : isAdmin ? "admin" : "customer";
 
     // Only admins can impersonate. For everyone else, viewAs = their real role.
@@ -150,6 +158,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     session,
     sessionLoading,
     roleLoading,
+    viewAsLoaded,
     isAdmin,
     viewAsState,
     setViewAs,

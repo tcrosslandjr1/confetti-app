@@ -102,6 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Confetti curates city experiences, dining, and nightlife into ready-to-go itineraries.",
       },
       { name: "author", content: "Confetti" },
+      { name: "google-site-verification", content: "XuzGdwGoSQmvZUIj00FgrpomT5sanm4p2tShMpKsJ0o" },
       { name: "theme-color", content: "#F05537" },
       { property: "og:title", content: "Confetti — Your city, curated" },
       {

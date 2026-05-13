@@ -128,6 +128,68 @@ export const Route = createFileRoute("/api/chat")({
           ctx.push(`Recently booked venues (avoid recommending these unless asked): ${venues}`);
         }
 
+        // Live intelligence: pull trending + most-booked + most-saved venues so the model
+        // can ground recommendations in real signal instead of static memory.
+        try {
+          const [viralRes, bookingRes, savedRes] = await Promise.all([
+            supabaseAdmin
+              .from("viral_venues")
+              .select("venue_name,neighborhood,tags,trend_score")
+              .order("trend_score", { ascending: false, nullsFirst: false })
+              .limit(8),
+            supabaseAdmin
+              .from("bookings")
+              .select("venue_name")
+              .gte("created_at", new Date(Date.now() - 30 * 86400000).toISOString())
+              .limit(500),
+            supabaseAdmin
+              .from("saved_venues")
+              .select("venue_id, venues(name,category,neighborhood)")
+              .order("created_at", { ascending: false })
+              .limit(200),
+          ]);
+
+          const viral = (viralRes.data ?? [])
+            .map((v) => {
+              const tags = Array.isArray(v.tags) && v.tags.length ? ` [${v.tags.slice(0, 3).join(", ")}]` : "";
+              const hood = v.neighborhood ? ` (${v.neighborhood})` : "";
+              return `${v.venue_name}${hood}${tags}`;
+            })
+            .slice(0, 8);
+          if (viral.length) ctx.push(`LIVE TRENDING right now: ${viral.join(" • ")}`);
+
+          const bookCounts = new Map<string, number>();
+          for (const b of bookingRes.data ?? []) {
+            if (!b.venue_name) continue;
+            bookCounts.set(b.venue_name, (bookCounts.get(b.venue_name) ?? 0) + 1);
+          }
+          const topBooked = [...bookCounts.entries()]
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 8)
+            .map(([n, c]) => `${n} (${c})`);
+          if (topBooked.length)
+            ctx.push(`MOST-BOOKED on Confetti (last 30d): ${topBooked.join(" • ")}`);
+
+          const saveCounts = new Map<string, { count: number; cat?: string; hood?: string | null }>();
+          for (const s of (savedRes.data ?? []) as Array<{
+            venues?: { name?: string; category?: string; neighborhood?: string | null } | null;
+          }>) {
+            const v = s.venues;
+            if (!v?.name) continue;
+            const cur = saveCounts.get(v.name) ?? { count: 0, cat: v.category, hood: v.neighborhood };
+            cur.count += 1;
+            saveCounts.set(v.name, cur);
+          }
+          const topSaved = [...saveCounts.entries()]
+            .sort((a, b) => b[1].count - a[1].count)
+            .slice(0, 8)
+            .map(([n, v]) => `${n}${v.cat ? ` — ${v.cat}` : ""}`);
+          if (topSaved.length)
+            ctx.push(`MOST-SAVED by users: ${topSaved.join(" • ")}`);
+        } catch (err) {
+          console.warn("[chat] trending context fetch failed", err);
+        }
+
         const system = ctx.length
           ? `${SYSTEM_PROMPT}\n\nUSER CONTEXT\n- ${ctx.join("\n- ")}`
           : SYSTEM_PROMPT;

@@ -1,7 +1,7 @@
 /// <reference types="google.maps" />
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles, BadgeCheck, Navigation, Car, Footprints, Bus, Loader2 } from "lucide-react";
+import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles, BadgeCheck, Navigation, Car, Footprints, Bus, Loader2, LocateFixed, LocateOff } from "lucide-react";
 import { toast } from "sonner";
 import { useMapsLibrary } from "@vis.gl/react-google-maps";
 import { supabase } from "@/integrations/supabase/client";
@@ -44,11 +44,28 @@ function VenuePage() {
   const [venue, setVenue] = useState<Venue | null | undefined>(undefined);
   const [travelMode, setTravelMode] = useState<TravelMode>("driving");
   const [origin, setOrigin] = useState<UserLocation | null>(() => getStoredLocation());
+  const [useMyLocation, setUseMyLocation] = useState(true);
   const [eta, setEta] = useState<{ distance: string; duration: string } | null>(null);
   const [etaState, setEtaState] = useState<"idle" | "loading" | "ready" | "denied" | "error">(
     "idle",
   );
   const routesLib = useMapsLibrary("routes");
+
+  const requestLocationNow = async () => {
+    const loc = await requestUserLocation({
+      enableHighAccuracy: true,
+      timeout: 10_000,
+      maximumAge: 0,
+    });
+    if (loc) {
+      setOrigin(loc);
+      setUseMyLocation(true);
+      toast.success("Using your current location");
+    } else {
+      setEtaState("denied");
+      toast.error("Couldn't get your location — check browser permissions");
+    }
+  };
 
   // Lazily request geolocation once when the page mounts.
   useEffect(() => {
@@ -281,8 +298,12 @@ function VenuePage() {
 
         {(venue.address || venue.name) && (() => {
           const dest = { name: venue.name, address: venue.address ?? undefined };
-          const apple = buildAppleMapsDirectionsUrl([dest], travelMode);
-          const google = buildGoogleMapsDirectionsUrl([dest], travelMode);
+          const useOrigin = useMyLocation && !!origin;
+          const points = useOrigin
+            ? [{ name: "My location", lat: origin!.lat, lng: origin!.lng }, dest]
+            : [dest];
+          const apple = buildAppleMapsDirectionsUrl(points, travelMode);
+          const google = buildGoogleMapsDirectionsUrl(points, travelMode);
           const modes: { k: TravelMode; label: string; Icon: typeof Car }[] = [
             { k: "driving", label: "Drive", Icon: Car },
             { k: "walking", label: "Walk", Icon: Footprints },
@@ -344,6 +365,37 @@ function VenuePage() {
                     </>
                   )}
                 </div>
+                {origin ? (
+                  <button
+                    type="button"
+                    role="switch"
+                    aria-checked={useMyLocation}
+                    onClick={() => setUseMyLocation((v) => !v)}
+                    title={
+                      useMyLocation
+                        ? "Directions start from your current location"
+                        : "Maps app will pick the starting point"
+                    }
+                    className={`inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5 ${
+                      useMyLocation ? "bg-coral text-cream" : "bg-cream text-ink"
+                    }`}
+                  >
+                    {useMyLocation ? (
+                      <LocateFixed className="h-3 w-3" />
+                    ) : (
+                      <LocateOff className="h-3 w-3" />
+                    )}
+                    From my location
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={requestLocationNow}
+                    className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold"
+                  >
+                    <LocateFixed className="h-3 w-3" /> Use my location
+                  </button>
+                )}
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <a

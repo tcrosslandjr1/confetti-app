@@ -43,6 +43,64 @@ function VenuePage() {
   const { id } = Route.useParams();
   const [venue, setVenue] = useState<Venue | null | undefined>(undefined);
   const [travelMode, setTravelMode] = useState<TravelMode>("driving");
+  const [origin, setOrigin] = useState<UserLocation | null>(() => getStoredLocation());
+  const [eta, setEta] = useState<{ distance: string; duration: string } | null>(null);
+  const [etaState, setEtaState] = useState<"idle" | "loading" | "ready" | "denied" | "error">(
+    "idle",
+  );
+  const routesLib = useMapsLibrary("routes");
+
+  // Lazily request geolocation once when the page mounts.
+  useEffect(() => {
+    if (origin) return;
+    let cancelled = false;
+    requestUserLocation().then((loc) => {
+      if (cancelled) return;
+      if (loc) setOrigin(loc);
+      else setEtaState("denied");
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [origin]);
+
+  // Compute ETA via Google Distance Matrix whenever inputs change.
+  useEffect(() => {
+    if (!routesLib || !origin || !venue) return;
+    const dest = venue.address || venue.name;
+    if (!dest) return;
+    setEtaState("loading");
+    setEta(null);
+    const svc = new routesLib.DistanceMatrixService();
+    const modeMap: Record<TravelMode, google.maps.TravelMode> = {
+      driving: google.maps.TravelMode.DRIVING,
+      walking: google.maps.TravelMode.WALKING,
+      transit: google.maps.TravelMode.TRANSIT,
+      bicycling: google.maps.TravelMode.BICYCLING,
+    };
+    let cancelled = false;
+    svc.getDistanceMatrix(
+      {
+        origins: [{ lat: origin.lat, lng: origin.lng }],
+        destinations: [dest],
+        travelMode: modeMap[travelMode],
+        unitSystem: google.maps.UnitSystem.IMPERIAL,
+      },
+      (res, status) => {
+        if (cancelled) return;
+        const el = res?.rows?.[0]?.elements?.[0];
+        if (status !== "OK" || !el || el.status !== "OK") {
+          setEtaState("error");
+          return;
+        }
+        setEta({ distance: el.distance.text, duration: el.duration.text });
+        setEtaState("ready");
+      },
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [routesLib, origin, venue, travelMode]);
 
   useEffect(() => {
     let cancelled = false;

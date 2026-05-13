@@ -107,6 +107,17 @@ function CreatePage() {
         fitScore: plan.fitScore,
         guardrailNote: plan.guardrailNote,
         bonusMove: plan.bonus,
+        planParams: {
+          city,
+          occasionId: occasion?.id,
+          occasionLabel: occasion?.label,
+          vibeId: vibe?.id,
+          vibeLabel: vibe?.label,
+          groupSize: group?.size ?? 2,
+          date,
+          startTime: time,
+          duration,
+        },
       };
       setActiveLoop(loop);
       navigate({ to: "/confirmation" });

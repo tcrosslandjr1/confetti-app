@@ -268,12 +268,22 @@ function ActiveLoopPage() {
               All stops
             </div>
             <ol className="space-y-2">
-              {loop.stops.map((s, i) => (
+              {loop.stops.map((s, i) => {
+                const sev = topSeverity(warningIndex.get(s.id));
+                const ringClass =
+                  sev === "critical"
+                    ? "ring-2 ring-destructive bg-destructive/5"
+                    : sev === "warn"
+                      ? "ring-2 ring-coral bg-coral/5"
+                      : sev === "info"
+                        ? "ring-1 ring-ink/30"
+                        : "";
+                return (
                 <li key={s.id}>
                   <button
                     type="button"
                     onClick={() => jumpToStop(s.id)}
-                    className="flex w-full items-center gap-2 rounded-lg px-1 py-1 text-left hover:bg-coral/5"
+                    className={`flex w-full items-center gap-2 rounded-lg px-1.5 py-1 text-left hover:bg-coral/5 ${ringClass}`}
                   >
                     <span
                       className={`grid h-6 w-6 place-items-center rounded-full border-2 border-ink ${s.done ? "bg-coral text-cream" : i === currentIdx ? "bg-gold" : "bg-cream"}`}
@@ -285,10 +295,24 @@ function ActiveLoopPage() {
                       )}
                     </span>
                     <div className="flex-1 text-sm font-semibold">{s.name}</div>
+                    {sev && !s.done && (
+                      <span
+                        className={`rounded-full border px-1.5 py-px font-mono text-[9px] font-bold uppercase tracking-widest ${
+                          sev === "critical"
+                            ? "border-destructive text-destructive"
+                            : sev === "warn"
+                              ? "border-coral text-coral"
+                              : "border-ink/40 text-ink/60"
+                        }`}
+                      >
+                        At risk
+                      </span>
+                    )}
                     <span className="font-mono text-[10px] text-ink/60">{s.time}</span>
                   </button>
                 </li>
-              ))}
+                );
+              })}
             </ol>
           </div>
 

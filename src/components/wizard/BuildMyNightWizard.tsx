@@ -890,12 +890,14 @@ export function BuildMyNightWizard() {
       try {
         let loc = getActiveLocation();
         if (!loc) loc = await requestUserLocation().catch(() => null);
+        const sel = getSelectedCity();
         const { data, error } = await supabase.functions.invoke("wizard-itinerary", {
           body: {
             vibes: vibe,
             budget,
             lat: loc?.lat ?? null,
             lng: loc?.lng ?? null,
+            city: sel?.name ?? null,
             count: 3,
           },
         });

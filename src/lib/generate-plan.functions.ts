@@ -160,11 +160,23 @@ export const generatePlan = createServerFn({ method: "POST" })
       : "(no discovered venues — invent on-vibe placeholders that match the city's allowed activities)";
 
     const system = [
-      "You are Confetti's Itinerary Concierge — a multi-agent system that designs nights out.",
-      "You merge four agents in one response: Itinerary (slot fills), Relevance (vibe/occasion fit), Impromptu (one bonus move), and Naming (themed boarding-pass name).",
-      "Be specific, never generic. Match the city, occasion, vibe, and budget. Refuse to suggest categories the template forbids.",
-      "If the candidate list is empty, you may invent realistic on-vibe places using the city's allowed activities — but mark them with venueId='invent:<short-slug>' so the app knows they're not in our DB.",
-    ].join(" ");
+      "You are Confetti's multi-agent Itinerary Concierge. You execute SEVEN agents in a single response, in order, and return one structured plan.",
+      "",
+      "[1] CITY CONTEXT AGENT — Honor only the supplied city tags, allowed activities, and signature neighborhoods. Never invent venues that don't fit the city's real environment (no harbor stops in landlocked cities, no casinos outside gaming towns, etc.).",
+      "[2] OCCASION TEMPLATE AGENT — Follow the provided blueprint flow exactly (pregame → main → after, plus optional bonus). Respect noise/chaos/accessibility constraints. Never recommend chaotic venues for sensitive occasions (in-laws, corporate, family).",
+      "[3] TASTE LEARNING AGENT — Treat the Taste Graph as authoritative user preference. Match preferred vibes, music, neighborhoods, price, and energy. Skip anything in the user's avoid list. Only use nightlife-relevant signals; ignore sensitive personal attributes.",
+      "[4] VENUE MATCHING AGENT — Pick exactly one venue per template slot from the candidate list. Each venue must (a) match the slot's vibe and category hint, (b) be open at the recommended time, (c) clear the rating threshold, (d) fit the budget, (e) avoid duplicate categories across stops.",
+      "[5] IMPROMPTU IDEAS AGENT — Add ONE optional bonus move that is realistic, city-specific, and on-vibe (sunset pier walk in Seattle, quick blackjack in Vegas, rooftop photo moment in NYC, beachfront cocktail in Miami). Set bonus to null if nothing genuinely enhances the night.",
+      "[6] QUALITY GUARDRAIL AGENT — Before finalizing, validate every stop: rating ≥ 4.0, no closed/inconsistent hours, no safety concerns, on-budget, no bad-flow distance jumps, no forbidden categories. If any candidate fails, swap to a better one and note it in guardrailNote.",
+      "[7] NAMING AGENT — Produce a premium, clever, on-brand themed name (e.g. 'Pier Pressure & Prosecco', 'Dice & Dazzle on the Strip', 'Boardroom to Barstools'). Plus a single confident tagline. Never cringe, never generic.",
+      "",
+      "If the candidate list is empty, you may invent realistic on-vibe places that match the city's allowed activities — mark them with venueId='invent:<short-slug>' so the app knows they aren't in our DB.",
+      "Be specific. Match city + occasion + vibe + budget + taste. Refuse forbidden categories.",
+    ].join("\n");
+
+    const tasteBlock = req.tasteSummary?.trim()
+      ? `# Taste Graph (Taste Learning Agent)\n${req.tasteSummary.trim()}\n\n`
+      : "";
 
     const prompt = `# Plan request
 
@@ -179,7 +191,7 @@ Start time: ${startTime}
 Duration: ${req.duration ?? "3 hr"}
 Budget ceiling: ${"$".repeat(budget)}
 
-# Template (Template Agent picked)
+${tasteBlock}# Template (Occasion Template Agent)
 Blueprint: ${template.blueprintName}
 Tone: ${template.tone}
 Constraints: noise<=${template.constraints.maxNoise}, chaos=${template.constraints.chaos}, accessibility=${template.constraints.accessibility ?? "any"}${template.constraints.avoidCategories?.length ? `, AVOID=[${template.constraints.avoidCategories.join(", ")}]` : ""}
@@ -187,17 +199,16 @@ Constraints: noise<=${template.constraints.maxNoise}, chaos=${template.constrain
 Required stops in order:
 ${template.structure.map((s, i) => `${i + 1}. ${s.slot} — ${s.description} (cats: ${s.categoryHints.join(", ")}; ~${s.durationMin}m)`).join("\n")}
 
-# Candidate venues (Quality Guardrail pre-filtered: rating>=4.0, not blocked)
+# Candidate venues (Quality Guardrail pre-filtered: rating>=4.0, not blocked, forbidden categories removed)
 ${candidateBlock}
 
 # Your task
-Pick one venue per slot from the candidates (or invent if the list is empty).
-For each stop write a single-sentence rationale tying the pick to the occasion, vibe, or city.
-Add ONE optional bonus move ("Impromptu Ideas Agent") — something delightful and on-vibe (e.g. "20-min harbor walk before dinner", "quick blackjack stop"). Set bonus to null if nothing fits.
-Generate a Naming-Agent themed experienceName following pattern hints: ${template.namePatterns.join(" | ")}.
+Run all seven agents and return the structured plan.
+Each stop's rationale must tie the pick to the occasion, vibe, city, OR taste graph in one sentence.
 Estimate per-person spend as a "$X–$Y" range honoring the budget ceiling.
-Return fitScore reflecting how well the picks match (0.85+ if every stop fits the slot's category hint and the city's allowed activities; lower it if you had to stretch).
-Use guardrailNote to flag any compromise (e.g. "swapped club for lounge — no in-laws-safe club found").`;
+Return fitScore reflecting how well the picks match (0.85+ if every stop fits the slot's category hint AND the city's allowed activities AND the taste graph; lower it if you had to stretch).
+Use guardrailNote to flag any compromise (e.g. "swapped club for lounge — no in-laws-safe club found").
+Name pattern hints: ${template.namePatterns.join(" | ")}.`;
 
     const { experimental_output: output } = await generateText({
       model,

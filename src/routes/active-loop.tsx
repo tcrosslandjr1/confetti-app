@@ -71,6 +71,7 @@ function ActiveLoopPage() {
   const current = currentIdx >= 0 ? loop.stops[currentIdx] : null;
   const next = currentIdx >= 0 ? loop.stops[currentIdx + 1] : null;
   const completed = currentIdx === -1;
+  const warningIndex = indexWarnings(computeNightWarnings(loop.stops));
 
   function jumpToStop(stopId: string) {
     // Re-trigger by setting null first if same id

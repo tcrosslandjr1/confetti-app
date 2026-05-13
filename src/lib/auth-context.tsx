@@ -18,6 +18,9 @@ type AuthCtx = {
   user: User | null;
   session: Session | null;
   loading: boolean;
+  sessionLoading: boolean;
+  roleLoading: boolean;
+  viewAsLoaded: boolean;
   isAdmin: boolean;
   /** "admin" | "customer" | "visitor" — what the user is currently viewing the app AS */
   viewAs: ViewAs;
@@ -34,6 +37,9 @@ const Ctx = createContext<AuthCtx>({
   user: null,
   session: null,
   loading: true,
+  sessionLoading: true,
+  roleLoading: false,
+  viewAsLoaded: false,
   isAdmin: false,
   viewAs: "visitor",
   isImpersonating: false,
@@ -160,6 +166,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       user: session?.user ?? null,
       session,
       loading,
+      sessionLoading,
+      roleLoading,
+      viewAsLoaded,
       isAdmin,
       viewAs: effective,
       isImpersonating: impersonating,

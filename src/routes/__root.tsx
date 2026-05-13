@@ -29,6 +29,9 @@ const BuildMyNightWizard = lazy(() =>
 const CookieConsent = lazy(() =>
   import("@/components/CookieConsent").then((m) => ({ default: m.CookieConsent })),
 );
+const AuthDebugPanel = lazy(() =>
+  import("@/components/AuthDebugPanel").then((m) => ({ default: m.AuthDebugPanel })),
+);
 
 function NotFoundComponent() {
   return (
@@ -203,6 +206,9 @@ function RootComponent() {
             <TabBar />
             <Suspense fallback={null}>
               <CookieConsent />
+            </Suspense>
+            <Suspense fallback={null}>
+              <AuthDebugPanel />
             </Suspense>
             <Toaster />
           </WizardProvider>

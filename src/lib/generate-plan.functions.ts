@@ -20,6 +20,8 @@ const PlanRequestSchema = z.object({
   duration: z.string().min(1).max(20).optional(),
   budget: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)]).optional(),
   tasteSummary: z.string().max(1200).optional(),
+  /** "Change My Night" steering, e.g. "make it more chill", "cheaper", "more romantic". */
+  tweakDirective: z.string().max(300).optional(),
 });
 
 type CandidateVenue = {

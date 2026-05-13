@@ -334,6 +334,14 @@ Name pattern hints: ${template.namePatterns.join(" | ")}.`;
     const byId = new Map(topCandidates.map((c) => [c.id, c]));
     const stops = output.stops.map((s, i) => {
       const v = byId.get(s.venueId);
+      // Track impression for promoted picks the model selected.
+      if (v?.promoted && v.campaignId) {
+        void supabaseAdmin.from("ad_events").insert({
+          campaign_id: v.campaignId,
+          kind: "impression",
+          surface: "ai_planner_stop",
+        });
+      }
       return {
         id: `s${i + 1}`,
         slot: s.slot,
@@ -345,6 +353,7 @@ Name pattern hints: ${template.namePatterns.join(" | ")}.`;
         venueId: v?.id,
         lat: v?.lat ?? undefined,
         lng: v?.lng ?? undefined,
+        promoted: v?.promoted ?? false,
       };
     });
 

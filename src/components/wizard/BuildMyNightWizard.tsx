@@ -777,6 +777,7 @@ export function BuildMyNightWizard() {
         const excludeIds = stops
           .map((s) => s.placeId)
           .filter((id): id is string => !!id);
+        const sel = getSelectedCity();
         const { data, error } = await supabase.functions.invoke("wizard-itinerary", {
           body: {
             mode: "alternatives",
@@ -785,6 +786,7 @@ export function BuildMyNightWizard() {
             budget,
             lat: loc?.lat ?? null,
             lng: loc?.lng ?? null,
+            city: sel?.name ?? null,
             excludeIds,
             limit: 6,
           },

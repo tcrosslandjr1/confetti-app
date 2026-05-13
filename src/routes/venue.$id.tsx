@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles, BadgeCheck } from "lucide-react";
+import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles, BadgeCheck, Navigation } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { VenueMap } from "@/components/maps/VenueMap";
+import { buildAppleMapsDirectionsUrl, buildGoogleMapsDirectionsUrl } from "@/lib/maps-links";
 import { VenueVerificationBadge } from "@/components/VenueVerificationBadge";
 import { ReportVenueButton } from "@/components/ReportVenueButton";
 

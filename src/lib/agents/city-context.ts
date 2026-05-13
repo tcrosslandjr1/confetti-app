@@ -4,6 +4,25 @@
 
 export type Neighborhood = { name: string; vibe: string };
 
+export type TravelLevel = "low" | "medium" | "high";
+
+export type TravelIntel = {
+  travelModes: {
+    walkability: TravelLevel;
+    uberAvailability: TravelLevel;
+    publicTransitQuality: TravelLevel;
+    parkingDifficulty: TravelLevel;
+    evFriendly: TravelLevel;
+  };
+  travelRecommendations: {
+    shortHops: string;
+    crossNeighborhood: string;
+    groups: string;
+    waterfront?: string;
+    lateNight: string;
+  };
+};
+
 export type CityContext = {
   /** Canonical city name as stored in viral_venues.city */
   city: string;
@@ -27,14 +46,41 @@ export type CityContext = {
   priceNorms: { $: string; $$: string; $$$: string };
   /** Transport / travel constraints */
   transport: { maxTravelMinutes: number; avoidCrossCity: boolean };
+  /** Travel-mode intelligence (rideshare, walkability, transit, EV). Optional, defaulted by slug. */
+  travel?: TravelIntel;
   /** Convenience: flat list of neighborhood names */
   signatureNeighborhoods?: string[];
+};
+
+// Per-slug defaults so we don't have to repeat travel intel inline for every city.
+const TRAVEL_BY_SLUG: Record<string, TravelIntel> = {
+  dc:      { travelModes: { walkability: "high",   uberAvailability: "high",   publicTransitQuality: "high",   parkingDifficulty: "high",   evFriendly: "medium" },
+             travelRecommendations: { shortHops: "walk", crossNeighborhood: "Metro or Uber", groups: "UberXL", waterfront: "walk", lateNight: "rideshare only" } },
+  nyc:     { travelModes: { walkability: "high",   uberAvailability: "high",   publicTransitQuality: "high",   parkingDifficulty: "high",   evFriendly: "medium" },
+             travelRecommendations: { shortHops: "walk", crossNeighborhood: "Subway or Uber", groups: "UberXL or 2 Lyfts", lateNight: "rideshare or late-night subway" } },
+  vegas:   { travelModes: { walkability: "medium", uberAvailability: "high",   publicTransitQuality: "low",    parkingDifficulty: "medium", evFriendly: "medium" },
+             travelRecommendations: { shortHops: "walk the Strip", crossNeighborhood: "Uber/Lyft", groups: "UberXL", lateNight: "rideshare only" } },
+  miami:   { travelModes: { walkability: "medium", uberAvailability: "high",   publicTransitQuality: "low",    parkingDifficulty: "high",   evFriendly: "medium" },
+             travelRecommendations: { shortHops: "walk", crossNeighborhood: "Uber/Lyft", groups: "UberXL", waterfront: "walk or scooter", lateNight: "rideshare only" } },
+  seattle: { travelModes: { walkability: "high",   uberAvailability: "high",   publicTransitQuality: "medium", parkingDifficulty: "medium", evFriendly: "high" },
+             travelRecommendations: { shortHops: "walk", crossNeighborhood: "Light Rail or Uber", groups: "UberXL", waterfront: "walk", lateNight: "rideshare only" } },
+  chi:     { travelModes: { walkability: "high",   uberAvailability: "high",   publicTransitQuality: "high",   parkingDifficulty: "high",   evFriendly: "medium" },
+             travelRecommendations: { shortHops: "walk", crossNeighborhood: "L-train or Uber", groups: "UberXL", lateNight: "rideshare only" } },
+  la:      { travelModes: { walkability: "low",    uberAvailability: "high",   publicTransitQuality: "low",    parkingDifficulty: "high",   evFriendly: "high" },
+             travelRecommendations: { shortHops: "Uber/Lyft", crossNeighborhood: "Uber/Lyft", groups: "UberXL", waterfront: "walk pier areas", lateNight: "rideshare only" } },
+  sf:      { travelModes: { walkability: "high",   uberAvailability: "high",   publicTransitQuality: "high",   parkingDifficulty: "high",   evFriendly: "high" },
+             travelRecommendations: { shortHops: "walk", crossNeighborhood: "Muni/BART or Uber", groups: "UberXL", waterfront: "walk Embarcadero", lateNight: "rideshare only" } },
+  hou:     { travelModes: { walkability: "low",    uberAvailability: "high",   publicTransitQuality: "low",    parkingDifficulty: "medium", evFriendly: "medium" },
+             travelRecommendations: { shortHops: "Uber/Lyft", crossNeighborhood: "Uber/Lyft", groups: "UberXL", lateNight: "rideshare only" } },
+  atl:     { travelModes: { walkability: "medium", uberAvailability: "high",   publicTransitQuality: "medium", parkingDifficulty: "medium", evFriendly: "medium" },
+             travelRecommendations: { shortHops: "walk BeltLine", crossNeighborhood: "MARTA or Uber", groups: "UberXL", lateNight: "rideshare only" } },
 };
 
 const make = (
   c: Omit<CityContext, "signatureNeighborhoods"> & { signatureNeighborhoods?: string[] },
 ): CityContext => ({
   ...c,
+  travel: c.travel ?? TRAVEL_BY_SLUG[c.slug],
   signatureNeighborhoods: c.signatureNeighborhoods ?? c.neighborhoods.map((n) => n.name),
 });
 

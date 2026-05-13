@@ -10,6 +10,7 @@ import { MOODS } from "@/lib/concierge-data";
 import { CITIES } from "@/lib/agents/city-context";
 import { generatePlan } from "@/lib/generate-plan.functions";
 import { toast } from "sonner";
+import { ForecastForDate } from "@/components/ForecastForDate";
 
 export const Route = createFileRoute("/create")({
   head: () => ({ meta: [{ title: "Create a Plan — Confetti" }] }),

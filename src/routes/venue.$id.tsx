@@ -39,6 +39,7 @@ const FALLBACK_PHOTOS = [
 function VenuePage() {
   const { id } = Route.useParams();
   const [venue, setVenue] = useState<Venue | null | undefined>(undefined);
+  const [travelMode, setTravelMode] = useState<TravelMode>("driving");
 
   useEffect(() => {
     let cancelled = false;

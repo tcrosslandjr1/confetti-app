@@ -9,6 +9,7 @@ import { buildAppleMapsDirectionsUrl, buildGoogleMapsDirectionsUrl, isAndroid, i
 import { requestUserLocation, getStoredLocation, type UserLocation } from "@/lib/location";
 import { VenueVerificationBadge } from "@/components/VenueVerificationBadge";
 import { ReportVenueButton } from "@/components/ReportVenueButton";
+import { BookButton } from "@/components/BookButton";
 
 export const Route = createFileRoute("/venue/$id")({
   head: () => ({ meta: [{ title: "Venue — Confetti" }] }),

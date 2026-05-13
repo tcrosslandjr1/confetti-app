@@ -18,13 +18,32 @@ export function isAppleDevice(): boolean {
   if (typeof navigator === "undefined") return false;
   const ua = navigator.userAgent || "";
   const platform = navigator.platform || "";
-  // iPhone, iPad, iPod
   if (/iPhone|iPad|iPod/.test(ua)) return true;
-  // iPadOS 13+ reports as Mac with touch
   if (platform === "MacIntel" && (navigator as Navigator & { maxTouchPoints?: number }).maxTouchPoints! > 1) return true;
-  // macOS Safari
   if (/Macintosh/.test(ua)) return true;
   return false;
+}
+
+export function isIOS(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const ua = navigator.userAgent || "";
+  if (/iPhone|iPad|iPod/.test(ua)) return true;
+  // iPadOS 13+ masquerades as Mac with touch
+  if (
+    (navigator.platform || "") === "MacIntel" &&
+    (navigator as Navigator & { maxTouchPoints?: number }).maxTouchPoints! > 1
+  )
+    return true;
+  return false;
+}
+
+export function isAndroid(): boolean {
+  if (typeof navigator === "undefined") return false;
+  return /Android/i.test(navigator.userAgent || "");
+}
+
+export function isMobile(): boolean {
+  return isIOS() || isAndroid();
 }
 
 /* ------------------------------ apple flags -------------------------------- */

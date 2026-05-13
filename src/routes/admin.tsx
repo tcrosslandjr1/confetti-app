@@ -71,7 +71,9 @@ function AdminLayout() {
     if (loading) return;
     if (!user) navigate({ to: "/admin/login" });
     else if (!isAdmin) navigate({ to: "/" });
-    else if (viewAs !== "admin") navigate({ to: viewAs === "customer" ? "/portal" : "/" });
+    else if (viewAs === "customer") navigate({ to: "/portal" });
+    else if (viewAs === "business") navigate({ to: "/advertise/portal" });
+    else if (viewAs === "visitor") navigate({ to: "/" });
   }, [loading, user, isAdmin, viewAs, navigate]);
 
   if (loading || !isAdmin || viewAs !== "admin") {

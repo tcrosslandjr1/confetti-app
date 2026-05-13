@@ -10,12 +10,19 @@ export const Route = createFileRoute("/concierge")({
 });
 
 function ConciergeLayout() {
-  const { user, loading } = useAuth();
+  const { user, loading, viewAs } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!loading && !user) navigate({ to: "/auth" });
-  }, [user, loading, navigate]);
+    if (loading) return;
+    if (!user) { navigate({ to: "/auth" }); return; }
+    // Concierge chat / passport are customer surfaces. Keep admins/business in
+    // their own contexts so an admin doesn't inadvertently message the AI as
+    // themselves while testing customer flows.
+    if (viewAs === "admin") { navigate({ to: "/admin" }); return; }
+    if (viewAs === "business") { navigate({ to: "/advertise/portal" }); return; }
+    if (viewAs === "visitor") { navigate({ to: "/" }); return; }
+  }, [user, loading, viewAs, navigate]);
 
   return (
     <div className="min-h-screen bg-background">

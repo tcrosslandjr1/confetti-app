@@ -442,6 +442,9 @@ function CreatePage() {
                 <span>{vibe.emoji} <span className="font-bold">{vibe.label}</span> — {vibe.blurb}</span>
               </li>
             </ul>
+            <div className="mt-3">
+              <ForecastForDate city={city} date={date} variant="inline" />
+            </div>
           </div>
         )}
       </div>

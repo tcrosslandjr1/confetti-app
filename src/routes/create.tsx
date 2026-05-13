@@ -358,6 +358,7 @@ function CreatePage() {
                 );
               })}
             </div>
+            </div>
           )}
 
           {step === 1 && (

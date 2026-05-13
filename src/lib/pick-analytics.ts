@@ -175,15 +175,26 @@ export function trackPickEvent(
   // Honor user privacy choice — opt-out short-circuits the whole pipeline,
   // including the localStorage write and the console.info breadcrumb.
   if (getPickAnalyticsConsent() === "denied") return;
+  const clientAt = new Date().toISOString();
   const evt: PickEvent = {
     name,
-    at: new Date().toISOString(),
+    at: clientAt,
     pickId: opts.pickId,
     context: opts.context,
     signals: opts.signals,
     meta: opts.meta,
   };
   write([...read(), evt]);
+  pending.push({
+    name,
+    pickId: opts.pickId,
+    context: opts.context,
+    signals: opts.signals,
+    meta: opts.meta,
+    clientAt,
+    sessionId: getSessionId(),
+  });
+  scheduleFlush();
   if (typeof window !== "undefined") {
     window.dispatchEvent(new CustomEvent("confetti:pick-analytics", { detail: evt }));
   }

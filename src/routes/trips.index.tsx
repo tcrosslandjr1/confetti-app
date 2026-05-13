@@ -16,7 +16,7 @@ export const Route = createFileRoute("/trips/")({
 });
 
 function TripsList() {
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading: authLoading, viewAs } = useAuth();
   const nav = useNavigate();
   const [trips, setTrips] = useState<Itinerary[]>([]);
   const [loading, setLoading] = useState(true);
@@ -24,15 +24,15 @@ function TripsList() {
 
   useEffect(() => {
     if (authLoading) return;
-    if (!user) {
-      nav({ to: "/auth" });
-      return;
-    }
+    if (!user) { nav({ to: "/auth" }); return; }
+    if (viewAs === "admin") { nav({ to: "/admin" }); return; }
+    if (viewAs === "business") { nav({ to: "/advertise/portal" }); return; }
+    if (viewAs === "visitor") { nav({ to: "/" }); return; }
     listItineraries()
       .then(setTrips)
       .catch((e) => setErr(e.message))
       .finally(() => setLoading(false));
-  }, [user, authLoading, nav]);
+  }, [user, authLoading, viewAs, nav]);
 
   return (
     <div className="min-h-screen bg-background">

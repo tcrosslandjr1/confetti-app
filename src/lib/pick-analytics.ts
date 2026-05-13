@@ -21,7 +21,55 @@ export type PickEvent = {
 };
 
 const STORAGE_KEY = "confetti:pick-analytics:v1";
+const CONSENT_KEY = "confetti:pick-analytics:consent";
+const CONSENT_EVENT = "confetti:pick-analytics:consent-changed";
 const MAX_EVENTS = 500;
+
+export type PickAnalyticsConsent = "granted" | "denied";
+
+/** Default = granted (back-compat with existing tracking). */
+export function getPickAnalyticsConsent(): PickAnalyticsConsent {
+  if (typeof localStorage === "undefined") return "granted";
+  try {
+    return localStorage.getItem(CONSENT_KEY) === "denied" ? "denied" : "granted";
+  } catch {
+    return "granted";
+  }
+}
+
+export function setPickAnalyticsConsent(value: PickAnalyticsConsent) {
+  if (typeof localStorage === "undefined") return;
+  try {
+    localStorage.setItem(CONSENT_KEY, value);
+  } catch {
+    /* quota — ignore */
+  }
+  if (value === "denied") {
+    // Wipe any previously persisted events so opt-out is meaningful.
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      /* ignore */
+    }
+  }
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: value }));
+  }
+}
+
+export function subscribePickAnalyticsConsent(cb: (v: PickAnalyticsConsent) => void): () => void {
+  if (typeof window === "undefined") return () => {};
+  const handler = (e: Event) => cb((e as CustomEvent<PickAnalyticsConsent>).detail);
+  const onStorage = (e: StorageEvent) => {
+    if (e.key === CONSENT_KEY) cb(getPickAnalyticsConsent());
+  };
+  window.addEventListener(CONSENT_EVENT, handler);
+  window.addEventListener("storage", onStorage);
+  return () => {
+    window.removeEventListener(CONSENT_EVENT, handler);
+    window.removeEventListener("storage", onStorage);
+  };
+}
 
 function read(): PickEvent[] {
   if (typeof localStorage === "undefined") return [];

@@ -11,6 +11,22 @@ import { CITIES } from "@/lib/agents/city-context";
 import { generatePlan } from "@/lib/generate-plan.functions";
 import { toast } from "sonner";
 import { ForecastForDate } from "@/components/ForecastForDate";
+import { recordPickSignal } from "@/lib/pick-signals.functions";
+
+const MOOD_CHIPS = [
+  { id: "hyped", label: "Hyped", emoji: "🔥" },
+  { id: "mellow", label: "Mellow", emoji: "🌿" },
+  { id: "romantic", label: "Romantic", emoji: "🌹" },
+  { id: "adventurous", label: "Adventurous", emoji: "🧭" },
+  { id: "recovering", label: "Recovering", emoji: "🫧" },
+];
+
+const SWAP_REASONS = [
+  { id: "too_pricey", label: "Too pricey", emoji: "💸" },
+  { id: "wrong_vibe", label: "Wrong vibe", emoji: "🎭" },
+  { id: "been_there", label: "Been there", emoji: "🔁" },
+  { id: "too_far", label: "Too far", emoji: "🗺️" },
+];
 
 export const Route = createFileRoute("/create")({
   head: () => ({ meta: [{ title: "Create a Plan — Confetti" }] }),

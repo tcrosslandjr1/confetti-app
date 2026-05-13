@@ -73,6 +73,11 @@ function fmt(p: Place): string {
   return p.address || p.name || "";
 }
 
+/** True when a place has a routable address or coordinates (name alone is not). */
+export function hasRoutableLocation(p: Place): boolean {
+  return (p.lat != null && p.lng != null) || !!(p.address && p.address.trim());
+}
+
 /* --------------------------- Apple Maps builders --------------------------- */
 
 export function buildAppleMapsSearchUrl(p: Place): string {
@@ -91,13 +96,19 @@ export function buildAppleMapsDirectionsUrl(
 ): string {
   const scheme = opts.native ? "maps://" : "https://maps.apple.com/";
   if (points.length === 0) return scheme;
+  const dest = points[points.length - 1];
+  // Fallback: if destination has only a name (no address/coords), do a name
+  // search instead of a routing request — directions need a routable target.
+  if (!hasRoutableLocation(dest)) {
+    const q = dest.name || dest.address || "";
+    if (!q) return scheme;
+    return `${scheme}?${new URLSearchParams({ q }).toString()}`;
+  }
   const dirflg = appleDirFlag(mode);
   if (points.length === 1) {
-    const p = points[0];
-    const q = fmt(p);
-    if (!q) return scheme;
+    const q = fmt(dest);
     const params = new URLSearchParams({ q });
-    if (p.lat != null && p.lng != null) params.set("ll", `${p.lat},${p.lng}`);
+    if (dest.lat != null && dest.lng != null) params.set("ll", `${dest.lat},${dest.lng}`);
     return `${scheme}?${params.toString()}`;
   }
   const saddr = fmt(points[0]);
@@ -121,12 +132,21 @@ export function buildGoogleMapsDirectionsUrl(
   if (points.length === 0) {
     return opts.native ? "comgooglemaps://" : "https://www.google.com/maps";
   }
+  const dest = points[points.length - 1];
+  // Fallback: destination only has a name → Google Maps search by name.
+  if (!hasRoutableLocation(dest)) {
+    const q = dest.name || dest.address || "";
+    if (!q) return opts.native ? "comgooglemaps://" : "https://www.google.com/maps";
+    if (opts.native) {
+      return `comgooglemaps://?q=${encodeURIComponent(q)}`;
+    }
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+  }
   const origin = fmt(points[0]);
-  const destination = fmt(points[points.length - 1]);
+  const destination = fmt(dest);
   const waypoints = points.slice(1, -1).map(fmt).filter(Boolean).join("|");
 
   if (opts.native) {
-    // comgooglemaps:// opens the Google Maps app directly on iOS/Android when installed.
     const params = new URLSearchParams({
       saddr: points.length > 1 ? origin : "",
       daddr: destination,
@@ -136,7 +156,7 @@ export function buildGoogleMapsDirectionsUrl(
     return `comgooglemaps://?${params.toString()}`;
   }
 
-  if (points.length === 1) return buildGoogleMapsSearchUrl(points[0]);
+  if (points.length === 1) return buildGoogleMapsSearchUrl(dest);
   const params = new URLSearchParams({
     api: "1",
     origin,

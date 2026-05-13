@@ -7,6 +7,7 @@ import { getStoredLocation, requestUserLocation, type UserLocation } from "@/lib
 import { Button } from "@/components/ui/button";
 import { GooglePhotos } from "@/components/GooglePhotos";
 import { VenueVerificationBadge } from "@/components/VenueVerificationBadge";
+import { WhyThisPick, derivePickSignals } from "@/components/WhyThisPick";
 
 type Venue = {
   id: string;
@@ -274,6 +275,15 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
                 {v.description && (
                   <p className="mt-2 line-clamp-2 text-xs text-muted-foreground">{v.description}</p>
                 )}
+                {(() => {
+                  const { signals, rationale } = derivePickSignals({
+                    distanceKm: v.distanceKm,
+                    vibeMatch: v.category,
+                  });
+                  return (
+                    <WhyThisPick signals={signals} rationale={rationale} className="mt-2.5" compact />
+                  );
+                })()}
               </div>
             </Link>
           ))}

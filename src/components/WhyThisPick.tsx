@@ -1,0 +1,128 @@
+import { Flame, Bookmark, CalendarCheck, Sparkles, Star, MapPin, Users, Info } from "lucide-react";
+
+export type PickSignalKind =
+  | "trending"
+  | "most-saved"
+  | "most-booked"
+  | "highly-rated"
+  | "near-you"
+  | "matches-vibe"
+  | "crowd-favorite"
+  | "fresh";
+
+export type PickSignal = {
+  kind: PickSignalKind;
+  label: string;
+};
+
+const SIGNAL_META: Record<
+  PickSignalKind,
+  { Icon: typeof Flame; tone: string }
+> = {
+  trending: { Icon: Flame, tone: "bg-rose-500/10 text-rose-600 border-rose-500/30" },
+  "most-saved": { Icon: Bookmark, tone: "bg-amber-500/10 text-amber-700 border-amber-500/30" },
+  "most-booked": { Icon: CalendarCheck, tone: "bg-emerald-500/10 text-emerald-700 border-emerald-500/30" },
+  "highly-rated": { Icon: Star, tone: "bg-yellow-500/10 text-yellow-700 border-yellow-500/30" },
+  "near-you": { Icon: MapPin, tone: "bg-sky-500/10 text-sky-700 border-sky-500/30" },
+  "matches-vibe": { Icon: Sparkles, tone: "bg-purple/15 text-purple border-purple/30" },
+  "crowd-favorite": { Icon: Users, tone: "bg-coral/15 text-coral border-coral/30" },
+  fresh: { Icon: Sparkles, tone: "bg-teal-500/10 text-teal-700 border-teal-500/30" },
+};
+
+type Props = {
+  signals: PickSignal[];
+  /** Optional one-line plain-English explanation. */
+  rationale?: string;
+  className?: string;
+  compact?: boolean;
+};
+
+export function WhyThisPick({ signals, rationale, className = "", compact = false }: Props) {
+  const trimmed = signals.filter(Boolean).slice(0, 3);
+  if (trimmed.length === 0 && !rationale) return null;
+
+  return (
+    <div
+      className={`rounded-xl border border-dashed border-ink/20 bg-background/60 px-2.5 py-2 ${className}`}
+      aria-label="Why this pick"
+    >
+      <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+        <Info className="h-3 w-3" /> Why this pick
+      </div>
+      {trimmed.length > 0 && (
+        <div className="mt-1.5 flex flex-wrap gap-1.5">
+          {trimmed.map((s, i) => {
+            const meta = SIGNAL_META[s.kind];
+            const Icon = meta.Icon;
+            return (
+              <span
+                key={`${s.kind}-${i}`}
+                className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-semibold ${meta.tone}`}
+              >
+                <Icon className="h-2.5 w-2.5" /> {s.label}
+              </span>
+            );
+          })}
+        </div>
+      )}
+      {rationale && !compact && (
+        <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground">{rationale}</p>
+      )}
+    </div>
+  );
+}
+
+/** Heuristic helper: turn raw signals into PickSignal objects + one-line rationale. */
+export function derivePickSignals(input: {
+  trendScore?: number | null;
+  rating?: number | null;
+  reviewCount?: number | null;
+  saveCount?: number | null;
+  bookingCount?: number | null;
+  distanceKm?: number | null;
+  vibeMatch?: string | null;
+}): { signals: PickSignal[]; rationale: string } {
+  const signals: PickSignal[] = [];
+  const reasons: string[] = [];
+
+  if (typeof input.trendScore === "number" && input.trendScore >= 0.6) {
+    signals.push({ kind: "trending", label: "Trending now" });
+    reasons.push("trending across the city this week");
+  }
+  if (typeof input.bookingCount === "number" && input.bookingCount >= 25) {
+    signals.push({ kind: "most-booked", label: `${input.bookingCount}+ booked` });
+    reasons.push("one of the most-booked spots on Confetti");
+  }
+  if (typeof input.saveCount === "number" && input.saveCount >= 25) {
+    signals.push({ kind: "most-saved", label: `Saved ${input.saveCount}×` });
+    reasons.push("saved by lots of locals");
+  }
+  if (typeof input.rating === "number" && input.rating >= 4.4) {
+    const rc = input.reviewCount ? ` · ${formatCount(input.reviewCount)} reviews` : "";
+    signals.push({ kind: "highly-rated", label: `${input.rating.toFixed(1)}★${rc}` });
+    reasons.push("rated highly by recent guests");
+  }
+  if (typeof input.distanceKm === "number" && input.distanceKm <= 3) {
+    signals.push({
+      kind: "near-you",
+      label: input.distanceKm < 1
+        ? `${Math.round(input.distanceKm * 1000)} m away`
+        : `${input.distanceKm.toFixed(1)} km away`,
+    });
+    reasons.push("close to where you are right now");
+  }
+  if (input.vibeMatch) {
+    signals.push({ kind: "matches-vibe", label: `Matches ${input.vibeMatch}` });
+    reasons.push(`matches your ${input.vibeMatch.toLowerCase()} vibe`);
+  }
+
+  const rationale = reasons.length
+    ? `Picked because it's ${reasons.slice(0, 2).join(" and ")}.`
+    : "";
+  return { signals: signals.slice(0, 3), rationale };
+}
+
+function formatCount(n: number) {
+  if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
+  return String(n);
+}

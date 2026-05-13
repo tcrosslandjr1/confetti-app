@@ -4,6 +4,7 @@ import { Flame, ArrowRight, MapPin } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { ViralTagChip, type ViralTag } from "./ViralTagChip";
 import { SmoothScrollRow } from "./SmoothScrollRow";
+import { WhyThisPick, derivePickSignals } from "./WhyThisPick";
 
 type ViralVenue = {
   id: string;
@@ -87,6 +88,11 @@ export function ViralNow({ city = "Washington DC", limit = 8 }: { city?: string;
 function ViralCard({ v }: { v: ViralVenue }) {
   const topTag = v.tags?.[0];
   const heat = Math.min(5, Math.max(1, Math.round(v.trend_score * 3)));
+  const { signals, rationale } = derivePickSignals({
+    trendScore: v.trend_score,
+    rating: v.rating,
+    vibeMatch: topTag ? String(topTag).replace(/_/g, " ") : null,
+  });
   return (
     <Link
       to="/venue/$id"
@@ -126,6 +132,9 @@ function ViralCard({ v }: { v: ViralVenue }) {
         )}
         {v.summary && (
           <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2">{v.summary}</p>
+        )}
+        {(signals.length > 0 || rationale) && (
+          <WhyThisPick signals={signals} rationale={rationale} className="mt-2" compact />
         )}
       </div>
     </Link>

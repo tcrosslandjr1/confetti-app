@@ -47,6 +47,16 @@ export function GatedAction({ to, children, className, feature = "planning & boo
           userId: user?.id ?? null,
           note: `Visitor tapped CTA for ${feature}`,
         });
+        logSecurityTrace({
+          kind: "protected-attempt",
+          outcome: "denied",
+          actorRole: "visitor",
+          userId: user?.id ?? null,
+          userEmail: user?.email ?? null,
+          action: feature,
+          path: to,
+          note: `Visitor blocked from ${to}`,
+        });
         toast(`Sign up free to unlock ${feature}`, {
           description: "Takes 10 seconds — we'll save your picks.",
         });

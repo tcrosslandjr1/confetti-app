@@ -156,6 +156,45 @@ export type Database = {
           },
         ]
       }
+      advertiser_subscriptions: {
+        Row: {
+          advertiser_id: string
+          created_at: string
+          current_period_end: string | null
+          id: string
+          status: string
+          stripe_customer_id: string | null
+          stripe_subscription_id: string | null
+          stub: boolean
+          tier: string
+          updated_at: string
+        }
+        Insert: {
+          advertiser_id: string
+          created_at?: string
+          current_period_end?: string | null
+          id?: string
+          status?: string
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          stub?: boolean
+          tier?: string
+          updated_at?: string
+        }
+        Update: {
+          advertiser_id?: string
+          created_at?: string
+          current_period_end?: string | null
+          id?: string
+          status?: string
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          stub?: boolean
+          tier?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       advertisers: {
         Row: {
           business_name: string
@@ -1420,6 +1459,54 @@ export type Database = {
           id?: string
           role?: Database["public"]["Enums"]["app_role"]
           user_id?: string
+        }
+        Relationships: []
+      }
+      venue_claims: {
+        Row: {
+          admin_note: string | null
+          advertiser_id: string
+          contact_email: string | null
+          created_at: string
+          id: string
+          notes: string | null
+          proof_url: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          status: string
+          updated_at: string
+          venue_id: string
+          verification_tier: string
+        }
+        Insert: {
+          admin_note?: string | null
+          advertiser_id: string
+          contact_email?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          proof_url?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          updated_at?: string
+          venue_id: string
+          verification_tier?: string
+        }
+        Update: {
+          admin_note?: string | null
+          advertiser_id?: string
+          contact_email?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          proof_url?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          updated_at?: string
+          venue_id?: string
+          verification_tier?: string
         }
         Relationships: []
       }

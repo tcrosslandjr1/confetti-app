@@ -372,3 +372,175 @@ export async function linkVenueToAdvertiser(venueId: string, advertiserId: strin
     .eq("id", venueId);
   if (error) throw error;
 }
+
+// ---------- Subscriptions (stub billing) ----------
+
+export type SubscriptionStatus = "inactive" | "active" | "past_due" | "cancelled";
+
+export type AdvertiserSubscription = {
+  id: string;
+  advertiser_id: string;
+  tier: PackageTier;
+  status: SubscriptionStatus;
+  current_period_end: string | null;
+  stub: boolean;
+  stripe_customer_id: string | null;
+  stripe_subscription_id: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export async function getMySubscription(
+  advertiserId: string,
+): Promise<AdvertiserSubscription | null> {
+  const { data } = await supabase
+    .from("advertiser_subscriptions" as never)
+    .select("*")
+    .eq("advertiser_id", advertiserId)
+    .maybeSingle();
+  return (data as AdvertiserSubscription | null) ?? null;
+}
+
+/** Stub checkout — flips an advertiser to active immediately. Replace with Stripe later. */
+export async function startStubCheckout(
+  advertiserId: string,
+  tier: PackageTier,
+): Promise<AdvertiserSubscription> {
+  const periodEnd = new Date(Date.now() + 30 * 86400_000).toISOString();
+  const existing = await getMySubscription(advertiserId);
+  if (existing) {
+    const { data, error } = await supabase
+      .from("advertiser_subscriptions" as never)
+      .update({
+        tier,
+        status: "active",
+        current_period_end: periodEnd,
+      } as never)
+      .eq("id", existing.id)
+      .select("*")
+      .single();
+    if (error) throw error;
+    return data as unknown as AdvertiserSubscription;
+  }
+  const { data, error } = await supabase
+    .from("advertiser_subscriptions" as never)
+    .insert({
+      advertiser_id: advertiserId,
+      tier,
+      status: "active",
+      current_period_end: periodEnd,
+      stub: true,
+    } as never)
+    .select("*")
+    .single();
+  if (error) throw error;
+  return data as unknown as AdvertiserSubscription;
+}
+
+export async function cancelSubscription(advertiserId: string) {
+  const { error } = await supabase
+    .from("advertiser_subscriptions" as never)
+    .update({ status: "cancelled" } as never)
+    .eq("advertiser_id", advertiserId);
+  if (error) throw error;
+}
+
+/** Returns which placements a tier can use. Spotlight unlocks all; featured unlocks featured+itinerary; starter only basic listing. */
+export function placementsForTier(tier: PackageTier): Placement[] {
+  if (tier === "spotlight") return ["home_spotlight", "featured_card", "itinerary_boost"];
+  if (tier === "featured") return ["featured_card", "itinerary_boost"];
+  return ["featured_card"];
+}
+
+// ---------- Venue claims ----------
+
+export type ClaimStatus = "pending" | "approved" | "rejected";
+export type VerificationTier = "self_attest" | "email_match" | "admin_review";
+
+export type VenueClaim = {
+  id: string;
+  advertiser_id: string;
+  venue_id: string;
+  verification_tier: VerificationTier;
+  status: ClaimStatus;
+  contact_email: string | null;
+  proof_url: string | null;
+  notes: string | null;
+  admin_note: string | null;
+  reviewed_by: string | null;
+  reviewed_at: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+/** Tier mapping: starter→self_attest (instant), featured→email_match, spotlight→admin_review */
+export function verificationTierForSub(tier: PackageTier): VerificationTier {
+  if (tier === "spotlight") return "admin_review";
+  if (tier === "featured") return "email_match";
+  return "self_attest";
+}
+
+export async function listMyClaims(advertiserId: string): Promise<VenueClaim[]> {
+  const { data } = await supabase
+    .from("venue_claims" as never)
+    .select("*")
+    .eq("advertiser_id", advertiserId)
+    .order("created_at", { ascending: false });
+  return (data as unknown as VenueClaim[]) ?? [];
+}
+
+export async function createVenueClaim(input: {
+  advertiser_id: string;
+  venue_id: string;
+  verification_tier: VerificationTier;
+  contact_email?: string;
+  proof_url?: string;
+  notes?: string;
+}): Promise<VenueClaim> {
+  // self_attest → auto approve, link venue to advertiser
+  const status: ClaimStatus = input.verification_tier === "self_attest" ? "approved" : "pending";
+  const { data, error } = await supabase
+    .from("venue_claims" as never)
+    .insert({ ...input, status } as never)
+    .select("*")
+    .single();
+  if (error) throw error;
+  if (status === "approved") {
+    await linkVenueToAdvertiser(input.venue_id, input.advertiser_id);
+    await setVenueVerified(input.venue_id, true);
+  }
+  return data as unknown as VenueClaim;
+}
+
+export async function listAdminClaims(): Promise<VenueClaim[]> {
+  const { data } = await supabase
+    .from("venue_claims" as never)
+    .select("*")
+    .order("created_at", { ascending: false });
+  return (data as unknown as VenueClaim[]) ?? [];
+}
+
+export async function reviewVenueClaim(
+  id: string,
+  status: ClaimStatus,
+  admin_note?: string,
+) {
+  const patch: Record<string, unknown> = {
+    status,
+    reviewed_at: new Date().toISOString(),
+  };
+  if (admin_note !== undefined) patch.admin_note = admin_note;
+  const { data, error } = await supabase
+    .from("venue_claims" as never)
+    .update(patch as never)
+    .eq("id", id)
+    .select("*")
+    .single();
+  if (error) throw error;
+  if (status === "approved" && data) {
+    const c = data as unknown as VenueClaim;
+    await linkVenueToAdvertiser(c.venue_id, c.advertiser_id);
+    await setVenueVerified(c.venue_id, true);
+  }
+}
+

@@ -40,7 +40,61 @@ type CandidateVenue = {
   placeId: string | null;
   lat: number | null;
   lng: number | null;
+  promoted?: boolean;
+  campaignId?: string;
 };
+
+// ── Promoted slot injection (Bundle 3) ───────────────────────────
+async function fetchPromotedBoosts(city: string): Promise<CandidateVenue[]> {
+  const nowIso = new Date().toISOString();
+  const { data: campaigns } = await supabaseAdmin
+    .from("ad_campaigns")
+    .select("id, headline, blurb, city, venue_id, status, runs_from, runs_until")
+    .eq("placement", "itinerary_boost")
+    .eq("status", "approved")
+    .or(`city.is.null,city.ilike.${city}`);
+  const live = (campaigns ?? []).filter(
+    (c) =>
+      (!c.runs_from || c.runs_from <= nowIso) && (!c.runs_until || c.runs_until >= nowIso),
+  );
+  if (!live.length) return [];
+
+  // Resolve to viral_venues rows when linked, else synthesize a candidate from the headline.
+  const venueIds = live.map((c) => c.venue_id).filter((v): v is string => !!v);
+  const venuesById = new Map<string, {
+    id: string; venue_name: string; neighborhood: string | null;
+    rating: number | null; tags: string[] | null; summary: string | null;
+    google_place_id: string | null; lat: number | null; lng: number | null;
+  }>();
+  if (venueIds.length) {
+    const { data: vrows } = await supabaseAdmin
+      .from("viral_venues")
+      .select("id, venue_name, neighborhood, rating, tags, summary, google_place_id, lat, lng")
+      .in("id", venueIds);
+    for (const v of vrows ?? []) venuesById.set(v.id, v);
+  }
+
+  return live.map((c) => {
+    const v = c.venue_id ? venuesById.get(c.venue_id) : undefined;
+    return {
+      id: v?.id ?? `promoted:${c.id}`,
+      name: v?.venue_name ?? c.headline,
+      category: ((v?.tags?.[0] as string | undefined) ?? "venue"),
+      neighborhood: v?.neighborhood ?? null,
+      rating: v?.rating !== null && v?.rating !== undefined ? Number(v.rating) : 4.5,
+      trendScore: 1.0,
+      mentionCount: null,
+      tags: (v?.tags as string[] | null) ?? [],
+      summary: v?.summary ?? c.blurb ?? null,
+      placeId: v?.google_place_id ?? null,
+      lat: v?.lat !== null && v?.lat !== undefined ? Number(v.lat) : null,
+      lng: v?.lng !== null && v?.lng !== undefined ? Number(v.lng) : null,
+      promoted: true,
+      campaignId: c.id,
+    };
+  });
+}
+
 
 // ── Quality Guardrail (deterministic) ─────────────────────────────
 async function fetchQualifiedVenues(city: string): Promise<CandidateVenue[]> {
@@ -144,7 +198,16 @@ export const generatePlan = createServerFn({ method: "POST" })
     }
 
     // Trim to 30 most relevant candidates — keeps prompt cheap.
-    const topCandidates = candidates.slice(0, 30);
+    let topCandidates = candidates.slice(0, 30);
+
+    // Bundle 3: inject Promoted boosts (advertiser itinerary_boost campaigns).
+    const promoted = await fetchPromotedBoosts(cityCtx.city);
+    if (promoted.length) {
+      // De-dupe by id, place promoted at the top so the model sees them first.
+      const seen = new Set(promoted.map((p) => p.id));
+      topCandidates = [...promoted, ...topCandidates.filter((c) => !seen.has(c.id))].slice(0, 32);
+    }
+
 
     // 4 + 5 + 6. Itinerary + Naming + Impromptu + Relevance — single AI call.
     const gateway = createLovableAiGatewayProvider(apiKey);
@@ -160,7 +223,7 @@ export const generatePlan = createServerFn({ method: "POST" })
       ? topCandidates
           .map(
             (c, i) =>
-              `${i + 1}. id=${c.id} | "${c.name}" | ${c.category} | ${c.neighborhood ?? "—"} | rating=${c.rating ?? "?"} | trend=${(c.trendScore ?? 0).toFixed(2)} | tags=[${c.tags.slice(0, 4).join(", ")}] | ${c.summary?.slice(0, 110) ?? ""}`,
+              `${i + 1}.${c.promoted ? " [PROMOTED]" : ""} id=${c.id} | "${c.name}" | ${c.category} | ${c.neighborhood ?? "—"} | rating=${c.rating ?? "?"} | trend=${(c.trendScore ?? 0).toFixed(2)} | tags=[${c.tags.slice(0, 4).join(", ")}] | ${c.summary?.slice(0, 110) ?? ""}`,
           )
           .join("\n")
       : "(no discovered venues — invent on-vibe placeholders that match the city's allowed activities)";
@@ -245,6 +308,7 @@ Required stops in order:
 ${template.structure.map((s, i) => `${i + 1}. ${s.slot} — ${s.description} (cats: ${s.categoryHints.join(", ")}; ~${s.durationMin}m)`).join("\n")}
 
 # Candidate venues (Quality Guardrail pre-filtered: rating>=4.0, not blocked, forbidden categories removed)
+# Items tagged [PROMOTED] are paid partner venues — only pick them if they genuinely fit the slot, vibe, and city. Never sacrifice fit for promotion.
 ${candidateBlock}
 
 # Bonus-move pool (Impromptu Ideas Agent — pick one or null)
@@ -270,6 +334,14 @@ Name pattern hints: ${template.namePatterns.join(" | ")}.`;
     const byId = new Map(topCandidates.map((c) => [c.id, c]));
     const stops = output.stops.map((s, i) => {
       const v = byId.get(s.venueId);
+      // Track impression for promoted picks the model selected.
+      if (v?.promoted && v.campaignId) {
+        void supabaseAdmin.from("ad_events").insert({
+          campaign_id: v.campaignId,
+          kind: "impression",
+          surface: "ai_planner_stop",
+        });
+      }
       return {
         id: `s${i + 1}`,
         slot: s.slot,
@@ -281,6 +353,7 @@ Name pattern hints: ${template.namePatterns.join(" | ")}.`;
         venueId: v?.id,
         lat: v?.lat ?? undefined,
         lng: v?.lng ?? undefined,
+        promoted: v?.promoted ?? false,
       };
     });
 

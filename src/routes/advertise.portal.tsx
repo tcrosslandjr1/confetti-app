@@ -3,18 +3,24 @@ import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import {
   type Advertiser,
+  type AdvertiserSubscription,
   type Campaign,
   createCampaign,
   getCampaignStats,
   getMyAdvertiser,
+  getMySubscription,
   listMyCampaigns,
   PACKAGES,
   PLACEMENT_LABELS,
   type PackageTier,
   type Placement,
+  placementsForTier,
 } from "@/lib/ads";
+import { SubscriptionPanel } from "@/components/advertiser/SubscriptionPanel";
+import { ClaimVenuePanel } from "@/components/advertiser/ClaimVenuePanel";
 import {
   Loader2,
+  Lock,
   Megaphone,
   Plus,
   Eye,
@@ -24,6 +30,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
+
 export const Route = createFileRoute("/advertise/portal")({
   component: AdvertiserPortal,
 });
@@ -32,6 +39,7 @@ function AdvertiserPortal() {
   const { user, loading, viewAs } = useAuth();
   const nav = useNavigate();
   const [advertiser, setAdvertiser] = useState<Advertiser | null>(null);
+  const [subscription, setSubscription] = useState<AdvertiserSubscription | null>(null);
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [stats, setStats] = useState<Record<string, { impressions: number; clicks: number }>>({});
   const [busy, setBusy] = useState(false);
@@ -42,12 +50,17 @@ function AdvertiserPortal() {
     const a = await getMyAdvertiser(uid);
     setAdvertiser(a);
     if (a) {
-      const cs = await listMyCampaigns(a.id);
+      const [cs, sub] = await Promise.all([
+        listMyCampaigns(a.id),
+        getMySubscription(a.id),
+      ]);
       setCampaigns(cs);
+      setSubscription(sub);
       setStats(await getCampaignStats(cs.map((c) => c.id)));
     }
     setBusy(false);
   }, []);
+
 
   useEffect(() => {
     if (loading) return;
@@ -107,12 +120,10 @@ function AdvertiserPortal() {
             ) : null}
           </p>
         </div>
-        <button
+        <NewCampaignButton
+          subscription={subscription}
           onClick={() => setShowNew((s) => !s)}
-          className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-bold text-background hover:opacity-90"
-        >
-          <Plus className="h-4 w-4" /> New campaign
-        </button>
+        />
       </header>
 
       {/* Stats */}
@@ -126,9 +137,23 @@ function AdvertiserPortal() {
         <StatCard label="CTR" value={`${ctr}%`} />
       </div>
 
-      {showNew && (
+      {/* Subscription + claims */}
+      <div className="mt-6 grid gap-4 lg:grid-cols-[1.2fr_1fr]">
+        <SubscriptionPanel
+          advertiserId={advertiser.id}
+          onChange={(s) => setSubscription(s)}
+        />
+        <ClaimVenuePanel
+          advertiserId={advertiser.id}
+          subscriptionTier={subscription?.tier ?? "starter"}
+          contactEmail={advertiser.contact_email}
+        />
+      </div>
+
+      {showNew && subscription?.status === "active" && (
         <NewCampaignForm
           advertiserId={advertiser.id}
+          allowedPlacements={placementsForTier(subscription.tier)}
           onCreated={(c) => {
             setCampaigns((prev) => [c, ...prev]);
             setShowNew(false);
@@ -137,6 +162,7 @@ function AdvertiserPortal() {
           onCancel={() => setShowNew(false)}
         />
       )}
+
 
       {/* Campaigns list */}
       <section className="mt-8 space-y-3">
@@ -194,18 +220,40 @@ function AdvertiserPortal() {
   );
 }
 
+function NewCampaignButton({
+  subscription,
+  onClick,
+}: {
+  subscription: AdvertiserSubscription | null;
+  onClick: () => void;
+}) {
+  const active = subscription?.status === "active";
+  return (
+    <button
+      onClick={onClick}
+      disabled={!active}
+      title={active ? "" : "Activate a plan first"}
+      className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-bold text-background hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+    >
+      {active ? <Plus className="h-4 w-4" /> : <Lock className="h-4 w-4" />} New campaign
+    </button>
+  );
+}
+
 function NewCampaignForm({
   advertiserId,
+  allowedPlacements,
   onCreated,
   onCancel,
 }: {
   advertiserId: string;
+  allowedPlacements: Placement[];
   onCreated: (c: Campaign) => void;
   onCancel: () => void;
 }) {
   const [headline, setHeadline] = useState("");
   const [blurb, setBlurb] = useState("");
-  const [placement, setPlacement] = useState<Placement>("featured_card");
+  const [placement, setPlacement] = useState<Placement>(allowedPlacements[0] ?? "featured_card");
   const [tier, setTier] = useState<PackageTier>("featured");
   const [city, setCity] = useState("");
   const [ctaUrl, setCtaUrl] = useState("");
@@ -234,6 +282,10 @@ function NewCampaignForm({
     }
   }
 
+  const placementOptions = Object.entries(PLACEMENT_LABELS).filter(([k]) =>
+    allowedPlacements.includes(k as Placement),
+  );
+
   return (
     <form
       onSubmit={submit}
@@ -259,7 +311,7 @@ function NewCampaignForm({
         label="Placement"
         value={placement}
         onChange={(v) => setPlacement(v as Placement)}
-        options={Object.entries(PLACEMENT_LABELS)}
+        options={placementOptions}
       />
       <Select
         label="Package"
@@ -267,6 +319,7 @@ function NewCampaignForm({
         onChange={(v) => setTier(v as PackageTier)}
         options={Object.entries(PACKAGES).map(([k, v]) => [k, `${v.label} — ${v.price}`])}
       />
+
       <Inp label="CTA URL" value={ctaUrl} onChange={setCtaUrl} placeholder="https://..." />
       <Inp label="CTA label" value={ctaLabel} onChange={setCtaLabel} />
       <div className="sm:col-span-2 flex justify-end gap-2">

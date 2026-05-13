@@ -298,8 +298,12 @@ function VenuePage() {
 
         {(venue.address || venue.name) && (() => {
           const dest = { name: venue.name, address: venue.address ?? undefined };
-          const apple = buildAppleMapsDirectionsUrl([dest], travelMode);
-          const google = buildGoogleMapsDirectionsUrl([dest], travelMode);
+          const useOrigin = useMyLocation && !!origin;
+          const points = useOrigin
+            ? [{ name: "My location", lat: origin!.lat, lng: origin!.lng }, dest]
+            : [dest];
+          const apple = buildAppleMapsDirectionsUrl(points, travelMode);
+          const google = buildGoogleMapsDirectionsUrl(points, travelMode);
           const modes: { k: TravelMode; label: string; Icon: typeof Car }[] = [
             { k: "driving", label: "Drive", Icon: Car },
             { k: "walking", label: "Walk", Icon: Footprints },

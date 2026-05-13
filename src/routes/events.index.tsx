@@ -130,16 +130,49 @@ function BrowseEvents() {
     navigate({ search: (p: EventsSearch) => ({ ...p, radius: miles }) });
   }
 
-  // Persist last picked location
+  // Restore last picked location + radius on first visit (when URL has none)
   useEffect(() => {
-    if (search.loc && search.loc !== "me") {
-      try {
-        localStorage.setItem("confetti.events.loc", search.loc);
-      } catch {
-        /* ignore */
-      }
+    if (search.loc != null || search.radius != null) return;
+    try {
+      const raw = localStorage.getItem("confetti.events.prefs");
+      if (!raw) return;
+      const saved = JSON.parse(raw) as Partial<EventsSearch>;
+      if (!saved || (saved.loc == null && saved.radius == null)) return;
+      navigate({
+        replace: true,
+        search: (p: EventsSearch) => ({
+          ...p,
+          loc: saved.loc ?? p.loc,
+          lat: saved.lat ?? p.lat,
+          lng: saved.lng ?? p.lng,
+          radius: saved.radius ?? p.radius,
+        }),
+      });
+    } catch {
+      /* ignore */
     }
-  }, [search.loc]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Persist last picked location + radius
+  useEffect(() => {
+    try {
+      const prefs: Partial<EventsSearch> = {};
+      if (search.loc) prefs.loc = search.loc;
+      if (search.loc === "me") {
+        if (search.lat != null) prefs.lat = search.lat;
+        if (search.lng != null) prefs.lng = search.lng;
+      }
+      if (search.radius != null) prefs.radius = search.radius;
+      if (Object.keys(prefs).length === 0) {
+        localStorage.removeItem("confetti.events.prefs");
+      } else {
+        localStorage.setItem("confetti.events.prefs", JSON.stringify(prefs));
+      }
+    } catch {
+      /* ignore */
+    }
+  }, [search.loc, search.lat, search.lng, search.radius]);
 
   return (
     <div className="min-h-screen bg-background">

@@ -21,7 +21,26 @@ export type EventItem = {
   blurb: string;
   organizer: string;
   ticketUrl?: string;
+  lat: number;
+  lng: number;
 };
+
+export const CITIES: { name: string; lat: number; lng: number }[] = [
+  { name: "Brooklyn, NY", lat: 40.6782, lng: -73.9442 },
+  { name: "San Francisco, CA", lat: 37.7749, lng: -122.4194 },
+  { name: "Austin, TX", lat: 30.2672, lng: -97.7431 },
+  { name: "Chicago, IL", lat: 41.8781, lng: -87.6298 },
+  { name: "Boulder, CO", lat: 40.015, lng: -105.2705 },
+  { name: "Los Angeles, CA", lat: 34.0522, lng: -118.2437 },
+];
+
+const CITY_COORDS: Record<string, { lat: number; lng: number }> = Object.fromEntries(
+  CITIES.map((c) => [c.name, { lat: c.lat, lng: c.lng }]),
+);
+
+function coords(city: string) {
+  return CITY_COORDS[city] ?? { lat: 0, lng: 0 };
+}
 
 export const EVENTS: EventItem[] = [
   {

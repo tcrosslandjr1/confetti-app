@@ -120,12 +120,10 @@ function AdvertiserPortal() {
             ) : null}
           </p>
         </div>
-        <button
+        <NewCampaignButton
+          subscription={subscription}
           onClick={() => setShowNew((s) => !s)}
-          className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-bold text-background hover:opacity-90"
-        >
-          <Plus className="h-4 w-4" /> New campaign
-        </button>
+        />
       </header>
 
       {/* Stats */}
@@ -139,9 +137,23 @@ function AdvertiserPortal() {
         <StatCard label="CTR" value={`${ctr}%`} />
       </div>
 
-      {showNew && (
+      {/* Subscription + claims */}
+      <div className="mt-6 grid gap-4 lg:grid-cols-[1.2fr_1fr]">
+        <SubscriptionPanel
+          advertiserId={advertiser.id}
+          onChange={(s) => setSubscription(s)}
+        />
+        <ClaimVenuePanel
+          advertiserId={advertiser.id}
+          subscriptionTier={subscription?.tier ?? "starter"}
+          contactEmail={advertiser.contact_email}
+        />
+      </div>
+
+      {showNew && subscription?.status === "active" && (
         <NewCampaignForm
           advertiserId={advertiser.id}
+          allowedPlacements={placementsForTier(subscription.tier)}
           onCreated={(c) => {
             setCampaigns((prev) => [c, ...prev]);
             setShowNew(false);
@@ -150,6 +162,7 @@ function AdvertiserPortal() {
           onCancel={() => setShowNew(false)}
         />
       )}
+
 
       {/* Campaigns list */}
       <section className="mt-8 space-y-3">

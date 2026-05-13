@@ -105,7 +105,7 @@ export function xpToNextLevel(xp: number) {
   return { current: xp - (level - 1) * 500, needed: 500, level, next };
 }
 export function rankName(level: number) {
-  if (level >= 30) return "DMV Legend";
+  if (level >= 30) return "City Legend";
   if (level >= 20) return "City Insider";
   if (level >= 10) return "Local Pro";
   if (level >= 5) return "Explorer";

@@ -20,7 +20,10 @@ type ViralVenue = {
   google_place_id: string | null;
 };
 
-export function ViralNow({ city = "Washington DC", limit = 8 }: { city?: string; limit?: number }) {
+export function ViralNow({ city, limit = 8 }: { city?: string; limit?: number }) {
+  const resolvedCity = city ?? (typeof window !== "undefined"
+    ? (require("@/lib/cities").getSelectedCity()?.name ?? "Washington DC")
+    : "Washington DC");
   const [venues, setVenues] = useState<ViralVenue[] | null>(null);
 
   useEffect(() => {

@@ -159,30 +159,41 @@ function ConfirmationPage() {
             <Stat label="Party" value={String(loop.groupSize)} />
           </div>
 
-          {loop.booking && (
-            <ul className="mt-4 space-y-1.5">
-              {loop.stops.map((s, i) => {
-                const ref = loop.booking!.stops[s.id];
-                return (
-                  <li
-                    key={s.id}
-                    className="flex items-center justify-between gap-2 rounded-lg border border-ink/15 bg-background px-2.5 py-1.5 text-xs"
-                  >
+          <ul className="mt-4 space-y-2">
+            {loop.stops.map((s, i) => {
+              const ref = loop.booking?.stops[s.id];
+              const prev = i > 0 ? loop.stops[i - 1] : undefined;
+              return (
+                <li key={s.id} className="space-y-2">
+                  {prev && (
+                    <TravelLeg
+                      from={{ lat: prev.lat, lng: prev.lng, name: prev.name }}
+                      to={{ lat: s.lat, lng: s.lng, name: s.name }}
+                      city={loop.city}
+                      groupSize={loop.groupSize}
+                    />
+                  )}
+                  <div className="flex items-center justify-between gap-2 rounded-lg border border-ink/15 bg-background px-2.5 py-1.5 text-xs">
                     <span className="flex items-center gap-2 truncate">
                       <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full border-2 border-ink bg-cream font-mono text-[9px] font-bold">
                         {i + 1}
                       </span>
                       <span className="truncate font-semibold">{s.name}</span>
+                      {s.area && (
+                        <span className="hidden truncate font-mono text-[10px] text-ink/50 sm:inline">
+                          · {s.area}
+                        </span>
+                      )}
                     </span>
-                    <span className="font-mono text-[10px] text-ink/70">
-                      {ref ?? "—"}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
+                    <span className="font-mono text-[10px] text-ink/70">{ref ?? s.time}</span>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
+
+        <ChangeMyNight />
 
         <div className="mt-4 grid gap-2 sm:grid-cols-2">
           <button

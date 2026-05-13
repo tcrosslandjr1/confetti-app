@@ -67,13 +67,15 @@ export function CitySelector({ compact = false, className = "" }: Props) {
         maximumAge: 60_000,
       });
       if (!result.ok) {
-        toast.error("Couldn't read your location", {
-          description: result.message,
-          duration: 6000,
-        });
+        setLocError((prev) => ({
+          error: result.error,
+          message: result.message,
+          attempts: (prev?.attempts ?? 0) + 1,
+        }));
         return;
       }
       const loc = result.location;
+      setLocError(null);
       // Snap to the nearest city in our registry.
       const nearest = CITIES.reduce((best, c) => {
         const d = Math.hypot(c.lat - loc.lat, c.lng - loc.lng);
@@ -90,6 +92,7 @@ export function CitySelector({ compact = false, className = "" }: Props) {
   function clear() {
     setSelectedCity(null);
     clearStoredLocation();
+    setLocError(null);
     setOpen(false);
     toast.message("Cleared city. Defaulting to Washington DC.");
   }

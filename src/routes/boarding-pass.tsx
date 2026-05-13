@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, Play, Share2, Check } from "lucide-react";
+import { ArrowLeft, Play, Share2, Check, Mail } from "lucide-react";
 import { toast } from "sonner";
 import {
   BoardingPassV2,
@@ -127,24 +127,38 @@ function BoardingPassPage() {
   // Fall back to the static demo only when no plan exists yet.
   const passData = data ?? sampleMothersDayData;
 
-  const handleShare = async () => {
+  const buildShareContent = () => {
     const url = typeof window !== "undefined" ? window.location.href : "";
-    const title = `${passData.occasionLabel} — Confetti`;
+    const subject = `${passData.occasionEmoji} ${passData.occasionLabel} — Confetti itinerary`;
     const stopsText = passData.stops
-      .map((s, i) => `${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}`)
-      .join("\n");
-    const text = `${passData.occasionEmoji} ${passData.occasionLabel}${
+      .map((s, i) => {
+        const tags = s.tags?.length ? ` (${s.tags.slice(0, 2).join(", ")})` : "";
+        const detail = s.detail ? `\n   ${s.detail}` : "";
+        return `${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}${tags}${detail}`;
+      })
+      .join("\n\n");
+    const header = `${passData.occasionEmoji} ${passData.occasionLabel}${
       passData.date ? ` · ${passData.date}` : ""
-    }\n${passData.origin.name} → ${passData.destination.name}\n\n${stopsText}\n\nBuilt with Confetti`;
+    }`;
+    const body =
+      `${header}\n${passData.origin.name} → ${passData.destination.name}\n` +
+      `${passData.passengers}\n\n` +
+      `Itinerary:\n${stopsText}\n\n` +
+      (url ? `View the full boarding pass:\n${url}\n\n` : "") +
+      `Built with Confetti — confettiplan.lovable.app`;
+    return { subject, body, url };
+  };
 
+  const handleShare = async () => {
+    const { subject, body, url } = buildShareContent();
     try {
       const nav = typeof navigator !== "undefined" ? navigator : undefined;
       if (nav && typeof nav.share === "function") {
-        await nav.share({ title, text, url });
+        await nav.share({ title: subject, text: body, url });
         return;
       }
       if (nav?.clipboard?.writeText) {
-        await nav.clipboard.writeText(`${text}\n${url}`);
+        await nav.clipboard.writeText(`${body}`);
         setShared(true);
         toast.success("Itinerary copied — paste it to your friends");
         setTimeout(() => setShared(false), 2200);
@@ -154,6 +168,14 @@ function BoardingPassPage() {
     } catch (err) {
       if ((err as { name?: string })?.name === "AbortError") return;
       toast.error("Couldn't share — try again");
+    }
+  };
+
+  const handleEmailShare = () => {
+    const { subject, body } = buildShareContent();
+    const mailto = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (typeof window !== "undefined") {
+      window.location.href = mailto;
     }
   };
 
@@ -191,13 +213,21 @@ function BoardingPassPage() {
       </div>
       <div className="mt-6 px-4">
         <BoardingPassV2 data={passData} />
-        <div className="mx-auto mt-5 grid max-w-md gap-3 sm:grid-cols-[1fr_auto]">
+        <div className="mx-auto mt-5 grid max-w-md gap-3 sm:grid-cols-[1fr_auto_auto]">
           <Link
             to="/active-loop"
             className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-4 py-3 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut transition-pop hover:-translate-y-0.5"
           >
             <Play className="h-4 w-4" /> Start the Plan
           </Link>
+          <button
+            type="button"
+            onClick={handleEmailShare}
+            aria-label="Share itinerary by email"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 font-display text-sm font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold sm:w-auto"
+          >
+            <Mail className="h-4 w-4" /> Email
+          </button>
           <button
             type="button"
             onClick={handleShare}

@@ -163,27 +163,45 @@ export const generatePlan = createServerFn({ method: "POST" })
     const system = [
       "You are Confetti's multi-agent Itinerary Concierge. You execute SEVEN agents in a single response, in order, and return one structured plan.",
       "",
-      "[1] CITY CONTEXT AGENT — Honor only the supplied city tags, allowed activities, and signature neighborhoods. Never invent venues that don't fit the city's real environment (no harbor stops in landlocked cities, no casinos outside gaming towns, etc.).",
-      "[2] OCCASION TEMPLATE AGENT — Follow the provided blueprint flow exactly (pregame → main → after, plus optional bonus). Respect noise/chaos/accessibility constraints. Never recommend chaotic venues for sensitive occasions (in-laws, corporate, family).",
-      "[3] TASTE LEARNING AGENT — Treat the Taste Graph as authoritative user preference. Match preferred vibes, music, neighborhoods, price, and energy. Skip anything in the user's avoid list. Only use nightlife-relevant signals; ignore sensitive personal attributes.",
-      "[4] VENUE MATCHING AGENT — Pick exactly one venue per template slot from the candidate list. Each venue must (a) match the slot's vibe and category hint, (b) be open at the recommended time, (c) clear the rating threshold, (d) fit the budget, (e) avoid duplicate categories across stops.",
-      "[5] IMPROMPTU IDEAS AGENT — Add ONE optional bonus move that is realistic, city-specific, and on-vibe (sunset pier walk in Seattle, quick blackjack in Vegas, rooftop photo moment in NYC, beachfront cocktail in Miami). Set bonus to null if nothing genuinely enhances the night.",
-      "[6] QUALITY GUARDRAIL AGENT — Before finalizing, validate every stop: rating ≥ 4.0, no closed/inconsistent hours, no safety concerns, on-budget, no bad-flow distance jumps, no forbidden categories. If any candidate fails, swap to a better one and note it in guardrailNote.",
-      "[7] NAMING AGENT — Produce a premium, clever, on-brand themed name (e.g. 'Pier Pressure & Prosecco', 'Dice & Dazzle on the Strip', 'Boardroom to Barstools'). Plus a single confident tagline. Never cringe, never generic.",
+      "[1] CITY CONTEXT AGENT — Honor only the supplied city tags, allowed activities, neighborhoods, and environment features. Never invent venues that don't fit the city's real environment (no harbor stops in landlocked cities, no casinos outside gaming towns, no beach bars in Chicago, etc.).",
+      "[2] OCCASION TEMPLATE AGENT — Follow the provided blueprint flow exactly (pre-game → main → after, plus optional bonus). Respect noise/chaos/accessibility constraints. Never recommend chaotic venues for sensitive occasions (in-laws, corporate, family).",
+      "[3] TASTE LEARNING AGENT — Treat the Taste Graph as authoritative user preference. Use only nightlife-relevant signals (likes, check-ins, follows, music/food/neighborhood). Never infer political, demographic, or sensitive attributes. Skip anything in the user's avoid list.",
+      "[4] VENUE MATCHING AGENT — Pick exactly one venue per template slot from the candidate list. Each pick must (a) match the slot's category hint and vibe, (b) be open at the recommended time, (c) honor the budget tier, (d) avoid duplicate categories across stops, (e) prefer venues in the city's signature neighborhoods.",
+      "[5] IMPROMPTU IDEAS AGENT — Add ONE optional bonus move from the supplied city pool (or invent one only if it clearly fits the city's allowed activities). Must be ≤5 minute walk from a stop, on-vibe, open, safe, and either scenic or fun. Set bonus to null if nothing genuinely enhances the night.",
+      "",
+      "[6] QUALITY GUARDRAIL POLICY — Before finalizing, validate every stop against HARD RULES:",
+      "    • rating ≥ 4.0",
+      "    • venue is open at the recommended time (no closed/inconsistent hours)",
+      "    • travel time between consecutive stops ≤ this city's max (see Transport)",
+      "    • price within the user's budget ceiling",
+      "    • no safety complaints, no occasion mismatch, no city-context violation",
+      "    SOFT RULES (prefer when available): good lighting (girls' night), quiet ambiance (in-laws), group seating (corporate), scenic views (date night).",
+      "    AUTO-REPLACE: if any candidate fails a hard rule, swap to the next best match in the candidate list and note the swap in guardrailNote. Only finalize when every stop passes.",
+      "",
+      "[7] NAMING STYLE GUIDE — Pattern: [City Element] + [Vibe Element] + [Twist]. Examples: 'Harbor Lights & Late Bites', 'Dice & Dazzle on the Strip', 'Pier Pressure & Prosecco', 'Boardroom to Barstools', 'Salsa, Skylines & Secrets'. Must be clever, readable, on-brand for the city + occasion. Never cringe, never generic, never reuse the same pattern twice in a row. Plus a single confident one-line tagline.",
       "",
       "If the candidate list is empty, you may invent realistic on-vibe places that match the city's allowed activities — mark them with venueId='invent:<short-slug>' so the app knows they aren't in our DB.",
-      "Be specific. Match city + occasion + vibe + budget + taste. Refuse forbidden categories.",
     ].join("\n");
 
     const tasteBlock = req.tasteSummary?.trim()
-      ? `# Taste Graph (Taste Learning Agent)\n${req.tasteSummary.trim()}\n\n`
+      ? `# Taste Graph (Taste Learning Agent — nightlife-relevant signals only)\n${req.tasteSummary.trim()}\n\n`
       : "";
+
+    const neighborhoodBlock = cityCtx.neighborhoods
+      .map((n) => `  • ${n.name} — ${n.vibe}`)
+      .join("\n");
 
     const prompt = `# Plan request
 
-City: ${cityCtx.label} (tags: ${cityCtx.tags.join(", ")})
+# City Knowledge Pack — ${cityCtx.label}
+Tags: ${cityCtx.tags.join(", ")}
+Environment features: ${cityCtx.environmentFeatures.join(", ")}
+Signature experiences: ${cityCtx.signatureExperiences.join(", ")}
 Allowed activities: ${cityCtx.allowedActivities.join(", ")}
-${cityCtx.avoid?.length ? `Avoid: ${cityCtx.avoid.join(", ")}\n` : ""}Signature neighborhoods: ${(cityCtx.signatureNeighborhoods ?? []).join(", ") || "any"}
+${cityCtx.avoid?.length ? `Forbidden in this city: ${cityCtx.avoid.join(", ")}\n` : ""}Neighborhoods:
+${neighborhoodBlock}
+Price norms: $ = ${cityCtx.priceNorms.$} | $$ = ${cityCtx.priceNorms.$$} | $$$ = ${cityCtx.priceNorms.$$$}
+Transport: max ${cityCtx.transport.maxTravelMinutes} min between stops${cityCtx.transport.avoidCrossCity ? "; avoid cross-city jumps" : ""}.
 
 Occasion: ${occasion}
 Vibe: ${vibe}
@@ -203,12 +221,15 @@ ${template.structure.map((s, i) => `${i + 1}. ${s.slot} — ${s.description} (ca
 # Candidate venues (Quality Guardrail pre-filtered: rating>=4.0, not blocked, forbidden categories removed)
 ${candidateBlock}
 
+# Bonus-move pool (Impromptu Ideas Agent — pick one or null)
+${impromptuPoolPrompt(cityCtx.slug, req.occasionId)}
+
 # Your task
 Run all seven agents and return the structured plan.
 Each stop's rationale must tie the pick to the occasion, vibe, city, OR taste graph in one sentence.
-Estimate per-person spend as a "$X–$Y" range honoring the budget ceiling.
+Estimate per-person spend as a "$X–$Y" range honoring the budget ceiling and this city's price norms.
 Return fitScore reflecting how well the picks match (0.85+ if every stop fits the slot's category hint AND the city's allowed activities AND the taste graph; lower it if you had to stretch).
-Use guardrailNote to flag any compromise (e.g. "swapped club for lounge — no in-laws-safe club found").
+Use guardrailNote to flag any compromise (e.g. "swapped club for lounge — no in-laws-safe club found", "stretched travel to 14m — best Wharf option").
 Name pattern hints: ${template.namePatterns.join(" | ")}.`;
 
     const { experimental_output: output } = await generateText({

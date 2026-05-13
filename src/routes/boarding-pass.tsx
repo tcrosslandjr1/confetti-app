@@ -155,19 +155,32 @@ function BoardingPassPage() {
       const nav = typeof navigator !== "undefined" ? navigator : undefined;
       if (nav && typeof nav.share === "function") {
         await nav.share({ title: subject, text: body, url });
+        setShared(true);
+        toast.success("Shared!", {
+          description: "Your itinerary is on its way.",
+          duration: 3500,
+          position: "bottom-center",
+        });
+        setTimeout(() => setShared(false), 2200);
         return;
       }
       if (nav?.clipboard?.writeText) {
         await nav.clipboard.writeText(`${body}`);
         setShared(true);
-        toast.success("Itinerary copied — paste it to your friends");
+        toast.success("Copied to clipboard", {
+          description: "Paste it into any chat or email.",
+          duration: 3500,
+          position: "bottom-center",
+        });
         setTimeout(() => setShared(false), 2200);
         return;
       }
-      toast.message("Sharing isn't supported on this device");
+      toast.message("Sharing isn't supported on this device", {
+        position: "bottom-center",
+      });
     } catch (err) {
       if ((err as { name?: string })?.name === "AbortError") return;
-      toast.error("Couldn't share — try again");
+      toast.error("Couldn't share — try again", { position: "bottom-center" });
     }
   };
 
@@ -176,6 +189,11 @@ function BoardingPassPage() {
     const mailto = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     if (typeof window !== "undefined") {
       window.location.href = mailto;
+      toast.success("Email draft opened", {
+        description: "Check your mail app to send it.",
+        duration: 3500,
+        position: "bottom-center",
+      });
     }
   };
 

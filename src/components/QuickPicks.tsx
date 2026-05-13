@@ -243,72 +243,7 @@ export function QuickPicks() {
         <div className="mt-12 -mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 sm:-mx-6 sm:px-6 [scrollbar-width:thin]">
           {PICKS.map((p, i) => (
             <Reveal key={p.title} delay={i * 70} variant="scale" className="snap-start">
-              <article
-                className={`group relative flex w-[300px] shrink-0 flex-col rounded-3xl border-2 border-ink ${p.bg} p-5 shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg sm:w-[340px]`}
-              >
-                <span
-                  className={`inline-flex w-fit items-center rounded-full border-2 border-ink ${p.vibeTone} px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest`}
-                >
-                  {p.vibe}
-                </span>
-                <h3 className="mt-4 font-display text-3xl font-extrabold leading-[0.95]">
-                  {p.title}
-                </h3>
-
-                {isCurated ? (
-                  <ol className="mt-5 space-y-2 border-t-2 border-dashed border-ink/30 pt-4">
-                    {p.stops.map((s, idx) => (
-                      <li key={s.time} className="flex items-center gap-3">
-                        <span className="grid h-7 w-12 shrink-0 place-items-center rounded-md border-2 border-ink bg-cream/90 font-mono text-[10px] font-bold">
-                          {s.time}
-                        </span>
-                        <span className="min-w-0 flex-1 truncate font-display text-base font-bold">
-                          {s.venue}
-                        </span>
-                        <span className="font-mono text-[10px] font-bold text-ink/40">
-                          0{idx + 1}
-                        </span>
-                      </li>
-                    ))}
-                  </ol>
-                ) : (
-                  <div className="mt-5 flex flex-1 flex-col justify-between gap-3 border-t-2 border-dashed border-ink/30 pt-4">
-                    <p className="font-mono text-[11px] leading-relaxed text-ink/70">
-                      We'll pull 3 real venues in{" "}
-                      <span className="font-bold text-ink">{city.name}</span> that match this
-                      vibe — based on live ratings &amp; hours.
-                    </p>
-                    <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-ink/60">
-                      <MapPin className="h-3 w-3 text-coral" /> {city.region}
-                    </div>
-                  </div>
-                )}
-
-                <div className="mt-5 flex items-center justify-between border-t-2 border-dashed border-ink/30 pt-3 font-mono text-[11px] uppercase tracking-widest text-ink/70">
-                  <span className="inline-flex items-center gap-1.5">
-                    <Clock className="h-3.5 w-3.5" /> {p.duration}
-                  </span>
-                  <span>{p.cost}</span>
-                </div>
-
-                <WizardButton
-                  ariaLabel={`Steal ${p.title}`}
-                  preset={{
-                    title: p.title,
-                    vibeKeys: p.vibeKeys,
-                    vibeLabel: p.vibe,
-                    budgetLabel: p.cost,
-                    crewLabel: p.duration,
-                    // Curated venues only apply when the user is browsing DC.
-                    // Otherwise let the wizard generate live picks for the chosen city.
-                    stops: isCurated ? p.stops : undefined,
-                  }}
-                  className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
-                >
-                  {isCurated ? "Use this plan" : `Build for ${city.name}`}{" "}
-                  <ArrowUpRight className="h-4 w-4" />
-                </WizardButton>
-              </article>
+              <PickCard pick={p} isCurated={isCurated} city={city} />
             </Reveal>
           ))}
         </div>

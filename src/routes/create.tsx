@@ -133,6 +133,7 @@ function CreatePage() {
           startTime: time,
           duration,
           tasteSummary: tasteSummaryStr,
+          currentMood: currentMood ?? undefined,
         },
       });
       const loop: ActiveLoop = {

@@ -203,7 +203,15 @@ Allowed activities: ${cityCtx.allowedActivities.join(", ")}
 ${cityCtx.avoid?.length ? `Forbidden in this city: ${cityCtx.avoid.join(", ")}\n` : ""}Neighborhoods:
 ${neighborhoodBlock}
 Price norms: $ = ${cityCtx.priceNorms.$} | $$ = ${cityCtx.priceNorms.$$} | $$$ = ${cityCtx.priceNorms.$$$}
-Transport: max ${cityCtx.transport.maxTravelMinutes} min between stops${cityCtx.transport.avoidCrossCity ? "; avoid cross-city jumps" : ""}.
+Transport: max ${cityCtx.transport.maxTravelMinutes} min between stops${cityCtx.transport.avoidCrossCity ? "; avoid cross-city jumps" : ""}.${
+  cityCtx.travel
+    ? `
+Travel intel — walkability=${cityCtx.travel.travelModes.walkability}, uber=${cityCtx.travel.travelModes.uberAvailability}, transit=${cityCtx.travel.travelModes.publicTransitQuality}, parking=${cityCtx.travel.travelModes.parkingDifficulty}, EV=${cityCtx.travel.travelModes.evFriendly}.
+Travel recs — short hops: ${cityCtx.travel.travelRecommendations.shortHops}; cross-neighborhood: ${cityCtx.travel.travelRecommendations.crossNeighborhood}; groups: ${cityCtx.travel.travelRecommendations.groups}; late-night: ${cityCtx.travel.travelRecommendations.lateNight}.
+Stop choices must respect this travel intel: prefer walkable clusters when walkability is high; if walkability is low, keep stops close to cut rideshare hops; avoid stops that require parking in high-difficulty zones late-night unless rideshare is implied.`
+    : ""
+}
+${req.tweakDirective ? `\n# Live Reroute directive (override default vibe to honor this):\n"${req.tweakDirective}"\nKeep the city, occasion, and group fixed; re-pick stops + naming + bonus to satisfy the directive.\n` : ""}
 
 Occasion: ${occasion}
 Vibe: ${vibe}

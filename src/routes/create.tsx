@@ -60,6 +60,7 @@ function CreatePage() {
   const [vibe, setVibe] = useState<(typeof MOODS)[number] | null>(null);
   const [city, setCity] = useState(CITIES[0].label);
   const [generating, setGenerating] = useState(false);
+  const [quickEdit, setQuickEdit] = useState<null | "g" | "o" | "w" | "v">(null);
 
   const totalSteps = 4;
   const canNext = [group, occasion, true, vibe][step];

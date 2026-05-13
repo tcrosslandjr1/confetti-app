@@ -10,6 +10,7 @@ import { MOODS } from "@/lib/concierge-data";
 import { CITIES } from "@/lib/agents/city-context";
 import { generatePlan } from "@/lib/generate-plan.functions";
 import { toast } from "sonner";
+import { ForecastForDate } from "@/components/ForecastForDate";
 
 export const Route = createFileRoute("/create")({
   head: () => ({ meta: [{ title: "Create a Plan — Confetti" }] }),
@@ -381,6 +382,9 @@ function CreatePage() {
                   })}
                 </div>
               </div>
+
+              {/* Weather forecast for selected date + city */}
+              <ForecastForDate city={city} date={date} />
             </div>
           )}
 
@@ -438,6 +442,9 @@ function CreatePage() {
                 <span>{vibe.emoji} <span className="font-bold">{vibe.label}</span> — {vibe.blurb}</span>
               </li>
             </ul>
+            <div className="mt-3">
+              <ForecastForDate city={city} date={date} variant="inline" />
+            </div>
           </div>
         )}
       </div>

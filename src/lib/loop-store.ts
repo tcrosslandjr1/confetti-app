@@ -20,6 +20,10 @@ export type LoopStop = {
   /** Optional pre-resolved coordinates — skips geocoding lookup. */
   lat?: number;
   lng?: number;
+  /** "Why this pick" rationale from the Itinerary Agent. */
+  rationale?: string;
+  /** Template slot the stop fills (e.g. "Pre-game", "Main"). */
+  slot?: string;
   // Rich boarding-pass extras (all optional for back-compat)
   kind?: StopKind;
   emoji?: string;

@@ -68,11 +68,55 @@ function writeFeedback(map: Record<string, FeedbackVote>) {
 
 export function WhyThisPick({ signals, rationale, className = "", compact = false, pickId, context }: Props) {
   const trimmed = signals.filter(Boolean).slice(0, 3);
+  const signalKinds = trimmed.map((s) => s.kind);
   const [vote, setVote] = useState<FeedbackVote | null>(null);
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const impressionFired = useRef(false);
 
   useEffect(() => {
     if (!pickId) return;
     setVote(readFeedback()[pickId] ?? null);
+  }, [pickId]);
+
+  // Impression tracking: fire once when the card scrolls into view.
+  useEffect(() => {
+    if (!pickId || trimmed.length === 0) return;
+    const node = rootRef.current;
+    if (!node || typeof IntersectionObserver === "undefined") return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting && !impressionFired.current) {
+            impressionFired.current = true;
+            trackPickEvent("pick_impression", { pickId, context, signals: signalKinds });
+            obs.disconnect();
+            break;
+          }
+        }
+      },
+      { threshold: 0.5 },
+    );
+    obs.observe(node);
+    return () => obs.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pickId]);
+
+  // Click tracking: listen on the closest interactive ancestor (link/button/article).
+  useEffect(() => {
+    if (!pickId || trimmed.length === 0) return;
+    const node = rootRef.current;
+    if (!node) return;
+    const target = (node.closest("a, button, article, [data-pick-trackable]") as HTMLElement | null) ?? node.parentElement;
+    if (!target) return;
+    const onClick = (ev: Event) => {
+      // Ignore clicks that originated from the feedback buttons themselves.
+      const path = ev.composedPath?.() ?? [];
+      if (path.some((n) => n instanceof HTMLElement && n.dataset?.pickFeedback === "1")) return;
+      trackPickEvent("pick_click", { pickId, context, signals: signalKinds });
+    };
+    target.addEventListener("click", onClick);
+    return () => target.removeEventListener("click", onClick);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pickId]);
 
   if (trimmed.length === 0 && !rationale) return null;
@@ -87,12 +131,17 @@ export function WhyThisPick({ signals, rationale, className = "", compact = fals
       current[pickId] = next;
       setVote(next);
       toast.success(next === "up" ? "Thanks — we'll show more like this." : "Got it — we'll tune this down.");
+      trackPickEvent(next === "up" ? "pick_feedback_up" : "pick_feedback_down", {
+        pickId,
+        context,
+        signals: signalKinds,
+      });
     }
     writeFeedback(current);
     if (typeof window !== "undefined") {
       window.dispatchEvent(
         new CustomEvent("confetti:pick-feedback", {
-          detail: { pickId, vote: current[pickId] ?? null, context, signals: trimmed.map((s) => s.kind) },
+          detail: { pickId, vote: current[pickId] ?? null, context, signals: signalKinds },
         }),
       );
     }
@@ -100,6 +149,7 @@ export function WhyThisPick({ signals, rationale, className = "", compact = fals
 
   return (
     <div
+      ref={rootRef}
       className={`rounded-xl border border-dashed border-ink/20 bg-background/60 px-2.5 py-2 ${className}`}
       aria-label="Why this pick"
     >

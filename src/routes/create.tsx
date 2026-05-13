@@ -41,14 +41,6 @@ const OCCASIONS = [
 ];
 
 const DURATIONS = ["2 hr", "3 hr", "4 hr", "All night"];
-const VIBES = [
-  { id: "chill", label: "Chill", emoji: "🌿" },
-  { id: "upscale", label: "Upscale", emoji: "🥂" },
-  { id: "wild", label: "Wild", emoji: "🔥" },
-  { id: "adventurous", label: "Adventurous", emoji: "🧗" },
-  { id: "romantic", label: "Romantic", emoji: "🌹" },
-  { id: "cultural", label: "Cultural", emoji: "🎭" },
-];
 
 function CreatePage() {
   const navigate = useNavigate();

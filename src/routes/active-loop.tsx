@@ -17,6 +17,8 @@ import { DirectionsPanel } from "@/components/loop/DirectionsPanel";
 import { StopSearchBox } from "@/components/loop/StopSearchBox";
 import { PlanEditFab } from "@/components/loop/PlanEditFab";
 import { ActivityFeed } from "@/components/activity/ActivityFeed";
+import { NightModeWarnings } from "@/components/NightModeWarnings";
+import { computeNightWarnings, indexWarnings, topSeverity } from "@/lib/night-warnings";
 import { logActivity } from "@/lib/activity-log";
 import { toast } from "sonner";
 

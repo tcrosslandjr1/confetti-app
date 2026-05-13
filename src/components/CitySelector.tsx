@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Check, ChevronDown, MapPin, Navigation } from "lucide-react";
+import { AlertTriangle, Check, ChevronDown, ExternalLink, MapPin, Navigation, RefreshCw } from "lucide-react";
 import {
   CITIES,
   DEFAULT_CITY,
@@ -8,8 +8,14 @@ import {
   subscribeSelectedCity,
   type City,
 } from "@/lib/cities";
-import { requestUserLocationDetailed, clearStoredLocation } from "@/lib/location";
+import {
+  requestUserLocationDetailed,
+  clearStoredLocation,
+  type LocationError,
+} from "@/lib/location";
 import { toast } from "sonner";
+
+type LocError = { error: LocationError; message: string; attempts: number };
 
 type Props = {
   /** Tighter visual style for use in dense headers. */
@@ -22,6 +28,7 @@ export function CitySelector({ compact = false, className = "" }: Props) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [locating, setLocating] = useState(false);
+  const [locError, setLocError] = useState<LocError | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -60,13 +67,15 @@ export function CitySelector({ compact = false, className = "" }: Props) {
         maximumAge: 60_000,
       });
       if (!result.ok) {
-        toast.error("Couldn't read your location", {
-          description: result.message,
-          duration: 6000,
-        });
+        setLocError((prev) => ({
+          error: result.error,
+          message: result.message,
+          attempts: (prev?.attempts ?? 0) + 1,
+        }));
         return;
       }
       const loc = result.location;
+      setLocError(null);
       // Snap to the nearest city in our registry.
       const nearest = CITIES.reduce((best, c) => {
         const d = Math.hypot(c.lat - loc.lat, c.lng - loc.lng);
@@ -83,6 +92,7 @@ export function CitySelector({ compact = false, className = "" }: Props) {
   function clear() {
     setSelectedCity(null);
     clearStoredLocation();
+    setLocError(null);
     setOpen(false);
     toast.message("Cleared city. Defaulting to Washington DC.");
   }
@@ -141,8 +151,70 @@ export function CitySelector({ compact = false, className = "" }: Props) {
             className="flex w-full items-center gap-2 border-b-2 border-dashed border-ink/30 px-4 py-2.5 text-left font-mono text-[11px] font-bold uppercase tracking-widest text-ink hover:bg-coral/10 disabled:opacity-50"
           >
             <Navigation className={`h-3.5 w-3.5 text-coral ${locating ? "animate-spin" : ""}`} />
-            {locating ? "Finding nearest city…" : "Use my location"}
+            {locating
+              ? "Finding nearest city…"
+              : locError
+                ? "Try location again"
+                : "Use my location"}
           </button>
+
+          {locError && !locating && (
+            <div className="border-b-2 border-dashed border-ink/30 bg-coral/10 px-4 py-3">
+              <div className="flex items-start gap-2">
+                <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-coral" aria-hidden />
+                <div className="min-w-0 flex-1">
+                  <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink">
+                    {locError.error === "permission_denied"
+                      ? "Permission blocked"
+                      : locError.error === "iframe_blocked"
+                        ? "Blocked in preview"
+                        : locError.error === "timeout"
+                          ? "Took too long"
+                          : locError.error === "unsupported"
+                            ? "Not supported"
+                            : "Location unavailable"}
+                    {locError.attempts > 1 && (
+                      <span className="ml-1 text-ink/50">· tried {locError.attempts}×</span>
+                    )}
+                  </p>
+                  <p className="mt-1 font-mono text-[11px] leading-snug text-ink/70">
+                    {locError.message}
+                  </p>
+                  <div className="mt-2 flex flex-wrap items-center gap-2">
+                    {locError.error !== "unsupported" && (
+                      <button
+                        type="button"
+                        onClick={useMyLocation}
+                        className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-coral hover:text-cream"
+                      >
+                        <RefreshCw className="h-3 w-3" aria-hidden /> Retry
+                      </button>
+                    )}
+                    {locError.error === "iframe_blocked" && typeof window !== "undefined" && (
+                      <a
+                        href={window.location.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-coral hover:text-cream"
+                      >
+                        <ExternalLink className="h-3 w-3" aria-hidden /> Open in new tab
+                      </a>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => setLocError(null)}
+                      className="font-mono text-[10px] uppercase tracking-widest text-ink/50 hover:text-ink"
+                    >
+                      Dismiss
+                    </button>
+                  </div>
+                  <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                    Or pick a city below ↓
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
 
           <ul className="max-h-72 overflow-y-auto">
             {filtered.map((c) => {

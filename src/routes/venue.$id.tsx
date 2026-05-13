@@ -416,6 +416,11 @@ function VenuePage() {
                   <Navigation className="h-4 w-4" /> Google Maps
                 </a>
               </div>
+              {!hasAddress && (
+                <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+                  No address on file — opening a name search in Maps
+                </p>
+              )}
             </div>
           );
         })()}

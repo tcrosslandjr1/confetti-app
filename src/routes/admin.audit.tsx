@@ -243,6 +243,7 @@ function AdminAuditPage() {
 
       <PlacesMatchAuditSection />
       <AccessDenialsSection />
+      <SecurityTraceSection />
     </div>
   );
 }

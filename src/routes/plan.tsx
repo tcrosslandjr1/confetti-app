@@ -22,7 +22,7 @@ export const Route = createFileRoute("/plan")({
 });
 
 function PlanPage() {
-  const { user, loading } = useAuth();
+  const { user, loading, viewAs } = useAuth();
   const nav = useNavigate();
   const [occasionSlugs, setOccasionSlugs] = useState<string[]>([OCCASIONS[0].slug]);
   const [customVibe, setCustomVibe] = useState("");

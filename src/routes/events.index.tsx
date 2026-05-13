@@ -1,12 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { LocateFixed, MapPin, Search } from "lucide-react";
+import { toast } from "sonner";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EventCard } from "@/components/EventCard";
-import { CATEGORIES, EVENTS, type EventCategory } from "@/lib/events";
+import {
+  CATEGORIES,
+  CITIES,
+  EVENTS,
+  distanceMiles,
+  type EventCategory,
+} from "@/lib/events";
 
-type EventsSearch = { cat?: EventCategory; q?: string };
+type EventsSearch = {
+  cat?: EventCategory;
+  q?: string;
+  loc?: string; // city name or "me"
+  lat?: number;
+  lng?: number;
+  radius?: number; // miles
+};
 
 export const Route = createFileRoute("/events/")({
   head: () => ({
@@ -14,7 +28,8 @@ export const Route = createFileRoute("/events/")({
       { title: "Browse events — Confetti" },
       {
         name: "description",
-        content: "Search and filter events by category, city, and date. Find your next night out.",
+        content:
+          "Search and filter events by category, neighborhood, and distance. Find your next night out near you.",
       },
       { property: "og:title", content: "Browse events — Confetti" },
       {
@@ -29,6 +44,10 @@ export const Route = createFileRoute("/events/")({
         ? (s.cat as EventCategory)
         : undefined,
     q: typeof s.q === "string" ? s.q : undefined,
+    loc: typeof s.loc === "string" ? s.loc : undefined,
+    lat: typeof s.lat === "number" ? s.lat : undefined,
+    lng: typeof s.lng === "number" ? s.lng : undefined,
+    radius: typeof s.radius === "number" ? s.radius : undefined,
   }),
   component: BrowseEvents,
 });
@@ -37,19 +56,90 @@ function BrowseEvents() {
   const search = Route.useSearch();
   const navigate = Route.useNavigate();
   const [query, setQuery] = useState(search.q ?? "");
+  const [locating, setLocating] = useState(false);
+
+  const radius = search.radius ?? 50;
+
+  const origin = useMemo(() => {
+    if (search.loc === "me" && search.lat != null && search.lng != null) {
+      return { lat: search.lat, lng: search.lng, label: "your location" };
+    }
+    const city = CITIES.find((c) => c.name === search.loc);
+    if (city) return { lat: city.lat, lng: city.lng, label: city.name };
+    return null;
+  }, [search.loc, search.lat, search.lng]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return EVENTS.filter((e) => {
-      if (search.cat && e.category !== search.cat) return false;
-      if (!q) return true;
-      return (
-        e.title.toLowerCase().includes(q) ||
-        e.city.toLowerCase().includes(q) ||
-        e.venue.toLowerCase().includes(q)
-      );
+    return EVENTS.map((e) => ({
+      e,
+      dist: origin ? distanceMiles(origin, { lat: e.lat, lng: e.lng }) : null,
+    }))
+      .filter(({ e, dist }) => {
+        if (search.cat && e.category !== search.cat) return false;
+        if (origin && dist != null && dist > radius) return false;
+        if (!q) return true;
+        return (
+          e.title.toLowerCase().includes(q) ||
+          e.city.toLowerCase().includes(q) ||
+          e.venue.toLowerCase().includes(q)
+        );
+      })
+      .sort((a, b) => (a.dist ?? 0) - (b.dist ?? 0));
+  }, [search.cat, query, origin, radius]);
+
+  function setLocation(loc: string | undefined) {
+    navigate({
+      search: (p: EventsSearch) => ({
+        ...p,
+        loc,
+        lat: undefined,
+        lng: undefined,
+      }),
     });
-  }, [search.cat, query]);
+  }
+
+  function useMyLocation() {
+    if (!navigator.geolocation) {
+      toast.error("Geolocation not supported by this browser");
+      return;
+    }
+    setLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setLocating(false);
+        navigate({
+          search: (p: EventsSearch) => ({
+            ...p,
+            loc: "me",
+            lat: pos.coords.latitude,
+            lng: pos.coords.longitude,
+          }),
+        });
+        toast.success("Using your current location");
+      },
+      (err) => {
+        setLocating(false);
+        toast.error(err.message || "Couldn't get your location");
+      },
+      { enableHighAccuracy: false, timeout: 8000 },
+    );
+  }
+
+  function setRadius(miles: number) {
+    navigate({ search: (p: EventsSearch) => ({ ...p, radius: miles }) });
+  }
+
+  // Persist last picked location
+  useEffect(() => {
+    if (search.loc && search.loc !== "me") {
+      try {
+        localStorage.setItem("confetti.events.loc", search.loc);
+      } catch {
+        /* ignore */
+      }
+    }
+  }, [search.loc]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -61,7 +151,8 @@ function BrowseEvents() {
             Browse <span className="text-gradient">events</span>
           </h1>
           <p className="mt-3 max-w-xl text-muted-foreground">
-            {filtered.length} event{filtered.length === 1 ? "" : "s"} matching your vibe.
+            {filtered.length} event{filtered.length === 1 ? "" : "s"}
+            {origin ? ` within ${radius} miles of ${origin.label}` : " matching your vibe"}.
           </p>
 
           <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-center">
@@ -76,9 +167,61 @@ function BrowseEvents() {
             </div>
           </div>
 
+          {/* Location picker + radius */}
+          <div className="mt-5 grid gap-4 rounded-2xl bg-card p-4 shadow-soft sm:grid-cols-[1fr_auto] sm:items-center">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <label className="flex items-center gap-2 text-sm font-semibold">
+                <MapPin className="h-4 w-4 text-primary" /> Near
+              </label>
+              <select
+                value={search.loc ?? ""}
+                onChange={(e) => setLocation(e.target.value || undefined)}
+                className="h-10 flex-1 rounded-full border border-border bg-background px-4 text-sm font-medium outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30"
+              >
+                <option value="">Anywhere</option>
+                {search.loc === "me" && search.lat != null ? (
+                  <option value="me">📍 Your current location</option>
+                ) : null}
+                {CITIES.map((c) => (
+                  <option key={c.name} value={c.name}>
+                    {c.name}
+                  </option>
+                ))}
+              </select>
+              <button
+                onClick={useMyLocation}
+                disabled={locating}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-xs font-semibold transition-colors hover:bg-muted disabled:opacity-60"
+              >
+                <LocateFixed className={`h-3.5 w-3.5 ${locating ? "animate-pulse" : ""}`} />
+                {locating ? "Locating…" : "Use my location"}
+              </button>
+            </div>
+
+            <div className="flex items-center gap-3 sm:min-w-[260px]">
+              <label className="text-sm font-semibold whitespace-nowrap">
+                Within{" "}
+                <span className="text-primary">
+                  {radius} mi{radius === 1 ? "" : ""}
+                </span>
+              </label>
+              <input
+                type="range"
+                min={5}
+                max={500}
+                step={5}
+                value={radius}
+                onChange={(e) => setRadius(Number(e.target.value))}
+                disabled={!origin}
+                className="flex-1 accent-primary disabled:opacity-50"
+                aria-label="Search radius in miles"
+              />
+            </div>
+          </div>
+
           <div className="mt-5 flex flex-wrap gap-2">
             <button
-              onClick={() => navigate({ search: (p: any) => ({ ...p, cat: undefined }) })}
+              onClick={() => navigate({ search: (p: EventsSearch) => ({ ...p, cat: undefined }) })}
               className={`rounded-full px-4 py-2 text-sm font-semibold transition-pop ${
                 !search.cat
                   ? "bg-foreground text-background"
@@ -94,7 +237,7 @@ function BrowseEvents() {
                   key={c}
                   onClick={() =>
                     navigate({
-                      search: (p: any) => ({ ...p, cat: active ? undefined : c }),
+                      search: (p: EventsSearch) => ({ ...p, cat: active ? undefined : c }),
                     })
                   }
                   className={`rounded-full px-4 py-2 text-sm font-semibold transition-pop ${
@@ -115,12 +258,23 @@ function BrowseEvents() {
         {filtered.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-border p-16 text-center">
             <p className="font-display text-2xl font-bold">No events found</p>
-            <p className="mt-2 text-muted-foreground">Try a different category or search term.</p>
+            <p className="mt-2 text-muted-foreground">
+              {origin
+                ? `Try expanding the radius beyond ${radius} miles or pick another neighborhood.`
+                : "Try a different category or search term."}
+            </p>
           </div>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((e) => (
-              <EventCard key={e.id} event={e} />
+            {filtered.map(({ e, dist }) => (
+              <div key={e.id} className="relative">
+                {dist != null ? (
+                  <span className="absolute right-3 top-3 z-10 rounded-full bg-background/90 px-3 py-1 text-xs font-semibold shadow-soft backdrop-blur">
+                    {dist < 1 ? "<1" : Math.round(dist)} mi
+                  </span>
+                ) : null}
+                <EventCard event={e} />
+              </div>
             ))}
           </div>
         )}

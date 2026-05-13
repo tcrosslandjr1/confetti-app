@@ -290,13 +290,46 @@ Deno.serve(async (req) => {
 
     const seen = new Set<string>();
     const stops: Array<Record<string, unknown>> = [];
+    const auditRows: Array<Record<string, unknown>> = [];
     for (const vibeKey of vibeKeys) {
       const recipe = VIBE_RECIPES[vibeKey];
       const candidates = await searchCandidates(recipe, body, seen, key);
       const pick = candidates[0];
-      if (!pick) continue;
+      if (!pick) {
+        auditRows.push({
+          source: "wizard-itinerary",
+          user_id: userId,
+          city: body.city ?? null,
+          requested_name: recipe.vibeLabel,
+          query: recipe.query,
+          place_id: null,
+          matched_name: null,
+          status: "unmatched",
+          score: 0,
+          rating: null,
+          user_rating_count: null,
+          business_status: null,
+          meta: { vibeKey, budget: body.budget ?? null },
+        });
+        continue;
+      }
       const result = await shapeCandidate(pick, key);
       seen.add(result.id);
+      auditRows.push({
+        source: "wizard-itinerary",
+        user_id: userId,
+        city: body.city ?? null,
+        requested_name: recipe.vibeLabel,
+        query: recipe.query,
+        place_id: result.id,
+        matched_name: result.venue,
+        status: "matched",
+        score: placeScore(result.rating ?? undefined, result.userRatingCount ?? undefined),
+        rating: result.rating ?? null,
+        user_rating_count: result.userRatingCount ?? null,
+        business_status: pick.businessStatus ?? null,
+        meta: { vibeKey, budget: body.budget ?? null, candidates: candidates.length },
+      });
       stops.push({
         time: recipe.time,
         venue: result.venue,
@@ -314,6 +347,7 @@ Deno.serve(async (req) => {
         vibeKey,
       });
     }
+    await logAuditRows(auditRows);
     return json({ stops });
   } catch (e) {
     return json({ error: (e as Error).message }, 500);

@@ -1,9 +1,12 @@
+/// <reference types="google.maps" />
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles, BadgeCheck, Navigation, Car, Footprints, Bus } from "lucide-react";
+import { ArrowLeft, Star, MapPin, Clock, Phone, Plus, Calendar, Sparkles, BadgeCheck, Navigation, Car, Footprints, Bus, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useMapsLibrary } from "@vis.gl/react-google-maps";
 import { supabase } from "@/integrations/supabase/client";
 import { buildAppleMapsDirectionsUrl, buildGoogleMapsDirectionsUrl, type TravelMode } from "@/lib/maps-links";
+import { requestUserLocation, getStoredLocation, type UserLocation } from "@/lib/location";
 import { VenueVerificationBadge } from "@/components/VenueVerificationBadge";
 import { ReportVenueButton } from "@/components/ReportVenueButton";
 

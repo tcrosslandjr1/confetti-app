@@ -213,7 +213,8 @@ function BoardingPassPage() {
       </div>
       <div className="mt-6 px-4">
         <BoardingPassV2 data={passData} />
-        <div className="mx-auto mt-5 grid max-w-md gap-3 sm:grid-cols-[1fr_auto_auto]">
+        {/* Desktop / tablet inline actions */}
+        <div className="mx-auto mt-5 hidden max-w-md gap-3 sm:grid sm:grid-cols-[1fr_auto_auto]">
           <Link
             to="/active-loop"
             className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-4 py-3 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut transition-pop hover:-translate-y-0.5"
@@ -232,6 +233,39 @@ function BoardingPassPage() {
             type="button"
             onClick={handleShare}
             className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 font-display text-sm font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold sm:w-auto"
+          >
+            {shared ? <Check className="h-4 w-4" /> : <Share2 className="h-4 w-4" />}
+            {shared ? "Copied" : "Share"}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile sticky bottom action bar — thumb-friendly, one-handed */}
+      <div
+        className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-ink bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/80 sm:hidden"
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+      >
+        <div className="mx-auto flex max-w-md items-stretch gap-2 px-3 py-3">
+          <Link
+            to="/active-loop"
+            aria-label="Start the plan"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-3 py-3 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut active:translate-y-0.5"
+          >
+            <Play className="h-4 w-4" /> Start
+          </Link>
+          <button
+            type="button"
+            onClick={handleEmailShare}
+            aria-label="Share itinerary by email"
+            className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-ink bg-cream shadow-brut active:translate-y-0.5"
+          >
+            <Mail className="h-5 w-5" />
+          </button>
+          <button
+            type="button"
+            onClick={handleShare}
+            aria-label="Share itinerary"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-gold px-3 py-3 font-display text-sm font-bold uppercase tracking-wide text-ink shadow-brut active:translate-y-0.5"
           >
             {shared ? <Check className="h-4 w-4" /> : <Share2 className="h-4 w-4" />}
             {shared ? "Copied" : "Share"}

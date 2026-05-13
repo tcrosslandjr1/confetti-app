@@ -218,6 +218,15 @@ function PreviewPage() {
                         </span>
                       ))}
                     </div>
+                    {(() => {
+                      const signals: PickSignal[] = [
+                        { kind: "trending", label: "Trending this week" },
+                        { kind: "most-booked", label: `${40 + i * 7} booked recently` },
+                        { kind: "most-saved", label: `Saved ${120 - i * 18}×` },
+                      ];
+                      const rationale = `Picked because it's trending in ${s.neighborhood} and one of the most-booked ${s.category} spots for your vibe.`;
+                      return <WhyThisPick signals={signals} rationale={rationale} className="mt-3" />;
+                    })()}
                   </article>
                 </li>
               );

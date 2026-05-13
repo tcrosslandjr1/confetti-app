@@ -203,6 +203,19 @@ function PortalViralPage() {
             Confetti's trend score.
           </p>
 
+          {/* How to use */}
+          <div className="flex flex-wrap items-start gap-2 rounded-2xl border border-border/60 bg-background/60 p-3 text-xs text-muted-foreground backdrop-blur">
+            <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-rose-500" />
+            <div className="space-y-1">
+              <p className="font-semibold text-foreground">How to use this page</p>
+              <ol className="ml-4 list-decimal space-y-0.5">
+                <li>Pick a <strong>city</strong> below to switch the feed.</li>
+                <li>Filter by <strong>vibe</strong> (TikTok Viral, Date Night…) or drag the <strong>Min score</strong> slider for only the hottest spots.</li>
+                <li>Tap any card to see the venue, photos, and the posts driving the buzz.</li>
+              </ol>
+            </div>
+          </div>
+
           {/* Quick city pills */}
           <div className="flex flex-wrap gap-1.5 pt-1">
             {cities.slice(0, 8).map((c) => (

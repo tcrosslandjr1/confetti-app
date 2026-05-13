@@ -96,13 +96,19 @@ export function buildAppleMapsDirectionsUrl(
 ): string {
   const scheme = opts.native ? "maps://" : "https://maps.apple.com/";
   if (points.length === 0) return scheme;
+  const dest = points[points.length - 1];
+  // Fallback: if destination has only a name (no address/coords), do a name
+  // search instead of a routing request — directions need a routable target.
+  if (!hasRoutableLocation(dest)) {
+    const q = dest.name || dest.address || "";
+    if (!q) return scheme;
+    return `${scheme}?${new URLSearchParams({ q }).toString()}`;
+  }
   const dirflg = appleDirFlag(mode);
   if (points.length === 1) {
-    const p = points[0];
-    const q = fmt(p);
-    if (!q) return scheme;
+    const q = fmt(dest);
     const params = new URLSearchParams({ q });
-    if (p.lat != null && p.lng != null) params.set("ll", `${p.lat},${p.lng}`);
+    if (dest.lat != null && dest.lng != null) params.set("ll", `${dest.lat},${dest.lng}`);
     return `${scheme}?${params.toString()}`;
   }
   const saddr = fmt(points[0]);

@@ -109,12 +109,31 @@ export async function buildAndSaveItinerary(payload: BuildPayload): Promise<{ id
   const { loadPrefs, tasteSummary } = await import("@/lib/taste");
   const prefs = await loadPrefs();
 
+  // Pull selected city + coords so the edge function can verify venues
+  // against Google Places in the right metro area.
+  const { getSelectedCity } = await import("@/lib/cities");
+  const sel = getSelectedCity();
+  const enriched: BuildPayload = {
+    ...payload,
+    city: payload.city ?? sel?.name,
+    region: payload.region ?? sel?.region,
+    lat: payload.lat ?? sel?.lat ?? null,
+    lng: payload.lng ?? sel?.lng ?? null,
+  };
+
   const { data, error } = await supabase.functions.invoke("build-itinerary", {
-    body: { ...payload, tasteSummary: tasteSummary(prefs) },
+    body: { ...enriched, tasteSummary: tasteSummary(prefs) },
   });
   if (error) throw new Error(error.message);
-  const it = data?.itinerary as AiItinerary;
-  if (!it?.stops?.length) throw new Error("AI returned no stops. Try again.");
+  const it = data?.itinerary as AiItinerary & { _unverified?: boolean };
+  if (!it?.stops?.length) {
+    throw new Error(
+      "Couldn't verify any real venues for this plan in your selected city. Try a different vibe or change your city.",
+    );
+  }
+  if ((it as { _unverified?: boolean })._unverified) {
+    console.warn("[build-itinerary] returned unverified stops");
+  }
 
   // Insert itinerary
   const { data: ins, error: insErr } = await supabase

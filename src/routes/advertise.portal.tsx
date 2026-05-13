@@ -3,18 +3,24 @@ import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import {
   type Advertiser,
+  type AdvertiserSubscription,
   type Campaign,
   createCampaign,
   getCampaignStats,
   getMyAdvertiser,
+  getMySubscription,
   listMyCampaigns,
   PACKAGES,
   PLACEMENT_LABELS,
   type PackageTier,
   type Placement,
+  placementsForTier,
 } from "@/lib/ads";
+import { SubscriptionPanel } from "@/components/advertiser/SubscriptionPanel";
+import { ClaimVenuePanel } from "@/components/advertiser/ClaimVenuePanel";
 import {
   Loader2,
+  Lock,
   Megaphone,
   Plus,
   Eye,
@@ -23,6 +29,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { toast } from "sonner";
+
 
 export const Route = createFileRoute("/advertise/portal")({
   component: AdvertiserPortal,

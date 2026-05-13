@@ -299,6 +299,7 @@ Deno.serve(async (req) => {
   try {
     const b = (await req.json()) as Body;
     if (!b.occasion) return json({ error: "occasion required" }, 400);
+    const userId = await getUserIdFromAuth(req);
 
     const apiKey = Deno.env.get("LOVABLE_API_KEY");
     if (!apiKey) return json({ error: "missing LOVABLE_API_KEY" }, 500);

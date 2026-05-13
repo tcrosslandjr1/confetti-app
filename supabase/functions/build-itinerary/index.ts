@@ -16,6 +16,9 @@ type Body = {
   occasion: string;          // e.g. "Date night"
   vibe?: string;             // tagline / extra hint
   city?: string;
+  region?: string;           // e.g. "DC · MD · VA" — disambiguates city name
+  lat?: number | null;       // selected city coords for Places location bias
+  lng?: number | null;
   date?: string;             // ISO date
   startTime?: string;        // "11:00"
   durationHours?: number;    // total day length
@@ -26,6 +29,173 @@ type Body = {
   tasteSummary?: string;
   transportMode?: "auto" | "car" | "transit" | "lyft" | "uber" | "walk"; // user preference
 };
+
+// ---------- Google Places verification ----------
+// LLMs hallucinate venue names. We re-check every named stop against Google Places
+// and only keep ones that exist AND are OPERATIONAL. Closed / not-found stops fall
+// back to a category search around the user's selected city so we never falsely
+// advertise a venue that isn't there.
+const PLACES_FIELDS =
+  "places.id,places.displayName,places.formattedAddress,places.shortFormattedAddress,places.location,places.rating,places.userRatingCount,places.priceLevel,places.businessStatus,places.googleMapsUri,places.websiteUri,places.types";
+
+const CATEGORY_QUERY: Record<string, string> = {
+  meal: "popular restaurant",
+  drinks: "cocktail bar",
+  activity: "fun activity",
+  scenic: "scenic spot",
+  travel: "landmark",
+  other: "popular spot",
+};
+
+type PlaceHit = {
+  id: string;
+  displayName?: { text?: string };
+  formattedAddress?: string;
+  shortFormattedAddress?: string;
+  location?: { latitude?: number; longitude?: number };
+  rating?: number;
+  userRatingCount?: number;
+  businessStatus?: string;
+  googleMapsUri?: string;
+  websiteUri?: string;
+};
+
+async function placesSearch(
+  textQuery: string,
+  key: string,
+  bias?: { lat: number; lng: number },
+): Promise<PlaceHit[]> {
+  try {
+    const body: Record<string, unknown> = { textQuery, pageSize: 5 };
+    if (bias) {
+      body.locationBias = {
+        circle: {
+          center: { latitude: bias.lat, longitude: bias.lng },
+          radius: 30000,
+        },
+      };
+    }
+    const res = await fetch("https://places.googleapis.com/v1/places:searchText", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Goog-Api-Key": key,
+        "X-Goog-FieldMask": PLACES_FIELDS,
+      },
+      body: JSON.stringify(body),
+    });
+    if (!res.ok) {
+      console.warn("[build-itinerary] places error", res.status);
+      return [];
+    }
+    const data = await res.json();
+    return (data.places ?? []) as PlaceHit[];
+  } catch (e) {
+    console.warn("[build-itinerary] places fetch failed", (e as Error).message);
+    return [];
+  }
+}
+
+function operational(hits: PlaceHit[]): PlaceHit[] {
+  return hits.filter((h) => !h.businessStatus || h.businessStatus === "OPERATIONAL");
+}
+
+function nameSimilar(a: string, b: string): boolean {
+  const norm = (s: string) =>
+    s.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9 ]+/g, "").trim();
+  const A = norm(a);
+  const B = norm(b);
+  if (!A || !B) return false;
+  if (A === B || A.includes(B) || B.includes(A)) return true;
+  const at = new Set(A.split(/\s+/).filter((w) => w.length > 2));
+  const bt = new Set(B.split(/\s+/).filter((w) => w.length > 2));
+  let overlap = 0;
+  at.forEach((w) => bt.has(w) && overlap++);
+  return overlap >= Math.max(1, Math.min(at.size, bt.size) - 1);
+}
+
+async function verifyStop(
+  stop: Record<string, unknown>,
+  cityLabel: string,
+  bias: { lat: number; lng: number } | undefined,
+  used: Set<string>,
+  key: string,
+): Promise<{ stop: Record<string, unknown>; verified: boolean }> {
+  const name = String(stop.name ?? "").trim();
+  const category = String(stop.category ?? "other");
+  const cityForQuery = cityLabel || "";
+
+  // 1) Try exact name lookup first
+  if (name) {
+    const direct = operational(
+      await placesSearch(cityForQuery ? `${name} ${cityForQuery}` : name, key, bias),
+    );
+    const match = direct.find((h) => nameSimilar(h.displayName?.text ?? "", name) && !used.has(h.id));
+    if (match) {
+      used.add(match.id);
+      return { stop: applyHit(stop, match), verified: true };
+    }
+  }
+
+  // 2) Fallback: search by category in the chosen city
+  const fallbackQ = `${CATEGORY_QUERY[category] ?? "popular spot"} ${cityForQuery}`.trim();
+  const fb = operational(await placesSearch(fallbackQ, key, bias)).filter((h) => !used.has(h.id));
+  // Prefer best-rated with enough reviews
+  fb.sort((a, b) => {
+    const ar = (a.rating ?? 0) * Math.log10((a.userRatingCount ?? 0) + 10);
+    const br = (b.rating ?? 0) * Math.log10((b.userRatingCount ?? 0) + 10);
+    return br - ar;
+  });
+  const pick = fb[0];
+  if (pick) {
+    used.add(pick.id);
+    return { stop: applyHit(stop, pick), verified: true };
+  }
+  return { stop, verified: false };
+}
+
+function applyHit(stop: Record<string, unknown>, hit: PlaceHit): Record<string, unknown> {
+  const realName = hit.displayName?.text ?? String(stop.name ?? "");
+  const realAddr = hit.formattedAddress ?? hit.shortFormattedAddress ?? String(stop.address ?? "");
+  const mapsUri =
+    hit.googleMapsUri ??
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${realName} ${realAddr}`)}`;
+  return {
+    ...stop,
+    name: realName,
+    address: realAddr,
+    bookingUrl: hit.websiteUri ?? mapsUri,
+    bookingProvider: hit.websiteUri ? "website" : "google-maps",
+    placeId: hit.id,
+    rating: hit.rating ?? null,
+    userRatingCount: hit.userRatingCount ?? null,
+    lat: hit.location?.latitude ?? null,
+    lng: hit.location?.longitude ?? null,
+    mapsUri,
+    verified: true,
+  };
+}
+
+async function verifyItinerary(
+  itinerary: { stops?: Array<Record<string, unknown>> },
+  body: Body,
+  key: string,
+) {
+  const stops = itinerary.stops ?? [];
+  const cityLabel = [body.city, body.region].filter(Boolean).join(", ");
+  const bias =
+    typeof body.lat === "number" && typeof body.lng === "number"
+      ? { lat: body.lat, lng: body.lng }
+      : undefined;
+  const used = new Set<string>();
+  const out: Array<Record<string, unknown>> = [];
+  for (const s of stops) {
+    const { stop, verified } = await verifyStop(s, cityLabel, bias, used, key);
+    if (verified) out.push(stop);
+    // Drop unverifiable stops entirely — never falsely advertise a venue.
+  }
+  return { ...itinerary, stops: out };
+}
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });

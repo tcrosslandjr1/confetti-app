@@ -36,6 +36,7 @@ const DURATIONS = ["2 hr", "3 hr", "4 hr", "All night"];
 
 function CreatePage() {
   const navigate = useNavigate();
+  const generate = useServerFn(generatePlan);
   const [step, setStep] = useState(0);
   const [group, setGroup] = useState<(typeof GROUP)[number] | null>(null);
   const [occasion, setOccasion] = useState<(typeof OCCASIONS)[number] | null>(null);
@@ -43,25 +44,81 @@ function CreatePage() {
   const [time, setTime] = useState("19:00");
   const [duration, setDuration] = useState("3 hr");
   const [vibe, setVibe] = useState<(typeof VIBES)[number] | null>(null);
+  const [city, setCity] = useState(CITIES[0].label);
+  const [generating, setGenerating] = useState(false);
 
   const totalSteps = 4;
   const canNext = [group, occasion, true, vibe][step];
 
-  function finish() {
+  async function finish() {
+    if (generating) return;
+    setGenerating(true);
     try {
-      const loop = makeDemoLoop({
-        passenger: "GUEST",
-        groupSize: group?.size ?? 2,
-        occasion: occasion?.label,
-        vibe: vibe?.label,
-        to: occasion?.label.toUpperCase() ?? "NIGHT OUT",
-        boardingTime: time.replace(/^0/, ""),
+      const plan = await generate({
+        data: {
+          city,
+          occasionId: occasion?.id,
+          occasionLabel: occasion?.label,
+          vibeId: vibe?.id,
+          vibeLabel: vibe?.label,
+          groupSize: group?.size ?? 2,
+          date,
+          startTime: time,
+          duration,
+        },
       });
+      const loop: ActiveLoop = {
+        ...makeDemoLoop({
+          passenger: "GUEST",
+          groupSize: group?.size ?? 2,
+          occasion: occasion?.label,
+          vibe: vibe?.label,
+          to: occasion?.label.toUpperCase() ?? "NIGHT OUT",
+          boardingTime: plan.stops[0]?.time ?? time.replace(/^0/, ""),
+          stops: plan.stops.map((s) => ({
+            id: s.id,
+            name: s.name,
+            type: s.type,
+            time: s.time,
+            area: s.area,
+            venueId: s.venueId,
+            lat: s.lat,
+            lng: s.lng,
+            rationale: s.rationale,
+            slot: s.slot,
+          })),
+        }),
+        city: plan.city,
+        experienceName: plan.experienceName,
+        experienceTagline: plan.experienceTagline,
+        blueprint: plan.blueprint,
+        estimatedSpend: plan.estimatedSpend,
+        fitScore: plan.fitScore,
+        guardrailNote: plan.guardrailNote,
+        bonusMove: plan.bonus,
+      };
       setActiveLoop(loop);
       navigate({ to: "/confirmation" });
     } catch (err) {
       console.error("[create] finish failed", err);
-      toast.error("Couldn't lock your plan. Try again.");
+      toast.error("Couldn't build your night. Try again.");
+      // Fallback so the user isn't stuck — drop them into the demo loop.
+      try {
+        const fallback = makeDemoLoop({
+          passenger: "GUEST",
+          groupSize: group?.size ?? 2,
+          occasion: occasion?.label,
+          vibe: vibe?.label,
+          to: occasion?.label.toUpperCase() ?? "NIGHT OUT",
+          boardingTime: time.replace(/^0/, ""),
+        });
+        setActiveLoop(fallback);
+        navigate({ to: "/confirmation" });
+      } catch {
+        /* swallow */
+      }
+    } finally {
+      setGenerating(false);
     }
   }
 

@@ -325,8 +325,18 @@ function BoardingPassPage() {
                 <Lock className="h-4 w-4" /> Lock in
               </Link>
             </div>
+            <button
+              type="button"
+              onClick={handleShareImage}
+              disabled={imageBusy}
+              aria-label="Generate and share a high-quality image of your boarding pass"
+              className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-3 py-3 font-display text-xs font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold disabled:opacity-60 disabled:hover:translate-y-0"
+            >
+              {imageBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImageDown className="h-4 w-4" />}
+              {imageBusy ? "Rendering…" : "Share as image"}
+            </button>
             <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-ink/50">
-              Share to get a vibe-check before you lock it in
+              Share a link, or save a high-res image of your vibe
             </p>
           </div>
         )}

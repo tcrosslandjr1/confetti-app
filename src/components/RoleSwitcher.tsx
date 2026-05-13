@@ -71,7 +71,7 @@ const OPTIONS: Option[] = [
 export function RoleSwitcher() {
   const { isAdmin, viewAs, setViewAs, isImpersonating, exitImpersonation, user } = useAuth();
   const navigate = useNavigate();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   if (!isAdmin) return null;
 

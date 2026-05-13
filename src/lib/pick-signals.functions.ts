@@ -2,8 +2,18 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
+const SignalKind = z.enum([
+  "mood",
+  "swap_reason",
+  "recap_note",
+  "linger",
+  "save",
+  "swipe_away",
+  "reopen",
+]);
+
 const SignalSchema = z.object({
-  kind: z.enum(["mood", "swap_reason", "recap_note"]),
+  kind: SignalKind,
   value: z.string().min(1).max(80),
   context: z.record(z.string(), z.unknown()).optional(),
 });
@@ -64,4 +74,96 @@ export const saveItineraryRecap = createServerFn({ method: "POST" })
       }
     }
     return { ok: true };
+  });
+
+export type TasteCandidate = {
+  value: string;
+  loveScore: number;
+  avoidScore: number;
+  suggestion: "love" | "avoid";
+  signals: { linger: number; save: number; reopen: number; swipe_away: number };
+};
+
+/**
+ * Aggregate the last 7 days of passive card signals into love/avoid candidates.
+ * - linger (≥3) and save (≥1) and reopen (≥2) push toward "love"
+ * - swipe_away (≥3) with no positive engagement pushes toward "avoid"
+ */
+export const getTasteCandidates = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const { supabase, userId } = context;
+    const since = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+    const { data, error } = await supabase
+      .from("pick_signals")
+      .select("kind,value")
+      .eq("user_id", userId)
+      .in("kind", ["linger", "save", "swipe_away", "reopen"])
+      .gte("created_at", since);
+    if (error) throw new Error(error.message);
+
+    const buckets = new Map<
+      string,
+      { linger: number; save: number; reopen: number; swipe_away: number }
+    >();
+    for (const row of data ?? []) {
+      const v = (row.value || "").toLowerCase();
+      if (!v) continue;
+      const b =
+        buckets.get(v) ?? { linger: 0, save: 0, reopen: 0, swipe_away: 0 };
+      const k = row.kind as keyof typeof b;
+      if (k in b) (b as Record<string, number>)[k] = (b[k] ?? 0) + 1;
+      buckets.set(v, b);
+    }
+
+    const out: TasteCandidate[] = [];
+    for (const [value, s] of buckets) {
+      const loveScore = s.linger + s.save * 3 + s.reopen * 2;
+      const avoidScore = s.swipe_away - s.linger - s.save * 2;
+      if (loveScore >= 3 && loveScore > avoidScore) {
+        out.push({ value, loveScore, avoidScore, suggestion: "love", signals: s });
+      } else if (avoidScore >= 3) {
+        out.push({ value, loveScore, avoidScore, suggestion: "avoid", signals: s });
+      }
+    }
+    out.sort((a, b) => Math.max(b.loveScore, b.avoidScore) - Math.max(a.loveScore, a.avoidScore));
+    return { candidates: out.slice(0, 8) };
+  });
+
+const ConfirmSchema = z.object({
+  loves: z.array(z.string().min(1).max(80)).max(20).default([]),
+  avoids: z.array(z.string().min(1).max(80)).max(20).default([]),
+});
+
+/** Merge user-confirmed terms into taste_profile.loves / taste_profile.avoid. */
+export const confirmTasteUpdate = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input: unknown) => ConfirmSchema.parse(input))
+  .handler(async ({ data, context }) => {
+    const { supabase, userId } = context;
+    const { data: existing } = await supabase
+      .from("user_preferences")
+      .select("taste_profile")
+      .eq("user_id", userId)
+      .maybeSingle();
+    const tp =
+      ((existing?.taste_profile ?? {}) as {
+        loves?: string[];
+        avoid?: string[];
+      }) || {};
+    const loves = Array.from(
+      new Set([...(tp.loves ?? []).map((s) => s.toLowerCase()), ...data.loves.map((s) => s.toLowerCase())]),
+    ).slice(0, 30);
+    const avoid = Array.from(
+      new Set([...(tp.avoid ?? []).map((s) => s.toLowerCase()), ...data.avoids.map((s) => s.toLowerCase())]),
+    ).slice(0, 30);
+    // Drop anything that ended up on both lists in favor of the most recent vote.
+    const filteredLoves = loves.filter((l) => !data.avoids.map((s) => s.toLowerCase()).includes(l));
+    const filteredAvoid = avoid.filter((a) => !data.loves.map((s) => s.toLowerCase()).includes(a));
+    const next = { ...tp, loves: filteredLoves, avoid: filteredAvoid };
+    const { error } = await supabase
+      .from("user_preferences")
+      .upsert({ user_id: userId, taste_profile: next as never }, { onConflict: "user_id" });
+    if (error) throw new Error(error.message);
+    return { ok: true, taste_profile: next };
   });

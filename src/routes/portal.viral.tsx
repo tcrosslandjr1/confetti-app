@@ -334,6 +334,16 @@ function PortalViralPage() {
               onChange={(e) => setMinScore(Number(e.target.value))}
               className="h-1 w-40 accent-rose-500"
             />
+            <button
+              type="button"
+              onClick={() => setScoreInfoOpen((v) => !v)}
+              aria-expanded={scoreInfoOpen}
+              aria-controls="trend-score-info"
+              title="How is trend score calculated?"
+              className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-border text-muted-foreground transition hover:border-rose-500 hover:text-rose-500"
+            >
+              <Info className="h-3.5 w-3.5" />
+            </button>
           </div>
           <span className="rounded-full bg-muted px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
             {filtered?.length ?? 0} of {rows?.length ?? 0} shown
@@ -352,6 +362,55 @@ function PortalViralPage() {
             </button>
           )}
         </div>
+
+        {scoreInfoOpen && (
+          <div
+            id="trend-score-info"
+            className="space-y-3 rounded-xl border border-rose-500/30 bg-rose-500/5 p-4 text-xs text-foreground"
+          >
+            <div>
+              <p className="font-display text-sm font-bold">How the trend score works</p>
+              <p className="mt-1 text-muted-foreground">
+                Each venue gets a single number (typically <strong>0–3</strong>) based on how much
+                heat it's getting right now. Higher = more buzz. We blend six signals:
+              </p>
+            </div>
+            <ul className="grid gap-1.5 sm:grid-cols-2">
+              <li className="flex items-start gap-2">
+                <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-rose-500" />
+                <span><strong>TikTok mentions</strong> · 30% — log-dampened so 1 post still counts.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-fuchsia-500" />
+                <span><strong>Instagram mentions</strong> · 25% — same dampening.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
+                <span><strong>Recency</strong> · 20% — full credit if mentioned in the last 7 days, decays to 30 days.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-amber-500" />
+                <span><strong>Source authority</strong> · 10% — Eater, Washingtonian, Infatuation, etc. weigh more than random blogs.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                <span><strong>Google rating</strong> · 10% — normalized around 3.5–5.0 stars.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-sky-500" />
+                <span><strong>App engagement</strong> · 5% — saves, taps, and bookings inside Confetti.</span>
+              </li>
+            </ul>
+            <div className="rounded-lg border border-dashed border-border bg-background/60 p-2.5">
+              <p className="font-semibold">Min score filter</p>
+              <p className="mt-0.5 text-muted-foreground">
+                Hides any venue scoring below the slider value. Keep it at <strong>0.00</strong> to
+                see everything; nudge it up to surface only the loudest hype. The slider's max
+                tracks the top-ranked venue in {city}.
+              </p>
+            </div>
+          </div>
+        )}
 
         <div className="flex flex-wrap gap-2">
           {ALL_VIRAL_TAGS.map((t) => {

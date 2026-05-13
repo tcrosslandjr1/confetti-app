@@ -99,6 +99,9 @@ export function trackPickEvent(
     meta?: Record<string, unknown>;
   },
 ) {
+  // Honor user privacy choice — opt-out short-circuits the whole pipeline,
+  // including the localStorage write and the console.info breadcrumb.
+  if (getPickAnalyticsConsent() === "denied") return;
   const evt: PickEvent = {
     name,
     at: new Date().toISOString(),

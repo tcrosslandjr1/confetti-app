@@ -213,13 +213,21 @@ function BoardingPassPage() {
       </div>
       <div className="mt-6 px-4">
         <BoardingPassV2 data={passData} />
-        <div className="mx-auto mt-5 grid max-w-md gap-3 sm:grid-cols-[1fr_auto]">
+        <div className="mx-auto mt-5 grid max-w-md gap-3 sm:grid-cols-[1fr_auto_auto]">
           <Link
             to="/active-loop"
             className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-4 py-3 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut transition-pop hover:-translate-y-0.5"
           >
             <Play className="h-4 w-4" /> Start the Plan
           </Link>
+          <button
+            type="button"
+            onClick={handleEmailShare}
+            aria-label="Share itinerary by email"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 font-display text-sm font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold sm:w-auto"
+          >
+            <Mail className="h-4 w-4" /> Email
+          </button>
           <button
             type="button"
             onClick={handleShare}

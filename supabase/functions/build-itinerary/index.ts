@@ -268,6 +268,51 @@ async function getUserIdFromAuth(req: Request): Promise<string | null> {
   }
 }
 
+async function fetchBlockedPlaceIds(
+  userId: string | null,
+  city: string | null,
+): Promise<Set<string>> {
+  const url = Deno.env.get("SUPABASE_URL");
+  const srk = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  const blocked = new Set<string>();
+  if (!url || !srk) return blocked;
+  try {
+    // Per-user reports
+    if (userId) {
+      const r = await fetch(
+        `${url}/rest/v1/venue_reports?select=place_id&user_id=eq.${userId}&place_id=not.is.null`,
+        { headers: { apikey: srk, Authorization: `Bearer ${srk}` } },
+      );
+      if (r.ok) {
+        const rows = (await r.json()) as Array<{ place_id: string | null }>;
+        rows.forEach((row) => row.place_id && blocked.add(row.place_id));
+      }
+    }
+    // City-wide aggregated blocks (3+ distinct reporters)
+    if (city) {
+      const r = await fetch(
+        `${url}/rest/v1/rpc/blocked_place_ids_for_city`,
+        {
+          method: "POST",
+          headers: {
+            apikey: srk,
+            Authorization: `Bearer ${srk}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ _city: city }),
+        },
+      );
+      if (r.ok) {
+        const rows = (await r.json()) as Array<{ place_id: string }>;
+        rows.forEach((row) => row.place_id && blocked.add(row.place_id));
+      }
+    }
+  } catch (e) {
+    console.warn("[blocked place ids] failed", (e as Error).message);
+  }
+  return blocked;
+}
+
 async function verifyItinerary(
   itinerary: { stops?: Array<Record<string, unknown>> },
   body: Body,
@@ -280,7 +325,8 @@ async function verifyItinerary(
     typeof body.lat === "number" && typeof body.lng === "number"
       ? { lat: body.lat, lng: body.lng }
       : undefined;
-  const used = new Set<string>();
+  // Seed `used` with reported place_ids so they're never picked again.
+  const used = await fetchBlockedPlaceIds(ctx.userId, body.city ?? null);
   const out: Array<Record<string, unknown>> = [];
   const audit: AuditRow[] = [];
   const auditCtx = { userId: ctx.userId, city: body.city ?? null };

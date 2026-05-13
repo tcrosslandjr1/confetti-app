@@ -1396,6 +1396,42 @@ export type Database = {
         }
         Relationships: []
       }
+      venue_reports: {
+        Row: {
+          city: string | null
+          created_at: string
+          id: string
+          notes: string | null
+          place_id: string | null
+          reason: string
+          status: string
+          user_id: string
+          venue_name: string
+        }
+        Insert: {
+          city?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          place_id?: string | null
+          reason?: string
+          status?: string
+          user_id: string
+          venue_name: string
+        }
+        Update: {
+          city?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          place_id?: string | null
+          reason?: string
+          status?: string
+          user_id?: string
+          venue_name?: string
+        }
+        Relationships: []
+      }
       venues: {
         Row: {
           advertiser_id: string | null
@@ -1606,6 +1642,12 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      blocked_place_ids_for_city: {
+        Args: { _city: string }
+        Returns: {
+          place_id: string
+        }[]
+      }
       gen_referral_code: { Args: never; Returns: string }
       get_attendee_by_token: {
         Args: { _token: string }

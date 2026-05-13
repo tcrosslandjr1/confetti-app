@@ -244,6 +244,46 @@ async function getUserIdFromAuth(req: Request): Promise<string | null> {
   }
 }
 
+async function fetchBlockedPlaceIds(
+  userId: string | null,
+  city: string | null,
+): Promise<Set<string>> {
+  const url = Deno.env.get("SUPABASE_URL");
+  const srk = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  const blocked = new Set<string>();
+  if (!url || !srk) return blocked;
+  try {
+    if (userId) {
+      const r = await fetch(
+        `${url}/rest/v1/venue_reports?select=place_id&user_id=eq.${userId}&place_id=not.is.null`,
+        { headers: { apikey: srk, Authorization: `Bearer ${srk}` } },
+      );
+      if (r.ok) {
+        const rows = (await r.json()) as Array<{ place_id: string | null }>;
+        rows.forEach((row) => row.place_id && blocked.add(row.place_id));
+      }
+    }
+    if (city) {
+      const r = await fetch(`${url}/rest/v1/rpc/blocked_place_ids_for_city`, {
+        method: "POST",
+        headers: {
+          apikey: srk,
+          Authorization: `Bearer ${srk}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ _city: city }),
+      });
+      if (r.ok) {
+        const rows = (await r.json()) as Array<{ place_id: string }>;
+        rows.forEach((row) => row.place_id && blocked.add(row.place_id));
+      }
+    }
+  } catch (e) {
+    console.warn("[blocked place ids] failed", (e as Error).message);
+  }
+  return blocked;
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
   try {
@@ -251,10 +291,11 @@ Deno.serve(async (req) => {
     if (!key) return json({ error: "missing GOOGLE_PLACES_API_KEY" }, 500);
     const body = (await req.json()) as Body;
     const userId = await getUserIdFromAuth(req);
+    const blocked = await fetchBlockedPlaceIds(userId, body.city ?? null);
 
     // ---- Alternatives mode: return multiple candidates for a single vibe/query
     if (body.mode === "alternatives") {
-      const exclude = new Set(body.excludeIds ?? []);
+      const exclude = new Set([...(body.excludeIds ?? []), ...blocked]);
       const limit = Math.max(1, Math.min(body.limit ?? 6, 10));
       const recipe = body.vibe && VIBE_RECIPES[body.vibe]
         ? VIBE_RECIPES[body.vibe]
@@ -288,7 +329,7 @@ Deno.serve(async (req) => {
       vibeKeys.push(fill);
     }
 
-    const seen = new Set<string>();
+    const seen = new Set<string>(blocked);
     const stops: Array<Record<string, unknown>> = [];
     const auditRows: Array<Record<string, unknown>> = [];
     for (const vibeKey of vibeKeys) {

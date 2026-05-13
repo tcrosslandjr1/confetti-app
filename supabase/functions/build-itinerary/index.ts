@@ -456,7 +456,7 @@ The first stop has no travelFromPrev. Make the schedule realistic — startTime 
     let verified = args;
     if (placesKey) {
       try {
-        verified = await verifyItinerary(args, b, placesKey);
+        verified = await verifyItinerary(args, b, placesKey, { userId });
         if (!verified.stops?.length) {
           // All stops failed verification — return the original so the user sees
           // *something*, but flag it so the UI can warn.

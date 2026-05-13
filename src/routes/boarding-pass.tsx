@@ -237,20 +237,32 @@ function BoardingPassPage() {
         {data && (
           <div className="mx-auto mt-5 max-w-md">
             <ChangeMyNight />
-            <div className="mt-3 grid grid-cols-2 gap-2">
+            <div className="mt-3 grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={handleShare}
+                aria-label="Share this plan with friends"
+                className="inline-flex items-center justify-center gap-1.5 rounded-2xl border-2 border-ink bg-gold px-2 py-3 font-display text-xs font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5"
+              >
+                {shared ? <Check className="h-4 w-4" /> : <Share2 className="h-4 w-4" />}
+                {shared ? "Copied" : "Share"}
+              </button>
               <Link
                 to="/create"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-3 py-3 font-display text-sm font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-1.5 rounded-2xl border-2 border-ink bg-cream px-2 py-3 font-display text-xs font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5"
               >
-                <Pencil className="h-4 w-4" /> Edit details
+                <Pencil className="h-4 w-4" /> Edit
               </Link>
               <Link
                 to="/confirmation"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-gradient-vibe px-3 py-3 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-1.5 rounded-2xl border-2 border-ink bg-gradient-vibe px-2 py-3 font-display text-xs font-bold uppercase tracking-wide text-cream shadow-brut transition-pop hover:-translate-y-0.5"
               >
-                <Lock className="h-4 w-4" /> Lock it in
+                <Lock className="h-4 w-4" /> Lock in
               </Link>
             </div>
+            <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-ink/50">
+              Share to get a vibe-check before you lock it in
+            </p>
           </div>
         )}
         {/* Desktop / tablet inline actions */}

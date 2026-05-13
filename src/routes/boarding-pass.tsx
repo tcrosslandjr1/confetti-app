@@ -232,6 +232,27 @@ function BoardingPassPage() {
       </div>
       <div className="mt-6 px-4">
         <BoardingPassV2 data={passData} />
+
+        {/* Explore alternatives + edit before locking in */}
+        {data && (
+          <div className="mx-auto mt-5 max-w-md">
+            <ChangeMyNight />
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <Link
+                to="/create"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-3 py-3 font-display text-sm font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5"
+              >
+                <Pencil className="h-4 w-4" /> Edit details
+              </Link>
+              <Link
+                to="/confirmation"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-gradient-vibe px-3 py-3 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+              >
+                <Lock className="h-4 w-4" /> Lock it in
+              </Link>
+            </div>
+          </div>
+        )}
         {/* Desktop / tablet inline actions */}
         <div className="mx-auto mt-5 hidden max-w-md gap-3 sm:grid sm:grid-cols-[1fr_auto_auto]">
           <Link

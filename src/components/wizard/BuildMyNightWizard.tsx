@@ -1516,7 +1516,7 @@ export function BuildMyNightWizard() {
                     <button
                       key={w.k}
                       onClick={() => setWhen(w.k)}
-                      className={`rounded-2xl border-2 border-ink bg-cream p-5 text-left shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-coral text-cream shadow-brut-lg" : ""}`}
+                      className={`rounded-2xl border-2 border-ink p-5 text-left shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-coral text-cream shadow-brut-lg" : "bg-cream text-ink"}`}
                     >
                       <div className="font-display text-2xl font-extrabold">{w.label}</div>
                     </button>

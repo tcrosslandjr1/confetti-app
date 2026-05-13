@@ -80,6 +80,19 @@ export type ActiveLoop = {
   guardrailNote?: string;
   /** Optional Impromptu Ideas Agent bonus move */
   bonusMove?: LoopBonusMove;
+  /** Original generator inputs — used by "Change My Night" / Live Rerouting Agent. */
+  planParams?: {
+    city?: string;
+    occasionId?: string;
+    occasionLabel?: string;
+    vibeId?: string;
+    vibeLabel?: string;
+    groupSize?: number;
+    date?: string;
+    startTime?: string;
+    duration?: string;
+    budget?: 1 | 2 | 3 | 4;
+  };
   /** Filled when the plan has been booked end-to-end via the BookingModal. */
   booking?: {
     ref: string;

@@ -181,6 +181,7 @@ export function WhyThisPick({ signals, rationale, className = "", compact = fals
           <div className="flex items-center gap-1">
             <button
               type="button"
+              data-pick-feedback="1"
               onClick={(e) => { e.stopPropagation(); e.preventDefault(); submitVote("up"); }}
               aria-label="Helpful pick"
               aria-pressed={vote === "up"}

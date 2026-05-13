@@ -256,6 +256,7 @@ function Landing() {
     <div className="min-h-screen bg-cream text-ink">
       <SiteHeader />
       <RecapBanner />
+      <TasteConfirmPrompt />
 
       {/* ============================ HERO ============================ */}
       <section className="relative overflow-hidden border-b-2 border-ink">

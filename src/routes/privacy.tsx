@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { PickAnalyticsToggle } from "@/components/PickAnalyticsToggle";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({

@@ -68,6 +68,7 @@ const STEP_HINTS = [
 function CreatePage() {
   const navigate = useNavigate();
   const generate = useServerFn(generatePlan);
+  const recordSignal = useServerFn(recordPickSignal);
   const [step, setStep] = useState(0);
   const [group, setGroup] = useState<(typeof GROUP)[number] | null>(null);
   const [occasion, setOccasion] = useState<(typeof OCCASIONS)[number] | null>(null);
@@ -78,6 +79,31 @@ function CreatePage() {
   const [city, setCity] = useState(CITIES[0].label);
   const [generating, setGenerating] = useState(false);
   const [quickEdit, setQuickEdit] = useState<null | "g" | "o" | "w" | "v">(null);
+  const [currentMood, setCurrentMood] = useState<string | null>(null);
+  const [pendingSwap, setPendingSwap] = useState<null | { field: string; from: string; to: string }>(null);
+
+  // Fire-and-forget signal logger; ignore failure (e.g. anon user).
+  function logSignal(kind: "mood" | "swap_reason", value: string, ctx: Record<string, unknown> = {}) {
+    recordSignal({ data: { kind, value, context: ctx } }).catch(() => {});
+  }
+
+  function pickMood(id: string) {
+    setCurrentMood(id);
+    logSignal("mood", id, { step: STEP_LABELS[step] });
+  }
+
+  // Wraps a quick-edit setter so we capture the swap + prompt for a reason.
+  function handleSwap(field: "group" | "occasion" | "vibe", fromLabel: string | undefined, toLabel: string) {
+    if (fromLabel && fromLabel !== toLabel) {
+      setPendingSwap({ field, from: fromLabel, to: toLabel });
+    }
+  }
+
+  function chooseSwapReason(reason: string) {
+    if (!pendingSwap) return;
+    logSignal("swap_reason", reason, pendingSwap);
+    setPendingSwap(null);
+  }
 
   const totalSteps = 4;
   const canNext = [group, occasion, true, vibe][step];

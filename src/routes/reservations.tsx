@@ -33,21 +33,21 @@ export const Route = createFileRoute("/reservations")({
 });
 
 function ReservationsPage() {
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading: authLoading, viewAs } = useAuth();
   const nav = useNavigate();
   const [rows, setRows] = useState<Reservation[] | null>(null);
   const [err, setErr] = useState<string | null>(null);
 
   useEffect(() => {
     if (authLoading) return;
-    if (!user) {
-      nav({ to: "/auth" });
-      return;
-    }
+    if (!user) { nav({ to: "/auth" }); return; }
+    if (viewAs === "admin") { nav({ to: "/admin" }); return; }
+    if (viewAs === "business") { nav({ to: "/advertise/portal" }); return; }
+    if (viewAs === "visitor") { nav({ to: "/" }); return; }
     listReservations()
       .then(setRows)
       .catch((e) => setErr(e.message));
-  }, [user, authLoading, nav]);
+  }, [user, authLoading, viewAs, nav]);
 
   const { upcoming, past } = useMemo(() => {
     const today = new Date();

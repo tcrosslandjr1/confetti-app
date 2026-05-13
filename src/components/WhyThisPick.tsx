@@ -1,6 +1,7 @@
 import { Flame, Bookmark, CalendarCheck, Sparkles, Star, MapPin, Users, Info, ThumbsUp, ThumbsDown } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { trackPickEvent } from "@/lib/pick-analytics";
 
 export type PickSignalKind =
   | "trending"

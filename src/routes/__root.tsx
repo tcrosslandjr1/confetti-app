@@ -207,6 +207,9 @@ function RootComponent() {
             <Suspense fallback={null}>
               <CookieConsent />
             </Suspense>
+            <Suspense fallback={null}>
+              <AuthDebugPanel />
+            </Suspense>
             <Toaster />
           </WizardProvider>
         </MapProvider>

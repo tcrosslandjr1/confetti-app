@@ -308,6 +308,7 @@ Required stops in order:
 ${template.structure.map((s, i) => `${i + 1}. ${s.slot} — ${s.description} (cats: ${s.categoryHints.join(", ")}; ~${s.durationMin}m)`).join("\n")}
 
 # Candidate venues (Quality Guardrail pre-filtered: rating>=4.0, not blocked, forbidden categories removed)
+# Items tagged [PROMOTED] are paid partner venues — only pick them if they genuinely fit the slot, vibe, and city. Never sacrifice fit for promotion.
 ${candidateBlock}
 
 # Bonus-move pool (Impromptu Ideas Agent — pick one or null)

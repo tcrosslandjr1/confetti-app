@@ -8,6 +8,7 @@ import {
   DollarSign,
   Flame,
   Globe,
+  AlertTriangle,
   Heart,
   Loader2,
   MapPin,
@@ -520,6 +521,7 @@ export function BuildMyNightWizard() {
   const [placesLoading, setPlacesLoading] = useState(false);
   const [dynamicStops, setDynamicStops] = useState<Stop[] | null>(null);
   const [dynamicLoading, setDynamicLoading] = useState(false);
+  const [dynamicError, setDynamicError] = useState<{ city: string | null; reason: "error" | "empty" } | null>(null);
   const [replacements, setReplacements] = useState<Record<number, Stop>>({});
   const [swapTarget, setSwapTarget] = useState<{ index: number; stop: Stop } | null>(null);
   const [swapLoading, setSwapLoading] = useState(false);
@@ -887,32 +889,51 @@ export function BuildMyNightWizard() {
     let cancelled = false;
     (async () => {
       setDynamicLoading(true);
+      setDynamicError(null);
+      const sel = getSelectedCity();
+      const cityName = sel?.name ?? null;
       try {
         let loc = getActiveLocation();
         if (!loc) loc = await requestUserLocation().catch(() => null);
-        const sel = getSelectedCity();
         const { data, error } = await supabase.functions.invoke("wizard-itinerary", {
           body: {
             vibes: vibe,
             budget,
             lat: loc?.lat ?? null,
             lng: loc?.lng ?? null,
-            city: sel?.name ?? null,
+            city: cityName,
             count: 3,
           },
         });
         if (cancelled) return;
         if (error) {
           console.warn("[wizard-itinerary]", error);
+          setDynamicError({ city: cityName, reason: "error" });
+          toast.error(
+            cityName
+              ? `Couldn't reach venue data for ${cityName}. Check your connection or try again.`
+              : "Couldn't reach venue data. Check your connection or try again.",
+          );
           return;
         }
         const fetched = (data?.stops ?? []) as Stop[];
         if (fetched.length) {
           setDynamicStops(fetched);
           setReplacements({});
+        } else {
+          setDynamicError({ city: cityName, reason: "empty" });
+          toast.error(
+            cityName
+              ? `No verified venues found in ${cityName} for these vibes.`
+              : "No verified venues found for these vibes.",
+          );
         }
       } catch (err) {
-        if (!cancelled) console.warn("[wizard-itinerary]", err);
+        if (!cancelled) {
+          console.warn("[wizard-itinerary]", err);
+          setDynamicError({ city: cityName, reason: "error" });
+          toast.error("Something went wrong fetching venues. Try again.");
+        }
       } finally {
         if (!cancelled) setDynamicLoading(false);
       }
@@ -1718,6 +1739,58 @@ export function BuildMyNightWizard() {
                       .filter(Boolean)
                       .join(" + ")} · ${CREW.find((c) => c.k === crew)?.label} · ${budget}`}
               </p>
+
+              {dynamicError && !preset && (
+                <div
+                  role="alert"
+                  className="mt-4 rounded-2xl border-2 border-ink bg-coral/15 p-4 shadow-brut"
+                >
+                  <div className="flex items-start gap-3">
+                    <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-coral" />
+                    <div className="flex-1">
+                      <p className="font-display text-base font-extrabold text-ink">
+                        {dynamicError.reason === "empty"
+                          ? dynamicError.city
+                            ? `No verified venues in ${dynamicError.city} for these vibes`
+                            : "No verified venues for these vibes"
+                          : dynamicError.city
+                            ? `Couldn't load venues for ${dynamicError.city}`
+                            : "Couldn't load venues"}
+                      </p>
+                      <p className="mt-1 text-[13px] text-ink/70">
+                        We won't show venues we can't confirm are real and open. Try one of these:
+                      </p>
+                      <ul className="mt-2 list-disc pl-5 text-[13px] text-ink/80 space-y-1">
+                        <li>Pick different vibes on the previous step</li>
+                        <li>Switch to another city from the city picker</li>
+                        <li>Loosen your budget or dietary filters</li>
+                        <li>Check your internet and retry</li>
+                      </ul>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setDynamicError(null);
+                            // re-trigger by toggling step
+                            setStep(6);
+                            setTimeout(() => setStep(7), 0);
+                          }}
+                          className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut transition-pop hover:-translate-y-0.5"
+                        >
+                          <RefreshCw className="h-3 w-3" /> Try again
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setStep(1)}
+                          className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+                        >
+                          Change vibes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {(() => {
                 const dietLabel = dietPrefs.vegan

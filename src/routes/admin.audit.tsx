@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { MapPin } from "lucide-react";
 import {
   CheckCircle2,
   ScrollText,
@@ -234,6 +236,7 @@ function AdminAuditPage() {
         </Table>
       </div>
 
+      <PlacesMatchAuditSection />
       <AccessDenialsSection />
     </div>
   );
@@ -457,5 +460,227 @@ function StatCard({ label, value }: { label: string; value: number }) {
       <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">{label}</p>
       <p className="mt-1 font-display text-2xl font-bold">{value}</p>
     </div>
+  );
+}
+
+type PlacesMatchRow = {
+  id: string;
+  created_at: string;
+  source: string;
+  user_id: string | null;
+  city: string | null;
+  requested_name: string | null;
+  query: string | null;
+  place_id: string | null;
+  matched_name: string | null;
+  status: string;
+  score: number | null;
+  rating: number | null;
+  user_rating_count: number | null;
+  business_status: string | null;
+};
+
+function PlacesMatchAuditSection() {
+  const [rows, setRows] = useState<PlacesMatchRow[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [q, setQ] = useState("");
+  const [statusFilter, setStatusFilter] = useState<"all" | "matched" | "fallback" | "unmatched">("all");
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const { data, error } = await supabase
+        .from("places_match_audit")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .limit(500);
+      if (cancelled) return;
+      if (error) {
+        toast.error(`Failed to load Places audit: ${error.message}`);
+      } else {
+        setRows((data ?? []) as PlacesMatchRow[]);
+      }
+      setLoading(false);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const filtered = useMemo(() => {
+    const s = q.trim().toLowerCase();
+    return rows.filter((r) => {
+      if (statusFilter !== "all" && r.status !== statusFilter) return false;
+      if (s) {
+        const hay = `${r.source} ${r.city ?? ""} ${r.requested_name ?? ""} ${r.matched_name ?? ""} ${r.place_id ?? ""} ${r.query ?? ""}`.toLowerCase();
+        if (!hay.includes(s)) return false;
+      }
+      return true;
+    });
+  }, [rows, q, statusFilter]);
+
+  const matched = rows.filter((r) => r.status === "matched").length;
+  const fallback = rows.filter((r) => r.status === "fallback").length;
+  const unmatched = rows.filter((r) => r.status === "unmatched").length;
+
+  const exportCsv = () => {
+    const header = [
+      "id",
+      "created_at",
+      "source",
+      "user_id",
+      "city",
+      "requested_name",
+      "query",
+      "place_id",
+      "matched_name",
+      "status",
+      "score",
+      "rating",
+      "user_rating_count",
+      "business_status",
+    ];
+    const data = [
+      header,
+      ...filtered.map((r) => header.map((h) => (r as Record<string, unknown>)[h] ?? "")),
+    ];
+    const csv = data
+      .map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(","))
+      .join("\n");
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `places-match-audit-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    toast.success(`Exported ${filtered.length} rows`);
+  };
+
+  return (
+    <section className="space-y-4">
+      <header className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            Itinerary verification
+          </p>
+          <h2 className="font-display text-2xl font-bold leading-tight flex items-center gap-2">
+            <MapPin className="h-6 w-6 text-coral" /> Places match audit
+          </h2>
+          <p className="text-sm text-muted-foreground">
+            Every Google Places lookup performed while building an itinerary — name, status, and score.
+          </p>
+        </div>
+        <div className="flex gap-2">
+          <Button variant="outline" size="sm" onClick={exportCsv} disabled={filtered.length === 0}>
+            <Download className="mr-1 h-3.5 w-3.5" /> Export CSV
+          </Button>
+        </div>
+      </header>
+
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <StatCard label="Matched (exact)" value={matched} />
+        <StatCard label="Fallback (category)" value={fallback} />
+        <StatCard label="Unmatched" value={unmatched} />
+      </div>
+
+      <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-border bg-card p-3 shadow-card">
+        <div className="relative flex-1 min-w-[260px]">
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="Search by city, name, place ID, or query…"
+            className="pl-9"
+          />
+        </div>
+        <select
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value as typeof statusFilter)}
+          className="rounded-md border border-border bg-background px-3 py-2 text-sm"
+        >
+          <option value="all">All statuses</option>
+          <option value="matched">Matched</option>
+          <option value="fallback">Fallback</option>
+          <option value="unmatched">Unmatched</option>
+        </select>
+      </div>
+
+      <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>When</TableHead>
+              <TableHead>Source</TableHead>
+              <TableHead>City</TableHead>
+              <TableHead>Requested → Matched</TableHead>
+              <TableHead>Place ID</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead className="text-right">Score</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {loading ? (
+              <TableRow>
+                <TableCell colSpan={7} className="py-12 text-center text-sm text-muted-foreground">
+                  Loading…
+                </TableCell>
+              </TableRow>
+            ) : filtered.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={7} className="py-12 text-center text-sm text-muted-foreground">
+                  No Places matches recorded yet. Generated itineraries will appear here.
+                </TableCell>
+              </TableRow>
+            ) : (
+              filtered.map((r) => {
+                const w = formatRelAbs(r.created_at);
+                const tone =
+                  r.status === "matched"
+                    ? "bg-emerald-500/15 text-emerald-700"
+                    : r.status === "fallback"
+                      ? "bg-amber-500/15 text-amber-700"
+                      : "bg-destructive/15 text-destructive";
+                return (
+                  <TableRow key={r.id}>
+                    <TableCell>
+                      <div className="text-sm">{w.rel}</div>
+                      <div className="text-xs text-muted-foreground">{w.abs}</div>
+                    </TableCell>
+                    <TableCell className="font-mono text-xs">{r.source}</TableCell>
+                    <TableCell className="text-sm">{r.city ?? "—"}</TableCell>
+                    <TableCell className="max-w-[320px] text-sm">
+                      <div className="truncate">{r.requested_name ?? r.query ?? "—"}</div>
+                      <div className="truncate text-xs text-muted-foreground">
+                        → {r.matched_name ?? "—"}
+                      </div>
+                    </TableCell>
+                    <TableCell className="font-mono text-[11px]">
+                      {r.place_id ? `${r.place_id.slice(0, 16)}…` : "—"}
+                    </TableCell>
+                    <TableCell>
+                      <Badge className={`${tone} hover:opacity-90 capitalize`}>{r.status}</Badge>
+                      {r.business_status && r.business_status !== "OPERATIONAL" ? (
+                        <div className="mt-1 text-[11px] text-muted-foreground">
+                          {r.business_status}
+                        </div>
+                      ) : null}
+                    </TableCell>
+                    <TableCell className="text-right font-mono text-sm">
+                      {r.score == null ? "—" : Number(r.score).toFixed(2)}
+                      {r.rating != null ? (
+                        <div className="text-[11px] text-muted-foreground">
+                          {r.rating}★ · {r.user_rating_count ?? 0}
+                        </div>
+                      ) : null}
+                    </TableCell>
+                  </TableRow>
+                );
+              })
+            )}
+          </TableBody>
+        </Table>
+      </div>
+    </section>
   );
 }

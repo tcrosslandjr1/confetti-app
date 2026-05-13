@@ -114,12 +114,20 @@ function nameSimilar(a: string, b: string): boolean {
   return overlap >= Math.max(1, Math.min(at.size, bt.size) - 1);
 }
 
+function placeScore(rating?: number, count?: number): number {
+  return Number(((rating ?? 0) * Math.log10((count ?? 0) + 10)).toFixed(4));
+}
+
+type AuditRow = Record<string, unknown>;
+
 async function verifyStop(
   stop: Record<string, unknown>,
   cityLabel: string,
   bias: { lat: number; lng: number } | undefined,
   used: Set<string>,
   key: string,
+  audit: AuditRow[],
+  ctx: { userId: string | null; city: string | null },
 ): Promise<{ stop: Record<string, unknown>; verified: boolean }> {
   const name = String(stop.name ?? "").trim();
   const category = String(stop.category ?? "other");
@@ -133,6 +141,21 @@ async function verifyStop(
     const match = direct.find((h) => nameSimilar(h.displayName?.text ?? "", name) && !used.has(h.id));
     if (match) {
       used.add(match.id);
+      audit.push({
+        source: "build-itinerary",
+        user_id: ctx.userId,
+        city: ctx.city,
+        requested_name: name,
+        query: cityForQuery ? `${name} ${cityForQuery}` : name,
+        place_id: match.id,
+        matched_name: match.displayName?.text ?? null,
+        status: "matched",
+        score: placeScore(match.rating, match.userRatingCount),
+        rating: match.rating ?? null,
+        user_rating_count: match.userRatingCount ?? null,
+        business_status: match.businessStatus ?? null,
+        meta: { category, candidates: direct.length },
+      });
       return { stop: applyHit(stop, match), verified: true };
     }
   }
@@ -149,8 +172,38 @@ async function verifyStop(
   const pick = fb[0];
   if (pick) {
     used.add(pick.id);
+    audit.push({
+      source: "build-itinerary",
+      user_id: ctx.userId,
+      city: ctx.city,
+      requested_name: name || null,
+      query: fallbackQ,
+      place_id: pick.id,
+      matched_name: pick.displayName?.text ?? null,
+      status: "fallback",
+      score: placeScore(pick.rating, pick.userRatingCount),
+      rating: pick.rating ?? null,
+      user_rating_count: pick.userRatingCount ?? null,
+      business_status: pick.businessStatus ?? null,
+      meta: { category, candidates: fb.length },
+    });
     return { stop: applyHit(stop, pick), verified: true };
   }
+  audit.push({
+    source: "build-itinerary",
+    user_id: ctx.userId,
+    city: ctx.city,
+    requested_name: name || null,
+    query: fallbackQ,
+    place_id: null,
+    matched_name: null,
+    status: "unmatched",
+    score: 0,
+    rating: null,
+    user_rating_count: null,
+    business_status: null,
+    meta: { category },
+  });
   return { stop, verified: false };
 }
 
@@ -176,10 +229,50 @@ function applyHit(stop: Record<string, unknown>, hit: PlaceHit): Record<string, 
   };
 }
 
+async function logAuditRows(rows: AuditRow[]) {
+  const url = Deno.env.get("SUPABASE_URL");
+  const srk = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (!url || !srk || rows.length === 0) return;
+  try {
+    await fetch(`${url}/rest/v1/places_match_audit`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: srk,
+        Authorization: `Bearer ${srk}`,
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify(rows),
+    });
+  } catch (e) {
+    console.warn("[build-itinerary] audit log failed", (e as Error).message);
+  }
+}
+
+async function getUserIdFromAuth(req: Request): Promise<string | null> {
+  try {
+    const auth = req.headers.get("Authorization") || req.headers.get("authorization");
+    if (!auth) return null;
+    const token = auth.replace(/^Bearer\s+/i, "");
+    const url = Deno.env.get("SUPABASE_URL");
+    const anon = Deno.env.get("SUPABASE_ANON_KEY");
+    if (!url || !anon) return null;
+    const r = await fetch(`${url}/auth/v1/user`, {
+      headers: { apikey: anon, Authorization: `Bearer ${token}` },
+    });
+    if (!r.ok) return null;
+    const j = await r.json();
+    return j?.id ?? null;
+  } catch {
+    return null;
+  }
+}
+
 async function verifyItinerary(
   itinerary: { stops?: Array<Record<string, unknown>> },
   body: Body,
   key: string,
+  ctx: { userId: string | null },
 ) {
   const stops = itinerary.stops ?? [];
   const cityLabel = [body.city, body.region].filter(Boolean).join(", ");
@@ -189,11 +282,14 @@ async function verifyItinerary(
       : undefined;
   const used = new Set<string>();
   const out: Array<Record<string, unknown>> = [];
+  const audit: AuditRow[] = [];
+  const auditCtx = { userId: ctx.userId, city: body.city ?? null };
   for (const s of stops) {
-    const { stop, verified } = await verifyStop(s, cityLabel, bias, used, key);
+    const { stop, verified } = await verifyStop(s, cityLabel, bias, used, key, audit, auditCtx);
     if (verified) out.push(stop);
     // Drop unverifiable stops entirely — never falsely advertise a venue.
   }
+  await logAuditRows(audit);
   return { ...itinerary, stops: out };
 }
 
@@ -203,6 +299,7 @@ Deno.serve(async (req) => {
   try {
     const b = (await req.json()) as Body;
     if (!b.occasion) return json({ error: "occasion required" }, 400);
+    const userId = await getUserIdFromAuth(req);
 
     const apiKey = Deno.env.get("LOVABLE_API_KEY");
     if (!apiKey) return json({ error: "missing LOVABLE_API_KEY" }, 500);
@@ -359,7 +456,7 @@ The first stop has no travelFromPrev. Make the schedule realistic — startTime 
     let verified = args;
     if (placesKey) {
       try {
-        verified = await verifyItinerary(args, b, placesKey);
+        verified = await verifyItinerary(args, b, placesKey, { userId });
         if (!verified.stops?.length) {
           // All stops failed verification — return the original so the user sees
           // *something*, but flag it so the UI can warn.

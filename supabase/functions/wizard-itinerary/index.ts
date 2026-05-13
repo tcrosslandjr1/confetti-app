@@ -201,12 +201,56 @@ async function shapeCandidate(
   };
 }
 
+function placeScore(rating?: number, count?: number): number {
+  return Number(((rating ?? 0) * Math.log10((count ?? 0) + 10)).toFixed(4));
+}
+
+async function logAuditRows(rows: Array<Record<string, unknown>>) {
+  const url = Deno.env.get("SUPABASE_URL");
+  const srk = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (!url || !srk || rows.length === 0) return;
+  try {
+    await fetch(`${url}/rest/v1/places_match_audit`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: srk,
+        Authorization: `Bearer ${srk}`,
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify(rows),
+    });
+  } catch (e) {
+    console.warn("[wizard-itinerary] audit log failed", (e as Error).message);
+  }
+}
+
+async function getUserIdFromAuth(req: Request): Promise<string | null> {
+  try {
+    const auth = req.headers.get("Authorization") || req.headers.get("authorization");
+    if (!auth) return null;
+    const token = auth.replace(/^Bearer\s+/i, "");
+    const url = Deno.env.get("SUPABASE_URL");
+    const anon = Deno.env.get("SUPABASE_ANON_KEY");
+    if (!url || !anon) return null;
+    const r = await fetch(`${url}/auth/v1/user`, {
+      headers: { apikey: anon, Authorization: `Bearer ${token}` },
+    });
+    if (!r.ok) return null;
+    const j = await r.json();
+    return j?.id ?? null;
+  } catch {
+    return null;
+  }
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
   try {
     const key = Deno.env.get("GOOGLE_PLACES_API_KEY");
     if (!key) return json({ error: "missing GOOGLE_PLACES_API_KEY" }, 500);
     const body = (await req.json()) as Body;
+    const userId = await getUserIdFromAuth(req);
 
     // ---- Alternatives mode: return multiple candidates for a single vibe/query
     if (body.mode === "alternatives") {
@@ -246,13 +290,46 @@ Deno.serve(async (req) => {
 
     const seen = new Set<string>();
     const stops: Array<Record<string, unknown>> = [];
+    const auditRows: Array<Record<string, unknown>> = [];
     for (const vibeKey of vibeKeys) {
       const recipe = VIBE_RECIPES[vibeKey];
       const candidates = await searchCandidates(recipe, body, seen, key);
       const pick = candidates[0];
-      if (!pick) continue;
+      if (!pick) {
+        auditRows.push({
+          source: "wizard-itinerary",
+          user_id: userId,
+          city: body.city ?? null,
+          requested_name: recipe.vibeLabel,
+          query: recipe.query,
+          place_id: null,
+          matched_name: null,
+          status: "unmatched",
+          score: 0,
+          rating: null,
+          user_rating_count: null,
+          business_status: null,
+          meta: { vibeKey, budget: body.budget ?? null },
+        });
+        continue;
+      }
       const result = await shapeCandidate(pick, key);
       seen.add(result.id);
+      auditRows.push({
+        source: "wizard-itinerary",
+        user_id: userId,
+        city: body.city ?? null,
+        requested_name: recipe.vibeLabel,
+        query: recipe.query,
+        place_id: result.id,
+        matched_name: result.venue,
+        status: "matched",
+        score: placeScore(result.rating ?? undefined, result.userRatingCount ?? undefined),
+        rating: result.rating ?? null,
+        user_rating_count: result.userRatingCount ?? null,
+        business_status: pick.businessStatus ?? null,
+        meta: { vibeKey, budget: body.budget ?? null, candidates: candidates.length },
+      });
       stops.push({
         time: recipe.time,
         venue: result.venue,
@@ -270,6 +347,7 @@ Deno.serve(async (req) => {
         vibeKey,
       });
     }
+    await logAuditRows(auditRows);
     return json({ stops });
   } catch (e) {
     return json({ error: (e as Error).message }, 500);

@@ -928,6 +928,60 @@ export type Database = {
         }
         Relationships: []
       }
+      places_match_audit: {
+        Row: {
+          business_status: string | null
+          city: string | null
+          created_at: string
+          id: string
+          matched_name: string | null
+          meta: Json
+          place_id: string | null
+          query: string | null
+          rating: number | null
+          requested_name: string | null
+          score: number | null
+          source: string
+          status: string
+          user_id: string | null
+          user_rating_count: number | null
+        }
+        Insert: {
+          business_status?: string | null
+          city?: string | null
+          created_at?: string
+          id?: string
+          matched_name?: string | null
+          meta?: Json
+          place_id?: string | null
+          query?: string | null
+          rating?: number | null
+          requested_name?: string | null
+          score?: number | null
+          source: string
+          status: string
+          user_id?: string | null
+          user_rating_count?: number | null
+        }
+        Update: {
+          business_status?: string | null
+          city?: string | null
+          created_at?: string
+          id?: string
+          matched_name?: string | null
+          meta?: Json
+          place_id?: string | null
+          query?: string | null
+          rating?: number | null
+          requested_name?: string | null
+          score?: number | null
+          source?: string
+          status?: string
+          user_id?: string | null
+          user_rating_count?: number | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string

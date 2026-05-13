@@ -61,6 +61,46 @@ function PortalViralPage() {
   const [sortBy, setSortBy] = useState<SortKey>("score_desc");
   const [minScore, setMinScore] = useState(0);
   const [query, setQuery] = useState("");
+  const [discovering, setDiscovering] = useState(false);
+
+  const refetch = async () => {
+    setRows(null);
+    const orderCol =
+      sortBy === "score_desc" || sortBy === "score_asc"
+        ? "trend_score"
+        : sortBy === "mentions"
+          ? "mention_count"
+          : "last_mentioned_at";
+    const { data } = await supabase
+      .from("viral_venues")
+      .select(
+        "id,city,venue_name,neighborhood,address,photo_url,rating,trend_score,tags,summary,google_place_id,source_urls,last_mentioned_at,mention_count",
+      )
+      .eq("city", city)
+      .order(orderCol, { ascending: sortBy === "score_asc" })
+      .limit(60);
+    setRows((data as Row[]) ?? []);
+  };
+
+  const discoverNow = async () => {
+    setDiscovering(true);
+    try {
+      const anonKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
+      const res = await fetch("/api/public/hooks/discover-viral", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", apikey: anonKey },
+        body: JSON.stringify({ city }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error ?? `HTTP ${res.status}`);
+      toast.success(`Found ${json.venuesUpserted ?? 0} viral spots in ${city}`);
+      await refetch();
+    } catch (e) {
+      toast.error("Couldn't refresh viral feed", { description: (e as Error).message });
+    } finally {
+      setDiscovering(false);
+    }
+  };
 
   useEffect(() => {
     (async () => {

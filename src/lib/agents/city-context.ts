@@ -4,6 +4,25 @@
 
 export type Neighborhood = { name: string; vibe: string };
 
+export type TravelLevel = "low" | "medium" | "high";
+
+export type TravelIntel = {
+  travelModes: {
+    walkability: TravelLevel;
+    uberAvailability: TravelLevel;
+    publicTransitQuality: TravelLevel;
+    parkingDifficulty: TravelLevel;
+    evFriendly: TravelLevel;
+  };
+  travelRecommendations: {
+    shortHops: string;
+    crossNeighborhood: string;
+    groups: string;
+    waterfront?: string;
+    lateNight: string;
+  };
+};
+
 export type CityContext = {
   /** Canonical city name as stored in viral_venues.city */
   city: string;

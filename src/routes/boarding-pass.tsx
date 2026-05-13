@@ -201,6 +201,66 @@ function BoardingPassPage() {
     }
   };
 
+  const loopId = data ? "active" : "sample";
+
+  const handleShareImage = async () => {
+    if (!passRef.current) return;
+    setImageBusy(true);
+    try {
+      const { toPng } = await import("html-to-image");
+      const dataUrl = await toPng(passRef.current, {
+        cacheBust: true,
+        pixelRatio: 3,
+        backgroundColor: "#fdf6ee",
+      });
+      const fileName = `confetti-${(passData.flightCode || "boarding-pass").toLowerCase()}.png`;
+
+      // Try native file share first (great on mobile)
+      let nativeShared = false;
+      try {
+        const blob = await (await fetch(dataUrl)).blob();
+        const file = new File([blob], fileName, { type: "image/png" });
+        const navAny = navigator as Navigator & {
+          canShare?: (d: { files: File[] }) => boolean;
+        };
+        if (navAny.canShare && navAny.canShare({ files: [file] })) {
+          await navigator.share({
+            title: `${passData.occasionEmoji} ${passData.occasionLabel}`,
+            text: `My Confetti vibe: ${passData.origin.name} → ${passData.destination.name}`,
+            files: [file],
+          });
+          nativeShared = true;
+        }
+      } catch {
+        /* best effort */
+      }
+
+      if (!nativeShared) {
+        const a = document.createElement("a");
+        a.href = dataUrl;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+
+      trackShareEvent("share_save_image", { loopId, meta: { nativeShared } });
+      toast.success(nativeShared ? "Shared!" : "Image saved", {
+        description: nativeShared
+          ? "Your boarding pass is on its way."
+          : "Check your downloads to share it anywhere.",
+        position: "bottom-center",
+        duration: 3500,
+      });
+    } catch (err) {
+      if ((err as { name?: string })?.name === "AbortError") return;
+      trackShareEvent("share_error", { loopId, meta: { source: "save_image" } });
+      toast.error("Couldn't generate image — try again", { position: "bottom-center" });
+    } finally {
+      setImageBusy(false);
+    }
+  };
+
   return (
     <div className="min-h-screen pb-32" style={{ background: "#fdf6ee" }}>
       <div className="mx-auto max-w-md px-4 pt-6">

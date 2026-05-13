@@ -32,6 +32,8 @@ export type PlanStop = {
   lat?: number;
   lng?: number;
   priceLevel?: 1 | 2 | 3 | 4;
+  /** True if this stop came from a paid Promoted (itinerary_boost) campaign. */
+  promoted?: boolean;
 };
 
 export type BonusMove = {

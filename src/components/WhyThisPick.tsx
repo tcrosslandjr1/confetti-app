@@ -1,4 +1,6 @@
-import { Flame, Bookmark, CalendarCheck, Sparkles, Star, MapPin, Users, Info } from "lucide-react";
+import { Flame, Bookmark, CalendarCheck, Sparkles, Star, MapPin, Users, Info, ThumbsUp, ThumbsDown } from "lucide-react";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export type PickSignalKind =
   | "trending"

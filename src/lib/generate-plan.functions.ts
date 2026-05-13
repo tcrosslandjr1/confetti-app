@@ -198,7 +198,16 @@ export const generatePlan = createServerFn({ method: "POST" })
     }
 
     // Trim to 30 most relevant candidates — keeps prompt cheap.
-    const topCandidates = candidates.slice(0, 30);
+    let topCandidates = candidates.slice(0, 30);
+
+    // Bundle 3: inject Promoted boosts (advertiser itinerary_boost campaigns).
+    const promoted = await fetchPromotedBoosts(cityCtx.city);
+    if (promoted.length) {
+      // De-dupe by id, place promoted at the top so the model sees them first.
+      const seen = new Set(promoted.map((p) => p.id));
+      topCandidates = [...promoted, ...topCandidates.filter((c) => !seen.has(c.id))].slice(0, 32);
+    }
+
 
     // 4 + 5 + 6. Itinerary + Naming + Impromptu + Relevance — single AI call.
     const gateway = createLovableAiGatewayProvider(apiKey);

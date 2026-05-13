@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { PickAnalyticsToggle } from "@/components/PickAnalyticsToggle";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
@@ -81,6 +82,13 @@ function PrivacyPage() {
           ))}
         </ul>
       </nav>
+
+      <div className="mb-10 space-y-3">
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          Your controls
+        </p>
+        <PickAnalyticsToggle />
+      </div>
 
       <div className="space-y-10">
         <Section id="who" title="1. Who we are">

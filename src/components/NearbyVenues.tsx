@@ -6,6 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { getStoredLocation, requestUserLocation, type UserLocation } from "@/lib/location";
 import { Button } from "@/components/ui/button";
 import { GooglePhotos } from "@/components/GooglePhotos";
+import { VenueVerificationBadge } from "@/components/VenueVerificationBadge";
 
 type Venue = {
   id: string;
@@ -262,6 +263,9 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
                   </span>
                 </div>
                 <h3 className="mt-1 font-display text-lg font-bold">{v.name}</h3>
+                <div className="mt-1.5">
+                  <VenueVerificationBadge venueName={v.name} size="xs" />
+                </div>
                 {v.neighborhood && (
                   <div className="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground">
                     <MapPin className="h-3 w-3" /> {v.neighborhood}

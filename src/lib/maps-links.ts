@@ -132,12 +132,21 @@ export function buildGoogleMapsDirectionsUrl(
   if (points.length === 0) {
     return opts.native ? "comgooglemaps://" : "https://www.google.com/maps";
   }
+  const dest = points[points.length - 1];
+  // Fallback: destination only has a name → Google Maps search by name.
+  if (!hasRoutableLocation(dest)) {
+    const q = dest.name || dest.address || "";
+    if (!q) return opts.native ? "comgooglemaps://" : "https://www.google.com/maps";
+    if (opts.native) {
+      return `comgooglemaps://?q=${encodeURIComponent(q)}`;
+    }
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+  }
   const origin = fmt(points[0]);
-  const destination = fmt(points[points.length - 1]);
+  const destination = fmt(dest);
   const waypoints = points.slice(1, -1).map(fmt).filter(Boolean).join("|");
 
   if (opts.native) {
-    // comgooglemaps:// opens the Google Maps app directly on iOS/Android when installed.
     const params = new URLSearchParams({
       saddr: points.length > 1 ? origin : "",
       daddr: destination,
@@ -147,7 +156,7 @@ export function buildGoogleMapsDirectionsUrl(
     return `comgooglemaps://?${params.toString()}`;
   }
 
-  if (points.length === 1) return buildGoogleMapsSearchUrl(points[0]);
+  if (points.length === 1) return buildGoogleMapsSearchUrl(dest);
   const params = new URLSearchParams({
     api: "1",
     origin,

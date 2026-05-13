@@ -100,7 +100,8 @@ function PlanPage() {
   }, [occasionSlugs, isCustom, durationTouched]);
 
   useEffect(() => {
-    if (!loading && !user) {
+    if (loading) return;
+    if (!user) {
       logAccessDenial({
         source: "route-guard",
         feature: "planning",
@@ -111,8 +112,15 @@ function PlanPage() {
         note: "Unauthenticated user blocked from /plan",
       });
       nav({ to: "/auth" });
+      return;
     }
-  }, [user, loading, nav]);
+    // Planning + booking is a customer surface. Admin/business/visitor views
+    // get redirected to their own home so admin accounts don't accidentally
+    // create real bookings while testing.
+    if (viewAs === "admin") nav({ to: "/admin" });
+    else if (viewAs === "business") nav({ to: "/advertise/portal" });
+    else if (viewAs === "visitor") nav({ to: "/" });
+  }, [user, loading, viewAs, nav]);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();

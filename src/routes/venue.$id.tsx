@@ -217,13 +217,31 @@ function VenuePage() {
           </div>
         )}
 
-        <div className="mt-4">
-          <VenueMap
-            name={venue.name}
-            address={venue.address}
-            area={venue.neighborhood}
-          />
-        </div>
+        {(venue.address || venue.name) && (() => {
+          const dest = { name: venue.name, address: venue.address ?? undefined };
+          const apple = buildAppleMapsDirectionsUrl([dest]);
+          const google = buildGoogleMapsDirectionsUrl([dest]);
+          return (
+            <div className="mt-4 grid grid-cols-2 gap-2">
+              <a
+                href={apple}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold"
+              >
+                <Navigation className="h-4 w-4" /> Apple Maps
+              </a>
+              <a
+                href={google}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold"
+              >
+                <Navigation className="h-4 w-4" /> Google Maps
+              </a>
+            </div>
+          );
+        })()}
 
         <div className="mt-4 grid gap-2">
           <InfoRow icon={Clock} label="Hours" value="Tue–Sun · 5pm – 1am" />

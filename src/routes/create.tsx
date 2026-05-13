@@ -54,6 +54,16 @@ function CreatePage() {
     if (generating) return;
     setGenerating(true);
     try {
+      // Taste Learning Agent input — pulled from the user's stored profile.
+      let tasteSummaryStr: string | undefined;
+      try {
+        const { loadPrefs, tasteSummary } = await import("@/lib/taste");
+        const prefs = await loadPrefs();
+        const s = tasteSummary(prefs);
+        if (s) tasteSummaryStr = s;
+      } catch {
+        /* anon user — no taste graph */
+      }
       const plan = await generate({
         data: {
           city,
@@ -65,6 +75,7 @@ function CreatePage() {
           date,
           startTime: time,
           duration,
+          tasteSummary: tasteSummaryStr,
         },
       });
       const loop: ActiveLoop = {

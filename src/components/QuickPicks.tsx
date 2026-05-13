@@ -1,4 +1,4 @@
-import { ArrowUpRight, Clock, MapPin, Sparkles } from "lucide-react";
+import { ArrowUpRight, Clock, Heart, MapPin, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { WizardButton } from "@/components/wizard/WizardButton";
@@ -9,6 +9,8 @@ import {
   subscribeSelectedCity,
   type City,
 } from "@/lib/cities";
+import { useCardSignals, recordCardSave } from "@/lib/use-card-signals";
+import { toast } from "sonner";
 
 type Pick = {
   title: string;

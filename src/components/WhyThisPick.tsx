@@ -37,9 +37,35 @@ type Props = {
   rationale?: string;
   className?: string;
   compact?: boolean;
+  /** Stable id (e.g. venue id or stop id) used to persist feedback. */
+  pickId?: string;
+  /** Optional context attached to the feedback signal (e.g. "viral-now"). */
+  context?: string;
 };
 
-export function WhyThisPick({ signals, rationale, className = "", compact = false }: Props) {
+const FEEDBACK_KEY = "confetti.pickFeedback.v1";
+
+type FeedbackVote = "up" | "down";
+
+function readFeedback(): Record<string, FeedbackVote> {
+  if (typeof window === "undefined") return {};
+  try {
+    return JSON.parse(localStorage.getItem(FEEDBACK_KEY) || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function writeFeedback(map: Record<string, FeedbackVote>) {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.setItem(FEEDBACK_KEY, JSON.stringify(map));
+  } catch {
+    /* ignore quota */
+  }
+}
+
+export function WhyThisPick({ signals, rationale, className = "", compact = false, pickId, context }: Props) {
   const trimmed = signals.filter(Boolean).slice(0, 3);
   if (trimmed.length === 0 && !rationale) return null;
 

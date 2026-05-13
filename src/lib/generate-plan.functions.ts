@@ -18,6 +18,7 @@ const PlanRequestSchema = z.object({
   startTime: z.string().regex(/^\d{2}:\d{2}$/).optional(),
   duration: z.string().min(1).max(20).optional(),
   budget: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)]).optional(),
+  tasteSummary: z.string().max(1200).optional(),
 });
 
 type CandidateVenue = {

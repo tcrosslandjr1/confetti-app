@@ -113,6 +113,7 @@ function mapLoop(loop: ActiveLoop): BoardingPassData {
 
 function BoardingPassPage() {
   const [data, setData] = useState<BoardingPassData | null>(null);
+  const [shared, setShared] = useState(false);
 
   useEffect(() => {
     const sync = () => {
@@ -126,15 +127,56 @@ function BoardingPassPage() {
   // Fall back to the static demo only when no plan exists yet.
   const passData = data ?? sampleMothersDayData;
 
+  const handleShare = async () => {
+    const url = typeof window !== "undefined" ? window.location.href : "";
+    const title = `${passData.occasionLabel} — Confetti`;
+    const stopsText = passData.stops
+      .map((s, i) => `${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}`)
+      .join("\n");
+    const text = `${passData.occasionEmoji} ${passData.occasionLabel}${
+      passData.date ? ` · ${passData.date}` : ""
+    }\n${passData.origin.name} → ${passData.destination.name}\n\n${stopsText}\n\nBuilt with Confetti`;
+
+    try {
+      const nav = typeof navigator !== "undefined" ? navigator : undefined;
+      if (nav && typeof nav.share === "function") {
+        await nav.share({ title, text, url });
+        return;
+      }
+      if (nav?.clipboard?.writeText) {
+        await nav.clipboard.writeText(`${text}\n${url}`);
+        setShared(true);
+        toast.success("Itinerary copied — paste it to your friends");
+        setTimeout(() => setShared(false), 2200);
+        return;
+      }
+      toast.message("Sharing isn't supported on this device");
+    } catch (err) {
+      if ((err as { name?: string })?.name === "AbortError") return;
+      toast.error("Couldn't share — try again");
+    }
+  };
+
   return (
     <div className="min-h-screen pb-32" style={{ background: "#fdf6ee" }}>
       <div className="mx-auto max-w-md px-4 pt-6">
-        <Link
-          to="/portal"
-          className="inline-flex items-center gap-1 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 hover:text-ink"
-        >
-          <ArrowLeft className="h-3.5 w-3.5" /> Back
-        </Link>
+        <div className="flex items-center justify-between gap-3">
+          <Link
+            to="/portal"
+            className="inline-flex items-center gap-1 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 hover:text-ink"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" /> Back
+          </Link>
+          <button
+            type="button"
+            onClick={handleShare}
+            aria-label="Share itinerary with friends"
+            className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold"
+          >
+            {shared ? <Check className="h-3.5 w-3.5" /> : <Share2 className="h-3.5 w-3.5" />}
+            {shared ? "Copied" : "Share"}
+          </button>
+        </div>
         <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight">
           Your plan is ready
         </h1>
@@ -149,13 +191,21 @@ function BoardingPassPage() {
       </div>
       <div className="mt-6 px-4">
         <BoardingPassV2 data={passData} />
-        <div className="mx-auto mt-5 max-w-md">
+        <div className="mx-auto mt-5 grid max-w-md gap-3 sm:grid-cols-[1fr_auto]">
           <Link
             to="/active-loop"
             className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-4 py-3 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut transition-pop hover:-translate-y-0.5"
           >
             <Play className="h-4 w-4" /> Start the Plan
           </Link>
+          <button
+            type="button"
+            onClick={handleShare}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 font-display text-sm font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold sm:w-auto"
+          >
+            {shared ? <Check className="h-4 w-4" /> : <Share2 className="h-4 w-4" />}
+            {shared ? "Copied" : "Share"}
+          </button>
         </div>
       </div>
     </div>

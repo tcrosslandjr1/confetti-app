@@ -134,7 +134,7 @@ function ViralCard({ v }: { v: ViralVenue }) {
           <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2">{v.summary}</p>
         )}
         {(signals.length > 0 || rationale) && (
-          <WhyThisPick signals={signals} rationale={rationale} className="mt-2" compact />
+          <WhyThisPick signals={signals} rationale={rationale} className="mt-2" compact pickId={`viral:${v.venue_id ?? v.venue_name}`} context="viral-now" />
         )}
       </div>
     </Link>

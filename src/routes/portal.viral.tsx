@@ -61,6 +61,7 @@ function PortalViralPage() {
   const [sortBy, setSortBy] = useState<SortKey>("score_desc");
   const [minScore, setMinScore] = useState(0);
   const [query, setQuery] = useState("");
+  const [scoreInfoOpen, setScoreInfoOpen] = useState(false);
   const [discovering, setDiscovering] = useState(false);
 
   const refetch = async () => {

@@ -352,7 +352,26 @@ The first stop has no travelFromPrev. Make the schedule realistic — startTime 
     const call = data.choices?.[0]?.message?.tool_calls?.[0];
     if (!call) return json({ error: "No tool call returned" }, 500);
     const args = JSON.parse(call.function.arguments);
-    return json({ itinerary: args });
+
+    // Ground every named stop against Google Places so we never falsely advertise
+    // venues that don't exist or have closed.
+    const placesKey = Deno.env.get("GOOGLE_PLACES_API_KEY");
+    let verified = args;
+    if (placesKey) {
+      try {
+        verified = await verifyItinerary(args, b, placesKey);
+        if (!verified.stops?.length) {
+          // All stops failed verification — return the original so the user sees
+          // *something*, but flag it so the UI can warn.
+          verified = { ...args, _unverified: true };
+        }
+      } catch (e) {
+        console.warn("[build-itinerary] verify failed", (e as Error).message);
+      }
+    } else {
+      console.warn("[build-itinerary] GOOGLE_PLACES_API_KEY missing — venues unverified");
+    }
+    return json({ itinerary: verified });
   } catch (e) {
     return json({ error: (e as Error).message }, 500);
   }

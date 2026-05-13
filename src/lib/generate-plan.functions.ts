@@ -40,7 +40,61 @@ type CandidateVenue = {
   placeId: string | null;
   lat: number | null;
   lng: number | null;
+  promoted?: boolean;
+  campaignId?: string;
 };
+
+// ── Promoted slot injection (Bundle 3) ───────────────────────────
+async function fetchPromotedBoosts(city: string): Promise<CandidateVenue[]> {
+  const nowIso = new Date().toISOString();
+  const { data: campaigns } = await supabaseAdmin
+    .from("ad_campaigns")
+    .select("id, headline, blurb, city, venue_id, status, runs_from, runs_until")
+    .eq("placement", "itinerary_boost")
+    .eq("status", "approved")
+    .or(`city.is.null,city.ilike.${city}`);
+  const live = (campaigns ?? []).filter(
+    (c) =>
+      (!c.runs_from || c.runs_from <= nowIso) && (!c.runs_until || c.runs_until >= nowIso),
+  );
+  if (!live.length) return [];
+
+  // Resolve to viral_venues rows when linked, else synthesize a candidate from the headline.
+  const venueIds = live.map((c) => c.venue_id).filter((v): v is string => !!v);
+  const venuesById = new Map<string, {
+    id: string; venue_name: string; neighborhood: string | null;
+    rating: number | null; tags: string[] | null; summary: string | null;
+    google_place_id: string | null; lat: number | null; lng: number | null;
+  }>();
+  if (venueIds.length) {
+    const { data: vrows } = await supabaseAdmin
+      .from("viral_venues")
+      .select("id, venue_name, neighborhood, rating, tags, summary, google_place_id, lat, lng")
+      .in("id", venueIds);
+    for (const v of vrows ?? []) venuesById.set(v.id, v);
+  }
+
+  return live.map((c) => {
+    const v = c.venue_id ? venuesById.get(c.venue_id) : undefined;
+    return {
+      id: v?.id ?? `promoted:${c.id}`,
+      name: v?.venue_name ?? c.headline,
+      category: ((v?.tags?.[0] as string | undefined) ?? "venue"),
+      neighborhood: v?.neighborhood ?? null,
+      rating: v?.rating !== null && v?.rating !== undefined ? Number(v.rating) : 4.5,
+      trendScore: 1.0,
+      mentionCount: null,
+      tags: (v?.tags as string[] | null) ?? [],
+      summary: v?.summary ?? c.blurb ?? null,
+      placeId: v?.google_place_id ?? null,
+      lat: v?.lat !== null && v?.lat !== undefined ? Number(v.lat) : null,
+      lng: v?.lng !== null && v?.lng !== undefined ? Number(v.lng) : null,
+      promoted: true,
+      campaignId: c.id,
+    };
+  });
+}
+
 
 // ── Quality Guardrail (deterministic) ─────────────────────────────
 async function fetchQualifiedVenues(city: string): Promise<CandidateVenue[]> {

@@ -1,0 +1,32 @@
+# Confetti
+
+> Confetti is a curated city concierge that turns your night out into a timed, ready-to-book itinerary — first stop, second stop, transit between them, reservations included.
+
+Confetti plans full evenings in seconds: dining, nightlife, experiences, and the logistics in between. Built for date nights, group hangs, family outings, and spontaneous "change my night" moves.
+
+## Pages
+
+- [Home](/): What Confetti is and how a curated night comes together.
+- [How it works](/how-it-works): The step-by-step from vibe to boarding pass.
+- [Features](/features): Concierge agents, taste graph, live rerouting, and more.
+- [Pricing](/pricing): Free tier and Plus.
+- [Discover nearby](/discover): Trending venues curated by city.
+- [About](/about): Who's behind Confetti.
+- [Contact](/contact): Get in touch.
+- [Investors](/investors): Company overview for investors.
+- [Testimonials](/testimonials): What members say.
+
+## Plan ideas
+
+- [Date night ideas](/ideas/date-night)
+- [Girls night ideas](/ideas/girls-night)
+- [Guys night ideas](/ideas/guys-night)
+- [Family night ideas](/ideas/family-night)
+- [Spontaneous ideas](/ideas/spontaneous)
+
+## Optional
+
+- [Privacy](/privacy)
+- [Terms](/terms)
+- [Cookies](/cookies)
+- [Accessibility](/accessibility)

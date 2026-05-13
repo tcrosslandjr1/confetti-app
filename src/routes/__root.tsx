@@ -126,6 +126,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/61ece84c-a024-4a69-a7ce-019c9d1e13a6/id-preview-d6f23aef--f4bae350-0f3c-459c-a8b3-17702408f503.lovable.app-1778344807777.png",
       },
+      { property: "og:site_name", content: "Confetti" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              name: "Confetti",
+              url: "https://confettiplan.lovable.app",
+              logo: "https://confettiplan.lovable.app/favicon.ico",
+              description:
+                "Confetti curates city experiences, dining, and nightlife into ready-to-go itineraries.",
+            },
+            {
+              "@type": "WebSite",
+              name: "Confetti",
+              url: "https://confettiplan.lovable.app",
+              potentialAction: {
+                "@type": "SearchAction",
+                target:
+                  "https://confettiplan.lovable.app/discover?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            },
+          ],
+        }),
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

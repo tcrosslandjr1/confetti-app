@@ -16,6 +16,7 @@ import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TeamsRouteImport } from './routes/teams'
 import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ScanRouteImport } from './routes/scan'
 import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as QuickGenerateRouteImport } from './routes/quick-generate'
@@ -137,6 +138,11 @@ const TeamsRoute = TeamsRouteImport.update({
 const TasteTunerRoute = TasteTunerRouteImport.update({
   id: '/taste-tuner',
   path: '/taste-tuner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ScanRoute = ScanRouteImport.update({
@@ -612,6 +618,7 @@ export interface FileRoutesByFullPath {
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
   '/terms': typeof TermsRoute
@@ -704,6 +711,7 @@ export interface FileRoutesByTo {
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
@@ -800,6 +808,7 @@ export interface FileRoutesById {
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taste-tuner': typeof TasteTunerRoute
   '/teams': typeof TeamsRouteWithChildren
   '/terms': typeof TermsRoute
@@ -898,6 +907,7 @@ export interface FileRouteTypes {
     | '/quick-generate'
     | '/reservations'
     | '/scan'
+    | '/sitemap.xml'
     | '/taste-tuner'
     | '/teams'
     | '/terms'
@@ -990,6 +1000,7 @@ export interface FileRouteTypes {
     | '/quick-generate'
     | '/reservations'
     | '/scan'
+    | '/sitemap.xml'
     | '/taste-tuner'
     | '/terms'
     | '/testimonials'
@@ -1085,6 +1096,7 @@ export interface FileRouteTypes {
     | '/quick-generate'
     | '/reservations'
     | '/scan'
+    | '/sitemap.xml'
     | '/taste-tuner'
     | '/teams'
     | '/terms'
@@ -1182,6 +1194,7 @@ export interface RootRouteChildren {
   QuickGenerateRoute: typeof QuickGenerateRoute
   ReservationsRoute: typeof ReservationsRoute
   ScanRoute: typeof ScanRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TasteTunerRoute: typeof TasteTunerRoute
   TeamsRoute: typeof TeamsRouteWithChildren
   TermsRoute: typeof TermsRoute
@@ -1258,6 +1271,13 @@ declare module '@tanstack/react-router' {
       path: '/taste-tuner'
       fullPath: '/taste-tuner'
       preLoaderRoute: typeof TasteTunerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/scan': {
@@ -2042,6 +2062,7 @@ const rootRouteChildren: RootRouteChildren = {
   QuickGenerateRoute: QuickGenerateRoute,
   ReservationsRoute: ReservationsRoute,
   ScanRoute: ScanRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TasteTunerRoute: TasteTunerRoute,
   TeamsRoute: TeamsRouteWithChildren,
   TermsRoute: TermsRoute,
@@ -2071,13 +2092,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

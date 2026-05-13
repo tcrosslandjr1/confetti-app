@@ -81,9 +81,10 @@ function PortalLayout() {
   }, [user, loading, viewAs, nav, pathname]);
 
   if (loading || !user || viewAs !== "customer") {
+    const message = loading ? "Loading…" : "Switching view…";
     return (
       <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">
-        Loading…
+        {message}
       </div>
     );
   }

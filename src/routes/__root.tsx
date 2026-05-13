@@ -144,6 +144,20 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap"
+          media="print"
+          // eslint-disable-next-line react/no-unknown-property
+          // @ts-expect-error – browser swaps media to load async
+          onLoad="this.media='all'"
+        />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap"
+          />
+        </noscript>
       </head>
       <body>
         {children}

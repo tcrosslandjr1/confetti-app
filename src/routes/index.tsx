@@ -4,6 +4,7 @@ import { useEffect, useRef, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
+import { RecapBanner } from "@/components/RecapBanner";
 import { SiteFooter } from "@/components/SiteFooter";
 import { TypingCounter } from "@/components/TypingCounter";
 import { StepsShowcase } from "@/components/StepsShowcase";
@@ -253,6 +254,7 @@ function Landing() {
   return (
     <div className="min-h-screen bg-cream text-ink">
       <SiteHeader />
+      <RecapBanner />
 
       {/* ============================ HERO ============================ */}
       <section className="relative overflow-hidden border-b-2 border-ink">

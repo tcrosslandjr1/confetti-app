@@ -8,7 +8,7 @@ import {
   subscribeSelectedCity,
   type City,
 } from "@/lib/cities";
-import { requestUserLocation, clearStoredLocation } from "@/lib/location";
+import { requestUserLocationDetailed, clearStoredLocation } from "@/lib/location";
 import { toast } from "sonner";
 
 type Props = {

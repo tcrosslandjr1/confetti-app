@@ -44,11 +44,28 @@ function VenuePage() {
   const [venue, setVenue] = useState<Venue | null | undefined>(undefined);
   const [travelMode, setTravelMode] = useState<TravelMode>("driving");
   const [origin, setOrigin] = useState<UserLocation | null>(() => getStoredLocation());
+  const [useMyLocation, setUseMyLocation] = useState(true);
   const [eta, setEta] = useState<{ distance: string; duration: string } | null>(null);
   const [etaState, setEtaState] = useState<"idle" | "loading" | "ready" | "denied" | "error">(
     "idle",
   );
   const routesLib = useMapsLibrary("routes");
+
+  const requestLocationNow = async () => {
+    const loc = await requestUserLocation({
+      enableHighAccuracy: true,
+      timeout: 10_000,
+      maximumAge: 0,
+    });
+    if (loc) {
+      setOrigin(loc);
+      setUseMyLocation(true);
+      toast.success("Using your current location");
+    } else {
+      setEtaState("denied");
+      toast.error("Couldn't get your location — check browser permissions");
+    }
+  };
 
   // Lazily request geolocation once when the page mounts.
   useEffect(() => {

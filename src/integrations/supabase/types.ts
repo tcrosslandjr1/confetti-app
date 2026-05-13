@@ -928,6 +928,45 @@ export type Database = {
         }
         Relationships: []
       }
+      pick_events: {
+        Row: {
+          client_at: string | null
+          context: string | null
+          created_at: string
+          id: string
+          meta: Json
+          name: string
+          pick_id: string
+          session_id: string | null
+          signals: string[]
+          user_id: string | null
+        }
+        Insert: {
+          client_at?: string | null
+          context?: string | null
+          created_at?: string
+          id?: string
+          meta?: Json
+          name: string
+          pick_id: string
+          session_id?: string | null
+          signals?: string[]
+          user_id?: string | null
+        }
+        Update: {
+          client_at?: string | null
+          context?: string | null
+          created_at?: string
+          id?: string
+          meta?: Json
+          name?: string
+          pick_id?: string
+          session_id?: string | null
+          signals?: string[]
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       places_match_audit: {
         Row: {
           business_status: string | null

@@ -4,6 +4,79 @@
 // without a backend dependency.
 
 import type { PickSignalKind } from "@/components/WhyThisPick";
+import { supabase } from "@/integrations/supabase/client";
+
+const SESSION_KEY = "confetti:pick-analytics:session";
+const ENDPOINT = "/api/public/pick-events";
+
+function getSessionId(): string {
+  if (typeof localStorage === "undefined") return "ssr";
+  try {
+    let id = localStorage.getItem(SESSION_KEY);
+    if (!id) {
+      id =
+        typeof crypto !== "undefined" && "randomUUID" in crypto
+          ? crypto.randomUUID()
+          : `s_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+      localStorage.setItem(SESSION_KEY, id);
+    }
+    return id;
+  } catch {
+    return "anon";
+  }
+}
+
+type PendingEvent = {
+  name: PickEventName;
+  pickId: string;
+  context?: string;
+  signals: PickSignalKind[];
+  meta?: Record<string, unknown>;
+  clientAt: string;
+  sessionId: string;
+};
+
+let pending: PendingEvent[] = [];
+let flushTimer: ReturnType<typeof setTimeout> | null = null;
+
+async function flush() {
+  flushTimer = null;
+  if (pending.length === 0) return;
+  const batch = pending;
+  pending = [];
+  try {
+    let userId: string | undefined;
+    try {
+      const { data } = await supabase.auth.getSession();
+      userId = data.session?.user?.id;
+    } catch {
+      /* anon */
+    }
+    const events = batch.map((e) => ({ ...e, userId }));
+    await fetch(ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ events }),
+      keepalive: true,
+    });
+  } catch (err) {
+    if (typeof console !== "undefined") {
+      console.warn("[pick-analytics] flush failed", err);
+    }
+  }
+}
+
+function scheduleFlush() {
+  if (typeof window === "undefined") return;
+  if (flushTimer) return;
+  flushTimer = setTimeout(flush, 1500);
+}
+
+if (typeof window !== "undefined") {
+  window.addEventListener("pagehide", () => {
+    if (pending.length > 0) void flush();
+  });
+}
 
 export type PickEventName =
   | "pick_impression"
@@ -102,15 +175,26 @@ export function trackPickEvent(
   // Honor user privacy choice — opt-out short-circuits the whole pipeline,
   // including the localStorage write and the console.info breadcrumb.
   if (getPickAnalyticsConsent() === "denied") return;
+  const clientAt = new Date().toISOString();
   const evt: PickEvent = {
     name,
-    at: new Date().toISOString(),
+    at: clientAt,
     pickId: opts.pickId,
     context: opts.context,
     signals: opts.signals,
     meta: opts.meta,
   };
   write([...read(), evt]);
+  pending.push({
+    name,
+    pickId: opts.pickId,
+    context: opts.context,
+    signals: opts.signals,
+    meta: opts.meta,
+    clientAt,
+    sessionId: getSessionId(),
+  });
+  scheduleFlush();
   if (typeof window !== "undefined") {
     window.dispatchEvent(new CustomEvent("confetti:pick-analytics", { detail: evt }));
   }

@@ -29,7 +29,7 @@ export const Route = createFileRoute("/advertise/portal")({
 });
 
 function AdvertiserPortal() {
-  const { user, loading } = useAuth();
+  const { user, loading, viewAs } = useAuth();
   const nav = useNavigate();
   const [advertiser, setAdvertiser] = useState<Advertiser | null>(null);
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
@@ -55,8 +55,14 @@ function AdvertiserPortal() {
       nav({ to: "/auth" });
       return;
     }
+    // Keep the business portal scoped to the Business view. Admins must switch
+    // to "Business" via the role switcher to land here, so admin/customer/visitor
+    // accounts don't accidentally edit ad campaigns from the wrong context.
+    if (viewAs === "admin") { nav({ to: "/admin" }); return; }
+    if (viewAs === "customer") { nav({ to: "/portal" }); return; }
+    if (viewAs === "visitor") { nav({ to: "/advertise" }); return; }
     void refresh(user.id);
-  }, [user, loading, nav, refresh]);
+  }, [user, loading, viewAs, nav, refresh]);
 
   if (loading || busy) {
     return (

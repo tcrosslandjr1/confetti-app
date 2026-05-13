@@ -163,7 +163,7 @@ function DeepLinkChip({ href, children }: { href: string; children: React.ReactN
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-ink shadow-brut-sm transition-pop hover:-translate-y-0.5"
+      className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-ink shadow-brut transition-pop hover:-translate-y-0.5"
     >
       {children}
     </a>

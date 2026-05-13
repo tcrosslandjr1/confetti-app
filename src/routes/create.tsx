@@ -16,6 +16,8 @@ import {
   Check,
 } from "lucide-react";
 import { makeDemoLoop, setActiveLoop } from "@/lib/loop-store";
+import { VIBES } from "@/lib/concierge-data";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/create")({
   head: () => ({ meta: [{ title: "Create a Plan — Confetti" }] }),
@@ -39,14 +41,6 @@ const OCCASIONS = [
 ];
 
 const DURATIONS = ["2 hr", "3 hr", "4 hr", "All night"];
-const VIBES = [
-  { id: "chill", label: "Chill", emoji: "🌿" },
-  { id: "upscale", label: "Upscale", emoji: "🥂" },
-  { id: "wild", label: "Wild", emoji: "🔥" },
-  { id: "adventurous", label: "Adventurous", emoji: "🧗" },
-  { id: "romantic", label: "Romantic", emoji: "🌹" },
-  { id: "cultural", label: "Cultural", emoji: "🎭" },
-];
 
 function CreatePage() {
   const navigate = useNavigate();
@@ -62,16 +56,21 @@ function CreatePage() {
   const canNext = [group, occasion, true, vibe][step];
 
   function finish() {
-    const loop = makeDemoLoop({
-      passenger: "GUEST",
-      groupSize: group?.size ?? 2,
-      occasion: occasion?.label,
-      vibe: vibe?.label,
-      to: occasion?.label.toUpperCase() ?? "NIGHT OUT",
-      boardingTime: time.replace(/^0/, ""),
-    });
-    setActiveLoop(loop);
-    navigate({ to: "/confirmation" });
+    try {
+      const loop = makeDemoLoop({
+        passenger: "GUEST",
+        groupSize: group?.size ?? 2,
+        occasion: occasion?.label,
+        vibe: vibe?.label,
+        to: occasion?.label.toUpperCase() ?? "NIGHT OUT",
+        boardingTime: time.replace(/^0/, ""),
+      });
+      setActiveLoop(loop);
+      navigate({ to: "/confirmation" });
+    } catch (err) {
+      console.error("[create] finish failed", err);
+      toast.error("Couldn't lock your plan. Try again.");
+    }
   }
 
   return (

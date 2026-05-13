@@ -36,36 +36,57 @@ export type Mood = {
   emoji: string;
 };
 
+/**
+ * Canonical vibe/mood vocabulary used by /create step 4 AND the concierge mood picker.
+ * Keep this list and src/routes/create.tsx VIBES in sync — import from here.
+ */
 export const MOODS: Mood[] = [
-  {
-    id: "date_night",
-    label: "Date Night",
-    blurb: "Romantic, candlelit, swoon-worthy",
-    gradient: "bg-gradient-vibe",
-    emoji: "💋",
-  },
-  {
-    id: "adventure",
-    label: "Adventure",
-    blurb: "Try something you've never done",
-    gradient: "bg-gradient-warm",
-    emoji: "🚀",
-  },
   {
     id: "chill",
     label: "Chill",
     blurb: "Low-key, cozy, easy energy",
     gradient: "bg-gradient-cool",
-    emoji: "🌙",
+    emoji: "🌿",
   },
   {
-    id: "celebration",
-    label: "Celebration",
-    blurb: "Big night, bottle service, hype",
+    id: "upscale",
+    label: "Upscale",
+    blurb: "Elevated, dressy, bottle service",
     gradient: "bg-gradient-gold",
-    emoji: "🎉",
+    emoji: "🥂",
+  },
+  {
+    id: "wild",
+    label: "Wild",
+    blurb: "Hype, dance floors, big energy",
+    gradient: "bg-gradient-warm",
+    emoji: "🔥",
+  },
+  {
+    id: "adventurous",
+    label: "Adventurous",
+    blurb: "Try something you've never done",
+    gradient: "bg-gradient-warm",
+    emoji: "🧗",
+  },
+  {
+    id: "romantic",
+    label: "Romantic",
+    blurb: "Candlelit, swoon-worthy, intimate",
+    gradient: "bg-gradient-vibe",
+    emoji: "🌹",
+  },
+  {
+    id: "cultural",
+    label: "Cultural",
+    blurb: "Museums, jazz, theater, ideas",
+    gradient: "bg-gradient-cool",
+    emoji: "🎭",
   },
 ];
+
+/** Lightweight projection used by the /create wizard step 4. */
+export const VIBES = MOODS.map((m) => ({ id: m.id, label: m.label, emoji: m.emoji }));
 
 export const TRENDING_PICKS = [
   { name: "Le Diplomate", category: "Date Night", neighborhood: "14th Street", emoji: "🍷" },

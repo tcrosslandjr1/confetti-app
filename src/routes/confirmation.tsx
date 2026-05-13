@@ -13,7 +13,22 @@ const COLORS = ["bg-coral", "bg-gold", "bg-purple", "bg-pink-400", "bg-emerald-5
 
 function ConfirmationPage() {
   const [loop, setLoop] = useState<ActiveLoop | null>(null);
-  useEffect(() => setLoop(getActiveLoop() || makeDemoLoop()), []);
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+    let next: ActiveLoop | null = null;
+    try {
+      next = getActiveLoop() || makeDemoLoop();
+    } catch (err) {
+      console.error("[confirmation] failed to read active loop", err);
+      try {
+        next = makeDemoLoop();
+      } catch (err2) {
+        console.error("[confirmation] makeDemoLoop also failed", err2);
+      }
+    }
+    setLoop(next);
+    setHydrated(true);
+  }, []);
 
   const pieces = useMemo(
     () =>
@@ -28,7 +43,31 @@ function ConfirmationPage() {
     [],
   );
 
-  if (!loop) return null;
+  if (!loop) {
+    return (
+      <div className="relative min-h-screen bg-background pb-32">
+        <div className="mx-auto max-w-md px-4 pt-16 text-center">
+          <div className="mx-auto h-24 w-24 animate-pulse rounded-full border-2 border-ink/10 bg-card" />
+          <div className="mx-auto mt-6 h-8 w-3/4 animate-pulse rounded bg-card" />
+          <div className="mx-auto mt-3 h-4 w-1/2 animate-pulse rounded bg-card" />
+          <div className="mt-8 h-40 animate-pulse rounded-3xl border-2 border-ink/10 bg-card" />
+          {hydrated && (
+            <div className="mt-6 space-y-3">
+              <p className="text-sm text-muted-foreground">
+                We couldn't find a plan to confirm. Build one and we'll lock it in.
+              </p>
+              <Link
+                to="/create"
+                className="inline-flex w-full items-center justify-center rounded-2xl border-2 border-ink bg-coral px-4 py-4 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut"
+              >
+                Build my night
+              </Link>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background pb-32">

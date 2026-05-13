@@ -223,7 +223,7 @@ export const generatePlan = createServerFn({ method: "POST" })
       ? topCandidates
           .map(
             (c, i) =>
-              `${i + 1}. id=${c.id} | "${c.name}" | ${c.category} | ${c.neighborhood ?? "—"} | rating=${c.rating ?? "?"} | trend=${(c.trendScore ?? 0).toFixed(2)} | tags=[${c.tags.slice(0, 4).join(", ")}] | ${c.summary?.slice(0, 110) ?? ""}`,
+              `${i + 1}.${c.promoted ? " [PROMOTED]" : ""} id=${c.id} | "${c.name}" | ${c.category} | ${c.neighborhood ?? "—"} | rating=${c.rating ?? "?"} | trend=${(c.trendScore ?? 0).toFixed(2)} | tags=[${c.tags.slice(0, 4).join(", ")}] | ${c.summary?.slice(0, 110) ?? ""}`,
           )
           .join("\n")
       : "(no discovered venues — invent on-vibe placeholders that match the city's allowed activities)";

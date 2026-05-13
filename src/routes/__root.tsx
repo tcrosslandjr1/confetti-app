@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -10,15 +11,24 @@ import {
 
 import appCss from "../styles.css?url";
 import { AuthProvider } from "@/lib/auth-context";
-import { RoleSwitcher } from "@/components/RoleSwitcher";
 import { Toaster } from "@/components/ui/sonner";
 import { WizardProvider } from "@/components/wizard/wizard-context";
-import { BuildMyNightWizard } from "@/components/wizard/BuildMyNightWizard";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ReferralCapture } from "@/components/ReferralCapture";
 import { TabBar } from "@/components/loop/TabBar";
-import { CookieConsent } from "@/components/CookieConsent";
 import { MapProvider } from "@/components/maps/MapProvider";
+
+const RoleSwitcher = lazy(() =>
+  import("@/components/RoleSwitcher").then((m) => ({ default: m.RoleSwitcher })),
+);
+const BuildMyNightWizard = lazy(() =>
+  import("@/components/wizard/BuildMyNightWizard").then((m) => ({
+    default: m.BuildMyNightWizard,
+  })),
+);
+const CookieConsent = lazy(() =>
+  import("@/components/CookieConsent").then((m) => ({ default: m.CookieConsent })),
+);
 
 function NotFoundComponent() {
   return (

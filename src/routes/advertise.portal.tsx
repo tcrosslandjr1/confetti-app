@@ -220,18 +220,40 @@ function AdvertiserPortal() {
   );
 }
 
+function NewCampaignButton({
+  subscription,
+  onClick,
+}: {
+  subscription: AdvertiserSubscription | null;
+  onClick: () => void;
+}) {
+  const active = subscription?.status === "active";
+  return (
+    <button
+      onClick={onClick}
+      disabled={!active}
+      title={active ? "" : "Activate a plan first"}
+      className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-bold text-background hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+    >
+      {active ? <Plus className="h-4 w-4" /> : <Lock className="h-4 w-4" />} New campaign
+    </button>
+  );
+}
+
 function NewCampaignForm({
   advertiserId,
+  allowedPlacements,
   onCreated,
   onCancel,
 }: {
   advertiserId: string;
+  allowedPlacements: Placement[];
   onCreated: (c: Campaign) => void;
   onCancel: () => void;
 }) {
   const [headline, setHeadline] = useState("");
   const [blurb, setBlurb] = useState("");
-  const [placement, setPlacement] = useState<Placement>("featured_card");
+  const [placement, setPlacement] = useState<Placement>(allowedPlacements[0] ?? "featured_card");
   const [tier, setTier] = useState<PackageTier>("featured");
   const [city, setCity] = useState("");
   const [ctaUrl, setCtaUrl] = useState("");
@@ -260,6 +282,10 @@ function NewCampaignForm({
     }
   }
 
+  const placementOptions = Object.entries(PLACEMENT_LABELS).filter(([k]) =>
+    allowedPlacements.includes(k as Placement),
+  );
+
   return (
     <form
       onSubmit={submit}
@@ -285,7 +311,7 @@ function NewCampaignForm({
         label="Placement"
         value={placement}
         onChange={(v) => setPlacement(v as Placement)}
-        options={Object.entries(PLACEMENT_LABELS)}
+        options={placementOptions}
       />
       <Select
         label="Package"
@@ -293,6 +319,7 @@ function NewCampaignForm({
         onChange={(v) => setTier(v as PackageTier)}
         options={Object.entries(PACKAGES).map(([k, v]) => [k, `${v.label} — ${v.price}`])}
       />
+
       <Inp label="CTA URL" value={ctaUrl} onChange={setCtaUrl} placeholder="https://..." />
       <Inp label="CTA label" value={ctaLabel} onChange={setCtaLabel} />
       <div className="sm:col-span-2 flex justify-end gap-2">

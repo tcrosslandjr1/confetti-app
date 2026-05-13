@@ -3,6 +3,7 @@ import { type ReactNode } from "react";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth-context";
 import { inferFeatureFromPath, logAccessDenial } from "@/lib/access-denials";
+import { logSecurityTrace } from "@/lib/security-trace";
 
 type Props = {
   to: string;
@@ -45,6 +46,16 @@ export function GatedAction({ to, children, className, feature = "planning & boo
           viewerRole: "visitor",
           userId: user?.id ?? null,
           note: `Visitor tapped CTA for ${feature}`,
+        });
+        logSecurityTrace({
+          kind: "protected-attempt",
+          outcome: "denied",
+          actorRole: "visitor",
+          userId: user?.id ?? null,
+          userEmail: user?.email ?? null,
+          action: feature,
+          path: to,
+          note: `Visitor blocked from ${to}`,
         });
         toast(`Sign up free to unlock ${feature}`, {
           description: "Takes 10 seconds — we'll save your picks.",

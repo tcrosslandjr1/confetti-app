@@ -11,6 +11,7 @@ import {
   Briefcase,
 } from "lucide-react";
 import { useState } from "react";
+import { logSecurityTrace } from "@/lib/security-trace";
 
 type Option = {
   value: ViewAs;
@@ -76,12 +77,38 @@ export function RoleSwitcher() {
 
   const goToRole = (value: ViewAs) => {
     const opt = OPTIONS.find((o) => o.value === value)!;
+    const previous = viewAs;
     setViewAs(value);
+    logSecurityTrace({
+      kind: "view-switch",
+      outcome: "info",
+      actorRole: value,
+      realRole: "admin",
+      userId: user?.id ?? null,
+      userEmail: user?.email ?? null,
+      fromRole: previous,
+      toRole: value,
+      path: opt.home,
+      note: `Admin switched viewAs ${previous} → ${value}`,
+    });
     navigate({ to: opt.home });
   };
 
   const exitAndReturn = () => {
+    const previous = viewAs;
     exitImpersonation();
+    logSecurityTrace({
+      kind: "view-exit",
+      outcome: "info",
+      actorRole: "admin",
+      realRole: "admin",
+      userId: user?.id ?? null,
+      userEmail: user?.email ?? null,
+      fromRole: previous,
+      toRole: "admin",
+      path: "/admin",
+      note: `Exited impersonation (${previous})`,
+    });
     navigate({ to: "/admin" });
   };
 

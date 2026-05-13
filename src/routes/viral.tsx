@@ -39,10 +39,11 @@ type Row = {
   last_mentioned_at: string;
 };
 
-const CITIES = ["Washington DC", "New York", "Los Angeles", "Austin", "Miami", "Chicago"];
+import { CITIES as ALL_CITIES, getSelectedCity, DEFAULT_CITY } from "@/lib/cities";
+const CITIES = ALL_CITIES.map((c) => c.name);
 
 function ViralPage() {
-  const [city, setCity] = useState("Washington DC");
+  const [city, setCity] = useState(() => (getSelectedCity() ?? DEFAULT_CITY).name);
   const [rows, setRows] = useState<Row[] | null>(null);
   const [activeTags, setActiveTags] = useState<ViralTag[]>([]);
   const [sortBy, setSortBy] = useState<"score" | "recent">("score");

@@ -94,7 +94,7 @@ export function CitySelector({ compact = false, className = "" }: Props) {
     clearStoredLocation();
     setLocError(null);
     setOpen(false);
-    toast.message("Cleared city. Defaulting to Washington DC.");
+    toast.message("Cleared city. Pick any major metro from the list.");
   }
 
   const filtered = query.trim()

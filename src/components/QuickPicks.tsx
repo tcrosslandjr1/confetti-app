@@ -203,9 +203,11 @@ const PICKS: Pick[] = [
 export function QuickPicks() {
   const [city, setCity] = useState<City>(() => getSelectedCity() ?? DEFAULT_CITY);
   useEffect(() => subscribeSelectedCity(() => setCity(getSelectedCity() ?? DEFAULT_CITY)), []);
-  // Curated venue lists are tuned for DC. For any other city we let the wizard
-  // generate live picks from Google Places using the selected city's coords.
-  const isCurated = city.slug === "dmv";
+  // Curated venue lists exist for a handful of flagship cities. For any other
+  // city we let the wizard generate live picks from Google Places using the
+  // selected city's coords.
+  const CURATED_CITIES = new Set(["dmv", "nyc", "la", "chi", "mia", "sf"]);
+  const isCurated = CURATED_CITIES.has(city.slug);
 
   return (
     <section className="border-b-2 border-ink bg-cream">

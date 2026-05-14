@@ -159,12 +159,16 @@ const PROOF = [
 
 const FAQS = [
   {
-    q: "Is this just a list of restaurants?",
-    a: "Nope. It’s a full timed plan — first stop, second stop, how you get between them, what to wear, what to book. The list-of-restaurants era is over.",
+    q: "What does “free, no signup to try” actually include?",
+    a: "Build a full plan end-to-end without making an account: pick your vibe, get a timed itinerary with real venues open tonight, walking + Lyft routes between stops, and one-tap booking links. You can preview everything before you ever hand over an email.",
   },
   {
-    q: "Free?",
-    a: "Yes — three full plans a month, on the house. Plus is $8 for unlimited and the reservations vault.",
+    q: "What happens after the free trial?",
+    a: "Nothing breaks. You keep three full plans every month on the free tier — forever. To save plans, unlock the reservations vault, earn Confetti rewards faster, and get unlimited plans, upgrade to Plus for $8/mo. No auto-charge, no surprise paywall mid-night.",
+  },
+  {
+    q: "Is this just a list of restaurants?",
+    a: "Nope. It’s a full timed plan — first stop, second stop, how you get between them, what to wear, what to book. The list-of-restaurants era is over.",
   },
   {
     q: "Does it actually book stuff?",

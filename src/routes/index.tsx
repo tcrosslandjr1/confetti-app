@@ -484,6 +484,182 @@ function Landing() {
         </div>
       </section>
 
+      {/* ============================ SAMPLE ITINERARY ============================ */}
+      <section
+        id="sample-itinerary"
+        aria-labelledby="sample-itinerary-heading"
+        className="border-b-2 border-ink bg-cream"
+      >
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-ink/60">
+                / a real Saturday in San Francisco
+              </span>
+              <h2
+                id="sample-itinerary-heading"
+                className="mt-2 font-display text-3xl font-extrabold leading-tight sm:text-4xl"
+              >
+                A sample night,
+                <span className="font-serif italic font-normal text-coral"> start to finish.</span>
+              </h2>
+              <p className="mt-3 max-w-xl text-sm text-ink/70 sm:text-base">
+                This is exactly what Confetti hands you after you pick a vibe — timed stops, real
+                venues, walking + Lyft routes between them, and one-tap booking links.
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-ink bg-background px-4 py-3 font-mono text-[11px] uppercase tracking-widest shadow-brut">
+              <div>SAT · 6:00p → 12:30a</div>
+              <div className="mt-1 text-ink/60">Mission → Hayes Valley → Nob Hill</div>
+            </div>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-12">
+            {/* TIMELINE */}
+            <ol className="relative lg:col-span-8">
+              <span
+                aria-hidden
+                className="absolute left-[27px] top-3 bottom-3 w-0.5 bg-ink/20 sm:left-[31px]"
+              />
+              {([
+                {
+                  t: "6:30p",
+                  title: "Lila’s Patio",
+                  type: "Small plates · Mission",
+                  desc: "Start with shared plates on the heated back patio. Reservation held for 90 min.",
+                  chip: "RESY",
+                  chipBg: "bg-coral",
+                  emoji: "🍽️",
+                  cost: "~$38/pp",
+                },
+                { leg: "12 min walk · 0.5 mi · down Valencia", legIcon: "🚶" },
+                {
+                  t: "8:15p",
+                  title: "Mason St. Record Bar",
+                  type: "Vinyl + nat wine · Mission",
+                  desc: "Walk-in friendly. DJ set starts 8:30. Two glasses, then move on.",
+                  chip: "WALK-IN",
+                  chipBg: "bg-purple text-cream",
+                  emoji: "🎧",
+                  cost: "~$22/pp",
+                },
+                { leg: "9 min Lyft · ~$14 · pre-booked", legIcon: "🚗" },
+                {
+                  t: "9:30p",
+                  title: "The Saratoga",
+                  type: "Cocktail bar · Tenderloin",
+                  desc: "Reserved bar seats. Order the Improved Whiskey Cocktail — house signature.",
+                  chip: "OPENTABLE",
+                  chipBg: "bg-gold",
+                  emoji: "🍸",
+                  cost: "~$28/pp",
+                },
+                { leg: "6 min walk · 0.3 mi · uphill, worth it", legIcon: "🚶" },
+                {
+                  t: "11:00p",
+                  title: "Aera Rooftop",
+                  type: "Nightcap · Nob Hill",
+                  desc: "Skyline view, slow drink to close the night. Last call 12:30.",
+                  chip: "RESY",
+                  chipBg: "bg-coral",
+                  emoji: "🌃",
+                  cost: "~$24/pp",
+                },
+              ] as Array<any>).map((row, i) =>
+                row.leg ? (
+                  <li
+                    key={`leg-${i}`}
+                    className="relative ml-12 flex items-center gap-2 py-2 pl-2 text-xs text-ink/60 sm:ml-14"
+                  >
+                    <span aria-hidden className="text-base">{row.legIcon}</span>
+                    <span className="font-mono uppercase tracking-widest">{row.leg}</span>
+                  </li>
+                ) : (
+                  <li key={`stop-${i}`} className="relative pl-12 sm:pl-14 pb-3">
+                    <div
+                      className={`absolute left-0 top-1 grid h-14 w-14 place-items-center rounded-full border-2 border-ink ${row.chipBg} font-mono text-[11px] font-extrabold shadow-brut`}
+                    >
+                      {row.t}
+                    </div>
+                    <div className="rounded-2xl border-2 border-ink bg-background p-4 shadow-brut">
+                      <div className="flex flex-wrap items-start justify-between gap-2">
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span aria-hidden className="text-xl">{row.emoji}</span>
+                            <h3 className="font-display text-lg font-extrabold leading-tight">
+                              {row.title}
+                            </h3>
+                          </div>
+                          <div className="mt-0.5 text-xs text-ink/60">{row.type}</div>
+                        </div>
+                        <span
+                          className={`shrink-0 rounded-full border-2 border-ink px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest ${row.chipBg}`}
+                        >
+                          {row.chip}
+                        </span>
+                      </div>
+                      <p className="mt-2 text-sm leading-snug text-ink/80">{row.desc}</p>
+                      <div className="mt-2 font-mono text-[11px] uppercase tracking-widest text-ink/60">
+                        {row.cost}
+                      </div>
+                    </div>
+                  </li>
+                ),
+              )}
+            </ol>
+
+            {/* SUMMARY CARD */}
+            <aside className="lg:col-span-4">
+              <div className="sticky top-24 rounded-2xl border-2 border-ink bg-background p-5 shadow-brut-lg">
+                <div className="border-b-2 border-dashed border-ink pb-3 font-mono text-[11px] uppercase tracking-widest">
+                  Route summary
+                </div>
+                <dl className="mt-4 space-y-3 text-sm">
+                  {[
+                    ["Stops", "4 venues"],
+                    ["Total time", "6 hours"],
+                    ["Walking", "0.8 mi · ~18 min"],
+                    ["Lyft", "1 ride · ~$14"],
+                    ["Bookings", "3 reservations"],
+                    ["Est. total", "~$112/pp"],
+                  ].map(([k, v]) => (
+                    <div
+                      key={k}
+                      className="flex items-baseline justify-between gap-3 border-b border-dashed border-ink/30 pb-2 last:border-0"
+                    >
+                      <dt className="font-mono text-[11px] uppercase tracking-widest text-ink/60">
+                        {k}
+                      </dt>
+                      <dd className="font-display text-base font-bold">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+
+                <div className="mt-5 rounded-xl border-2 border-ink bg-gold/40 p-3 text-xs leading-snug">
+                  <div className="font-mono text-[10px] uppercase tracking-widest text-ink/70">
+                    Earned
+                  </div>
+                  <div className="mt-1 font-display text-base font-extrabold">
+                    +120 Confetti
+                  </div>
+                  <div className="text-ink/70">Auto-credited after the last booking.</div>
+                </div>
+
+                <WizardButton
+                  ariaLabel="Build my own night"
+                  className="mt-5 inline-flex h-12 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+                >
+                  Build my own night <ArrowUpRight className="h-4 w-4" />
+                </WizardButton>
+                <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                  Free · no signup to try
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
       {/* ============================ MARQUEE ============================ */}
       <section className="border-b-2 border-ink bg-ink py-4 text-cream">
         <div className="flex overflow-hidden">

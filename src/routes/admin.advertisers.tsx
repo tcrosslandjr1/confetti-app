@@ -198,6 +198,14 @@ function AdminAdvertisersPage() {
           <TabsContent value="billing" className="pt-4">
             <BillingTab campaigns={campaigns} advertiserById={advertiserById} mrrCents={mrrCents} />
           </TabsContent>
+          <TabsContent value="claims" className="pt-4">
+            <ClaimsTab
+              claims={claims}
+              advertiserById={advertiserById}
+              venues={venues}
+              onChange={load}
+            />
+          </TabsContent>
         </Tabs>
       )}
     </div>

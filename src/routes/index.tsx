@@ -567,35 +567,45 @@ function Landing() {
       </section>
 
       {/* ============================ OCCASIONS BENTO ============================ */}
-      <section className="relative overflow-hidden border-b-2 border-ink bg-ink text-cream">
-        {/* ambient glow */}
+      <section className="relative overflow-hidden border-b-2 border-ink bg-cream text-ink">
+        {/* warm ambient washes */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-coral/30 blur-3xl"
+          className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-coral/25 blur-3xl"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-purple/30 blur-3xl"
+          className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-gold/40 blur-3xl"
+        />
+        {/* subtle grid */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, var(--ink, #1a1a1a) 1px, transparent 1px), linear-gradient(to bottom, var(--ink, #1a1a1a) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
         />
 
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-cream/60">
-                <Sparkles className="h-3 w-3 text-gold" /> / pick a vibe
+              <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-ink shadow-brut">
+                <Sparkles className="h-3 w-3 text-coral" /> / pick a vibe
               </span>
-              <h2 className="mt-2 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
+              <h2 className="mt-4 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
                 What's the{" "}
-                <span className="font-serif italic font-normal text-gold">occasion?</span>
+                <span className="font-serif italic font-normal text-coral">occasion?</span>
               </h2>
-              <p className="mt-3 max-w-md font-mono text-sm text-cream/60">
+              <p className="mt-3 max-w-md font-mono text-sm text-ink/70">
                 Tap any vibe — we generate a full night around it in seconds.
               </p>
             </div>
             <GatedAction
               to="/plan"
               feature="planning"
-              className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-cream px-5 font-mono text-xs font-bold uppercase tracking-widest transition-pop hover:-translate-y-0.5 hover:bg-cream hover:text-ink"
+              className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-5 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
             >
               skip — just plan something <ArrowUpRight className="h-4 w-4" />
             </GatedAction>
@@ -611,7 +621,7 @@ function Landing() {
                   key={o.slug}
                   to="/ideas/$slug"
                   params={{ slug: o.slug }}
-                  className={`group relative flex h-48 w-[78%] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-gradient-to-br ${o.gradient} p-5 shadow-brut`}
+                  className={`group relative flex h-48 w-[78%] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-brut`}
                 >
                   <div className="flex items-start justify-between">
                     <Icon className="h-6 w-6 drop-shadow" />
@@ -621,11 +631,11 @@ function Landing() {
                     <div className="font-display text-2xl font-extrabold leading-tight drop-shadow">
                       {o.title}
                     </div>
-                    <div className="mt-1 font-mono text-[11px] uppercase tracking-wider text-cream/85">
+                    <div className="mt-1 font-mono text-[11px] uppercase tracking-wider text-cream/90">
                       {o.tagline}
                     </div>
                     {ideaCount > 0 && (
-                      <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-ink/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest backdrop-blur">
+                      <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-ink/50 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest backdrop-blur">
                         {ideaCount} idea{ideaCount === 1 ? "" : "s"}
                       </span>
                     )}
@@ -634,7 +644,7 @@ function Landing() {
               );
             })}
           </div>
-          <p className="text-center font-mono text-[10px] uppercase tracking-widest text-cream/50 sm:hidden">
+          <p className="text-center font-mono text-[10px] uppercase tracking-widest text-ink/50 sm:hidden">
             ← swipe vibes →
           </p>
 
@@ -660,7 +670,7 @@ function Landing() {
                     to="/ideas/$slug"
                     params={{ slug: o.slug }}
                     style={{ transform: `rotate(${tilt}deg)` }}
-                    className={`group relative flex h-full min-h-[150px] flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-gradient-to-br ${o.gradient} p-5 shadow-brut transition-pop hover:-translate-y-1 hover:rotate-0 hover:scale-[1.02] hover:border-cream hover:shadow-brut-lg`}
+                    className={`group relative flex h-full min-h-[150px] flex-col justify-between overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-1 hover:rotate-0 hover:scale-[1.02] hover:shadow-brut-lg`}
                   >
                     {/* shimmer sweep on hover */}
                     <span

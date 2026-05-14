@@ -118,6 +118,8 @@ function AdminIntegrationsPage() {
   const [statuses, setStatuses] = useState<
     Record<string, { status: Status; result: TestResult }>
   >({});
+  const [runningAll, setRunningAll] = useState(false);
+  const [lastRun, setLastRun] = useState<Date | null>(null);
 
   const runTest = async (i: Integration) => {
     setStatuses((s) => ({ ...s, [i.key]: { status: "checking", result: { ok: false, detail: "" } } }));
@@ -134,8 +136,19 @@ function AdminIntegrationsPage() {
     }
   };
 
+  const runAllDiagnostics = async () => {
+    setRunningAll(true);
+    try {
+      await Promise.all(INTEGRATIONS.map((i) => runTest(i)));
+      setLastRun(new Date());
+    } finally {
+      setRunningAll(false);
+    }
+  };
+
   useEffect(() => {
-    INTEGRATIONS.forEach((i) => void runTest(i));
+    void runAllDiagnostics();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -152,6 +165,21 @@ function AdminIntegrationsPage() {
             External services that power the customer experience. Keys are stored securely in
             Lovable Cloud secrets — they never live in the database.
           </p>
+        </div>
+        <div className="flex flex-col items-end gap-1">
+          <Button onClick={runAllDiagnostics} disabled={runningAll}>
+            {runningAll ? (
+              <Loader2 className="mr-1 h-4 w-4 animate-spin" />
+            ) : (
+              <RefreshCw className="mr-1 h-4 w-4" />
+            )}
+            Run diagnostics
+          </Button>
+          {lastRun && (
+            <span className="text-[11px] text-muted-foreground">
+              Last run {lastRun.toLocaleTimeString()}
+            </span>
+          )}
         </div>
       </header>
 

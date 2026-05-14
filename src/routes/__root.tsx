@@ -238,6 +238,7 @@ function RootComponent() {
               <BuildMyNightWizard />
             </Suspense>
             <TabBar />
+            <FirstRunNudge />
             <Suspense fallback={null}>
               <CookieConsent />
             </Suspense>

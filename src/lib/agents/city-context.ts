@@ -300,11 +300,40 @@ export const CITIES: CityContext[] = [
   }),
 ];
 
+// Map app-level city slugs (src/lib/cities.ts) to the agent CityContext slugs.
+const SLUG_ALIASES: Record<string, string> = {
+  dmv: "dc",
+  mia: "miami",
+  sea: "seattle",
+  hou: "hou",
+  // bos, phl, nash, aus, den, no, tor: no dedicated context — use loose match by name
+};
+
 export function findCity(query?: string | null): CityContext {
   if (!query) return CITIES[0];
   const q = query.toLowerCase().trim();
+  const aliased = SLUG_ALIASES[q] ?? q;
   return (
-    CITIES.find((c) => c.slug === q || c.city.toLowerCase() === q || c.label.toLowerCase() === q) ??
-    CITIES[0]
+    CITIES.find(
+      (c) =>
+        c.slug === aliased ||
+        c.slug === q ||
+        c.city.toLowerCase() === q ||
+        c.label.toLowerCase() === q,
+    ) ?? CITIES[0]
+  );
+}
+
+export function findCityLoose(slug?: string | null, name?: string | null): CityContext | null {
+  if (!slug && !name) return null;
+  const sq = slug?.toLowerCase().trim();
+  const nq = name?.toLowerCase().trim();
+  const aliased = sq ? (SLUG_ALIASES[sq] ?? sq) : undefined;
+  return (
+    CITIES.find(
+      (c) =>
+        (aliased && (c.slug === aliased || c.slug === sq)) ||
+        (nq && (c.city.toLowerCase() === nq || c.label.toLowerCase() === nq)),
+    ) ?? null
   );
 }

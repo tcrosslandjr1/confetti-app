@@ -4,6 +4,7 @@
 
 import { useEffect, useRef } from "react";
 import { recordPickSignal } from "@/lib/pick-signals.functions";
+import { supabase } from "@/integrations/supabase/client";
 
 const LINGER_MS = 2500; // visible this long → "linger"
 const SWIPE_MAX_MS = 1500; // visible less than this → "swipe_away"
@@ -13,13 +14,31 @@ const seenLinger = new Set<string>();
 const seenReopen = new Set<string>();
 const seenSwipe = new Set<string>();
 
-function fire(kind: string, value: string, context?: Record<string, unknown>) {
-  if (!value) return;
-  // Server fn under the hood; fire-and-forget.
-  void recordPickSignal({
-    data: { kind: kind as never, value: value.toLowerCase(), context },
-  }).catch(() => {});
+// Cached auth flag — recordPickSignal requires auth and 401s for guests,
+// which surfaces as a thrown Response in the runtime error overlay. Gate here.
+let isAuthed = false;
+if (typeof window !== "undefined") {
+  void supabase.auth.getSession().then(({ data }) => {
+    isAuthed = !!data.session;
+  });
+  supabase.auth.onAuthStateChange((_evt, session) => {
+    isAuthed = !!session;
+  });
 }
+
+function fire(kind: string, value: string, context?: Record<string, unknown>) {
+  if (!value || !isAuthed) return;
+  // Server fn under the hood; fire-and-forget. Swallow both rejections and
+  // synchronous throws (TanStack serverFn can throw a Response object).
+  try {
+    void recordPickSignal({
+      data: { kind: kind as never, value: value.toLowerCase(), context },
+    }).catch(() => {});
+  } catch {
+    /* noop */
+  }
+}
+
 
 /**
  * Attach to a card. `value` is the canonical taste term we want to learn from

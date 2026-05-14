@@ -5,16 +5,20 @@ import {
   type Advertiser,
   type AdvertiserSubscription,
   type Campaign,
+  bucketEventsByDay,
   createCampaign,
+  deleteCampaign,
   getCampaignStats,
   getMyAdvertiser,
   getMySubscription,
   listMyCampaigns,
+  listRecentAdEvents,
   PACKAGES,
   PLACEMENT_LABELS,
   type PackageTier,
   type Placement,
   placementsForTier,
+  updateCampaignStatus,
 } from "@/lib/ads";
 import { SubscriptionPanel } from "@/components/advertiser/SubscriptionPanel";
 import { ClaimVenuePanel } from "@/components/advertiser/ClaimVenuePanel";
@@ -25,10 +29,21 @@ import {
   Plus,
   Eye,
   MousePointerClick,
+  Pause,
+  Play,
   Sparkles,
+  Trash2,
   ChevronRight,
 } from "lucide-react";
 import { toast } from "sonner";
+import {
+  Area,
+  AreaChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 
 export const Route = createFileRoute("/advertise/portal")({

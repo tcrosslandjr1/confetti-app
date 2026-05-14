@@ -279,16 +279,23 @@ function Landing() {
             </span>
 
             <h1 className="mt-5 font-display text-[12vw] font-extrabold leading-[0.9] tracking-[-0.04em] sm:text-[68px] lg:text-[96px]">
-              A perfect night,
+              Your whole night out,
               <br />
-              built in <span className="font-serif italic font-normal text-coral">under a minute.</span>
+              <span className="font-serif italic font-normal text-coral">planned for you.</span>
             </h1>
 
             <p className="mt-5 max-w-xl text-base leading-snug sm:text-lg">
-              Pick a vibe. We give you real venues, real times, walking + Lyft between stops, and
-              tap-to-book reservations.{" "}
-              <span className="font-serif italic">Free, no signup to try.</span>
+              Tell us the vibe — date night, rooftop drinks, dive bar crawl. Confetti picks the
+              venues, books the table, lines up the walking + Lyft route between stops, and hands
+              you a tap-to-go itinerary. <span className="font-serif italic">Free, no signup to try.</span>
             </p>
+
+            <ul className="mt-5 grid max-w-xl gap-2 text-sm sm:grid-cols-2">
+              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Real venues open right now, not a generic list</li>
+              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Reservations booked in one tap</li>
+              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Walking + Lyft routes between every stop</li>
+              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Earn Confetti rewards every time you go out</li>
+            </ul>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <WizardButton
@@ -296,9 +303,6 @@ function Landing() {
                 className="inline-flex h-14 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg sm:w-auto"
               >
                 Plan my night <ArrowUpRight className="h-5 w-5" />
-                <span className="ml-1 rounded-full bg-coral px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-cream">
-                  60 sec
-                </span>
               </WizardButton>
               <a
                 href="#sample-plan"

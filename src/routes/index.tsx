@@ -270,7 +270,7 @@ function Landing() {
           />
         </div>
 
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-24 pt-16 sm:px-6 lg:grid-cols-12 lg:px-8 lg:pb-32 lg:pt-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-12 sm:px-6 lg:grid-cols-12 lg:px-8 lg:pb-32 lg:pt-20">
           {/* left — type */}
           <div className="lg:col-span-7">
             <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream/90 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] backdrop-blur">
@@ -278,45 +278,41 @@ function Landing() {
               <TypingCounter target={2847} suffix=" plans built today" className="text-[11px]" />
             </span>
 
-            <h1 className="mt-6 font-display text-[14vw] font-extrabold leading-[0.85] tracking-[-0.04em] sm:text-[120px] lg:text-[148px]">
-              Plans
+            <h1 className="mt-5 font-display text-[12vw] font-extrabold leading-[0.9] tracking-[-0.04em] sm:text-[68px] lg:text-[96px]">
+              Your night out,
               <br />
-              with a <span className="font-serif italic font-normal text-coral">pulse.</span>
+              planned in <span className="font-serif italic font-normal text-coral">60 seconds.</span>
             </h1>
 
-            <p className="mt-8 max-w-xl text-lg leading-snug">
-              Confetti is the loud, opinionated planner. Tell it the vibe — it builds the night. Real
-              stops, real timings, real reservations.{" "}
-              <span className="font-serif italic">No more group-chat purgatory.</span>
+            <p className="mt-5 max-w-xl text-base leading-snug sm:text-lg">
+              Pick a vibe. We give you real venues, real times, walking + Lyft between stops, and
+              tap-to-book reservations.{" "}
+              <span className="font-serif italic">Free, no signup to try.</span>
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <WizardButton
-                ariaLabel="Build my night"
-                className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg sm:w-auto sm:justify-start"
+                ariaLabel="Plan my night"
+                className="inline-flex h-14 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg sm:w-auto"
               >
-                Build my night <ArrowUpRight className="h-5 w-5" />
+                Plan my night <ArrowUpRight className="h-5 w-5" />
+                <span className="ml-1 rounded-full bg-coral px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-cream">
+                  60 sec
+                </span>
               </WizardButton>
-              <Link
-                to="/how-it-works"
-                className="inline-flex h-14 w-full items-center justify-center rounded-full border-2 border-ink bg-cream px-7 text-base font-bold transition-pop hover:-translate-y-1 hover:bg-gold hover:shadow-brut sm:w-auto"
+              <a
+                href="#sample-plan"
+                className="inline-flex h-12 min-h-11 items-center justify-center rounded-full border-2 border-ink bg-cream px-6 text-sm font-bold transition-pop hover:-translate-y-0.5 hover:bg-gold sm:w-auto"
               >
-                How it works
-              </Link>
-              <span className="font-mono text-xs uppercase tracking-widest text-ink/60">
-                no signup to try ↗
-              </span>
+                See a sample plan ↓
+              </a>
             </div>
           </div>
 
-          {/* right — receipt-style mock plan */}
-          <div className="relative mt-4 lg:col-span-5 lg:mt-0">
-            <div className="absolute -top-4 left-2 z-20 grid h-16 w-16 -rotate-12 animate-wiggle place-items-center rounded-full border-2 border-ink bg-gold text-center font-display text-[10px] font-extrabold uppercase leading-tight sm:-left-6 sm:-top-6 sm:h-20 sm:w-20 sm:text-xs">
-              vibe
-              <br />
-              locked
-              <br />
-              in
+          {/* right — receipt-style mock plan (now obviously a sample) */}
+          <div id="sample-plan" className="relative mt-4 lg:col-span-5 lg:mt-0">
+            <div className="absolute -top-3 left-3 z-20 -rotate-6 rounded-md border-2 border-ink bg-gold px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-widest shadow-brut sm:-left-4 sm:-top-4">
+              ★ Sample plan
             </div>
 
             <div className="animate-float-card rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut-lg">
@@ -327,7 +323,7 @@ function Landing() {
                 <span className="font-mono text-[11px]">SAT · 6:00p</span>
               </div>
 
-              <h3 className="mt-4 font-serif text-3xl italic leading-tight">
+              <h3 className="mt-4 font-serif text-2xl italic leading-tight sm:text-3xl">
                 "cute, walkable, ends with a slow drink"
               </h3>
 
@@ -386,11 +382,89 @@ function Landing() {
                 <span>3 stops · 4h · ~$92</span>
                 <span className="rounded-full bg-ink px-2 py-1 text-cream">booked ✓</span>
               </div>
-            </div>
 
-            <div className="absolute -bottom-5 -right-2 z-20 -rotate-6 rounded-md border-2 border-ink bg-coral px-3 py-1 font-mono text-[11px] font-bold uppercase text-cream shadow-brut">
-              feels like a friend planned it
+              <WizardButton
+                ariaLabel="Try this sample plan"
+                preset={{
+                  title: "cute, walkable, ends with a slow drink",
+                  vibeKeys: ["bougie", "speakeasy"],
+                  vibeLabel: "cute, walkable, ends with a slow drink",
+                }}
+                className="mt-5 inline-flex h-12 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-coral px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+              >
+                Try this plan <ArrowUpRight className="h-4 w-4" />
+              </WizardButton>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================ HOW IT WORKS — 3 STEPS ============================ */}
+      <section
+        aria-labelledby="how-it-works-heading"
+        className="border-b-2 border-ink bg-background"
+      >
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <h2
+              id="how-it-works-heading"
+              className="font-display text-2xl font-extrabold leading-tight sm:text-3xl"
+            >
+              How it works
+              <span className="font-serif italic font-normal text-coral"> in 3 steps.</span>
+            </h2>
+            <span className="hidden font-mono text-[11px] uppercase tracking-widest text-ink/60 sm:inline">
+              under 60 seconds
+            </span>
+          </div>
+
+          <ol className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0">
+            {[
+              {
+                n: "1",
+                emoji: "🎯",
+                title: "Tell us the vibe",
+                body: "Rooftop, dive bar, date night, brunch crawl. Plain English works.",
+                bg: "bg-coral",
+              },
+              {
+                n: "2",
+                emoji: "🛣️",
+                title: "We build the route",
+                body: "Real venues, timed stops, walking + Lyft between them.",
+                bg: "bg-gold",
+              },
+              {
+                n: "3",
+                emoji: "🎟️",
+                title: "Tap to book",
+                body: "Resy, OpenTable, Eventbrite — straight to checkout, no copy-paste.",
+                bg: "bg-purple",
+              },
+            ].map((s) => (
+              <li
+                key={s.n}
+                className={`relative w-[78%] shrink-0 snap-center rounded-2xl border-2 border-ink ${s.bg} p-5 shadow-brut sm:w-auto`}
+              >
+                <span className="absolute -top-3 left-4 grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-cream font-mono text-xs font-extrabold">
+                  {s.n}
+                </span>
+                <div className="text-3xl">{s.emoji}</div>
+                <div className="mt-3 font-display text-lg font-extrabold leading-tight">
+                  {s.title}
+                </div>
+                <p className="mt-1 text-sm leading-snug text-ink/80">{s.body}</p>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mt-6 flex justify-center sm:hidden">
+            <WizardButton
+              ariaLabel="Plan my night"
+              className="inline-flex h-12 min-h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-sm font-bold text-cream shadow-brut transition-pop"
+            >
+              Start — Plan my night <ArrowUpRight className="h-4 w-4" />
+            </WizardButton>
           </div>
         </div>
       </section>

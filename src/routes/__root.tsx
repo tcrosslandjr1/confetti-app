@@ -16,6 +16,7 @@ import { WizardProvider } from "@/components/wizard/wizard-context";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ReferralCapture } from "@/components/ReferralCapture";
 import { TabBar } from "@/components/loop/TabBar";
+import { FirstRunNudge } from "@/components/FirstRunNudge";
 import { MapProvider } from "@/components/maps/MapProvider";
 
 const RoleSwitcher = lazy(() =>
@@ -237,6 +238,7 @@ function RootComponent() {
               <BuildMyNightWizard />
             </Suspense>
             <TabBar />
+            <FirstRunNudge />
             <Suspense fallback={null}>
               <CookieConsent />
             </Suspense>

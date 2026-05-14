@@ -88,20 +88,23 @@ function AdminAdvertisersPage() {
   const [venues, setVenues] = useState<AdminVenue[]>([]);
   const [events, setEvents] = useState<AdEventRow[]>([]);
   const [stats, setStats] = useState<Record<string, { impressions: number; clicks: number }>>({});
+  const [claims, setClaims] = useState<VenueClaim[]>([]);
   const [busy, setBusy] = useState(true);
   const [tab, setTab] = useState("overview");
 
   const load = async () => {
     setBusy(true);
-    const [{ advertisers, campaigns }, vs, evs] = await Promise.all([
+    const [{ advertisers, campaigns }, vs, evs, cls] = await Promise.all([
       listAdminAdvertisers(),
       listAdminVenues(),
       listRecentAdEvents(30),
+      listAdminClaims(),
     ]);
     setAdvertisers(advertisers);
     setCampaigns(campaigns);
     setVenues(vs);
     setEvents(evs);
+    setClaims(cls);
     if (campaigns.length) setStats(await getCampaignStats(campaigns.map((c) => c.id)));
     setBusy(false);
   };

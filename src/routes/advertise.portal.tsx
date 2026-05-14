@@ -57,6 +57,7 @@ function AdvertiserPortal() {
   const [subscription, setSubscription] = useState<AdvertiserSubscription | null>(null);
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [stats, setStats] = useState<Record<string, { impressions: number; clicks: number }>>({});
+  const [series, setSeries] = useState<ReturnType<typeof bucketEventsByDay>>([]);
   const [busy, setBusy] = useState(false);
   const [showNew, setShowNew] = useState(false);
 
@@ -71,10 +72,37 @@ function AdvertiserPortal() {
       ]);
       setCampaigns(cs);
       setSubscription(sub);
-      setStats(await getCampaignStats(cs.map((c) => c.id)));
+      const ids = new Set(cs.map((c) => c.id));
+      const [s, evs] = await Promise.all([
+        getCampaignStats(cs.map((c) => c.id)),
+        listRecentAdEvents(30),
+      ]);
+      setStats(s);
+      setSeries(bucketEventsByDay(evs.filter((e) => e.campaign_id && ids.has(e.campaign_id)), 30));
     }
     setBusy(false);
   }, []);
+
+  async function handleStatus(c: Campaign, status: "paused" | "approved") {
+    try {
+      await updateCampaignStatus(c.id, status);
+      toast.success(status === "paused" ? "Campaign paused" : "Campaign resumed");
+      if (user) await refresh(user.id);
+    } catch (err) {
+      toast.error((err as Error).message);
+    }
+  }
+
+  async function handleDelete(c: Campaign) {
+    if (!window.confirm(`Delete campaign "${c.headline}"? This cannot be undone.`)) return;
+    try {
+      await deleteCampaign(c.id);
+      toast.success("Campaign deleted");
+      if (user) await refresh(user.id);
+    } catch (err) {
+      toast.error((err as Error).message);
+    }
+  }
 
 
   useEffect(() => {

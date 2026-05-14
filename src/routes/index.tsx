@@ -805,7 +805,9 @@ function Landing() {
             </Link>
           </div>
 
-          <StepsShowcase />
+          <Suspense fallback={<div className="mt-12 h-72" aria-hidden />}>
+            <StepsShowcase />
+          </Suspense>
         </div>
       </section>
 

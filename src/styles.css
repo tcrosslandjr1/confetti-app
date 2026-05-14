@@ -438,7 +438,7 @@
     background-color: var(--cream);
   }
   .animate-marquee {
-    animation: marquee 90s linear infinite;
+    animation: marquee 180s linear infinite;
   }
   .animate-wiggle {
     animation: wiggle 4s ease-in-out infinite;

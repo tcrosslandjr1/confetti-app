@@ -29,7 +29,7 @@ const OPTIONS: Option[] = [
     Icon: Shield,
     blurb: "Full console + moderation",
     home: "/admin",
-    tone: "bg-purple-600 text-white",
+    tone: "bg-ink text-cream",
   },
   {
     value: "business",
@@ -37,7 +37,7 @@ const OPTIONS: Option[] = [
     Icon: Briefcase,
     blurb: "Advertiser portal & venues",
     home: "/advertise/portal",
-    tone: "bg-emerald-600 text-white",
+    tone: "bg-purple text-cream",
   },
   {
     value: "customer",
@@ -45,7 +45,7 @@ const OPTIONS: Option[] = [
     Icon: UserIcon,
     blurb: "Portal, planning & bookings",
     home: "/portal",
-    tone: "bg-primary text-primary-foreground",
+    tone: "bg-coral text-cream",
   },
   {
     value: "visitor",
@@ -53,7 +53,7 @@ const OPTIONS: Option[] = [
     Icon: Eye,
     blurb: "Marketing pages only",
     home: "/",
-    tone: "bg-amber-500 text-amber-950",
+    tone: "bg-gold text-ink",
   },
 ];
 
@@ -177,19 +177,19 @@ export function RoleSwitcher() {
 
       {/* Bottom-right dock */}
       <div
-        className={`fixed bottom-[calc(env(safe-area-inset-bottom)+5.25rem)] right-4 z-[90] rounded-2xl border bg-card/95 shadow-pop backdrop-blur transition lg:bottom-4 ${
-          isImpersonating ? "border-amber-500 ring-2 ring-amber-500/60" : "border-border"
+        className={`fixed bottom-[calc(env(safe-area-inset-bottom)+5.25rem)] right-4 z-[90] rounded-2xl border-2 bg-cream/95 shadow-brut backdrop-blur transition lg:bottom-4 ${
+          isImpersonating ? "border-coral ring-2 ring-coral/40" : "border-ink"
         }`}
       >
         {open ? (
           <div className="space-y-2 p-2">
             <div className="flex items-center justify-between gap-3 px-2 pt-1">
-              <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+              <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70">
                 <Repeat className="h-3 w-3" /> View as
               </div>
               <button
                 onClick={() => setOpen(false)}
-                className="rounded-md p-1 text-muted-foreground transition hover:text-foreground"
+                className="rounded-md p-1 text-ink/60 transition hover:text-ink"
                 aria-label="Hide switcher"
               >
                 <ChevronDown className="h-3.5 w-3.5" />
@@ -203,10 +203,10 @@ export function RoleSwitcher() {
                   <button
                     key={value}
                     onClick={() => goToRole(value)}
-                    className={`group flex flex-col items-start gap-0.5 rounded-xl px-3 py-2 text-left text-xs font-semibold transition ${
+                    className={`group flex min-w-[7.5rem] flex-col items-start gap-0.5 rounded-xl border-2 px-3 py-2 text-left text-xs font-bold transition-pop ${
                       active
-                        ? `${tone} shadow-pop`
-                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                        ? `${tone} border-ink shadow-brut`
+                        : "border-transparent text-ink/70 hover:-translate-y-0.5 hover:border-ink hover:bg-cream hover:text-ink"
                     }`}
                     aria-pressed={active}
                     title={blurb}
@@ -216,7 +216,7 @@ export function RoleSwitcher() {
                       {label}
                     </span>
                     <span
-                      className={`text-[9px] font-normal leading-tight ${
+                      className={`font-mono text-[9px] font-normal uppercase tracking-wider leading-tight ${
                         active ? "opacity-90" : "opacity-70"
                       }`}
                     >
@@ -230,7 +230,7 @@ export function RoleSwitcher() {
             {isImpersonating && (
               <button
                 onClick={exitAndReturn}
-                className="flex w-full items-center justify-center gap-1.5 rounded-xl bg-foreground px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-background transition hover:opacity-90"
+                className="flex w-full items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-ink px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-cream transition-pop hover:-translate-y-0.5 hover:shadow-brut"
               >
                 <X className="h-3 w-3" /> Exit impersonation
               </button>
@@ -239,13 +239,21 @@ export function RoleSwitcher() {
         ) : (
           <button
             onClick={() => setOpen(true)}
-            className={`inline-flex items-center gap-1.5 rounded-2xl px-3 py-2 text-xs font-semibold ${
-              isImpersonating ? "text-amber-700" : "text-foreground"
+            className={`inline-flex items-center gap-2 rounded-2xl px-3 py-2 text-xs font-bold ${
+              isImpersonating ? "text-coral" : "text-ink"
             }`}
             title={`Currently viewing as ${current.label}`}
           >
-            <current.Icon className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">View as:</span> {current.label}
+            <span
+              className={`inline-flex h-5 w-5 items-center justify-center rounded-full ${current.tone}`}
+              aria-hidden
+            >
+              <current.Icon className="h-3 w-3" />
+            </span>
+            <span className="hidden sm:inline text-ink/60 font-mono text-[10px] uppercase tracking-widest">
+              View as
+            </span>
+            <span className="font-mono text-[11px] uppercase tracking-widest">{current.label}</span>
             <ChevronUp className="h-3 w-3 opacity-60" />
           </button>
         )}

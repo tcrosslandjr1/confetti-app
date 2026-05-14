@@ -47,6 +47,7 @@ export function CookieConsent() {
   const [bannerVisible, setBannerVisible] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [prefs, setPrefs] = useState<CookiePrefs>(DEFAULT_PREFS);
+  const [overlayOpen, setOverlayOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -61,7 +62,19 @@ export function CookieConsent() {
       setSettingsOpen(true);
     };
     window.addEventListener("open-cookie-settings", onOpen);
-    return () => window.removeEventListener("open-cookie-settings", onOpen);
+
+    // Hide the banner whenever a Radix dialog/sheet/drawer is open so it
+    // doesn't cover modal footer actions (wizard Continue, etc.).
+    const check = () =>
+      setOverlayOpen(!!document.querySelector('[data-radix-dialog-overlay], [data-vaul-overlay]'));
+    check();
+    const mo = new MutationObserver(check);
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      window.removeEventListener("open-cookie-settings", onOpen);
+      mo.disconnect();
+    };
   }, []);
 
   const acceptAll = () => {

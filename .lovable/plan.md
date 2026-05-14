@@ -1,56 +1,68 @@
 ## Goal
 
-Rebrand the existing app to **Confetti** (curated city experience, light theme, coral/orange on white), wire up the Google Maps key, and refresh the 10 feature areas listed. Most routes already exist (`/boarding-pass`, `/onboarding`, `/create`, `/confirmation`, `/passport`, `/chat`, `/venue/$id`, `/quick-generate`, `/taste-tuner`, `/active-loop`) so most work is rebuild + polish, not greenfield.
+A new visitor on iPhone or Android lands on `/`, instantly understands "Confetti builds your night out in under a minute", and has exactly one obvious next tap. App-store-grade first impression.
 
-## Scope notes (please read before approving)
+## What's wrong today
 
-- **Env var**: `VITE_GOOGLE_MAPS_API_KEY` cannot be added to `.env` (auto-managed by Lovable Cloud). Since `VITE_*` keys are exposed to the browser anyway, I'll store the Maps key as a constant in `src/lib/config.ts` and recommend you restrict it by HTTP referrer in Google Cloud Console. This is the standard pattern for publishable keys here.
-- **Active plan route**: spec calls it `/active-confetti`. The current file is `/active-loop`. I'll create the new `/active-confetti` route and leave `/active-loop` as a thin redirect so old links don't 404.
-- **Theme**: keep the existing light theme. I'll audit `src/styles.css` to ensure coral/orange-on-white tokens are the source of truth and remove any "Loop" / "Party Planner Plus" naming that leaks into UI copy.
-- **Wallet buttons**: "Add to Apple Wallet / Google Wallet" will be visual buttons with the right icons; clicking shows a "coming soon" toast (real `.pkpass` / Google Wallet JWT signing requires server-side certs that aren't set up).
-- **Map placeholder**: `/active-confetti` will render a Google Maps `<iframe>` embed using the new key as the "mini-map", since `@vis.gl/react-google-maps` isn't installed and adding a full SDK is out of scope here. Tell me if you want the full interactive SDK and I'll add it as a follow-up.
+- Hero says "Plans with a pulse" — vibey, not explanatory. No first-time visitor understands what tapping "Build my night" will actually do.
+- Two side-by-side CTAs ("Build my night" / "How it works") split attention. Caption "no signup to try" floats awkwardly.
+- Receipt mock-card looks like a real plan but isn't interactive — confusing on mobile.
+- Marquee + multiple long sections push the actual product below the fold.
+- Bottom tab bar shows 5 destinations (Home, Discover, Create, Passport, Profile) but the home screen never explains them.
+- No "what happens when I tap this" preview, no progress affordance, no recovery if the wizard errors out.
 
-## Implementation plan
+## Plan (mobile-first, desktop unchanged)
 
-### 1. Branding sweep
-- Add `src/lib/config.ts` exporting `GOOGLE_MAPS_API_KEY` and `APP_NAME = "Confetti"`.
-- Replace user-visible occurrences of "Loopplan", "Loop", "Party Planner Plus" with **Confetti** in: `__root.tsx`, `SiteFooter`, `index.tsx`, `about.tsx`, `pricing.tsx`, `features.tsx`, `how-it-works.tsx`, `me.tsx`, `chat.tsx`, `boarding-pass.tsx`, `confirmation.tsx`, `passport.tsx`, `create.tsx`, `onboarding.tsx`, `venue.$id.tsx`, page `<title>`/`og:title` tags. Leave internal identifiers (file names, store keys like `loop-store`, ad helpers) untouched to avoid breaking imports.
-- Reward currency text "Loop" / "Loops" → "Confetti".
+### 1. Rewrite the hero for clarity, not vibe (`src/routes/index.tsx`)
 
-### 2. Tab bar
-- New `src/components/ConfettiTabBar.tsx` with 5 tabs: Home (`/`), Discover (`/trips` or `/events`), Create (`/create`, prominent center), Passport (`/passport`), Profile (`/me`). Active tab gets a coral dot indicator.
-- Mount inside `__root.tsx` as a fixed bottom bar on small screens; hide on `/admin*`, `/auth`, and onboarding.
+- Eyebrow: `TONIGHT IN [CITY] · LIVE` (uses existing city context)
+- H1: short and literal — `Your night out, planned in 60 seconds.`
+- Sub: one sentence — `Pick a vibe. Get real venues, real times, and tap-to-book reservations. Free, no signup.`
+- One primary CTA full-width on mobile: `Plan my night → 60 sec` (opens wizard)
+- Secondary text link below: `See a sample plan` (scrolls to receipt card)
+- Remove the inline "no signup to try" caption (fold into sub-copy)
 
-### 3. Home (`/`)
-- Replace hero with "Hey, {firstName}" greeting (falls back to "there" when signed out), Quick Generate CTA card, "Continue your plan" card (reads from `loop-store` if an active plan exists), trending venues horizontal scroll, and a "Your taste profile" summary card linking to `/taste-tuner`.
-- Keep existing testimonials/marquee sections below.
+### 2. Add a "How it works in 3 steps" strip directly under the hero
 
-### 4. Boarding Pass (`/boarding-pass`)
-- Rebuild `src/components/loop/BoardingPass.tsx` to the spec: BOARDING PASS header + plane icon, passenger/date/group, HOME → NIGHT OUT route, GATE / BOARDING TIME / SEAT fields, vertical stop timeline with checkmark circles, dotted-line perforation + barcode strip, Apple/Google Wallet buttons.
+Three numbered cards, horizontally scrollable on mobile, grid on desktop:
+1. Tell us the vibe (rooftop, dive bar, date night…)
+2. We build the route — venues, times, walking + Lyft
+3. Tap to book. Show up. We handle the rest.
 
-### 5. Onboarding wizard (`/onboarding`)
-- 5 steps: City → Tastes → Vibes → Budget slider ($50–$500+) → Group size. Top progress bar, Back/Next, fade-in transitions. Persists to `localStorage` (`confetti.onboarding`) and to Supabase profile if signed in. First-visit redirect from `/` when flag missing.
+Each card has an icon and one line. This is the missing "what does this app do" answer.
 
-### 6. Confetti Creator (`/create`)
-- 4 steps (Who / What / When / Vibe) + a "Generate for me" shortcut card on Step 1 linking to `/quick-generate`. Final summary → `/boarding-pass`.
+### 3. Make the receipt card obviously a sample, and make it tappable
 
-### 7. Active plan (`/active-confetti`)
-- Mini Google Maps iframe at top, current stop with pulsing NOW badge, "I'm Here" check-in button → confetti burst + toast "+50 Confetti" + green checkmark, Next Stop card with ETA, End Early button.
-- Add `/active-loop` redirect.
+- Add a `SAMPLE PLAN` ribbon to the receipt mock
+- Wrap it in a button that opens the wizard pre-loaded with that vibe ("cute, walkable, ends with a slow drink")
+- Add a single `Try this plan` CTA inside the card on mobile
 
-### 8. Venue detail (`/venue/$id`)
-- Hero image, name/type/rating/price/area, tag chips, "Why we picked this" AI card, hours/phone/address, Add to Plan + Book Now buttons, 3–4 image grid.
+### 4. Persistent first-run nudge above the bottom nav
 
-### 9. Confirmation (`/confirmation`)
-- 42-piece confetti rain, gradient-circle checkmark, plan summary, Wallet buttons, "View Boarding Pass" CTA, "Share with friends".
+A dismissible 1-line bar (mobile only): `New here? Start with Build my night →` that opens the wizard. Stored in `localStorage` so it disappears after dismiss or after the wizard is opened once.
 
-### 10. Passport (`/passport`)
-- Level + total Confetti header, achievement badges grid (Explorer, Night Owl, Foodie, Social Butterfly, +4 more), recent activity feed, progress bar to next level, Redeem Confetti grid.
+### 5. Wizard hardening (one small fix, not a redesign)
 
-### 11. AI Chat (`/chat`)
-- Bubble UI (user right, AI left with sparkle avatar), 3-dot typing indicator, suggested-reply chips, typewriter reveal. Backend: existing Lovable AI Gateway edge function if present, otherwise a new `confetti-chat` edge function using `google/gemini-2.5-flash`.
+- First step of `BuildMyNightWizard` shows a one-line preview: `Step 1 of 6 · Pick a vibe · ~45 sec total`
+- If a step's network call fails (the `pick-signals` 401 we already saw), show a toast and let the user continue — never dead-end
+- "Continue" button stays sticky at the bottom of the modal so it's always reachable on small screens
 
-## Out of scope (will note in final reply)
-- Real Apple Wallet `.pkpass` signing and Google Wallet JWT issuance.
-- Full interactive Google Maps SDK with markers/directions (using embed iframe instead).
-- Renaming files/DB tables/store keys that contain "loop".
+### 6. Tighten visible polish on `/`
+
+- Reduce marquee height on mobile (`py-3` instead of `py-4`) and lower contrast so it stops competing with the hero
+- Add `font-display: swap` preload hint for the display font (already imported) to fix FOUT on first paint
+- Ensure every interactive element on `/` has min 44×44 tap target
+
+## Out of scope (call out, don't do now)
+
+- Discover, Venue, Passport, Profile, Auth screens
+- Performance work beyond font preload + image lazy-loading on `/`
+- Real PWA / install prompt
+- Onboarding tour beyond the single first-run nudge
+
+## Files touched
+
+- `src/routes/index.tsx` — hero, 3-step strip, sample-plan card, first-run nudge
+- `src/components/wizard/BuildMyNightWizard.tsx` — sticky footer, step header copy, error toast
+- `src/components/wizard/wizard-context.tsx` — accept a `vibeKey` preset from the sample card (already supported)
+- maybe `src/styles.css` — small font-preload hint

@@ -207,6 +207,8 @@ function Landing() {
     else if (user && viewAs === "admin") navigate({ to: "/admin" });
   }, [user, viewAs, loading, navigate]);
 
+  const [bookingOpen, setBookingOpen] = useState(false);
+
   // Subtle hero parallax
   const heroBgRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {

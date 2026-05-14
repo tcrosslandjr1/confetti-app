@@ -5,6 +5,7 @@ import { NotificationsBell } from "@/components/NotificationsBell";
 import { CitySelector } from "@/components/CitySelector";
 import { Oloid } from "@/components/brand/Oloid";
 import { useAuth } from "@/lib/auth-context";
+import { useScrolled } from "@/hooks/useScrolled";
 
 const TAGLINES = [
   "your city, on a loop",
@@ -53,9 +54,13 @@ export function SiteHeader() {
   const showPortal = viewAs === "customer" || viewAs === "admin";
   const showAdmin = viewAs === "admin";
   const isVisitor = viewAs === "visitor" || !user;
+  const scrolled = useScrolled(8);
 
   return (
-    <header className="sticky top-0 z-40 border-b-2 border-ink bg-cream">
+    <header
+      data-scrolled={scrolled || undefined}
+      className="sticky top-0 z-40 border-b-2 border-ink bg-cream transition-shadow duration-200 data-[scrolled]:shadow-brut"
+    >
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-8">
         <Link to="/" className="group flex items-center gap-[2px]" aria-label="confetti — home">
           <span className="font-display text-2xl font-extrabold leading-none tracking-tight text-ink">

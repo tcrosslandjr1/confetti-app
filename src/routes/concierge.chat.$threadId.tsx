@@ -286,7 +286,7 @@ function ChatThread() {
           <div className="min-w-0 flex-1">
             <div className="truncate text-sm font-semibold">{thread?.title ?? "Concierge"}</div>
             <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
-              {streaming ? "Thinking..." : "Online · DMV insider"}
+              {streaming ? "Thinking..." : `Online · ${city.name} insider`}
             </div>
           </div>
         </div>

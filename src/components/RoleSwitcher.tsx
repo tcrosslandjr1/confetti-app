@@ -73,7 +73,8 @@ export function RoleSwitcher() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
-  if (!isAdmin) return null;
+  // UI-only switcher — visible in every view so you can preview each role.
+  // Real permissions are still enforced server-side by RLS.
 
   const goToRole = (value: ViewAs) => {
     const opt = OPTIONS.find((o) => o.value === value)!;

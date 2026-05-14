@@ -279,9 +279,9 @@ function Landing() {
             </span>
 
             <h1 className="mt-5 font-display text-[12vw] font-extrabold leading-[0.9] tracking-[-0.04em] sm:text-[68px] lg:text-[96px]">
-              Your night out,
+              A perfect night,
               <br />
-              planned in <span className="font-serif italic font-normal text-coral">60 seconds.</span>
+              built in <span className="font-serif italic font-normal text-coral">under a minute.</span>
             </h1>
 
             <p className="mt-5 max-w-xl text-base leading-snug sm:text-lg">

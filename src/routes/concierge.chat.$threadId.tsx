@@ -21,36 +21,34 @@ export const Route = createFileRoute("/concierge/chat/$threadId")({
 
 type Msg = { id: string; role: "user" | "assistant"; content: string };
 
-const DEFAULT_SUGGESTIONS = [
-  "Romantic dinner under $80pp tonight, not too loud",
-  "Build me a 3-stop date night starting in Shaw",
-  "Group dinner for 8 with strong cocktails — surprise me",
-] as const;
-
-function timeOfDayPrompts(d = new Date()): string[] {
+function timeOfDayPrompts(city: City, d = new Date()): string[] {
+  const ctx = findCityLoose(city.slug, city.name);
+  const hoods = ctx?.neighborhoods?.map((n) => n.name) ?? [];
+  const hood = (i: number) => hoods[i % Math.max(hoods.length, 1)] ?? "downtown";
+  const cityName = city.name;
   const h = d.getHours();
   if (h < 11)
     return [
-      "Best brunch spot to take my parents on Sunday",
-      "Coffee + work spot near U Street with good wifi",
-      "Where can I get bagels right now?",
+      `Best brunch spot to take my parents in ${cityName} on Sunday`,
+      `Coffee + work spot in ${hood(0)} with good wifi`,
+      `Where can I get great pastries right now in ${cityName}?`,
     ];
   if (h < 16)
     return [
-      "Lunch under $25 in Penn Quarter today",
-      "Patio with shade and good salads in Logan",
-      "Where to take a client for a quick lunch in NoMa",
+      `Lunch under $25 in ${hood(0)} today`,
+      `Patio with shade and good salads in ${hood(1)}`,
+      `Where to take a client for a quick lunch in ${hood(2)}`,
     ];
   if (h < 21)
     return [
       "Romantic dinner under $80pp tonight, not too loud",
-      "Build me a 3-stop date night starting in Shaw",
+      `Build me a 3-stop date night starting in ${hood(0)}`,
       "Group dinner for 8 with strong cocktails — surprise me",
     ];
   return [
-    "Late-night eats open past midnight in DC",
+    `Late-night eats open past midnight in ${cityName}`,
     "Cocktail bar with seats right now — no scene",
-    "Where's still serving food after 11 in Adams Morgan?",
+    `Where's still serving food after 11 in ${hood(1)}?`,
   ];
 }
 
@@ -67,11 +65,20 @@ function ChatThread() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const [city, setCity] = useState<City>(() => getSelectedCity() ?? DEFAULT_CITY);
 
-  const [suggestions, setSuggestions] = useState<string[]>([...DEFAULT_SUGGESTIONS]);
+  const [suggestions, setSuggestions] = useState<string[]>(() =>
+    timeOfDayPrompts(getSelectedCity() ?? DEFAULT_CITY, new Date()),
+  );
 
   useEffect(() => {
-    setSuggestions(timeOfDayPrompts(new Date()));
+    const sync = () => {
+      const c = getSelectedCity() ?? DEFAULT_CITY;
+      setCity(c);
+      setSuggestions(timeOfDayPrompts(c, new Date()));
+    };
+    sync();
+    return subscribeSelectedCity(sync);
   }, []);
 
   useEffect(() => {

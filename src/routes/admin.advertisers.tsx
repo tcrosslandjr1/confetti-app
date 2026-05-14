@@ -166,6 +166,14 @@ function AdminAdvertisersPage() {
             </TabsTrigger>
             <TabsTrigger value="advertisers">Advertisers</TabsTrigger>
             <TabsTrigger value="venues">Verified profiles</TabsTrigger>
+            <TabsTrigger value="claims">
+              Claims
+              {claims.filter((c) => c.status === "pending").length > 0 && (
+                <Badge variant="secondary" className="ml-2">
+                  {claims.filter((c) => c.status === "pending").length}
+                </Badge>
+              )}
+            </TabsTrigger>
             <TabsTrigger value="billing">Billing</TabsTrigger>
           </TabsList>
 

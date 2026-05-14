@@ -6,6 +6,8 @@ import { ArrowLeft, Copy, Loader2, RotateCcw, Send, Sparkles, Square, Check } fr
 import ReactMarkdown from "react-markdown";
 import { toast } from "sonner";
 import { parseAssistantContent, VenueCard } from "@/components/concierge/VenueCard";
+import { getSelectedCity, DEFAULT_CITY, subscribeSelectedCity, type City } from "@/lib/cities";
+import { findCityLoose } from "@/lib/agents/city-context";
 
 type Search = { seed?: string };
 

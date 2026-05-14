@@ -454,7 +454,7 @@ function Landing() {
                 emoji: "🎟️",
                 title: "Tap-to-go booking",
                 body: "Resy, OpenTable, Eventbrite, rideshare — one tap, straight to checkout.",
-                bg: "bg-mint",
+                bg: "bg-teal",
               },
             ].map((s) => (
               <li

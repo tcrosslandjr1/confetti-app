@@ -8,6 +8,7 @@ import {
   Megaphone,
   MessageSquareQuote,
   ScrollText,
+  Settings,
   ShieldCheck,
   Sparkles,
   Store,

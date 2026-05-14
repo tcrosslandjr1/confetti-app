@@ -500,6 +500,16 @@
     scroll-behavior: smooth;
   }
   @media (prefers-reduced-motion: reduce) {
+    /* Global safety net — neutralize every animation + scroll-linked motion */
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      animation-delay: 0ms !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
     .reveal,
     .reveal.in,
     .reveal-scale.in {
@@ -507,13 +517,28 @@
       opacity: 1 !important;
       transform: none !important;
     }
-    .animate-wiggle-attention,
-    .animate-pulse-glow,
+    /* Fully stop continuous/looped motion (marquee, parallax helpers, blobs,
+       wiggles, pings, hero gradient, typing caret, floats). */
     .animate-marquee,
+    .animate-marquee-x,
+    .animate-marquee-y,
     .animate-blob,
     .animate-float-card,
-    .animate-wiggle {
+    .animate-wiggle,
+    .animate-wiggle-attention,
+    .animate-pulse-glow,
+    .animate-dot-pulse,
+    .animate-tagline-in,
+    .animate-ping,
+    .animate-pulse,
+    .animate-bounce,
+    .animate-spin,
+    .hero-gradient,
+    .typing-caret::after {
       animation: none !important;
+    }
+    .hero-gradient {
+      background-size: 100% 100% !important;
     }
     html {
       scroll-behavior: auto;

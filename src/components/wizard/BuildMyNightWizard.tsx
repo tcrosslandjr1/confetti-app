@@ -1420,11 +1420,11 @@ export function BuildMyNightWizard() {
         role="dialog"
         aria-modal="true"
         aria-label="Build my night"
-        className="relative w-full max-w-3xl overflow-hidden rounded-3xl border-2 border-ink bg-cream text-ink shadow-brut-lg"
+        className="relative flex w-full max-w-3xl flex-col overflow-hidden rounded-3xl border-2 border-ink bg-cream text-ink shadow-brut-lg max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-3rem)]"
         style={{ animation: "reveal-scale 0.35s cubic-bezier(0.22,1,0.36,1) forwards" }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between border-b-2 border-ink bg-cream/80 px-5 py-3 backdrop-blur">
+        <div className="flex shrink-0 items-center justify-between border-b-2 border-ink bg-cream/80 px-5 py-3 backdrop-blur">
           <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest">
             <Sparkles className="h-3.5 w-3.5 text-coral" />
             {step <= 5
@@ -1432,6 +1432,11 @@ export function BuildMyNightWizard() {
               : step === 6
                 ? "Building your night"
                 : "Your night, ready"}
+            {step <= 5 && (
+              <span className="hidden font-normal normal-case tracking-normal text-ink/60 sm:inline">
+                · ~45 sec total
+              </span>
+            )}
           </div>
           <button
             onClick={closeWizard}
@@ -1444,7 +1449,7 @@ export function BuildMyNightWizard() {
 
         {/* Progress bar */}
         {step <= 5 && (
-          <div className="h-1.5 w-full bg-ink/10">
+          <div className="h-1.5 w-full shrink-0 bg-ink/10">
             <div
               className="h-full bg-gradient-to-r from-coral via-gold to-purple transition-[width] duration-500 ease-out"
               style={{ width: `${((step + 1) / totalSteps) * 100}%` }}
@@ -1453,7 +1458,7 @@ export function BuildMyNightWizard() {
         )}
 
         {/* Body */}
-        <div className="max-h-[72vh] overflow-y-auto px-5 py-7 sm:px-8 sm:py-9">
+        <div className="min-h-0 flex-1 overflow-y-auto px-5 py-7 sm:px-8 sm:py-9">
           {step === 0 && (
             <StepShell title="What's the vibe?" sub="Pick the energy. We'll do the rest.">
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">

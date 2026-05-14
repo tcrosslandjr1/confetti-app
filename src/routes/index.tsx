@@ -1,14 +1,12 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/lib/auth-context";
-import { useEffect, useRef, useMemo, useState } from "react";
+import { useEffect, useRef, useMemo, useState, lazy, Suspense } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { RecapBanner } from "@/components/RecapBanner";
 import { TasteConfirmPrompt } from "@/components/TasteConfirmPrompt";
-import { SiteFooter } from "@/components/SiteFooter";
 import { TypingCounter } from "@/components/TypingCounter";
-import { StepsShowcase } from "@/components/StepsShowcase";
 import { OCCASIONS, SEED_IDEAS } from "@/lib/occasions";
 import { Reveal } from "@/components/Reveal";
 import { WizardButton } from "@/components/wizard/WizardButton";
@@ -17,10 +15,23 @@ import { GatedAction } from "@/components/GatedAction";
 import { logAdViewImpression, logAdClick } from "@/lib/ad-tracking";
 import { withUtm } from "@/lib/utm";
 import { isAdDebugEnabled, recordAdDebug } from "@/lib/ad-debug";
-import { AdDebugPanel } from "@/components/AdDebugPanel";
 import { useViewportImpression } from "@/hooks/useViewportImpression";
 import { getAdImpressionConfig } from "@/lib/ad-impression-config";
-import { TapToGoBookingModal, type TapToGoStop } from "@/components/TapToGoBookingModal";
+import type { TapToGoStop } from "@/components/TapToGoBookingModal";
+
+// Below-the-fold / on-demand chunks — keep the initial bundle small so the hero paints fast.
+const StepsShowcase = lazy(() =>
+  import("@/components/StepsShowcase").then((m) => ({ default: m.StepsShowcase })),
+);
+const SiteFooter = lazy(() =>
+  import("@/components/SiteFooter").then((m) => ({ default: m.SiteFooter })),
+);
+const AdDebugPanel = lazy(() =>
+  import("@/components/AdDebugPanel").then((m) => ({ default: m.AdDebugPanel })),
+);
+const TapToGoBookingModal = lazy(() =>
+  import("@/components/TapToGoBookingModal").then((m) => ({ default: m.TapToGoBookingModal })),
+);
 
 const SAMPLE_ITINERARY_STOPS: TapToGoStop[] = [
   { id: "lilas", time: "6:30p", title: "Lila's Patio", type: "Small plates · Mission", source: "RESY", cost: "~$38/pp", emoji: "🍽️" },
@@ -794,7 +805,9 @@ function Landing() {
             </Link>
           </div>
 
-          <StepsShowcase />
+          <Suspense fallback={<div className="mt-12 h-72" aria-hidden />}>
+            <StepsShowcase />
+          </Suspense>
         </div>
       </section>
 
@@ -1243,19 +1256,27 @@ function Landing() {
         </p>
       </section>
 
-      <SiteFooter />
-      <AdDebugPanel />
+      <Suspense fallback={null}>
+        <SiteFooter />
+      </Suspense>
+      <Suspense fallback={null}>
+        <AdDebugPanel />
+      </Suspense>
 
-      <TapToGoBookingModal
-        open={bookingOpen}
-        onClose={() => setBookingOpen(false)}
-        title="cute, walkable, ends with a slow drink"
-        subtitle="San Francisco · Mission → Hayes Valley → Nob Hill"
-        date="Sat, 6:00p"
-        guests={2}
-        stops={SAMPLE_ITINERARY_STOPS}
-        summary={SAMPLE_ITINERARY_SUMMARY}
-      />
+      {bookingOpen && (
+        <Suspense fallback={null}>
+          <TapToGoBookingModal
+            open={bookingOpen}
+            onClose={() => setBookingOpen(false)}
+            title="cute, walkable, ends with a slow drink"
+            subtitle="San Francisco · Mission → Hayes Valley → Nob Hill"
+            date="Sat, 6:00p"
+            guests={2}
+            stops={SAMPLE_ITINERARY_STOPS}
+            summary={SAMPLE_ITINERARY_SUMMARY}
+          />
+        </Suspense>
+      )}
     </div>
   );
 }

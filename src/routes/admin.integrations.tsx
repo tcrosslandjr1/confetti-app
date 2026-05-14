@@ -20,13 +20,22 @@ export const Route = createFileRoute("/admin/integrations")({
   component: AdminIntegrationsPage,
 });
 
+type Check = { name: string; ok: boolean; detail: string };
+type TestResult = {
+  ok: boolean;
+  detail: string;
+  checks?: Check[];
+  remediation?: string;
+  keyMasked?: string | null;
+};
+
 type Integration = {
   key: string;
   name: string;
   description: string;
   envVar: string;
   docs: string;
-  test: () => Promise<{ ok: boolean; detail: string }>;
+  test: () => Promise<TestResult>;
 };
 
 const INTEGRATIONS: Integration[] = [
@@ -38,12 +47,25 @@ const INTEGRATIONS: Integration[] = [
     docs: "https://developers.google.com/maps/documentation/places/web-service",
     test: async () => {
       const { data, error } = await supabase.functions.invoke("google-places", {
-        body: { queries: ["Maydan Washington DC"] },
+        body: { diag: true },
       });
-      if (error) return { ok: false, detail: error.message };
-      const first = Array.isArray(data) ? data[0] : null;
-      if (!first?.name && !first?.displayName) return { ok: false, detail: "No result" };
-      return { ok: true, detail: `Resolved "${first.name ?? first.displayName}"` };
+      if (error) {
+        return { ok: false, detail: error.message, checks: [{ name: "Edge function reachable", ok: false, detail: error.message }] };
+      }
+      const d = data as {
+        ok: boolean;
+        keyMasked: string | null;
+        checks: Check[];
+        remediation?: string;
+      };
+      const failed = d.checks?.find((c) => !c.ok);
+      return {
+        ok: d.ok,
+        detail: d.ok ? "All checks passed" : failed?.detail ?? "Failed",
+        checks: d.checks,
+        remediation: d.remediation,
+        keyMasked: d.keyMasked,
+      };
     },
   },
   {
@@ -52,10 +74,7 @@ const INTEGRATIONS: Integration[] = [
     description: "AI concierge, itinerary generation, and chat replies.",
     envVar: "LOVABLE_API_KEY",
     docs: "https://docs.lovable.dev/features/ai",
-    test: async () => {
-      // Soft check — confirm the project key exists.
-      return { ok: true, detail: "Key configured · billed via Lovable Cloud" };
-    },
+    test: async () => ({ ok: true, detail: "Key configured · billed via Lovable Cloud" }),
   },
   {
     key: "supabase",
@@ -89,28 +108,32 @@ function StatusPill({ status, detail }: { status: Status; detail: string }) {
   if (status === "error")
     return (
       <Badge className="bg-destructive/15 text-destructive hover:bg-destructive/20">
-        <XCircle className="mr-1 h-3 w-3" /> {detail || "Error"}
+        <XCircle className="mr-1 h-3 w-3" /> Error
       </Badge>
     );
   return <Badge variant="outline">Not tested</Badge>;
 }
 
 function AdminIntegrationsPage() {
-  const [statuses, setStatuses] = useState<Record<string, { status: Status; detail: string }>>({});
+  const [statuses, setStatuses] = useState<
+    Record<string, { status: Status; result: TestResult }>
+  >({});
 
   const runTest = async (i: Integration) => {
-    setStatuses((s) => ({ ...s, [i.key]: { status: "checking", detail: "" } }));
+    setStatuses((s) => ({ ...s, [i.key]: { status: "checking", result: { ok: false, detail: "" } } }));
     try {
       const r = await i.test();
-      setStatuses((s) => ({ ...s, [i.key]: { status: r.ok ? "ok" : "error", detail: r.detail } }));
+      setStatuses((s) => ({ ...s, [i.key]: { status: r.ok ? "ok" : "error", result: r } }));
       if (r.ok) toast.success(`${i.name} OK`, { description: r.detail });
       else toast.error(`${i.name} failed`, { description: r.detail });
     } catch (e: any) {
-      setStatuses((s) => ({ ...s, [i.key]: { status: "error", detail: e?.message ?? "Failed" } }));
+      setStatuses((s) => ({
+        ...s,
+        [i.key]: { status: "error", result: { ok: false, detail: e?.message ?? "Failed" } },
+      }));
     }
   };
 
-  // Auto-test on mount
   useEffect(() => {
     INTEGRATIONS.forEach((i) => void runTest(i));
   }, []);
@@ -134,7 +157,8 @@ function AdminIntegrationsPage() {
 
       <div className="grid gap-4 lg:grid-cols-2">
         {INTEGRATIONS.map((i) => {
-          const st = statuses[i.key] ?? { status: "idle" as Status, detail: "" };
+          const st = statuses[i.key] ?? { status: "idle" as Status, result: { ok: false, detail: "" } };
+          const r = st.result;
           return (
             <article
               key={i.key}
@@ -145,14 +169,48 @@ function AdminIntegrationsPage() {
                   <h3 className="font-display text-lg font-bold">{i.name}</h3>
                   <p className="text-sm text-muted-foreground">{i.description}</p>
                 </div>
-                <StatusPill status={st.status} detail={st.detail} />
+                <StatusPill status={st.status} detail={st.status === "ok" ? "OK" : ""} />
               </div>
 
-              <div className="flex items-center gap-2 rounded-xl bg-muted/60 px-3 py-2 text-xs">
+              <div className="flex flex-wrap items-center gap-2 rounded-xl bg-muted/60 px-3 py-2 text-xs">
                 <KeyRound className="h-3.5 w-3.5 text-muted-foreground" />
                 <code className="font-mono">{i.envVar}</code>
+                {r.keyMasked && (
+                  <span className="font-mono text-muted-foreground">· {r.keyMasked}</span>
+                )}
                 <span className="text-muted-foreground">· managed in Lovable Cloud → Secrets</span>
               </div>
+
+              {r.checks && r.checks.length > 0 && (
+                <ul className="space-y-1 text-xs">
+                  {r.checks.map((c, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      {c.ok ? (
+                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" />
+                      ) : (
+                        <XCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-destructive" />
+                      )}
+                      <span>
+                        <span className="font-medium">{c.name}</span>
+                        <span className="text-muted-foreground"> — {c.detail}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {!r.ok && r.detail && !r.checks && (
+                <p className="rounded-lg bg-destructive/10 px-3 py-2 text-xs text-destructive">
+                  {r.detail}
+                </p>
+              )}
+
+              {r.remediation && (
+                <p className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-900 dark:text-amber-200">
+                  <span className="font-semibold">How to fix: </span>
+                  {r.remediation}
+                </p>
+              )}
 
               <div className="mt-auto flex flex-wrap gap-2 pt-1">
                 <Button size="sm" variant="outline" onClick={() => runTest(i)}>

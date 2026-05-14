@@ -102,12 +102,77 @@ async function lookup(q: Query, key: string): Promise<PlaceResult> {
   }
 }
 
+async function diagnose(key: string | undefined) {
+  const checks: Array<{ name: string; ok: boolean; detail: string }> = [];
+  if (!key) {
+    return {
+      ok: false,
+      keyPresent: false,
+      keyMasked: null,
+      checks: [
+        { name: "Secret configured", ok: false, detail: "GOOGLE_PLACES_API_KEY is not set in Lovable Cloud secrets." },
+      ],
+      remediation: "Open Lovable Cloud → Secrets and add GOOGLE_PLACES_API_KEY (server-side key with Places API (New) enabled).",
+    };
+  }
+  const masked = `${key.slice(0, 6)}…${key.slice(-4)} (len ${key.length})`;
+  checks.push({ name: "Secret configured", ok: true, detail: masked });
+
+  // Live test against Places API (New) searchText.
+  let ok = false;
+  let remediation: string | undefined;
+  try {
+    const res = await fetch("https://places.googleapis.com/v1/places:searchText", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Goog-Api-Key": key,
+        "X-Goog-FieldMask": "places.id,places.displayName,places.formattedAddress",
+      },
+      body: JSON.stringify({ textQuery: "Maydan Washington DC", pageSize: 1 }),
+    });
+    const text = await res.text();
+    let parsed: any = null;
+    try { parsed = JSON.parse(text); } catch { /* keep raw */ }
+    if (res.ok) {
+      const sample = parsed?.places?.[0];
+      checks.push({
+        name: "Places API (New) reachable",
+        ok: true,
+        detail: sample
+          ? `HTTP 200 · "${sample.displayName?.text ?? sample.id}"`
+          : `HTTP 200 · empty result`,
+      });
+      ok = true;
+    } else {
+      const code = parsed?.error?.status ?? `HTTP ${res.status}`;
+      const msg = parsed?.error?.message ?? text.slice(0, 200);
+      checks.push({ name: "Places API (New) reachable", ok: false, detail: `${code} — ${msg}` });
+      if (/API_KEY_INVALID|API key not valid/i.test(msg)) {
+        remediation = "Key rejected. Create a server-side key with Application restrictions = None and API restrictions including 'Places API (New)'.";
+      } else if (/referer|referrer|HTTP referer/i.test(msg)) {
+        remediation = "Browser-restricted key detected. Server calls need an unrestricted (or IP-restricted) key.";
+      } else if (/SERVICE_DISABLED|has not been used|disabled/i.test(msg)) {
+        remediation = "Enable 'Places API (New)' in Google Cloud Console → APIs & Services → Library.";
+      } else if (/billing/i.test(msg)) {
+        remediation = "Enable billing on the Google Cloud project linked to this key.";
+      } else if (/quota|RESOURCE_EXHAUSTED/i.test(msg)) {
+        remediation = "Quota exceeded. Increase quota or wait for the daily reset.";
+      }
+    }
+  } catch (e) {
+    checks.push({ name: "Places API (New) reachable", ok: false, detail: `Network error: ${(e as Error).message}` });
+  }
+  return { ok, keyPresent: true, keyMasked: masked, checks, remediation };
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
   try {
     const key = Deno.env.get("GOOGLE_PLACES_API_KEY");
+    const body = (await req.json().catch(() => ({}))) as Body & { diag?: boolean };
+    if (body?.diag) return json(await diagnose(key));
     if (!key) return json({ error: "missing GOOGLE_PLACES_API_KEY" }, 500);
-    const body = (await req.json()) as Body;
     if (!body?.queries?.length) return json({ results: [] });
     const results = await Promise.all(body.queries.slice(0, 12).map((q) => lookup(q, key)));
     return json({ results });

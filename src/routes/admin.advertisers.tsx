@@ -1171,3 +1171,117 @@ function EmptyState({ message }: { message: string }) {
     </div>
   );
 }
+
+/* -------------------------------- Claims -------------------------------- */
+
+function ClaimsTab({
+  claims,
+  advertiserById,
+  venues,
+  onChange,
+}: {
+  claims: VenueClaim[];
+  advertiserById: Record<string, Advertiser>;
+  venues: AdminVenue[];
+  onChange: () => Promise<void>;
+}) {
+  const [filter, setFilter] = useState<"all" | "pending" | "approved" | "rejected">("pending");
+  const venueById = useMemo(() => Object.fromEntries(venues.map((v) => [v.id, v])), [venues]);
+
+  const filtered = claims.filter((c) => filter === "all" || c.status === filter);
+
+  async function decide(c: VenueClaim, status: "approved" | "rejected") {
+    const note =
+      status === "rejected"
+        ? (window.prompt("Reason (shown to advertiser)?") ?? undefined)
+        : undefined;
+    try {
+      await reviewVenueClaim(c.id, status, note);
+      toast.success(`Claim ${status}`);
+      await onChange();
+    } catch (err) {
+      toast.error((err as Error).message);
+    }
+  }
+
+  return (
+    <>
+      <div className="mb-3 flex flex-wrap items-center gap-2 rounded-2xl border border-border bg-card p-3 shadow-card">
+        <Select value={filter} onValueChange={(v) => setFilter(v as typeof filter)}>
+          <SelectTrigger className="w-40">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {(["pending", "approved", "rejected", "all"] as const).map((f) => (
+              <SelectItem key={f} value={f}>
+                {f}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+      {filtered.length === 0 ? (
+        <EmptyState message="No venue claims match your filter." />
+      ) : (
+        <div className="grid gap-3">
+          {filtered.map((c) => {
+            const a = advertiserById[c.advertiser_id];
+            const v = venueById[c.venue_id];
+            return (
+              <article key={c.id} className="rounded-2xl border border-border bg-card p-4 shadow-card">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="font-display text-lg font-bold">
+                        {v?.name ?? "Unknown venue"}
+                      </h3>
+                      <StatusBadge status={c.status} />
+                      <Chip>{c.verification_tier.replace("_", " ")}</Chip>
+                    </div>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Requested by <strong>{a?.business_name ?? "Unknown"}</strong>
+                      {c.contact_email ? <> · {c.contact_email}</> : null}
+                    </p>
+                    {c.proof_url && (
+                      <a
+                        href={c.proof_url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-1 inline-flex items-center gap-1 text-xs text-primary hover:underline"
+                      >
+                        <LinkIcon className="h-3 w-3" /> Proof
+                      </a>
+                    )}
+                    {c.notes && (
+                      <p className="mt-2 rounded-md bg-muted px-2 py-1 text-xs">{c.notes}</p>
+                    )}
+                    {c.admin_note && (
+                      <p className="mt-2 rounded-md bg-muted px-2 py-1 text-xs text-muted-foreground">
+                        Admin note: {c.admin_note}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                {c.status === "pending" && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <Button size="sm" onClick={() => decide(c, "approved")}>
+                      <CheckCircle2 className="mr-1 h-3.5 w-3.5" /> Approve & verify
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="text-destructive hover:text-destructive"
+                      onClick={() => decide(c, "rejected")}
+                    >
+                      <XCircle className="mr-1 h-3.5 w-3.5" /> Reject
+                    </Button>
+                  </div>
+                )}
+              </article>
+            );
+          })}
+        </div>
+      )}
+    </>
+  );
+}

@@ -24,7 +24,7 @@ type Props = {
 };
 
 export function CitySelector({ compact = false, className = "" }: Props) {
-  const [city, setCity] = useState<City>(() => getSelectedCity() ?? DEFAULT_CITY);
+  const [city, setCity] = useState<City>(DEFAULT_CITY);
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [locating, setLocating] = useState(false);
@@ -32,6 +32,7 @@ export function CitySelector({ compact = false, className = "" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    setCity(getSelectedCity() ?? DEFAULT_CITY);
     return subscribeSelectedCity(() => setCity(getSelectedCity() ?? DEFAULT_CITY));
   }, []);
 

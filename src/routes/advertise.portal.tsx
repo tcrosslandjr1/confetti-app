@@ -5,16 +5,20 @@ import {
   type Advertiser,
   type AdvertiserSubscription,
   type Campaign,
+  bucketEventsByDay,
   createCampaign,
+  deleteCampaign,
   getCampaignStats,
   getMyAdvertiser,
   getMySubscription,
   listMyCampaigns,
+  listRecentAdEvents,
   PACKAGES,
   PLACEMENT_LABELS,
   type PackageTier,
   type Placement,
   placementsForTier,
+  updateCampaignStatus,
 } from "@/lib/ads";
 import { SubscriptionPanel } from "@/components/advertiser/SubscriptionPanel";
 import { ClaimVenuePanel } from "@/components/advertiser/ClaimVenuePanel";
@@ -25,10 +29,21 @@ import {
   Plus,
   Eye,
   MousePointerClick,
+  Pause,
+  Play,
   Sparkles,
+  Trash2,
   ChevronRight,
 } from "lucide-react";
 import { toast } from "sonner";
+import {
+  Area,
+  AreaChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 
 export const Route = createFileRoute("/advertise/portal")({
@@ -42,6 +57,7 @@ function AdvertiserPortal() {
   const [subscription, setSubscription] = useState<AdvertiserSubscription | null>(null);
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [stats, setStats] = useState<Record<string, { impressions: number; clicks: number }>>({});
+  const [series, setSeries] = useState<ReturnType<typeof bucketEventsByDay>>([]);
   const [busy, setBusy] = useState(false);
   const [showNew, setShowNew] = useState(false);
 
@@ -56,10 +72,37 @@ function AdvertiserPortal() {
       ]);
       setCampaigns(cs);
       setSubscription(sub);
-      setStats(await getCampaignStats(cs.map((c) => c.id)));
+      const ids = new Set(cs.map((c) => c.id));
+      const [s, evs] = await Promise.all([
+        getCampaignStats(cs.map((c) => c.id)),
+        listRecentAdEvents(30),
+      ]);
+      setStats(s);
+      setSeries(bucketEventsByDay(evs.filter((e) => e.campaign_id && ids.has(e.campaign_id)), 30));
     }
     setBusy(false);
   }, []);
+
+  async function handleStatus(c: Campaign, status: "paused" | "approved") {
+    try {
+      await updateCampaignStatus(c.id, status);
+      toast.success(status === "paused" ? "Campaign paused" : "Campaign resumed");
+      if (user) await refresh(user.id);
+    } catch (err) {
+      toast.error((err as Error).message);
+    }
+  }
+
+  async function handleDelete(c: Campaign) {
+    if (!window.confirm(`Delete campaign "${c.headline}"? This cannot be undone.`)) return;
+    try {
+      await deleteCampaign(c.id);
+      toast.success("Campaign deleted");
+      if (user) await refresh(user.id);
+    } catch (err) {
+      toast.error((err as Error).message);
+    }
+  }
 
 
   useEffect(() => {
@@ -164,6 +207,49 @@ function AdvertiserPortal() {
       )}
 
 
+      {/* 30-day trend */}
+      {totalImpressions > 0 && (
+        <section className="mt-6 rounded-2xl border border-border bg-card p-5 shadow-card">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                Last 30 days
+              </p>
+              <h3 className="font-display text-lg font-bold">Reach across your campaigns</h3>
+            </div>
+          </div>
+          <div className="mt-3 h-44 w-full">
+            <ResponsiveContainer>
+              <AreaChart data={series} margin={{ left: -10, right: 8, top: 8, bottom: 0 }}>
+                <defs>
+                  <linearGradient id="po-imp" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity={0.4} />
+                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <XAxis dataKey="date" tickFormatter={(v) => v.slice(5)} fontSize={11} />
+                <YAxis allowDecimals={false} fontSize={11} width={28} />
+                <Tooltip />
+                <Area
+                  type="monotone"
+                  dataKey="impressions"
+                  stroke="hsl(var(--primary))"
+                  fill="url(#po-imp)"
+                  strokeWidth={2}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="clicks"
+                  stroke="hsl(var(--destructive))"
+                  fill="hsl(var(--destructive) / 0.15)"
+                  strokeWidth={2}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </section>
+      )}
+
       {/* Campaigns list */}
       <section className="mt-8 space-y-3">
         <h2 className="font-display text-xl font-bold">Campaigns</h2>
@@ -210,6 +296,30 @@ function AdvertiserPortal() {
                       <MousePointerClick className="h-3 w-3" /> {stats[c.id]?.clicks ?? 0}
                     </div>
                   </div>
+                </div>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {c.status === "approved" && (
+                    <button
+                      onClick={() => handleStatus(c, "paused")}
+                      className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-xs hover:bg-muted"
+                    >
+                      <Pause className="h-3 w-3" /> Pause
+                    </button>
+                  )}
+                  {c.status === "paused" && (
+                    <button
+                      onClick={() => handleStatus(c, "approved")}
+                      className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-xs hover:bg-muted"
+                    >
+                      <Play className="h-3 w-3" /> Resume
+                    </button>
+                  )}
+                  <button
+                    onClick={() => handleDelete(c)}
+                    className="inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs text-destructive hover:bg-destructive/10"
+                  >
+                    <Trash2 className="h-3 w-3" /> Delete
+                  </button>
                 </div>
               </article>
             ))}

@@ -124,7 +124,7 @@ function ConciergeHome() {
                 to: "/concierge/chat/$threadId",
                 params: { threadId: data.id },
                 search: {
-                  seed: "Find me 3 great spots open right now within 10 minutes of downtown DC.",
+                  seed: `Find me 3 great spots open right now within 10 minutes of downtown ${city.name}.`,
                 } as any,
               });
           }}

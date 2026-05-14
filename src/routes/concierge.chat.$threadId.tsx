@@ -202,6 +202,7 @@ function ChatThread() {
           preferences: prefsRes.data ?? null,
           recentBookings: bookingsRes.data ?? [],
           now: new Date().toISOString(),
+          city: { slug: city.slug, name: city.name, region: city.region },
         }),
       });
 

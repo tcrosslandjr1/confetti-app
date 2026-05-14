@@ -5,6 +5,7 @@ import { NotificationsBell } from "@/components/NotificationsBell";
 import { CitySelector } from "@/components/CitySelector";
 import { Oloid } from "@/components/brand/Oloid";
 import { useAuth } from "@/lib/auth-context";
+import { useScrolled } from "@/hooks/useScrolled";
 
 const TAGLINES = [
   "your city, on a loop",

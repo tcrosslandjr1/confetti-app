@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { MOODS, TRENDING_PICKS, rankName, levelFromXp } from "@/lib/concierge-data";
+import { getSelectedCity, DEFAULT_CITY, subscribeSelectedCity, type City } from "@/lib/cities";
 import { Compass, MapPin, MessageCircle, Sparkles, TrendingUp } from "lucide-react";
 
 export const Route = createFileRoute("/concierge/")({

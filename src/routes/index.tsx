@@ -20,6 +20,23 @@ import { isAdDebugEnabled, recordAdDebug } from "@/lib/ad-debug";
 import { AdDebugPanel } from "@/components/AdDebugPanel";
 import { useViewportImpression } from "@/hooks/useViewportImpression";
 import { getAdImpressionConfig } from "@/lib/ad-impression-config";
+import { TapToGoBookingModal, type TapToGoStop } from "@/components/TapToGoBookingModal";
+
+const SAMPLE_ITINERARY_STOPS: TapToGoStop[] = [
+  { id: "lilas", time: "6:30p", title: "Lila's Patio", type: "Small plates · Mission", source: "RESY", cost: "~$38/pp", emoji: "🍽️" },
+  { id: "mason", time: "8:15p", title: "Mason St. Record Bar", type: "Vinyl + nat wine", source: "WALK-IN", cost: "~$22/pp", emoji: "🎧" },
+  { id: "saratoga", time: "9:30p", title: "The Saratoga", type: "Cocktail bar · Tenderloin", source: "OPENTABLE", cost: "~$28/pp", emoji: "🍸" },
+  { id: "aera", time: "11:00p", title: "Aera Rooftop", type: "Nightcap · Nob Hill", source: "RESY", cost: "~$24/pp", emoji: "🌃" },
+];
+
+const SAMPLE_ITINERARY_SUMMARY = {
+  stops: "4 venues",
+  totalTime: "6 hours",
+  walking: "0.8 mi · ~18 min",
+  lyft: "1 ride · ~$14",
+  estTotal: "~$112/pp",
+  reward: "+120 Confetti",
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -189,6 +206,8 @@ function Landing() {
     if (user && viewAs === "customer") navigate({ to: "/portal" });
     else if (user && viewAs === "admin") navigate({ to: "/admin" });
   }, [user, viewAs, loading, navigate]);
+
+  const [bookingOpen, setBookingOpen] = useState(false);
 
   // Subtle hero parallax
   const heroBgRef = useRef<HTMLDivElement | null>(null);
@@ -645,11 +664,18 @@ function Landing() {
                   <div className="text-ink/70">Auto-credited after the last booking.</div>
                 </div>
 
+                <button
+                  type="button"
+                  onClick={() => setBookingOpen(true)}
+                  className="mt-5 inline-flex h-12 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-coral px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+                >
+                  Tap to go — book this plan <ArrowUpRight className="h-4 w-4" />
+                </button>
                 <WizardButton
                   ariaLabel="Build my own night"
-                  className="mt-5 inline-flex h-12 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+                  className="mt-2 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-background px-5 text-xs font-bold text-ink transition-pop hover:-translate-y-0.5"
                 >
-                  Build my own night <ArrowUpRight className="h-4 w-4" />
+                  Or build my own night
                 </WizardButton>
                 <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-ink/50">
                   Free · no signup to try
@@ -1204,6 +1230,17 @@ function Landing() {
 
       <SiteFooter />
       <AdDebugPanel />
+
+      <TapToGoBookingModal
+        open={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+        title="cute, walkable, ends with a slow drink"
+        subtitle="San Francisco · Mission → Hayes Valley → Nob Hill"
+        date="Sat, 6:00p"
+        guests={2}
+        stops={SAMPLE_ITINERARY_STOPS}
+        summary={SAMPLE_ITINERARY_SUMMARY}
+      />
     </div>
   );
 }

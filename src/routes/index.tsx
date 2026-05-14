@@ -419,35 +419,42 @@ function Landing() {
               className="font-display text-2xl font-extrabold leading-tight sm:text-3xl"
             >
               How it works
-              <span className="font-serif italic font-normal text-coral"> in 3 steps.</span>
+              <span className="font-serif italic font-normal text-coral"> in 4 steps.</span>
             </h2>
             <span className="hidden font-mono text-[11px] uppercase tracking-widest text-ink/60 sm:inline">
               under 60 seconds
             </span>
           </div>
 
-          <ol className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0">
+          <ol className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 lg:grid-cols-4">
             {[
               {
                 n: "1",
                 emoji: "🎯",
-                title: "Tell us the vibe",
+                title: "Choose your vibe",
                 body: "Rooftop, dive bar, date night, brunch crawl. Plain English works.",
                 bg: "bg-coral",
               },
               {
                 n: "2",
-                emoji: "🛣️",
-                title: "We build the route",
-                body: "Real venues, timed stops, walking + Lyft between them.",
+                emoji: "📍",
+                title: "Pick your venues",
+                body: "Swipe through real spots open tonight. Keep what you love, swap the rest.",
                 bg: "bg-gold",
               },
               {
                 n: "3",
-                emoji: "🎟️",
-                title: "Tap to book",
-                body: "Resy, OpenTable, Eventbrite — straight to checkout, no copy-paste.",
+                emoji: "🛣️",
+                title: "Get your route",
+                body: "Timed stops with walking + Lyft directions stitched between them.",
                 bg: "bg-purple",
+              },
+              {
+                n: "4",
+                emoji: "🎟️",
+                title: "Tap-to-go booking",
+                body: "Resy, OpenTable, Eventbrite, rideshare — one tap, straight to checkout.",
+                bg: "bg-mint",
               },
             ].map((s) => (
               <li

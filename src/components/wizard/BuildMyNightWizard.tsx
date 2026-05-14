@@ -2452,7 +2452,7 @@ export function BuildMyNightWizard() {
 
         {/* Footer nav */}
         {step <= 5 && (
-          <div className="flex items-center justify-between gap-3 border-t-2 border-ink bg-cream/80 px-5 py-4 backdrop-blur">
+          <div className="flex shrink-0 items-center justify-between gap-3 border-t-2 border-ink bg-cream/95 px-5 py-4 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+1rem)]">
             <button
               onClick={back}
               disabled={step === 0}

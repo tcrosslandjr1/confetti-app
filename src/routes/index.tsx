@@ -290,16 +290,16 @@ function Landing() {
               <span className="font-serif italic">No more group-chat purgatory.</span>
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
               <WizardButton
                 ariaLabel="Build my night"
-                className="inline-flex h-14 items-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
+                className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg sm:w-auto sm:justify-start"
               >
                 Build my night <ArrowUpRight className="h-5 w-5" />
               </WizardButton>
               <Link
                 to="/how-it-works"
-                className="inline-flex h-14 items-center rounded-full border-2 border-ink bg-cream px-7 text-base font-bold transition-pop hover:-translate-y-1 hover:bg-gold hover:shadow-brut"
+                className="inline-flex h-14 w-full items-center justify-center rounded-full border-2 border-ink bg-cream px-7 text-base font-bold transition-pop hover:-translate-y-1 hover:bg-gold hover:shadow-brut sm:w-auto"
               >
                 How it works
               </Link>
@@ -310,8 +310,8 @@ function Landing() {
           </div>
 
           {/* right — receipt-style mock plan */}
-          <div className="relative lg:col-span-5">
-            <div className="absolute -left-6 -top-6 z-20 grid h-20 w-20 -rotate-12 animate-wiggle place-items-center rounded-full border-2 border-ink bg-gold text-center font-display text-xs font-extrabold uppercase leading-tight">
+          <div className="relative mt-4 lg:col-span-5 lg:mt-0">
+            <div className="absolute -top-4 left-2 z-20 grid h-16 w-16 -rotate-12 animate-wiggle place-items-center rounded-full border-2 border-ink bg-gold text-center font-display text-[10px] font-extrabold uppercase leading-tight sm:-left-6 sm:-top-6 sm:h-20 sm:w-20 sm:text-xs">
               vibe
               <br />
               locked

@@ -231,6 +231,8 @@ function RootComponent() {
               <RoleSwitcher />
             </Suspense>
             <Outlet />
+            {/* Spacer so fixed mobile TabBar doesn't cover page content */}
+            <div aria-hidden className="h-24 lg:hidden" />
             <Suspense fallback={null}>
               <BuildMyNightWizard />
             </Suspense>

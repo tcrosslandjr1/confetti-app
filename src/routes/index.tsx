@@ -621,7 +621,7 @@ function Landing() {
                   key={o.slug}
                   to="/ideas/$slug"
                   params={{ slug: o.slug }}
-                  className={`group relative flex h-48 w-[78%] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-gradient-to-br ${o.gradient} p-5 shadow-brut`}
+                  className={`group relative flex h-48 w-[78%] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-brut`}
                 >
                   <div className="flex items-start justify-between">
                     <Icon className="h-6 w-6 drop-shadow" />
@@ -631,11 +631,11 @@ function Landing() {
                     <div className="font-display text-2xl font-extrabold leading-tight drop-shadow">
                       {o.title}
                     </div>
-                    <div className="mt-1 font-mono text-[11px] uppercase tracking-wider text-cream/85">
+                    <div className="mt-1 font-mono text-[11px] uppercase tracking-wider text-cream/90">
                       {o.tagline}
                     </div>
                     {ideaCount > 0 && (
-                      <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-ink/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest backdrop-blur">
+                      <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-ink/50 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest backdrop-blur">
                         {ideaCount} idea{ideaCount === 1 ? "" : "s"}
                       </span>
                     )}
@@ -644,7 +644,7 @@ function Landing() {
               );
             })}
           </div>
-          <p className="text-center font-mono text-[10px] uppercase tracking-widest text-cream/50 sm:hidden">
+          <p className="text-center font-mono text-[10px] uppercase tracking-widest text-ink/50 sm:hidden">
             ← swipe vibes →
           </p>
 

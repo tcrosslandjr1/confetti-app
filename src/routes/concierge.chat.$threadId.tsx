@@ -6,6 +6,8 @@ import { ArrowLeft, Copy, Loader2, RotateCcw, Send, Sparkles, Square, Check } fr
 import ReactMarkdown from "react-markdown";
 import { toast } from "sonner";
 import { parseAssistantContent, VenueCard } from "@/components/concierge/VenueCard";
+import { getSelectedCity, DEFAULT_CITY, subscribeSelectedCity, type City } from "@/lib/cities";
+import { findCityLoose } from "@/lib/agents/city-context";
 
 type Search = { seed?: string };
 
@@ -19,36 +21,34 @@ export const Route = createFileRoute("/concierge/chat/$threadId")({
 
 type Msg = { id: string; role: "user" | "assistant"; content: string };
 
-const DEFAULT_SUGGESTIONS = [
-  "Romantic dinner under $80pp tonight, not too loud",
-  "Build me a 3-stop date night starting in Shaw",
-  "Group dinner for 8 with strong cocktails — surprise me",
-] as const;
-
-function timeOfDayPrompts(d = new Date()): string[] {
+function timeOfDayPrompts(city: City, d = new Date()): string[] {
+  const ctx = findCityLoose(city.slug, city.name);
+  const hoods = ctx?.neighborhoods?.map((n) => n.name) ?? [];
+  const hood = (i: number) => hoods[i % Math.max(hoods.length, 1)] ?? "downtown";
+  const cityName = city.name;
   const h = d.getHours();
   if (h < 11)
     return [
-      "Best brunch spot to take my parents on Sunday",
-      "Coffee + work spot near U Street with good wifi",
-      "Where can I get bagels right now?",
+      `Best brunch spot to take my parents in ${cityName} on Sunday`,
+      `Coffee + work spot in ${hood(0)} with good wifi`,
+      `Where can I get great pastries right now in ${cityName}?`,
     ];
   if (h < 16)
     return [
-      "Lunch under $25 in Penn Quarter today",
-      "Patio with shade and good salads in Logan",
-      "Where to take a client for a quick lunch in NoMa",
+      `Lunch under $25 in ${hood(0)} today`,
+      `Patio with shade and good salads in ${hood(1)}`,
+      `Where to take a client for a quick lunch in ${hood(2)}`,
     ];
   if (h < 21)
     return [
       "Romantic dinner under $80pp tonight, not too loud",
-      "Build me a 3-stop date night starting in Shaw",
+      `Build me a 3-stop date night starting in ${hood(0)}`,
       "Group dinner for 8 with strong cocktails — surprise me",
     ];
   return [
-    "Late-night eats open past midnight in DC",
+    `Late-night eats open past midnight in ${cityName}`,
     "Cocktail bar with seats right now — no scene",
-    "Where's still serving food after 11 in Adams Morgan?",
+    `Where's still serving food after 11 in ${hood(1)}?`,
   ];
 }
 
@@ -65,11 +65,20 @@ function ChatThread() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const [city, setCity] = useState<City>(() => getSelectedCity() ?? DEFAULT_CITY);
 
-  const [suggestions, setSuggestions] = useState<string[]>([...DEFAULT_SUGGESTIONS]);
+  const [suggestions, setSuggestions] = useState<string[]>(() =>
+    timeOfDayPrompts(getSelectedCity() ?? DEFAULT_CITY, new Date()),
+  );
 
   useEffect(() => {
-    setSuggestions(timeOfDayPrompts(new Date()));
+    const sync = () => {
+      const c = getSelectedCity() ?? DEFAULT_CITY;
+      setCity(c);
+      setSuggestions(timeOfDayPrompts(c, new Date()));
+    };
+    sync();
+    return subscribeSelectedCity(sync);
   }, []);
 
   useEffect(() => {
@@ -193,6 +202,7 @@ function ChatThread() {
           preferences: prefsRes.data ?? null,
           recentBookings: bookingsRes.data ?? [],
           now: new Date().toISOString(),
+          city: { slug: city.slug, name: city.name, region: city.region },
         }),
       });
 
@@ -276,7 +286,7 @@ function ChatThread() {
           <div className="min-w-0 flex-1">
             <div className="truncate text-sm font-semibold">{thread?.title ?? "Concierge"}</div>
             <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
-              {streaming ? "Thinking..." : "Online · DMV insider"}
+              {streaming ? "Thinking..." : `Online · ${city.name} insider`}
             </div>
           </div>
         </div>
@@ -290,7 +300,7 @@ function ChatThread() {
             </div>
             <h2 className="mt-4 font-display text-xl font-bold">What's the move tonight?</h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              I know the DMV. Tell me the vibe, budget, and crew — I'll plan it.
+              I know {city.name}. Tell me the vibe, budget, and crew — I'll plan it.
             </p>
             <div className="mt-6 grid gap-2 text-left">
               {suggestions.map((s) => (

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { MOODS, TRENDING_PICKS, rankName, levelFromXp } from "@/lib/concierge-data";
+import { getSelectedCity, DEFAULT_CITY, subscribeSelectedCity, type City } from "@/lib/cities";
 import { Compass, MapPin, MessageCircle, Sparkles, TrendingUp } from "lucide-react";
 
 export const Route = createFileRoute("/concierge/")({
@@ -14,6 +15,13 @@ function ConciergeHome() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [profile, setProfile] = useState<{ display_name: string | null; xp: number } | null>(null);
+  const [city, setCity] = useState<City>(() => getSelectedCity() ?? DEFAULT_CITY);
+
+  useEffect(() => {
+    const sync = () => setCity(getSelectedCity() ?? DEFAULT_CITY);
+    sync();
+    return subscribeSelectedCity(sync);
+  }, []);
 
   useEffect(() => {
     if (!user) return;
@@ -33,7 +41,7 @@ function ConciergeHome() {
       .select()
       .single();
     if (thread) {
-      const seed = `I'm in the mood for ${label.toLowerCase()}. Give me 3 spots in the DMV that fit and tell me why.`;
+      const seed = `I'm in the mood for ${label.toLowerCase()}. Give me 3 spots in ${city.name} that fit and tell me why.`;
       navigate({
         to: "/concierge/chat/$threadId",
         params: { threadId: thread.id },
@@ -51,7 +59,7 @@ function ConciergeHome() {
       <div className="flex items-center justify-between">
         <div>
           <div className="text-xs uppercase tracking-wider text-muted-foreground">
-            Tonight in the DMV
+            Tonight in {city.name}
           </div>
           <h1 className="mt-1 font-display text-3xl font-bold leading-tight">
             Hey {profile?.display_name?.split(" ")[0] ?? "friend"}{" "}
@@ -116,7 +124,7 @@ function ConciergeHome() {
                 to: "/concierge/chat/$threadId",
                 params: { threadId: data.id },
                 search: {
-                  seed: "Find me 3 great spots open right now within 10 minutes of downtown DC.",
+                  seed: `Find me 3 great spots open right now within 10 minutes of downtown ${city.name}.`,
                 } as any,
               });
           }}
@@ -137,7 +145,7 @@ function ConciergeHome() {
                 to: "/concierge/chat/$threadId",
                 params: { threadId: data.id },
                 search: {
-                  seed: "Surprise me with a hidden-gem night in the DMV I probably haven't tried.",
+                  seed: `Surprise me with a hidden-gem night in ${city.name} I probably haven't tried.`,
                 } as any,
               });
           }}

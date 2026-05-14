@@ -192,13 +192,13 @@ function AuthPage() {
             <div className="font-display text-lg font-bold leading-none">
               <span className="text-gradient">Concierge</span>
             </div>
-            <div className="text-xs text-muted-foreground">Your DMV insider</div>
+            <div className="text-xs text-muted-foreground">Your city insider</div>
           </div>
         </div>
 
         <div className="mt-12">
           <h1 className="font-display text-3xl font-bold leading-tight">
-            {mode === "signup" ? "Get your personal\nguide to the DMV" : "Welcome back"}
+            {mode === "signup" ? "Your personal\nguide to every city" : "Welcome back"}
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
             {mode === "signup"

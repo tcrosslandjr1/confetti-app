@@ -300,7 +300,7 @@ function ChatThread() {
             </div>
             <h2 className="mt-4 font-display text-xl font-bold">What's the move tonight?</h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              I know the DMV. Tell me the vibe, budget, and crew — I'll plan it.
+              I know {city.name}. Tell me the vibe, budget, and crew — I'll plan it.
             </p>
             <div className="mt-6 grid gap-2 text-left">
               {suggestions.map((s) => (

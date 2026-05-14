@@ -29,7 +29,7 @@ const OPTIONS: Option[] = [
     Icon: Shield,
     blurb: "Full console + moderation",
     home: "/admin",
-    tone: "bg-purple-600 text-white",
+    tone: "bg-ink text-cream",
   },
   {
     value: "business",
@@ -37,7 +37,7 @@ const OPTIONS: Option[] = [
     Icon: Briefcase,
     blurb: "Advertiser portal & venues",
     home: "/advertise/portal",
-    tone: "bg-emerald-600 text-white",
+    tone: "bg-purple text-cream",
   },
   {
     value: "customer",
@@ -45,7 +45,7 @@ const OPTIONS: Option[] = [
     Icon: UserIcon,
     blurb: "Portal, planning & bookings",
     home: "/portal",
-    tone: "bg-primary text-primary-foreground",
+    tone: "bg-coral text-cream",
   },
   {
     value: "visitor",
@@ -53,7 +53,7 @@ const OPTIONS: Option[] = [
     Icon: Eye,
     blurb: "Marketing pages only",
     home: "/",
-    tone: "bg-amber-500 text-amber-950",
+    tone: "bg-gold text-ink",
   },
 ];
 

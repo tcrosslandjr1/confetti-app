@@ -20,6 +20,23 @@ import { isAdDebugEnabled, recordAdDebug } from "@/lib/ad-debug";
 import { AdDebugPanel } from "@/components/AdDebugPanel";
 import { useViewportImpression } from "@/hooks/useViewportImpression";
 import { getAdImpressionConfig } from "@/lib/ad-impression-config";
+import { TapToGoBookingModal, type TapToGoStop } from "@/components/TapToGoBookingModal";
+
+const SAMPLE_ITINERARY_STOPS: TapToGoStop[] = [
+  { id: "lilas", time: "6:30p", title: "Lila's Patio", type: "Small plates · Mission", source: "RESY", cost: "~$38/pp", emoji: "🍽️" },
+  { id: "mason", time: "8:15p", title: "Mason St. Record Bar", type: "Vinyl + nat wine", source: "WALK-IN", cost: "~$22/pp", emoji: "🎧" },
+  { id: "saratoga", time: "9:30p", title: "The Saratoga", type: "Cocktail bar · Tenderloin", source: "OPENTABLE", cost: "~$28/pp", emoji: "🍸" },
+  { id: "aera", time: "11:00p", title: "Aera Rooftop", type: "Nightcap · Nob Hill", source: "RESY", cost: "~$24/pp", emoji: "🌃" },
+];
+
+const SAMPLE_ITINERARY_SUMMARY = {
+  stops: "4 venues",
+  totalTime: "6 hours",
+  walking: "0.8 mi · ~18 min",
+  lyft: "1 ride · ~$14",
+  estTotal: "~$112/pp",
+  reward: "+120 Confetti",
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({

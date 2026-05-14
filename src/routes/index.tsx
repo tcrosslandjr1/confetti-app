@@ -664,11 +664,18 @@ function Landing() {
                   <div className="text-ink/70">Auto-credited after the last booking.</div>
                 </div>
 
+                <button
+                  type="button"
+                  onClick={() => setBookingOpen(true)}
+                  className="mt-5 inline-flex h-12 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-coral px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+                >
+                  Tap to go — book this plan <ArrowUpRight className="h-4 w-4" />
+                </button>
                 <WizardButton
                   ariaLabel="Build my own night"
-                  className="mt-5 inline-flex h-12 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+                  className="mt-2 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-background px-5 text-xs font-bold text-ink transition-pop hover:-translate-y-0.5"
                 >
-                  Build my own night <ArrowUpRight className="h-4 w-4" />
+                  Or build my own night
                 </WizardButton>
                 <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-ink/50">
                   Free · no signup to try

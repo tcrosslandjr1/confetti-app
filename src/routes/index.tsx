@@ -670,7 +670,7 @@ function Landing() {
                     to="/ideas/$slug"
                     params={{ slug: o.slug }}
                     style={{ transform: `rotate(${tilt}deg)` }}
-                    className={`group relative flex h-full min-h-[150px] flex-col justify-between overflow-hidden rounded-2xl border-2 border-cream/15 bg-gradient-to-br ${o.gradient} p-5 shadow-brut transition-pop hover:-translate-y-1 hover:rotate-0 hover:scale-[1.02] hover:border-cream hover:shadow-brut-lg`}
+                    className={`group relative flex h-full min-h-[150px] flex-col justify-between overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${o.gradient} p-5 text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-1 hover:rotate-0 hover:scale-[1.02] hover:shadow-brut-lg`}
                   >
                     {/* shimmer sweep on hover */}
                     <span

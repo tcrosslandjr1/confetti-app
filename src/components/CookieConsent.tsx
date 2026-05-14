@@ -101,7 +101,7 @@ export function CookieConsent() {
 
   return (
     <>
-      {bannerVisible && (
+      {bannerVisible && !overlayOpen && (
         <div
           role="dialog"
           aria-live="polite"

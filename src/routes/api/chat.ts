@@ -212,6 +212,11 @@ export const Route = createFileRoute("/api/chat")({
           console.warn("[chat] trending context fetch failed", err);
         }
 
+        const cityCtx = findCityLoose(body.city?.slug, body.city?.name);
+        const cityLabel = cityCtx?.label ?? body.city?.name ?? "your city";
+        const cityRegion = body.city?.region ?? null;
+        const SYSTEM_PROMPT = buildSystemPrompt({ cityLabel, cityRegion, ctx: cityCtx });
+
         const system = ctx.length
           ? `${SYSTEM_PROMPT}\n\nUSER CONTEXT\n- ${ctx.join("\n- ")}`
           : SYSTEM_PROMPT;

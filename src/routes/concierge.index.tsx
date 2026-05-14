@@ -145,7 +145,7 @@ function ConciergeHome() {
                 to: "/concierge/chat/$threadId",
                 params: { threadId: data.id },
                 search: {
-                  seed: "Surprise me with a hidden-gem night in the DMV I probably haven't tried.",
+                  seed: `Surprise me with a hidden-gem night in ${city.name} I probably haven't tried.`,
                 } as any,
               });
           }}

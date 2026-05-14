@@ -176,7 +176,7 @@ export function RoleSwitcher() {
 
       {/* Bottom-right dock */}
       <div
-        className={`fixed bottom-4 right-4 z-[60] rounded-2xl border bg-card/95 shadow-pop backdrop-blur transition ${
+        className={`fixed bottom-[calc(env(safe-area-inset-bottom)+5.25rem)] right-4 z-[90] rounded-2xl border bg-card/95 shadow-pop backdrop-blur transition lg:bottom-4 ${
           isImpersonating ? "border-amber-500 ring-2 ring-amber-500/60" : "border-border"
         }`}
       >
@@ -244,7 +244,7 @@ export function RoleSwitcher() {
             title={`Currently viewing as ${current.label}`}
           >
             <current.Icon className="h-3.5 w-3.5" />
-            {current.label}
+            <span className="hidden sm:inline">View as:</span> {current.label}
             <ChevronUp className="h-3 w-3 opacity-60" />
           </button>
         )}

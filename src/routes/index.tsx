@@ -214,6 +214,12 @@ function Landing() {
   useEffect(() => {
     const el = heroBgRef.current;
     if (!el) return;
+    // Respect prefers-reduced-motion — skip parallax entirely.
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) {
+      el.style.transform = "none";
+      return;
+    }
     let raf = 0;
     function update() {
       const y = window.scrollY;
@@ -224,8 +230,17 @@ function Landing() {
       if (!raf) raf = requestAnimationFrame(update);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
+    const onMqChange = () => {
+      if (mq.matches) {
+        window.removeEventListener("scroll", onScroll);
+        if (raf) cancelAnimationFrame(raf);
+        if (el) el.style.transform = "none";
+      }
+    };
+    mq.addEventListener("change", onMqChange);
     return () => {
       window.removeEventListener("scroll", onScroll);
+      mq.removeEventListener("change", onMqChange);
       if (raf) cancelAnimationFrame(raf);
     };
   }, []);

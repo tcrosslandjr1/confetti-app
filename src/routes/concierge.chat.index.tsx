@@ -57,7 +57,8 @@ function ChatList() {
       .select("id,title,last_message_at")
       .eq("user_id", user.id)
       .order("last_message_at", { ascending: false });
-    setThreads((data ?? []) as Thread[]);
+    const rows = (data ?? []) as Thread[];
+    setThreads(rows.length > 0 ? rows : MOCK_THREADS);
     setLoading(false);
   };
 

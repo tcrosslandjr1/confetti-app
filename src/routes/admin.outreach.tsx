@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
-import { Download, Loader2, RefreshCcw, Mail, MapPin, Sparkles } from "lucide-react";
+import { Calendar, Download, Loader2, RefreshCcw, Mail, MapPin, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -15,6 +15,8 @@ import { toast } from "sonner";
 import {
   getOutreachRanking,
   getOutreachCsv,
+  getLatestOutreachSnapshot,
+  type LatestOutreachSnapshot,
   type OutreachVenue,
 } from "@/lib/outreach-ranking.functions";
 
@@ -31,12 +33,24 @@ export const Route = createFileRoute("/admin/outreach")({
 function AdminOutreachPage() {
   const fetchRanking = useServerFn(getOutreachRanking);
   const fetchCsv = useServerFn(getOutreachCsv);
+  const fetchSnapshot = useServerFn(getLatestOutreachSnapshot);
 
   const [days, setDays] = useState(30);
   const [loading, setLoading] = useState(false);
   const [downloading, setDownloading] = useState(false);
   const [venues, setVenues] = useState<OutreachVenue[]>([]);
   const [generatedAt, setGeneratedAt] = useState<string | null>(null);
+  const [snapshot, setSnapshot] = useState<LatestOutreachSnapshot>(null);
+
+  const loadSnapshot = async () => {
+    try {
+      const snap = await fetchSnapshot({ data: undefined });
+      setSnapshot(snap);
+    } catch {
+      // non-fatal
+    }
+  };
+
 
   const load = async (d = days) => {
     setLoading(true);

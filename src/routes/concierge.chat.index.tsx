@@ -13,6 +13,24 @@ export const Route = createFileRoute("/concierge/chat/")({
 
 type Thread = { id: string; title: string; last_message_at: string };
 
+const MOCK_THREADS: Thread[] = [
+  {
+    id: "mock-rooftop",
+    title: "Rooftop drinks tonight",
+    last_message_at: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+  },
+  {
+    id: "mock-birthday",
+    title: "Birthday dinner for 8",
+    last_message_at: new Date(Date.now() - 26 * 60 * 60 * 1000).toISOString(),
+  },
+];
+
+const MOCK_PREVIEWS: Record<string, string> = {
+  "mock-rooftop": "I found 3 rooftop options with open tables tonight...",
+  "mock-birthday": "Here's a private dining shortlist for May 17...",
+};
+
 function bucket(d: Date): "Today" | "This week" | "Earlier" {
   const now = new Date();
   const day = 86_400_000;
@@ -39,7 +57,8 @@ function ChatList() {
       .select("id,title,last_message_at")
       .eq("user_id", user.id)
       .order("last_message_at", { ascending: false });
-    setThreads((data ?? []) as Thread[]);
+    const rows = (data ?? []) as Thread[];
+    setThreads(rows.length > 0 ? rows : MOCK_THREADS);
     setLoading(false);
   };
 
@@ -213,6 +232,11 @@ function ChatList() {
                             <div className="truncate text-sm font-semibold">
                               {t.title || "Untitled"}
                             </div>
+                            {MOCK_PREVIEWS[t.id] && (
+                              <div className="truncate text-xs text-muted-foreground">
+                                {MOCK_PREVIEWS[t.id]}
+                              </div>
+                            )}
                             <div className="text-[11px] text-muted-foreground">
                               {formatDistanceToNow(new Date(t.last_message_at), {
                                 addSuffix: true,

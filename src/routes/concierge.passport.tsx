@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { rankName, levelFromXp, xpToNextLevel } from "@/lib/concierge-data";
 import { BookMarked, MapPin, Plus, Sparkles, Trophy } from "lucide-react";
-import { format } from "date-fns";
+
 
 export const Route = createFileRoute("/concierge/passport")({
   head: () => ({ meta: [{ title: "Passport — Confetti" }] }),

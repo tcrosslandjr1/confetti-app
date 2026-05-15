@@ -283,14 +283,22 @@ function AuthPage() {
             </div>
           </div>
 
-        <div className="mt-12">
-          <h1 className="font-display text-3xl font-bold leading-tight">
-            {mode === "signup" ? "Your personal\nguide to every city" : "Welcome back"}
+        <div className="mt-10 lg:mt-4">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/60 px-3 py-1 text-[11px] font-medium text-muted-foreground">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            {mode === "signup" ? "Join the list" : "Welcome back"}
+          </span>
+          <h1 className="mt-3 font-display text-4xl font-bold leading-[1.05] tracking-tight">
+            {mode === "signup" ? (
+              <>Your personal <span className="text-gradient">guide</span> to every city.</>
+            ) : (
+              <>Good to see you <span className="text-gradient">again</span>.</>
+            )}
           </h1>
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="mt-3 text-sm text-muted-foreground">
             {mode === "signup"
               ? "Dining, nightlife, and curated experiences picked for your taste."
-              : "Pick up where you left off."}
+              : "Pick up where you left off — your saved spots are waiting."}
           </p>
         </div>
 

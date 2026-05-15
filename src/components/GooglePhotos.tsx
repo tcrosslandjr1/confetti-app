@@ -78,13 +78,29 @@ export function GooglePhotos({
 
   if (photos.length === 0) {
     if (hideEmpty) return null;
+    // Fall back to a category-appropriate Unsplash photo so cards never
+    // render a broken/empty image tile.
+    const fallback = unsplashFor(category, venue);
+    if (variant === "hero") {
+      return (
+        <div className={`relative ${className}`}>
+          <img
+            src={fallback}
+            alt={venue}
+            className="h-36 w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      );
+    }
     return (
-      <div
-        className={`flex items-center justify-center bg-muted text-muted-foreground ${
-          variant === "hero" ? "h-36 w-full" : "h-16 w-full"
-        } ${className}`}
-      >
-        <ImageIcon className="h-5 w-5" />
+      <div className={`flex gap-1.5 ${className}`}>
+        <img
+          src={fallback}
+          alt={venue}
+          className="h-16 w-full rounded-lg object-cover"
+          loading="lazy"
+        />
       </div>
     );
   }

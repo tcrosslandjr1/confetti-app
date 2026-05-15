@@ -19,7 +19,7 @@ import { Input } from "@/components/ui/input";
 export const Route = createFileRoute("/portal/achievements")({
   head: () => ({
     meta: [
-      { title: "Achievements — Concierge" },
+      { title: "Achievements — Confetti" },
       {
         name: "description",
         content: "Track your unlocked badges and learn how to earn the next one.",
@@ -44,9 +44,9 @@ type Achievement = {
 function unlockHint(a: Achievement): string {
   const code = (a.code || "").toLowerCase();
   const map: Record<string, string> = {
-    first_steps: "Complete onboarding and log your first visit anywhere on Concierge.",
+    first_steps: "Complete onboarding and log your first visit anywhere on Confetti.",
     first_visit: "Visit any venue and tap “Mark as visited” to log it.",
-    first_booking: "Book your first reservation through Concierge.",
+    first_booking: "Book your first reservation through Confetti.",
     first_referral: "Share your referral link and have a friend sign up.",
     weekend_warrior: "Log 3 visits across a single Friday–Sunday window.",
     night_owl: "Visit 5 different nightlife spots (bars, clubs, late-night eats).",
@@ -54,7 +54,7 @@ function unlockHint(a: Achievement): string {
     explorer: "Check in at venues in 5 different neighborhoods.",
     streak_3: "Log a visit on 3 consecutive weekends.",
     streak_5: "Log a visit on 5 consecutive weekends.",
-    big_spender: "Cross $500 in tracked bookings on Concierge.",
+    big_spender: "Cross $500 in tracked bookings on Confetti.",
     early_bird: "Book a reservation before 10am.",
     late_night: "Book or visit somewhere after midnight.",
     social_butterfly: "Connect at least 2 social accounts to your profile.",
@@ -64,7 +64,7 @@ function unlockHint(a: Achievement): string {
   // Fallback: use the description if it reads like an instruction
   if (/visit|book|invite|share|complete|connect|earn|log/i.test(a.description))
     return a.description;
-  return `Keep using Concierge — this one unlocks for: ${a.description.toLowerCase()}.`;
+  return `Keep using Confetti — this one unlocks for: ${a.description.toLowerCase()}.`;
 }
 
 function AchIcon({ name, className = "h-5 w-5" }: { name: string; className?: string }) {

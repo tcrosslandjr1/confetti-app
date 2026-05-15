@@ -7,7 +7,7 @@ import { BookMarked, MapPin, Plus, Sparkles, Trophy } from "lucide-react";
 import { format } from "date-fns";
 
 export const Route = createFileRoute("/concierge/passport")({
-  head: () => ({ meta: [{ title: "Passport — Concierge" }] }),
+  head: () => ({ meta: [{ title: "Passport — Confetti" }] }),
   component: Passport,
 });
 

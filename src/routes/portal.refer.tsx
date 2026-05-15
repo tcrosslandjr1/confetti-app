@@ -35,11 +35,11 @@ import {
 export const Route = createFileRoute("/portal/refer")({
   head: () => ({
     meta: [
-      { title: "Refer friends — Concierge" },
+      { title: "Refer friends — Confetti" },
       {
         name: "description",
         content:
-          "Share Concierge. Friends get $25 off their first booking, you get a $25 gift card.",
+          "Share Confetti. Friends get $25 off their first booking, you get a $25 gift card.",
       },
     ],
   }),
@@ -95,8 +95,8 @@ function ReferPage() {
     if (!link || typeof navigator === "undefined" || !navigator.share) return onCopy();
     try {
       await navigator.share({
-        title: "Concierge — $25 off your first booking",
-        text: "Use my link to get $25 off your first booking on Concierge.",
+        title: "Confetti — $25 off your first booking",
+        text: "Use my link to get $25 off your first booking on Confetti.",
         url: link,
       });
     } catch {}
@@ -137,7 +137,7 @@ function ReferPage() {
             Share the city. Pocket the rewards.
           </h1>
           <p className="mt-3 max-w-xl text-sm text-muted-foreground sm:text-base">
-            Send a friend $25 off their first Concierge booking. The moment they book, we'll drop a{" "}
+            Send a friend $25 off their first Confetti booking. The moment they book, we'll drop a{" "}
             <span className="font-semibold text-foreground">$25 gift card</span> in your account.
           </p>
 

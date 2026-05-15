@@ -393,7 +393,7 @@ function PortalDiscoverPage() {
               {upcoming.length === 0 ? (
                 <EmptyState
                   icon={CalendarIcon}
-                  text="No bookings yet — plan a night with the Concierge."
+                  text="No bookings yet — plan a night with Confetti."
                   cta={{ to: "/concierge/chat", label: "Start planning" }}
                 />
               ) : (

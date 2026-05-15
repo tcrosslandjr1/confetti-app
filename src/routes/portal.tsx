@@ -19,7 +19,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/portal")({
   head: () => ({
     meta: [
-      { title: "My Portal — Concierge" },
+      { title: "My Portal — Confetti" },
       {
         name: "description",
         content: "Your bookings, saved spots, passport, and profile in one place.",

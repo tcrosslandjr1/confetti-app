@@ -136,7 +136,7 @@ function StoryPage() {
       </section>
 
       <article className="prose prose-lg mt-12 max-w-none">
-        {story.body.map((b) => (
+        {story.body.map((b: Story["body"][number]) => (
           <section key={b.heading} className="mt-8">
             <h2 className="font-display text-2xl font-bold">{b.heading}</h2>
             <p className="mt-2 text-muted-foreground">{b.text}</p>

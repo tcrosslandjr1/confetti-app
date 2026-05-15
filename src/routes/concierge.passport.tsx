@@ -97,8 +97,21 @@ function Passport() {
     void reload();
   };
 
-  const xp = profile?.xp ?? 0;
-  const { current, needed, level, next } = xpToNextLevel(xp);
+  const MOCK_STAMPS: { id: string; theme: string; city: string; date: string; stops: number; xp: number }[] = [
+    { id: "ms-1", theme: "Harbor Heatwave", city: "Washington DC", date: "May 10, 2026", stops: 4, xp: 120 },
+    { id: "ms-2", theme: "Moonlit Mischief", city: "Washington DC", date: "April 28, 2026", stops: 3, xp: 90 },
+    { id: "ms-3", theme: "Velvet & Vinyl", city: "New York", date: "April 15, 2026", stops: 4, xp: 150 },
+    { id: "ms-4", theme: "Neon Nomads", city: "Miami", date: "March 22, 2026", stops: 5, xp: 200 },
+  ];
+  const totalAdventures = MOCK_STAMPS.length;
+  const citiesVisited = new Set(MOCK_STAMPS.map((s) => s.city)).size;
+  const totalXP = MOCK_STAMPS.reduce((sum, s) => sum + s.xp, 0);
+
+  const xp = totalXP;
+  const level = 4;
+  const current = totalXP;
+  const needed = 1000;
+  const next = 1000;
   const pct = Math.min(100, Math.round((current / needed) * 100));
 
   return (

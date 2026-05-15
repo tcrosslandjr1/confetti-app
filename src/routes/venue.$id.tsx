@@ -454,8 +454,15 @@ function VenuePage() {
           />
         </div>
 
-        <div className="mt-3 flex justify-center">
+        <div className="mt-3 flex flex-wrap items-center justify-center gap-3">
           <ReportVenueButton venueName={venue.name} city={venue.city} />
+          <Link
+            to="/advertise"
+            search={{ utm_source: "venue_page", utm_medium: "claim_cta", utm_campaign: venue.id } as never}
+            className="inline-flex items-center gap-1.5 rounded-full border border-dashed border-ink/30 bg-cream/40 px-3 py-1.5 text-[11px] font-mono font-bold uppercase tracking-wider text-ink/70 transition hover:border-coral hover:text-coral"
+          >
+            <Sparkles className="h-3 w-3" /> Own this venue? Promote it
+          </Link>
         </div>
 
         <div className="mt-6">

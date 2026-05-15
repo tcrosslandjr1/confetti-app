@@ -176,70 +176,90 @@ function SavedPage() {
         </Dialog>
       </header>
 
-      {loading ? (
-        <p className="text-sm text-muted-foreground">Loading…</p>
-      ) : items.length === 0 ? (
-        <div className="rounded-3xl border border-dashed border-border bg-cream p-10 text-center">
-          <Bookmark className="mx-auto h-10 w-10 text-muted-foreground" />
-          <h2 className="mt-3 font-display text-2xl font-bold">Nothing saved yet</h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Tap "Add venue" to start building your wishlist.
-          </p>
-        </div>
-      ) : (
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {items
-            .filter((i) => i.venues)
-            .map((i) => (
-              <li
-                key={i.id}
-                className="overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut"
-              >
-                {i.venues!.image_url ? (
-                  <img
-                    src={i.venues!.image_url}
-                    alt={i.venues!.name}
-                    className="h-36 w-full object-cover"
-                  />
-                ) : (
-                  <GooglePhotos
-                    venue={i.venues!.name}
-                    neighborhood={i.venues!.neighborhood}
-                    variant="hero"
-                  />
-                )}
-                <div className="p-4">
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {MOCK_SAVED.map((m) => (
+          <li
+            key={m.id}
+            className="overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut"
+          >
+            <GooglePhotos venue={m.name} neighborhood={m.neighborhood} variant="hero" />
+            <div className="p-4">
+              <div className="flex items-start justify-between gap-2">
+                <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                  {m.cuisine}
+                </div>
+                <Heart className="h-4 w-4 fill-destructive text-destructive" />
+              </div>
+              <h3 className="mt-1 font-display text-lg font-bold">{m.name}</h3>
+              <div className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-amber-600">
+                <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
+                {m.rating.toFixed(1)}
+              </div>
+              <p className="mt-1.5 line-clamp-2 text-xs text-muted-foreground">{m.description}</p>
+              <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground">
+                <span className="inline-flex items-center gap-1">
+                  <MapPin className="h-3 w-3" />
+                  {m.neighborhood}
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-wider">{m.savedAgo}</span>
+              </div>
+            </div>
+          </li>
+        ))}
+        {items
+          .filter((i) => i.venues)
+          .map((i) => (
+            <li
+              key={i.id}
+              className="overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut"
+            >
+              {i.venues!.image_url ? (
+                <img
+                  src={i.venues!.image_url}
+                  alt={i.venues!.name}
+                  className="h-36 w-full object-cover"
+                />
+              ) : (
+                <GooglePhotos
+                  venue={i.venues!.name}
+                  neighborhood={i.venues!.neighborhood}
+                  variant="hero"
+                />
+              )}
+              <div className="p-4">
+                <div className="flex items-start justify-between gap-2">
                   <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
                     {i.venues!.category}
                   </div>
-                  <h3 className="mt-1 font-display text-lg font-bold">{i.venues!.name}</h3>
-                  <div className="mt-1.5">
-                    <VenueVerificationBadge venueName={i.venues!.name} size="xs" />
-                  </div>
-                  <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
-                    {i.venues!.description}
-                  </p>
-                  <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground">
-                    {i.venues!.neighborhood && (
-                      <span className="inline-flex items-center gap-1">
-                        <MapPin className="h-3 w-3" />
-                        {i.venues!.neighborhood}
-                      </span>
-                    )}
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      className="h-7 text-destructive hover:text-destructive"
-                      onClick={() => remove(i.id)}
-                    >
-                      <Trash2 className="h-3.5 w-3.5" />
-                    </Button>
-                  </div>
+                  <Heart className="h-4 w-4 fill-destructive text-destructive" />
                 </div>
-              </li>
-            ))}
-        </ul>
-      )}
+                <h3 className="mt-1 font-display text-lg font-bold">{i.venues!.name}</h3>
+                <div className="mt-1.5">
+                  <VenueVerificationBadge venueName={i.venues!.name} size="xs" />
+                </div>
+                <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+                  {i.venues!.description}
+                </p>
+                <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground">
+                  {i.venues!.neighborhood && (
+                    <span className="inline-flex items-center gap-1">
+                      <MapPin className="h-3 w-3" />
+                      {i.venues!.neighborhood}
+                    </span>
+                  )}
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    className="h-7 text-destructive hover:text-destructive"
+                    onClick={() => remove(i.id)}
+                  >
+                    <Trash2 className="h-3.5 w-3.5" />
+                  </Button>
+                </div>
+              </div>
+            </li>
+          ))}
+      </ul>
     </div>
   );
 }

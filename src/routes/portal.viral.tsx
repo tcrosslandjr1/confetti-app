@@ -293,9 +293,6 @@ function PortalViralPage() {
       cancelled = true;
     };
   }, [city, sortBy]);
-      cancelled = true;
-    };
-  }, [city, sortBy]);
 
   const filtered = useMemo(() => {
     if (!rows) return null;

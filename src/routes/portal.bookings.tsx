@@ -100,7 +100,8 @@ function PortalBookingsPage() {
       .select("*")
       .order("starts_at", { ascending: false })
       .then(({ data }) => {
-        setBookings((data as Booking[]) ?? []);
+        const real = (data as Booking[]) ?? [];
+        setBookings(real.length > 0 ? real : MOCK_BOOKINGS);
         setLoading(false);
       });
   };

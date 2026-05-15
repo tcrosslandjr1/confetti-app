@@ -219,7 +219,7 @@ function ProfilePage() {
         )}
       </section>
 
-      {user && (
+      {(
         <ReorderableSections
           sections={[
             {

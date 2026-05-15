@@ -21,6 +21,63 @@ export const Route = createFileRoute("/concierge/chat/$threadId")({
 
 type Msg = { id: string; role: "user" | "assistant"; content: string };
 
+const MOCK_THREADS: Record<string, { title: string; messages: Msg[] }> = {
+  "mock-rooftop": {
+    title: "Rooftop drinks tonight",
+    messages: [
+      {
+        id: "m1",
+        role: "user",
+        content: "Looking for a rooftop bar for drinks tonight in DC, group of 4, not too scene-y.",
+      },
+      {
+        id: "m2",
+        role: "assistant",
+        content:
+          "I found 3 rooftop options with open tables tonight:\n\n1. **Hi-Lawn at Union Market** — relaxed astroturf rooftop, great sunset views, walk-ins easy before 8pm.\n2. **Roof at The Watergate (Top of the Gate)** — Potomac views, classic cocktails, currently 2 tables open at 8:30pm.\n3. **Whiskey Charlie at Canopy Navy Yard** — quieter weeknight crowd, strong whiskey list.\n\nWant me to grab the Top of the Gate slot?",
+      },
+      {
+        id: "m3",
+        role: "user",
+        content: "Yes, book Top of the Gate at 8:30 for 4.",
+      },
+      {
+        id: "m4",
+        role: "assistant",
+        content:
+          "Done — confirmation **#CF-9042** for 4 at Top of the Gate, tonight 8:30pm. I added it to your bookings and sent the address to your phone. Have fun!",
+      },
+    ],
+  },
+  "mock-birthday": {
+    title: "Birthday dinner for 8",
+    messages: [
+      {
+        id: "m1",
+        role: "user",
+        content: "Need a private dining room for a birthday dinner, party of 8, May 17. Modern American, $$$ ok.",
+      },
+      {
+        id: "m2",
+        role: "assistant",
+        content:
+          "Here's a private dining shortlist for May 17, party of 8:\n\n- **Rose's Luxury** — semi-private back room, tasting menu $95pp.\n- **Le Diplomate** — private banquette, brasserie classics, ~$85pp.\n- **Albi** — private alcove, wood-fired Levantine, $110pp.\n\nAny dietary notes I should flag?",
+      },
+      {
+        id: "m3",
+        role: "user",
+        content: "One vegetarian, one gluten-free. Let's do Rose's Luxury at 7:30.",
+      },
+      {
+        id: "m4",
+        role: "assistant",
+        content:
+          "Booked Rose's Luxury for 8 on May 17 at 7:30pm — confirmation **#CF-9101**. I've noted 1 vegetarian + 1 gluten-free with the kitchen. Want me to organize a cake?",
+      },
+    ],
+  },
+};
+
 function timeOfDayPrompts(city: City, d = new Date()): string[] {
   const ctx = findCityLoose(city.slug, city.name);
   const hoods = ctx?.neighborhoods?.map((n) => n.name) ?? [];

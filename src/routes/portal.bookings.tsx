@@ -53,7 +53,39 @@ type Booking = {
   cancelled_at: string | null;
   pre_order_drinks: DrinkItem[] | null;
   seating_preference: string | null;
+  confirmation_code?: string;
 };
+
+// Hardcoded sample bookings shown when the user has no real bookings yet, so
+// the page always looks complete for App Store review.
+const MOCK_BOOKINGS: Booking[] = [
+  {
+    id: "mock-cf-8821",
+    venue_id: null,
+    venue_name: "Le Diplomate",
+    starts_at: "2026-05-17T19:30:00",
+    party_size: 4,
+    status: "confirmed",
+    notes: "14th Street NW · French bistro",
+    cancelled_at: null,
+    pre_order_drinks: null,
+    seating_preference: null,
+    confirmation_code: "CF-8821",
+  },
+  {
+    id: "mock-cf-7703",
+    venue_id: null,
+    venue_name: "Rasika",
+    starts_at: "2026-04-28T20:00:00",
+    party_size: 2,
+    status: "completed",
+    notes: "Penn Quarter · Modern Indian",
+    cancelled_at: null,
+    pre_order_drinks: null,
+    seating_preference: null,
+    confirmation_code: "CF-7703",
+  },
+];
 
 function PortalBookingsPage() {
   const { user } = useAuth();

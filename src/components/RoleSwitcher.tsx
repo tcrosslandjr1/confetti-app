@@ -177,7 +177,7 @@ export function RoleSwitcher() {
 
       {/* Bottom-right dock */}
       <div
-        className={`fixed bottom-[calc(env(safe-area-inset-bottom)+5.25rem)] right-4 z-[90] rounded-2xl border-2 bg-cream/95 shadow-brut backdrop-blur transition lg:bottom-4 ${
+        className={`fixed bottom-[calc(env(safe-area-inset-bottom)+5.25rem)] left-4 right-4 z-[90] rounded-2xl border-2 bg-cream/95 shadow-brut backdrop-blur transition sm:left-auto sm:max-w-[26rem] lg:bottom-4 ${
           isImpersonating ? "border-coral ring-2 ring-coral/40" : "border-ink"
         }`}
       >
@@ -203,7 +203,7 @@ export function RoleSwitcher() {
                   <button
                     key={value}
                     onClick={() => goToRole(value)}
-                    className={`group flex min-w-[7.5rem] flex-col items-start gap-0.5 rounded-xl border-2 px-3 py-2 text-left text-xs font-bold transition-pop ${
+                    className={`group flex flex-col items-start gap-0.5 rounded-xl border-2 px-3 py-2 text-left text-xs font-bold transition-pop ${
                       active
                         ? `${tone} border-ink shadow-brut`
                         : "border-transparent text-ink/70 hover:-translate-y-0.5 hover:border-ink hover:bg-cream hover:text-ink"

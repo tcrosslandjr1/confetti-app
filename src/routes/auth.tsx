@@ -9,6 +9,7 @@ import { seedDemoAccounts } from "@/lib/seed-demo.functions";
 import { lovable } from "@/integrations/lovable";
 import { rememberReferralCode, getPendingReferralCode } from "@/lib/referrals";
 import { requestUserLocation } from "@/lib/location";
+import { getMyAdvertiser } from "@/lib/ads";
 
 export const Route = createFileRoute("/auth")({
   validateSearch: (search: Record<string, unknown>) => {
@@ -132,9 +133,30 @@ function AuthPage() {
     }
   };
 
+  // After sign-in, route business owners to their advertiser portal when the
+  // caller didn't request a specific destination. Falls back to redirectTo
+  // (defaults to "/") for everyone else.
+  async function routeAfterAuth(uid: string) {
+    if (redirectTo && redirectTo !== "/") {
+      navigate({ to: redirectTo as never });
+      return;
+    }
+    try {
+      const advertiser = await getMyAdvertiser(uid);
+      if (advertiser) {
+        navigate({ to: "/advertise/portal" });
+        return;
+      }
+    } catch {
+      // Ignore — fall through to default redirect.
+    }
+    navigate({ to: redirectTo as never });
+  }
+
   useEffect(() => {
-    if (user) navigate({ to: redirectTo as never });
-  }, [user, navigate, redirectTo]);
+    if (user) void routeAfterAuth(user.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -167,10 +189,14 @@ function AuthPage() {
         });
         if (error) throw error;
       } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
+        const { error: signErr, data } = await supabase.auth.signInWithPassword({ email, password });
+        if (signErr) throw signErr;
         // Refresh location opportunistically on sign-in too.
         void requestUserLocation();
+        if (data.user) {
+          await routeAfterAuth(data.user.id);
+          return;
+        }
       }
       navigate({ to: redirectTo as never });
     } catch (err: any) {

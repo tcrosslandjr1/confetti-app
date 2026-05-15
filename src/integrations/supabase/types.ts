@@ -967,6 +967,33 @@ export type Database = {
         }
         Relationships: []
       }
+      outreach_snapshots: {
+        Row: {
+          csv: string
+          generated_at: string
+          id: string
+          source: string
+          venue_count: number
+          window_days: number
+        }
+        Insert: {
+          csv: string
+          generated_at?: string
+          id?: string
+          source?: string
+          venue_count: number
+          window_days: number
+        }
+        Update: {
+          csv?: string
+          generated_at?: string
+          id?: string
+          source?: string
+          venue_count?: number
+          window_days?: number
+        }
+        Relationships: []
+      }
       pick_events: {
         Row: {
           client_at: string | null

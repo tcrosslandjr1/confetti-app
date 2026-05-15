@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { ImageIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { unsplashFor } from "@/lib/venue-images";
 
 type Props = {
   venue: string;
   address?: string | null;
   neighborhood?: string | null;
+  /** Used to pick a category-appropriate Unsplash fallback when Google has nothing. */
+  category?: string | null;
   className?: string;
   /** Render mode: a single hero image or a small strip of up to 3 thumbs */
   variant?: "hero" | "strip";

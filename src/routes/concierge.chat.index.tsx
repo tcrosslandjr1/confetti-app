@@ -45,6 +45,7 @@ function ChatList() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [threads, setThreads] = useState<Thread[]>([]);
+  const [profile, setProfile] = useState<{ display_name: string | null } | null>(null);
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);

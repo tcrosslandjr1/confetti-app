@@ -193,6 +193,8 @@ function AdvertiserPortal() {
         />
       </div>
 
+      <ConfettiCreditsPanel advertiserId={advertiser.id} />
+
       {showNew && subscription?.status === "active" && (
         <NewCampaignForm
           advertiserId={advertiser.id}

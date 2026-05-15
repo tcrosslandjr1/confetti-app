@@ -47,8 +47,12 @@ function PortalLayout() {
   const nav = useNavigate();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
+  // Allow unauthenticated access to /portal/saved for App Store demo screenshots.
+  const isDemoPage = pathname === "/portal/saved";
+
   useEffect(() => {
     if (loading) return;
+    if (isDemoPage) return;
     if (!user) {
       logAccessDenial({
         source: "route-guard",
@@ -78,9 +82,9 @@ function PortalLayout() {
     } else if (viewAs === "business") {
       nav({ to: "/advertise/portal" });
     }
-  }, [user, loading, viewAs, nav, pathname]);
+  }, [user, loading, viewAs, nav, pathname, isDemoPage]);
 
-  if (loading || !user || viewAs !== "customer") {
+  if (!isDemoPage && (loading || !user || viewAs !== "customer")) {
     const message = loading ? "Loading…" : "Switching view…";
     return (
       <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">

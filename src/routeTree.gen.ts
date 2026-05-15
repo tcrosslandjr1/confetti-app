@@ -29,6 +29,7 @@ import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MeRouteImport } from './routes/me'
 import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as ForBusinessRouteImport } from './routes/for-business'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as DataTermsRouteImport } from './routes/data-terms'
@@ -62,6 +63,7 @@ import { Route as TeamsIdRouteImport } from './routes/teams.$id'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
 import { Route as RsvpTokenRouteImport } from './routes/rsvp.$token'
 import { Route as RecapItineraryIdRouteImport } from './routes/recap.$itineraryId'
+import { Route as PortalWalletRouteImport } from './routes/portal.wallet'
 import { Route as PortalViralRouteImport } from './routes/portal.viral'
 import { Route as PortalSavedRouteImport } from './routes/portal.saved'
 import { Route as PortalReferRouteImport } from './routes/portal.refer'
@@ -208,6 +210,11 @@ const InvestorsRoute = InvestorsRouteImport.update({
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForBusinessRoute = ForBusinessRouteImport.update({
+  id: '/for-business',
+  path: '/for-business',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FeaturesRoute = FeaturesRouteImport.update({
@@ -374,6 +381,11 @@ const RecapItineraryIdRoute = RecapItineraryIdRouteImport.update({
   id: '/recap/$itineraryId',
   path: '/recap/$itineraryId',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PortalWalletRoute = PortalWalletRouteImport.update({
+  id: '/wallet',
+  path: '/wallet',
+  getParentRoute: () => PortalRoute,
 } as any)
 const PortalViralRoute = PortalViralRouteImport.update({
   id: '/viral',
@@ -637,6 +649,7 @@ export interface FileRoutesByFullPath {
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
   '/features': typeof FeaturesRoute
+  '/for-business': typeof ForBusinessRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
@@ -691,6 +704,7 @@ export interface FileRoutesByFullPath {
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
+  '/portal/wallet': typeof PortalWalletRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -736,6 +750,7 @@ export interface FileRoutesByTo {
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
   '/features': typeof FeaturesRoute
+  '/for-business': typeof ForBusinessRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
@@ -788,6 +803,7 @@ export interface FileRoutesByTo {
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
+  '/portal/wallet': typeof PortalWalletRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -837,6 +853,7 @@ export interface FileRoutesById {
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
   '/features': typeof FeaturesRoute
+  '/for-business': typeof ForBusinessRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
@@ -891,6 +908,7 @@ export interface FileRoutesById {
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
+  '/portal/wallet': typeof PortalWalletRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -941,6 +959,7 @@ export interface FileRouteTypes {
     | '/data-terms'
     | '/discover'
     | '/features'
+    | '/for-business'
     | '/how-it-works'
     | '/investors'
     | '/me'
@@ -995,6 +1014,7 @@ export interface FileRouteTypes {
     | '/portal/refer'
     | '/portal/saved'
     | '/portal/viral'
+    | '/portal/wallet'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1040,6 +1060,7 @@ export interface FileRouteTypes {
     | '/data-terms'
     | '/discover'
     | '/features'
+    | '/for-business'
     | '/how-it-works'
     | '/investors'
     | '/me'
@@ -1092,6 +1113,7 @@ export interface FileRouteTypes {
     | '/portal/refer'
     | '/portal/saved'
     | '/portal/viral'
+    | '/portal/wallet'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1140,6 +1162,7 @@ export interface FileRouteTypes {
     | '/data-terms'
     | '/discover'
     | '/features'
+    | '/for-business'
     | '/how-it-works'
     | '/investors'
     | '/me'
@@ -1194,6 +1217,7 @@ export interface FileRouteTypes {
     | '/portal/refer'
     | '/portal/saved'
     | '/portal/viral'
+    | '/portal/wallet'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1243,6 +1267,7 @@ export interface RootRouteChildren {
   DataTermsRoute: typeof DataTermsRoute
   DiscoverRoute: typeof DiscoverRoute
   FeaturesRoute: typeof FeaturesRoute
+  ForBusinessRoute: typeof ForBusinessRoute
   HowItWorksRoute: typeof HowItWorksRoute
   InvestorsRoute: typeof InvestorsRoute
   MeRoute: typeof MeRoute
@@ -1425,6 +1450,13 @@ declare module '@tanstack/react-router' {
       path: '/how-it-works'
       fullPath: '/how-it-works'
       preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-business': {
+      id: '/for-business'
+      path: '/for-business'
+      fullPath: '/for-business'
+      preLoaderRoute: typeof ForBusinessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/features': {
@@ -1657,6 +1689,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/recap/$itineraryId'
       preLoaderRoute: typeof RecapItineraryIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/portal/wallet': {
+      id: '/portal/wallet'
+      path: '/wallet'
+      fullPath: '/portal/wallet'
+      preLoaderRoute: typeof PortalWalletRouteImport
+      parentRoute: typeof PortalRoute
     }
     '/portal/viral': {
       id: '/portal/viral'
@@ -2092,6 +2131,7 @@ interface PortalRouteChildren {
   PortalReferRoute: typeof PortalReferRoute
   PortalSavedRoute: typeof PortalSavedRoute
   PortalViralRoute: typeof PortalViralRoute
+  PortalWalletRoute: typeof PortalWalletRoute
   PortalIndexRoute: typeof PortalIndexRoute
 }
 
@@ -2103,6 +2143,7 @@ const PortalRouteChildren: PortalRouteChildren = {
   PortalReferRoute: PortalReferRoute,
   PortalSavedRoute: PortalSavedRoute,
   PortalViralRoute: PortalViralRoute,
+  PortalWalletRoute: PortalWalletRoute,
   PortalIndexRoute: PortalIndexRoute,
 }
 
@@ -2154,6 +2195,7 @@ const rootRouteChildren: RootRouteChildren = {
   DataTermsRoute: DataTermsRoute,
   DiscoverRoute: DiscoverRoute,
   FeaturesRoute: FeaturesRoute,
+  ForBusinessRoute: ForBusinessRoute,
   HowItWorksRoute: HowItWorksRoute,
   InvestorsRoute: InvestorsRoute,
   MeRoute: MeRoute,

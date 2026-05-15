@@ -22,6 +22,7 @@ import {
 } from "@/lib/ads";
 import { SubscriptionPanel } from "@/components/advertiser/SubscriptionPanel";
 import { ClaimVenuePanel } from "@/components/advertiser/ClaimVenuePanel";
+import { ConfettiCreditsPanel } from "@/components/advertiser/ConfettiCreditsPanel";
 import {
   Loader2,
   Lock,
@@ -191,6 +192,8 @@ function AdvertiserPortal() {
           contactEmail={advertiser.contact_email}
         />
       </div>
+
+      <ConfettiCreditsPanel advertiserId={advertiser.id} />
 
       {showNew && subscription?.status === "active" && (
         <NewCampaignForm

@@ -570,6 +570,7 @@ function AuthPage() {
             </Link>
           </div>
         </div>
+        </div>
       </div>
     </div>
   );

@@ -371,7 +371,7 @@ function Landing() {
             <div className="animate-float-card rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut-lg">
               <div className="flex items-center justify-between border-b-2 border-dashed border-ink pb-3">
                 <span className="font-mono text-[11px] uppercase tracking-widest">
-                  CONFETTI · plan #A7K2
+                  YOUR CITY // YOUR WAY · plan #A7K2
                 </span>
                 <span className="font-mono text-[11px]">SAT · 6:00p</span>
               </div>

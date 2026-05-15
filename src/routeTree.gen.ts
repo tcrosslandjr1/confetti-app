@@ -62,6 +62,7 @@ import { Route as TeamsIdRouteImport } from './routes/teams.$id'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
 import { Route as RsvpTokenRouteImport } from './routes/rsvp.$token'
 import { Route as RecapItineraryIdRouteImport } from './routes/recap.$itineraryId'
+import { Route as PortalWalletRouteImport } from './routes/portal.wallet'
 import { Route as PortalViralRouteImport } from './routes/portal.viral'
 import { Route as PortalSavedRouteImport } from './routes/portal.saved'
 import { Route as PortalReferRouteImport } from './routes/portal.refer'
@@ -374,6 +375,11 @@ const RecapItineraryIdRoute = RecapItineraryIdRouteImport.update({
   id: '/recap/$itineraryId',
   path: '/recap/$itineraryId',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PortalWalletRoute = PortalWalletRouteImport.update({
+  id: '/wallet',
+  path: '/wallet',
+  getParentRoute: () => PortalRoute,
 } as any)
 const PortalViralRoute = PortalViralRouteImport.update({
   id: '/viral',
@@ -691,6 +697,7 @@ export interface FileRoutesByFullPath {
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
+  '/portal/wallet': typeof PortalWalletRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -788,6 +795,7 @@ export interface FileRoutesByTo {
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
+  '/portal/wallet': typeof PortalWalletRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -891,6 +899,7 @@ export interface FileRoutesById {
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
+  '/portal/wallet': typeof PortalWalletRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -995,6 +1004,7 @@ export interface FileRouteTypes {
     | '/portal/refer'
     | '/portal/saved'
     | '/portal/viral'
+    | '/portal/wallet'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1092,6 +1102,7 @@ export interface FileRouteTypes {
     | '/portal/refer'
     | '/portal/saved'
     | '/portal/viral'
+    | '/portal/wallet'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1194,6 +1205,7 @@ export interface FileRouteTypes {
     | '/portal/refer'
     | '/portal/saved'
     | '/portal/viral'
+    | '/portal/wallet'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1658,6 +1670,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RecapItineraryIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portal/wallet': {
+      id: '/portal/wallet'
+      path: '/wallet'
+      fullPath: '/portal/wallet'
+      preLoaderRoute: typeof PortalWalletRouteImport
+      parentRoute: typeof PortalRoute
+    }
     '/portal/viral': {
       id: '/portal/viral'
       path: '/viral'
@@ -2092,6 +2111,7 @@ interface PortalRouteChildren {
   PortalReferRoute: typeof PortalReferRoute
   PortalSavedRoute: typeof PortalSavedRoute
   PortalViralRoute: typeof PortalViralRoute
+  PortalWalletRoute: typeof PortalWalletRoute
   PortalIndexRoute: typeof PortalIndexRoute
 }
 
@@ -2103,6 +2123,7 @@ const PortalRouteChildren: PortalRouteChildren = {
   PortalReferRoute: PortalReferRoute,
   PortalSavedRoute: PortalSavedRoute,
   PortalViralRoute: PortalViralRoute,
+  PortalWalletRoute: PortalWalletRoute,
   PortalIndexRoute: PortalIndexRoute,
 }
 

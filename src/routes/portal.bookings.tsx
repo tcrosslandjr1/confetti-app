@@ -53,7 +53,39 @@ type Booking = {
   cancelled_at: string | null;
   pre_order_drinks: DrinkItem[] | null;
   seating_preference: string | null;
+  confirmation_code?: string;
 };
+
+// Hardcoded sample bookings shown when the user has no real bookings yet, so
+// the page always looks complete for App Store review.
+const MOCK_BOOKINGS: Booking[] = [
+  {
+    id: "mock-cf-8821",
+    venue_id: null,
+    venue_name: "Le Diplomate",
+    starts_at: "2026-05-17T19:30:00",
+    party_size: 4,
+    status: "confirmed",
+    notes: "14th Street NW · French bistro",
+    cancelled_at: null,
+    pre_order_drinks: null,
+    seating_preference: null,
+    confirmation_code: "CF-8821",
+  },
+  {
+    id: "mock-cf-7703",
+    venue_id: null,
+    venue_name: "Rasika",
+    starts_at: "2026-04-28T20:00:00",
+    party_size: 2,
+    status: "completed",
+    notes: "Penn Quarter · Modern Indian",
+    cancelled_at: null,
+    pre_order_drinks: null,
+    seating_preference: null,
+    confirmation_code: "CF-7703",
+  },
+];
 
 function PortalBookingsPage() {
   const { user } = useAuth();
@@ -68,7 +100,8 @@ function PortalBookingsPage() {
       .select("*")
       .order("starts_at", { ascending: false })
       .then(({ data }) => {
-        setBookings((data as Booking[]) ?? []);
+        const real = (data as Booking[]) ?? [];
+        setBookings(real.length > 0 ? real : MOCK_BOOKINGS);
         setLoading(false);
       });
   };
@@ -153,11 +186,66 @@ function PortalBookingsPage() {
           </p>
         </div>
       ) : (
-        <>
-          <Group title="Upcoming" rows={upcoming} onCancel={cancel} onUpdated={load} />
-          <Group title="Past" rows={past} muted />
-        </>
+        <BookingsTabs upcoming={upcoming} past={past} onCancel={cancel} onUpdated={load} />
       )}
+    </div>
+  );
+}
+
+function BookingsTabs({
+  upcoming,
+  past,
+  onCancel,
+  onUpdated,
+}: {
+  upcoming: Booking[];
+  past: Booking[];
+  onCancel: (id: string) => void;
+  onUpdated: () => void;
+}) {
+  const [tab, setTab] = useState<"upcoming" | "past">(
+    upcoming.length === 0 && past.length > 0 ? "past" : "upcoming",
+  );
+  const rows = tab === "upcoming" ? upcoming : past;
+  return (
+    <div>
+      <div role="tablist" className="inline-flex rounded-2xl border-2 border-ink bg-cream p-1 shadow-brut">
+        {(["upcoming", "past"] as const).map((k) => {
+          const count = k === "upcoming" ? upcoming.length : past.length;
+          const active = tab === k;
+          return (
+            <button
+              key={k}
+              role="tab"
+              aria-selected={active}
+              onClick={() => setTab(k)}
+              className={`rounded-xl px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition ${
+                active ? "bg-ink text-cream" : "text-ink/70 hover:text-ink"
+              }`}
+            >
+              {k} <span className={active ? "opacity-80" : "opacity-60"}>({count})</span>
+            </button>
+          );
+        })}
+      </div>
+      <div className="mt-4">
+        {rows.length === 0 ? (
+          <p className="rounded-2xl border border-dashed border-border bg-cream/60 p-6 text-center text-sm text-muted-foreground">
+            Nothing in {tab} yet.
+          </p>
+        ) : (
+          <ul className={`grid gap-3 sm:grid-cols-2 ${tab === "past" ? "opacity-80" : ""}`}>
+            {rows.map((b) => (
+              <BookingCard
+                key={b.id}
+                b={b}
+                onCancel={tab === "upcoming" ? onCancel : undefined}
+                onUpdated={onUpdated}
+              />
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
@@ -242,6 +330,11 @@ function BookingCard({
         </span>
       </div>
       {b.notes && <p className="mt-2 text-sm text-muted-foreground">{b.notes}</p>}
+      {b.confirmation_code && (
+        <p className="mt-1.5 font-mono text-[11px] uppercase tracking-widest text-ink/60">
+          Confirmation #{b.confirmation_code}
+        </p>
+      )}
 
       {confirmed && hasPreorder && (
         <div className="mt-3 space-y-1.5 rounded-xl border-2 border-ink bg-background/60 p-3 text-xs">

@@ -18,7 +18,7 @@ export const Route = createFileRoute("/auth")({
     const safe = raw.startsWith("/") && !raw.startsWith("//") ? raw : "/";
     return { redirect: safe };
   },
-  head: () => ({ meta: [{ title: "Sign in — Concierge" }] }),
+  head: () => ({ meta: [{ title: "Sign in — Confetti" }] }),
   component: AuthPage,
 });
 

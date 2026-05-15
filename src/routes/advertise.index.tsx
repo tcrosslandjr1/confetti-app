@@ -1,17 +1,63 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { createAdvertiser, getMyAdvertiser, PACKAGES, type PackageTier } from "@/lib/ads";
 import {
   Sparkles,
   CheckCircle2,
   ArrowRight,
+  ArrowLeft,
   Megaphone,
   Target,
   BarChart3,
   Loader2,
+  Building2,
+  Mail,
+  Rocket,
 } from "lucide-react";
 import { toast } from "sonner";
+
+const DRAFT_KEY = "advertiser_onboarding_draft_v1";
+
+type Draft = {
+  tier: PackageTier;
+  business_name: string;
+  contact_email: string;
+  website: string;
+  contact_phone: string;
+  category: string;
+  city: string;
+  notes: string;
+  resumeAfterAuth?: boolean;
+};
+
+function loadDraft(): Partial<Draft> | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = sessionStorage.getItem(DRAFT_KEY);
+    return raw ? (JSON.parse(raw) as Partial<Draft>) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveDraft(d: Partial<Draft>) {
+  if (typeof window === "undefined") return;
+  try {
+    sessionStorage.setItem(DRAFT_KEY, JSON.stringify(d));
+  } catch {
+    /* ignore */
+  }
+}
+
+function clearDraft() {
+  if (typeof window === "undefined") return;
+  try {
+    sessionStorage.removeItem(DRAFT_KEY);
+  } catch {
+    /* ignore */
+  }
+}
 
 export const Route = createFileRoute("/advertise/")({
   component: AdvertiseLanding,

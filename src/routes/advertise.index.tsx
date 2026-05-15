@@ -69,6 +69,8 @@ function AdvertiseLanding() {
   const [tier, setTier] = useState<PackageTier>("featured");
   const [busy, setBusy] = useState(false);
   const [hasAccount, setHasAccount] = useState<boolean | null>(null);
+  const [step, setStep] = useState<1 | 2 | 3>(1);
+  const autoSubmitted = useRef(false);
 
   useEffect(() => {
     if (!user) {
@@ -94,20 +96,33 @@ function AdvertiseLanding() {
     notes: "",
   });
 
+  // Hydrate draft on mount (e.g. after auth round-trip)
+  useEffect(() => {
+    const d = loadDraft();
+    if (!d) return;
+    setForm((f) => ({
+      business_name: d.business_name ?? f.business_name,
+      contact_email: d.contact_email ?? f.contact_email,
+      website: d.website ?? f.website,
+      contact_phone: d.contact_phone ?? f.contact_phone,
+      category: d.category ?? f.category,
+      city: d.city ?? f.city,
+      notes: d.notes ?? f.notes,
+    }));
+    if (d.tier) setTier(d.tier);
+  }, []);
+
   useEffect(() => {
     if (user?.email && !form.contact_email) setForm((f) => ({ ...f, contact_email: user.email! }));
   }, [user, form.contact_email]);
 
-  async function submit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!user) {
-      toast("Create a free account to continue", {
-        description: "We'll bring you right back to the form.",
-      });
-      nav({ to: "/auth" });
-      return;
-    }
-    setBusy(true);
+  // Persist draft as user types
+  useEffect(() => {
+    saveDraft({ ...form, tier });
+  }, [form, tier]);
+
+  async function doCreate(): Promise<boolean> {
+    if (!user) return false;
     try {
       await createAdvertiser({
         owner_id: user.id,
@@ -119,10 +134,58 @@ function AdvertiseLanding() {
         city: form.city || undefined,
         notes: `Tier interest: ${tier}\n${form.notes}`.trim(),
       });
+      clearDraft();
       toast.success("You're in — welcome aboard");
       nav({ to: "/advertise/portal" });
+      return true;
     } catch (err) {
       toast.error((err as Error).message ?? "Could not submit");
+      return false;
+    }
+  }
+
+  // Resume after auth: if draft was flagged for resume and user is back, auto-create
+  useEffect(() => {
+    if (autoSubmitted.current) return;
+    if (!user || hasAccount !== false) return;
+    const d = loadDraft();
+    if (!d?.resumeAfterAuth || !d.business_name) return;
+    autoSubmitted.current = true;
+    setBusy(true);
+    saveDraft({ ...d, resumeAfterAuth: false });
+    void doCreate().finally(() => setBusy(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user, hasAccount]);
+
+  function next() {
+    if (step === 1) {
+      if (!form.business_name.trim()) {
+        toast.error("Business name is required");
+        return;
+      }
+      setStep(2);
+    } else if (step === 2) {
+      if (!form.contact_email.trim()) {
+        toast.error("Contact email is required");
+        return;
+      }
+      setStep(3);
+    }
+  }
+
+  async function submit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!user) {
+      saveDraft({ ...form, tier, resumeAfterAuth: true });
+      toast("Create a free account to finish", {
+        description: "Your details are saved — we'll bring you right back.",
+      });
+      nav({ to: "/auth", search: { redirect: "/advertise#signup" } as never });
+      return;
+    }
+    setBusy(true);
+    try {
+      await doCreate();
     } finally {
       setBusy(false);
     }

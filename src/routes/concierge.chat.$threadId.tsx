@@ -139,6 +139,12 @@ function ChatThread() {
   }, []);
 
   useEffect(() => {
+    const mock = MOCK_THREADS[threadId];
+    if (mock) {
+      setThread({ title: mock.title });
+      setMessages(mock.messages);
+      return;
+    }
     if (!user) return;
     let cancelled = false;
     (async () => {

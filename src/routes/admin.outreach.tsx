@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
-import { Download, Loader2, RefreshCcw, Mail, MapPin, Sparkles } from "lucide-react";
+import { Calendar, Download, Loader2, RefreshCcw, Mail, MapPin, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -15,6 +15,8 @@ import { toast } from "sonner";
 import {
   getOutreachRanking,
   getOutreachCsv,
+  getLatestOutreachSnapshot,
+  type LatestOutreachSnapshot,
   type OutreachVenue,
 } from "@/lib/outreach-ranking.functions";
 
@@ -31,12 +33,24 @@ export const Route = createFileRoute("/admin/outreach")({
 function AdminOutreachPage() {
   const fetchRanking = useServerFn(getOutreachRanking);
   const fetchCsv = useServerFn(getOutreachCsv);
+  const fetchSnapshot = useServerFn(getLatestOutreachSnapshot);
 
   const [days, setDays] = useState(30);
   const [loading, setLoading] = useState(false);
   const [downloading, setDownloading] = useState(false);
   const [venues, setVenues] = useState<OutreachVenue[]>([]);
   const [generatedAt, setGeneratedAt] = useState<string | null>(null);
+  const [snapshot, setSnapshot] = useState<LatestOutreachSnapshot>(null);
+
+  const loadSnapshot = async () => {
+    try {
+      const snap = await fetchSnapshot({ data: undefined });
+      setSnapshot(snap);
+    } catch {
+      // non-fatal
+    }
+  };
+
 
   const load = async (d = days) => {
     setLoading(true);
@@ -53,22 +67,27 @@ function AdminOutreachPage() {
 
   useEffect(() => {
     load(days);
+    loadSnapshot();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const downloadBlob = (filename: string, csv: string) => {
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  };
 
   const onDownload = async () => {
     setDownloading(true);
     try {
       const { filename, csv } = await fetchCsv({ data: { days, limit: 500 } });
-      const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
+      downloadBlob(filename, csv);
       toast.success(`Exported ${filename}`);
     } catch (e: any) {
       toast.error(e?.message ?? "Failed to export CSV");
@@ -77,8 +96,16 @@ function AdminOutreachPage() {
     }
   };
 
+  const onDownloadSnapshot = () => {
+    if (!snapshot) return;
+    const stamp = snapshot.generated_at.slice(0, 10);
+    downloadBlob(`confetti-outreach-weekly-${stamp}.csv`, snapshot.csv);
+    toast.success("Downloaded weekly snapshot");
+  };
+
   const top = venues.slice(0, 10);
   const rest = venues.slice(10);
+
 
   return (
     <div className="p-6 space-y-6 max-w-6xl">
@@ -136,6 +163,30 @@ function AdminOutreachPage() {
           window {days}d
         </div>
       )}
+
+      <div className="rounded-lg border bg-muted/30 p-4 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <Calendar className="h-5 w-5 text-primary" />
+          <div className="text-sm">
+            <div className="font-semibold">Weekly snapshot</div>
+            {snapshot ? (
+              <div className="text-xs text-muted-foreground">
+                Last computed {new Date(snapshot.generated_at).toLocaleString()} ·{" "}
+                {snapshot.venue_count} venues · {snapshot.window_days}d window ·{" "}
+                source: {snapshot.source}
+              </div>
+            ) : (
+              <div className="text-xs text-muted-foreground">
+                No snapshot yet — the cron runs every Monday 09:00 UTC.
+              </div>
+            )}
+          </div>
+        </div>
+        <Button variant="secondary" size="sm" onClick={onDownloadSnapshot} disabled={!snapshot}>
+          <Download className="h-4 w-4 mr-2" />
+          Download latest snapshot
+        </Button>
+      </div>
 
       {loading && venues.length === 0 ? (
         <div className="flex items-center justify-center py-16 text-muted-foreground">

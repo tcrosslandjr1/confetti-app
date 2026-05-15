@@ -46,6 +46,7 @@ const marketingLinks = [
   { to: "/how-it-works", label: "How" },
   { to: "/teams", label: "Team Events" },
   { to: "/about", label: "About" },
+  { to: "/advertise", label: "For Business" },
   { to: "/contact", label: "Contact" },
 ] as const;
 

@@ -218,7 +218,7 @@ function AuthPage() {
 
       <div className="mx-auto grid min-h-screen w-full max-w-6xl grid-cols-1 lg:grid-cols-[1.05fr_1fr]">
         {/* Brand / marketing pane */}
-        <aside className="relative hidden flex-col justify-between overflow-hidden p-10 lg:flex">
+        <aside className="relative isolate hidden flex-col justify-between overflow-hidden p-10 lg:flex">
           <div className="absolute inset-6 -z-10 rounded-[2.5rem] bg-gradient-vibe shadow-pop" />
           <div className="absolute inset-6 -z-10 rounded-[2.5rem] bg-[radial-gradient(120%_80%_at_0%_0%,_oklch(1_0_0_/_0.18),_transparent_55%)]" />
           <div className="relative flex items-center gap-3 text-primary-foreground">

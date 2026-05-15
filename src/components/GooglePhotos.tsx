@@ -22,6 +22,7 @@ export function GooglePhotos({
   venue,
   address,
   neighborhood,
+  category,
   className = "",
   variant = "hero",
   hideEmpty = false,

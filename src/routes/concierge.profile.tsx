@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { CUISINES, ACTIVITIES, rankName, levelFromXp } from "@/lib/concierge-data";
+import { listUserGrants, listUserRedemptions, userBalance } from "@/lib/confetti-credits";
 import { LogOut, Save, Sparkles, User as UserIcon } from "lucide-react";
 
 export const Route = createFileRoute("/concierge/profile")({

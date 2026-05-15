@@ -63,18 +63,18 @@ type Achievement = {
 
 function ProfilePage() {
   const { user, signOut } = useAuth();
-  const [profile, setProfile] = useState<Profile | null>(null);
+  const [profile, setProfile] = useState<Profile | null>({ xp: 560, level: 4 } as Profile);
   const [name, setName] = useState("");
   const [location, setLocation] = useState<UserLocation | null>(null);
   const [locLoading, setLocLoading] = useState(false);
-  const [bookingTotals, setBookingTotals] = useState({ upcoming: 0, past: 0 });
+  const [bookingTotals, setBookingTotals] = useState({ upcoming: 2, past: 0 });
   const [refStats, setRefStats] = useState<MyReferralStats>({
-    invited: 0,
-    signedUp: 0,
-    completed: 0,
-    earnedCents: 0,
+    invited: 5,
+    signedUp: 3,
+    completed: 1,
+    earnedCents: 2500,
   });
-  const [achTotals, setAchTotals] = useState({ unlocked: 0, total: 0, xpEarned: 0 });
+  const [achTotals, setAchTotals] = useState({ unlocked: 5, total: 9, xpEarned: 240 });
   const [achievements, setAchievements] = useState<Achievement[]>([]);
 
   useEffect(() => {

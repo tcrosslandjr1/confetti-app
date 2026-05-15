@@ -30,6 +30,45 @@ type Venue = {
 };
 type Saved = { id: string; venue_id: string; created_at: string; venues: Venue | null };
 
+const MOCK_SAVED = [
+  {
+    id: "mock-1",
+    name: "Oyster Oyster",
+    neighborhood: "Shaw, DC",
+    cuisine: "Vegan Fine Dining",
+    rating: 4.8,
+    description: "Innovative plant-based tasting menus",
+    savedAgo: "Saved 2 days ago",
+  },
+  {
+    id: "mock-2",
+    name: "Tail Up Goat",
+    neighborhood: "Adams Morgan, DC",
+    cuisine: "Mediterranean",
+    rating: 4.7,
+    description: "Wood-fired dishes & natural wines",
+    savedAgo: "Saved 5 days ago",
+  },
+  {
+    id: "mock-3",
+    name: "Cranes",
+    neighborhood: "Penn Quarter, DC",
+    cuisine: "Japanese-Spanish",
+    rating: 4.6,
+    description: "Omakase meets tapas",
+    savedAgo: "Saved 1 week ago",
+  },
+  {
+    id: "mock-4",
+    name: "Bad Saint",
+    neighborhood: "Columbia Heights, DC",
+    cuisine: "Filipino",
+    rating: 4.9,
+    description: "No-reservations Filipino street food",
+    savedAgo: "Saved 1 week ago",
+  },
+];
+
 function SavedPage() {
   const { user } = useAuth();
   const [items, setItems] = useState<Saved[]>([]);

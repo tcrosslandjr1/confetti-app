@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { ImageIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { unsplashFor } from "@/lib/venue-images";
 
 type Props = {
   venue: string;
   address?: string | null;
   neighborhood?: string | null;
+  /** Used to pick a category-appropriate Unsplash fallback when Google has nothing. */
+  category?: string | null;
   className?: string;
   /** Render mode: a single hero image or a small strip of up to 3 thumbs */
   variant?: "hero" | "strip";
@@ -19,6 +22,7 @@ export function GooglePhotos({
   venue,
   address,
   neighborhood,
+  category,
   className = "",
   variant = "hero",
   hideEmpty = false,
@@ -74,13 +78,29 @@ export function GooglePhotos({
 
   if (photos.length === 0) {
     if (hideEmpty) return null;
+    // Fall back to a category-appropriate Unsplash photo so cards never
+    // render a broken/empty image tile.
+    const fallback = unsplashFor(category, venue);
+    if (variant === "hero") {
+      return (
+        <div className={`relative ${className}`}>
+          <img
+            src={fallback}
+            alt={venue}
+            className="h-36 w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      );
+    }
     return (
-      <div
-        className={`flex items-center justify-center bg-muted text-muted-foreground ${
-          variant === "hero" ? "h-36 w-full" : "h-16 w-full"
-        } ${className}`}
-      >
-        <ImageIcon className="h-5 w-5" />
+      <div className={`flex gap-1.5 ${className}`}>
+        <img
+          src={fallback}
+          alt={venue}
+          className="h-16 w-full rounded-lg object-cover"
+          loading="lazy"
+        />
       </div>
     );
   }

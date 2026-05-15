@@ -223,6 +223,7 @@ function SavedPage() {
                 <GooglePhotos
                   venue={i.venues!.name}
                   neighborhood={i.venues!.neighborhood}
+                  category={i.venues!.category}
                   variant="hero"
                 />
               )}

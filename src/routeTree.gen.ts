@@ -84,6 +84,7 @@ import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as AdminPickAnalyticsRouteImport } from './routes/admin.pick-analytics'
+import { Route as AdminOutreachRouteImport } from './routes/admin.outreach'
 import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
 import { Route as AdminModerationRouteImport } from './routes/admin.moderation'
 import { Route as AdminMarqueeRouteImport } from './routes/admin.marquee'
@@ -483,6 +484,11 @@ const AdminPickAnalyticsRoute = AdminPickAnalyticsRouteImport.update({
   path: '/pick-analytics',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminOutreachRoute = AdminOutreachRouteImport.update({
+  id: '/outreach',
+  path: '/outreach',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
   id: '/notifications',
   path: '/notifications',
@@ -655,6 +661,7 @@ export interface FileRoutesByFullPath {
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/outreach': typeof AdminOutreachRoute
   '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
@@ -750,6 +757,7 @@ export interface FileRoutesByTo {
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/outreach': typeof AdminOutreachRoute
   '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
@@ -851,6 +859,7 @@ export interface FileRoutesById {
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/outreach': typeof AdminOutreachRoute
   '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
@@ -953,6 +962,7 @@ export interface FileRouteTypes {
     | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/notifications'
+    | '/admin/outreach'
     | '/admin/pick-analytics'
     | '/admin/settings'
     | '/admin/testimonials'
@@ -1048,6 +1058,7 @@ export interface FileRouteTypes {
     | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/notifications'
+    | '/admin/outreach'
     | '/admin/pick-analytics'
     | '/admin/settings'
     | '/admin/testimonials'
@@ -1148,6 +1159,7 @@ export interface FileRouteTypes {
     | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/notifications'
+    | '/admin/outreach'
     | '/admin/pick-analytics'
     | '/admin/settings'
     | '/admin/testimonials'
@@ -1786,6 +1798,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminPickAnalyticsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/outreach': {
+      id: '/admin/outreach'
+      path: '/outreach'
+      fullPath: '/admin/outreach'
+      preLoaderRoute: typeof AdminOutreachRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/notifications': {
       id: '/admin/notifications'
       path: '/notifications'
@@ -1962,6 +1981,7 @@ interface AdminRouteChildren {
   AdminMarqueeRoute: typeof AdminMarqueeRoute
   AdminModerationRoute: typeof AdminModerationRoute
   AdminNotificationsRoute: typeof AdminNotificationsRoute
+  AdminOutreachRoute: typeof AdminOutreachRoute
   AdminPickAnalyticsRoute: typeof AdminPickAnalyticsRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminTestimonialsRoute: typeof AdminTestimonialsRoute
@@ -1983,6 +2003,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminMarqueeRoute: AdminMarqueeRoute,
   AdminModerationRoute: AdminModerationRoute,
   AdminNotificationsRoute: AdminNotificationsRoute,
+  AdminOutreachRoute: AdminOutreachRoute,
   AdminPickAnalyticsRoute: AdminPickAnalyticsRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AdminTestimonialsRoute: AdminTestimonialsRoute,

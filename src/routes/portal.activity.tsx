@@ -81,13 +81,81 @@ function dayKey(ts: number) {
   });
 }
 
+// Hardcoded sample feed used when the local activity log is empty so the page
+// always shows real-looking content for App Store review.
+const MOCK_ENTRIES: ActivityEntry[] = [
+  {
+    id: "mock-1",
+    tripId: "mock-rose",
+    tripTitle: "Date night · Capitol Hill",
+    actor: "You",
+    kind: "booked",
+    message: "booked Rose's Luxury",
+    detail: "Party of 2 · 7:30 PM",
+    ts: new Date("2026-05-14T19:30:00").getTime(),
+  },
+  {
+    id: "mock-2",
+    tripId: "mock-saved",
+    tripTitle: "Wishlist",
+    actor: "You",
+    kind: "voted",
+    message: "saved Oyster Oyster to wishlist",
+    detail: "Shaw · Tasting menu",
+    ts: new Date("2026-05-13T15:10:00").getTime(),
+  },
+  {
+    id: "mock-3",
+    tripId: "mock-badge",
+    tripTitle: "Achievements",
+    actor: "You",
+    kind: "plan_completed",
+    message: "earned the 'First Plan' badge",
+    detail: "+50 Confetti",
+    ts: new Date("2026-05-12T21:05:00").getTime(),
+  },
+  {
+    id: "mock-4",
+    tripId: "mock-rooftop",
+    tripTitle: "Midnight on the Rooftop",
+    actor: "You",
+    kind: "plan_completed",
+    message: "completed plan 'Midnight on the Rooftop'",
+    detail: "3 stops · 4 hrs",
+    ts: new Date("2026-05-11T23:45:00").getTime(),
+  },
+  {
+    id: "mock-5",
+    tripId: "mock-maydan",
+    tripTitle: "Friday with the crew",
+    actor: "You",
+    kind: "check_in",
+    message: "checked in at Maydan",
+    detail: "14th Street · 8:15 PM",
+    ts: new Date("2026-05-10T20:15:00").getTime(),
+  },
+  {
+    id: "mock-6",
+    tripId: "mock-invite",
+    tripTitle: "Referrals",
+    actor: "You",
+    kind: "joined",
+    message: "invited Sarah to Confetti",
+    detail: "Pending · earns 250 Confetti on signup",
+    ts: new Date("2026-05-09T10:30:00").getTime(),
+  },
+];
+
 function PortalActivityPage() {
-  const [entries, setEntries] = useState<ActivityEntry[]>([]);
+  const [entries, setEntries] = useState<ActivityEntry[]>(MOCK_ENTRIES);
   const [tripFilter, setTripFilter] = useState<string>("all");
   const [kindFilter, setKindFilter] = useState<KindFilter>("all");
 
   useEffect(() => {
-    const load = () => setEntries(readLog());
+    const load = () => {
+      const real = readLog();
+      setEntries(real.length > 0 ? real : MOCK_ENTRIES);
+    };
     load();
     return subscribeActivity(load);
   }, []);

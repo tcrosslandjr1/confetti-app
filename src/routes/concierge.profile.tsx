@@ -73,12 +73,16 @@ function Profile() {
   useEffect(() => {
     if (!user) return;
     (async () => {
-      const [{ data: p }, { data: prefs }] = await Promise.all([
+      const [{ data: p }, { data: prefs }, grants, redemptions] = await Promise.all([
         supabase.from("profiles").select("display_name,xp").eq("id", user.id).maybeSingle(),
         supabase.from("user_preferences").select("*").eq("user_id", user.id).maybeSingle(),
+        listUserGrants(user.id),
+        listUserRedemptions(user.id),
       ]);
       setName(p?.display_name ?? "");
-      setXp(p?.xp ?? 0);
+      // Confetti balance maps 1:1 to XP so the profile reflects what's in the wallet.
+      const confettiBalance = userBalance(grants, redemptions);
+      setXp(Math.max(p?.xp ?? 0, confettiBalance));
       if (prefs) {
         setCuisines(prefs.cuisines ?? []);
         setActivities(prefs.activities ?? []);

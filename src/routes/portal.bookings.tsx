@@ -330,6 +330,11 @@ function BookingCard({
         </span>
       </div>
       {b.notes && <p className="mt-2 text-sm text-muted-foreground">{b.notes}</p>}
+      {b.confirmation_code && (
+        <p className="mt-1.5 font-mono text-[11px] uppercase tracking-widest text-ink/60">
+          Confirmation #{b.confirmation_code}
+        </p>
+      )}
 
       {confirmed && hasPreorder && (
         <div className="mt-3 space-y-1.5 rounded-xl border-2 border-ink bg-background/60 p-3 text-xs">

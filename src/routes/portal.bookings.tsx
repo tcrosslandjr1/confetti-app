@@ -192,6 +192,64 @@ function PortalBookingsPage() {
   );
 }
 
+function BookingsTabs({
+  upcoming,
+  past,
+  onCancel,
+  onUpdated,
+}: {
+  upcoming: Booking[];
+  past: Booking[];
+  onCancel: (id: string) => void;
+  onUpdated: () => void;
+}) {
+  const [tab, setTab] = useState<"upcoming" | "past">(
+    upcoming.length === 0 && past.length > 0 ? "past" : "upcoming",
+  );
+  const rows = tab === "upcoming" ? upcoming : past;
+  return (
+    <div>
+      <div role="tablist" className="inline-flex rounded-2xl border-2 border-ink bg-cream p-1 shadow-brut">
+        {(["upcoming", "past"] as const).map((k) => {
+          const count = k === "upcoming" ? upcoming.length : past.length;
+          const active = tab === k;
+          return (
+            <button
+              key={k}
+              role="tab"
+              aria-selected={active}
+              onClick={() => setTab(k)}
+              className={`rounded-xl px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition ${
+                active ? "bg-ink text-cream" : "text-ink/70 hover:text-ink"
+              }`}
+            >
+              {k} <span className={active ? "opacity-80" : "opacity-60"}>({count})</span>
+            </button>
+          );
+        })}
+      </div>
+      <div className="mt-4">
+        {rows.length === 0 ? (
+          <p className="rounded-2xl border border-dashed border-border bg-cream/60 p-6 text-center text-sm text-muted-foreground">
+            Nothing in {tab} yet.
+          </p>
+        ) : (
+          <ul className={`grid gap-3 sm:grid-cols-2 ${tab === "past" ? "opacity-80" : ""}`}>
+            {rows.map((b) => (
+              <BookingCard
+                key={b.id}
+                b={b}
+                onCancel={tab === "upcoming" ? onCancel : undefined}
+                onUpdated={onUpdated}
+              />
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function Group({
   title,
   rows,

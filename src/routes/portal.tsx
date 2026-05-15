@@ -10,6 +10,7 @@ import {
   Gift,
   Flame,
   Activity,
+  Loader2,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { inferFeatureFromPath, logAccessDenial } from "@/lib/access-denials";

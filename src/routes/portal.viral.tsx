@@ -283,9 +283,16 @@ function PortalViralPage() {
         .eq("city", city)
         .order(orderCol, { ascending })
         .limit(60);
-      if (!cancelled) setRows((data as Row[]) ?? []);
+      if (!cancelled) {
+        const fetched = (data as Row[]) ?? [];
+        const useMock = fetched.length === 0 && city === "Washington DC";
+        setRows(useMock ? MOCK_DC_VIRAL : fetched);
+      }
     })();
     return () => {
+      cancelled = true;
+    };
+  }, [city, sortBy]);
       cancelled = true;
     };
   }, [city, sortBy]);

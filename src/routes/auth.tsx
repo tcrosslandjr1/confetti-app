@@ -34,6 +34,7 @@ function AuthPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [oauthBusy, setOauthBusy] = useState<"google" | "apple" | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
   const [locationBlocked, setLocationBlocked] = useState(false);
   const [allowWithoutLocation, setAllowWithoutLocation] = useState(false);
   const [seeding, setSeeding] = useState(false);

@@ -111,11 +111,10 @@ function AdvertiserPortal() {
       nav({ to: "/auth" });
       return;
     }
-    // Keep the business portal scoped to the Business view. Admins must switch
-    // to "Business" via the role switcher to land here, so admin/customer/visitor
-    // accounts don't accidentally edit ad campaigns from the wrong context.
-    if (viewAs === "admin") { nav({ to: "/admin" }); return; }
-    if (viewAs === "customer") { nav({ to: "/portal" }); return; }
+    // Real business owners sign in as "customer" (only admins can impersonate
+    // other roles), so we allow customer + admin + business viewers to reach
+    // their advertiser portal. Visitors (signed-out preview) still bounce to
+    // the marketing page.
     if (viewAs === "visitor") { nav({ to: "/advertise" }); return; }
     void refresh(user.id);
   }, [user, loading, viewAs, nav, refresh]);

@@ -208,20 +208,80 @@ function AuthPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="absolute inset-0 -z-10 opacity-40 [background:radial-gradient(circle_at_top,_oklch(0.72_0.21_355_/_0.4),_transparent_60%)]" />
-      <div className="mx-auto flex min-h-screen max-w-md flex-col px-6 py-10">
-        <div className="flex items-center gap-3">
-          <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-vibe shadow-pop">
-            <Sparkles className="h-5 w-5 text-primary-foreground" />
-          </div>
-          <div>
-            <div className="font-display text-lg font-bold leading-none">
-              <span className="text-gradient">Concierge</span>
+    <div className="relative min-h-screen overflow-hidden bg-background">
+      {/* Decorative background */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -top-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-gradient-vibe opacity-25 blur-3xl" />
+        <div className="absolute top-1/3 -right-40 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,_oklch(0.78_0.18_60_/_0.5),_transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-[radial-gradient(circle,_oklch(0.72_0.21_355_/_0.35),_transparent_70%)] blur-3xl" />
+      </div>
+
+      <div className="mx-auto grid min-h-screen w-full max-w-6xl grid-cols-1 lg:grid-cols-[1.05fr_1fr]">
+        {/* Brand / marketing pane */}
+        <aside className="relative hidden flex-col justify-between overflow-hidden p-10 lg:flex">
+          <div className="absolute inset-6 -z-10 rounded-[2.5rem] bg-gradient-vibe shadow-pop" />
+          <div className="absolute inset-6 -z-10 rounded-[2.5rem] bg-[radial-gradient(120%_80%_at_0%_0%,_oklch(1_0_0_/_0.18),_transparent_55%)]" />
+          <div className="relative flex items-center gap-3 text-primary-foreground">
+            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-background/20 backdrop-blur ring-1 ring-background/30">
+              <Sparkles className="h-6 w-6" />
             </div>
-            <div className="text-xs text-muted-foreground">Your city insider</div>
+            <div>
+              <div className="font-display text-xl font-bold leading-none">Confetti</div>
+              <div className="text-xs opacity-80">Your city insider</div>
+            </div>
           </div>
-        </div>
+
+          <div className="relative space-y-6 text-primary-foreground">
+            <h2 className="font-display text-4xl font-bold leading-[1.05]">
+              Be the plan,<br />not an afterthought.
+            </h2>
+            <p className="max-w-sm text-sm/relaxed opacity-90">
+              Curated dining, nightlife and events — picked for your taste, your city, your night.
+            </p>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-center gap-3">
+                <span className="grid h-8 w-8 place-items-center rounded-full bg-background/20 backdrop-blur"><PartyPopper className="h-4 w-4" /></span>
+                Earn Confetti on every booking
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="grid h-8 w-8 place-items-center rounded-full bg-background/20 backdrop-blur"><MapPin className="h-4 w-4" /></span>
+                Hand-picked spots in 40+ cities
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="grid h-8 w-8 place-items-center rounded-full bg-background/20 backdrop-blur"><ShieldCheck className="h-4 w-4" /></span>
+                Skip-the-line perks at partner venues
+              </li>
+            </ul>
+          </div>
+
+          <div className="relative rounded-2xl bg-background/15 p-4 text-primary-foreground backdrop-blur ring-1 ring-background/25">
+            <div className="flex items-center gap-1 text-amber-200">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-3.5 w-3.5 fill-current" />
+              ))}
+            </div>
+            <p className="mt-2 text-sm leading-relaxed">
+              "Booked an impossible reservation in 30 seconds. Felt like I had a friend on the inside."
+            </p>
+            <p className="mt-2 text-xs opacity-80">— Maya R., Brooklyn</p>
+          </div>
+        </aside>
+
+        {/* Form pane */}
+        <div className="flex flex-col px-6 py-10 sm:px-10 lg:py-14">
+          <div className="flex items-center justify-between gap-3 lg:hidden">
+            <div className="flex items-center gap-3">
+              <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-vibe shadow-pop">
+                <Sparkles className="h-5 w-5 text-primary-foreground" />
+              </div>
+              <div>
+                <div className="font-display text-lg font-bold leading-none">
+                  <span className="text-gradient">Confetti</span>
+                </div>
+                <div className="text-xs text-muted-foreground">Your city insider</div>
+              </div>
+            </div>
+          </div>
 
         <div className="mt-12">
           <h1 className="font-display text-3xl font-bold leading-tight">

@@ -1256,6 +1256,55 @@ function Landing() {
         </p>
       </section>
 
+      {/* ====================== FOR BUSINESSES CTA ====================== */}
+      <section className="border-t-2 border-ink bg-ink text-cream">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.4fr_1fr] lg:px-8 lg:py-24">
+          <div>
+            <span className="inline-flex items-center gap-2 rounded-full border-2 border-cream/40 bg-cream/5 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-cream/80">
+              <span className="h-2 w-2 rounded-full bg-coral" /> For businesses
+            </span>
+            <h2 className="mt-5 font-display text-4xl font-extrabold leading-[0.95] tracking-tight sm:text-5xl">
+              Be the plan,{" "}
+              <span className="font-serif italic font-normal text-coral">not an afterthought.</span>
+            </h2>
+            <p className="mt-4 max-w-xl text-base text-cream/80 sm:text-lg">
+              Get your venue in front of people the second they're choosing what to do tonight.
+              Promoted itinerary slots, home-page spotlights, and verified analytics.
+            </p>
+            <ul className="mt-5 grid max-w-xl gap-2 text-sm text-cream/80 sm:grid-cols-2">
+              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Promoted in real itineraries</li>
+              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Claim &amp; verify your venue free</li>
+              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Impressions, clicks, CTR dashboard</li>
+              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Pause anytime — no contracts</li>
+            </ul>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link to="/advertise" className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-cream bg-coral px-6 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5">
+                See packages <ArrowUpRight className="h-4 w-4" />
+              </Link>
+              <Link to="/advertise/portal" className="inline-flex h-12 items-center justify-center rounded-full border-2 border-cream/60 px-6 text-sm font-bold text-cream transition-pop hover:bg-cream/10">
+                Already a partner? Sign in
+              </Link>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="rounded-2xl border-2 border-cream/30 bg-cream/5 p-5 shadow-brut-lg backdrop-blur">
+              <div className="flex items-center justify-between border-b-2 border-dashed border-cream/30 pb-3">
+                <span className="font-mono text-[11px] uppercase tracking-widest text-cream/70">PARTNER · last 30d</span>
+                <span className="font-mono text-[11px] text-coral">LIVE</span>
+              </div>
+              <div className="mt-4 grid grid-cols-3 gap-3">
+                {[{ k: "Impressions", v: "12.4k" }, { k: "Clicks", v: "892" }, { k: "CTR", v: "7.2%" }].map((s) => (
+                  <div key={s.k} className="rounded-xl border-2 border-cream/30 bg-ink/40 p-3">
+                    <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">{s.k}</div>
+                    <div className="mt-1 font-display text-2xl font-extrabold">{s.v}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Suspense fallback={null}>
         <SiteFooter />
       </Suspense>

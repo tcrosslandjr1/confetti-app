@@ -99,6 +99,7 @@ import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
 import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
 import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pick-events'
+import { Route as AdvertiseStoriesSlugRouteImport } from './routes/advertise.stories.$slug'
 import { Route as ApiPublicWalletGoogleRouteImport } from './routes/api/public/wallet/google'
 import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public/tiktok.callback'
 import { Route as ApiPublicInstagramCallbackRouteImport } from './routes/api/public/instagram.callback'
@@ -557,6 +558,11 @@ const ApiPublicPickEventsRoute = ApiPublicPickEventsRouteImport.update({
   path: '/api/public/pick-events',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdvertiseStoriesSlugRoute = AdvertiseStoriesSlugRouteImport.update({
+  id: '/stories/$slug',
+  path: '/stories/$slug',
+  getParentRoute: () => AdvertiseRoute,
+} as any)
 const ApiPublicWalletGoogleRoute = ApiPublicWalletGoogleRouteImport.update({
   id: '/api/public/wallet/google',
   path: '/api/public/wallet/google',
@@ -685,6 +691,7 @@ export interface FileRoutesByFullPath {
   '/portal/': typeof PortalIndexRoute
   '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
+  '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
@@ -779,6 +786,7 @@ export interface FileRoutesByTo {
   '/portal': typeof PortalIndexRoute
   '/teams': typeof TeamsIndexRoute
   '/trips': typeof TripsIndexRoute
+  '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
@@ -879,6 +887,7 @@ export interface FileRoutesById {
   '/portal/': typeof PortalIndexRoute
   '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
+  '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
@@ -980,6 +989,7 @@ export interface FileRouteTypes {
     | '/portal/'
     | '/teams/'
     | '/trips/'
+    | '/advertise/stories/$slug'
     | '/api/public/pick-events'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
@@ -1074,6 +1084,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/teams'
     | '/trips'
+    | '/advertise/stories/$slug'
     | '/api/public/pick-events'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
@@ -1173,6 +1184,7 @@ export interface FileRouteTypes {
     | '/portal/'
     | '/teams/'
     | '/trips/'
+    | '/advertise/stories/$slug'
     | '/api/public/pick-events'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
@@ -1879,6 +1891,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicPickEventsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/advertise/stories/$slug': {
+      id: '/advertise/stories/$slug'
+      path: '/stories/$slug'
+      fullPath: '/advertise/stories/$slug'
+      preLoaderRoute: typeof AdvertiseStoriesSlugRouteImport
+      parentRoute: typeof AdvertiseRoute
+    }
     '/api/public/wallet/google': {
       id: '/api/public/wallet/google'
       path: '/api/public/wallet/google'
@@ -1978,11 +1997,13 @@ const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 interface AdvertiseRouteChildren {
   AdvertisePortalRoute: typeof AdvertisePortalRoute
   AdvertiseIndexRoute: typeof AdvertiseIndexRoute
+  AdvertiseStoriesSlugRoute: typeof AdvertiseStoriesSlugRoute
 }
 
 const AdvertiseRouteChildren: AdvertiseRouteChildren = {
   AdvertisePortalRoute: AdvertisePortalRoute,
   AdvertiseIndexRoute: AdvertiseIndexRoute,
+  AdvertiseStoriesSlugRoute: AdvertiseStoriesSlugRoute,
 }
 
 const AdvertiseRouteWithChildren = AdvertiseRoute._addFileChildren(

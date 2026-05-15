@@ -124,7 +124,7 @@ function StoryPage() {
       />
 
       <section className="mt-10 grid gap-3 sm:grid-cols-3">
-        {story.stats.map((s) => (
+        {story.stats.map((s: Story["stats"][number]) => (
           <div key={s.label} className="rounded-2xl border border-border bg-card p-5 shadow-card">
             <s.icon className="h-5 w-5 text-primary" />
             <div className="mt-2 font-display text-3xl font-extrabold">{s.value}</div>

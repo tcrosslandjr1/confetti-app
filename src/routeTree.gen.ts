@@ -29,6 +29,7 @@ import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MeRouteImport } from './routes/me'
 import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as ForBusinessRouteImport } from './routes/for-business'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as DataTermsRouteImport } from './routes/data-terms'
@@ -209,6 +210,11 @@ const InvestorsRoute = InvestorsRouteImport.update({
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForBusinessRoute = ForBusinessRouteImport.update({
+  id: '/for-business',
+  path: '/for-business',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FeaturesRoute = FeaturesRouteImport.update({
@@ -643,6 +649,7 @@ export interface FileRoutesByFullPath {
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
   '/features': typeof FeaturesRoute
+  '/for-business': typeof ForBusinessRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
@@ -743,6 +750,7 @@ export interface FileRoutesByTo {
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
   '/features': typeof FeaturesRoute
+  '/for-business': typeof ForBusinessRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
@@ -845,6 +853,7 @@ export interface FileRoutesById {
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
   '/features': typeof FeaturesRoute
+  '/for-business': typeof ForBusinessRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
@@ -950,6 +959,7 @@ export interface FileRouteTypes {
     | '/data-terms'
     | '/discover'
     | '/features'
+    | '/for-business'
     | '/how-it-works'
     | '/investors'
     | '/me'
@@ -1050,6 +1060,7 @@ export interface FileRouteTypes {
     | '/data-terms'
     | '/discover'
     | '/features'
+    | '/for-business'
     | '/how-it-works'
     | '/investors'
     | '/me'
@@ -1151,6 +1162,7 @@ export interface FileRouteTypes {
     | '/data-terms'
     | '/discover'
     | '/features'
+    | '/for-business'
     | '/how-it-works'
     | '/investors'
     | '/me'
@@ -1255,6 +1267,7 @@ export interface RootRouteChildren {
   DataTermsRoute: typeof DataTermsRoute
   DiscoverRoute: typeof DiscoverRoute
   FeaturesRoute: typeof FeaturesRoute
+  ForBusinessRoute: typeof ForBusinessRoute
   HowItWorksRoute: typeof HowItWorksRoute
   InvestorsRoute: typeof InvestorsRoute
   MeRoute: typeof MeRoute
@@ -1437,6 +1450,13 @@ declare module '@tanstack/react-router' {
       path: '/how-it-works'
       fullPath: '/how-it-works'
       preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-business': {
+      id: '/for-business'
+      path: '/for-business'
+      fullPath: '/for-business'
+      preLoaderRoute: typeof ForBusinessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/features': {
@@ -2175,6 +2195,7 @@ const rootRouteChildren: RootRouteChildren = {
   DataTermsRoute: DataTermsRoute,
   DiscoverRoute: DiscoverRoute,
   FeaturesRoute: FeaturesRoute,
+  ForBusinessRoute: ForBusinessRoute,
   HowItWorksRoute: HowItWorksRoute,
   InvestorsRoute: InvestorsRoute,
   MeRoute: MeRoute,

@@ -35,10 +35,10 @@ const MOCK_SAVED = [
     id: "mock-1",
     name: "Oyster Oyster",
     neighborhood: "Shaw, DC",
-    cuisine: "Vegan Fine Dining",
+    cuisine: "Vegetable-forward",
     rating: 4.8,
     description: "Innovative plant-based tasting menus",
-    savedAgo: "Saved 2 days ago",
+    savedAgo: "Saved 3 days ago",
   },
   {
     id: "mock-2",
@@ -47,16 +47,16 @@ const MOCK_SAVED = [
     cuisine: "Mediterranean",
     rating: 4.7,
     description: "Wood-fired dishes & natural wines",
-    savedAgo: "Saved 5 days ago",
+    savedAgo: "Saved 1 week ago",
   },
   {
     id: "mock-3",
     name: "Cranes",
     neighborhood: "Penn Quarter, DC",
-    cuisine: "Japanese-Spanish",
+    cuisine: "Spanish-Japanese",
     rating: 4.6,
     description: "Omakase meets tapas",
-    savedAgo: "Saved 1 week ago",
+    savedAgo: "Saved 2 weeks ago",
   },
   {
     id: "mock-4",
@@ -65,7 +65,7 @@ const MOCK_SAVED = [
     cuisine: "Filipino",
     rating: 4.9,
     description: "No-reservations Filipino street food",
-    savedAgo: "Saved 1 week ago",
+    savedAgo: "Saved 5 days ago",
   },
 ];
 

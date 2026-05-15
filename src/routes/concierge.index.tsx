@@ -62,7 +62,7 @@ function ConciergeHome() {
             Tonight in {city.name}
           </div>
           <h1 className="mt-1 font-display text-3xl font-bold leading-tight">
-            Hey {profile?.display_name?.split(" ")[0] ?? "friend"}{" "}
+            Hey {profile?.display_name?.trim().split(" ")[0] || "friend"}{" "}
             <span className="text-gradient">👋</span>
           </h1>
         </div>

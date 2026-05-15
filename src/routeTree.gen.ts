@@ -68,6 +68,7 @@ import { Route as PortalViralRouteImport } from './routes/portal.viral'
 import { Route as PortalSavedRouteImport } from './routes/portal.saved'
 import { Route as PortalReferRouteImport } from './routes/portal.refer'
 import { Route as PortalProfileRouteImport } from './routes/portal.profile'
+import { Route as PortalPassportRouteImport } from './routes/portal.passport'
 import { Route as PortalBookingsRouteImport } from './routes/portal.bookings'
 import { Route as PortalActivityRouteImport } from './routes/portal.activity'
 import { Route as PortalAchievementsRouteImport } from './routes/portal.achievements'
@@ -407,6 +408,11 @@ const PortalProfileRoute = PortalProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => PortalRoute,
 } as any)
+const PortalPassportRoute = PortalPassportRouteImport.update({
+  id: '/passport',
+  path: '/passport',
+  getParentRoute: () => PortalRoute,
+} as any)
 const PortalBookingsRoute = PortalBookingsRouteImport.update({
   id: '/bookings',
   path: '/bookings',
@@ -700,6 +706,7 @@ export interface FileRoutesByFullPath {
   '/portal/achievements': typeof PortalAchievementsRoute
   '/portal/activity': typeof PortalActivityRoute
   '/portal/bookings': typeof PortalBookingsRoute
+  '/portal/passport': typeof PortalPassportRoute
   '/portal/profile': typeof PortalProfileRoute
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
@@ -799,6 +806,7 @@ export interface FileRoutesByTo {
   '/portal/achievements': typeof PortalAchievementsRoute
   '/portal/activity': typeof PortalActivityRoute
   '/portal/bookings': typeof PortalBookingsRoute
+  '/portal/passport': typeof PortalPassportRoute
   '/portal/profile': typeof PortalProfileRoute
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
@@ -904,6 +912,7 @@ export interface FileRoutesById {
   '/portal/achievements': typeof PortalAchievementsRoute
   '/portal/activity': typeof PortalActivityRoute
   '/portal/bookings': typeof PortalBookingsRoute
+  '/portal/passport': typeof PortalPassportRoute
   '/portal/profile': typeof PortalProfileRoute
   '/portal/refer': typeof PortalReferRoute
   '/portal/saved': typeof PortalSavedRoute
@@ -1010,6 +1019,7 @@ export interface FileRouteTypes {
     | '/portal/achievements'
     | '/portal/activity'
     | '/portal/bookings'
+    | '/portal/passport'
     | '/portal/profile'
     | '/portal/refer'
     | '/portal/saved'
@@ -1109,6 +1119,7 @@ export interface FileRouteTypes {
     | '/portal/achievements'
     | '/portal/activity'
     | '/portal/bookings'
+    | '/portal/passport'
     | '/portal/profile'
     | '/portal/refer'
     | '/portal/saved'
@@ -1213,6 +1224,7 @@ export interface FileRouteTypes {
     | '/portal/achievements'
     | '/portal/activity'
     | '/portal/bookings'
+    | '/portal/passport'
     | '/portal/profile'
     | '/portal/refer'
     | '/portal/saved'
@@ -1725,6 +1737,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortalProfileRouteImport
       parentRoute: typeof PortalRoute
     }
+    '/portal/passport': {
+      id: '/portal/passport'
+      path: '/passport'
+      fullPath: '/portal/passport'
+      preLoaderRoute: typeof PortalPassportRouteImport
+      parentRoute: typeof PortalRoute
+    }
     '/portal/bookings': {
       id: '/portal/bookings'
       path: '/bookings'
@@ -2127,6 +2146,7 @@ interface PortalRouteChildren {
   PortalAchievementsRoute: typeof PortalAchievementsRoute
   PortalActivityRoute: typeof PortalActivityRoute
   PortalBookingsRoute: typeof PortalBookingsRoute
+  PortalPassportRoute: typeof PortalPassportRoute
   PortalProfileRoute: typeof PortalProfileRoute
   PortalReferRoute: typeof PortalReferRoute
   PortalSavedRoute: typeof PortalSavedRoute
@@ -2139,6 +2159,7 @@ const PortalRouteChildren: PortalRouteChildren = {
   PortalAchievementsRoute: PortalAchievementsRoute,
   PortalActivityRoute: PortalActivityRoute,
   PortalBookingsRoute: PortalBookingsRoute,
+  PortalPassportRoute: PortalPassportRoute,
   PortalProfileRoute: PortalProfileRoute,
   PortalReferRoute: PortalReferRoute,
   PortalSavedRoute: PortalSavedRoute,

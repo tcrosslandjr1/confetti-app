@@ -48,7 +48,7 @@ function PortalLayout() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   // Allow unauthenticated access to /portal/saved for App Store demo screenshots.
-  const isDemoPage = pathname === "/portal/saved";
+  const isDemoPage = pathname === "/portal/saved" || pathname === "/portal/passport";
 
   useEffect(() => {
     if (loading) return;

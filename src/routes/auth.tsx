@@ -9,6 +9,7 @@ import { seedDemoAccounts } from "@/lib/seed-demo.functions";
 import { lovable } from "@/integrations/lovable";
 import { rememberReferralCode, getPendingReferralCode } from "@/lib/referrals";
 import { requestUserLocation } from "@/lib/location";
+import { getMyAdvertiser } from "@/lib/ads";
 
 export const Route = createFileRoute("/auth")({
   validateSearch: (search: Record<string, unknown>) => {

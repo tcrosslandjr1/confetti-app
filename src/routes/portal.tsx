@@ -89,10 +89,20 @@ function PortalLayout() {
   }, [user, loading, viewAs, nav, pathname, isDemoPage]);
 
   if (!isDemoPage && (loading || !user || viewAs !== "customer")) {
-    const message = loading ? "Loading…" : "Switching view…";
+    const message = loading ? "Loading your portal..." : "Switching view…";
     return (
-      <div className="grid min-h-screen place-items-center text-sm text-muted-foreground">
-        {message}
+      <div
+        role="status"
+        aria-live="polite"
+        className="grid min-h-screen place-items-center bg-cream text-ink"
+      >
+        <div className="flex flex-col items-center gap-4">
+          <Loader2 className="h-10 w-10 animate-spin text-coral" aria-hidden="true" />
+          <p className="font-display text-sm font-bold tracking-tight text-ink/70">
+            {message}
+          </p>
+          <span className="sr-only">{message}</span>
+        </div>
       </div>
     );
   }

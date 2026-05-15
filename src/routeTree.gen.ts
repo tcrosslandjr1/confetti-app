@@ -105,6 +105,7 @@ import { Route as ApiPublicWalletGoogleRouteImport } from './routes/api/public/w
 import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public/tiktok.callback'
 import { Route as ApiPublicInstagramCallbackRouteImport } from './routes/api/public/instagram.callback'
 import { Route as ApiPublicHooksTiktokRefreshRouteImport } from './routes/api/public/hooks/tiktok-refresh'
+import { Route as ApiPublicHooksRefreshOutreachCsvRouteImport } from './routes/api/public/hooks/refresh-outreach-csv'
 import { Route as ApiPublicHooksDiscoverViralRouteImport } from './routes/api/public/hooks/discover-viral'
 import { Route as ApiAdminWalletGoogleDebugRouteImport } from './routes/api/admin/wallet/google-debug'
 import { Route as ApiAdminWalletGoogleClassRouteImport } from './routes/api/admin/wallet/google-class'
@@ -591,6 +592,12 @@ const ApiPublicHooksTiktokRefreshRoute =
     path: '/api/public/hooks/tiktok-refresh',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicHooksRefreshOutreachCsvRoute =
+  ApiPublicHooksRefreshOutreachCsvRouteImport.update({
+    id: '/api/public/hooks/refresh-outreach-csv',
+    path: '/api/public/hooks/refresh-outreach-csv',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicHooksDiscoverViralRoute =
   ApiPublicHooksDiscoverViralRouteImport.update({
     id: '/api/public/hooks/discover-viral',
@@ -706,6 +713,7 @@ export interface FileRoutesByFullPath {
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
+  '/api/public/hooks/refresh-outreach-csv': typeof ApiPublicHooksRefreshOutreachCsvRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
@@ -802,6 +810,7 @@ export interface FileRoutesByTo {
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
+  '/api/public/hooks/refresh-outreach-csv': typeof ApiPublicHooksRefreshOutreachCsvRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
@@ -904,6 +913,7 @@ export interface FileRoutesById {
   '/api/admin/wallet/google-class': typeof ApiAdminWalletGoogleClassRoute
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
+  '/api/public/hooks/refresh-outreach-csv': typeof ApiPublicHooksRefreshOutreachCsvRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
@@ -1007,6 +1017,7 @@ export interface FileRouteTypes {
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
     | '/api/public/hooks/discover-viral'
+    | '/api/public/hooks/refresh-outreach-csv'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
     | '/api/public/tiktok/callback'
@@ -1103,6 +1114,7 @@ export interface FileRouteTypes {
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
     | '/api/public/hooks/discover-viral'
+    | '/api/public/hooks/refresh-outreach-csv'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
     | '/api/public/tiktok/callback'
@@ -1204,6 +1216,7 @@ export interface FileRouteTypes {
     | '/api/admin/wallet/google-class'
     | '/api/admin/wallet/google-debug'
     | '/api/public/hooks/discover-viral'
+    | '/api/public/hooks/refresh-outreach-csv'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
     | '/api/public/tiktok/callback'
@@ -1265,6 +1278,7 @@ export interface RootRouteChildren {
   ApiAdminWalletGoogleClassRoute: typeof ApiAdminWalletGoogleClassRoute
   ApiAdminWalletGoogleDebugRoute: typeof ApiAdminWalletGoogleDebugRoute
   ApiPublicHooksDiscoverViralRoute: typeof ApiPublicHooksDiscoverViralRoute
+  ApiPublicHooksRefreshOutreachCsvRoute: typeof ApiPublicHooksRefreshOutreachCsvRoute
   ApiPublicHooksTiktokRefreshRoute: typeof ApiPublicHooksTiktokRefreshRoute
   ApiPublicInstagramCallbackRoute: typeof ApiPublicInstagramCallbackRoute
   ApiPublicTiktokCallbackRoute: typeof ApiPublicTiktokCallbackRoute
@@ -1945,6 +1959,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicHooksTiktokRefreshRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/hooks/refresh-outreach-csv': {
+      id: '/api/public/hooks/refresh-outreach-csv'
+      path: '/api/public/hooks/refresh-outreach-csv'
+      fullPath: '/api/public/hooks/refresh-outreach-csv'
+      preLoaderRoute: typeof ApiPublicHooksRefreshOutreachCsvRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/hooks/discover-viral': {
       id: '/api/public/hooks/discover-viral'
       path: '/api/public/hooks/discover-viral'
@@ -2168,6 +2189,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAdminWalletGoogleClassRoute: ApiAdminWalletGoogleClassRoute,
   ApiAdminWalletGoogleDebugRoute: ApiAdminWalletGoogleDebugRoute,
   ApiPublicHooksDiscoverViralRoute: ApiPublicHooksDiscoverViralRoute,
+  ApiPublicHooksRefreshOutreachCsvRoute: ApiPublicHooksRefreshOutreachCsvRoute,
   ApiPublicHooksTiktokRefreshRoute: ApiPublicHooksTiktokRefreshRoute,
   ApiPublicInstagramCallbackRoute: ApiPublicInstagramCallbackRoute,
   ApiPublicTiktokCallbackRoute: ApiPublicTiktokCallbackRoute,

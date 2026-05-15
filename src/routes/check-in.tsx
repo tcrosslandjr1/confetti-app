@@ -28,7 +28,7 @@ function CheckInPage() {
 
   useEffect(() => {
     if (!loopParam || !stopParam) {
-      setState({ status: "missing", reason: "Missing loop or stop in the link." });
+      setState({ status: "missing", reason: "Missing plan or stop in the link." });
       return;
     }
     const active = getActiveLoop();

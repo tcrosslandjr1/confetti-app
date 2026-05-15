@@ -218,7 +218,7 @@ export const TEMPLATES: OccasionTemplate[] = [
   },
   {
     occasionId: "just",
-    blueprintName: "Wildcard Loop",
+    blueprintName: "Wildcard Night",
     description: "Three on-vibe stops with one unexpected twist.",
     tone: "curious, spontaneous, slightly mischievous",
     structure: [

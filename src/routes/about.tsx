@@ -125,7 +125,7 @@ function AboutPage() {
 
         <div className="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-20">
           <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream/90 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] backdrop-blur">
-            <Sparkles className="h-3.5 w-3.5 text-coral" /> / about loop
+            <Sparkles className="h-3.5 w-3.5 text-coral" /> / about confetti
           </span>
           <h1 className="mt-6 font-display text-[12vw] font-extrabold leading-[0.85] tracking-[-0.04em] sm:text-[96px] lg:text-[128px]">
             We believe in

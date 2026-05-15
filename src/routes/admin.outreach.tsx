@@ -164,6 +164,30 @@ function AdminOutreachPage() {
         </div>
       )}
 
+      <div className="rounded-lg border bg-muted/30 p-4 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <Calendar className="h-5 w-5 text-primary" />
+          <div className="text-sm">
+            <div className="font-semibold">Weekly snapshot</div>
+            {snapshot ? (
+              <div className="text-xs text-muted-foreground">
+                Last computed {new Date(snapshot.generated_at).toLocaleString()} ·{" "}
+                {snapshot.venue_count} venues · {snapshot.window_days}d window ·{" "}
+                source: {snapshot.source}
+              </div>
+            ) : (
+              <div className="text-xs text-muted-foreground">
+                No snapshot yet — the cron runs every Monday 09:00 UTC.
+              </div>
+            )}
+          </div>
+        </div>
+        <Button variant="secondary" size="sm" onClick={onDownloadSnapshot} disabled={!snapshot}>
+          <Download className="h-4 w-4 mr-2" />
+          Download latest snapshot
+        </Button>
+      </div>
+
       {loading && venues.length === 0 ? (
         <div className="flex items-center justify-center py-16 text-muted-foreground">
           <Loader2 className="h-6 w-6 animate-spin" />

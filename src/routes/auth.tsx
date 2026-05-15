@@ -427,6 +427,7 @@ function AuthPage() {
           </span>
         </button>
 
+        {import.meta.env.DEV && (
         <div className="mt-8 rounded-2xl border border-dashed border-border bg-card/50 p-4">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             <Wand2 className="h-3.5 w-3.5" /> Dev quick start
@@ -464,6 +465,7 @@ function AuthPage() {
             Password for both: <span className="font-mono">Demo1234!</span>
           </p>
         </div>
+        )}
 
         <div className="mt-auto pt-10 text-center text-xs text-muted-foreground">
           By continuing you agree to our terms and{" "}

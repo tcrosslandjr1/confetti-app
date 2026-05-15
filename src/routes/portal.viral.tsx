@@ -63,7 +63,7 @@ const MOCK_DC_VIRAL: Row[] = [
     photo_url: null,
     rating: 4.8,
     trend_score: 2.94,
-    tags: ["tiktok_viral", "date_night", "michelin"] as ViralTag[],
+    tags: ["tiktok_viral", "date_night", "creator_mentioned"] as ViralTag[],
     summary: "Michelin-starred Levantine wood-fire cooking — DC's most-talked-about tasting menu.",
     google_place_id: null,
     source_urls: [
@@ -82,7 +82,7 @@ const MOCK_DC_VIRAL: Row[] = [
     photo_url: null,
     rating: 4.7,
     trend_score: 2.71,
-    tags: ["instagram_viral", "date_night", "new_opening"] as ViralTag[],
+    tags: ["instagrammable", "date_night", "trending_this_week"] as ViralTag[],
     summary: "Two-floor Peruvian: Causa downstairs, Amazonia upstairs. Pisco bar packed nightly.",
     google_place_id: null,
     source_urls: [
@@ -100,7 +100,7 @@ const MOCK_DC_VIRAL: Row[] = [
     photo_url: null,
     rating: 4.8,
     trend_score: 2.55,
-    tags: ["tiktok_viral", "must_try"] as ViralTag[],
+    tags: ["tiktok_viral", "foodie_hype"] as ViralTag[],
     summary: "The pork sausage & lychee salad is still the most-posted bite in the city.",
     google_place_id: null,
     source_urls: [
@@ -118,7 +118,7 @@ const MOCK_DC_VIRAL: Row[] = [
     photo_url: null,
     rating: 4.7,
     trend_score: 2.41,
-    tags: ["date_night", "michelin", "instagram_viral"] as ViralTag[],
+    tags: ["date_night", "creator_mentioned", "instagrammable"] as ViralTag[],
     summary: "Live-fire hearth, hand-baked breads — the most cinematic dining room in DC.",
     google_place_id: null,
     source_urls: [
@@ -136,7 +136,7 @@ const MOCK_DC_VIRAL: Row[] = [
     photo_url: null,
     rating: 4.6,
     trend_score: 2.18,
-    tags: ["brunch", "date_night", "instagram_viral"] as ViralTag[],
+    tags: ["photo_op", "date_night", "instagrammable"] as ViralTag[],
     summary: "DC's quintessential French brasserie — weekend brunch is still impossible to book.",
     google_place_id: null,
     source_urls: [
@@ -154,7 +154,7 @@ const MOCK_DC_VIRAL: Row[] = [
     photo_url: null,
     rating: 4.6,
     trend_score: 2.02,
-    tags: ["date_night", "waterfront", "tiktok_viral"] as ViralTag[],
+    tags: ["date_night", "hidden_gem", "tiktok_viral"] as ViralTag[],
     summary: "Modern Vietnamese on the waterfront — the sunset patio is everywhere on TikTok.",
     google_place_id: null,
     source_urls: [
@@ -172,7 +172,7 @@ const MOCK_DC_VIRAL: Row[] = [
     photo_url: null,
     rating: 4.5,
     trend_score: 1.87,
-    tags: ["rooftop", "instagram_viral", "happy_hour"] as ViralTag[],
+    tags: ["photo_op", "instagrammable", "worth_the_wait"] as ViralTag[],
     summary: "Astroturfed rooftop lawn with skyline views — bachelorette HQ all summer.",
     google_place_id: null,
     source_urls: [
@@ -190,7 +190,7 @@ const MOCK_DC_VIRAL: Row[] = [
     photo_url: null,
     rating: 4.7,
     trend_score: 1.74,
-    tags: ["new_opening", "tiktok_viral", "must_try"] as ViralTag[],
+    tags: ["trending_this_week", "tiktok_viral", "foodie_hype"] as ViralTag[],
     summary: "Wood-fired Mexican from Isabel Coss — every food critic in DC is writing about it.",
     google_place_id: null,
     source_urls: [

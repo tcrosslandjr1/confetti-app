@@ -67,22 +67,27 @@ function AdminOutreachPage() {
 
   useEffect(() => {
     load(days);
+    loadSnapshot();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const downloadBlob = (filename: string, csv: string) => {
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  };
 
   const onDownload = async () => {
     setDownloading(true);
     try {
       const { filename, csv } = await fetchCsv({ data: { days, limit: 500 } });
-      const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
+      downloadBlob(filename, csv);
       toast.success(`Exported ${filename}`);
     } catch (e: any) {
       toast.error(e?.message ?? "Failed to export CSV");
@@ -91,8 +96,16 @@ function AdminOutreachPage() {
     }
   };
 
+  const onDownloadSnapshot = () => {
+    if (!snapshot) return;
+    const stamp = snapshot.generated_at.slice(0, 10);
+    downloadBlob(`confetti-outreach-weekly-${stamp}.csv`, snapshot.csv);
+    toast.success("Downloaded weekly snapshot");
+  };
+
   const top = venues.slice(0, 10);
   const rest = venues.slice(10);
+
 
   return (
     <div className="p-6 space-y-6 max-w-6xl">

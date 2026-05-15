@@ -156,6 +156,33 @@ export type Database = {
           },
         ]
       }
+      advertiser_confetti_balances: {
+        Row: {
+          advertiser_id: string
+          balance_credits: number
+          created_at: string
+          lifetime_granted_credits: number
+          lifetime_purchased_credits: number
+          updated_at: string
+        }
+        Insert: {
+          advertiser_id: string
+          balance_credits?: number
+          created_at?: string
+          lifetime_granted_credits?: number
+          lifetime_purchased_credits?: number
+          updated_at?: string
+        }
+        Update: {
+          advertiser_id?: string
+          balance_credits?: number
+          created_at?: string
+          lifetime_granted_credits?: number
+          lifetime_purchased_credits?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       advertiser_subscriptions: {
         Row: {
           advertiser_id: string
@@ -355,6 +382,102 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      confetti_grants: {
+        Row: {
+          advertiser_id: string | null
+          booking_id: string | null
+          created_at: string
+          credits: number
+          id: string
+          reason: string
+          user_id: string
+          venue_name: string | null
+        }
+        Insert: {
+          advertiser_id?: string | null
+          booking_id?: string | null
+          created_at?: string
+          credits: number
+          id?: string
+          reason?: string
+          user_id: string
+          venue_name?: string | null
+        }
+        Update: {
+          advertiser_id?: string | null
+          booking_id?: string | null
+          created_at?: string
+          credits?: number
+          id?: string
+          reason?: string
+          user_id?: string
+          venue_name?: string | null
+        }
+        Relationships: []
+      }
+      confetti_purchases: {
+        Row: {
+          advertiser_id: string
+          amount_cents: number
+          created_at: string
+          credits: number
+          id: string
+          package_key: string
+          status: string
+        }
+        Insert: {
+          advertiser_id: string
+          amount_cents: number
+          created_at?: string
+          credits: number
+          id?: string
+          package_key: string
+          status?: string
+        }
+        Update: {
+          advertiser_id?: string
+          amount_cents?: number
+          created_at?: string
+          credits?: number
+          id?: string
+          package_key?: string
+          status?: string
+        }
+        Relationships: []
+      }
+      confetti_redemptions: {
+        Row: {
+          advertiser_id: string | null
+          created_at: string
+          credits: number
+          id: string
+          redeem_code: string
+          redeemed_at: string | null
+          status: string
+          user_id: string
+        }
+        Insert: {
+          advertiser_id?: string | null
+          created_at?: string
+          credits: number
+          id?: string
+          redeem_code: string
+          redeemed_at?: string | null
+          status?: string
+          user_id: string
+        }
+        Update: {
+          advertiser_id?: string | null
+          created_at?: string
+          credits?: number
+          id?: string
+          redeem_code?: string
+          redeemed_at?: string | null
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
       }
       corporate_attendees: {
         Row: {

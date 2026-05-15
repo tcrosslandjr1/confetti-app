@@ -193,44 +193,71 @@ function Passport() {
         </div>
       </div>
 
-      {/* Visits */}
+      {/* Stamps */}
       <div className="mt-8">
         <h2 className="font-display text-lg font-bold">Stamps collected</h2>
-        {visits.length === 0 ? (
-          <div className="mt-3 rounded-3xl border border-dashed border-border bg-card/50 p-6 text-center">
-            <BookMarked className="mx-auto h-7 w-7 text-muted-foreground" />
-            <div className="mt-3 font-semibold">No stamps yet</div>
-            <div className="mt-1 text-xs text-muted-foreground">
-              Log your first visit to start your map.
-            </div>
-            <button
-              onClick={() => navigate({ to: "/concierge" })}
-              className="mt-4 inline-flex items-center gap-1 rounded-full bg-gradient-vibe px-4 py-2 text-xs font-semibold text-primary-foreground"
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
+          {MOCK_STAMPS.map((s) => (
+            <div
+              key={s.id}
+              className="relative overflow-hidden rounded-2xl border-2 border-ink bg-card p-4 shadow-card"
             >
-              <Sparkles className="h-3.5 w-3.5" /> Find somewhere to go
-            </button>
-          </div>
-        ) : (
-          <div className="mt-3 space-y-2">
-            {visits.map((v) => (
-              <div
-                key={v.id}
-                className="flex items-center gap-3 rounded-2xl border border-border bg-card p-4 shadow-card"
-              >
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-cool text-primary-foreground">
-                  <MapPin className="h-4 w-4" />
-                </span>
-                <div className="min-w-0 flex-1">
-                  <div className="truncate font-semibold">{v.venue_name}</div>
-                  <div className="text-[11px] text-muted-foreground">
-                    {format(new Date(v.visited_at), "MMM d, yyyy")}
+              <div className="flex items-start gap-3">
+                <div className="grid h-20 w-20 shrink-0 place-items-center rounded-full border-4 border-dashed border-coral bg-cream text-center">
+                  <div>
+                    <div className="font-mono text-[8px] uppercase tracking-widest text-coral">
+                      Confetti
+                    </div>
+                    <div className="mt-0.5 font-display text-[9px] font-extrabold leading-tight text-ink">
+                      {s.city.split(" ")[0].toUpperCase()}
+                      <br />
+                      {(s.city.split(" ").slice(1).join(" ") || "STAMP").toUpperCase()}
+                    </div>
                   </div>
                 </div>
-                <div className="text-xs font-semibold text-accent">+{v.xp_earned} XP</div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+                    <MapPin className="h-3 w-3" /> {s.city}
+                  </div>
+                  <div className="mt-1 font-display text-base font-extrabold text-ink">
+                    {s.theme}
+                  </div>
+                  <div className="text-[11px] text-muted-foreground">{s.date}</div>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-background px-2 py-0.5 text-[10px] font-bold text-ink">
+                      <Sparkles className="h-2.5 w-2.5 text-coral" /> {s.stops} stops
+                    </span>
+                    <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-coral px-2 py-0.5 text-[10px] font-bold text-cream">
+                      <Trophy className="h-2.5 w-2.5" /> {s.xp} XP
+                    </span>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Stats footer */}
+      <div className="mt-6 grid gap-3 rounded-2xl border-2 border-ink bg-card p-5 shadow-card sm:grid-cols-3">
+        <div className="text-center">
+          <div className="font-display text-3xl font-extrabold text-coral">{totalAdventures}</div>
+          <div className="mt-1 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+            Total Adventures
           </div>
-        )}
+        </div>
+        <div className="text-center">
+          <div className="font-display text-3xl font-extrabold text-coral">{citiesVisited}</div>
+          <div className="mt-1 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+            Cities Visited
+          </div>
+        </div>
+        <div className="text-center">
+          <div className="font-display text-3xl font-extrabold text-coral">{totalXP}</div>
+          <div className="mt-1 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+            Total XP
+          </div>
+        </div>
       </div>
     </div>
   );

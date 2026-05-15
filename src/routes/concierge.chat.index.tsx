@@ -232,6 +232,11 @@ function ChatList() {
                             <div className="truncate text-sm font-semibold">
                               {t.title || "Untitled"}
                             </div>
+                            {MOCK_PREVIEWS[t.id] && (
+                              <div className="truncate text-xs text-muted-foreground">
+                                {MOCK_PREVIEWS[t.id]}
+                              </div>
+                            )}
                             <div className="text-[11px] text-muted-foreground">
                               {formatDistanceToNow(new Date(t.last_message_at), {
                                 addSuffix: true,

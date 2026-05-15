@@ -2,6 +2,7 @@ import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
+import { firstNameOrFriend } from "@/lib/user-name";
 import { Check, MessageCircle, Pencil, Plus, Search, Trash2, X } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { toast } from "sonner";
@@ -44,6 +45,7 @@ function ChatList() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [threads, setThreads] = useState<Thread[]>([]);
+  const [profile, setProfile] = useState<{ display_name: string | null } | null>(null);
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -64,6 +66,16 @@ function ChatList() {
 
   useEffect(() => {
     load();
+  }, [user]);
+
+  useEffect(() => {
+    if (!user) return;
+    supabase
+      .from("profiles")
+      .select("display_name")
+      .eq("id", user.id)
+      .maybeSingle()
+      .then(({ data }) => setProfile(data as any));
   }, [user]);
 
   const filtered = useMemo(() => {
@@ -124,7 +136,9 @@ function ChatList() {
     <div className="px-5 pt-10">
       <div className="flex items-center justify-between">
         <div>
-          <div className="text-xs uppercase tracking-wider text-muted-foreground">Your chats</div>
+          <div className="text-xs uppercase tracking-wider text-muted-foreground">
+            Hey {firstNameOrFriend(user, profile)} 👋
+          </div>
           <h1 className="mt-1 font-display text-3xl font-bold">Concierge</h1>
         </div>
         <button

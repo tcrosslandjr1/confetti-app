@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { MOODS, TRENDING_PICKS, rankName, levelFromXp } from "@/lib/concierge-data";
 import { getSelectedCity, DEFAULT_CITY, subscribeSelectedCity, type City } from "@/lib/cities";
+import { firstNameOrFriend } from "@/lib/user-name";
 import { Compass, MapPin, MessageCircle, Sparkles, TrendingUp } from "lucide-react";
 
 export const Route = createFileRoute("/concierge/")({
@@ -62,7 +63,7 @@ function ConciergeHome() {
             Tonight in {city.name}
           </div>
           <h1 className="mt-1 font-display text-3xl font-bold leading-tight">
-            Hey {profile?.display_name?.trim().split(" ")[0] || "friend"}{" "}
+            Hey {firstNameOrFriend(user, profile)}{" "}
             <span className="text-gradient">👋</span>
           </h1>
         </div>

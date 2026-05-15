@@ -105,7 +105,7 @@ function ScanPage() {
   function submitManual(e: React.FormEvent) {
     e.preventDefault();
     if (!handleScannedValue(manual.trim())) {
-      setErrorMsg("That code doesn't include a loop and stop. Paste a check-in URL.");
+      setErrorMsg("That code doesn't include a plan and stop. Paste a check-in URL.");
     }
   }
 

@@ -145,7 +145,7 @@ export function SiteFooter() {
 
         <div className="mt-16 border-t-2 border-cream/15 pt-6">
           <h2 className="font-display text-[18vw] font-extrabold leading-none tracking-tighter sm:text-[160px]">
-            loop<span className="text-coral">.</span>
+            confetti<span className="text-coral">.</span>
           </h2>
         </div>
 

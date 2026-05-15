@@ -8,7 +8,7 @@ import { useAuth } from "@/lib/auth-context";
 import { useScrolled } from "@/hooks/useScrolled";
 
 const TAGLINES = [
-  "your city, on a loop",
+  "your city, on confetti",
   "tonight, sorted",
   "plans that actually happen",
   "from craving → calendar",

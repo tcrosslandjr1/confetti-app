@@ -136,7 +136,9 @@ function ChatList() {
     <div className="px-5 pt-10">
       <div className="flex items-center justify-between">
         <div>
-          <div className="text-xs uppercase tracking-wider text-muted-foreground">Your chats</div>
+          <div className="text-xs uppercase tracking-wider text-muted-foreground">
+            Hey {firstNameOrFriend(user, profile)} 👋
+          </div>
           <h1 className="mt-1 font-display text-3xl font-bold">Concierge</h1>
         </div>
         <button

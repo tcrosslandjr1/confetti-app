@@ -13,6 +13,24 @@ export const Route = createFileRoute("/concierge/chat/")({
 
 type Thread = { id: string; title: string; last_message_at: string };
 
+const MOCK_THREADS: Thread[] = [
+  {
+    id: "mock-rooftop",
+    title: "Rooftop drinks tonight",
+    last_message_at: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+  },
+  {
+    id: "mock-birthday",
+    title: "Birthday dinner for 8",
+    last_message_at: new Date(Date.now() - 26 * 60 * 60 * 1000).toISOString(),
+  },
+];
+
+const MOCK_PREVIEWS: Record<string, string> = {
+  "mock-rooftop": "I found 3 rooftop options with open tables tonight...",
+  "mock-birthday": "Here's a private dining shortlist for May 17...",
+};
+
 function bucket(d: Date): "Today" | "This week" | "Earlier" {
   const now = new Date();
   const day = 86_400_000;

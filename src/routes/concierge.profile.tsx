@@ -6,7 +6,7 @@ import { CUISINES, ACTIVITIES, rankName, levelFromXp } from "@/lib/concierge-dat
 import { LogOut, Save, Sparkles, User as UserIcon } from "lucide-react";
 
 export const Route = createFileRoute("/concierge/profile")({
-  head: () => ({ meta: [{ title: "Profile — Concierge" }] }),
+  head: () => ({ meta: [{ title: "Profile — Confetti" }] }),
   component: Profile,
 });
 

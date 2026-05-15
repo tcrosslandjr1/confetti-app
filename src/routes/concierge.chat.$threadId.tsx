@@ -15,7 +15,7 @@ export const Route = createFileRoute("/concierge/chat/$threadId")({
   validateSearch: (s: Record<string, unknown>): Search => ({
     seed: typeof s.seed === "string" ? s.seed : undefined,
   }),
-  head: () => ({ meta: [{ title: "Chat — Concierge" }] }),
+  head: () => ({ meta: [{ title: "Chat — Confetti" }] }),
   component: ChatThread,
 });
 

@@ -7,7 +7,7 @@ import { formatDistanceToNow } from "date-fns";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/concierge/chat/")({
-  head: () => ({ meta: [{ title: "Chats — Concierge" }] }),
+  head: () => ({ meta: [{ title: "Chats — Confetti" }] }),
   component: ChatList,
 });
 

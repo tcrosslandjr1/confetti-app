@@ -124,7 +124,7 @@ export async function inviteByEmail(emails: string[]): Promise<number> {
     const link = buildReferralLink(code);
     const subject = encodeURIComponent("You'll love this — $25 off your first booking");
     const body = encodeURIComponent(
-      `Hey,\n\nI've been using Concierge to plan nights out and thought you'd love it. Use my link to get a discount on your first booking — and I'll get a $25 gift card when you do.\n\n${link}\n\nCode: ${code}\n`,
+      `Hey,\n\nI've been using Confetti to plan nights out and thought you'd love it. Use my link to get a discount on your first booking — and I'll get a $25 gift card when you do.\n\n${link}\n\nCode: ${code}\n`,
     );
     window.location.href = `mailto:${cleaned.join(",")}?subject=${subject}&body=${body}`;
   }

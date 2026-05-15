@@ -33,7 +33,7 @@ import { NotificationsBell } from "@/components/NotificationsBell";
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "Admin Console — Concierge" },
+      { title: "Admin Console — Confetti" },
       {
         name: "description",
         content: "Internal admin console for managing the Concierge platform.",

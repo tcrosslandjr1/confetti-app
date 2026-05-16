@@ -1,8 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Twitter, Youtube, Music2, Github } from "lucide-react";
+import { Instagram, Twitter, Youtube, Music2, Github, ChevronDown } from "lucide-react";
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { openCookieSettings } from "@/components/CookieConsent";
+import { cn } from "@/lib/utils";
 
-const cols = [
+const navCols = [
   {
     title: "Plan",
     items: [
@@ -27,11 +29,14 @@ const cols = [
       { to: "/about", label: "About" },
       { to: "/contact", label: "Contact" },
       { to: "/advertise", label: "For venues" },
-      { to: "/privacy", label: "Privacy" },
-      { to: "/terms", label: "Terms" },
-      { to: "/data-terms", label: "Data terms" },
     ],
   },
+] as const;
+
+const legalLinks = [
+  { to: "/privacy", label: "Privacy" },
+  { to: "/terms", label: "Terms" },
+  { to: "/data-terms", label: "Data terms" },
 ] as const;
 
 const socials = [
@@ -67,6 +72,51 @@ const socials = [
   },
 ];
 
+function FooterAccordionItem({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <AccordionPrimitive.Item value={title} className="border-b border-cream/15">
+      <AccordionPrimitive.Header className="flex">
+        <AccordionPrimitive.Trigger
+          className={cn(
+            "flex flex-1 items-center justify-between py-4 text-left",
+            "font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-cream/50",
+            "hover:text-coral transition-colors",
+            "[&[data-state=open]>svg]:rotate-180"
+          )}
+        >
+          <span>/ {title}</span>
+          <ChevronDown className="h-4 w-4 shrink-0 text-cream/50 transition-transform duration-200" />
+        </AccordionPrimitive.Trigger>
+      </AccordionPrimitive.Header>
+      <AccordionPrimitive.Content
+        className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+      >
+        <div className="pb-4 pt-0">{children}</div>
+      </AccordionPrimitive.Content>
+    </AccordionPrimitive.Item>
+  );
+}
+
+function LinkList({ items }: { items: readonly { to: string; label: string }[] }) {
+  return (
+    <ul className="space-y-3 font-display text-lg font-bold">
+      {items.map((i) => (
+        <li key={i.label}>
+          <Link to={i.to} className="hover:text-coral">
+            {i.label} <span className="text-cream/30">↗</span>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function SiteFooter() {
   return (
     <footer className="relative bg-ink text-cream">
@@ -99,7 +149,8 @@ export function SiteFooter() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-4">
+        {/* desktop grid */}
+        <div className="hidden gap-12 md:grid md:grid-cols-4">
           <div>
             <Link to="/" className="flex items-baseline gap-1">
               <span className="font-display text-3xl font-extrabold tracking-tight">confetti</span>
@@ -108,8 +159,6 @@ export function SiteFooter() {
             <p className="mt-4 max-w-xs font-serif text-lg italic leading-snug">
               The loud, opinionated planner for outings worth showing up for.
             </p>
-
-            {/* socials */}
             <div className="mt-6 flex flex-wrap gap-2">
               {socials.map(({ Icon, label, href, hover }) => (
                 <a
@@ -125,22 +174,58 @@ export function SiteFooter() {
               ))}
             </div>
           </div>
-          {cols.map((col) => (
+          {navCols.map((col) => (
             <div key={col.title}>
               <h5 className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-cream/50">
                 / {col.title}
               </h5>
-              <ul className="mt-4 space-y-3 font-display text-lg font-bold">
-                {col.items.map((i) => (
-                  <li key={i.label}>
-                    <Link to={i.to} className="hover:text-coral">
-                      {i.label} <span className="text-cream/30">↗</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-4">
+                <LinkList items={col.items} />
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* mobile accordion */}
+        <div className="md:hidden">
+          <Link to="/" className="flex items-baseline gap-1">
+            <span className="font-display text-3xl font-extrabold tracking-tight">confetti</span>
+            <span className="font-serif text-3xl italic text-coral">.</span>
+          </Link>
+          <p className="mt-4 max-w-xs font-serif text-lg italic leading-snug">
+            The loud, opinionated planner for outings worth showing up for.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {socials.map(({ Icon, label, href, hover }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={label}
+                className={`inline-grid h-11 w-11 place-items-center rounded-full border-2 border-cream/30 text-cream transition-pop hover:-translate-y-0.5 ${hover}`}
+              >
+                <Icon className="h-5 w-5" />
+              </a>
+            ))}
+          </div>
+
+          <AccordionPrimitive.Root type="multiple" className="mt-8">
+            {navCols.map((col) => (
+              <FooterAccordionItem key={col.title} title={col.title}>
+                <LinkList items={col.items} />
+              </FooterAccordionItem>
+            ))}
+          </AccordionPrimitive.Root>
+
+          {/* legal links always visible on mobile */}
+          <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 border-t border-cream/15 pt-4 font-mono text-[11px] font-bold uppercase tracking-widest text-cream/50">
+            {legalLinks.map((l) => (
+              <Link key={l.label} to={l.to} className="hover:text-coral">
+                {l.label}
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="mt-16 border-t-2 border-cream/15 pt-6">

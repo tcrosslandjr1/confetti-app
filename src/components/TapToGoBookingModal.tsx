@@ -100,6 +100,9 @@ export function TapToGoBookingModal({
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
 
+  // Browser/system Back closes the modal
+  useHistoryDismiss(open, onClose);
+
   // Finalize once all stops booked
   useEffect(() => {
     if (!allBooked || planRef) return;

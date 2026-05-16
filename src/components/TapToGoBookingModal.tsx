@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, Check, Loader2, X } from "lucide-react";
 import { toast } from "sonner";
+import { useHistoryDismiss } from "@/hooks/use-history-dismiss";
 
 export type TapToGoStop = {
   id: string;
@@ -98,6 +99,9 @@ export function TapToGoBookingModal({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
+
+  // Browser/system Back closes the modal
+  useHistoryDismiss(open, onClose);
 
   // Finalize once all stops booked
   useEffect(() => {

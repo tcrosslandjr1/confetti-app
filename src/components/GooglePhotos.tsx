@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { ImageIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { unsplashFor } from "@/lib/venue-images";
 

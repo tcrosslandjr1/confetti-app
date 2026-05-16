@@ -222,6 +222,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  // Warm the HTTP cache for Unsplash venue-card fallbacks so the first
+  // render swaps in instantly without flicker or layout shift.
+  useEffect(() => {
+    preloadFallbackImages();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>

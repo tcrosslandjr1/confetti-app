@@ -86,13 +86,13 @@ function FooterAccordionItem({
       <AccordionPrimitive.Header className="flex">
         <AccordionPrimitive.Trigger
           className={cn(
-            "flex flex-1 items-center justify-between py-4 text-left",
+            "group flex flex-1 items-center justify-between py-4 text-left",
             "font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-cream/50",
             "hover:text-coral transition-colors"
           )}
         >
           <span>/ {title}</span>
-          <ChevronDown className="h-4 w-4 shrink-0 text-cream/50 transition-transform duration-200 [&[data-state=open]]:rotate-180" />
+          <ChevronDown className="h-4 w-4 shrink-0 text-cream/50 transition-transform duration-200 group-data-[state=open]:rotate-180" />
         </AccordionPrimitive.Trigger>
       </AccordionPrimitive.Header>
       <AccordionPrimitive.Content

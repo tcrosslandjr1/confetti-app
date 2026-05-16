@@ -120,8 +120,6 @@ function LinkList({ items }: { items: readonly { to: string; label: string }[] }
 }
 
 export function SiteFooter() {
-  const isMobile = useIsMobile();
-
   return (
     <footer className="relative bg-ink text-cream">
       {/* wavy divider — cream → ink */}

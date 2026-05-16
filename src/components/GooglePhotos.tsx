@@ -63,23 +63,12 @@ export function GooglePhotos({
     };
   }, [key, venue, address, neighborhood]);
 
-  if (loading) {
-    return (
-      <div
-        className={`flex items-center justify-center bg-muted/60 text-muted-foreground ${
-          variant === "hero" ? "h-36 w-full" : "h-16 w-full"
-        } ${className}`}
-        aria-label="Loading Google photos"
-      >
-        <ImageIcon className="h-5 w-5 animate-pulse" />
-      </div>
-    );
-  }
-
-  if (photos.length === 0) {
-    if (hideEmpty) return null;
-    // Fall back to a category-appropriate Unsplash photo so cards never
-    // render a broken/empty image tile.
+  // While Google photos are loading — and whenever Google has nothing — we
+  // render the category-appropriate Unsplash fallback. It's already warm in
+  // the HTTP cache (see preloadFallbackImages) so it paints instantly with
+  // no flicker or layout shift.
+  if (loading || photos.length === 0) {
+    if (!loading && photos.length === 0 && hideEmpty) return null;
     const fallback = unsplashFor(category, venue);
     if (variant === "hero") {
       return (
@@ -87,8 +76,11 @@ export function GooglePhotos({
           <img
             src={fallback}
             alt={venue}
+            width={1200}
+            height={432}
             className="h-36 w-full object-cover"
-            loading="lazy"
+            loading="eager"
+            decoding="async"
           />
         </div>
       );
@@ -98,8 +90,11 @@ export function GooglePhotos({
         <img
           src={fallback}
           alt={venue}
+          width={400}
+          height={64}
           className="h-16 w-full rounded-lg object-cover"
-          loading="lazy"
+          loading="eager"
+          decoding="async"
         />
       </div>
     );

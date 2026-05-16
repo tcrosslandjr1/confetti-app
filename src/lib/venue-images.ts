@@ -91,8 +91,7 @@ export function preloadFallbackImages(): void {
     for (const url of ALL_FALLBACK_IMAGES) {
       const img = new Image();
       img.decoding = "async";
-      // @ts-expect-error - fetchPriority is supported in modern browsers
-      img.fetchPriority = "low";
+      (img as HTMLImageElement & { fetchPriority?: string }).fetchPriority = "low";
       img.src = url;
     }
   };

@@ -24,6 +24,7 @@ import {
   X,
 } from "lucide-react";
 import { useWizard } from "./wizard-context";
+import { useHistoryDismiss } from "@/hooks/use-history-dismiss";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
 import { buildSmartSearchUrl } from "@/lib/maps-links";
 import { toast } from "sonner";

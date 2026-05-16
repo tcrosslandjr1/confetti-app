@@ -1,9 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Twitter, Youtube, Music2, Github, ChevronDown } from "lucide-react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import * as React from "react";
 import { openCookieSettings } from "@/components/CookieConsent";
-import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 
 const navCols = [

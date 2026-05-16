@@ -992,6 +992,9 @@ export function BuildMyNightWizard() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, closeWizard]);
 
+  // Browser/system Back closes the wizard
+  useHistoryDismiss(open, closeWizard);
+
   // Load favorites when wizard opens (or user changes)
   useEffect(() => {
     if (!open || !user) {

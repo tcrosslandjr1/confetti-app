@@ -4,21 +4,21 @@ import { openCookieSettings } from "@/components/CookieConsent";
 
 const cols = [
   {
+    title: "Plan",
+    items: [
+      { to: "/plan", label: "Build my night" },
+      { to: "/discover", label: "Discover venues" },
+      { to: "/events", label: "What's on" },
+      { to: "/portal/bookings", label: "My bookings" },
+    ],
+  },
+  {
     title: "Product",
     items: [
       { to: "/features", label: "Features" },
       { to: "/how-it-works", label: "How it works" },
       { to: "/pricing", label: "Pricing" },
-      { to: "/plan", label: "Launch app" },
-    ],
-  },
-  {
-    title: "Vibes",
-    items: [
-      { to: "/", label: "Date night" },
-      { to: "/", label: "Family time" },
-      { to: "/", label: "Girls' night" },
-      { to: "/", label: "Meet the in-laws" },
+      { to: "/auth", label: "Sign in" },
     ],
   },
   {
@@ -26,9 +26,9 @@ const cols = [
     items: [
       { to: "/about", label: "About" },
       { to: "/contact", label: "Contact" },
-      { to: "/advertise", label: "Advertise" },
-      { to: "/investors", label: "Investors" },
-      { to: "/auth", label: "Sign in" },
+      { to: "/advertise", label: "For venues" },
+      { to: "/privacy", label: "Privacy" },
+      { to: "/terms", label: "Terms" },
       { to: "/data-terms", label: "Data terms" },
     ],
   },

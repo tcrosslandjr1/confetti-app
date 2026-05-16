@@ -18,6 +18,7 @@ import { ReferralCapture } from "@/components/ReferralCapture";
 import { TabBar } from "@/components/loop/TabBar";
 import { FirstRunNudge } from "@/components/FirstRunNudge";
 import { MapProvider } from "@/components/maps/MapProvider";
+import { preloadFallbackImages } from "@/lib/venue-images";
 
 const RoleSwitcher = lazy(() =>
   import("@/components/RoleSwitcher").then((m) => ({ default: m.RoleSwitcher })),

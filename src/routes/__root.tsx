@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -18,6 +18,7 @@ import { ReferralCapture } from "@/components/ReferralCapture";
 import { TabBar } from "@/components/loop/TabBar";
 import { FirstRunNudge } from "@/components/FirstRunNudge";
 import { MapProvider } from "@/components/maps/MapProvider";
+import { preloadFallbackImages } from "@/lib/venue-images";
 
 const RoleSwitcher = lazy(() =>
   import("@/components/RoleSwitcher").then((m) => ({ default: m.RoleSwitcher })),
@@ -220,6 +221,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  // Warm the HTTP cache for Unsplash venue-card fallbacks so the first
+  // render swaps in instantly without flicker or layout shift.
+  useEffect(() => {
+    preloadFallbackImages();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

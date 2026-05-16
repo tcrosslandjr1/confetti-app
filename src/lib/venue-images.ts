@@ -70,3 +70,33 @@ export function unsplashFor(category?: string | null, name?: string | null): str
   const seed = hash(`${category ?? ""}::${name ?? ""}`);
   return list[seed % list.length];
 }
+
+/** All fallback URLs, deduped. Useful for warming the browser cache. */
+export const ALL_FALLBACK_IMAGES: string[] = Array.from(
+  new Set([...RESTAURANT, ...BAR, ...LOUNGE, ...CLUB, ...CAFE, ...EVENT, ...GENERIC]),
+);
+
+let warmed = false;
+/**
+ * Warm the browser HTTP cache for every fallback image so the first venue
+ * card render swaps in instantly with no flicker. Safe to call repeatedly —
+ * only runs once per session, and only in the browser.
+ */
+export function preloadFallbackImages(): void {
+  if (warmed) return;
+  if (typeof window === "undefined") return;
+  warmed = true;
+  // Defer to idle so we don't compete with the LCP image / above-the-fold work.
+  const run = () => {
+    for (const url of ALL_FALLBACK_IMAGES) {
+      const img = new Image();
+      img.decoding = "async";
+      (img as HTMLImageElement & { fetchPriority?: string }).fetchPriority = "low";
+      img.src = url;
+    }
+  };
+  const ric = (window as unknown as { requestIdleCallback?: (cb: () => void) => void })
+    .requestIdleCallback;
+  if (ric) ric(run);
+  else setTimeout(run, 300);
+}

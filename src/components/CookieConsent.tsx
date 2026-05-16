@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
+import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -12,13 +14,16 @@ import { Switch } from "@/components/ui/switch";
 
 const STORAGE_KEY = "cookie-consent";
 const PREFS_KEY = "cookie-consent-prefs";
+const TERMS_KEY = "terms-accepted-at";
+const TERMS_VERSION = "2026-05-16";
 
 export type CookiePrefs = {
   necessary: true;
   analytics: boolean;
+  functional: boolean;
 };
 
-const DEFAULT_PREFS: CookiePrefs = { necessary: true, analytics: false };
+const DEFAULT_PREFS: CookiePrefs = { necessary: true, analytics: false, functional: false };
 
 function readPrefs(): CookiePrefs | null {
   if (typeof window === "undefined") return null;
@@ -26,7 +31,11 @@ function readPrefs(): CookiePrefs | null {
     const raw = localStorage.getItem(PREFS_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
-    return { necessary: true, analytics: !!parsed.analytics };
+    return {
+      necessary: true,
+      analytics: !!parsed.analytics,
+      functional: !!parsed.functional,
+    };
   } catch {
     return null;
   }
@@ -35,6 +44,10 @@ function readPrefs(): CookiePrefs | null {
 function savePrefs(prefs: CookiePrefs) {
   localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
   localStorage.setItem(STORAGE_KEY, prefs.analytics ? "accepted" : "declined");
+  localStorage.setItem(
+    TERMS_KEY,
+    JSON.stringify({ version: TERMS_VERSION, at: new Date().toISOString() }),
+  );
   window.dispatchEvent(new CustomEvent("cookie-prefs-changed", { detail: prefs }));
 }
 
@@ -52,9 +65,16 @@ export function CookieConsent() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const existing = readPrefs();
-    if (existing) {
-      setPrefs(existing);
-    } else if (!localStorage.getItem(STORAGE_KEY)) {
+    const termsRaw = localStorage.getItem(TERMS_KEY);
+    let termsCurrent = false;
+    try {
+      termsCurrent = !!termsRaw && JSON.parse(termsRaw).version === TERMS_VERSION;
+    } catch {
+      termsCurrent = false;
+    }
+    if (existing) setPrefs(existing);
+    // Show banner if no prior consent OR if terms version changed.
+    if (!localStorage.getItem(STORAGE_KEY) || !termsCurrent) {
       setBannerVisible(true);
     }
     const onOpen = () => {
@@ -63,10 +83,10 @@ export function CookieConsent() {
     };
     window.addEventListener("open-cookie-settings", onOpen);
 
-    // Hide the banner whenever a Radix dialog/sheet/drawer is open so it
-    // doesn't cover modal footer actions (wizard Continue, etc.).
     const check = () =>
-      setOverlayOpen(!!document.querySelector('[data-radix-dialog-overlay], [data-vaul-overlay]'));
+      setOverlayOpen(
+        !!document.querySelector('[data-radix-dialog-overlay], [data-vaul-overlay]'),
+      );
     check();
     const mo = new MutationObserver(check);
     mo.observe(document.body, { childList: true, subtree: true });
@@ -78,7 +98,7 @@ export function CookieConsent() {
   }, []);
 
   const acceptAll = () => {
-    const next: CookiePrefs = { necessary: true, analytics: true };
+    const next: CookiePrefs = { necessary: true, analytics: true, functional: true };
     savePrefs(next);
     setPrefs(next);
     setBannerVisible(false);
@@ -86,7 +106,7 @@ export function CookieConsent() {
   };
 
   const declineAll = () => {
-    const next: CookiePrefs = { necessary: true, analytics: false };
+    const next: CookiePrefs = { necessary: true, analytics: false, functional: false };
     savePrefs(next);
     setPrefs(next);
     setBannerVisible(false);
@@ -105,27 +125,60 @@ export function CookieConsent() {
         <div
           role="dialog"
           aria-live="polite"
-          aria-label="Cookie consent"
-          className="fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+5.5rem)] z-[80] mx-auto max-w-2xl rounded-xl border-2 border-ink bg-cream p-4 text-ink shadow-lg sm:bottom-6 sm:right-auto sm:left-4 sm:mx-0 sm:max-w-md sm:p-5"
+          aria-label="Cookie and terms consent"
+          className="fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+5.5rem)] z-[80] mx-auto max-w-2xl rounded-2xl border-2 border-ink bg-cream p-4 text-ink shadow-brut-lg sm:bottom-6 sm:right-auto sm:left-4 sm:mx-0 sm:max-w-sm sm:p-5"
         >
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-foreground">
-              We use cookies to improve your experience and analyze site usage. See our{" "}
-              <a href="/privacy" className="underline underline-offset-2">
-                privacy policy
-              </a>
-              .
-            </p>
-            <div className="flex shrink-0 flex-wrap gap-2">
-              <Button variant="outline" size="sm" onClick={() => setSettingsOpen(true)}>
-                Cookie settings
-              </Button>
-              <Button variant="outline" size="sm" onClick={declineAll}>
-                Decline
-              </Button>
-              <Button size="sm" onClick={acceptAll}>
-                Accept
-              </Button>
+          <div className="flex items-start gap-3">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border-2 border-ink bg-coral text-cream">
+              <Sparkles className="h-4 w-4" />
+            </span>
+            <div className="flex-1 space-y-3">
+              <div className="space-y-1">
+                <p className="font-display text-sm font-extrabold leading-tight">
+                  A quick housekeeping note
+                </p>
+                <p className="text-xs leading-relaxed text-ink/75">
+                  Confetti uses cookies to keep you signed in, remember your taste, and learn what
+                  picks land. By tapping <strong>Accept</strong> you also agree to our{" "}
+                  <Link to="/terms" className="font-bold underline underline-offset-2">
+                    Terms
+                  </Link>
+                  ,{" "}
+                  <Link to="/privacy" className="font-bold underline underline-offset-2">
+                    Privacy Policy
+                  </Link>
+                  , and{" "}
+                  <Link to="/cookies" className="font-bold underline underline-offset-2">
+                    Cookie Policy
+                  </Link>
+                  .
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  size="sm"
+                  onClick={acceptAll}
+                  className="rounded-full border-2 border-ink bg-coral text-cream shadow-brut hover:-translate-y-0.5"
+                >
+                  Accept all
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={declineAll}
+                  className="rounded-full border-2 border-ink bg-cream"
+                >
+                  Only essential
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setSettingsOpen(true)}
+                  className="rounded-full text-xs font-bold underline-offset-2 hover:underline"
+                >
+                  Customize
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -134,30 +187,46 @@ export function CookieConsent() {
       <Dialog open={settingsOpen} onOpenChange={setSettingsOpen}>
         <DialogContent className="max-w-lg">
           <DialogHeader>
-            <DialogTitle>Cookie settings</DialogTitle>
+            <DialogTitle className="font-display text-2xl">Your privacy choices</DialogTitle>
             <DialogDescription>
-              Choose which cookies we can use. You can change this any time from the footer.
+              Pick what Confetti can use. You can change this anytime from{" "}
+              <strong>Cookie settings</strong> in the footer.
             </DialogDescription>
           </DialogHeader>
 
-          <div className="space-y-4">
-            <div className="flex items-start justify-between gap-4 rounded-lg border-2 border-ink/10 p-4">
+          <div className="space-y-3">
+            <div className="flex items-start justify-between gap-4 rounded-xl border-2 border-ink/10 p-4">
               <div className="space-y-1">
-                <h3 className="font-display text-base font-bold">Necessary</h3>
+                <h3 className="font-display text-base font-bold">Strictly necessary</h3>
                 <p className="text-sm text-muted-foreground">
-                  Required for the site to work — sign-in, security, and remembering your
-                  preferences. These can't be turned off.
+                  Sign-in, security, fraud prevention, and remembering your choices. Required for
+                  Confetti to work.
                 </p>
               </div>
               <Switch checked disabled aria-label="Necessary cookies (always on)" />
             </div>
 
-            <div className="flex items-start justify-between gap-4 rounded-lg border-2 border-ink/10 p-4">
+            <div className="flex items-start justify-between gap-4 rounded-xl border-2 border-ink/10 p-4">
+              <div className="space-y-1">
+                <h3 className="font-display text-base font-bold">Functional</h3>
+                <p className="text-sm text-muted-foreground">
+                  Remember your city, vibe, and recently viewed venues so the home feed actually
+                  feels like yours.
+                </p>
+              </div>
+              <Switch
+                checked={prefs.functional}
+                onCheckedChange={(v) => setPrefs((p) => ({ ...p, functional: !!v }))}
+                aria-label="Toggle functional cookies"
+              />
+            </div>
+
+            <div className="flex items-start justify-between gap-4 rounded-xl border-2 border-ink/10 p-4">
               <div className="space-y-1">
                 <h3 className="font-display text-base font-bold">Analytics</h3>
                 <p className="text-sm text-muted-foreground">
-                  Help us understand which pages and features people use, so we can make Confetti
-                  better. Anonymous, aggregated only.
+                  Anonymous, aggregated stats so we can tell which picks land and what to build
+                  next. Never sold.
                 </p>
               </div>
               <Switch
@@ -166,11 +235,27 @@ export function CookieConsent() {
                 aria-label="Toggle analytics cookies"
               />
             </div>
+
+            <p className="rounded-lg bg-muted/40 px-3 py-2 text-xs text-muted-foreground">
+              Saving any choice below also confirms you've read and accepted our{" "}
+              <Link to="/terms" className="font-semibold underline underline-offset-2">
+                Terms
+              </Link>
+              ,{" "}
+              <Link to="/privacy" className="font-semibold underline underline-offset-2">
+                Privacy Policy
+              </Link>
+              , and{" "}
+              <Link to="/cookies" className="font-semibold underline underline-offset-2">
+                Cookie Policy
+              </Link>
+              .
+            </p>
           </div>
 
           <DialogFooter className="gap-2 sm:gap-2">
             <Button variant="outline" onClick={declineAll}>
-              Decline all
+              Only essential
             </Button>
             <Button variant="outline" onClick={saveCurrent}>
               Save choices

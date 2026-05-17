@@ -464,52 +464,86 @@ async function handlePayout(payout: any, env: StripeEnv, status: 'pending' | 'pa
   } as any, { onConflict: 'stripe_payout_id', ignoreDuplicates: false });
 }
 
-async function recordEvent(event: { id: string; type: string }, env: StripeEnv, payload: unknown, error?: string) {
-  await getSupabase().from('stripe_webhook_events').upsert({
-    stripe_event_id: event.id, event_type: event.type, environment: env,
-    payload: payload as any, processed_at: new Date().toISOString(), error: error ?? null,
-  }, { onConflict: 'stripe_event_id' });
+// ============================================================================
+// Idempotency + structured logging
+// ============================================================================
+type ClaimResult = 'new' | 'already_processed' | 'retry';
+
+/**
+ * Atomically claim a Stripe event for processing. Inserting first (with a
+ * UNIQUE constraint on stripe_event_id) closes the race where two concurrent
+ * deliveries from Stripe would both pass a naive "already processed?" check.
+ *
+ * - 'new'               → first delivery, proceed to handler
+ * - 'already_processed' → previous delivery succeeded, ack with 200 and stop
+ * - 'retry'             → previous delivery failed, increment attempts + retry
+ */
+async function claimEvent(event: { id: string; type: string }, env: StripeEnv, payload: unknown): Promise<ClaimResult> {
+  const sb = getSupabase();
+  const { error: insertErr } = await sb.from('stripe_webhook_events').insert({
+    stripe_event_id: event.id,
+    event_type: event.type,
+    environment: env,
+    payload: payload as any,
+    status: 'processing',
+    attempts: 1,
+  });
+  if (!insertErr) return 'new';
+
+  // 23505 = unique_violation → row already exists
+  if ((insertErr as any).code !== '23505') {
+    console.error('[webhook] claim insert failed', { eventId: event.id, type: event.type, env, error: insertErr.message });
+    throw insertErr;
+  }
+
+  const { data: existing } = await sb.from('stripe_webhook_events')
+    .select('status, attempts').eq('stripe_event_id', event.id).maybeSingle();
+  if (existing?.status === 'processed') return 'already_processed';
+
+  await sb.from('stripe_webhook_events').update({
+    status: 'processing',
+    attempts: (existing?.attempts ?? 0) + 1,
+  }).eq('stripe_event_id', event.id);
+  return 'retry';
 }
 
-async function alreadyProcessed(eventId: string): Promise<boolean> {
-  const { data } = await getSupabase().from('stripe_webhook_events')
-    .select('stripe_event_id').eq('stripe_event_id', eventId).maybeSingle();
-  return !!data;
+async function markProcessed(eventId: string) {
+  await getSupabase().from('stripe_webhook_events').update({
+    status: 'processed', processed_at: new Date().toISOString(), error: null,
+  }).eq('stripe_event_id', eventId);
 }
 
-async function handleWebhook(req: Request, env: StripeEnv) {
-  const event = await verifyWebhook(req, env);
-  if (await alreadyProcessed(event.id)) return;
-  try {
-    switch (event.type) {
-      case 'customer.subscription.created':
-        await handleSubscriptionCreated(event.data.object, env); break;
-      case 'customer.subscription.updated':
-        await handleSubscriptionUpdated(event.data.object, env); break;
-      case 'customer.subscription.deleted':
-        await handleSubscriptionDeleted(event.data.object, env); break;
-      case 'checkout.session.completed':
-        await handleCheckoutCompleted(event.data.object, env); break;
-      case 'payment_intent.payment_failed':
-        await handlePaymentFailed(event.data.object, env); break;
-      case 'account.updated':
-        await handleAccountUpdated(event.data.object, env); break;
-      case 'transfer.created':
-      case 'transfer.paid':
-        await handleTransfer(event.data.object, env); break;
-      case 'payout.created':
-        await handlePayout(event.data.object, env, 'pending'); break;
-      case 'payout.paid':
-        await handlePayout(event.data.object, env, 'paid'); break;
-      case 'payout.failed':
-        await handlePayout(event.data.object, env, 'failed'); break;
-      default:
-        console.log('Unhandled Stripe event:', event.type);
-    }
-    await recordEvent(event, env, event);
-  } catch (err) {
-    await recordEvent(event, env, event, err instanceof Error ? err.message : String(err));
-    throw err;
+async function markFailed(eventId: string, error: string) {
+  await getSupabase().from('stripe_webhook_events').update({
+    status: 'failed', error, last_error_at: new Date().toISOString(),
+  }).eq('stripe_event_id', eventId);
+}
+
+async function dispatch(event: { id: string; type: string; data: { object: any } }, env: StripeEnv) {
+  switch (event.type) {
+    case 'customer.subscription.created':
+      return handleSubscriptionCreated(event.data.object, env);
+    case 'customer.subscription.updated':
+      return handleSubscriptionUpdated(event.data.object, env);
+    case 'customer.subscription.deleted':
+      return handleSubscriptionDeleted(event.data.object, env);
+    case 'checkout.session.completed':
+      return handleCheckoutCompleted(event.data.object, env);
+    case 'payment_intent.payment_failed':
+      return handlePaymentFailed(event.data.object, env);
+    case 'account.updated':
+      return handleAccountUpdated(event.data.object, env);
+    case 'transfer.created':
+    case 'transfer.paid':
+      return handleTransfer(event.data.object, env);
+    case 'payout.created':
+      return handlePayout(event.data.object, env, 'pending');
+    case 'payout.paid':
+      return handlePayout(event.data.object, env, 'paid');
+    case 'payout.failed':
+      return handlePayout(event.data.object, env, 'failed');
+    default:
+      console.log('[webhook] unhandled', { eventId: event.id, type: event.type, env });
   }
 }
 
@@ -519,15 +553,57 @@ export const Route = createFileRoute('/api/public/payments/webhook')({
       POST: async ({ request }) => {
         const rawEnv = new URL(request.url).searchParams.get('env');
         if (rawEnv !== 'sandbox' && rawEnv !== 'live') {
-          console.error('Webhook with invalid env query parameter:', rawEnv);
+          console.error('[webhook] invalid env query parameter:', rawEnv);
+          // 200 — don't have Stripe retry a config error.
           return Response.json({ received: true, ignored: 'invalid env' });
         }
+        const env: StripeEnv = rawEnv;
+
+        // 1. Verify signature. A failure here means either a bad secret or a
+        //    forged request — reject with 400 so Stripe surfaces the failure.
+        let event: { id: string; type: string; data: { object: any } };
         try {
-          await handleWebhook(request, rawEnv);
-          return Response.json({ received: true });
+          event = await verifyWebhook(request, env) as any;
         } catch (e) {
-          console.error('Webhook error:', e);
-          return new Response('Webhook error', { status: 400 });
+          const msg = e instanceof Error ? e.message : String(e);
+          console.error('[webhook] signature verification failed', { env, error: msg });
+          return new Response(`Invalid signature: ${msg}`, { status: 400 });
+        }
+
+        const logCtx = { eventId: event.id, type: event.type, env };
+
+        // 2. Atomically claim the event for processing (idempotency).
+        let claim: ClaimResult;
+        try {
+          claim = await claimEvent(event, env, event);
+        } catch (e) {
+          console.error('[webhook] claim failed, will let Stripe retry', { ...logCtx, error: e instanceof Error ? e.message : String(e) });
+          return new Response('Claim failed', { status: 500 });
+        }
+        if (claim === 'already_processed') {
+          console.log('[webhook] duplicate, skipping', logCtx);
+          return Response.json({ received: true, duplicate: true });
+        }
+        if (claim === 'retry') {
+          console.warn('[webhook] retrying previously failed event', logCtx);
+        }
+
+        // 3. Run the handler.
+        const startedAt = Date.now();
+        try {
+          await dispatch(event, env);
+          await markProcessed(event.id);
+          console.log('[webhook] processed', { ...logCtx, ms: Date.now() - startedAt });
+          return Response.json({ received: true });
+        } catch (err) {
+          const msg = err instanceof Error ? err.message : String(err);
+          const stack = err instanceof Error ? err.stack : undefined;
+          console.error('[webhook] handler failed', { ...logCtx, ms: Date.now() - startedAt, error: msg, stack });
+          try { await markFailed(event.id, msg); } catch (e2) {
+            console.error('[webhook] markFailed failed', { ...logCtx, error: e2 instanceof Error ? e2.message : String(e2) });
+          }
+          // 500 — Stripe will retry with backoff (up to ~3 days).
+          return new Response(`Handler error: ${msg}`, { status: 500 });
         }
       },
     },

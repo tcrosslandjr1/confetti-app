@@ -105,11 +105,11 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <CitySelector compact className="hidden sm:block" />
+          <CitySelector compact className="hidden xl:block" />
           {isVisitor ? (
             <Link
               to="/auth"
-              className="hidden h-10 items-center whitespace-nowrap rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg sm:inline-flex"
+              className="hidden h-10 items-center whitespace-nowrap rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg lg:inline-flex"
             >
               Sign up free
             </Link>

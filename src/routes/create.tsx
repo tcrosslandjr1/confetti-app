@@ -12,6 +12,7 @@ import { generatePlan } from "@/lib/generate-plan.functions";
 import { toast } from "sonner";
 import { ForecastForDate } from "@/components/ForecastForDate";
 import { recordPickSignal } from "@/lib/pick-signals.functions";
+import { usePageview, useScrollDepth, useTimeToInteraction, trackCta, trackEvent } from "@/lib/analytics";
 
 const MOOD_CHIPS = [
   { id: "hyped", label: "Hyped", emoji: "🔥" },
@@ -70,6 +71,9 @@ function CreatePage() {
   const generate = useServerFn(generatePlan);
   const recordSignal = useServerFn(recordPickSignal);
   const [step, setStep] = useState(0);
+  usePageview("create_wizard", "/create");
+  useScrollDepth("/create");
+  useTimeToInteraction("/create");
   const [group, setGroup] = useState<(typeof GROUP)[number] | null>(null);
   const [occasion, setOccasion] = useState<(typeof OCCASIONS)[number] | null>(null);
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));

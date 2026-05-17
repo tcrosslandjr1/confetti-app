@@ -221,7 +221,7 @@ function PassportPage() {
 
 
   const shareData: PassportShareData = {
-    name: "Guest Explorer",
+    name: passport.displayName || "Guest Explorer",
     level,
     tier: currentTier.name as PassportShareData["tier"],
     confetti,

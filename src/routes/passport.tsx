@@ -288,7 +288,7 @@ function PassportPage() {
 
   return (
     <div className="min-h-screen bg-background pb-32">
-      <div className="mx-auto max-w-md px-4 pt-6">
+      <div className="mx-auto max-w-5xl px-4 pt-6 sm:px-6 lg:px-8">
         <Link
           to="/portal"
           className="inline-flex items-center gap-1 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 hover:text-ink"
@@ -297,7 +297,7 @@ function PassportPage() {
         </Link>
 
         {/* Passport hero */}
-        <div className="relative mt-4 overflow-hidden rounded-3xl border-2 border-ink bg-gradient-vibe p-6 text-cream shadow-brut-lg">
+        <div className="relative mt-4 overflow-hidden rounded-3xl border-2 border-ink bg-gradient-vibe p-6 sm:p-8 text-cream shadow-brut-lg">
           {/* layered glow */}
           <div className="pointer-events-none absolute -left-20 -top-20 h-56 w-56 rounded-full bg-cream/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-24 -right-16 h-64 w-64 rounded-full bg-ink/30 blur-3xl" />

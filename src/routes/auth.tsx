@@ -511,9 +511,12 @@ function AuthPage() {
           </p>
         )}
 
-        <div className="my-5 flex items-center gap-3 text-[10px] uppercase tracking-wider text-muted-foreground">
-          <div className="h-px flex-1 bg-border" /> or email{" "}
-          <div className="h-px flex-1 bg-border" />
+        <div className="my-5 flex items-center gap-3">
+          <div className="h-px flex-1 bg-ink/20" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink/60">
+            or email
+          </span>
+          <div className="h-px flex-1 bg-ink/20" />
         </div>
 
         <form onSubmit={onSubmit} className="space-y-3">
@@ -522,7 +525,8 @@ function AuthPage() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
-              className="w-full rounded-2xl border border-border bg-card px-4 py-4 text-sm outline-none ring-ring/30 focus:ring-2"
+              required
+              className="w-full rounded-2xl border-2 border-ink bg-cream px-4 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
             />
           )}
           <input
@@ -531,7 +535,7 @@ function AuthPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
-            className="w-full rounded-2xl border border-border bg-card px-4 py-4 text-sm outline-none ring-ring/30 focus:ring-2"
+            className="w-full rounded-2xl border-2 border-ink bg-cream px-4 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
           />
           <div className="relative">
             <input
@@ -541,13 +545,13 @@ function AuthPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-              className="w-full rounded-2xl border border-border bg-card px-4 py-4 pr-12 text-sm outline-none ring-ring/30 focus:ring-2"
+              className="w-full rounded-2xl border-2 border-ink bg-cream px-4 py-4 pr-12 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
             />
             <button
               type="button"
               onClick={() => setShowPassword((s) => !s)}
               aria-label={showPassword ? "Hide password" : "Show password"}
-              className="absolute inset-y-0 right-3 my-auto grid h-9 w-9 place-items-center rounded-xl text-muted-foreground transition hover:bg-accent hover:text-foreground"
+              className="absolute inset-y-0 right-3 my-auto grid h-9 w-9 place-items-center rounded-xl border-2 border-ink/20 text-ink/60 transition hover:border-ink hover:bg-cream hover:text-ink"
             >
               {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
             </button>
@@ -557,30 +561,30 @@ function AuthPage() {
               value={refCode}
               onChange={(e) => setRefCode(e.target.value.toUpperCase())}
               placeholder="Referral code (optional) — get $25 off your first booking"
-              className="w-full rounded-2xl border border-border bg-card px-4 py-4 text-sm font-mono uppercase tracking-wider outline-none ring-ring/30 focus:ring-2"
+              className="w-full rounded-2xl border-2 border-ink/40 bg-cream/60 px-4 py-4 text-sm font-mono font-semibold uppercase tracking-wider text-ink placeholder:text-ink/40 outline-none focus:border-ink focus:bg-cream focus:ring-2 focus:ring-coral/40 transition"
             />
           )}
           {error && (
             <div
               role="alert"
-              className="flex items-start gap-2 rounded-xl border border-destructive/30 bg-destructive/5 p-3 text-xs text-destructive"
+              className="flex items-start gap-2 rounded-xl border-2 border-coral/60 bg-coral/10 p-3 text-xs text-ink"
             >
-              <span aria-hidden className="mt-0.5">
+              <span aria-hidden className="mt-0.5 text-coral">
                 ⚠️
               </span>
               <div className="space-y-1">
-                <p className="font-semibold">Something went wrong</p>
-                <p className="opacity-90">{error}</p>
+                <p className="font-bold">Something went wrong</p>
+                <p className="opacity-80">{error}</p>
               </div>
             </div>
           )}
           {mode === "signup" && locationBlocked && (
-            <label className="flex items-start gap-2 rounded-xl border border-border bg-card/50 p-3 text-xs text-muted-foreground">
+            <label className="flex items-start gap-2 rounded-xl border-2 border-ink/30 bg-cream/60 p-3 text-xs text-ink/70">
               <input
                 type="checkbox"
                 checked={allowWithoutLocation}
                 onChange={(e) => setAllowWithoutLocation(e.target.checked)}
-                className="mt-0.5"
+                className="mt-0.5 accent-coral"
               />
               <span>
                 Continue without location. Recommendations won't be tailored to your area until you
@@ -590,17 +594,17 @@ function AuthPage() {
           )}
           <button
             disabled={loading}
-            className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink py-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-none disabled:opacity-60"
+            className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral py-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-none disabled:opacity-60"
           >
             {loading && <Loader2 className="h-4 w-4 animate-spin" />}
             {mode === "signup" ? "Create account" : "Sign in"}
           </button>
           {mode === "signup" && (
-            <p className="text-center text-[11px] leading-relaxed text-muted-foreground">
+            <p className="text-center text-[11px] leading-relaxed text-ink/60">
               By creating an account you accept our{" "}
               <Link
                 to="/data-terms"
-                className="font-semibold text-foreground underline underline-offset-2"
+                className="font-bold text-ink underline underline-offset-2 hover:text-coral transition"
               >
                 Data sharing terms
               </Link>

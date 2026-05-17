@@ -46,6 +46,7 @@ import { Route as CheckInRouteImport } from './routes/check-in'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as BoardingPassRouteImport } from './routes/boarding-pass'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AppRouteImport } from './routes/app'
 import { Route as AdvertiseRouteImport } from './routes/advertise'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ActiveLoopRouteImport } from './routes/active-loop'
@@ -61,6 +62,7 @@ import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as CorporateIndexRouteImport } from './routes/corporate.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
 import { Route as BusinessIndexRouteImport } from './routes/business.index'
+import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as AdvertiseIndexRouteImport } from './routes/advertise.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as VenueIdRouteImport } from './routes/venue.$id'
@@ -102,6 +104,10 @@ import { Route as BusinessPricingRouteImport } from './routes/business.pricing'
 import { Route as BusinessLoginRouteImport } from './routes/business.login'
 import { Route as BusinessDashboardRouteImport } from './routes/business.dashboard'
 import { Route as BusinessClaimRouteImport } from './routes/business.claim'
+import { Route as AppReelsRouteImport } from './routes/app.reels'
+import { Route as AppProfileRouteImport } from './routes/app.profile'
+import { Route as AppPlanRouteImport } from './routes/app.plan'
+import { Route as AppExploreRouteImport } from './routes/app.explore'
 import { Route as ApiPlanRouteImport } from './routes/api/plan'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdvertisePortalRouteImport } from './routes/advertise.portal'
@@ -330,6 +336,11 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdvertiseRoute = AdvertiseRouteImport.update({
   id: '/advertise',
   path: '/advertise',
@@ -404,6 +415,11 @@ const BusinessIndexRoute = BusinessIndexRouteImport.update({
   id: '/business/',
   path: '/business/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
 } as any)
 const AdvertiseIndexRoute = AdvertiseIndexRouteImport.update({
   id: '/',
@@ -609,6 +625,26 @@ const BusinessClaimRoute = BusinessClaimRouteImport.update({
   id: '/business/claim',
   path: '/business/claim',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AppReelsRoute = AppReelsRouteImport.update({
+  id: '/reels',
+  path: '/reels',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPlanRoute = AppPlanRouteImport.update({
+  id: '/plan',
+  path: '/plan',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppExploreRoute = AppExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => AppRoute,
 } as any)
 const ApiPlanRoute = ApiPlanRouteImport.update({
   id: '/api/plan',
@@ -837,6 +873,7 @@ export interface FileRoutesByFullPath {
   '/active-loop': typeof ActiveLoopRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRouteWithChildren
+  '/app': typeof AppRouteWithChildren
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
@@ -899,6 +936,10 @@ export interface FileRoutesByFullPath {
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
+  '/app/explore': typeof AppExploreRoute
+  '/app/plan': typeof AppPlanRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/reels': typeof AppReelsRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
@@ -940,6 +981,7 @@ export interface FileRoutesByFullPath {
   '/venue/$id': typeof VenueIdRoute
   '/admin/': typeof AdminIndexRoute
   '/advertise/': typeof AdvertiseIndexRoute
+  '/app/': typeof AppIndexRoute
   '/business/': typeof BusinessIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/corporate/': typeof CorporateIndexRoute
@@ -1029,6 +1071,10 @@ export interface FileRoutesByTo {
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
+  '/app/explore': typeof AppExploreRoute
+  '/app/plan': typeof AppPlanRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/reels': typeof AppReelsRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
@@ -1070,6 +1116,7 @@ export interface FileRoutesByTo {
   '/venue/$id': typeof VenueIdRoute
   '/admin': typeof AdminIndexRoute
   '/advertise': typeof AdvertiseIndexRoute
+  '/app': typeof AppIndexRoute
   '/business': typeof BusinessIndexRoute
   '/concierge': typeof ConciergeIndexRoute
   '/corporate': typeof CorporateIndexRoute
@@ -1105,6 +1152,7 @@ export interface FileRoutesById {
   '/active-loop': typeof ActiveLoopRoute
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRouteWithChildren
+  '/app': typeof AppRouteWithChildren
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
@@ -1167,6 +1215,10 @@ export interface FileRoutesById {
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
+  '/app/explore': typeof AppExploreRoute
+  '/app/plan': typeof AppPlanRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/reels': typeof AppReelsRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
@@ -1208,6 +1260,7 @@ export interface FileRoutesById {
   '/venue/$id': typeof VenueIdRoute
   '/admin/': typeof AdminIndexRoute
   '/advertise/': typeof AdvertiseIndexRoute
+  '/app/': typeof AppIndexRoute
   '/business/': typeof BusinessIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/corporate/': typeof CorporateIndexRoute
@@ -1244,6 +1297,7 @@ export interface FileRouteTypes {
     | '/active-loop'
     | '/admin'
     | '/advertise'
+    | '/app'
     | '/auth'
     | '/boarding-pass'
     | '/chat'
@@ -1306,6 +1360,10 @@ export interface FileRouteTypes {
     | '/advertise/portal'
     | '/api/chat'
     | '/api/plan'
+    | '/app/explore'
+    | '/app/plan'
+    | '/app/profile'
+    | '/app/reels'
     | '/business/claim'
     | '/business/dashboard'
     | '/business/login'
@@ -1347,6 +1405,7 @@ export interface FileRouteTypes {
     | '/venue/$id'
     | '/admin/'
     | '/advertise/'
+    | '/app/'
     | '/business/'
     | '/concierge/'
     | '/corporate/'
@@ -1436,6 +1495,10 @@ export interface FileRouteTypes {
     | '/advertise/portal'
     | '/api/chat'
     | '/api/plan'
+    | '/app/explore'
+    | '/app/plan'
+    | '/app/profile'
+    | '/app/reels'
     | '/business/claim'
     | '/business/dashboard'
     | '/business/login'
@@ -1477,6 +1540,7 @@ export interface FileRouteTypes {
     | '/venue/$id'
     | '/admin'
     | '/advertise'
+    | '/app'
     | '/business'
     | '/concierge'
     | '/corporate'
@@ -1511,6 +1575,7 @@ export interface FileRouteTypes {
     | '/active-loop'
     | '/admin'
     | '/advertise'
+    | '/app'
     | '/auth'
     | '/boarding-pass'
     | '/chat'
@@ -1573,6 +1638,10 @@ export interface FileRouteTypes {
     | '/advertise/portal'
     | '/api/chat'
     | '/api/plan'
+    | '/app/explore'
+    | '/app/plan'
+    | '/app/profile'
+    | '/app/reels'
     | '/business/claim'
     | '/business/dashboard'
     | '/business/login'
@@ -1614,6 +1683,7 @@ export interface FileRouteTypes {
     | '/venue/$id'
     | '/admin/'
     | '/advertise/'
+    | '/app/'
     | '/business/'
     | '/concierge/'
     | '/corporate/'
@@ -1649,6 +1719,7 @@ export interface RootRouteChildren {
   ActiveLoopRoute: typeof ActiveLoopRoute
   AdminRoute: typeof AdminRouteWithChildren
   AdvertiseRoute: typeof AdvertiseRouteWithChildren
+  AppRoute: typeof AppRouteWithChildren
   AuthRoute: typeof AuthRoute
   BoardingPassRoute: typeof BoardingPassRoute
   ChatRoute: typeof ChatRoute
@@ -1981,6 +2052,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/advertise': {
       id: '/advertise'
       path: '/advertise'
@@ -2085,6 +2163,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/business/'
       preLoaderRoute: typeof BusinessIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
     }
     '/advertise/': {
       id: '/advertise/'
@@ -2372,6 +2457,34 @@ declare module '@tanstack/react-router' {
       fullPath: '/business/claim'
       preLoaderRoute: typeof BusinessClaimRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/app/reels': {
+      id: '/app/reels'
+      path: '/reels'
+      fullPath: '/app/reels'
+      preLoaderRoute: typeof AppReelsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/plan': {
+      id: '/app/plan'
+      path: '/plan'
+      fullPath: '/app/plan'
+      preLoaderRoute: typeof AppPlanRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/explore': {
+      id: '/app/explore'
+      path: '/explore'
+      fullPath: '/app/explore'
+      preLoaderRoute: typeof AppExploreRouteImport
+      parentRoute: typeof AppRoute
     }
     '/api/plan': {
       id: '/api/plan'
@@ -2740,6 +2853,24 @@ const AdvertiseRouteWithChildren = AdvertiseRoute._addFileChildren(
   AdvertiseRouteChildren,
 )
 
+interface AppRouteChildren {
+  AppExploreRoute: typeof AppExploreRoute
+  AppPlanRoute: typeof AppPlanRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppReelsRoute: typeof AppReelsRoute
+  AppIndexRoute: typeof AppIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppExploreRoute: AppExploreRoute,
+  AppPlanRoute: AppPlanRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppReelsRoute: AppReelsRoute,
+  AppIndexRoute: AppIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 interface ConciergeRouteChildren {
   ConciergePassportRoute: typeof ConciergePassportRoute
   ConciergeProfileRoute: typeof ConciergeProfileRoute
@@ -2888,6 +3019,7 @@ const rootRouteChildren: RootRouteChildren = {
   ActiveLoopRoute: ActiveLoopRoute,
   AdminRoute: AdminRouteWithChildren,
   AdvertiseRoute: AdvertiseRouteWithChildren,
+  AppRoute: AppRouteWithChildren,
   AuthRoute: AuthRoute,
   BoardingPassRoute: BoardingPassRoute,
   ChatRoute: ChatRoute,

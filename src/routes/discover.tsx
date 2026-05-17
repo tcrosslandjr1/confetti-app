@@ -6,6 +6,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { confettiMapStyle } from "@/components/maps/mapStyles";
 import { useGeocodedPoints } from "@/lib/geocode";
 import { GOOGLE_MAPS_API_KEY } from "@/lib/config";
+import { PullToRefresh } from "@/components/PullToRefresh";
+import { useCallback } from "react";
 
 export const Route = createFileRoute("/discover")({
   head: () => ({

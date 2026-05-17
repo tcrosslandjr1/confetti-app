@@ -56,6 +56,9 @@ import {
 import { toPng } from "html-to-image";
 import { Copy, Download, Check } from "lucide-react";
 import { toast } from "sonner";
+import { usePassportStats } from "@/hooks/usePassportStats";
+
+const EMPTY_STREAK: boolean[] = [false, false, false, false, false, false, false];
 
 type ClaimedReward = { id: string; label: string; cost: number; code: string; at: number };
 const CLAIMED_KEY = "passport:claimed-rewards";

@@ -44,6 +44,22 @@ const tiers = [
 ];
 
 function PricingPage() {
+  const { user } = useAuth();
+  const { openCheckout, checkoutElement } = useStripeCheckout();
+  const handleCta = (priceId: string | null, name: string) => {
+    if (!priceId) return;
+    if (!user) {
+      window.location.href = `/auth?next=${encodeURIComponent("/pricing")}`;
+      return;
+    }
+    openCheckout({
+      variant: { kind: "price", priceId, accountType: "user" },
+      customerEmail: user.email ?? undefined,
+      userId: user.id,
+      title: `Subscribe to ${name}`,
+    });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />

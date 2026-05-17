@@ -181,6 +181,65 @@ function PassportPage() {
   const currentTier = TIERS[currentTierIndex];
   const nextTier = TIERS[currentTierIndex + 1];
 
+  const shareData: PassportShareData = {
+    name: "Guest Explorer",
+    level,
+    tier: currentTier.name as PassportShareData["tier"],
+    confetti,
+    stamps: earnedStamps.length,
+    badges: unlockedCount,
+  };
+  const shareCode = encodePassport(shareData);
+  const shareUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/p/${shareCode}`
+      : `/p/${shareCode}`;
+
+  async function handleCopyLink() {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      toast.success("Link copied");
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      toast.error("Couldn't copy");
+    }
+  }
+
+  async function handleDownloadImage() {
+    if (!cardRef.current) return;
+    try {
+      const dataUrl = await toPng(cardRef.current, {
+        cacheBust: true,
+        pixelRatio: 2,
+        backgroundColor: "transparent",
+      });
+      const link = document.createElement("a");
+      link.download = `confetti-passport-L${level}.png`;
+      link.href = dataUrl;
+      link.click();
+      toast.success("Image downloaded");
+    } catch {
+      toast.error("Couldn't export image");
+    }
+  }
+
+  async function handleNativeShare() {
+    if (typeof navigator === "undefined" || !navigator.share) {
+      handleCopyLink();
+      return;
+    }
+    try {
+      await navigator.share({
+        title: "My Confetti Passport",
+        text: `L${level} ${currentTier.name} · ${confetti.toLocaleString()} Confetti`,
+        url: shareUrl,
+      });
+    } catch {
+      /* user cancelled */
+    }
+  }
+
   return (
     <div className="min-h-screen bg-background pb-32">
       <div className="mx-auto max-w-md px-4 pt-6">

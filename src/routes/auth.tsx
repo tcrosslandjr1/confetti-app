@@ -597,11 +597,11 @@ function AuthPage() {
             {mode === "signup" ? "Create account" : "Sign in"}
           </button>
           {mode === "signup" && (
-            <p className="text-center text-[11px] leading-relaxed text-muted-foreground">
+            <p className="text-center text-[11px] leading-relaxed text-ink/60">
               By creating an account you accept our{" "}
               <Link
                 to="/data-terms"
-                className="font-semibold text-foreground underline underline-offset-2"
+                className="font-bold text-ink underline underline-offset-2 hover:text-coral transition"
               >
                 Data sharing terms
               </Link>

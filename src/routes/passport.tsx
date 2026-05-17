@@ -139,6 +139,7 @@ function PassportPage() {
   const [localConfetti, setLocalConfetti] = useState(0);
   const [claimed, setClaimed] = useState<ClaimedReward[]>([]);
   const [pending, setPending] = useState<(typeof REWARDS)[number] | null>(null);
+  const [redeeming, setRedeeming] = useState(false);
   const [justClaimed, setJustClaimed] = useState<ClaimedReward | null>(null);
   const [localStamps, setLocalStamps] = useState<PassportStamp[]>([]);
   const [shareOpen, setShareOpen] = useState(false);

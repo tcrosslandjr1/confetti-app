@@ -1983,7 +1983,7 @@ export function BuildMyNightWizard() {
               <ol className="mt-4 space-y-3">
                 {sortedStops.map(({ s, i: origIdx }, displayIdx) => {
                   const i = origIdx;
-                  const isOpen = !closedStops.has(i);
+                  const isOpen = openStops.has(i);
                   const mockBase = getDetails(s.venue, s.vibe);
                   const mock = personalizeDetails(mockBase, s.venue);
                   const live = placesData[s.venue];

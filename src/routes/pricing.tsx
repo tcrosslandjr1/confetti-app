@@ -62,6 +62,7 @@ function PricingPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <PaymentTestModeBanner />
       <SiteHeader />
       <section className="border-b border-border">
         <div className="mx-auto max-w-5xl px-4 py-20 text-center sm:px-6">

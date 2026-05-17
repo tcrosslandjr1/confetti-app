@@ -390,6 +390,14 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
             >
               Search on Google <ExternalLink className="h-3 w-3" />
             </a>
+            <a
+              href={`https://www.tiktok.com/search?q=${encodeURIComponent(venue.name)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 inline-flex items-center gap-1 text-[11px] font-medium text-white/80 underline underline-offset-2 hover:text-white"
+            >
+              Search on TikTok <ExternalLink className="h-3 w-3" />
+            </a>
           </div>
         </div>
       </div>

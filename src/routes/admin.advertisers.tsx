@@ -14,6 +14,7 @@ import {
   setVenueVerified,
   updateAdvertiser,
   updateAdvertiserStatus,
+  adminDecideAdvertiser,
   updateCampaign,
   updateCampaignStatus,
   deleteCampaign,

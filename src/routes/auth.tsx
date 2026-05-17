@@ -287,8 +287,8 @@ function AuthPage() {
           </div>
 
           {/* Floating preview collage — fills the middle breathing space */}
-          <div className="relative my-6 hidden h-[220px] xl:block">
-            <div className="absolute left-[6%] top-2 w-[58%] -rotate-[5deg] rounded-2xl border-2 border-ink bg-cream p-4 text-ink shadow-brut-lg transition-transform hover:-translate-y-1 hover:-rotate-[3deg]">
+          <div className="relative my-6 hidden h-[220px] lg:block">
+            <div className="auth-collage-card absolute left-[6%] top-2 w-[58%] -rotate-[5deg] rounded-2xl border-2 border-ink bg-cream p-4 text-ink shadow-brut-lg transition-transform hover:-translate-y-1 hover:-rotate-[3deg] motion-reduce:transform-none motion-reduce:transition-none">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink/60">tonight · 8:30pm</span>
                 <span className="inline-flex items-center gap-1 rounded-full bg-coral px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream">
@@ -307,7 +307,7 @@ function AuthPage() {
               </div>
             </div>
 
-            <div className="absolute right-[4%] top-[42%] w-[46%] rotate-[6deg] rounded-2xl border-2 border-ink bg-ink p-4 text-cream shadow-brut-lg transition-transform hover:-translate-y-1 hover:rotate-[3deg]">
+            <div className="auth-collage-card absolute right-[4%] top-[42%] w-[46%] rotate-[6deg] rounded-2xl border-2 border-ink bg-ink p-4 text-cream shadow-brut-lg transition-transform hover:-translate-y-1 hover:rotate-[3deg] motion-reduce:transform-none motion-reduce:transition-none">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] opacity-70">your reward</span>
                 <PartyPopper className="h-4 w-4 text-coral" />
@@ -322,7 +322,7 @@ function AuthPage() {
               <div className="mt-1.5 font-mono text-[9px] uppercase tracking-widest opacity-70">320 to gold tier</div>
             </div>
 
-            <div className="absolute left-[2%] bottom-0 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut">
+            <div className="auth-collage-card absolute left-[2%] bottom-0 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut motion-reduce:transform-none motion-reduce:transition-none">
               <ShieldCheck className="h-3 w-3 text-coral" /> skip the line
             </div>
           </div>

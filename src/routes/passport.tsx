@@ -124,6 +124,9 @@ function PassportPage() {
   const [pending, setPending] = useState<(typeof REWARDS)[number] | null>(null);
   const [justClaimed, setJustClaimed] = useState<ClaimedReward | null>(null);
   const [earnedStamps, setEarnedStamps] = useState<PassportStamp[]>([]);
+  const [shareOpen, setShareOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     setConfettiCount(getConfetti());
     setClaimed(loadClaimed());

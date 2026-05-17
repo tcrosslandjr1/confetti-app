@@ -34,6 +34,7 @@ import {
   Crown,
   Plus,
   Minus,
+  Check,
 } from "lucide-react";
 import type { ActiveLoop, LoopStop } from "@/lib/loop-store";
 

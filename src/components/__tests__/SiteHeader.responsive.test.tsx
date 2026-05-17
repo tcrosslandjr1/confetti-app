@@ -125,12 +125,14 @@ describe("<SiteHeader /> responsive layout contract", () => {
   });
 
   it("CitySelector is hidden until ≥1400px", () => {
+    renderHeader();
     const city = screen.getByTestId("city-selector");
     expect(city.className).toContain("hidden");
     expect(city.className).toContain("min-[1400px]:block");
   });
 
   it("Sign up free CTA is hidden until ≥1320px", () => {
+    renderHeader();
     const cta = screen.getByText(/sign up free/i);
     expect(cta.className).toContain("hidden");
     expect(cta.className).toContain("min-[1320px]:inline-flex");
@@ -138,6 +140,7 @@ describe("<SiteHeader /> responsive layout contract", () => {
   });
 
   it("desktop 'Build a night' button is hidden below sm; mobile FAB is hidden at sm+", () => {
+    renderHeader();
     const buildButtons = screen.getAllByLabelText(/build a night/i);
     expect(buildButtons.length).toBe(2);
     const desktop = buildButtons.find((b) => b.className.includes("sm:inline-flex"))!;
@@ -147,6 +150,7 @@ describe("<SiteHeader /> responsive layout contract", () => {
   });
 
   it("hamburger menu trigger is visible below md and hidden at md+", () => {
+    renderHeader();
     const menuBtn = screen.getByLabelText(/open menu/i);
     expect(menuBtn.className).toContain("md:hidden");
     expect(menuBtn.className).toContain("inline-flex");

@@ -1,6 +1,12 @@
 import { supabase } from "@/integrations/supabase/client";
 
-export type AdvertiserStatus = "pending" | "approved" | "suspended";
+export type AdvertiserStatus =
+  | "pending"
+  | "pending_review"
+  | "approved"
+  | "active"
+  | "rejected"
+  | "suspended";
 export type CampaignStatus = "draft" | "pending" | "approved" | "rejected" | "paused";
 export type Placement = "featured_card" | "itinerary_boost" | "home_spotlight";
 export type PackageTier = "starter" | "featured" | "spotlight";
@@ -16,6 +22,14 @@ export type Advertiser = {
   city: string | null;
   status: AdvertiserStatus;
   notes: string | null;
+  package_selected: string | null;
+  onboarding_step: number;
+  source: string;
+  owner_name: string | null;
+  submitted_at: string;
+  review_note: string | null;
+  reviewed_at: string | null;
+  reviewed_by: string | null;
   created_at: string;
   updated_at: string;
 };
@@ -119,14 +133,39 @@ export async function createAdvertiser(input: {
   category?: string;
   city?: string;
   notes?: string;
+  package_selected?: string;
+  owner_name?: string;
+  source?: string;
 }): Promise<Advertiser> {
+  const payload = {
+    ...input,
+    status: "pending_review" as const,
+    onboarding_step: 3,
+    source: input.source ?? "self-serve",
+  };
   const { data, error } = await supabase
     .from("advertisers" as never)
-    .insert(input as never)
+    .insert(payload as never)
     .select("*")
     .single();
   if (error) throw error;
+  // Best-effort: grant business_owner role via server fn (RLS blocks direct insert)
+  try {
+    const { grantBusinessOwnerRole } = await import("./business-onboarding.functions");
+    await grantBusinessOwnerRole();
+  } catch {
+    /* non-fatal — admin can grant later */
+  }
   return data as unknown as Advertiser;
+}
+
+export async function adminDecideAdvertiser(
+  advertiserId: string,
+  decision: "approve" | "reject",
+  note?: string,
+): Promise<void> {
+  const { decideAdvertiserFn } = await import("./business-onboarding.functions");
+  await decideAdvertiserFn({ data: { advertiserId, decision, note } });
 }
 
 export async function listMyCampaigns(advertiserId: string): Promise<Campaign[]> {

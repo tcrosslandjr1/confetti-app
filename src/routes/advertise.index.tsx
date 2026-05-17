@@ -22,6 +22,7 @@ const DRAFT_KEY = "advertiser_onboarding_draft_v1";
 type Draft = {
   tier: PackageTier;
   business_name: string;
+  owner_name: string;
   contact_email: string;
   website: string;
   contact_phone: string;
@@ -88,6 +89,7 @@ function AdvertiseLanding() {
 
   const [form, setForm] = useState({
     business_name: "",
+    owner_name: "",
     contact_email: user?.email ?? "",
     website: "",
     contact_phone: "",
@@ -102,6 +104,7 @@ function AdvertiseLanding() {
     if (!d) return;
     setForm((f) => ({
       business_name: d.business_name ?? f.business_name,
+      owner_name: d.owner_name ?? f.owner_name,
       contact_email: d.contact_email ?? f.contact_email,
       website: d.website ?? f.website,
       contact_phone: d.contact_phone ?? f.contact_phone,
@@ -127,16 +130,19 @@ function AdvertiseLanding() {
       await createAdvertiser({
         owner_id: user.id,
         business_name: form.business_name,
+        owner_name: form.owner_name || undefined,
         contact_email: form.contact_email,
         website: form.website || undefined,
         contact_phone: form.contact_phone || undefined,
         category: form.category || undefined,
         city: form.city || undefined,
-        notes: `Tier interest: ${tier}\n${form.notes}`.trim(),
+        package_selected: tier,
+        source: "self-serve",
+        notes: form.notes || undefined,
       });
       clearDraft();
-      toast.success("You're in — welcome aboard");
-      nav({ to: "/advertise/portal" });
+      toast.success("Submitted — we're reviewing your business");
+      nav({ to: "/business/pending" });
       return true;
     } catch (err) {
       toast.error((err as Error).message ?? "Could not submit");
@@ -380,6 +386,14 @@ function AdvertiseLanding() {
 
               {step === 2 && (
                 <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="sm:col-span-2">
+                    <Field
+                      label="Your name *"
+                      value={form.owner_name}
+                      onChange={(v) => setForm({ ...form, owner_name: v })}
+                      required
+                    />
+                  </div>
                   <Field
                     label="Contact email *"
                     type="email"

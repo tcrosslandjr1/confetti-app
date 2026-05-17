@@ -1,105 +1,82 @@
-# Confetti Promo Marketplace — Build Plan
+## Goal
 
-Eight systems delivered across ~5 turns. Each turn is self-contained and shippable.
+When a business completes the `/advertise` 3‑step form (Business → Contact → Launch), automatically create a **pending business account**, an **owner user account**, and an **admin review queue item**. Admin can Approve/Reject from `/admin/advertisers`. The owner is routed based on status.
 
-## Turn 1 — Promo Catalog + Stripe Checkout (Specs #1, #2, #5, #7)
+## What already exists (reuse, don't rebuild)
 
-**Stripe products (test mode, all SKUs at once via batch_create_product):**
+- `/advertise` route with the exact 3‑step form in the screenshot.
+- `advertisers` table with `status` ('pending' default), `owner_id` (FK to auth user), RLS allowing owner + admin.
+- `createAdvertiser`, `updateAdvertiserStatus`, `listAdminAdvertisers` in `src/lib/ads.ts`.
+- `/admin/advertisers` page with an "Advertisers" tab.
+- Auth + role system (`has_role`, `app_role`).
 
-Business boosts (dual-billing: each SKU gets a one-time price AND a recurring monthly auto-renew price; business picks at checkout):
-- `boost_24h` — $29 one-time / $29 monthly
-- `boost_3d` — $69 one-time / $69 monthly
-- `boost_7d` — $149 one-time / $149 monthly
+## What to add
 
-Event promos (one-time only):
-- `event_single` $19, `event_weekend` $49, `event_monthly` $99
+### 1. Schema additions to `advertisers`
+- `package_selected text` — the tier picked in the pricing card (`featured` / `boosted` / `premium`).
+- `onboarding_step smallint default 1` — last step the user completed (1/2/3).
+- `source text default 'self-serve'` — channel.
+- `owner_name text`, `submitted_at timestamptz` (set on first insert; `created_at` already exists but stays as DB insert time).
+- `review_note text` — admin-visible reason on reject.
+- `reviewed_at timestamptz`, `reviewed_by uuid` — audit.
+- New status values used by code: `'pending_review' | 'active' | 'rejected'` (existing 'pending' rows migrate to 'pending_review').
 
-Reel promos (one-time only):
-- `reel_boost` $9, `reel_trending_pack` $39, `reel_viral_push` $99
+### 2. Step‑by‑step persistence
 
-Subscriptions (monthly recurring, already partially exist):
-- `business_basic` $49, `business_plus` $149, `business_premium` $399, `corporate_addon` $49
+```text
+Step 1 Continue  → upsert advertiser row (status='pending_review', onboarding_step=1, package_selected=tier)
+Step 2 Continue  → update row with owner_name/contact_email/contact_phone, onboarding_step=2
+Step 3 Launch    → onboarding_step=3, redirect to /business/pending
+```
 
-User-facing:
-- `user_plan_single` $4.99 one-time, `user_unlimited` $9.99/mo, `user_vip` $14.99/mo
+Reuse the existing `sessionStorage` draft + auth round‑trip. If user isn't signed in by step 3, we still bounce them to `/auth` as today.
 
-Tax codes: `txcd_10000000` (digital services) on all.
+### 3. Owner user account
+- The submitter is already a Supabase auth user by the time step 3 fires (today's flow forces signup before insert). We add a `'business_owner'` role row in `user_roles` on the first `advertiser` insert.
+- No extra "user account" table needed — `auth.users` + `user_roles` covers it.
 
-**Code changes:**
-- Extend `BUSINESS_PRICES`, `AD_PRICES`, `ONE_TIME_PRICES`, `CONSUMER_PRICES` registries in `src/lib/checkout.functions.ts`.
-- New component `PromoStorefront.tsx` in business portal — grid of boost/event/reel SKUs with "One-time" / "Auto-renew monthly" toggle per card.
-- New component `VIPUpgradePanel.tsx` for user-side.
-- Webhook (`src/routes/api/public/payments/webhook.ts`): on `checkout.session.completed` for promo SKUs, write to a new `business_purchases` table and call `activate_boost` SQL function to set `venues.boost_until` / `events.boost_until` / `reels.boost_until`.
+### 4. Routing after submit
+- `/business/pending` — new minimal route shown for `pending_review` advertisers ("We're reviewing your business. You'll be activated within 1 business day.").
+- On `active` → redirect to existing `/advertise/portal` (or `/business/dashboard` if already approved).
+- On `rejected` → show reason from `review_note` with "Edit and resubmit" CTA back to `/advertise#signup`.
 
-**DB migration:**
-- Table `business_purchases` (vendor_id, sku, mode one-time|recurring, amount_cents, target_id, target_type, activated_at, expires_at, stripe_session_id, stripe_subscription_id).
-- Columns: `venues.boost_until timestamptz`, `venues.boost_tier text`; same for `events`, `reels`.
-- SQL function `activate_boost(target_type, target_id, duration_interval, tier)`.
+A small server fn `getMyAdvertiserStatus` reads the row for the signed‑in user and the `/advertise/portal` + `/business/pending` routes use it to gate.
 
-## Turn 2 — Exposure Metrics Engine (Specs #4, #8)
+### 5. Admin Approvals queue
+- New "Pending approvals" tab (or filter inside the existing Advertisers tab) at the top of `/admin/advertisers` with a badge count.
+- Columns: Business Name · Category · City · Package · Owner Name · Owner Email · Submitted At · Approve / Reject.
+- Approve → `status='active'`, set `reviewed_at`, `reviewed_by=auth.uid()`, send welcome notification, return portal link.
+- Reject → prompt for reason → `status='rejected'`, store `review_note`, send rejection notification.
+- Notifications go through the existing in‑app `notifications` table; email is best‑effort via the existing Resend connector if available.
 
-**DB migration:**
-- Table `exposure_events` (entity_type venue|event|reel, entity_id, event_type view|click|save|share|plan_placement|corporate_view|corporate_placement, user_id nullable, metadata jsonb, occurred_at). RLS: insert allowed for authenticated users; select restricted to entity owner.
-- Materialized view `exposure_scores` recomputed nightly: trending_score, exposure_index, corporate_score per entity.
-- SQL function `compute_exposure_scores()` with weighted formula:
-  - `trending_score = 0.4*reel_engagement + 0.25*views + 0.2*saves + 0.15*clicks` (last 7d, time-decayed)
-  - `exposure_index = LEAST(100, trending_score * boost_multiplier)` where multiplier = 1.0 / 1.5 / 2.0 / 3.0 based on tier
-  - `corporate_score = corporate_views + 2*corporate_plan_placements`
-- pg_cron job nightly at 03:00 UTC.
+### 6. Server functions (new in `src/lib/business-onboarding.functions.ts`)
+- `upsertOnboardingStep1({ businessName, category, city, packageSelected })`
+- `upsertOnboardingStep2({ ownerName, contactEmail, contactPhone })`
+- `finalizeOnboardingStep3({ website?, notes? })`
+- `getMyAdvertiserStatus()` → `{ status, reviewNote, portalUrl }`
+- `adminDecideAdvertiser({ advertiserId, decision: 'approve' | 'reject', note? })` — guarded by `requireAdmin` middleware.
 
-**Code:**
-- `src/lib/exposure.server.ts` — `logExposureEvent(entityType, entityId, eventType, metadata)` helper. Auto-batched server-side writes.
-- Hook into existing ranking logic: `src/lib/ranking.ts` multiplies score by `exposure_index / 100 + 1`.
-- Public read serverFn `getEntityExposure(entityId)` for the business portal.
+All write paths run under RLS as the user; the admin decide path runs through a server fn that checks `has_role(auth.uid(),'admin')` before update.
 
-## Turn 3 — Exposure Stats Page (Spec #3)
+## Out of scope
 
-**New route `src/routes/business.exposure.tsx`** — 6 sections per spec:
-1. Overview (7d/30d toggle): views, clicks, saves, AI plan placements, corporate impressions
-2. Reels performance: views, likes, shares, watch time, trending score
-3. Event performance: views, RSVPs, CTR, conversion
-4. Boost impact: before/after sparkline using `business_purchases.activated_at` as cut-line
-5. Audience insights: age, gender, neighborhoods, peak times (from `profiles` + `exposure_events.user_id`)
-6. Corporate insights: corp searches, plan placements, booking requests
+- Stripe billing for the package (kept "billing handled by our team" copy).
+- Separate `businesses` table — `advertisers` already serves this role and is referenced by `venues` / `ad_campaigns`.
 
-Charts via recharts (already installed). Each section is a card component reading from `exposure_scores` + raw `exposure_events`.
+## Technical notes
 
-Add nav link in `BusinessPortalNav`.
+- Migration adds columns + a backfill `UPDATE advertisers SET status='pending_review' WHERE status='pending'`.
+- All new columns are nullable / defaulted so existing rows keep working.
+- RLS unchanged: owner reads/writes own row, admin reads/writes all.
+- The `business_owner` role is additive — admins keep their `admin` role.
 
-## Turn 4 — PromoOptimizationAgent (Spec #6)
-
-**New serverFn `src/lib/promo-agent.functions.ts`:**
-- `getPromoRecommendations(vendorId)` — runs Lovable AI Gateway with `google/gemini-2.5-flash`.
-- Input context: vendor's venues + their `exposure_scores` (last 30d) + active boosts + city baseline percentiles.
-- Detects underperformers: `exposure_index < city_median - 20` AND `no_active_boost`.
-- LLM prompt returns structured JSON via `Output.object`: `{ recommendations: [{ entity_id, sku_suggested, reason, expected_lift_pct, best_time_window, confidence }] }`.
-- Guard rules: max 3 recommendations/week per vendor (rate-limited via `promo_recommendations` table), never recommend if already boosted, require >= 30 events of evidence.
-
-**UI:** `PromoRecommendationsCard.tsx` in `/business/dashboard` — shows top 3 with one-click "Apply" that opens `PromoStorefront` pre-filled.
-
-**Reel tag optimization:** secondary serverFn `optimizeReelTags(reelId)` — analyzes top-performing reels in same category, suggests tag additions.
-
-## Turn 5 — Polish + Integration
-
-- Wire `RankingAgent` to also surface boost-tier badges in `/explore`, `/tonight`, AI plans.
-- Spotlight badge component on venue page for `boost_tier = 'premium'`.
-- Map view highlight for boosted venues.
-- Weekend Spotlight + Viral Reel Push add-ons (one-time SKUs, special placement logic).
-- Documentation: `docs/confetti-promo-system.md` summarizing all SKUs, formulas, and agent rules.
-- QA pass: verify webhook idempotency, check expiry sweep, confirm RLS on `business_purchases` + `exposure_events`.
-
-## Technical Notes
-
-- Use **embedded checkout** (`ui_mode: "embedded_page"`) per Stripe contract.
-- All Stripe calls via `createStripeClient(env)` from `@/lib/stripe.server`.
-- Webhook is at `src/routes/api/public/payments/webhook.ts` (already exists — extend, don't recreate).
-- Boost expiry is enforced by a lightweight serverFn on read (no cron needed for expiry — just `WHERE boost_until > now()`).
-- All metrics queries respect `environment` column on `business_purchases`.
-- Tax handling: use `managed_payments: { enabled: true }` (Confetti is digital marketplace, US-based — assume full compliance handling). If user is in unsupported country I'll flip to `automatic_tax` in Turn 1.
-
-## What I'll ask before Turn 1
-
-1. Confirm seller country = US (or specify) — to confirm full compliance handling is appropriate.
-2. Confirm dual-billing copy: "Pay once" vs "Auto-renew monthly" — OK as labels?
-
-I'll execute Turn 1 immediately after you approve this plan.
+```text
+Form submit → upsert advertisers row → user_roles += business_owner
+                                    ↓
+                       Admin advertisers page
+                       Pending tab → Approve/Reject
+                                    ↓
+                       advertisers.status updated
+                                    ↓
+                       Owner redirected on next visit
+```

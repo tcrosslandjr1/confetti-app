@@ -102,6 +102,7 @@ import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
 import { Route as BusinessSignupRouteImport } from './routes/business.signup'
 import { Route as BusinessPromotersRouteImport } from './routes/business.promoters'
 import { Route as BusinessPricingRouteImport } from './routes/business.pricing'
+import { Route as BusinessPendingRouteImport } from './routes/business.pending'
 import { Route as BusinessPayoutsRouteImport } from './routes/business.payouts'
 import { Route as BusinessLoginRouteImport } from './routes/business.login'
 import { Route as BusinessDashboardRouteImport } from './routes/business.dashboard'
@@ -619,6 +620,11 @@ const BusinessPricingRoute = BusinessPricingRouteImport.update({
   path: '/business/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessPendingRoute = BusinessPendingRouteImport.update({
+  id: '/business/pending',
+  path: '/business/pending',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessPayoutsRoute = BusinessPayoutsRouteImport.update({
   id: '/business/payouts',
   path: '/business/payouts',
@@ -963,6 +969,7 @@ export interface FileRoutesByFullPath {
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/payouts': typeof BusinessPayoutsRoute
+  '/business/pending': typeof BusinessPendingRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
@@ -1101,6 +1108,7 @@ export interface FileRoutesByTo {
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/payouts': typeof BusinessPayoutsRoute
+  '/business/pending': typeof BusinessPendingRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
@@ -1248,6 +1256,7 @@ export interface FileRoutesById {
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/payouts': typeof BusinessPayoutsRoute
+  '/business/pending': typeof BusinessPendingRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
@@ -1396,6 +1405,7 @@ export interface FileRouteTypes {
     | '/business/dashboard'
     | '/business/login'
     | '/business/payouts'
+    | '/business/pending'
     | '/business/pricing'
     | '/business/promoters'
     | '/business/signup'
@@ -1534,6 +1544,7 @@ export interface FileRouteTypes {
     | '/business/dashboard'
     | '/business/login'
     | '/business/payouts'
+    | '/business/pending'
     | '/business/pricing'
     | '/business/promoters'
     | '/business/signup'
@@ -1680,6 +1691,7 @@ export interface FileRouteTypes {
     | '/business/dashboard'
     | '/business/login'
     | '/business/payouts'
+    | '/business/pending'
     | '/business/pricing'
     | '/business/promoters'
     | '/business/signup'
@@ -1800,6 +1812,7 @@ export interface RootRouteChildren {
   BusinessDashboardRoute: typeof BusinessDashboardRoute
   BusinessLoginRoute: typeof BusinessLoginRoute
   BusinessPayoutsRoute: typeof BusinessPayoutsRoute
+  BusinessPendingRoute: typeof BusinessPendingRoute
   BusinessPricingRoute: typeof BusinessPricingRoute
   BusinessPromotersRoute: typeof BusinessPromotersRoute
   BusinessSignupRoute: typeof BusinessSignupRoute
@@ -2484,6 +2497,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessPricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/pending': {
+      id: '/business/pending'
+      path: '/business/pending'
+      fullPath: '/business/pending'
+      preLoaderRoute: typeof BusinessPendingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business/payouts': {
       id: '/business/payouts'
       path: '/business/payouts'
@@ -3124,6 +3144,7 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessDashboardRoute: BusinessDashboardRoute,
   BusinessLoginRoute: BusinessLoginRoute,
   BusinessPayoutsRoute: BusinessPayoutsRoute,
+  BusinessPendingRoute: BusinessPendingRoute,
   BusinessPricingRoute: BusinessPricingRoute,
   BusinessPromotersRoute: BusinessPromotersRoute,
   BusinessSignupRoute: BusinessSignupRoute,

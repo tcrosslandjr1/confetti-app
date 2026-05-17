@@ -232,8 +232,16 @@ export type Database = {
           created_at: string
           id: string
           notes: string | null
+          onboarding_step: number
           owner_id: string
+          owner_name: string | null
+          package_selected: string | null
+          review_note: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          source: string
           status: string
+          submitted_at: string
           updated_at: string
           website: string | null
         }
@@ -246,8 +254,16 @@ export type Database = {
           created_at?: string
           id?: string
           notes?: string | null
+          onboarding_step?: number
           owner_id: string
+          owner_name?: string | null
+          package_selected?: string | null
+          review_note?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          source?: string
           status?: string
+          submitted_at?: string
           updated_at?: string
           website?: string | null
         }
@@ -260,8 +276,16 @@ export type Database = {
           created_at?: string
           id?: string
           notes?: string | null
+          onboarding_step?: number
           owner_id?: string
+          owner_name?: string | null
+          package_selected?: string | null
+          review_note?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          source?: string
           status?: string
+          submitted_at?: string
           updated_at?: string
           website?: string | null
         }
@@ -3735,7 +3759,7 @@ export type Database = {
       }
     }
     Enums: {
-      app_role: "admin" | "customer"
+      app_role: "admin" | "customer" | "business_owner"
       corporate_member_role: "owner" | "admin" | "manager" | "member"
       corporate_outing_status:
         | "draft"
@@ -3896,7 +3920,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      app_role: ["admin", "customer"],
+      app_role: ["admin", "customer", "business_owner"],
       corporate_member_role: ["owner", "admin", "manager", "member"],
       corporate_outing_status: [
         "draft",

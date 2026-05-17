@@ -14,6 +14,7 @@ import {
   setVenueVerified,
   updateAdvertiser,
   updateAdvertiserStatus,
+  adminDecideAdvertiser,
   updateCampaign,
   updateCampaignStatus,
   deleteCampaign,
@@ -164,7 +165,14 @@ function AdminAdvertisersPage() {
                 </Badge>
               )}
             </TabsTrigger>
-            <TabsTrigger value="advertisers">Advertisers</TabsTrigger>
+            <TabsTrigger value="advertisers">
+              Advertisers
+              {advertisers.filter((a) => a.status === "pending_review" || a.status === "pending").length > 0 && (
+                <Badge variant="secondary" className="ml-2">
+                  {advertisers.filter((a) => a.status === "pending_review" || a.status === "pending").length}
+                </Badge>
+              )}
+            </TabsTrigger>
             <TabsTrigger value="venues">Verified profiles</TabsTrigger>
             <TabsTrigger value="claims">
               Claims
@@ -637,6 +645,21 @@ function AdvertisersTab({
     }
   }
 
+  async function decide(a: Advertiser, decision: "approve" | "reject") {
+    const note =
+      decision === "reject"
+        ? (window.prompt("Reason (shown to the business owner)?") ?? undefined)
+        : undefined;
+    if (decision === "reject" && !note) return;
+    try {
+      await adminDecideAdvertiser(a.id, decision, note);
+      toast.success(decision === "approve" ? "Business approved" : "Business rejected");
+      await onChange();
+    } catch (err) {
+      toast.error((err as Error).message);
+    }
+  }
+
   return (
     <>
       <div className="mb-3 rounded-2xl border border-border bg-card p-3 shadow-card">
@@ -664,8 +687,13 @@ function AdvertisersTab({
                     <StatusBadge status={a.status} />
                   </div>
                   <div className="mt-1 text-sm text-muted-foreground">
+                    {a.owner_name ? <span className="font-medium text-foreground">{a.owner_name} · </span> : null}
                     {a.contact_email}
                     {a.contact_phone ? ` · ${a.contact_phone}` : ""}
+                  </div>
+                  <div className="mt-1 text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
+                    Submitted {new Date(a.submitted_at ?? a.created_at).toLocaleString()}
+                    {a.package_selected ? ` · ${a.package_selected}` : ""}
                   </div>
                   <div className="mt-2 flex flex-wrap gap-2 text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
                     {a.category && <Chip>{a.category}</Chip>}
@@ -686,12 +714,30 @@ function AdvertisersTab({
                   )}
                 </div>
                 <div className="flex flex-shrink-0 flex-wrap gap-2">
-                  {a.status !== "approved" && (
-                    <Button size="sm" onClick={() => setStatus(a, "approved")}>
-                      <CheckCircle2 className="mr-1 h-3.5 w-3.5" /> Approve
-                    </Button>
+                  {(a.status === "pending_review" || a.status === "pending") && (
+                    <>
+                      <Button size="sm" onClick={() => decide(a, "approve")}>
+                        <CheckCircle2 className="mr-1 h-3.5 w-3.5" /> Approve
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="text-destructive hover:text-destructive"
+                        onClick={() => decide(a, "reject")}
+                      >
+                        <XCircle className="mr-1 h-3.5 w-3.5" /> Reject
+                      </Button>
+                    </>
                   )}
-                  {a.status !== "suspended" && (
+                  {a.status !== "approved" &&
+                    a.status !== "active" &&
+                    a.status !== "pending_review" &&
+                    a.status !== "pending" && (
+                      <Button size="sm" onClick={() => setStatus(a, "active")}>
+                        <CheckCircle2 className="mr-1 h-3.5 w-3.5" /> Activate
+                      </Button>
+                    )}
+                  {a.status !== "suspended" && a.status !== "rejected" && a.status !== "pending_review" && a.status !== "pending" && (
                     <Button
                       size="sm"
                       variant="ghost"

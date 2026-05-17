@@ -29,6 +29,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { BusinessUpgradePanel } from "@/components/business/BusinessUpgradePanel";
 
 export const Route = createFileRoute("/business/dashboard")({
   beforeLoad: async () => {
@@ -86,6 +87,7 @@ function BusinessDashboardPage() {
           <PromotionPanel unlocked={promotionUnlocked} />
         </div>
         <AnalyticsPreview />
+        <BusinessUpgradePanel />
         <AIRefreshStatus />
         <DashboardFooter />
       </div>

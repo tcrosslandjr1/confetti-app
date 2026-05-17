@@ -408,11 +408,11 @@ export function NextBookingCountdown() {
       <WidgetShell
         title="Next up"
         icon={CalendarCheck}
-        action={{ label: "Plan", to: "/concierge/chat" }}
+        action={{ label: "Plan", to: "/create" }}
       >
         <p className="text-sm text-ink/60">No upcoming bookings yet.</p>
         <Link
-          to="/concierge/chat"
+          to="/create"
           className="mt-3 inline-flex h-9 items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-4 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut-lg"
         >
           Plan a night <ArrowRight className="h-3 w-3" />

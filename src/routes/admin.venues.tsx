@@ -361,6 +361,20 @@ function AdminVenuesPage() {
                   )}
                   Test notification
                 </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  disabled={refreshingId === v.id}
+                  onClick={() => void onRefreshMedia(v)}
+                  title="Refresh photos + socials from Google + Firecrawl"
+                >
+                  {refreshingId === v.id ? (
+                    <Loader2 className="mr-1 h-3.5 w-3.5 animate-spin" />
+                  ) : (
+                    <RefreshCw className="mr-1 h-3.5 w-3.5" />
+                  )}
+                  Refresh media
+                </Button>
                 <Button size="sm" variant="ghost" onClick={() => setEditing(v)}>
                   <Edit3 className="mr-1 h-3.5 w-3.5" /> Edit
                 </Button>

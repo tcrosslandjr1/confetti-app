@@ -6,6 +6,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { confettiMapStyle } from "@/components/maps/mapStyles";
 import { useGeocodedPoints } from "@/lib/geocode";
 import { GOOGLE_MAPS_API_KEY } from "@/lib/config";
+import { PullToRefresh } from "@/components/PullToRefresh";
+import { useCallback } from "react";
 
 export const Route = createFileRoute("/discover")({
   head: () => ({
@@ -46,33 +48,38 @@ function DiscoverPage() {
     );
   }, [rows, q]);
 
+  const load = useCallback(async () => {
+    const { data } = await supabase
+      .from("viral_venues")
+      .select("id,venue_name,neighborhood,address,photo_url,rating")
+      .eq("verified", true)
+      .order("trend_score", { ascending: false })
+      .limit(60);
+    setRows(
+      (data ?? []).map((r) => ({
+        id: r.id,
+        name: r.venue_name,
+        neighborhood: r.neighborhood,
+        address: r.address,
+        photo: r.photo_url,
+        rating: r.rating != null ? Number(r.rating) : null,
+      }))
+    );
+  }, []);
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const { data } = await supabase
-        .from("viral_venues")
-        .select("id,venue_name,neighborhood,address,photo_url,rating")
-        .eq("verified", true)
-        .order("trend_score", { ascending: false })
-        .limit(60);
+      await load();
       if (cancelled) return;
-      setRows(
-        (data ?? []).map((r) => ({
-          id: r.id,
-          name: r.venue_name,
-          neighborhood: r.neighborhood,
-          address: r.address,
-          photo: r.photo_url,
-          rating: r.rating != null ? Number(r.rating) : null,
-        }))
-      );
     })();
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [load]);
 
   return (
+    <PullToRefresh onRefresh={load}>
     <div className="min-h-screen bg-background pb-32">
       <div className="mx-auto max-w-2xl px-4 pt-6">
         <h1 className="font-display text-3xl font-extrabold tracking-tight">Discover Nearby</h1>
@@ -168,6 +175,7 @@ function DiscoverPage() {
         )}
       </div>
     </div>
+    </PullToRefresh>
   );
 }
 

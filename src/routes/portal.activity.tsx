@@ -24,6 +24,8 @@ import {
   type ActivityEntry,
   type ActivityKind,
 } from "@/lib/activity-log";
+import { PullToRefresh } from "@/components/PullToRefresh";
+import { useCallback } from "react";
 
 export const Route = createFileRoute("/portal/activity")({
   head: () => ({
@@ -151,14 +153,21 @@ function PortalActivityPage() {
   const [tripFilter, setTripFilter] = useState<string>("all");
   const [kindFilter, setKindFilter] = useState<KindFilter>("all");
 
+  const load = useCallback(() => {
+    const real = readLog();
+    setEntries(real.length > 0 ? real : MOCK_ENTRIES);
+  }, []);
+
   useEffect(() => {
-    const load = () => {
-      const real = readLog();
-      setEntries(real.length > 0 ? real : MOCK_ENTRIES);
-    };
     load();
     return subscribeActivity(load);
-  }, []);
+  }, [load]);
+
+  const handleRefresh = useCallback(async () => {
+    load();
+    // Small delay so the spinner feels intentional.
+    await new Promise((r) => setTimeout(r, 350));
+  }, [load]);
 
   const trips = useMemo(() => {
     const map = new Map<string, string>();
@@ -196,6 +205,7 @@ function PortalActivityPage() {
   const kindOptions: KindFilter[] = ["all", ...kindsPresent];
 
   return (
+    <PullToRefresh onRefresh={handleRefresh}>
     <div className="mx-auto max-w-3xl px-4 pt-6 pb-32">
       <div className="flex items-center justify-between gap-3">
         <div className="min-w-0">
@@ -342,5 +352,6 @@ function PortalActivityPage() {
         </div>
       )}
     </div>
+    </PullToRefresh>
   );
 }

@@ -80,6 +80,7 @@ function ViralPage() {
     setActiveTags((prev) => (prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]));
 
   return (
+    <PullToRefresh onRefresh={() => setRefreshKey((k) => k + 1)}>
     <div className="mx-auto max-w-6xl space-y-6 px-4 py-8">
       <Link
         to="/portal"

@@ -382,6 +382,14 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
                   </span>
                 ))}
             </div>
+            <a
+              href={`https://www.google.com/search?q=${encodeURIComponent(venue.name)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1.5 inline-flex items-center gap-1 text-[11px] font-medium text-white/80 underline underline-offset-2 hover:text-white"
+            >
+              Search on Google <ExternalLink className="h-3 w-3" />
+            </a>
           </div>
         </div>
       </div>

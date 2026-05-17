@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Award,
   Compass,
@@ -41,6 +41,20 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  PassportShareCard,
+  encodePassport,
+  type PassportShareData,
+} from "@/components/passport/PassportShareCard";
+import { toPng } from "html-to-image";
+import { Copy, Download, Check } from "lucide-react";
 import { toast } from "sonner";
 
 type ClaimedReward = { id: string; label: string; cost: number; code: string; at: number };
@@ -110,6 +124,9 @@ function PassportPage() {
   const [pending, setPending] = useState<(typeof REWARDS)[number] | null>(null);
   const [justClaimed, setJustClaimed] = useState<ClaimedReward | null>(null);
   const [earnedStamps, setEarnedStamps] = useState<PassportStamp[]>([]);
+  const [shareOpen, setShareOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     setConfettiCount(getConfetti());
     setClaimed(loadClaimed());
@@ -164,6 +181,65 @@ function PassportPage() {
   const currentTier = TIERS[currentTierIndex];
   const nextTier = TIERS[currentTierIndex + 1];
 
+  const shareData: PassportShareData = {
+    name: "Guest Explorer",
+    level,
+    tier: currentTier.name as PassportShareData["tier"],
+    confetti,
+    stamps: earnedStamps.length,
+    badges: unlockedCount,
+  };
+  const shareCode = encodePassport(shareData);
+  const shareUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/p/${shareCode}`
+      : `/p/${shareCode}`;
+
+  async function handleCopyLink() {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      toast.success("Link copied");
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      toast.error("Couldn't copy");
+    }
+  }
+
+  async function handleDownloadImage() {
+    if (!cardRef.current) return;
+    try {
+      const dataUrl = await toPng(cardRef.current, {
+        cacheBust: true,
+        pixelRatio: 2,
+        backgroundColor: "transparent",
+      });
+      const link = document.createElement("a");
+      link.download = `confetti-passport-L${level}.png`;
+      link.href = dataUrl;
+      link.click();
+      toast.success("Image downloaded");
+    } catch {
+      toast.error("Couldn't export image");
+    }
+  }
+
+  async function handleNativeShare() {
+    if (typeof navigator === "undefined" || !navigator.share) {
+      handleCopyLink();
+      return;
+    }
+    try {
+      await navigator.share({
+        title: "My Confetti Passport",
+        text: `L${level} ${currentTier.name} · ${confetti.toLocaleString()} Confetti`,
+        url: shareUrl,
+      });
+    } catch {
+      /* user cancelled */
+    }
+  }
+
   return (
     <div className="min-h-screen bg-background pb-32">
       <div className="mx-auto max-w-md px-4 pt-6">
@@ -205,6 +281,7 @@ function PassportPage() {
             </div>
             <button
               type="button"
+              onClick={() => setShareOpen(true)}
               className="inline-flex items-center gap-1 rounded-full border border-cream/40 bg-cream/10 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest backdrop-blur hover:bg-cream/20"
             >
               <Share2 className="h-3 w-3" /> Share
@@ -679,6 +756,55 @@ function PassportPage() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
+      {/* Share passport modal */}
+      <Dialog open={shareOpen} onOpenChange={setShareOpen}>
+        <DialogContent className="max-w-md border-2 border-ink bg-card p-0 shadow-brut-lg">
+          <DialogHeader className="px-6 pt-6">
+            <DialogTitle className="font-display text-2xl font-extrabold">
+              Share your Passport
+            </DialogTitle>
+            <DialogDescription className="font-serif italic text-ink/70">
+              A snapshot of your tier, Confetti, and a QR code to your profile.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="flex justify-center px-6 pt-2">
+            <PassportShareCard ref={cardRef} data={shareData} shareUrl={shareUrl} />
+          </div>
+
+          <div className="px-6 pb-6 pt-4">
+            <div className="flex items-center gap-2 rounded-xl border-2 border-ink bg-cream/60 px-3 py-2">
+              <code className="flex-1 truncate font-mono text-[11px] text-ink">{shareUrl}</code>
+              <button
+                type="button"
+                onClick={handleCopyLink}
+                className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut hover:-translate-y-0.5 transition-transform"
+              >
+                {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                {copied ? "Copied" : "Copy"}
+              </button>
+            </div>
+
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={handleDownloadImage}
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink shadow-brut hover:-translate-y-0.5 transition-transform"
+              >
+                <Download className="h-3.5 w-3.5" /> Download
+              </button>
+              <button
+                type="button"
+                onClick={handleNativeShare}
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-coral px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-cream shadow-brut hover:-translate-y-0.5 transition-transform"
+              >
+                <Share2 className="h-3.5 w-3.5" /> Share
+              </button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

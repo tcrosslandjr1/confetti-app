@@ -19,6 +19,7 @@ import {
   Share2,
   Sparkles,
   Star,
+  Users,
   Utensils,
   Wine,
   X,

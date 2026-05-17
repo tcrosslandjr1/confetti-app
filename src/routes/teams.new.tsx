@@ -35,7 +35,7 @@ import {
 } from "@/lib/corporate";
 
 export const Route = createFileRoute("/teams/new")({
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (search: Record<string, unknown>): { fromTrip?: string } => ({
     fromTrip: typeof search.fromTrip === "string" ? search.fromTrip : undefined,
   }),
   head: () => ({

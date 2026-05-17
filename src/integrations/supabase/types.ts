@@ -2573,30 +2573,42 @@ export type Database = {
       }
       stripe_webhook_events: {
         Row: {
+          attempts: number
           environment: string
           error: string | null
           event_type: string
           id: string
+          last_error_at: string | null
           payload: Json
           processed_at: string | null
+          received_at: string
+          status: string
           stripe_event_id: string
         }
         Insert: {
+          attempts?: number
           environment?: string
           error?: string | null
           event_type: string
           id?: string
+          last_error_at?: string | null
           payload: Json
           processed_at?: string | null
+          received_at?: string
+          status?: string
           stripe_event_id: string
         }
         Update: {
+          attempts?: number
           environment?: string
           error?: string | null
           event_type?: string
           id?: string
+          last_error_at?: string | null
           payload?: Json
           processed_at?: string | null
+          received_at?: string
+          status?: string
           stripe_event_id?: string
         }
         Relationships: []

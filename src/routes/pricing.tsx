@@ -96,8 +96,8 @@ function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  to={t.to}
+                <button
+                  onClick={() => (t.priceId ? handleCta(t.priceId, t.name) : (window.location.href = "/auth"))}
                   className={`mt-6 inline-flex h-11 w-full items-center justify-center rounded-full text-sm font-semibold transition-pop hover:scale-[1.02] ${
                     t.highlight
                       ? "bg-foreground text-background"
@@ -105,7 +105,7 @@ function PricingPage() {
                   }`}
                 >
                   {t.cta}
-                </Link>
+                </button>
               </div>
             ))}
           </div>

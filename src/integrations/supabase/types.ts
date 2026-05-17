@@ -2539,6 +2539,8 @@ export type Database = {
           tiktok_location_tag: string | null
           tiktok_thumbnails: string[]
           tiktok_url: string | null
+          trending_refreshed_at: string | null
+          trending_score: number
           verified: boolean
           website: string | null
         }
@@ -2583,6 +2585,8 @@ export type Database = {
           tiktok_location_tag?: string | null
           tiktok_thumbnails?: string[]
           tiktok_url?: string | null
+          trending_refreshed_at?: string | null
+          trending_score?: number
           verified?: boolean
           website?: string | null
         }
@@ -2627,6 +2631,8 @@ export type Database = {
           tiktok_location_tag?: string | null
           tiktok_thumbnails?: string[]
           tiktok_url?: string | null
+          trending_refreshed_at?: string | null
+          trending_score?: number
           verified?: boolean
           website?: string | null
         }

@@ -582,7 +582,7 @@ function CreatePage() {
 
       {/* Sticky CTA */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-        <div className="mx-auto max-w-md px-4 py-3">
+        <div className="mx-auto max-w-md px-4 py-3 sm:max-w-xl lg:max-w-2xl lg:px-6">
           <button
             disabled={!canNext || generating}
             onClick={() => (step < totalSteps - 1 ? setStep(step + 1) : finish())}
@@ -596,11 +596,11 @@ function CreatePage() {
               <>Build my night <ArrowRight className="h-4 w-4" /></>
             )}
           </button>
-          {!canNext && step !== 2 && (
-            <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
-              Pick a {STEP_LABELS[step].toLowerCase()} to continue
-            </p>
-          )}
+          <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
+            {!canNext && step !== 2
+              ? `Pick a ${STEP_LABELS[step].toLowerCase()} to continue`
+              : "Free · No signup · ~60 sec total"}
+          </p>
         </div>
       </div>
 

@@ -23,7 +23,7 @@ function RotatingTagline({ className = "" }: { className?: string }) {
     return () => window.clearInterval(id);
   }, []);
   return (
-    <span className={`ml-2 hidden h-7 items-center gap-2 border-2 border-ink bg-white px-2.5 shadow-brut sm:ml-3 sm:h-8 sm:px-3 sm:inline-flex ${className}`}>
+    <span className={`ml-2 hidden h-7 items-center gap-2 border-2 border-ink bg-white px-2.5 shadow-brut sm:ml-3 sm:h-8 sm:px-3 lg:inline-flex ${className}`}>
       <span className="relative inline-flex h-2 w-2">
         <span className="absolute inset-0 animate-ping rounded-full bg-coral/70" />
         <span className="relative inline-block h-2 w-2 rounded-full bg-coral" />
@@ -73,12 +73,12 @@ export function SiteHeader() {
           <RotatingTagline />
         </Link>
 
-        <nav className="ml-4 hidden items-center gap-1 md:flex">
+        <nav className="ml-2 hidden items-center gap-0.5 md:flex lg:ml-4 lg:gap-1">
           {marketingLinks.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className="nav-underline rounded-full px-3 py-2 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink"
+              className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink lg:px-3 lg:text-xs"
               activeProps={{ className: "text-ink" }}
             >
               {l.label}
@@ -87,7 +87,7 @@ export function SiteHeader() {
           {showPortal && (
             <Link
               to="/portal"
-              className="nav-underline rounded-full px-3 py-2 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink"
+              className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink lg:px-3 lg:text-xs"
               activeProps={{ className: "text-ink" }}
             >
               Portal
@@ -96,7 +96,7 @@ export function SiteHeader() {
           {showAdmin && (
             <Link
               to="/admin"
-              className="nav-underline rounded-full px-3 py-2 font-mono text-xs font-bold uppercase tracking-widest text-coral hover:text-ink"
+              className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-coral hover:text-ink lg:px-3 lg:text-xs"
               activeProps={{ className: "text-ink" }}
             >
               Admin

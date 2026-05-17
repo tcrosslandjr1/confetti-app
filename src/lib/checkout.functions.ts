@@ -281,7 +281,7 @@ export const changePlan = createServerFn({ method: "POST" })
       });
       await adminClient()
         .from("subscriptions")
-        .update({ pending_price_id: data.newPriceId })
+        .update({ pending_price_id: data.newPriceId } as never)
         .eq("stripe_subscription_id", sub.stripe_subscription_id);
       return { ok: true, mode: "downgrade_at_period_end" as const };
     }

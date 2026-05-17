@@ -54,6 +54,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
 import { Route as TeamsIndexRouteImport } from './routes/teams.index'
+import { Route as PromoterIndexRouteImport } from './routes/promoter.index'
 import { Route as PortalIndexRouteImport } from './routes/portal.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
@@ -352,6 +353,11 @@ const TeamsIndexRoute = TeamsIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => TeamsRoute,
+} as any)
+const PromoterIndexRoute = PromoterIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PromoterRoute,
 } as any)
 const PortalIndexRoute = PortalIndexRouteImport.update({
   id: '/',
@@ -758,7 +764,7 @@ export interface FileRoutesByFullPath {
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
-  '/promoter': typeof PromoterRoute
+  '/promoter': typeof PromoterRouteWithChildren
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
@@ -828,6 +834,7 @@ export interface FileRoutesByFullPath {
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/portal/': typeof PortalIndexRoute
+  '/promoter/': typeof PromoterIndexRoute
   '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
@@ -874,7 +881,6 @@ export interface FileRoutesByTo {
   '/plan': typeof PlanRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
-  '/promoter': typeof PromoterRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
@@ -943,6 +949,7 @@ export interface FileRoutesByTo {
   '/concierge': typeof ConciergeIndexRoute
   '/events': typeof EventsIndexRoute
   '/portal': typeof PortalIndexRoute
+  '/promoter': typeof PromoterIndexRoute
   '/teams': typeof TeamsIndexRoute
   '/trips': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
@@ -994,7 +1001,7 @@ export interface FileRoutesById {
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
-  '/promoter': typeof PromoterRoute
+  '/promoter': typeof PromoterRouteWithChildren
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
@@ -1064,6 +1071,7 @@ export interface FileRoutesById {
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/portal/': typeof PortalIndexRoute
+  '/promoter/': typeof PromoterIndexRoute
   '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
@@ -1186,6 +1194,7 @@ export interface FileRouteTypes {
     | '/concierge/'
     | '/events/'
     | '/portal/'
+    | '/promoter/'
     | '/teams/'
     | '/trips/'
     | '/advertise/stories/$slug'
@@ -1232,7 +1241,6 @@ export interface FileRouteTypes {
     | '/plan'
     | '/pricing'
     | '/privacy'
-    | '/promoter'
     | '/quick-generate'
     | '/reservations'
     | '/scan'
@@ -1301,6 +1309,7 @@ export interface FileRouteTypes {
     | '/concierge'
     | '/events'
     | '/portal'
+    | '/promoter'
     | '/teams'
     | '/trips'
     | '/advertise/stories/$slug'
@@ -1421,6 +1430,7 @@ export interface FileRouteTypes {
     | '/concierge/'
     | '/events/'
     | '/portal/'
+    | '/promoter/'
     | '/teams/'
     | '/trips/'
     | '/advertise/stories/$slug'
@@ -1472,7 +1482,7 @@ export interface RootRouteChildren {
   PortalRoute: typeof PortalRouteWithChildren
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
-  PromoterRoute: typeof PromoterRoute
+  PromoterRoute: typeof PromoterRouteWithChildren
   QuickGenerateRoute: typeof QuickGenerateRoute
   ReservationsRoute: typeof ReservationsRoute
   ScanRoute: typeof ScanRoute
@@ -1830,6 +1840,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/teams/'
       preLoaderRoute: typeof TeamsIndexRouteImport
       parentRoute: typeof TeamsRoute
+    }
+    '/promoter/': {
+      id: '/promoter/'
+      path: '/'
+      fullPath: '/promoter/'
+      preLoaderRoute: typeof PromoterIndexRouteImport
+      parentRoute: typeof PromoterRoute
     }
     '/portal/': {
       id: '/portal/'
@@ -2474,6 +2491,18 @@ const PortalRouteChildren: PortalRouteChildren = {
 const PortalRouteWithChildren =
   PortalRoute._addFileChildren(PortalRouteChildren)
 
+interface PromoterRouteChildren {
+  PromoterIndexRoute: typeof PromoterIndexRoute
+}
+
+const PromoterRouteChildren: PromoterRouteChildren = {
+  PromoterIndexRoute: PromoterIndexRoute,
+}
+
+const PromoterRouteWithChildren = PromoterRoute._addFileChildren(
+  PromoterRouteChildren,
+)
+
 interface TeamsRouteChildren {
   TeamsIdRoute: typeof TeamsIdRoute
   TeamsNewRoute: typeof TeamsNewRoute
@@ -2543,7 +2572,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortalRoute: PortalRouteWithChildren,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
-  PromoterRoute: PromoterRoute,
+  PromoterRoute: PromoterRouteWithChildren,
   QuickGenerateRoute: QuickGenerateRoute,
   ReservationsRoute: ReservationsRoute,
   ScanRoute: ScanRoute,

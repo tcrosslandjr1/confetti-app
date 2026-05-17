@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Minus, ChevronDown } from "lucide-react";
+import { Check, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -10,6 +9,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/lib/auth-context";
+import { useStripeCheckout } from "@/hooks/useStripeCheckout";
+import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 
 export const Route = createFileRoute("/business/pricing")({
   component: BusinessPricingPage,
@@ -39,7 +41,7 @@ type Tier = {
   tag: string;
   value: string;
   features: string[];
-  cta: { label: string; to: string };
+  cta: { label: string; to?: string; priceId?: string };
   highlight?: boolean;
   accent: string;
 };
@@ -78,7 +80,7 @@ const TIERS: Tier[] = [
       "Weekly AI photo refresh",
       "Basic analytics dashboard",
     ],
-    cta: { label: "Upgrade to Featured", to: "/business/signup" },
+    cta: { label: "Upgrade to Featured", priceId: "business_featured_monthly" },
     accent: "from-sky-200/70 to-sky-50",
   },
   {
@@ -97,7 +99,7 @@ const TIERS: Tier[] = [
       "Full analytics (views, clicks, engagement)",
       "Unlimited photos & flyers",
     ],
-    cta: { label: "Boost My Venue", to: "/business/signup" },
+    cta: { label: "Boost My Venue", priceId: "business_boosted_monthly" },
     highlight: true,
     accent: "from-primary/30 to-primary/5",
   },
@@ -117,7 +119,7 @@ const TIERS: Tier[] = [
       "Dedicated account manager",
       "Priority support",
     ],
-    cta: { label: "Go Premium", to: "/business/signup" },
+    cta: { label: "Go Premium", priceId: "business_premium_monthly" },
     accent: "from-orange-200/70 to-orange-50",
   },
 ];
@@ -177,14 +179,34 @@ const FAQS = [
 ];
 
 function BusinessPricingPage() {
+  const { user } = useAuth();
+  const { openCheckout, checkoutElement } = useStripeCheckout();
+  const handlePlanCta = (priceId: string | undefined, name: string, fallback?: string) => {
+    if (!priceId) {
+      if (fallback) window.location.href = fallback;
+      return;
+    }
+    if (!user) {
+      window.location.href = `/business/login?next=${encodeURIComponent("/business/pricing")}`;
+      return;
+    }
+    openCheckout({
+      variant: { kind: "price", priceId, accountType: "business" },
+      customerEmail: user.email ?? undefined,
+      userId: user.id,
+      title: `Subscribe to ${name}`,
+    });
+  };
   return (
     <div className="min-h-screen bg-background">
+      <PaymentTestModeBanner />
       <PricingHero />
-      <PricingTiers />
+      <PricingTiers onCta={handlePlanCta} />
       <TakeoverBand />
       <ComparisonTable />
       <FAQ />
       <FinalCTA />
+      {checkoutElement}
     </div>
   );
 }
@@ -231,19 +253,22 @@ function PricingHero() {
   );
 }
 
-function PricingTiers() {
+
+type CtaHandler = (priceId: string | undefined, name: string, fallback?: string) => void;
+
+function PricingTiers({ onCta }: { onCta: CtaHandler }) {
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {TIERS.map((tier, i) => (
-          <PricingCard key={tier.id} tier={tier} index={i} />
+          <PricingCard key={tier.id} tier={tier} index={i} onCta={onCta} />
         ))}
       </div>
     </section>
   );
 }
 
-function PricingCard({ tier, index }: { tier: Tier; index: number }) {
+function PricingCard({ tier, index, onCta }: { tier: Tier; index: number; onCta: CtaHandler }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -283,11 +308,11 @@ function PricingCard({ tier, index }: { tier: Tier; index: number }) {
       </ul>
 
       <Button
-        asChild
         className="mt-8 w-full"
         variant={tier.highlight ? "default" : "outline"}
+        onClick={() => onCta(tier.cta.priceId, tier.name, tier.cta.to)}
       >
-        <Link to={tier.cta.to}>{tier.cta.label}</Link>
+        {tier.cta.label}
       </Button>
     </motion.div>
   );

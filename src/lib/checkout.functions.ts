@@ -5,20 +5,20 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { type StripeEnv, createStripeClient } from "@/lib/stripe.server";
 
 // --- Plan catalog (price IDs registered in Stripe) ---
-export const CONSUMER_PRICES = ["plus_monthly", "crew_monthly"] as const;
+export const CONSUMER_PRICES = ["consumer_plus_monthly", "consumer_crew_monthly"] as const;
 export const BUSINESS_PRICES = [
   "business_featured_monthly",
   "business_boosted_monthly",
   "business_premium_monthly",
 ] as const;
 export const AD_PRICES = [
-  "ad_featured_month",
-  "ad_boosted_month",
-  "ad_premium_month",
+  "ad_featured_monthly",
+  "ad_boosted_monthly",
+  "ad_premium_monthly",
 ] as const;
 export const ONE_TIME_PRICES = [
   "unlock_premium_plan_once",
-  "unlock_vip_30d_once",
+  "unlock_vip_access_once",
 ] as const;
 
 const ALL_PRICES = [
@@ -219,14 +219,14 @@ export const createPortalSession = createServerFn({ method: "POST" })
 // changePlan — upgrade now (immediate, prorated) OR downgrade at period end
 // ============================================================================
 const PRICE_RANK: Record<string, number> = {
-  plus_monthly: 1,
-  crew_monthly: 2,
+  consumer_plus_monthly: 1,
+  consumer_crew_monthly: 2,
   business_featured_monthly: 1,
   business_boosted_monthly: 2,
   business_premium_monthly: 3,
-  ad_featured_month: 1,
-  ad_boosted_month: 2,
-  ad_premium_month: 3,
+  ad_featured_monthly: 1,
+  ad_boosted_monthly: 2,
+  ad_premium_monthly: 3,
 };
 
 export const changePlan = createServerFn({ method: "POST" })

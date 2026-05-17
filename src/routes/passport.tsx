@@ -57,6 +57,7 @@ import { toPng } from "html-to-image";
 import { Copy, Download, Check } from "lucide-react";
 import { toast } from "sonner";
 import { usePassportStats } from "@/hooks/usePassportStats";
+import { ManageSubscriptionPanel } from "@/components/ManageSubscriptionPanel";
 
 const EMPTY_STREAK: boolean[] = [false, false, false, false, false, false, false];
 
@@ -225,8 +226,6 @@ function PassportPage() {
   );
   const currentTier = TIERS[currentTierIndex];
   const nextTier = TIERS[currentTierIndex + 1];
-
-
   const shareData: PassportShareData = {
     name: passport.displayName || "Guest Explorer",
     level,
@@ -295,6 +294,10 @@ function PassportPage() {
         >
           <ArrowLeft className="h-3.5 w-3.5" /> Back
         </Link>
+
+        <div className="mt-4">
+          <ManageSubscriptionPanel />
+        </div>
 
         {/* Passport hero */}
         <div className="relative mt-4 overflow-hidden rounded-3xl border-2 border-ink bg-gradient-vibe p-6 sm:p-8 text-cream shadow-brut-lg">

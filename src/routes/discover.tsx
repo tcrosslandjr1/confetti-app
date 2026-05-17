@@ -386,44 +386,49 @@ function DiscoverMap({
 function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) {
   return (
     <div className="absolute bottom-4 left-4 right-4 z-30 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut">
-      <div className="flex items-center gap-3">
+      <button
+        onClick={onClose}
+        className="absolute -top-2 -right-2 z-10 grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-cream font-bold shadow-brut"
+        aria-label="Close"
+      >
+        ×
+      </button>
+      <Link
+        to="/venue/$id"
+        params={{ id: row.id }}
+        className="flex items-center gap-3 rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-coral"
+      >
         {row.photo ? (
           <img
             src={row.photo}
             alt={row.name}
-            className="h-14 w-14 shrink-0 rounded-xl border-2 border-ink object-cover"
+            className="h-16 w-16 shrink-0 rounded-xl border-2 border-ink object-cover"
           />
         ) : (
-          <div className="grid h-14 w-14 shrink-0 place-items-center rounded-xl border-2 border-ink bg-muted">
-            <MapPin className="h-5 w-5" />
+          <div className={`h-16 w-16 shrink-0 overflow-hidden rounded-xl border-2 border-ink bg-gradient-to-br ${row.gradient ?? "from-slate-500 via-slate-700 to-slate-900"}`}>
+            <div className="h-full w-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.4),transparent_55%)]" />
           </div>
         )}
         <div className="min-w-0 flex-1">
-          <div className="font-display text-base font-bold leading-tight">{row.name}</div>
+          <div className="truncate font-display text-base font-bold leading-tight">{row.name}</div>
           <div className="truncate text-xs text-muted-foreground">
             {row.neighborhood ?? row.address ?? "Nearby"}
           </div>
-          {row.rating != null && (
-            <div className="mt-0.5 inline-flex items-center gap-1 text-xs">
-              <Star className="h-3 w-3 fill-gold text-gold" /> {row.rating.toFixed(1)}
-            </div>
-          )}
+          <div className="mt-1 flex items-center gap-2">
+            {row.rating != null && (
+              <span className="inline-flex items-center gap-1 text-xs font-semibold">
+                <Star className="h-3 w-3 fill-gold text-gold" /> {row.rating.toFixed(1)}
+              </span>
+            )}
+            {row.price && (
+              <span className="font-mono text-[10px] font-bold text-emerald-700">{row.price}</span>
+            )}
+          </div>
         </div>
-        <Link
-          to="/venue/$id"
-          params={{ id: row.id }}
-          className="rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut"
-        >
-          View
-        </Link>
-        <button
-          onClick={onClose}
-          className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-cream font-bold"
-          aria-label="Close"
-        >
-          ×
-        </button>
-      </div>
+        <span className="inline-flex shrink-0 items-center gap-1 rounded-full border-2 border-ink bg-gradient-to-r from-coral to-violet-500 px-3.5 py-2 font-mono text-[10px] font-bold uppercase tracking-widest text-white shadow-brut">
+          Reserve <ArrowRight className="h-3 w-3" />
+        </span>
+      </Link>
     </div>
   );
 }

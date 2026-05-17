@@ -288,7 +288,7 @@ function PassportPage() {
 
   return (
     <div className="min-h-screen bg-background pb-32">
-      <div className="mx-auto max-w-md px-4 pt-6">
+      <div className="mx-auto max-w-5xl px-4 pt-6 sm:px-6 lg:px-8">
         <Link
           to="/portal"
           className="inline-flex items-center gap-1 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 hover:text-ink"
@@ -297,7 +297,7 @@ function PassportPage() {
         </Link>
 
         {/* Passport hero */}
-        <div className="relative mt-4 overflow-hidden rounded-3xl border-2 border-ink bg-gradient-vibe p-6 text-cream shadow-brut-lg">
+        <div className="relative mt-4 overflow-hidden rounded-3xl border-2 border-ink bg-gradient-vibe p-6 sm:p-8 text-cream shadow-brut-lg">
           {/* layered glow */}
           <div className="pointer-events-none absolute -left-20 -top-20 h-56 w-56 rounded-full bg-cream/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-24 -right-16 h-64 w-64 rounded-full bg-ink/30 blur-3xl" />
@@ -378,11 +378,15 @@ function PassportPage() {
         </div>
 
         {/* Quick stats row */}
-        <div className="mt-4 grid grid-cols-3 gap-2">
+        <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3">
           <StatTile icon={Flame} value={String(streakDays.filter(Boolean).length)} label="Streak" tint="coral" />
           <StatTile icon={Award} value={`${unlockedCount}/${totalBadges}`} label="Badges" tint="ink" />
           <StatTile icon={TrendingUp} value={String(earnedStamps.length)} label="Check-ins" tint="coral" />
         </div>
+
+        {/* Two-column body on tablet+ */}
+        <div className="mt-5 grid gap-5 sm:grid-cols-2 sm:gap-6">
+        <div className="space-y-5 sm:space-y-6">
 
         {/* Streak strip */}
         <section className="mt-5 overflow-hidden rounded-2xl border-2 border-ink bg-card p-4 shadow-brut">
@@ -584,7 +588,9 @@ function PassportPage() {
             ))}
           </div>
         </section>
+        </div>
 
+        <div className="space-y-5 sm:space-y-6">
         {/* Featured perk */}
         <section className="mt-6 relative overflow-hidden rounded-2xl border-2 border-ink bg-ink p-5 text-cream shadow-brut-lg">
           <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-coral/40 blur-3xl" />
@@ -754,6 +760,8 @@ function PassportPage() {
             ))}
           </ul>
         </section>
+        </div>
+        </div>
 
         {/* Scan-to-earn footer */}
         <div className="mt-6 flex items-center justify-between gap-3 rounded-2xl border-2 border-dashed border-ink/30 bg-cream/60 p-4">

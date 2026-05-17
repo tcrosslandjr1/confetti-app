@@ -292,7 +292,7 @@ function PortalDiscoverPage() {
               {quickBusy ? "Generating…" : "Quick generate"}
             </button>
             <Link
-              to="/plan"
+              to="/create"
               className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink bg-cream px-5 py-3 font-display text-sm font-bold uppercase tracking-wide text-foreground transition-pop hover:scale-[1.02]"
             >
               <Sparkles className="h-4 w-4" />
@@ -889,7 +889,7 @@ function NextSteps({
     [];
   if (!hasUpcoming)
     steps.push({
-      to: "/plan",
+      to: "/create",
       icon: Zap,
       title: "Plan your next night",
       desc: "Tell us the vibe — we'll build the route in 60 seconds.",

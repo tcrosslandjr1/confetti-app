@@ -114,7 +114,7 @@ function EmptyState() {
         Plan a day, mark a stop as Pending or Confirmed, and your booking details land here.
       </p>
       <Link
-        to="/plan"
+        to="/create"
         className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-pop transition-pop hover:scale-105"
       >
         Plan a day

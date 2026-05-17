@@ -135,7 +135,7 @@ function FeaturesPage() {
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <GatedAction
-              to="/plan"
+              to="/create"
               feature="planning"
               className="inline-flex h-14 items-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
             >
@@ -210,7 +210,7 @@ function FeaturesPage() {
             No signup to try. Three full plans free, every month.
           </p>
           <GatedAction
-            to="/plan"
+            to="/create"
             feature="planning"
             className="mt-8 inline-flex h-14 items-center gap-2 rounded-full border-2 border-cream bg-coral px-7 text-base font-bold text-ink shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
           >

@@ -1137,7 +1137,7 @@ function ReadyPage() {
             <PartyPopper className="h-4 w-4" /> View in my trips
           </Link>
           <Link
-            to="/plan"
+            to="/create"
             className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:w-auto"
           >
             Plan another day

@@ -542,13 +542,13 @@ function AuthPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-              className="w-full rounded-2xl border border-border bg-card px-4 py-4 pr-12 text-sm outline-none ring-ring/30 focus:ring-2"
+              className="w-full rounded-2xl border-2 border-ink bg-cream px-4 py-4 pr-12 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
             />
             <button
               type="button"
               onClick={() => setShowPassword((s) => !s)}
               aria-label={showPassword ? "Hide password" : "Show password"}
-              className="absolute inset-y-0 right-3 my-auto grid h-9 w-9 place-items-center rounded-xl text-muted-foreground transition hover:bg-accent hover:text-foreground"
+              className="absolute inset-y-0 right-3 my-auto grid h-9 w-9 place-items-center rounded-xl border-2 border-ink/20 text-ink/60 transition hover:border-ink hover:bg-cream hover:text-ink"
             >
               {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
             </button>

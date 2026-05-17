@@ -175,6 +175,7 @@ function DiscoverPage() {
         )}
       </div>
     </div>
+    </PullToRefresh>
   );
 }
 

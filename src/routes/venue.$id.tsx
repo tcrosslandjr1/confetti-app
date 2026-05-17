@@ -25,8 +25,42 @@ import { supabase } from "@/integrations/supabase/client";
 import { getSampleVenue } from "@/lib/sample-venues";
 import { X } from "lucide-react";
 
+const SITE_ORIGIN = "https://confettiplan.lovable.app";
+
 export const Route = createFileRoute("/venue/$id")({
-  head: () => ({ meta: [{ title: "Reserve — Confetti" }] }),
+  loader: ({ params }) => {
+    const sample = getSampleVenue(params.id);
+    return { sample };
+  },
+  head: ({ params, loaderData }) => {
+    const s = loaderData?.sample;
+    const title = s ? `${s.name} — Reserve on Confetti` : "Reserve — Confetti";
+    const description = s
+      ? `${s.description} Book your table on Confetti.`
+      : "Reserve a curated city experience on Confetti.";
+    const url = `${SITE_ORIGIN}/venue/${params.id}`;
+    const image = s?.imageUrl;
+    const meta: Array<Record<string, string>> = [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:url", content: url },
+      { property: "og:type", content: "place" },
+      { property: "og:site_name", content: "Confetti" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+    ];
+    if (image) {
+      meta.push({ property: "og:image", content: image });
+      meta.push({ name: "twitter:image", content: image });
+    }
+    return {
+      meta,
+      links: [{ rel: "canonical", href: url }],
+    };
+  },
   component: VenueBookingPage,
 });
 

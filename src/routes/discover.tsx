@@ -79,6 +79,7 @@ function DiscoverPage() {
   }, [load]);
 
   return (
+    <PullToRefresh onRefresh={load}>
     <div className="min-h-screen bg-background pb-32">
       <div className="mx-auto max-w-2xl px-4 pt-6">
         <h1 className="font-display text-3xl font-extrabold tracking-tight">Discover Nearby</h1>

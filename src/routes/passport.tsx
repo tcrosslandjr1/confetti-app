@@ -603,12 +603,12 @@ function PassportPage() {
               <p className="mt-1 text-xs leading-snug opacity-90">
                 Every check-in Fri–Sun earns 2× rewards. Stack with your streak bonus.
               </p>
-              <button
-                type="button"
+              <Link
+                to="/discover"
                 className="mt-3 inline-flex items-center gap-1 rounded-full border-2 border-cream/40 bg-cream/10 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-cream/20"
               >
                 See partners <ChevronRight className="h-3 w-3" />
-              </button>
+              </Link>
             </div>
           </div>
         </section>

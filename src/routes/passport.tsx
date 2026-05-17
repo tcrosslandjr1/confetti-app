@@ -109,11 +109,27 @@ function PassportPage() {
   const [claimed, setClaimed] = useState<ClaimedReward[]>([]);
   const [pending, setPending] = useState<(typeof REWARDS)[number] | null>(null);
   const [justClaimed, setJustClaimed] = useState<ClaimedReward | null>(null);
+  const [earnedStamps, setEarnedStamps] = useState<PassportStamp[]>([]);
   useEffect(() => {
     setConfettiCount(getConfetti());
     setClaimed(loadClaimed());
-    return subscribeConfetti(() => setConfettiCount(getConfetti()));
+    setEarnedStamps(getStamps());
+    const unsubC = subscribeConfetti(() => setConfettiCount(getConfetti()));
+    const unsubS = subscribeStamps(() => setEarnedStamps(getStamps()));
+    return () => {
+      unsubC();
+      unsubS();
+    };
   }, []);
+
+  // Merge live earned stamps with seed examples; live stamps first, dedup by id.
+  const stamps: (PassportStamp & { earned: boolean })[] = [
+    ...earnedStamps.map((s) => ({ ...s, earned: true })),
+    ...SEED_STAMPS.filter((s) => !earnedStamps.some((e) => e.id === s.id)).map((s) => ({
+      ...s,
+      earned: false,
+    })),
+  ];
 
   function handleConfirmRedeem() {
     if (!pending) return;

@@ -112,8 +112,7 @@ const DETAILS = [
 function VenueBookingPage() {
   const { id } = Route.useParams();
   const navigate = useNavigate();
-  const backToDiscover = () =>
-    navigate({ to: "/discover", search: { venueId: id } });
+  const backToDiscover = () => navigate({ to: "/discover", search: { venueId: id } });
   const [venue, setVenue] = useState<Venue | null | undefined>(undefined);
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [dir, setDir] = useState<1 | -1>(1);
@@ -137,11 +136,7 @@ function VenueBookingPage() {
       let v: any = null;
       let source: "venues" | "viral_venues" = "venues";
       if (isUuid) {
-        const venuesRes = await supabase
-          .from("venues")
-          .select("*")
-          .eq("id", id)
-          .maybeSingle();
+        const venuesRes = await supabase.from("venues").select("*").eq("id", id).maybeSingle();
         if (venuesRes.data) {
           v = venuesRes.data;
         } else {
@@ -247,10 +242,18 @@ function VenueBookingPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-cream">
       <AuroraBackground />
-      <StepHeader step={step} onBack={() => (step === 1 ? backToDiscover() : go((step - 1) as 1 | 2 | 3))} />
+      <StepHeader
+        step={step}
+        onBack={() => (step === 1 ? backToDiscover() : go((step - 1) as 1 | 2 | 3))}
+      />
 
       <div className="relative mx-auto max-w-2xl px-4 pb-32 pt-2 sm:px-6">
-        <div key={step} className={dir === 1 ? "animate-[slide-in-right_.32s_ease-out]" : "animate-[fade-in_.32s_ease-out]"}>
+        <div
+          key={step}
+          className={
+            dir === 1 ? "animate-[slide-in-right_.32s_ease-out]" : "animate-[fade-in_.32s_ease-out]"
+          }
+        >
           {step === 1 && <StepVenue venue={venue} onReserve={() => setModalOpen(true)} />}
           {step === 2 && (
             <StepTime
@@ -371,36 +374,148 @@ type VenueEvent = {
 
 const EVENTS_BY_CATEGORY: Record<string, VenueEvent[]> = {
   Rooftops: [
-    { title: "Golden Hour Sessions", description: "Live DJ set on the terrace as the sun drops. Signature spritzes on rotation.", daysAhead: 3, startHour: 18, durationHours: 3 },
-    { title: "Sunset Yoga + Brunch", description: "60-min vinyasa flow followed by a bottomless brunch table under the cabanas.", daysAhead: 10, startHour: 9, durationHours: 3 },
-    { title: "Rooftop Film Night", description: "Open-air screening of a modern classic. Loungers, blankets, and popcorn included.", daysAhead: 17, startHour: 20, durationHours: 3 },
+    {
+      title: "Golden Hour Sessions",
+      description: "Live DJ set on the terrace as the sun drops. Signature spritzes on rotation.",
+      daysAhead: 3,
+      startHour: 18,
+      durationHours: 3,
+    },
+    {
+      title: "Sunset Yoga + Brunch",
+      description: "60-min vinyasa flow followed by a bottomless brunch table under the cabanas.",
+      daysAhead: 10,
+      startHour: 9,
+      durationHours: 3,
+    },
+    {
+      title: "Rooftop Film Night",
+      description:
+        "Open-air screening of a modern classic. Loungers, blankets, and popcorn included.",
+      daysAhead: 17,
+      startHour: 20,
+      durationHours: 3,
+    },
   ],
   Cocktails: [
-    { title: "Bartender's Table", description: "Five-course tasting led by the head bartender. Each pour paired with a small bite.", daysAhead: 5, startHour: 19, durationHours: 2 },
-    { title: "Mezcal & Agave Masterclass", description: "Guided flight through small-batch mezcals with the distiller in the room.", daysAhead: 12, startHour: 19, durationHours: 2 },
-    { title: "New Menu Launch Party", description: "Preview of the seasonal cocktail menu with the team behind it.", daysAhead: 22, startHour: 20, durationHours: 3 },
+    {
+      title: "Bartender's Table",
+      description:
+        "Five-course tasting led by the head bartender. Each pour paired with a small bite.",
+      daysAhead: 5,
+      startHour: 19,
+      durationHours: 2,
+    },
+    {
+      title: "Mezcal & Agave Masterclass",
+      description: "Guided flight through small-batch mezcals with the distiller in the room.",
+      daysAhead: 12,
+      startHour: 19,
+      durationHours: 2,
+    },
+    {
+      title: "New Menu Launch Party",
+      description: "Preview of the seasonal cocktail menu with the team behind it.",
+      daysAhead: 22,
+      startHour: 20,
+      durationHours: 3,
+    },
   ],
   Dining: [
-    { title: "Chef's Counter Tasting", description: "Eight courses cooked in front of you at the counter, with optional wine pairing.", daysAhead: 4, startHour: 18, durationHours: 3 },
-    { title: "Farmers Market Brunch", description: "Saturday brunch built entirely from that morning's market haul.", daysAhead: 9, startHour: 10, durationHours: 3 },
-    { title: "Winemaker Dinner", description: "Five-course collaboration dinner with a visiting natural-wine producer.", daysAhead: 19, startHour: 19, durationHours: 3 },
+    {
+      title: "Chef's Counter Tasting",
+      description:
+        "Eight courses cooked in front of you at the counter, with optional wine pairing.",
+      daysAhead: 4,
+      startHour: 18,
+      durationHours: 3,
+    },
+    {
+      title: "Farmers Market Brunch",
+      description: "Saturday brunch built entirely from that morning's market haul.",
+      daysAhead: 9,
+      startHour: 10,
+      durationHours: 3,
+    },
+    {
+      title: "Winemaker Dinner",
+      description: "Five-course collaboration dinner with a visiting natural-wine producer.",
+      daysAhead: 19,
+      startHour: 19,
+      durationHours: 3,
+    },
   ],
   "Live Music": [
-    { title: "Late Night Jazz Trio", description: "Resident trio with a rotating guest soloist. Two sets, no cover with reservation.", daysAhead: 2, startHour: 21, durationHours: 3 },
-    { title: "Vinyl Listening Session", description: "Themed first-press LP playback on the main system. BYO requests.", daysAhead: 8, startHour: 20, durationHours: 2 },
-    { title: "Singer-Songwriter Showcase", description: "Three local acts, intimate stage, full sound, table service throughout.", daysAhead: 16, startHour: 19, durationHours: 3 },
+    {
+      title: "Late Night Jazz Trio",
+      description:
+        "Resident trio with a rotating guest soloist. Two sets, no cover with reservation.",
+      daysAhead: 2,
+      startHour: 21,
+      durationHours: 3,
+    },
+    {
+      title: "Vinyl Listening Session",
+      description: "Themed first-press LP playback on the main system. BYO requests.",
+      daysAhead: 8,
+      startHour: 20,
+      durationHours: 2,
+    },
+    {
+      title: "Singer-Songwriter Showcase",
+      description: "Three local acts, intimate stage, full sound, table service throughout.",
+      daysAhead: 16,
+      startHour: 19,
+      durationHours: 3,
+    },
   ],
   Nightlife: [
-    { title: "Resident DJ Night", description: "Disco-edit residents go back-to-back until close. Coat check open all night.", daysAhead: 1, startHour: 22, durationHours: 4 },
-    { title: "Guest Set: International DJ", description: "Special booking from a touring DJ. Limited capacity — reserve a table early.", daysAhead: 11, startHour: 22, durationHours: 4 },
-    { title: "Throwback Saturday", description: "All-vinyl funk, soul, and 90s house set. Dress code: bring the energy.", daysAhead: 15, startHour: 22, durationHours: 4 },
+    {
+      title: "Resident DJ Night",
+      description: "Disco-edit residents go back-to-back until close. Coat check open all night.",
+      daysAhead: 1,
+      startHour: 22,
+      durationHours: 4,
+    },
+    {
+      title: "Guest Set: International DJ",
+      description: "Special booking from a touring DJ. Limited capacity — reserve a table early.",
+      daysAhead: 11,
+      startHour: 22,
+      durationHours: 4,
+    },
+    {
+      title: "Throwback Saturday",
+      description: "All-vinyl funk, soul, and 90s house set. Dress code: bring the energy.",
+      daysAhead: 15,
+      startHour: 22,
+      durationHours: 4,
+    },
   ],
 };
 
 const DEFAULT_EVENTS: VenueEvent[] = [
-  { title: "Members' Mixer", description: "Casual evening hosted by the team. Welcome drink and tasting bites included.", daysAhead: 4, startHour: 19, durationHours: 2 },
-  { title: "Seasonal Tasting", description: "Walk through the new seasonal menu with the kitchen and bar leads.", daysAhead: 11, startHour: 19, durationHours: 2 },
-  { title: "Late Night Hang", description: "Extended hours with a guest host and a one-off menu for the night.", daysAhead: 18, startHour: 21, durationHours: 3 },
+  {
+    title: "Members' Mixer",
+    description: "Casual evening hosted by the team. Welcome drink and tasting bites included.",
+    daysAhead: 4,
+    startHour: 19,
+    durationHours: 2,
+  },
+  {
+    title: "Seasonal Tasting",
+    description: "Walk through the new seasonal menu with the kitchen and bar leads.",
+    daysAhead: 11,
+    startHour: 19,
+    durationHours: 2,
+  },
+  {
+    title: "Late Night Hang",
+    description: "Extended hours with a guest host and a one-off menu for the night.",
+    daysAhead: 18,
+    startHour: 21,
+    durationHours: 3,
+  },
 ];
 
 function getEventsForVenue(venue: Venue): VenueEvent[] {
@@ -450,9 +565,7 @@ function VenueEvents({ venue }: { venue: Venue }) {
             >
               <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-lg border-2 border-ink bg-white text-center">
                 <span className="font-mono text-[9px] font-bold text-coral">{f.day}</span>
-                <span className="font-mono text-xs font-bold leading-tight text-ink">
-                  {f.date}
-                </span>
+                <span className="font-mono text-xs font-bold leading-tight text-ink">{f.date}</span>
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-baseline gap-x-2">
@@ -479,9 +592,7 @@ function VenueEvents({ venue }: { venue: Venue }) {
 
 function ShareVenue({ venue }: { venue: Venue }) {
   const shareUrl =
-    typeof window !== "undefined"
-      ? window.location.href
-      : `${SITE_ORIGIN}/venue/${venue.id}`;
+    typeof window !== "undefined" ? window.location.href : `${SITE_ORIGIN}/venue/${venue.id}`;
   const shareText = `${venue.name} on Confetti — ${venue.description ?? "Book a curated city experience."}`;
 
   async function nativeShare() {
@@ -674,9 +785,9 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
             </p>
             <p className="text-sm leading-relaxed text-ink/85">
               You loved <span className="font-semibold">Maison Pickle</span> and{" "}
-              <span className="font-semibold">Attaboy</span>. {venue.name} hits the same intimate-but-buzzy
-              note — low-lit booths, a bartender who actually asks what you're feeling, and a hidden
-              patio for after-dinner.
+              <span className="font-semibold">Attaboy</span>. {venue.name} hits the same
+              intimate-but-buzzy note — low-lit booths, a bartender who actually asks what you're
+              feeling, and a hidden patio for after-dinner.
             </p>
           </div>
         </div>
@@ -685,10 +796,7 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
       {/* 2x2 details grid */}
       <div className="grid grid-cols-2 gap-3">
         {DETAILS.map((d) => (
-          <div
-            key={d.label}
-            className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut"
-          >
+          <div key={d.label} className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
             <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
               <d.icon className="h-3.5 w-3.5 text-coral" /> {d.label}
             </div>
@@ -878,7 +986,10 @@ function StepTime({
               Party size
             </p>
             <p className="mt-0.5 font-display text-2xl font-extrabold">
-              {party} <span className="text-base font-normal text-ink/60">{party === 1 ? "guest" : "guests"}</span>
+              {party}{" "}
+              <span className="text-base font-normal text-ink/60">
+                {party === 1 ? "guest" : "guests"}
+              </span>
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -916,11 +1027,7 @@ function StepTime({
         <div className="mt-1 text-right font-mono text-[10px] text-ink/40">{notes.length}/280</div>
       </div>
 
-      <GradientCTA
-        onClick={onNext}
-        label="Review Booking"
-        disabled={!time}
-      />
+      <GradientCTA onClick={onNext} label="Review Booking" disabled={!time} />
     </div>
   );
 }
@@ -970,8 +1077,7 @@ function StepConfirm({
         <div
           className="relative p-5 text-white"
           style={{
-            background:
-              "linear-gradient(135deg, #1A1025 0%, #2A1845 55%, #0F1729 100%)",
+            background: "linear-gradient(135deg, #1A1025 0%, #2A1845 55%, #0F1729 100%)",
           }}
         >
           <div className="flex items-start justify-between">
@@ -1001,9 +1107,17 @@ function StepConfirm({
 
         {/* Glass body */}
         <div className="grid grid-cols-2 gap-px bg-ink/15">
-          <PassCell label="Date" value={`${date.dow}, ${date.mon} ${date.day}`} icon={CalendarIcon} />
+          <PassCell
+            label="Date"
+            value={`${date.dow}, ${date.mon} ${date.day}`}
+            icon={CalendarIcon}
+          />
           <PassCell label="Time" value={time} icon={Clock} />
-          <PassCell label="Party" value={`${party} ${party === 1 ? "guest" : "guests"}`} icon={Users} />
+          <PassCell
+            label="Party"
+            value={`${party} ${party === 1 ? "guest" : "guests"}`}
+            icon={Users}
+          />
           <PassCell label="Table" value="Booth · garden side" icon={Sparkles} />
           <div className="col-span-2 bg-white p-4">
             <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
@@ -1045,15 +1159,7 @@ function StepConfirm({
   );
 }
 
-function PassCell({
-  label,
-  value,
-  icon: Icon,
-}: {
-  label: string;
-  value: string;
-  icon: any;
-}) {
+function PassCell({ label, value, icon: Icon }: { label: string; value: string; icon: any }) {
   return (
     <div className="bg-white p-4">
       <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
@@ -1196,7 +1302,9 @@ function StepDone({
           onClick={() => {
             const url = typeof window !== "undefined" ? window.location.href : "";
             if (navigator.share) {
-              navigator.share({ title: venue.name, text: `Joining me at ${venue.name}?`, url }).catch(() => {});
+              navigator
+                .share({ title: venue.name, text: `Joining me at ${venue.name}?`, url })
+                .catch(() => {});
             } else {
               navigator.clipboard?.writeText(url);
               toast.success("Link copied — share it with your crew");
@@ -1270,11 +1378,7 @@ function ReservationModal({
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center">
       {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-ink/60 backdrop-blur-sm"
-        onClick={onClose}
-        aria-hidden
-      />
+      <div className="absolute inset-0 bg-ink/60 backdrop-blur-sm" onClick={onClose} aria-hidden />
       {/* Modal panel */}
       <div className="relative z-10 w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border-2 border-ink bg-cream shadow-brut-lg animate-[slide-in-up_.28s_ease-out]">
         <h2 className="sr-only">Reserve at {venue.name}</h2>
@@ -1318,11 +1422,17 @@ function ReservationModal({
                         selected ? "bg-coral text-white" : "bg-white text-ink"
                       }`}
                     >
-                      <span className={`font-mono text-[10px] font-bold uppercase tracking-widest ${selected ? "text-white/85" : "text-ink/60"}`}>
+                      <span
+                        className={`font-mono text-[10px] font-bold uppercase tracking-widest ${selected ? "text-white/85" : "text-ink/60"}`}
+                      >
                         {d.dow}
                       </span>
-                      <span className="font-display text-xl font-extrabold leading-none">{d.day}</span>
-                      <span className={`font-mono text-[10px] uppercase ${selected ? "text-white/85" : "text-ink/50"}`}>
+                      <span className="font-display text-xl font-extrabold leading-none">
+                        {d.day}
+                      </span>
+                      <span
+                        className={`font-mono text-[10px] uppercase ${selected ? "text-white/85" : "text-ink/50"}`}
+                      >
                         {d.mon}
                       </span>
                     </button>
@@ -1377,7 +1487,9 @@ function ReservationModal({
                   >
                     <Minus className="h-3.5 w-3.5" />
                   </button>
-                  <span className="w-6 text-center font-display text-lg font-extrabold">{party}</span>
+                  <span className="w-6 text-center font-display text-lg font-extrabold">
+                    {party}
+                  </span>
                   <button
                     onClick={() => setParty(Math.min(20, party + 1))}
                     className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream font-bold shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
@@ -1419,7 +1531,8 @@ function ReservationModal({
             <div>
               <h3 className="font-display text-2xl font-extrabold tracking-tight">You're in!</h3>
               <p className="mt-1 text-sm text-ink/70">
-                {venue.name} · {dates[dateIdx]?.dow} {dates[dateIdx]?.day} {dates[dateIdx]?.mon} at {time}
+                {venue.name} · {dates[dateIdx]?.dow} {dates[dateIdx]?.day} {dates[dateIdx]?.mon} at{" "}
+                {time}
               </p>
             </div>
             <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
@@ -1489,7 +1602,10 @@ function ConfettiRain() {
     [],
   );
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-4 z-20 h-64 overflow-hidden">
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-x-0 -top-4 z-20 h-64 overflow-hidden"
+    >
       {pieces.map((p, i) => (
         <span
           key={i}
@@ -1526,8 +1642,7 @@ function GradientCTA({
         disabled={disabled}
         className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border-2 border-ink py-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-white shadow-brut-lg transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60"
         style={{
-          backgroundImage:
-            "linear-gradient(95deg, #F05537 0%, #E94584 45%, #7C3AED 100%)",
+          backgroundImage: "linear-gradient(95deg, #F05537 0%, #E94584 45%, #7C3AED 100%)",
           backgroundSize: "180% 100%",
         }}
       >
@@ -1535,8 +1650,7 @@ function GradientCTA({
           aria-hidden
           className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           style={{
-            backgroundImage:
-              "linear-gradient(95deg, #7C3AED 0%, #E94584 45%, #F05537 100%)",
+            backgroundImage: "linear-gradient(95deg, #7C3AED 0%, #E94584 45%, #F05537 100%)",
           }}
         />
         <span className="relative inline-flex items-center gap-2">

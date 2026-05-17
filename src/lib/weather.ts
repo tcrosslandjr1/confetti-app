@@ -5,14 +5,18 @@
 import { useEffect, useState } from "react";
 
 export interface DayForecast {
-  date: string;            // ISO yyyy-mm-dd
-  code: number;            // WMO code
+  date: string; // ISO yyyy-mm-dd
+  code: number; // WMO code
   tMax: number;
   tMin: number;
-  precipProb: number;      // 0-100
+  precipProb: number; // 0-100
 }
 
-interface CachedGeo { lat: number; lon: number; ts: number }
+interface CachedGeo {
+  lat: number;
+  lon: number;
+  ts: number;
+}
 const geoCache = new Map<string, CachedGeo>();
 
 async function geocodeCity(city: string): Promise<{ lat: number; lon: number } | null> {
@@ -98,7 +102,11 @@ export interface UseWeatherResult {
 
 export function useWeather(city: string, date: string): UseWeatherResult {
   const [state, setState] = useState<UseWeatherResult>({
-    loading: true, error: null, forDate: null, outOfRange: false, daily: [],
+    loading: true,
+    error: null,
+    forDate: null,
+    outOfRange: false,
+    daily: [],
   });
 
   useEffect(() => {
@@ -107,7 +115,14 @@ export function useWeather(city: string, date: string): UseWeatherResult {
     (async () => {
       const geo = await geocodeCity(city);
       if (!geo) {
-        if (!cancelled) setState({ loading: false, error: "Couldn't find city", forDate: null, outOfRange: false, daily: [] });
+        if (!cancelled)
+          setState({
+            loading: false,
+            error: "Couldn't find city",
+            forDate: null,
+            outOfRange: false,
+            daily: [],
+          });
         return;
       }
       try {
@@ -118,10 +133,19 @@ export function useWeather(city: string, date: string): UseWeatherResult {
         const outOfRange = !forDate && !!lastDate && date > lastDate;
         setState({ loading: false, error: null, forDate, outOfRange, daily });
       } catch (e) {
-        if (!cancelled) setState({ loading: false, error: (e as Error).message, forDate: null, outOfRange: false, daily: [] });
+        if (!cancelled)
+          setState({
+            loading: false,
+            error: (e as Error).message,
+            forDate: null,
+            outOfRange: false,
+            daily: [],
+          });
       }
     })();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [city, date]);
 
   return state;

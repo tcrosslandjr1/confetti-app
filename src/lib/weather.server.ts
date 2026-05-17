@@ -4,7 +4,7 @@
 
 export interface ServerForecast {
   date: string;
-  label: string;     // human label e.g. "Light rain"
+  label: string; // human label e.g. "Light rain"
   emoji: string;
   tMaxF: number;
   tMinF: number;
@@ -17,16 +17,22 @@ const WMO_LABEL: Record<number, { label: string; emoji: string }> = {
   1: { label: "Mostly clear", emoji: "🌤️" },
   2: { label: "Partly cloudy", emoji: "⛅" },
   3: { label: "Overcast", emoji: "☁️" },
-  45: { label: "Fog", emoji: "🌫️" }, 48: { label: "Rime fog", emoji: "🌫️" },
-  51: { label: "Light drizzle", emoji: "🌦️" }, 53: { label: "Drizzle", emoji: "🌦️" },
+  45: { label: "Fog", emoji: "🌫️" },
+  48: { label: "Rime fog", emoji: "🌫️" },
+  51: { label: "Light drizzle", emoji: "🌦️" },
+  53: { label: "Drizzle", emoji: "🌦️" },
   55: { label: "Heavy drizzle", emoji: "🌧️" },
-  61: { label: "Light rain", emoji: "🌦️" }, 63: { label: "Rain", emoji: "🌧️" },
+  61: { label: "Light rain", emoji: "🌦️" },
+  63: { label: "Rain", emoji: "🌧️" },
   65: { label: "Heavy rain", emoji: "🌧️" },
-  71: { label: "Light snow", emoji: "🌨️" }, 73: { label: "Snow", emoji: "❄️" },
+  71: { label: "Light snow", emoji: "🌨️" },
+  73: { label: "Snow", emoji: "❄️" },
   75: { label: "Heavy snow", emoji: "❄️" },
-  80: { label: "Showers", emoji: "🌦️" }, 81: { label: "Heavy showers", emoji: "🌧️" },
+  80: { label: "Showers", emoji: "🌦️" },
+  81: { label: "Heavy showers", emoji: "🌧️" },
   82: { label: "Violent showers", emoji: "⛈️" },
-  95: { label: "Thunderstorm", emoji: "⛈️" }, 96: { label: "T-storm + hail", emoji: "⛈️" },
+  95: { label: "Thunderstorm", emoji: "⛈️" },
+  96: { label: "T-storm + hail", emoji: "⛈️" },
   99: { label: "Severe storm", emoji: "⛈️" },
 };
 
@@ -62,7 +68,15 @@ export async function fetchForecastForCityDate(
     if (idx === -1) {
       const lastDate = times[times.length - 1];
       if (lastDate && date > lastDate) {
-        return { date, label: "Beyond forecast window", emoji: "🗓️", tMaxF: 0, tMinF: 0, precipProb: 0, outOfRange: true };
+        return {
+          date,
+          label: "Beyond forecast window",
+          emoji: "🗓️",
+          tMaxF: 0,
+          tMinF: 0,
+          precipProb: 0,
+          outOfRange: true,
+        };
       }
       return null;
     }
@@ -82,18 +96,33 @@ export async function fetchForecastForCityDate(
 }
 
 export function weatherGuidance(f: ServerForecast): string {
-  if (f.outOfRange) return "No forecast available (date beyond 16-day window). Pick venues that work in any weather.";
+  if (f.outOfRange)
+    return "No forecast available (date beyond 16-day window). Pick venues that work in any weather.";
   const heavyRain = f.precipProb >= 60 || /heavy|thunder|storm|severe|violent/i.test(f.label);
   const someRain = f.precipProb >= 30 || /rain|drizzle|shower/i.test(f.label);
   const cold = f.tMaxF < 45;
   const hot = f.tMaxF > 88;
   const lines: string[] = [];
-  if (heavyRain) lines.push("HEAVY RAIN expected — strongly prefer indoor venues. Avoid rooftops, patios, walking tours, outdoor markets. Cluster stops to minimize transit.");
-  else if (someRain) lines.push("Rain likely — bias indoor or covered venues. Avoid rooftops/patios as primary stops.");
-  if (cold) lines.push(`Cold (${f.tMaxF}°F high) — prefer cozy indoor venues, fireplaces, ramen/whiskey-bar energy.`);
-  if (hot) lines.push(`Hot (${f.tMaxF}°F high) — prefer A/C, frozen cocktails, water-adjacent or shaded patios.`);
+  if (heavyRain)
+    lines.push(
+      "HEAVY RAIN expected — strongly prefer indoor venues. Avoid rooftops, patios, walking tours, outdoor markets. Cluster stops to minimize transit.",
+    );
+  else if (someRain)
+    lines.push(
+      "Rain likely — bias indoor or covered venues. Avoid rooftops/patios as primary stops.",
+    );
+  if (cold)
+    lines.push(
+      `Cold (${f.tMaxF}°F high) — prefer cozy indoor venues, fireplaces, ramen/whiskey-bar energy.`,
+    );
+  if (hot)
+    lines.push(
+      `Hot (${f.tMaxF}°F high) — prefer A/C, frozen cocktails, water-adjacent or shaded patios.`,
+    );
   if (!heavyRain && !someRain && !cold && !hot) {
-    lines.push(`Pleasant weather (${f.label}, ${f.tMinF}–${f.tMaxF}°F) — rooftops, patios, walking-distance clusters all on the table.`);
+    lines.push(
+      `Pleasant weather (${f.label}, ${f.tMinF}–${f.tMaxF}°F) — rooftops, patios, walking-distance clusters all on the table.`,
+    );
   }
   return lines.join(" ");
 }

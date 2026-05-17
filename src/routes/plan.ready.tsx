@@ -544,7 +544,8 @@ function ReadyPage() {
             You're <span className="text-gradient">ready to roll.</span>
           </h1>
           <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-            Your day is locked in. Share it with the crew, drop it in your calendar, then just show up.
+            Your day is locked in. Share it with the crew, drop it in your calendar, then just show
+            up.
           </p>
 
           {/* Primary next-step row */}
@@ -555,7 +556,9 @@ function ReadyPage() {
                 trackCta("share_with_crew", { path: "/plan/ready" });
                 const url = typeof window !== "undefined" ? window.location.href : "";
                 if (typeof navigator !== "undefined" && navigator.share) {
-                  navigator.share({ title: TRIP.title, text: TRIP.description, url }).catch(() => {});
+                  navigator
+                    .share({ title: TRIP.title, text: TRIP.description, url })
+                    .catch(() => {});
                 } else {
                   navigator.clipboard?.writeText(url);
                   toast.success("Link copied — send it to the crew.");

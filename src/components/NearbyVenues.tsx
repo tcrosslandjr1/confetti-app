@@ -252,7 +252,12 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
                   loading="lazy"
                 />
               ) : (
-                <GooglePhotos venue={v.name} neighborhood={v.neighborhood} category={v.category} variant="hero" />
+                <GooglePhotos
+                  venue={v.name}
+                  neighborhood={v.neighborhood}
+                  category={v.category}
+                  variant="hero"
+                />
               )}
               <div className="p-4">
                 <div className="flex items-center justify-between gap-2">
@@ -281,7 +286,14 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
                     vibeMatch: v.category,
                   });
                   return (
-                    <WhyThisPick signals={signals} rationale={rationale} className="mt-2.5" compact pickId={`nearby:${v.id}`} context="nearby" />
+                    <WhyThisPick
+                      signals={signals}
+                      rationale={rationale}
+                      className="mt-2.5"
+                      compact
+                      pickId={`nearby:${v.id}`}
+                      context="nearby"
+                    />
                   );
                 })()}
               </div>

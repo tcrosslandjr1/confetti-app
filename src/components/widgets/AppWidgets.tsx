@@ -177,13 +177,15 @@ export function TonightAtAGlance() {
       .limit(40)
       .then(({ data }) => {
         if (cancelled || !data) return;
-        const ranked: NearbyOption[] = (data as Array<{
-          id: string;
-          name: string;
-          category: string;
-          neighborhood: string | null;
-          city: string | null;
-        }>).map((v) => {
+        const ranked: NearbyOption[] = (
+          data as Array<{
+            id: string;
+            name: string;
+            category: string;
+            neighborhood: string | null;
+            city: string | null;
+          }>
+        ).map((v) => {
           const key = v.neighborhood?.trim().toLowerCase();
           const coords = key ? NEIGHBORHOOD_COORDS[key] : undefined;
           const distanceKm = loc && coords ? haversineKm(loc, coords) : null;
@@ -386,7 +388,10 @@ export function NextBookingCountdown() {
 
   const handleCancel = async () => {
     if (!b) return;
-    if (typeof window !== "undefined" && !window.confirm(`Cancel your booking at ${b.venue_name}?`)) {
+    if (
+      typeof window !== "undefined" &&
+      !window.confirm(`Cancel your booking at ${b.venue_name}?`)
+    ) {
       return;
     }
     setCancelling(true);
@@ -405,11 +410,7 @@ export function NextBookingCountdown() {
 
   if (!b) {
     return (
-      <WidgetShell
-        title="Next up"
-        icon={CalendarCheck}
-        action={{ label: "Plan", to: "/create" }}
-      >
+      <WidgetShell title="Next up" icon={CalendarCheck} action={{ label: "Plan", to: "/create" }}>
         <p className="text-sm text-ink/60">No upcoming bookings yet.</p>
         <Link
           to="/create"
@@ -422,7 +423,10 @@ export function NextBookingCountdown() {
   }
 
   const t = timeUntil(b.starts_at);
-  const sec = Math.max(0, Math.floor(((new Date(b.starts_at).getTime() - Date.now()) % 60_000) / 1000));
+  const sec = Math.max(
+    0,
+    Math.floor(((new Date(b.starts_at).getTime() - Date.now()) % 60_000) / 1000),
+  );
   return (
     <WidgetShell
       title="Next up"
@@ -689,7 +693,12 @@ export function SpendBudgetTracker() {
 
 type SavedRow = {
   venue_id: string;
-  venues: { id: string; name: string; neighborhood: string | null; image_url: string | null } | null;
+  venues: {
+    id: string;
+    name: string;
+    neighborhood: string | null;
+    image_url: string | null;
+  } | null;
 };
 
 export function SavedSpotsWidget() {
@@ -720,11 +729,7 @@ export function SavedSpotsWidget() {
   }, [user]);
 
   return (
-    <WidgetShell
-      title="Saved spots"
-      icon={Bookmark}
-      action={{ label: "All", to: "/portal/saved" }}
-    >
+    <WidgetShell title="Saved spots" icon={Bookmark} action={{ label: "All", to: "/portal/saved" }}>
       {loading ? (
         <p className="text-xs text-ink/50">Loading…</p>
       ) : items.length === 0 ? (

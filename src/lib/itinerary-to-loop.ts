@@ -44,14 +44,16 @@ function dayName(d?: string | null): string | undefined {
 
 function gateFromCity(city?: string | null): string {
   if (!city) return "TRIP";
-  return city
-    .replace(/[^a-zA-Z ]/g, "")
-    .trim()
-    .split(/\s+/)
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 5)
-    .toUpperCase() || "TRIP";
+  return (
+    city
+      .replace(/[^a-zA-Z ]/g, "")
+      .trim()
+      .split(/\s+/)
+      .map((w) => w[0])
+      .join("")
+      .slice(0, 5)
+      .toUpperCase() || "TRIP"
+  );
 }
 
 export function itineraryToActiveLoop(
@@ -75,7 +77,9 @@ export function itineraryToActiveLoop(
     parking: s.parking
       ? { primary: `${s.parking.type} · ${s.parking.cost}`, secondary: s.parking.access }
       : undefined,
-    tags: (s.review_snippets ?? []).slice(0, 3).map((label) => ({ label, variant: "vibe" as const })),
+    tags: (s.review_snippets ?? [])
+      .slice(0, 3)
+      .map((label) => ({ label, variant: "vibe" as const })),
     bookable: !!s.booking_url,
     bookingType: s.booking_url ? "reservation" : undefined,
     rationale: s.tips?.[0],

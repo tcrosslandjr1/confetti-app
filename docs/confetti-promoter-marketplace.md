@@ -20,6 +20,7 @@ Confetti takes a platform fee on every transaction.
 ## 1. Promoter Profile
 
 Influencers sign up as Promoters with:
+
 - Niche (food critic, lifestyle, nightlife, dessert, cocktails, etc.)
 - Audience size per platform (IG, TikTok, YouTube)
 - Rate card (per post / per reel / per crawl)
@@ -31,6 +32,7 @@ Influencers sign up as Promoters with:
 ## 2. Business Browse & Hire
 
 Venues filter Promoters by:
+
 - Audience size band
 - Content style / niche
 - Price range
@@ -42,6 +44,7 @@ Hire flow happens entirely in-app: brief -> quote -> accept -> escrow -> deliver
 ## 3. Confetti-Required Deliverables
 
 To accept a job, the Promoter MUST:
+
 - Build a Boarding Pass in Confetti for the outing
 - Feature the Boarding Pass on-screen in the content
 - Show map / booking flow / vibe selection
@@ -109,12 +112,14 @@ Itinerary link enforced: `promoter_jobs.boarding_pass_itinerary_id` references `
 ## UI Surfaces
 
 **Business portal** — new section "Promoters"
+
 - Browse / filter / shortlist
 - Send brief & quote
 - Escrow funding
 - ROI dashboard per campaign
 
 **Promoter portal** (new) — `/promoter/*`
+
 - Profile editor
 - Job inbox
 - Active jobs (with required Boarding Pass step)

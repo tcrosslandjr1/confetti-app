@@ -153,8 +153,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               url: "https://confettiplan.lovable.app",
               potentialAction: {
                 "@type": "SearchAction",
-                target:
-                  "https://confettiplan.lovable.app/discover?q={search_term_string}",
+                target: "https://confettiplan.lovable.app/discover?q={search_term_string}",
                 "query-input": "required name=search_term_string",
               },
             },

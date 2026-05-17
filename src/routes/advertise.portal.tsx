@@ -37,15 +37,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { toast } from "sonner";
-import {
-  Area,
-  AreaChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-
+import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
 export const Route = createFileRoute("/advertise/portal")({
   component: AdvertiserPortal,
@@ -67,10 +59,7 @@ function AdvertiserPortal() {
     const a = await getMyAdvertiser(uid);
     setAdvertiser(a);
     if (a) {
-      const [cs, sub] = await Promise.all([
-        listMyCampaigns(a.id),
-        getMySubscription(a.id),
-      ]);
+      const [cs, sub] = await Promise.all([listMyCampaigns(a.id), getMySubscription(a.id)]);
       setCampaigns(cs);
       setSubscription(sub);
       const ids = new Set(cs.map((c) => c.id));
@@ -79,7 +68,12 @@ function AdvertiserPortal() {
         listRecentAdEvents(30),
       ]);
       setStats(s);
-      setSeries(bucketEventsByDay(evs.filter((e) => e.campaign_id && ids.has(e.campaign_id)), 30));
+      setSeries(
+        bucketEventsByDay(
+          evs.filter((e) => e.campaign_id && ids.has(e.campaign_id)),
+          30,
+        ),
+      );
     }
     setBusy(false);
   }, []);
@@ -105,7 +99,6 @@ function AdvertiserPortal() {
     }
   }
 
-
   useEffect(() => {
     if (loading) return;
     if (!user) {
@@ -116,7 +109,10 @@ function AdvertiserPortal() {
     // other roles), so we allow customer + admin + business viewers to reach
     // their advertiser portal. Visitors (signed-out preview) still bounce to
     // the marketing page.
-    if (viewAs === "visitor") { nav({ to: "/advertise" }); return; }
+    if (viewAs === "visitor") {
+      nav({ to: "/advertise" });
+      return;
+    }
     void refresh(user.id);
   }, [user, loading, viewAs, nav, refresh]);
 
@@ -163,10 +159,7 @@ function AdvertiserPortal() {
             ) : null}
           </p>
         </div>
-        <NewCampaignButton
-          subscription={subscription}
-          onClick={() => setShowNew((s) => !s)}
-        />
+        <NewCampaignButton subscription={subscription} onClick={() => setShowNew((s) => !s)} />
       </header>
 
       {/* Stats */}
@@ -182,10 +175,7 @@ function AdvertiserPortal() {
 
       {/* Subscription + claims */}
       <div className="mt-6 grid gap-4 lg:grid-cols-[1.2fr_1fr]">
-        <SubscriptionPanel
-          advertiserId={advertiser.id}
-          onChange={(s) => setSubscription(s)}
-        />
+        <SubscriptionPanel advertiserId={advertiser.id} onChange={(s) => setSubscription(s)} />
         <ClaimVenuePanel
           advertiserId={advertiser.id}
           subscriptionTier={subscription?.tier ?? "starter"}
@@ -207,7 +197,6 @@ function AdvertiserPortal() {
           onCancel={() => setShowNew(false)}
         />
       )}
-
 
       {/* 30-day trend */}
       {totalImpressions > 0 && (

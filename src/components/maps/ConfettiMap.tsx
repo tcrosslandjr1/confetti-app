@@ -62,14 +62,16 @@ type Props = {
   /** Travel mode for the active leg's directions. Defaults to DRIVING. */
   travelMode?: TravelMode;
   /** Steps for the currently active leg (between the previous and current stop). */
-  onActiveStepsChange?: (info: {
-    fromIdx: number;
-    toIdx: number;
-    steps: DirectionsStepLite[];
-    distanceText?: string;
-    durationText?: string;
-    travelMode: TravelMode;
-  } | null) => void;
+  onActiveStepsChange?: (
+    info: {
+      fromIdx: number;
+      toIdx: number;
+      steps: DirectionsStepLite[];
+      distanceText?: string;
+      durationText?: string;
+      travelMode: TravelMode;
+    } | null,
+  ) => void;
   /** Pan + zoom + bounce the marker for this stop id. Changing the value re-triggers the focus. */
   focusStopId?: string | null;
 };
@@ -100,10 +102,7 @@ export function ConfettiMap({
   }
 
   return (
-    <div
-      className={`relative w-full overflow-hidden bg-cream ${className}`}
-      style={{ height }}
-    >
+    <div className={`relative w-full overflow-hidden bg-cream ${className}`} style={{ height }}>
       <Map
         defaultZoom={13}
         defaultCenter={{ lat: 38.9072, lng: -77.0369 }}
@@ -172,7 +171,7 @@ function Layer({
         lat: s.lat,
         lng: s.lng,
       })),
-    [stops, fallbackCity]
+    [stops, fallbackCity],
   );
   const points = useGeocodedPoints(inputs);
 
@@ -187,7 +186,7 @@ function Layer({
     navigator.geolocation.getCurrentPosition(
       (pos) => setUser({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
       () => {},
-      { enableHighAccuracy: false, timeout: 5000, maximumAge: 60_000 }
+      { enableHighAccuracy: false, timeout: 5000, maximumAge: 60_000 },
     );
   }, [showUserLocation]);
 
@@ -221,7 +220,9 @@ function Layer({
     const renderInfo = (stop: MapStop, i: number) => {
       const status = statusOf(stop, i, currentIdx);
       const dot = STATUS_COLOR[status];
-      const eta = stop.time ? `<div style="font:600 11px/1.2 ui-monospace,monospace;color:#1A1410cc;margin-top:2px">ETA · ${stop.time}</div>` : "";
+      const eta = stop.time
+        ? `<div style="font:600 11px/1.2 ui-monospace,monospace;color:#1A1410cc;margin-top:2px">ETA · ${stop.time}</div>`
+        : "";
       return `
         <div style="font-family:ui-sans-serif,system-ui;color:#1A1410;min-width:140px;padding:2px 4px">
           <div style="display:flex;align-items:center;gap:6px">
@@ -240,13 +241,7 @@ function Layer({
       const isCurrent = i === currentIdx;
       const isNext = currentIdx >= 0 && i === currentIdx + 1;
       const isDone = !!stop.done;
-      const fill = isDone
-        ? "#3FA66B"
-        : isCurrent
-        ? "#F05537"
-        : isNext
-        ? "#F2C744"
-        : "#FFFFFF";
+      const fill = isDone ? "#3FA66B" : isCurrent ? "#F05537" : isNext ? "#F2C744" : "#FFFFFF";
       const stroke = "#1A1410";
       const labelColor = isDone || isCurrent ? "#FFFFFF" : "#1A1410";
 
@@ -265,8 +260,8 @@ function Layer({
         animation: isCurrent
           ? google.maps.Animation.BOUNCE
           : isNext
-          ? google.maps.Animation.DROP
-          : null,
+            ? google.maps.Animation.DROP
+            : null,
         zIndex: isCurrent ? 999 : isNext ? 800 : 100 - i,
         title: `${stop.name}${stop.time ? ` · ${stop.time}` : ""} · ${STATUS_LABEL[statusOf(stop, i, currentIdx)]}`,
       });
@@ -323,29 +318,29 @@ function Layer({
             ],
           }
         : isPast
-        ? {
-            strokeColor: "#1A1410",
-            strokeOpacity: 0.25,
-            strokeWeight: 3,
-            zIndex: 10,
-          }
-        : {
-            // future segments: dashed coral
-            strokeOpacity: 0,
-            zIndex: 20,
-            icons: [
-              {
-                icon: {
-                  path: "M 0,-1 0,1",
-                  strokeOpacity: 1,
-                  strokeColor: "#F05537",
-                  scale: 3,
+          ? {
+              strokeColor: "#1A1410",
+              strokeOpacity: 0.25,
+              strokeWeight: 3,
+              zIndex: 10,
+            }
+          : {
+              // future segments: dashed coral
+              strokeOpacity: 0,
+              zIndex: 20,
+              icons: [
+                {
+                  icon: {
+                    path: "M 0,-1 0,1",
+                    strokeOpacity: 1,
+                    strokeColor: "#F05537",
+                    scale: 3,
+                  },
+                  offset: "0",
+                  repeat: "12px",
                 },
-                offset: "0",
-                repeat: "12px",
-              },
-            ],
-          };
+              ],
+            };
 
       const segment = new google.maps.Polyline({
         path: [
@@ -418,7 +413,7 @@ function Layer({
 
         // Replace the active straight-line segment with the real route polyline
         const activeSegment = segmentsRef.current.find(
-          (poly) => poly.get("strokeWeight") === 5 && poly.get("strokeColor") === "#F05537"
+          (poly) => poly.get("strokeWeight") === 5 && poly.get("strokeColor") === "#F05537",
         );
         if (activeSegment) {
           activeSegment.setPath(result.routes[0].overview_path);
@@ -438,7 +433,7 @@ function Layer({
           durationText: leg.duration?.text,
           travelMode,
         });
-      }
+      },
     );
   }, [map, points, stops, activeLeg, travelMode, onActiveStepsChange]);
 
@@ -483,7 +478,9 @@ function Layer({
     if (stop && infoWindowRef.current) {
       const status = statusOf(stop, idx, currentIdx);
       const dot = STATUS_COLOR[status];
-      const eta = stop.time ? `<div style="font:600 11px/1.2 ui-monospace,monospace;color:#1A1410cc;margin-top:2px">ETA · ${stop.time}</div>` : "";
+      const eta = stop.time
+        ? `<div style="font:600 11px/1.2 ui-monospace,monospace;color:#1A1410cc;margin-top:2px">ETA · ${stop.time}</div>`
+        : "";
       infoWindowRef.current.setContent(`
         <div style="font-family:ui-sans-serif,system-ui;color:#1A1410;min-width:140px;padding:2px 4px">
           <div style="display:flex;align-items:center;gap:6px">
@@ -502,4 +499,3 @@ function Layer({
 
   return null;
 }
-

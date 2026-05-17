@@ -1,6 +1,10 @@
 // Back-compat shim. The shared ConfettiMap supersedes LoopMap.
 // Existing imports of <LoopMap /> continue to work.
-import { ConfettiMap, type DirectionsStepLite, type TravelMode } from "@/components/maps/ConfettiMap";
+import {
+  ConfettiMap,
+  type DirectionsStepLite,
+  type TravelMode,
+} from "@/components/maps/ConfettiMap";
 import type { LoopStop } from "@/lib/loop-store";
 
 export type { TravelMode } from "@/components/maps/ConfettiMap";

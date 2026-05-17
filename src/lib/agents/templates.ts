@@ -158,7 +158,8 @@ export const TEMPLATES: OccasionTemplate[] = [
   {
     occasionId: "biz",
     blueprintName: "Team Cheers",
-    description: "Easy meetup bar, group-friendly dinner with reservations, optional low-key after.",
+    description:
+      "Easy meetup bar, group-friendly dinner with reservations, optional low-key after.",
     tone: "polished, inclusive, no-cringe",
     structure: [
       {

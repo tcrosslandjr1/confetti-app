@@ -213,7 +213,8 @@ export function clearPickEvents() {
 
 /** Aggregate counts per signal kind, useful for a future trust dashboard. */
 export function summarizePickEvents(events: PickEvent[] = read()) {
-  const tally: Record<string, { impressions: number; clicks: number; up: number; down: number }> = {};
+  const tally: Record<string, { impressions: number; clicks: number; up: number; down: number }> =
+    {};
   const bump = (kind: string, key: keyof (typeof tally)[string]) => {
     tally[kind] ??= { impressions: 0, clicks: 0, up: 0, down: 0 };
     tally[kind][key] += 1;

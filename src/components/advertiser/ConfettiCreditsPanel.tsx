@@ -62,9 +62,9 @@ export function ConfettiCreditsPanel({ advertiserId }: { advertiserId: string })
           </div>
           <h2 className="mt-2 font-display text-xl font-bold">Reward your guests</h2>
           <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-            Buy Confetti credits and we'll automatically award them to anyone who books
-            your venue. Guests redeem Confetti for cash off their next experience —
-            bringing them back to you and the platform.
+            Buy Confetti credits and we'll automatically award them to anyone who books your venue.
+            Guests redeem Confetti for cash off their next experience — bringing them back to you
+            and the platform.
           </p>
         </div>
         <div className="rounded-2xl border border-border bg-gradient-to-br from-primary/15 to-primary/5 p-4 text-right">
@@ -74,9 +74,7 @@ export function ConfettiCreditsPanel({ advertiserId }: { advertiserId: string })
           <div className="mt-1 font-display text-2xl font-bold text-primary">
             {loading ? "—" : (balance?.balance_credits ?? 0).toLocaleString()}
           </div>
-          <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
-            Confetti
-          </div>
+          <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Confetti</div>
         </div>
       </div>
 

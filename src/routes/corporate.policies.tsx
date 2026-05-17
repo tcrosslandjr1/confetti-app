@@ -4,10 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  CorporatePageHeader,
-  useActiveCorporateCompany,
-} from "@/components/CorporateShell";
+import { CorporatePageHeader, useActiveCorporateCompany } from "@/components/CorporateShell";
 
 export const Route = createFileRoute("/corporate/policies")({
   component: CorporatePoliciesPage,
@@ -72,29 +69,15 @@ function CorporatePoliciesPage() {
                     : "—"
                 }
               />
-              <PolicyRow
-                label="Max headcount"
-                value={p.max_headcount ?? "—"}
-              />
-              <PolicyRow
-                label="Alcohol"
-                value={p.alcohol_allowed ? "Allowed" : "Not allowed"}
-              />
+              <PolicyRow label="Max headcount" value={p.max_headcount ?? "—"} />
+              <PolicyRow label="Alcohol" value={p.alcohol_allowed ? "Allowed" : "Not allowed"} />
               <PolicyRow
                 label="Allowed cities"
-                value={
-                  p.allowed_cities?.length
-                    ? p.allowed_cities.join(", ")
-                    : "Any"
-                }
+                value={p.allowed_cities?.length ? p.allowed_cities.join(", ") : "Any"}
               />
               <PolicyRow
                 label="Allowed categories"
-                value={
-                  p.allowed_categories?.length
-                    ? p.allowed_categories.join(", ")
-                    : "Any"
-                }
+                value={p.allowed_categories?.length ? p.allowed_categories.join(", ") : "Any"}
               />
             </dl>
           </Card>
@@ -107,9 +90,7 @@ function CorporatePoliciesPage() {
 function PolicyRow({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div>
-      <dt className="text-xs uppercase tracking-wider text-muted-foreground">
-        {label}
-      </dt>
+      <dt className="text-xs uppercase tracking-wider text-muted-foreground">{label}</dt>
       <dd className="mt-0.5 font-medium">{value}</dd>
     </div>
   );

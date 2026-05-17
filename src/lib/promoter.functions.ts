@@ -85,7 +85,9 @@ export const browsePromoters = createServerFn({ method: "GET" })
     const supabase = adminClient();
     let qb = supabase
       .from("promoters")
-      .select("id, display_name, bio, avatar_url, niche, cities, rate_card, audience, rating, jobs_completed")
+      .select(
+        "id, display_name, bio, avatar_url, niche, cities, rate_card, audience, rating, jobs_completed",
+      )
       .eq("status", "approved")
       .order("rating", { ascending: false, nullsFirst: false })
       .limit(60);
@@ -103,7 +105,9 @@ export const getPromoter = createServerFn({ method: "GET" })
     const supabase = adminClient();
     const { data: row, error } = await supabase
       .from("promoters")
-      .select("id, display_name, bio, avatar_url, niche, cities, rate_card, audience, sample_links, rating, jobs_completed, status")
+      .select(
+        "id, display_name, bio, avatar_url, niche, cities, rate_card, audience, sample_links, rating, jobs_completed, status",
+      )
       .eq("id", data.id)
       .maybeSingle();
     if (error) throw new Error(error.message);
@@ -121,13 +125,16 @@ const HireInput = z.object({
   venue_id: z.string().uuid().optional().nullable(),
   title: z.string().trim().min(3).max(160),
   brief: z.string().trim().min(20).max(4000),
-  deliverables: z.array(
-    z.object({
-      type: z.string().min(1).max(40),
-      platform: z.string().min(1).max(40),
-      description: z.string().max(500).optional(),
-    })
-  ).min(1).max(10),
+  deliverables: z
+    .array(
+      z.object({
+        type: z.string().min(1).max(40),
+        platform: z.string().min(1).max(40),
+        description: z.string().max(500).optional(),
+      }),
+    )
+    .min(1)
+    .max(10),
   amount_cents: z.number().int().min(100).max(100_000_00),
   due_at: z.string().datetime().optional().nullable(),
 });
@@ -142,7 +149,8 @@ export const createJobOffer = createServerFn({ method: "POST" })
       .select("id, owner_id")
       .eq("id", data.advertiser_id)
       .maybeSingle();
-    if (!adv || adv.owner_id !== context.userId) throw new Error("Not authorized for this advertiser");
+    if (!adv || adv.owner_id !== context.userId)
+      throw new Error("Not authorized for this advertiser");
 
     const { data: row, error } = await supabase
       .from("promoter_jobs")
@@ -199,7 +207,9 @@ export const listMyPromoterJobs = createServerFn({ method: "GET" })
     if (!p) return { jobs: [] };
     const { data, error } = await supabase
       .from("promoter_jobs")
-      .select("*, advertisers(business_name), promoter_submissions(id, content_url, verification_status, posted_at)")
+      .select(
+        "*, advertisers(business_name), promoter_submissions(id, content_url, verification_status, posted_at)",
+      )
       .eq("promoter_id", p.id)
       .order("created_at", { ascending: false });
     if (error) throw new Error(error.message);
@@ -221,17 +231,18 @@ export const promoterJobAction = createServerFn({ method: "POST" })
       .select("*, promoters!inner(user_id)")
       .eq("id", data.job_id)
       .maybeSingle();
-    if (!job || (job as any).promoters.user_id !== context.userId) throw new Error("Not authorized");
+    if (!job || (job as any).promoters.user_id !== context.userId)
+      throw new Error("Not authorized");
 
     const nowIso = new Date().toISOString();
     const updates =
       data.action === "accept"
         ? { status: "accepted" as const, accepted_at: nowIso }
         : data.action === "decline"
-        ? { status: "cancelled" as const, cancelled_at: nowIso }
-        : data.action === "mark_in_progress"
-        ? { status: "in_progress" as const }
-        : { status: "cancelled" as const, cancelled_at: nowIso };
+          ? { status: "cancelled" as const, cancelled_at: nowIso }
+          : data.action === "mark_in_progress"
+            ? { status: "in_progress" as const }
+            : { status: "cancelled" as const, cancelled_at: nowIso };
 
     const { data: updated, error } = await supabase
       .from("promoter_jobs")
@@ -267,7 +278,8 @@ export const submitContent = createServerFn({ method: "POST" })
       .select("id, promoter_id, promoters!inner(user_id)")
       .eq("id", data.job_id)
       .maybeSingle();
-    if (!job || (job as any).promoters.user_id !== context.userId) throw new Error("Not authorized");
+    if (!job || (job as any).promoters.user_id !== context.userId)
+      throw new Error("Not authorized");
 
     // Verify the boarding pass belongs to the same promoter user
     const { data: itin } = await supabase
@@ -329,7 +341,9 @@ export const adminListPendingSubmissions = createServerFn({ method: "GET" })
     await assertAdmin(supabase, context.userId);
     const { data, error } = await supabase
       .from("promoter_submissions")
-      .select("*, promoter_jobs(id, title, amount_cents, platform_fee_bps, promoter_id, advertiser_id, advertisers(business_name), promoters(display_name))")
+      .select(
+        "*, promoter_jobs(id, title, amount_cents, platform_fee_bps, promoter_id, advertiser_id, advertisers(business_name), promoters(display_name))",
+      )
       .eq("verification_status", "pending")
       .order("created_at", { ascending: false });
     if (error) throw new Error(error.message);
@@ -364,7 +378,7 @@ export const adminVerifySubmission = createServerFn({ method: "POST" })
 
     if (data.decision === "approved") {
       const job = (sub as any).promoter_jobs;
-      const net = Math.floor(job.amount_cents * (10000 - job.platform_fee_bps) / 10000);
+      const net = Math.floor((job.amount_cents * (10000 - job.platform_fee_bps)) / 10000);
 
       await supabase
         .from("promoter_jobs")
@@ -382,7 +396,16 @@ export const adminVerifySubmission = createServerFn({ method: "POST" })
 
       await supabase
         .from("promoters")
-        .update({ jobs_completed: (await supabase.from("promoters").select("jobs_completed").eq("id", job.promoter_id).single()).data!.jobs_completed + 1 })
+        .update({
+          jobs_completed:
+            (
+              await supabase
+                .from("promoters")
+                .select("jobs_completed")
+                .eq("id", job.promoter_id)
+                .single()
+            ).data!.jobs_completed + 1,
+        })
         .eq("id", job.promoter_id);
     }
 

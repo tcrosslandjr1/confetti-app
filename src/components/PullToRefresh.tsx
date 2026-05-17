@@ -41,8 +41,7 @@ export function PullToRefresh({
       if (!window.matchMedia("(pointer: coarse)").matches) return;
     }
 
-    const atTop = () =>
-      (document.scrollingElement?.scrollTop ?? window.scrollY ?? 0) <= 0;
+    const atTop = () => (document.scrollingElement?.scrollTop ?? window.scrollY ?? 0) <= 0;
 
     const onTouchStart = (e: TouchEvent) => {
       if (refreshing) return;

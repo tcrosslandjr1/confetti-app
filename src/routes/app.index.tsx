@@ -71,9 +71,7 @@ function TonightFeedPage() {
             <Sparkles className="size-3.5" /> AI Planner
           </div>
           <h2 className="mt-2 text-xl font-bold">Want me to plan your night?</h2>
-          <p className="mt-1 text-sm opacity-90">
-            Two-tap itinerary, perfectly your vibe.
-          </p>
+          <p className="mt-1 text-sm opacity-90">Two-tap itinerary, perfectly your vibe.</p>
           <Button asChild variant="secondary" className="mt-4 rounded-full">
             <Link to="/app/plan">Plan my night</Link>
           </Button>
@@ -84,12 +82,7 @@ function TonightFeedPage() {
         <SectionHeading icon={Flame} title="Trending venues" />
         <div className="-mx-1 mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2">
           {(venues ?? []).map((v) => (
-            <Link
-              key={v.id}
-              to="/venue/$id"
-              params={{ id: v.id }}
-              className="snap-start"
-            >
+            <Link key={v.id} to="/venue/$id" params={{ id: v.id }} className="snap-start">
               <div className="h-44 w-40 overflow-hidden rounded-2xl border border-border bg-muted">
                 {(v.hero_image_url || v.image_url) && (
                   <img
@@ -100,9 +93,7 @@ function TonightFeedPage() {
                   />
                 )}
                 <div className="p-3">
-                  <div className="line-clamp-1 text-sm font-semibold">
-                    {v.name}
-                  </div>
+                  <div className="line-clamp-1 text-sm font-semibold">{v.name}</div>
                   <div className="mt-0.5 line-clamp-1 text-[11px] text-muted-foreground">
                     {v.category}
                     {v.neighborhood ? ` · ${v.neighborhood}` : ""}
@@ -111,9 +102,7 @@ function TonightFeedPage() {
               </div>
             </Link>
           ))}
-          {!venues?.length && (
-            <Placeholder text="Trending venues will appear here" />
-          )}
+          {!venues?.length && <Placeholder text="Trending venues will appear here" />}
         </div>
       </section>
 
@@ -151,9 +140,7 @@ function TonightFeedPage() {
                 <MapPin className="size-5" />
               </div>
               <div className="min-w-0 flex-1">
-                <div className="line-clamp-1 text-sm font-semibold">
-                  {e.title}
-                </div>
+                <div className="line-clamp-1 text-sm font-semibold">{e.title}</div>
                 <div className="text-[11px] text-muted-foreground">
                   {new Date(e.starts_at).toLocaleString(undefined, {
                     weekday: "short",

@@ -46,7 +46,9 @@ export const listMyManagedVenues = createServerFn({ method: "GET" })
     const admin = await isAdmin(supabase, context.userId);
     let q = supabase
       .from("venues")
-      .select("id, name, city, neighborhood, hero_image_url, image_url, claim_status, promotion_approved, sponsored_boost_level, gallery_refreshed_at, socials_refreshed_at, official_photos");
+      .select(
+        "id, name, city, neighborhood, hero_image_url, image_url, claim_status, promotion_approved, sponsored_boost_level, gallery_refreshed_at, socials_refreshed_at, official_photos",
+      );
     if (!admin) q = q.eq("claimed_by", context.userId);
     const { data, error } = await q.order("name");
     if (error) throw new Error(error.message);
@@ -132,7 +134,10 @@ export const removeOfficialPhoto = createServerFn({ method: "POST" })
     const update: Record<string, unknown> = { official_photos: next };
     if (row?.hero_image_url === data.url) update.hero_image_url = next[0] ?? null;
 
-    await supabase.from("venues").update(update as never).eq("id", data.venueId);
+    await supabase
+      .from("venues")
+      .update(update as never)
+      .eq("id", data.venueId);
 
     // Best-effort storage delete (path = everything after /venue-photos/)
     const match = data.url.match(/venue-photos\/(.+)$/);
@@ -205,11 +210,13 @@ export const updateVenueSocial = createServerFn({ method: "POST" })
     if (data.tiktokOfficial !== undefined) update.tiktok_url = data.tiktokOfficial || null;
     if (data.tiktokHandle !== undefined) update.tiktok_handle = data.tiktokHandle || null;
     if (data.tiktokHashtags) update.tiktok_hashtags = data.tiktokHashtags.map(normTag);
-    if (data.tiktokLocationTag !== undefined) update.tiktok_location_tag = data.tiktokLocationTag || null;
+    if (data.tiktokLocationTag !== undefined)
+      update.tiktok_location_tag = data.tiktokLocationTag || null;
     if (data.instagramOfficial !== undefined) update.instagram_url = data.instagramOfficial || null;
     if (data.instagramHandle !== undefined) update.instagram_handle = data.instagramHandle || null;
     if (data.instagramHashtags) update.instagram_hashtags = data.instagramHashtags.map(normTag);
-    if (data.instagramLocationTag !== undefined) update.instagram_location_tag = data.instagramLocationTag || null;
+    if (data.instagramLocationTag !== undefined)
+      update.instagram_location_tag = data.instagramLocationTag || null;
     update.socials_refreshed_at = new Date().toISOString();
 
     const { error } = await supabase
@@ -222,14 +229,28 @@ export const updateVenueSocial = createServerFn({ method: "POST" })
 
 export const disconnectSocial = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator(z.object({ venueId: z.string().uuid(), platform: z.enum(["tiktok", "instagram"]) }))
+  .inputValidator(
+    z.object({ venueId: z.string().uuid(), platform: z.enum(["tiktok", "instagram"]) }),
+  )
   .handler(async ({ data, context }) => {
     const supabase = adminClient();
     await assertCanManageVenue(supabase, context.userId, data.venueId);
     const update =
       data.platform === "tiktok"
-        ? { tiktok_url: null, tiktok_handle: null, tiktok_hashtags: [], tiktok_location_tag: null, tiktok_thumbnails: [] }
-        : { instagram_url: null, instagram_handle: null, instagram_hashtags: [], instagram_location_tag: null, instagram_thumbnails: [] };
+        ? {
+            tiktok_url: null,
+            tiktok_handle: null,
+            tiktok_hashtags: [],
+            tiktok_location_tag: null,
+            tiktok_thumbnails: [],
+          }
+        : {
+            instagram_url: null,
+            instagram_handle: null,
+            instagram_hashtags: [],
+            instagram_location_tag: null,
+            instagram_thumbnails: [],
+          };
     const { error } = await supabase
       .from("venues")
       .update(update as never)

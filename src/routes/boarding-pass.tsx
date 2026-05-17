@@ -7,16 +7,8 @@ import { ArrowLeft, Share2, Check, Play, Mail, ImageDown, Loader2, Sparkles } fr
 import { trackShareEvent } from "@/lib/share-analytics";
 import { toast } from "sonner";
 import { BoardingPassV3 } from "@/components/BoardingPassV3";
-import {
-  getActiveLoop,
-  subscribeActiveLoop,
-  type ActiveLoop,
-} from "@/lib/loop-store";
-import {
-  getItinerary,
-  listItineraries,
-  ITINERARY_CHANGED_EVENT,
-} from "@/lib/itineraries";
+import { getActiveLoop, subscribeActiveLoop, type ActiveLoop } from "@/lib/loop-store";
+import { getItinerary, listItineraries, ITINERARY_CHANGED_EVENT } from "@/lib/itineraries";
 import { itineraryToActiveLoop } from "@/lib/itinerary-to-loop";
 import { useAuth } from "@/lib/auth-context";
 
@@ -85,11 +77,7 @@ function BoardingPassPage() {
 
   const loop: ActiveLoop | null = useMemo(() => {
     if (tripQuery.data) {
-      return itineraryToActiveLoop(
-        tripQuery.data.itinerary,
-        tripQuery.data.stops,
-        passengerName,
-      );
+      return itineraryToActiveLoop(tripQuery.data.itinerary, tripQuery.data.stops, passengerName);
     }
     if (localLoop) return localLoop;
     if (recentQuery.data) {
@@ -102,8 +90,7 @@ function BoardingPassPage() {
     return null;
   }, [tripQuery.data, recentQuery.data, localLoop, passengerName]);
 
-  const loading =
-    (trip && tripQuery.isLoading) || (fallbackEnabled && recentQuery.isLoading);
+  const loading = (trip && tripQuery.isLoading) || (fallbackEnabled && recentQuery.isLoading);
 
   // Resolve the canonical itinerary id for a shareable deep link
   const shareTripId: string | null = useMemo(() => {
@@ -117,14 +104,15 @@ function BoardingPassPage() {
     let url = "";
     if (typeof window !== "undefined") {
       const origin = window.location.origin;
-      url = shareTripId
-        ? `${origin}/boarding-pass?trip=${shareTripId}`
-        : window.location.href;
+      url = shareTripId ? `${origin}/boarding-pass?trip=${shareTripId}` : window.location.href;
     }
     const occasion = lp.occasion ?? "Confetti night";
     const subject = `${lp.occasionEmoji ?? "✨"} ${occasion} — Confetti itinerary`;
     const stopsText = lp.stops
-      .map((s, i) => `${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}${s.area ? ` · ${s.area}` : ""}`)
+      .map(
+        (s, i) =>
+          `${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}${s.area ? ` · ${s.area}` : ""}`,
+      )
       .join("\n");
     const body =
       `${subject}\n${lp.date ?? ""}\n\nItinerary:\n${stopsText}\n\n` +
@@ -285,7 +273,11 @@ function BoardingPassPage() {
                 aria-label="Save image"
                 className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-ink bg-white disabled:opacity-50"
               >
-                {imageBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImageDown className="h-4 w-4" />}
+                {imageBusy ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <ImageDown className="h-4 w-4" />
+                )}
               </button>
               <button
                 type="button"

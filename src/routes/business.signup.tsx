@@ -77,9 +77,7 @@ function BusinessSignupPage() {
         {isSignup ? "Create your business account" : "Welcome back"}
       </h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        {isSignup
-          ? "Start your venue claim in under a minute."
-          : "Sign in to manage your venue."}
+        {isSignup ? "Start your venue claim in under a minute." : "Sign in to manage your venue."}
       </p>
 
       <div className="mt-8 space-y-4">

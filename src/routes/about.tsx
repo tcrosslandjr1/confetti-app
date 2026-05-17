@@ -133,8 +133,8 @@ function AboutPage() {
             <span className="font-serif italic font-normal text-coral">going out.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-snug">
-            Confetti started with one frustration: it's harder to decide what to do than to actually do
-            it.
+            Confetti started with one frustration: it's harder to decide what to do than to actually
+            do it.
             <span className="font-serif italic"> We built the fix.</span>
           </p>
         </div>

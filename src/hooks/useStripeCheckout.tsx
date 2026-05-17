@@ -3,7 +3,12 @@ import { StripeEmbeddedCheckout } from "@/components/StripeEmbeddedCheckout";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 type Variant =
-  | { kind: "price"; priceId: string; quantity?: number; accountType?: "user" | "business" | "corporate" }
+  | {
+      kind: "price";
+      priceId: string;
+      quantity?: number;
+      accountType?: "user" | "business" | "corporate";
+    }
   | { kind: "ticket"; eventId: string; quantity?: number };
 
 interface OpenOptions {

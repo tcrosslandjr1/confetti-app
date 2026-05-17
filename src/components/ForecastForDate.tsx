@@ -47,7 +47,9 @@ export function ForecastForDate({ city, date, variant = "card" }: Props) {
 
   const w = describeWeather(forDate.code);
   const dateLabel = new Date(forDate.date + "T12:00:00").toLocaleDateString(undefined, {
-    weekday: "short", month: "short", day: "numeric",
+    weekday: "short",
+    month: "short",
+    day: "numeric",
   });
   const wet = forDate.precipProb >= 50;
 
@@ -55,7 +57,9 @@ export function ForecastForDate({ city, date, variant = "card" }: Props) {
     <div className={wrap}>
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2.5 min-w-0">
-          <span className="text-2xl shrink-0" aria-hidden>{w.emoji}</span>
+          <span className="text-2xl shrink-0" aria-hidden>
+            {w.emoji}
+          </span>
           <div className="min-w-0">
             <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">
               Forecast · {dateLabel}

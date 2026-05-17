@@ -65,8 +65,12 @@ export function TasteConfirmPrompt() {
   async function save() {
     setSubmitting(true);
     try {
-      const loves = Object.entries(picks).filter(([, p]) => p === "love").map(([v]) => v);
-      const avoids = Object.entries(picks).filter(([, p]) => p === "avoid").map(([v]) => v);
+      const loves = Object.entries(picks)
+        .filter(([, p]) => p === "love")
+        .map(([v]) => v);
+      const avoids = Object.entries(picks)
+        .filter(([, p]) => p === "avoid")
+        .map(([v]) => v);
       await submit({ data: { loves, avoids } });
       toast.success("Taste profile updated ✨");
       setOpen(false);
@@ -120,10 +124,7 @@ export function TasteConfirmPrompt() {
                   ? `Lingered ${c.signals.linger}× · saved ${c.signals.save}× · reopened ${c.signals.reopen}×`
                   : `Swiped past ${c.signals.swipe_away}× · barely engaged (${totalPos})`;
               return (
-                <li
-                  key={c.value}
-                  className="rounded-2xl border-2 border-ink bg-card p-3"
-                >
+                <li key={c.value} className="rounded-2xl border-2 border-ink bg-card p-3">
                   <div className="flex items-center gap-2">
                     <div className="min-w-0 flex-1">
                       <div className="truncate font-display text-sm font-bold capitalize">

@@ -39,15 +39,11 @@ function fire(kind: string, value: string, context?: Record<string, unknown>) {
   }
 }
 
-
 /**
  * Attach to a card. `value` is the canonical taste term we want to learn from
  * (e.g. card title, vibe slug). Pass any extra context for analytics.
  */
-export function useCardSignals(opts: {
-  value: string;
-  context?: Record<string, unknown>;
-}) {
+export function useCardSignals(opts: { value: string; context?: Record<string, unknown> }) {
   const ref = useRef<HTMLElement | null>(null);
   const enteredAtRef = useRef<number | null>(null);
   const lingerTimerRef = useRef<number | null>(null);

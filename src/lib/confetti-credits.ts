@@ -81,9 +81,7 @@ export type Redemption = {
   redeemed_at: string | null;
 };
 
-export async function getAdvertiserBalance(
-  advertiserId: string,
-): Promise<AdvertiserBalance> {
+export async function getAdvertiserBalance(advertiserId: string): Promise<AdvertiserBalance> {
   const { data } = await supabase
     .from("advertiser_confetti_balances")
     .select("*")
@@ -109,10 +107,7 @@ export async function listPurchases(advertiserId: string): Promise<Purchase[]> {
   return (data ?? []) as Purchase[];
 }
 
-export async function buyCreditPackage(
-  advertiserId: string,
-  pkg: CreditPackage,
-): Promise<void> {
+export async function buyCreditPackage(advertiserId: string, pkg: CreditPackage): Promise<void> {
   // Mock checkout — record purchase and increment balance.
   const { error: insertErr } = await supabase.from("confetti_purchases").insert({
     advertiser_id: advertiserId,
@@ -195,10 +190,7 @@ function genCode(): string {
   return s;
 }
 
-export async function createRedemption(
-  userId: string,
-  credits: number,
-): Promise<Redemption> {
+export async function createRedemption(userId: string, credits: number): Promise<Redemption> {
   const code = genCode();
   const { data, error } = await supabase
     .from("confetti_redemptions")
@@ -215,8 +207,5 @@ export async function createRedemption(
 }
 
 export async function cancelRedemption(id: string): Promise<void> {
-  await supabase
-    .from("confetti_redemptions")
-    .update({ status: "cancelled" })
-    .eq("id", id);
+  await supabase.from("confetti_redemptions").update({ status: "cancelled" }).eq("id", id);
 }

@@ -114,9 +114,7 @@ export function ClaimVenuePanel({ advertiserId, subscriptionTier, contactEmail }
             />
           </div>
           <div className="mt-2 max-h-60 space-y-1 overflow-y-auto">
-            {searching && (
-              <div className="px-2 py-1 text-xs text-muted-foreground">Searching…</div>
-            )}
+            {searching && <div className="px-2 py-1 text-xs text-muted-foreground">Searching…</div>}
             {!searching && query.length >= 2 && results.length === 0 && (
               <div className="px-2 py-1 text-xs text-muted-foreground">No matches.</div>
             )}
@@ -129,9 +127,7 @@ export function ClaimVenuePanel({ advertiserId, subscriptionTier, contactEmail }
               >
                 <span>
                   <span className="font-semibold">{v.name}</span>
-                  {v.city && (
-                    <span className="ml-2 text-xs text-muted-foreground">{v.city}</span>
-                  )}
+                  {v.city && <span className="ml-2 text-xs text-muted-foreground">{v.city}</span>}
                 </span>
                 {busyId === v.id ? (
                   <Loader2 className="h-3 w-3 animate-spin" />

@@ -59,7 +59,9 @@ export const PassportShareCard = forwardRef<HTMLDivElement, Props>(function Pass
       margin: 0,
       width: 256,
       color: { dark: "#1a1a1a", light: "#00000000" },
-    }).then(setQr).catch(() => setQr(""));
+    })
+      .then(setQr)
+      .catch(() => setQr(""));
   }, [shareUrl]);
 
   const TierIcon = TIER_ICON[data.tier] ?? Sparkles;

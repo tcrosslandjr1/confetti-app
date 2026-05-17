@@ -225,7 +225,15 @@ function PreviewPage() {
                         { kind: "most-saved", label: `Saved ${120 - i * 18}×` },
                       ];
                       const rationale = `Picked because it's trending in ${s.neighborhood} and one of the most-booked ${s.category} spots for your vibe.`;
-                      return <WhyThisPick signals={signals} rationale={rationale} className="mt-3" pickId={`plan-stop:${i}`} context="plan-preview" />;
+                      return (
+                        <WhyThisPick
+                          signals={signals}
+                          rationale={rationale}
+                          className="mt-3"
+                          pickId={`plan-stop:${i}`}
+                          context="plan-preview"
+                        />
+                      );
                     })()}
                   </article>
                 </li>

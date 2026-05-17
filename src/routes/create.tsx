@@ -2,8 +2,23 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import {
-  Users, User, Heart, Cake, Briefcase, Home, Sparkles,
-  ArrowRight, ArrowLeft, Calendar, Clock, Check, MapPin, Loader2, Pencil, Replace, X,
+  Users,
+  User,
+  Heart,
+  Cake,
+  Briefcase,
+  Home,
+  Sparkles,
+  ArrowRight,
+  ArrowLeft,
+  Calendar,
+  Clock,
+  Check,
+  MapPin,
+  Loader2,
+  Pencil,
+  Replace,
+  X,
 } from "lucide-react";
 import { makeDemoLoop, setActiveLoop, type ActiveLoop } from "@/lib/loop-store";
 import { MOODS } from "@/lib/concierge-data";
@@ -12,7 +27,13 @@ import { generatePlan } from "@/lib/generate-plan.functions";
 import { toast } from "sonner";
 import { ForecastForDate } from "@/components/ForecastForDate";
 import { recordPickSignal } from "@/lib/pick-signals.functions";
-import { usePageview, useScrollDepth, useTimeToInteraction, trackCta, trackEvent } from "@/lib/analytics";
+import {
+  usePageview,
+  useScrollDepth,
+  useTimeToInteraction,
+  trackCta,
+  trackEvent,
+} from "@/lib/analytics";
 
 const MOOD_CHIPS = [
   { id: "hyped", label: "Hyped", emoji: "🔥" },
@@ -37,17 +58,53 @@ export const Route = createFileRoute("/create")({
 const GROUP = [
   { id: "solo", label: "Solo", desc: "Just you — flying solo tonight", size: 1, Icon: User },
   { id: "couple", label: "Couple", desc: "Two of you, one shared vibe", size: 2, Icon: Heart },
-  { id: "small", label: "3–5 friends", desc: "Small crew, easy to coordinate", size: 4, Icon: Users },
-  { id: "squad", label: "6+ squad", desc: "Big group — we'll size venues to fit", size: 6, Icon: Users },
+  {
+    id: "small",
+    label: "3–5 friends",
+    desc: "Small crew, easy to coordinate",
+    size: 4,
+    Icon: Users,
+  },
+  {
+    id: "squad",
+    label: "6+ squad",
+    desc: "Big group — we'll size venues to fit",
+    size: 6,
+    Icon: Users,
+  },
 ];
 
 const OCCASIONS = [
-  { id: "date", label: "Date Night", desc: "Romantic, intimate, swoon-worthy", emoji: "🌹", Icon: Heart },
+  {
+    id: "date",
+    label: "Date Night",
+    desc: "Romantic, intimate, swoon-worthy",
+    emoji: "🌹",
+    Icon: Heart,
+  },
   { id: "bday", label: "Birthday", desc: "Celebrating someone special", emoji: "🎂", Icon: Cake },
-  { id: "girls", label: "Girls Night", desc: "Glam, photo-worthy, fun", emoji: "💃", Icon: Sparkles },
-  { id: "biz", label: "Business", desc: "Impress clients or close deals", emoji: "💼", Icon: Briefcase },
+  {
+    id: "girls",
+    label: "Girls Night",
+    desc: "Glam, photo-worthy, fun",
+    emoji: "💃",
+    Icon: Sparkles,
+  },
+  {
+    id: "biz",
+    label: "Business",
+    desc: "Impress clients or close deals",
+    emoji: "💼",
+    Icon: Briefcase,
+  },
   { id: "fam", label: "Family", desc: "All-ages friendly outings", emoji: "👨‍👩‍👧", Icon: Home },
-  { id: "just", label: "Just Because", desc: "No occasion needed — just go", emoji: "✨", Icon: Sparkles },
+  {
+    id: "just",
+    label: "Just Because",
+    desc: "No occasion needed — just go",
+    emoji: "✨",
+    Icon: Sparkles,
+  },
 ];
 
 const DURATIONS = [
@@ -84,10 +141,18 @@ function CreatePage() {
   const [generating, setGenerating] = useState(false);
   const [quickEdit, setQuickEdit] = useState<null | "g" | "o" | "w" | "v">(null);
   const [currentMood, setCurrentMood] = useState<string | null>(null);
-  const [pendingSwap, setPendingSwap] = useState<null | { field: string; from: string; to: string }>(null);
+  const [pendingSwap, setPendingSwap] = useState<null | {
+    field: string;
+    from: string;
+    to: string;
+  }>(null);
 
   // Fire-and-forget signal logger; ignore failure (e.g. anon user).
-  function logSignal(kind: "mood" | "swap_reason", value: string, ctx: Record<string, unknown> = {}) {
+  function logSignal(
+    kind: "mood" | "swap_reason",
+    value: string,
+    ctx: Record<string, unknown> = {},
+  ) {
     recordSignal({ data: { kind, value, context: ctx } }).catch(() => {});
   }
 
@@ -97,7 +162,11 @@ function CreatePage() {
   }
 
   // Wraps a quick-edit setter so we capture the swap + prompt for a reason.
-  function handleSwap(field: "group" | "occasion" | "vibe", fromLabel: string | undefined, toLabel: string) {
+  function handleSwap(
+    field: "group" | "occasion" | "vibe",
+    fromLabel: string | undefined,
+    toLabel: string,
+  ) {
     if (fromLabel && fromLabel !== toLabel) {
       setPendingSwap({ field, from: fromLabel, to: toLabel });
     }
@@ -115,7 +184,11 @@ function CreatePage() {
   async function finish() {
     if (generating) return;
     setGenerating(true);
-    trackCta("build_my_night_finish", { groupSize: group?.size, occasion: occasion?.id, vibe: vibe?.id });
+    trackCta("build_my_night_finish", {
+      groupSize: group?.size,
+      occasion: occasion?.id,
+      vibe: vibe?.id,
+    });
     try {
       let tasteSummaryStr: string | undefined;
       try {
@@ -150,8 +223,16 @@ function CreatePage() {
           to: occasion?.label.toUpperCase() ?? "NIGHT OUT",
           boardingTime: plan.stops[0]?.time ?? time.replace(/^0/, ""),
           stops: plan.stops.map((s) => ({
-            id: s.id, name: s.name, type: s.type, time: s.time, area: s.area,
-            venueId: s.venueId, lat: s.lat, lng: s.lng, rationale: s.rationale, slot: s.slot,
+            id: s.id,
+            name: s.name,
+            type: s.type,
+            time: s.time,
+            area: s.area,
+            venueId: s.venueId,
+            lat: s.lat,
+            lng: s.lng,
+            rationale: s.rationale,
+            slot: s.slot,
           })),
         }),
         city: plan.city,
@@ -163,39 +244,77 @@ function CreatePage() {
         guardrailNote: plan.guardrailNote,
         bonusMove: plan.bonus,
         planParams: {
-          city, occasionId: occasion?.id, occasionLabel: occasion?.label,
-          vibeId: vibe?.id, vibeLabel: vibe?.label, groupSize: group?.size ?? 2,
-          date, startTime: time, duration,
+          city,
+          occasionId: occasion?.id,
+          occasionLabel: occasion?.label,
+          vibeId: vibe?.id,
+          vibeLabel: vibe?.label,
+          groupSize: group?.size ?? 2,
+          date,
+          startTime: time,
+          duration,
         },
       };
       setActiveLoop(loop);
       navigate({ to: "/boarding-pass" });
     } catch (err) {
       console.error("[create] finish failed", err);
-      void trackEvent("error", "create_finish_failed", { path: "/create", metadata: { msg: String(err).slice(0, 300) } });
+      void trackEvent("error", "create_finish_failed", {
+        path: "/create",
+        metadata: { msg: String(err).slice(0, 300) },
+      });
       toast.error("Couldn't build your night. Try again.");
       try {
         const fallback = makeDemoLoop({
-          passenger: "GUEST", groupSize: group?.size ?? 2,
-          occasion: occasion?.label, vibe: vibe?.label,
+          passenger: "GUEST",
+          groupSize: group?.size ?? 2,
+          occasion: occasion?.label,
+          vibe: vibe?.label,
           to: occasion?.label.toUpperCase() ?? "NIGHT OUT",
           boardingTime: time.replace(/^0/, ""),
         });
         setActiveLoop(fallback);
         navigate({ to: "/boarding-pass" });
-      } catch { /* swallow */ }
+      } catch {
+        /* swallow */
+      }
     } finally {
       setGenerating(false);
     }
   }
 
   // Picks-so-far chips — always show all 4 with completed/pending status
-  const picks: { key: string; label: string; step: number; done: boolean; placeholder: string }[] = [
-    { key: "g", step: 0, placeholder: "Group", done: !!group, label: group ? group.label : "Group" },
-    { key: "o", step: 1, placeholder: "Occasion", done: !!occasion, label: occasion ? `${occasion.emoji} ${occasion.label}` : "Occasion" },
-    { key: "w", step: 2, placeholder: "When", done: step >= 2, label: step >= 2 ? `${time} · ${duration}` : "When" },
-    { key: "v", step: 3, placeholder: "Vibe", done: !!vibe, label: vibe ? `${vibe.emoji} ${vibe.label}` : "Vibe" },
-  ];
+  const picks: { key: string; label: string; step: number; done: boolean; placeholder: string }[] =
+    [
+      {
+        key: "g",
+        step: 0,
+        placeholder: "Group",
+        done: !!group,
+        label: group ? group.label : "Group",
+      },
+      {
+        key: "o",
+        step: 1,
+        placeholder: "Occasion",
+        done: !!occasion,
+        label: occasion ? `${occasion.emoji} ${occasion.label}` : "Occasion",
+      },
+      {
+        key: "w",
+        step: 2,
+        placeholder: "When",
+        done: step >= 2,
+        label: step >= 2 ? `${time} · ${duration}` : "When",
+      },
+      {
+        key: "v",
+        step: 3,
+        placeholder: "Vibe",
+        done: !!vibe,
+        label: vibe ? `${vibe.emoji} ${vibe.label}` : "Vibe",
+      },
+    ];
   const completedCount = picks.filter((p) => p.done).length;
 
   return (
@@ -245,8 +364,8 @@ function CreatePage() {
                   p.done
                     ? "border-ink/20 bg-card text-ink/85 hover:border-ink/60"
                     : isCurrent
-                    ? "border-coral border-dashed bg-coral/5 text-ink/70"
-                    : "border-ink/15 border-dashed bg-transparent text-ink/40"
+                      ? "border-coral border-dashed bg-coral/5 text-ink/70"
+                      : "border-ink/15 border-dashed bg-transparent text-ink/40"
                 }`}
               >
                 {/* status indicator */}
@@ -255,8 +374,12 @@ function CreatePage() {
                     <Check className="h-2.5 w-2.5" strokeWidth={3} />
                   </span>
                 ) : (
-                  <span className={`grid h-4 w-4 place-items-center rounded-full border ${isCurrent ? "border-coral" : "border-ink/30"}`}>
-                    <span className={`h-1.5 w-1.5 rounded-full ${isCurrent ? "bg-coral animate-pulse" : "bg-ink/30"}`} />
+                  <span
+                    className={`grid h-4 w-4 place-items-center rounded-full border ${isCurrent ? "border-coral" : "border-ink/30"}`}
+                  >
+                    <span
+                      className={`h-1.5 w-1.5 rounded-full ${isCurrent ? "bg-coral animate-pulse" : "bg-ink/30"}`}
+                    />
                   </span>
                 )}
 
@@ -291,9 +414,11 @@ function CreatePage() {
                     </button>
                   </>
                 ) : (
-                  <span className={`rounded-full px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider ${
-                    isCurrent ? "bg-coral/15 text-coral" : "bg-ink/5 text-ink/50"
-                  }`}>
+                  <span
+                    className={`rounded-full px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider ${
+                      isCurrent ? "bg-coral/15 text-coral" : "bg-ink/5 text-ink/50"
+                    }`}
+                  >
                     {isCurrent ? "Now" : "Pending"}
                   </span>
                 )}
@@ -385,7 +510,8 @@ function CreatePage() {
                               active ? "bg-cream/25 text-cream" : "bg-ink/[0.08] text-ink/60"
                             }`}
                           >
-                            Table for {g.size}{g.size === 6 ? "+" : ""}
+                            Table for {g.size}
+                            {g.size === 6 ? "+" : ""}
                           </span>
                         </span>
                         <span
@@ -437,13 +563,19 @@ function CreatePage() {
                     key={o.id}
                     onClick={() => setOccasion(o)}
                     className={`flex w-full items-center gap-3 rounded-2xl border-2 p-4 text-left transition-pop ${
-                      active ? "border-ink bg-coral text-cream shadow-brut" : "border-ink/15 bg-card hover:border-ink"
+                      active
+                        ? "border-ink bg-coral text-cream shadow-brut"
+                        : "border-ink/15 bg-card hover:border-ink"
                     }`}
                   >
                     <span className="text-2xl">{o.emoji}</span>
                     <span className="min-w-0 flex-1">
-                      <span className="block font-display text-base font-bold leading-tight">{o.label}</span>
-                      <span className={`block text-xs leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}>
+                      <span className="block font-display text-base font-bold leading-tight">
+                        {o.label}
+                      </span>
+                      <span
+                        className={`block text-xs leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}
+                      >
                         {o.desc}
                       </span>
                     </span>
@@ -491,7 +623,9 @@ function CreatePage() {
                   className="mt-1 w-full rounded-xl border-2 border-ink bg-card px-3 py-3 font-display text-sm font-bold"
                 >
                   {CITIES.map((c) => (
-                    <option key={c.slug} value={c.label}>{c.label}</option>
+                    <option key={c.slug} value={c.label}>
+                      {c.label}
+                    </option>
                   ))}
                 </select>
               </label>
@@ -500,7 +634,9 @@ function CreatePage() {
                 <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
                   Duration
                 </span>
-                <p className="mt-0.5 text-xs text-muted-foreground">How long the whole loop should run.</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  How long the whole loop should run.
+                </p>
                 <div className="mt-2 grid grid-cols-4 gap-2">
                   {DURATIONS.map((d) => {
                     const active = duration === d.value;
@@ -509,11 +645,19 @@ function CreatePage() {
                         key={d.value}
                         onClick={() => setDuration(d.value)}
                         className={`flex flex-col items-center gap-0.5 rounded-xl border-2 py-2.5 transition-pop ${
-                          active ? "border-ink bg-coral text-cream shadow-brut" : "border-ink/15 bg-card hover:border-ink"
+                          active
+                            ? "border-ink bg-coral text-cream shadow-brut"
+                            : "border-ink/15 bg-card hover:border-ink"
                         }`}
                       >
-                        <span className="font-display text-xs font-bold leading-none">{d.value}</span>
-                        <span className={`text-[10px] leading-none ${active ? "text-cream/80" : "text-muted-foreground"}`}>{d.desc}</span>
+                        <span className="font-display text-xs font-bold leading-none">
+                          {d.value}
+                        </span>
+                        <span
+                          className={`text-[10px] leading-none ${active ? "text-cream/80" : "text-muted-foreground"}`}
+                        >
+                          {d.desc}
+                        </span>
                       </button>
                     );
                   })}
@@ -534,13 +678,19 @@ function CreatePage() {
                     key={m.id}
                     onClick={() => setVibe(m)}
                     className={`flex w-full items-center gap-3 rounded-2xl border-2 p-4 text-left transition-pop ${
-                      active ? "border-ink bg-coral text-cream shadow-brut" : "border-ink/15 bg-card hover:border-ink"
+                      active
+                        ? "border-ink bg-coral text-cream shadow-brut"
+                        : "border-ink/15 bg-card hover:border-ink"
                     }`}
                   >
                     <span className="text-2xl">{m.emoji}</span>
                     <span className="min-w-0 flex-1">
-                      <span className="block font-display text-base font-bold leading-tight">{m.label}</span>
-                      <span className={`block text-xs leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}>
+                      <span className="block font-display text-base font-bold leading-tight">
+                        {m.label}
+                      </span>
+                      <span
+                        className={`block text-xs leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}
+                      >
                         {m.blurb}
                       </span>
                     </span>
@@ -564,19 +714,27 @@ function CreatePage() {
             <ul className="mt-2.5 space-y-1.5 text-sm">
               <li className="flex items-start gap-2">
                 <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-coral" />
-                <span><span className="font-bold">{group?.label}</span> · party of {group?.size}</span>
+                <span>
+                  <span className="font-bold">{group?.label}</span> · party of {group?.size}
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-coral" />
-                <span>{occasion?.emoji} <span className="font-bold">{occasion?.label}</span></span>
+                <span>
+                  {occasion?.emoji} <span className="font-bold">{occasion?.label}</span>
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-coral" />
-                <span>{date} · <span className="font-bold">{time}</span> · {duration} · {city}</span>
+                <span>
+                  {date} · <span className="font-bold">{time}</span> · {duration} · {city}
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-coral" />
-                <span>{vibe.emoji} <span className="font-bold">{vibe.label}</span> — {vibe.blurb}</span>
+                <span>
+                  {vibe.emoji} <span className="font-bold">{vibe.label}</span> — {vibe.blurb}
+                </span>
               </li>
             </ul>
             <div className="mt-3">
@@ -601,11 +759,7 @@ function CreatePage() {
                     onClick={() => i <= step && setStep(i)}
                     disabled={i > step}
                     className={`font-mono text-[9px] font-bold uppercase tracking-widest transition ${
-                      done
-                        ? "text-coral hover:underline"
-                        : current
-                        ? "text-ink"
-                        : "text-ink/30"
+                      done ? "text-coral hover:underline" : current ? "text-ink" : "text-ink/30"
                     }`}
                   >
                     {i + 1}·{label}
@@ -625,26 +779,36 @@ function CreatePage() {
             className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink px-4 py-4 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-40"
           >
             {generating ? (
-              <><Loader2 className="h-4 w-4 animate-spin" /> Building your night…</>
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" /> Building your night…
+              </>
             ) : step < totalSteps - 1 ? (
-              <>Continue to {STEP_LABELS[step + 1]} <ArrowRight className="h-4 w-4" /></>
+              <>
+                Continue to {STEP_LABELS[step + 1]} <ArrowRight className="h-4 w-4" />
+              </>
             ) : (
-              <>Build my night <ArrowRight className="h-4 w-4" /></>
+              <>
+                Build my night <ArrowRight className="h-4 w-4" />
+              </>
             )}
           </button>
           <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
             {!canNext && step !== 2
               ? `Pick a ${STEP_LABELS[step].toLowerCase()} to continue`
               : step < totalSteps - 1
-              ? `Next: ${STEP_TITLES[step + 1]}`
-              : "Free · No signup · ~60 sec total"}
+                ? `Next: ${STEP_TITLES[step + 1]}`
+                : "Free · No signup · ~60 sec total"}
           </p>
         </div>
       </div>
 
       {/* Quick-edit bottom sheet — swap one field without leaving the current step */}
       {quickEdit && (
-        <div className="fixed inset-0 z-50 flex flex-col justify-end" role="dialog" aria-modal="true">
+        <div
+          className="fixed inset-0 z-50 flex flex-col justify-end"
+          role="dialog"
+          aria-modal="true"
+        >
           <button
             aria-label="Close"
             onClick={() => setQuickEdit(null)}
@@ -658,7 +822,14 @@ function CreatePage() {
                   Quick swap · stays on this step
                 </div>
                 <div className="font-display text-lg font-extrabold leading-tight">
-                  Change {quickEdit === "g" ? "group" : quickEdit === "o" ? "occasion" : quickEdit === "w" ? "when & where" : "vibe"}
+                  Change{" "}
+                  {quickEdit === "g"
+                    ? "group"
+                    : quickEdit === "o"
+                      ? "occasion"
+                      : quickEdit === "w"
+                        ? "when & where"
+                        : "vibe"}
                 </div>
               </div>
               <button
@@ -671,59 +842,89 @@ function CreatePage() {
             </div>
 
             <div className="max-h-[60vh] space-y-2 overflow-y-auto">
-              {quickEdit === "g" && GROUP.map((g) => {
-                const active = group?.id === g.id;
-                return (
-                  <button
-                    key={g.id}
-                    onClick={() => { setGroup(g); setQuickEdit(null); }}
-                    className={`flex w-full items-center gap-3 rounded-2xl border-2 p-3 text-left transition-pop ${active ? "border-ink bg-coral text-cream" : "border-ink/15 bg-card hover:border-ink"}`}
-                  >
-                    <g.Icon className="h-5 w-5 shrink-0" />
-                    <span className="min-w-0 flex-1">
-                      <span className="block font-display text-sm font-bold leading-tight">{g.label}</span>
-                      <span className={`block text-[11px] leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}>{g.desc}</span>
-                    </span>
-                    {active && <Check className="h-4 w-4 shrink-0" />}
-                  </button>
-                );
-              })}
+              {quickEdit === "g" &&
+                GROUP.map((g) => {
+                  const active = group?.id === g.id;
+                  return (
+                    <button
+                      key={g.id}
+                      onClick={() => {
+                        setGroup(g);
+                        setQuickEdit(null);
+                      }}
+                      className={`flex w-full items-center gap-3 rounded-2xl border-2 p-3 text-left transition-pop ${active ? "border-ink bg-coral text-cream" : "border-ink/15 bg-card hover:border-ink"}`}
+                    >
+                      <g.Icon className="h-5 w-5 shrink-0" />
+                      <span className="min-w-0 flex-1">
+                        <span className="block font-display text-sm font-bold leading-tight">
+                          {g.label}
+                        </span>
+                        <span
+                          className={`block text-[11px] leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}
+                        >
+                          {g.desc}
+                        </span>
+                      </span>
+                      {active && <Check className="h-4 w-4 shrink-0" />}
+                    </button>
+                  );
+                })}
 
-              {quickEdit === "o" && OCCASIONS.map((o) => {
-                const active = occasion?.id === o.id;
-                return (
-                  <button
-                    key={o.id}
-                    onClick={() => { setOccasion(o); setQuickEdit(null); }}
-                    className={`flex w-full items-center gap-3 rounded-2xl border-2 p-3 text-left transition-pop ${active ? "border-ink bg-coral text-cream" : "border-ink/15 bg-card hover:border-ink"}`}
-                  >
-                    <span className="text-xl">{o.emoji}</span>
-                    <span className="min-w-0 flex-1">
-                      <span className="block font-display text-sm font-bold leading-tight">{o.label}</span>
-                      <span className={`block text-[11px] leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}>{o.desc}</span>
-                    </span>
-                    {active && <Check className="h-4 w-4 shrink-0" />}
-                  </button>
-                );
-              })}
+              {quickEdit === "o" &&
+                OCCASIONS.map((o) => {
+                  const active = occasion?.id === o.id;
+                  return (
+                    <button
+                      key={o.id}
+                      onClick={() => {
+                        setOccasion(o);
+                        setQuickEdit(null);
+                      }}
+                      className={`flex w-full items-center gap-3 rounded-2xl border-2 p-3 text-left transition-pop ${active ? "border-ink bg-coral text-cream" : "border-ink/15 bg-card hover:border-ink"}`}
+                    >
+                      <span className="text-xl">{o.emoji}</span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block font-display text-sm font-bold leading-tight">
+                          {o.label}
+                        </span>
+                        <span
+                          className={`block text-[11px] leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}
+                        >
+                          {o.desc}
+                        </span>
+                      </span>
+                      {active && <Check className="h-4 w-4 shrink-0" />}
+                    </button>
+                  );
+                })}
 
-              {quickEdit === "v" && MOODS.map((m) => {
-                const active = vibe?.id === m.id;
-                return (
-                  <button
-                    key={m.id}
-                    onClick={() => { setVibe(m); setQuickEdit(null); }}
-                    className={`flex w-full items-center gap-3 rounded-2xl border-2 p-3 text-left transition-pop ${active ? "border-ink bg-coral text-cream" : "border-ink/15 bg-card hover:border-ink"}`}
-                  >
-                    <span className="text-xl">{m.emoji}</span>
-                    <span className="min-w-0 flex-1">
-                      <span className="block font-display text-sm font-bold leading-tight">{m.label}</span>
-                      <span className={`block text-[11px] leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}>{m.blurb}</span>
-                    </span>
-                    {active && <Check className="h-4 w-4 shrink-0" />}
-                  </button>
-                );
-              })}
+              {quickEdit === "v" &&
+                MOODS.map((m) => {
+                  const active = vibe?.id === m.id;
+                  return (
+                    <button
+                      key={m.id}
+                      onClick={() => {
+                        setVibe(m);
+                        setQuickEdit(null);
+                      }}
+                      className={`flex w-full items-center gap-3 rounded-2xl border-2 p-3 text-left transition-pop ${active ? "border-ink bg-coral text-cream" : "border-ink/15 bg-card hover:border-ink"}`}
+                    >
+                      <span className="text-xl">{m.emoji}</span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block font-display text-sm font-bold leading-tight">
+                          {m.label}
+                        </span>
+                        <span
+                          className={`block text-[11px] leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}
+                        >
+                          {m.blurb}
+                        </span>
+                      </span>
+                      {active && <Check className="h-4 w-4 shrink-0" />}
+                    </button>
+                  );
+                })}
 
               {quickEdit === "w" && (
                 <div className="space-y-3">
@@ -761,12 +962,16 @@ function CreatePage() {
                       className="mt-1 w-full rounded-xl border-2 border-ink bg-card px-3 py-2.5 font-display text-sm font-bold"
                     >
                       {CITIES.map((c) => (
-                        <option key={c.slug} value={c.label}>{c.label}</option>
+                        <option key={c.slug} value={c.label}>
+                          {c.label}
+                        </option>
                       ))}
                     </select>
                   </label>
                   <div>
-                    <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">Duration</span>
+                    <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/60">
+                      Duration
+                    </span>
                     <div className="mt-1 grid grid-cols-4 gap-2">
                       {DURATIONS.map((d) => {
                         const active = duration === d.value;

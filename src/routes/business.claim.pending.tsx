@@ -17,7 +17,10 @@ export const Route = createFileRoute("/business/claim/pending")({
   }),
 });
 
-const STATUS_COPY: Record<string, { label: string; tone: "default" | "secondary" | "destructive" | "outline" }> = {
+const STATUS_COPY: Record<
+  string,
+  { label: string; tone: "default" | "secondary" | "destructive" | "outline" }
+> = {
   pending: { label: "Pending review", tone: "secondary" },
   needs_more_info: { label: "More info needed", tone: "outline" },
   approved: { label: "Approved", tone: "default" },
@@ -39,8 +42,8 @@ function PendingPage() {
         </div>
         <h1 className="text-2xl font-bold">Your claim is under review</h1>
         <p className="mt-2 text-muted-foreground">
-          This usually takes 24–48 hours. We'll email you when it's approved or if we
-          need more information.
+          This usually takes 24–48 hours. We'll email you when it's approved or if we need more
+          information.
         </p>
 
         <div className="mt-6 flex justify-center gap-3">
@@ -75,9 +78,7 @@ function PendingPage() {
                     Submitted {new Date(c.created_at).toLocaleDateString()} · via {c.method ?? "—"}
                   </p>
                   {c.admin_note && (
-                    <p className="mt-1 text-xs text-muted-foreground">
-                      Note: {c.admin_note}
-                    </p>
+                    <p className="mt-1 text-xs text-muted-foreground">Note: {c.admin_note}</p>
                   )}
                 </div>
                 <Badge variant={copy.tone}>{copy.label}</Badge>

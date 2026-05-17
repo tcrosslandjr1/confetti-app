@@ -3,12 +3,7 @@ import { useEffect, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { WizardButton } from "@/components/wizard/WizardButton";
 import { CitySelector } from "@/components/CitySelector";
-import {
-  DEFAULT_CITY,
-  getSelectedCity,
-  subscribeSelectedCity,
-  type City,
-} from "@/lib/cities";
+import { DEFAULT_CITY, getSelectedCity, subscribeSelectedCity, type City } from "@/lib/cities";
 import { useCardSignals, recordCardSave } from "@/lib/use-card-signals";
 import { toast } from "sonner";
 
@@ -319,8 +314,8 @@ function PickCard({ pick: p, isCurated, city }: { pick: Pick; isCurated: boolean
       ) : (
         <div className="mt-5 flex flex-1 flex-col justify-between gap-3 border-t-2 border-dashed border-ink/30 pt-4">
           <p className="font-mono text-[11px] leading-relaxed text-ink/70">
-            We'll pull 3 real venues in <span className="font-bold text-ink">{city.name}</span>{" "}
-            that match this vibe — based on live ratings &amp; hours.
+            We'll pull 3 real venues in <span className="font-bold text-ink">{city.name}</span> that
+            match this vibe — based on live ratings &amp; hours.
           </p>
           <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-ink/60">
             <MapPin className="h-3 w-3 text-coral" /> {city.region}

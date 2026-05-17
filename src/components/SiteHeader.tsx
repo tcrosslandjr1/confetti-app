@@ -23,7 +23,9 @@ function RotatingTagline({ className = "" }: { className?: string }) {
     return () => window.clearInterval(id);
   }, []);
   return (
-    <span className={`hidden h-8 shrink-0 items-center gap-2 border-2 border-ink bg-white px-3 shadow-brut min-[1600px]:inline-flex ${className}`}>
+    <span
+      className={`hidden h-8 shrink-0 items-center gap-2 border-2 border-ink bg-white px-3 shadow-brut min-[1600px]:inline-flex ${className}`}
+    >
       <span className="relative inline-flex h-2 w-2">
         <span className="absolute inset-0 animate-ping rounded-full bg-coral/70" />
         <span className="relative inline-block h-2 w-2 rounded-full bg-coral" />
@@ -65,7 +67,11 @@ export function SiteHeader() {
       className="sticky top-0 z-40 border-b-2 border-ink bg-cream transition-shadow duration-200 data-[scrolled]:shadow-brut"
     >
       <div className="mx-auto flex h-14 w-full max-w-[1600px] items-center gap-3 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:gap-4 lg:px-8">
-        <Link to="/" className="group flex shrink-0 items-center gap-[2px]" aria-label="confetti — home">
+        <Link
+          to="/"
+          className="group flex shrink-0 items-center gap-[2px]"
+          aria-label="confetti — home"
+        >
           <span className="font-display text-xl font-extrabold leading-none tracking-tight text-ink sm:text-2xl">
             confetti
           </span>
@@ -184,7 +190,12 @@ function MobileMenu({
     <div className="flex h-full flex-col">
       {/* Header strip */}
       <div className="flex items-center justify-between border-b-2 border-ink bg-cream px-4 py-3">
-        <Link to="/" onClick={close} className="flex items-center gap-[2px]" aria-label="confetti — home">
+        <Link
+          to="/"
+          onClick={close}
+          className="flex items-center gap-[2px]"
+          aria-label="confetti — home"
+        >
           <span className="font-display text-xl font-extrabold leading-none tracking-tight text-ink">
             confetti
           </span>

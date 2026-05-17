@@ -42,7 +42,11 @@ export async function requestUserLocationDetailed(
   options: PositionOptions = { enableHighAccuracy: false, timeout: 10000, maximumAge: 60_000 },
 ): Promise<LocationResult> {
   if (typeof window === "undefined" || !("geolocation" in navigator)) {
-    return { ok: false, error: "unsupported", message: "Geolocation isn't supported in this browser." };
+    return {
+      ok: false,
+      error: "unsupported",
+      message: "Geolocation isn't supported in this browser.",
+    };
   }
 
   // Iframes (e.g. preview environments) often block geolocation via Permissions-Policy.
@@ -50,17 +54,20 @@ export async function requestUserLocationDetailed(
 
   return new Promise((resolve) => {
     let settled = false;
-    const guard = window.setTimeout(() => {
-      if (settled) return;
-      settled = true;
-      resolve({
-        ok: false,
-        error: inIframe ? "iframe_blocked" : "timeout",
-        message: inIframe
-          ? "Location is blocked inside this preview frame. Open the app in a new tab, or pick a city below."
-          : "Location request timed out. Pick a city below.",
-      });
-    }, (options.timeout ?? 10000) + 500);
+    const guard = window.setTimeout(
+      () => {
+        if (settled) return;
+        settled = true;
+        resolve({
+          ok: false,
+          error: inIframe ? "iframe_blocked" : "timeout",
+          message: inIframe
+            ? "Location is blocked inside this preview frame. Open the app in a new tab, or pick a city below."
+            : "Location request timed out. Pick a city below.",
+        });
+      },
+      (options.timeout ?? 10000) + 500,
+    );
 
     navigator.geolocation.getCurrentPosition(
       (pos) => {
@@ -105,9 +112,7 @@ export async function requestUserLocationDetailed(
   });
 }
 
-export async function requestUserLocation(
-  options?: PositionOptions,
-): Promise<UserLocation | null> {
+export async function requestUserLocation(options?: PositionOptions): Promise<UserLocation | null> {
   const result = await requestUserLocationDetailed(options);
   return result.ok ? result.location : null;
 }

@@ -4,12 +4,12 @@
 
 // --- VERIFICATION ---
 
-export type VerificationTier = 'unverified' | 'verified' | 'confetti_pick' | 'confetti_elite';
+export type VerificationTier = "unverified" | "verified" | "confetti_pick" | "confetti_elite";
 
 export interface VenueVerification {
   tier: VerificationTier;
   verifiedAt: string | null;
-  verifiedBy: 'auto' | 'community' | 'manual' | string;
+  verifiedBy: "auto" | "community" | "manual" | string;
   verificationScore: number; // 0-100
   checkinCount: number;
   complaintCount: number;
@@ -23,20 +23,20 @@ export interface VenueVerification {
 
 export interface VerificationBadgeProps {
   tier: VerificationTier;
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
   showLabel?: boolean;
 }
 
 // --- CROWD LEVELS ---
 
-export type CrowdLevel = 'quiet' | 'moderate' | 'busy' | 'at_capacity';
+export type CrowdLevel = "quiet" | "moderate" | "busy" | "at_capacity";
 
 export interface CrowdReading {
   id: string;
   venueId: string;
   level: CrowdLevel;
   energyScore: number; // 0-100
-  source: 'checkin_velocity' | 'google_popular_times' | 'venue_report' | 'historical';
+  source: "checkin_velocity" | "google_popular_times" | "venue_report" | "historical";
   confidence: number; // 0-1
   estimatedWaitMinutes: number | null;
   reportedAt: string;
@@ -47,7 +47,7 @@ export interface CrowdIndicatorProps {
   level: CrowdLevel;
   energyScore: number;
   estimatedWait: number | null;
-  size?: 'compact' | 'full';
+  size?: "compact" | "full";
 }
 
 export interface CrowdPattern {
@@ -60,13 +60,13 @@ export interface CrowdPattern {
 // --- PRICING ---
 
 export type PriceCategory =
-  | 'cocktails'
-  | 'beer'
-  | 'wine'
-  | 'entrees'
-  | 'appetizers'
-  | 'bottle_service'
-  | 'cover';
+  | "cocktails"
+  | "beer"
+  | "wine"
+  | "entrees"
+  | "appetizers"
+  | "bottle_service"
+  | "cover";
 
 export interface VenuePricing {
   id: string;
@@ -76,7 +76,7 @@ export interface VenuePricing {
   priceHigh: number;
   currency: string;
   notes: string | null;
-  source: 'menu_scrape' | 'user_reported' | 'venue_provided' | 'booking_data';
+  source: "menu_scrape" | "user_reported" | "venue_provided" | "booking_data";
   confidence: number;
   lastVerified: string;
 }
@@ -88,7 +88,7 @@ export interface SpendEstimate {
   medianSpendPerPerson: number | null;
   sampleCount: number;
   includesTip: boolean;
-  timeContext: 'weeknight' | 'weekend' | 'late_night' | null;
+  timeContext: "weeknight" | "weekend" | "late_night" | null;
 }
 
 export interface ItineraryPriceEstimate {
@@ -116,12 +116,12 @@ export interface TransparentPricingProps {
 // --- SAFETY ---
 
 export type SafetyFlagType =
-  | 'well_lit'
-  | 'easy_pickup'
-  | 'doorman'
-  | 'limited_cell'
-  | 'cash_only'
-  | 'outdoor_waiting';
+  | "well_lit"
+  | "easy_pickup"
+  | "doorman"
+  | "limited_cell"
+  | "cash_only"
+  | "outdoor_waiting";
 
 export interface SafetyFlag {
   id: string;

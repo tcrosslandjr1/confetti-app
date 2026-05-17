@@ -19,10 +19,7 @@ import { getPickAnalytics, type PickAnalyticsResponse } from "@/lib/pick-analyti
 
 export const Route = createFileRoute("/admin/pick-analytics")({
   head: () => ({
-    meta: [
-      { title: "Pick Analytics — Admin" },
-      { name: "robots", content: "noindex, nofollow" },
-    ],
+    meta: [{ title: "Pick Analytics — Admin" }, { name: "robots", content: "noindex, nofollow" }],
   }),
   component: PickAnalyticsPage,
 });
@@ -200,7 +197,11 @@ function PickAnalyticsPage() {
                   tick={{ fontSize: 11 }}
                   stroke="hsl(var(--muted-foreground))"
                 />
-                <YAxis tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" allowDecimals={false} />
+                <YAxis
+                  tick={{ fontSize: 11 }}
+                  stroke="hsl(var(--muted-foreground))"
+                  allowDecimals={false}
+                />
                 <Tooltip
                   contentStyle={{
                     background: "hsl(var(--card))",
@@ -250,7 +251,11 @@ function PickAnalyticsPage() {
                   dy={8}
                   height={50}
                 />
-                <YAxis tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" allowDecimals={false} />
+                <YAxis
+                  tick={{ fontSize: 11 }}
+                  stroke="hsl(var(--muted-foreground))"
+                  allowDecimals={false}
+                />
                 <Tooltip
                   contentStyle={{
                     background: "hsl(var(--card))",
@@ -297,8 +302,12 @@ function PickAnalyticsPage() {
                 return (
                   <tr key={r.signal} className="border-b border-border/60">
                     <td className="py-2 pr-3 font-semibold">{r.signal}</td>
-                    <td className="py-2 pr-3 text-right tabular-nums">{r.impressions.toLocaleString()}</td>
-                    <td className="py-2 pr-3 text-right tabular-nums">{r.clicks.toLocaleString()}</td>
+                    <td className="py-2 pr-3 text-right tabular-nums">
+                      {r.impressions.toLocaleString()}
+                    </td>
+                    <td className="py-2 pr-3 text-right tabular-nums">
+                      {r.clicks.toLocaleString()}
+                    </td>
                     <td className="py-2 pr-3 text-right tabular-nums">{ctr.toFixed(1)}%</td>
                     <td className="py-2 pr-3 text-right tabular-nums">{r.up.toLocaleString()}</td>
                     <td className="py-2 pr-3 text-right tabular-nums">{r.down.toLocaleString()}</td>
@@ -326,4 +335,3 @@ function PickAnalyticsPage() {
     </div>
   );
 }
-

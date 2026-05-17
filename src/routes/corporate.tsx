@@ -18,8 +18,7 @@ export const Route = createFileRoute("/corporate")({
       { title: "Corporate Portal — Confetti" },
       {
         name: "description",
-        content:
-          "Plan, approve, and report on team outings, offsites, and client dinners.",
+        content: "Plan, approve, and report on team outings, offsites, and client dinners.",
       },
     ],
   }),

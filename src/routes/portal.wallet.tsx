@@ -13,16 +13,7 @@ import {
   type Redemption,
 } from "@/lib/confetti-credits";
 import { QRCodeSVG } from "qrcode.react";
-import {
-  ArrowLeft,
-  Copy,
-  Gift,
-  Loader2,
-  PartyPopper,
-  Sparkles,
-  Ticket,
-  X,
-} from "lucide-react";
+import { ArrowLeft, Copy, Gift, Loader2, PartyPopper, Sparkles, Ticket, X } from "lucide-react";
 import { toast } from "sonner";
 import { formatDistanceToNow } from "date-fns";
 
@@ -76,10 +67,7 @@ function WalletPage() {
   const refresh = async () => {
     if (!user) return;
     setLoading(true);
-    const [g, r] = await Promise.all([
-      listUserGrants(user.id),
-      listUserRedemptions(user.id),
-    ]);
+    const [g, r] = await Promise.all([listUserGrants(user.id), listUserRedemptions(user.id)]);
     setGrants(g.length > 0 ? g : MOCK_GRANTS);
     setRedemptions(r);
     setLoading(false);
@@ -161,8 +149,8 @@ function WalletPage() {
           Confetti · worth {confettiToDollars(balance)} cash
         </div>
         <div className="mt-3 text-[11px] opacity-80">
-          Earn Confetti by booking, checking in, and inviting friends.{" "}
-          {CONFETTI_PER_DOLLAR} Confetti = $1.00 cash off your next experience.
+          Earn Confetti by booking, checking in, and inviting friends. {CONFETTI_PER_DOLLAR}{" "}
+          Confetti = $1.00 cash off your next experience.
         </div>
       </div>
 
@@ -226,9 +214,7 @@ function WalletPage() {
                 }`}
               >
                 <div className="font-display text-lg font-bold">{v}</div>
-                <div className="text-[10px] text-muted-foreground">
-                  ={confettiToDollars(v)}
-                </div>
+                <div className="text-[10px] text-muted-foreground">={confettiToDollars(v)}</div>
               </button>
             ))}
           </div>
@@ -298,9 +284,7 @@ function WalletPage() {
           <div className="mt-2 rounded-2xl border border-dashed border-border p-6 text-center">
             <Gift className="mx-auto h-6 w-6 text-muted-foreground" />
             <div className="mt-2 text-sm font-semibold">No Confetti yet</div>
-            <p className="mt-1 text-xs text-muted-foreground">
-              Book a venue to start earning.
-            </p>
+            <p className="mt-1 text-xs text-muted-foreground">Book a venue to start earning.</p>
           </div>
         ) : (
           <ul className="mt-2 space-y-1.5">
@@ -310,12 +294,9 @@ function WalletPage() {
                 className="flex items-center justify-between rounded-2xl border border-border bg-card px-4 py-3 shadow-card"
               >
                 <div>
-                  <div className="text-sm font-semibold">
-                    {g.venue_name ?? "Booking reward"}
-                  </div>
+                  <div className="text-sm font-semibold">{g.venue_name ?? "Booking reward"}</div>
                   <div className="text-[11px] text-muted-foreground capitalize">
-                    {g.reason} ·{" "}
-                    {formatDistanceToNow(new Date(g.created_at), { addSuffix: true })}
+                    {g.reason} · {formatDistanceToNow(new Date(g.created_at), { addSuffix: true })}
                   </div>
                 </div>
                 <div className="inline-flex items-center gap-1 text-sm font-bold text-primary">

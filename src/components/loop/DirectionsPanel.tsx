@@ -67,11 +67,7 @@ export function DirectionsPanel({
             <li
               key={i}
               className={`flex items-start gap-3 px-4 py-3 transition-colors ${
-                isActive
-                  ? "bg-coral/15"
-                  : isPast
-                  ? "bg-ink/[0.03] opacity-60"
-                  : "bg-transparent"
+                isActive ? "bg-coral/15" : isPast ? "bg-ink/[0.03] opacity-60" : "bg-transparent"
               }`}
             >
               <span
@@ -79,8 +75,8 @@ export function DirectionsPanel({
                   isActive
                     ? "border-coral bg-coral text-cream shadow-brut"
                     : isPast
-                    ? "border-ink/30 bg-cream text-ink/40 line-through"
-                    : "border-ink/30 bg-cream text-ink"
+                      ? "border-ink/30 bg-cream text-ink/40 line-through"
+                      : "border-ink/30 bg-cream text-ink"
                 }`}
               >
                 <Icon className="h-4 w-4" strokeWidth={isActive ? 3 : 2} />

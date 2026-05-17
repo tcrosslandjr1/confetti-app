@@ -399,11 +399,7 @@ function NewTeamEventPage() {
                 <Sparkles className="mt-0.5 h-4 w-4" />
                 <span>
                   Prefilled from{" "}
-                  <Link
-                    to="/trips/$id"
-                    params={{ id: fromTrip }}
-                    className="font-bold underline"
-                  >
+                  <Link to="/trips/$id" params={{ id: fromTrip }} className="font-bold underline">
                     your trip
                   </Link>
                   . Edit anything below.

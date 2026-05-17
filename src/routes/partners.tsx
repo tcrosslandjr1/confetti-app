@@ -1,5 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Award, Gift, MapPin, Sparkles, Ticket, Crown, ChevronRight } from "lucide-react";
+import {
+  ArrowLeft,
+  Award,
+  Gift,
+  MapPin,
+  Sparkles,
+  Ticket,
+  Crown,
+  ChevronRight,
+} from "lucide-react";
 
 export const Route = createFileRoute("/partners")({
   head: () => ({
@@ -7,8 +16,7 @@ export const Route = createFileRoute("/partners")({
       { title: "Partners — Confetti" },
       {
         name: "description",
-        content:
-          "Confetti partner venues where you can earn and redeem rewards across the city.",
+        content: "Confetti partner venues where you can earn and redeem rewards across the city.",
       },
       { property: "og:title", content: "Confetti Partners" },
       {
@@ -137,7 +145,8 @@ function PartnersPage() {
               to="/passport"
               className="mt-4 inline-flex items-center gap-1.5 rounded-full border-2 border-cream/40 bg-cream/15 px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-widest backdrop-blur hover:bg-cream/25"
             >
-              <Gift className="h-3.5 w-3.5" /> View your rewards <ChevronRight className="h-3 w-3" />
+              <Gift className="h-3.5 w-3.5" /> View your rewards{" "}
+              <ChevronRight className="h-3 w-3" />
             </Link>
           </div>
         </header>
@@ -179,9 +188,7 @@ function PartnersPage() {
         {/* Footer CTA */}
         <div className="mt-10 flex flex-col items-start gap-3 rounded-2xl border-2 border-dashed border-ink/30 bg-cream/60 p-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <div className="font-display text-base font-bold leading-tight">
-              Ready to redeem?
-            </div>
+            <div className="font-display text-base font-bold leading-tight">Ready to redeem?</div>
             <div className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-ink/60">
               Cash in Confetti for perks at any partner
             </div>
@@ -211,8 +218,7 @@ function PartnerCard({ partner, featured }: { partner: Partner; featured?: boole
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.18]"
           style={{
-            backgroundImage:
-              "radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px)",
             backgroundSize: "12px 12px",
           }}
         />

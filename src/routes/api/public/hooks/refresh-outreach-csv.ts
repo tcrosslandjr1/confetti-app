@@ -1,9 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import {
-  buildOutreachRanking,
-  rankingToCsv,
-} from "@/lib/outreach-ranking.server";
+import { buildOutreachRanking, rankingToCsv } from "@/lib/outreach-ranking.server";
 
 // Hit by pg_cron every Monday. Recomputes the 30d unclaimed-venue ranking,
 // dedupes by venue name, and stores the CSV snapshot in outreach_snapshots.
@@ -14,7 +11,8 @@ export const Route = createFileRoute("/api/public/hooks/refresh-outreach-csv")({
     handlers: {
       POST: async ({ request }) => {
         const provided = request.headers.get("apikey") ?? "";
-        const expected = process.env.SUPABASE_ANON_KEY ?? process.env.SUPABASE_PUBLISHABLE_KEY ?? "";
+        const expected =
+          process.env.SUPABASE_ANON_KEY ?? process.env.SUPABASE_PUBLISHABLE_KEY ?? "";
         if (!expected || provided !== expected) {
           return new Response(JSON.stringify({ error: "unauthorized" }), {
             status: 401,
@@ -49,7 +47,10 @@ export const Route = createFileRoute("/api/public/hooks/refresh-outreach-csv")({
             await supabaseAdmin
               .from("outreach_snapshots")
               .delete()
-              .in("id", stale.map((s) => s.id));
+              .in(
+                "id",
+                stale.map((s) => s.id),
+              );
           }
 
           return new Response(JSON.stringify({ ok: true, snapshot: data }), {
@@ -58,10 +59,10 @@ export const Route = createFileRoute("/api/public/hooks/refresh-outreach-csv")({
           });
         } catch (err: any) {
           console.error("[refresh-outreach-csv] failed", err);
-          return new Response(
-            JSON.stringify({ error: err?.message ?? "unknown error" }),
-            { status: 500, headers: { "Content-Type": "application/json" } },
-          );
+          return new Response(JSON.stringify({ error: err?.message ?? "unknown error" }), {
+            status: 500,
+            headers: { "Content-Type": "application/json" },
+          });
         }
       },
     },

@@ -129,7 +129,8 @@ function FeaturesPage() {
           </h1>
 
           <p className="mt-8 max-w-2xl text-lg leading-snug">
-            Confetti turns "what should we do?" into a full plan — stops, timing, transit, reservations.
+            Confetti turns "what should we do?" into a full plan — stops, timing, transit,
+            reservations.
             <span className="font-serif italic"> The whole night, handled.</span>
           </p>
 

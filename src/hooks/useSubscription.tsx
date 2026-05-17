@@ -60,7 +60,9 @@ export function useSubscription() {
     setLoading(false);
   }, [user]);
 
-  useEffect(() => { void refetch(); }, [refetch]);
+  useEffect(() => {
+    void refetch();
+  }, [refetch]);
 
   useEffect(() => {
     if (!user) return;
@@ -69,10 +71,14 @@ export function useSubscription() {
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "subscriptions", filter: `user_id=eq.${user.id}` },
-        () => { void refetch(); },
+        () => {
+          void refetch();
+        },
       )
       .subscribe();
-    return () => { void supabase.removeChannel(channel); };
+    return () => {
+      void supabase.removeChannel(channel);
+    };
   }, [user, refetch]);
 
   const active = isActive(row);

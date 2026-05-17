@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
-import {
-  listUserGrants,
-  listUserRedemptions,
-  userBalance,
-} from "@/lib/confetti-credits";
+import { listUserGrants, listUserRedemptions, userBalance } from "@/lib/confetti-credits";
 import type { PassportStamp } from "@/lib/loop-store";
 
 export type PassportStats = {

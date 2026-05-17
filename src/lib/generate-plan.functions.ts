@@ -17,7 +17,10 @@ const PlanRequestSchema = z.object({
   vibeLabel: z.string().min(1).max(80).optional(),
   groupSize: z.number().int().min(1).max(50).optional(),
   date: z.string().min(1).max(40).optional(),
-  startTime: z.string().regex(/^\d{2}:\d{2}$/).optional(),
+  startTime: z
+    .string()
+    .regex(/^\d{2}:\d{2}$/)
+    .optional(),
   duration: z.string().min(1).max(20).optional(),
   budget: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)]).optional(),
   tasteSummary: z.string().max(1200).optional(),
@@ -54,18 +57,26 @@ async function fetchPromotedBoosts(city: string): Promise<CandidateVenue[]> {
     .eq("status", "approved")
     .or(`city.is.null,city.ilike.${city}`);
   const live = (campaigns ?? []).filter(
-    (c) =>
-      (!c.runs_from || c.runs_from <= nowIso) && (!c.runs_until || c.runs_until >= nowIso),
+    (c) => (!c.runs_from || c.runs_from <= nowIso) && (!c.runs_until || c.runs_until >= nowIso),
   );
   if (!live.length) return [];
 
   // Resolve to viral_venues rows when linked, else synthesize a candidate from the headline.
   const venueIds = live.map((c) => c.venue_id).filter((v): v is string => !!v);
-  const venuesById = new Map<string, {
-    id: string; venue_name: string; neighborhood: string | null;
-    rating: number | null; tags: string[] | null; summary: string | null;
-    google_place_id: string | null; lat: number | null; lng: number | null;
-  }>();
+  const venuesById = new Map<
+    string,
+    {
+      id: string;
+      venue_name: string;
+      neighborhood: string | null;
+      rating: number | null;
+      tags: string[] | null;
+      summary: string | null;
+      google_place_id: string | null;
+      lat: number | null;
+      lng: number | null;
+    }
+  >();
   if (venueIds.length) {
     const { data: vrows } = await supabaseAdmin
       .from("viral_venues")
@@ -79,7 +90,7 @@ async function fetchPromotedBoosts(city: string): Promise<CandidateVenue[]> {
     return {
       id: v?.id ?? `promoted:${c.id}`,
       name: v?.venue_name ?? c.headline,
-      category: ((v?.tags?.[0] as string | undefined) ?? "venue"),
+      category: (v?.tags?.[0] as string | undefined) ?? "venue",
       neighborhood: v?.neighborhood ?? null,
       rating: v?.rating !== null && v?.rating !== undefined ? Number(v.rating) : 4.5,
       trendScore: 1.0,
@@ -94,7 +105,6 @@ async function fetchPromotedBoosts(city: string): Promise<CandidateVenue[]> {
     };
   });
 }
-
 
 // ── Quality Guardrail (deterministic) ─────────────────────────────
 async function fetchQualifiedVenues(city: string): Promise<CandidateVenue[]> {
@@ -193,7 +203,12 @@ export const generatePlan = createServerFn({ method: "POST" })
     if (avoid.length) {
       const lcAvoid = avoid.map((a) => a.toLowerCase());
       candidates = candidates.filter(
-        (c) => !lcAvoid.some((a) => c.category.toLowerCase().includes(a) || c.tags.some((t) => t.toLowerCase().includes(a))),
+        (c) =>
+          !lcAvoid.some(
+            (a) =>
+              c.category.toLowerCase().includes(a) ||
+              c.tags.some((t) => t.toLowerCase().includes(a)),
+          ),
       );
     }
 
@@ -207,7 +222,6 @@ export const generatePlan = createServerFn({ method: "POST" })
       const seen = new Set(promoted.map((p) => p.id));
       topCandidates = [...promoted, ...topCandidates.filter((c) => !seen.has(c.id))].slice(0, 32);
     }
-
 
     // 4 + 5 + 6. Itinerary + Naming + Impromptu + Relevance — single AI call.
     const gateway = createLovableAiGatewayProvider(apiKey);
@@ -283,13 +297,13 @@ ${cityCtx.avoid?.length ? `Forbidden in this city: ${cityCtx.avoid.join(", ")}\n
 ${neighborhoodBlock}
 Price norms: $ = ${cityCtx.priceNorms.$} | $$ = ${cityCtx.priceNorms.$$} | $$$ = ${cityCtx.priceNorms.$$$}
 Transport: max ${cityCtx.transport.maxTravelMinutes} min between stops${cityCtx.transport.avoidCrossCity ? "; avoid cross-city jumps" : ""}.${
-  cityCtx.travel
-    ? `
+      cityCtx.travel
+        ? `
 Travel intel — walkability=${cityCtx.travel.travelModes.walkability}, uber=${cityCtx.travel.travelModes.uberAvailability}, transit=${cityCtx.travel.travelModes.publicTransitQuality}, parking=${cityCtx.travel.travelModes.parkingDifficulty}, EV=${cityCtx.travel.travelModes.evFriendly}.
 Travel recs — short hops: ${cityCtx.travel.travelRecommendations.shortHops}; cross-neighborhood: ${cityCtx.travel.travelRecommendations.crossNeighborhood}; groups: ${cityCtx.travel.travelRecommendations.groups}; late-night: ${cityCtx.travel.travelRecommendations.lateNight}.
 Stop choices must respect this travel intel: prefer walkable clusters when walkability is high; if walkability is low, keep stops close to cut rideshare hops; avoid stops that require parking in high-difficulty zones late-night unless rideshare is implied.`
-    : ""
-}
+        : ""
+    }
 ${req.tweakDirective ? `\n# Live Reroute directive (override default vibe to honor this):\n"${req.tweakDirective}"\nKeep the city, occasion, and group fixed; re-pick stops + naming + bonus to satisfy the directive.\n` : ""}
 
 Occasion: ${occasion}

@@ -74,7 +74,12 @@ function deriveCrew(loop: ActiveLoop): CrewMember[] {
   const size = Math.max(1, Math.min(loop.groupSize ?? 1, 8));
   const captain = loop.passenger?.split("@")[0] || "Captain";
   const seeds = [
-    { name: captain, role: "Captain", status: "ready" as const, transport: "Driving · Tesla Model 3" },
+    {
+      name: captain,
+      role: "Captain",
+      status: "ready" as const,
+      transport: "Driving · Tesla Model 3",
+    },
     { name: "Maya", role: "ETA 7:25p", status: "ready" as const, transport: "Metro" },
     { name: "Jordan", role: "Invited", status: "pending" as const, transport: "Rideshare" },
     { name: "Alex", role: "ETA 7:35p", status: "ready" as const, transport: "Riding w/ Captain" },
@@ -129,7 +134,9 @@ function RouteStrip({ loop }: { loop: ActiveLoop }) {
       <div className="mb-5 flex items-start justify-between gap-3">
         <div className="flex flex-1 items-center gap-3">
           <div>
-            <div className="font-display text-[32px] font-extrabold leading-none tracking-tight">{originCode}</div>
+            <div className="font-display text-[32px] font-extrabold leading-none tracking-tight">
+              {originCode}
+            </div>
             <div className="mt-1 font-mono text-[9px] tracking-widest text-ink/55">
               {(loop.fromName ?? firstStop?.area ?? "Home").toUpperCase()}
             </div>
@@ -140,7 +147,9 @@ function RouteStrip({ loop }: { loop: ActiveLoop }) {
             <span className="h-2 w-2 shrink-0 rounded-full bg-amber-400" />
           </div>
           <div className="text-right">
-            <div className="font-display text-[32px] font-extrabold leading-none tracking-tight">{destCode}</div>
+            <div className="font-display text-[32px] font-extrabold leading-none tracking-tight">
+              {destCode}
+            </div>
             <div className="mt-1 font-mono text-[9px] tracking-widest text-ink/55">
               {(loop.toName ?? lastStop?.area ?? "Out").toUpperCase()}
             </div>
@@ -192,17 +201,26 @@ function Stat({ label, value }: { label: string; value: string }) {
 /* -------------------------------------------------------------------------- */
 
 function ProgressRail({ loop }: { loop: ActiveLoop }) {
-  const nodes = [{ label: "Home", done: true, current: false }, ...loop.stops.map((s, i) => {
-    const done = !!s.done;
-    const current = !done && (i === 0 ? true : !!loop.stops[i - 1]?.done);
-    return { label: s.area || s.name || `Stop ${i + 1}`, done, current };
-  }), { label: "Done", done: loop.stops.every((s) => s.done), current: false }];
+  const nodes = [
+    { label: "Home", done: true, current: false },
+    ...loop.stops.map((s, i) => {
+      const done = !!s.done;
+      const current = !done && (i === 0 ? true : !!loop.stops[i - 1]?.done);
+      return { label: s.area || s.name || `Stop ${i + 1}`, done, current };
+    }),
+    { label: "Done", done: loop.stops.every((s) => s.done), current: false },
+  ];
 
   return (
     <div className="mb-3 rounded-2xl border-2 border-ink bg-white px-5 py-4">
       <div className="mb-2.5 flex items-center">
         {nodes.map((n, i) => (
-          <RailNode key={i} node={n} isLast={i === nodes.length - 1} prevDone={i > 0 && nodes[i - 1].done} />
+          <RailNode
+            key={i}
+            node={n}
+            isLast={i === nodes.length - 1}
+            prevDone={i > 0 && nodes[i - 1].done}
+          />
         ))}
       </div>
       <div className="flex justify-between">
@@ -242,7 +260,9 @@ function RailNode({
         }`}
       />
       {!isLast && (
-        <span className={`h-[3px] flex-1 rounded-full ${prevDone ? "bg-emerald-500" : "bg-ink/10"}`} />
+        <span
+          className={`h-[3px] flex-1 rounded-full ${prevDone ? "bg-emerald-500" : "bg-ink/10"}`}
+        />
       )}
     </>
   );
@@ -276,7 +296,10 @@ function StopCard({
     transition: "transform 600ms cubic-bezier(0.16,1,0.3,1)",
     transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
   };
-  const faceStyle: CSSProperties = { backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" };
+  const faceStyle: CSSProperties = {
+    backfaceVisibility: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+  };
 
   return (
     <div style={{ perspective: "1000px" }}>
@@ -310,7 +333,9 @@ function StopCard({
             </div>
           )}
           {vibeLine && (
-            <div className="mt-3 font-display italic text-[13px] text-purple-700/80">"{vibeLine}"</div>
+            <div className="mt-3 font-display italic text-[13px] text-purple-700/80">
+              "{vibeLine}"
+            </div>
           )}
           <div className="mt-4 flex flex-wrap items-center gap-2">
             <a
@@ -328,7 +353,9 @@ function StopCard({
                 className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-white px-3.5 py-2 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-ink transition hover:bg-cream"
               >
                 <MenuIcon className="h-3 w-3" /> Menu
-                <span className="ml-1 rounded-full bg-emerald-100 px-1.5 py-0.5 text-[7px] text-emerald-700">✓ Verified</span>
+                <span className="ml-1 rounded-full bg-emerald-100 px-1.5 py-0.5 text-[7px] text-emerald-700">
+                  ✓ Verified
+                </span>
               </button>
             )}
             <button
@@ -362,7 +389,9 @@ function StopCard({
           <div className="grid grid-cols-2 gap-2">
             <BackCell icon={<Car className="h-4 w-4" />} label="Parking">
               {stop.parking?.primary || "Street parking nearby"}
-              {stop.parking?.secondary && <div className="mt-1 text-ink/60">{stop.parking.secondary}</div>}
+              {stop.parking?.secondary && (
+                <div className="mt-1 text-ink/60">{stop.parking.secondary}</div>
+              )}
               {stop.ev && (
                 <div className="mt-2 inline-flex items-center gap-1 rounded-full border-2 border-emerald-600 bg-emerald-50 px-2 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest text-emerald-700">
                   ⚡ {stop.ev.brand}
@@ -376,8 +405,7 @@ function StopCard({
               {stop.type || "Ask the bartender"}
             </BackCell>
             <BackCell icon={<Info className="h-4 w-4" />} label="Notes">
-              {stop.rationale ||
-                (stop.bookable ? "Reservation recommended" : "Walk-ins welcome")}
+              {stop.rationale || (stop.bookable ? "Reservation recommended" : "Walk-ins welcome")}
             </BackCell>
           </div>
         </div>
@@ -386,7 +414,15 @@ function StopCard({
   );
 }
 
-function BackCell({ icon, label, children }: { icon: React.ReactNode; label: string; children: React.ReactNode }) {
+function BackCell({
+  icon,
+  label,
+  children,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="rounded-2xl border-2 border-ink/10 bg-cream p-3.5">
       <div className="mb-1.5 text-ink/70">{icon}</div>
@@ -458,7 +494,9 @@ function CrewManifest({ crew }: { crew: CrewMember[] }) {
                 </span>
                 {m.role}
               </div>
-              <div className="font-mono text-[8px] text-ink/40 tracking-wide mt-0.5">{m.transport}</div>
+              <div className="font-mono text-[8px] text-ink/40 tracking-wide mt-0.5">
+                {m.transport}
+              </div>
             </div>
             <a
               href={`tel:${m.phone.replace(/\D/g, "")}`}
@@ -532,7 +570,9 @@ function OnMyWay({ targetName }: { targetName: string }) {
         <div className="mb-3 flex items-baseline gap-2">
           <span className="font-display text-5xl font-extrabold leading-none">{minutes}</span>
           <span className="font-mono text-sm font-semibold text-ink/55">min</span>
-          <span className="ml-auto font-mono text-[10px] text-ink/40">{(minutes * 0.2).toFixed(1)} mi</span>
+          <span className="ml-auto font-mono text-[10px] text-ink/40">
+            {(minutes * 0.2).toFixed(1)} mi
+          </span>
         </div>
         <div className="mb-4 h-1.5 overflow-hidden rounded-full bg-ink/5">
           <div
@@ -647,7 +687,13 @@ function PreorderDrawer({
   const category = useMemo(() => {
     if (!stop) return "drinks";
     const c = (stop.category ?? stop.type ?? "").toLowerCase();
-    if (c.includes("meal") || c.includes("dinner") || c.includes("food") || c.includes("restaurant")) return "meal";
+    if (
+      c.includes("meal") ||
+      c.includes("dinner") ||
+      c.includes("food") ||
+      c.includes("restaurant")
+    )
+      return "meal";
     if (c.includes("scenic") || c.includes("view")) return "scenic";
     if (c.includes("activity") || c.includes("show") || c.includes("event")) return "activity";
     return "drinks";
@@ -770,11 +816,7 @@ function PreorderDrawer({
         {!menuQuery.isLoading && menu.length === 0 && (
           <div className="px-5 py-12 text-center text-[12px] text-ink/55">
             Menu unavailable.{" "}
-            <button
-              type="button"
-              onClick={() => menuQuery.refetch()}
-              className="underline"
-            >
+            <button type="button" onClick={() => menuQuery.refetch()} className="underline">
               Retry
             </button>
           </div>
@@ -907,7 +949,13 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 /*  Main                                                                       */
 /* -------------------------------------------------------------------------- */
 
-export function BoardingPassV3({ loop, containerRef }: { loop: ActiveLoop; containerRef?: React.RefObject<HTMLDivElement | null> }) {
+export function BoardingPassV3({
+  loop,
+  containerRef,
+}: {
+  loop: ActiveLoop;
+  containerRef?: React.RefObject<HTMLDivElement | null>;
+}) {
   const [preorderStop, setPreorderStop] = useState<LoopStop | null>(null);
   const crew = useMemo(() => deriveCrew(loop), [loop]);
   const currentIdx = loop.stops.findIndex((s) => !s.done);
@@ -951,10 +999,14 @@ export function BoardingPassV3({ loop, containerRef }: { loop: ActiveLoop; conta
         const isVerified = verifiedSet.has((stop.name || "").toLowerCase());
         return (
           <div key={stop.id}>
-            <StopCard stop={stop} index={i} isCurrent={isCurrent} onPreorder={setPreorderStop} verified={isVerified} />
-            {next && drive && (
-              <TravelConnector minutes={drive.minutes} to={drive.destination} />
-            )}
+            <StopCard
+              stop={stop}
+              index={i}
+              isCurrent={isCurrent}
+              onPreorder={setPreorderStop}
+              verified={isVerified}
+            />
+            {next && drive && <TravelConnector minutes={drive.minutes} to={drive.destination} />}
             {next && !drive && <div className="h-3" />}
           </div>
         );

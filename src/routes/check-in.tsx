@@ -6,10 +6,7 @@ import { logActivity } from "@/lib/activity-log";
 
 export const Route = createFileRoute("/check-in")({
   head: () => ({
-    meta: [
-      { title: "Check in — Confetti" },
-      { name: "robots", content: "noindex, nofollow" },
-    ],
+    meta: [{ title: "Check in — Confetti" }, { name: "robots", content: "noindex, nofollow" }],
   }),
   validateSearch: (s: Record<string, unknown>) => ({
     loop: typeof s.loop === "string" ? s.loop : undefined,
@@ -93,9 +90,14 @@ function CheckInPage() {
               <div>
                 <h1 className="font-display text-3xl font-extrabold leading-tight">
                   {state.result.alreadyAwarded ? (
-                    <>You're <span className="font-serif italic font-normal text-coral">already</span> in.</>
+                    <>
+                      You're{" "}
+                      <span className="font-serif italic font-normal text-coral">already</span> in.
+                    </>
                   ) : (
-                    <>You're <span className="font-serif italic font-normal text-coral">in.</span></>
+                    <>
+                      You're <span className="font-serif italic font-normal text-coral">in.</span>
+                    </>
                   )}
                 </h1>
                 <p className="mt-1 text-sm text-ink/70">

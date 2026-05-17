@@ -1,11 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { AlertTriangle, Clock, Flame, Info, Users } from "lucide-react";
 import type { LoopStop } from "@/lib/loop-store";
-import {
-  computeNightWarnings,
-  type StopWarning,
-  type WarningSeverity,
-} from "@/lib/night-warnings";
+import { computeNightWarnings, type StopWarning, type WarningSeverity } from "@/lib/night-warnings";
 
 type Props = {
   stops: LoopStop[];

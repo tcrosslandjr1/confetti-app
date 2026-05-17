@@ -9,6 +9,7 @@ Master reference for all user-facing interfaces, portal wireframes, and system d
 Text-based wireframes for the nightclub-grade venue owner control center.
 
 ### 1.1 Login
+
 ```
 [Business Login]
 - Email input
@@ -18,6 +19,7 @@ Text-based wireframes for the nightclub-grade venue owner control center.
 ```
 
 ### 1.2 Dashboard Home
+
 ```
 [Dashboard]
 TOP METRICS (cards):
@@ -42,6 +44,7 @@ NAVIGATION:
 ```
 
 ### 1.3 Venue Profile
+
 ```
 [Venue Profile]
 - Venue name
@@ -58,6 +61,7 @@ NAVIGATION:
 ```
 
 ### 1.4 Events Manager
+
 ```
 [Events]
 LIST VIEW:
@@ -78,6 +82,7 @@ CREATE EVENT:
 ```
 
 ### 1.5 Reels Manager
+
 ```
 [Reels]
 LIST VIEW:
@@ -96,6 +101,7 @@ UPLOAD REEL:
 ```
 
 ### 1.6 Promotions
+
 ```
 [Promotions]
 - Buy Boost (button)
@@ -110,6 +116,7 @@ BOOST OPTIONS:
 ```
 
 ### 1.7 Corporate Visibility
+
 ```
 [Corporate Visibility]
 - Corporate-friendly toggle
@@ -120,6 +127,7 @@ BOOST OPTIONS:
 ```
 
 ### 1.8 Analytics
+
 ```
 [Analytics]
 - Traffic sources (chart)
@@ -130,6 +138,7 @@ BOOST OPTIONS:
 ```
 
 ### 1.9 Billing
+
 ```
 [Billing]
 - Current subscription
@@ -145,6 +154,7 @@ BOOST OPTIONS:
 Text-based wireframes for the enterprise outing management dashboard.
 
 ### 2.1 Login
+
 ```
 [Corporate Login]
 - Email
@@ -153,6 +163,7 @@ Text-based wireframes for the enterprise outing management dashboard.
 ```
 
 ### 2.2 Corporate Home
+
 ```
 [Corporate Dashboard]
 CARDS:
@@ -172,6 +183,7 @@ NAVIGATION:
 ```
 
 ### 2.3 Company Settings
+
 ```
 [Company Settings]
 - Company name
@@ -182,6 +194,7 @@ NAVIGATION:
 ```
 
 ### 2.4 Policies
+
 ```
 [Policies]
 - Budget per person
@@ -193,6 +206,7 @@ NAVIGATION:
 ```
 
 ### 2.5 Team Management
+
 ```
 [Teams]
 LIST VIEW:
@@ -208,6 +222,7 @@ TEAM DETAIL:
 ```
 
 ### 2.6 Outing Planner
+
 ```
 [Outing Planner]
 STEP 1: Select team
@@ -228,6 +243,7 @@ Each option:
 ```
 
 ### 2.7 Approvals
+
 ```
 [Approvals]
 - Outing name
@@ -237,6 +253,7 @@ Each option:
 ```
 
 ### 2.8 Bookings
+
 ```
 [Bookings]
 - Booking status
@@ -246,6 +263,7 @@ Each option:
 ```
 
 ### 2.9 Reporting
+
 ```
 [Reporting]
 - Spend by team
@@ -262,6 +280,7 @@ Each option:
 The full user-facing app specification for the consumer mobile experience.
 
 ### 3.1 Home (Tonight Feed)
+
 ```
 [Home]
 - "Tonight in Your City"
@@ -272,6 +291,7 @@ The full user-facing app specification for the consumer mobile experience.
 ```
 
 ### 3.2 Explore
+
 ```
 [Explore]
 - Search bar
@@ -281,6 +301,7 @@ The full user-facing app specification for the consumer mobile experience.
 ```
 
 ### 3.3 Reels
+
 ```
 [Reels]
 - Fullscreen vertical feed
@@ -291,6 +312,7 @@ The full user-facing app specification for the consumer mobile experience.
 ```
 
 ### 3.4 Venue Page
+
 ```
 [Venue Page]
 - Photos
@@ -304,6 +326,7 @@ The full user-facing app specification for the consumer mobile experience.
 ```
 
 ### 3.5 AI Planner
+
 ```
 [Plan My Night]
 STEP 1: Occasion
@@ -324,6 +347,7 @@ Each plan:
 ```
 
 ### 3.6 Group Planning
+
 ```
 [Party Room]
 - Invite friends
@@ -334,6 +358,7 @@ Each plan:
 ```
 
 ### 3.7 Profile
+
 ```
 [Profile]
 - Saved plans

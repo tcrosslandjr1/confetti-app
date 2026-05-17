@@ -11,10 +11,7 @@ import { Pencil, Plus, Star, Trash2 } from "lucide-react";
 
 export const Route = createFileRoute("/admin/testimonials")({
   head: () => ({
-    meta: [
-      { title: "Testimonials — Admin" },
-      { name: "robots", content: "noindex, nofollow" },
-    ],
+    meta: [{ title: "Testimonials — Admin" }, { name: "robots", content: "noindex, nofollow" }],
   }),
   component: AdminTestimonialsPage,
 });
@@ -209,9 +206,7 @@ function AdminTestimonialsPage() {
                         )}
                         <div className="min-w-0">
                           <div className="truncate font-semibold">{r.name}</div>
-                          <div className="truncate text-xs text-muted-foreground">
-                            {r.username}
-                          </div>
+                          <div className="truncate text-xs text-muted-foreground">{r.username}</div>
                         </div>
                       </div>
                     </td>

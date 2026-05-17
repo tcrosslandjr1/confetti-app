@@ -25,10 +25,7 @@ function requirePlacesKey(): string {
 }
 
 /** Find Place From Text — returns a place_id or null. */
-export async function findPlaceId(
-  name: string,
-  city?: string | null,
-): Promise<string | null> {
+export async function findPlaceId(name: string, city?: string | null): Promise<string | null> {
   const key = requirePlacesKey();
   const query = [name, city].filter(Boolean).join(" ");
   const url = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${encodeURIComponent(query)}&inputtype=textquery&fields=place_id&key=${key}`;
@@ -39,10 +36,7 @@ export async function findPlaceId(
 }
 
 /** Fetch up to maxN photos from Google Place Details and resolve their CDN URLs. */
-export async function fetchPlacePhotos(
-  placeId: string,
-  maxN = 8,
-): Promise<GalleryItem[]> {
+export async function fetchPlacePhotos(placeId: string, maxN = 8): Promise<GalleryItem[]> {
   const key = requirePlacesKey();
   const detailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${encodeURIComponent(placeId)}&fields=photos&key=${key}`;
   const dr = await fetch(detailsUrl);
@@ -117,7 +111,9 @@ export async function discoverSocials(
 
   const venuePart = [name, city].filter(Boolean).join(" ");
 
-  async function searchOne(host: "tiktok" | "instagram"): Promise<{ url: string; handle: string } | null> {
+  async function searchOne(
+    host: "tiktok" | "instagram",
+  ): Promise<{ url: string; handle: string } | null> {
     const domain = host === "tiktok" ? "tiktok.com" : "instagram.com";
     const query = `site:${domain} ${venuePart}`;
     try {
@@ -136,7 +132,10 @@ export async function discoverSocials(
         if (canonical && handle) return { url: canonical, handle };
       }
     } catch (e) {
-      console.warn(`[venue-media] firecrawl ${host} search failed:`, e instanceof Error ? e.message : e);
+      console.warn(
+        `[venue-media] firecrawl ${host} search failed:`,
+        e instanceof Error ? e.message : e,
+      );
     }
     return null;
   }

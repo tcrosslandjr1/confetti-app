@@ -12,10 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/components/ui/radio-group";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 
@@ -101,10 +98,7 @@ function ClaimPage() {
           <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
             {claims.data!.claims.map((c) => (
               <li key={c.id} className="flex items-center justify-between">
-                <span>
-                  {c.proposed_name ??
-                    (c.venue_id ? "Existing venue" : "Untitled claim")}
-                </span>
+                <span>{c.proposed_name ?? (c.venue_id ? "Existing venue" : "Untitled claim")}</span>
                 <Badge variant="secondary">{c.status}</Badge>
               </li>
             ))}
@@ -130,17 +124,13 @@ function ClaimPage() {
         </Button>
       </form>
 
-      {results.isFetching && (
-        <p className="mt-6 text-sm text-muted-foreground">Searching…</p>
-      )}
+      {results.isFetching && <p className="mt-6 text-sm text-muted-foreground">Searching…</p>}
 
       {results.data && (
         <div className="mt-6 space-y-3">
           {results.data.venues.length === 0 ? (
             <div className="rounded-xl border border-dashed border-border p-8 text-center">
-              <p className="text-muted-foreground">
-                No venues match "{submittedQuery}".
-              </p>
+              <p className="text-muted-foreground">No venues match "{submittedQuery}".</p>
               <Button className="mt-4" onClick={() => setAddingNew(true)}>
                 Add "{submittedQuery}" as a new venue
               </Button>
@@ -159,9 +149,7 @@ function ClaimPage() {
                     <div className="flex-1">
                       <p className="font-medium">{v.name}</p>
                       <p className="text-sm text-muted-foreground">
-                        {[v.neighborhood, v.city]
-                          .filter(Boolean)
-                          .join(" · ") || "—"}
+                        {[v.neighborhood, v.city].filter(Boolean).join(" · ") || "—"}
                       </p>
                     </div>
                     {taken ? (
@@ -198,9 +186,7 @@ function VerifyForm({
   onSubmitted: () => void;
 }) {
   const submit = useServerFn(submitVenueClaim);
-  const [method, setMethod] = useState<"social_tiktok" | "social_instagram">(
-    "social_instagram",
-  );
+  const [method, setMethod] = useState<"social_tiktok" | "social_instagram">("social_instagram");
   const [handle, setHandle] = useState("");
   const [notes, setNotes] = useState("");
   const [confirmed, setConfirmed] = useState(false);
@@ -234,12 +220,8 @@ function VerifyForm({
       </button>
 
       <div className="mt-4 rounded-xl border border-border bg-card p-5">
-        <p className="text-xs uppercase tracking-wider text-muted-foreground">
-          Claiming
-        </p>
-        <p className="mt-1 text-xl font-semibold">
-          {selected?.name ?? proposedName}
-        </p>
+        <p className="text-xs uppercase tracking-wider text-muted-foreground">Claiming</p>
+        <p className="mt-1 text-xl font-semibold">{selected?.name ?? proposedName}</p>
         {selected && (
           <p className="text-sm text-muted-foreground">
             {[selected.neighborhood, selected.city].filter(Boolean).join(" · ")}
@@ -249,8 +231,8 @@ function VerifyForm({
 
       <h2 className="mt-8 text-2xl font-bold">Verify ownership</h2>
       <p className="mt-1 text-sm text-muted-foreground">
-        Connect or provide the venue's official social account. If the handle matches,
-        we can auto‑verify.
+        Connect or provide the venue's official social account. If the handle matches, we can
+        auto‑verify.
       </p>
 
       {!selected && (
@@ -292,9 +274,7 @@ function VerifyForm({
             <RadioGroupItem value="social_tiktok" className="mt-1" />
             <div>
               <p className="font-medium">TikTok official account</p>
-              <p className="text-sm text-muted-foreground">
-                e.g. @yourvenue on TikTok.
-              </p>
+              <p className="text-sm text-muted-foreground">e.g. @yourvenue on TikTok.</p>
             </div>
           </Label>
         </RadioGroup>
@@ -330,8 +310,8 @@ function VerifyForm({
             className="mt-1"
           />
           <span>
-            I confirm I am the owner or authorized manager of this venue and the
-            information above is accurate.
+            I confirm I am the owner or authorized manager of this venue and the information above
+            is accurate.
           </span>
         </label>
 

@@ -27,19 +27,50 @@ export const Route = createFileRoute("/pricing")({
 
 const tiers = [
   {
-    name: "Free", price: "$0", blurb: "Plan a few outings a month.",
-    features: ["3 AI itineraries / month", "Swipeable idea cards", "Save up to 5 trips", "Basic taste profile"],
-    cta: "Start free", priceId: null as string | null, highlight: false,
+    name: "Free",
+    price: "$0",
+    blurb: "Plan a few outings a month.",
+    features: [
+      "3 AI itineraries / month",
+      "Swipeable idea cards",
+      "Save up to 5 trips",
+      "Basic taste profile",
+    ],
+    cta: "Start free",
+    priceId: null as string | null,
+    highlight: false,
   },
   {
-    name: "Plus", price: "$8", suffix: "/mo", blurb: "For people who actually go out.",
-    features: ["Unlimited itineraries", "Multi-stop routing & transit", "Saved reservations vault", "Full taste profile + social learning", "Priority AI"],
-    cta: "Try Plus", priceId: "consumer_plus_monthly", highlight: true,
+    name: "Plus",
+    price: "$8",
+    suffix: "/mo",
+    blurb: "For people who actually go out.",
+    features: [
+      "Unlimited itineraries",
+      "Multi-stop routing & transit",
+      "Saved reservations vault",
+      "Full taste profile + social learning",
+      "Priority AI",
+    ],
+    cta: "Try Plus",
+    priceId: "consumer_plus_monthly",
+    highlight: true,
   },
   {
-    name: "Crew", price: "$18", suffix: "/mo", blurb: "Plan with friends and family.",
-    features: ["Everything in Plus", "Shared trips & voting", "Up to 6 members", "Group reservations", "Concierge chat"],
-    cta: "Get Crew", priceId: "consumer_crew_monthly", highlight: false,
+    name: "Crew",
+    price: "$18",
+    suffix: "/mo",
+    blurb: "Plan with friends and family.",
+    features: [
+      "Everything in Plus",
+      "Shared trips & voting",
+      "Up to 6 members",
+      "Group reservations",
+      "Concierge chat",
+    ],
+    cta: "Get Crew",
+    priceId: "consumer_crew_monthly",
+    highlight: false,
   },
 ];
 
@@ -98,7 +129,9 @@ function PricingPage() {
                   ))}
                 </ul>
                 <button
-                  onClick={() => (t.priceId ? handleCta(t.priceId, t.name) : (window.location.href = "/auth"))}
+                  onClick={() =>
+                    t.priceId ? handleCta(t.priceId, t.name) : (window.location.href = "/auth")
+                  }
                   className={`mt-6 inline-flex h-11 w-full items-center justify-center rounded-full text-sm font-semibold transition-pop hover:scale-[1.02] ${
                     t.highlight
                       ? "bg-foreground text-background"

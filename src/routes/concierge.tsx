@@ -41,10 +41,22 @@ function ConciergeLayout() {
 
   useEffect(() => {
     if (loading) return;
-    if (!user) { navigate({ to: "/auth" }); return; }
-    if (viewAs === "admin") { navigate({ to: "/admin" }); return; }
-    if (viewAs === "business") { navigate({ to: "/advertise/portal" }); return; }
-    if (viewAs === "visitor") { navigate({ to: "/" }); return; }
+    if (!user) {
+      navigate({ to: "/auth" });
+      return;
+    }
+    if (viewAs === "admin") {
+      navigate({ to: "/admin" });
+      return;
+    }
+    if (viewAs === "business") {
+      navigate({ to: "/advertise/portal" });
+      return;
+    }
+    if (viewAs === "visitor") {
+      navigate({ to: "/" });
+      return;
+    }
   }, [user, loading, viewAs, navigate]);
 
   return (
@@ -54,7 +66,9 @@ function ConciergeLayout() {
         <aside className="hidden lg:block">
           <nav className="sticky top-20 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut">
             <div className="mb-3 border-b-2 border-dashed border-ink pb-2 px-2">
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/60">/ concierge</span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/60">
+                / concierge
+              </span>
             </div>
             {NAV.map(({ to, label, icon: Icon, exact }) => {
               const active = exact ? pathname === to : pathname.startsWith(to);

@@ -6,11 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
-import {
-  createPortalSession,
-  cancelSubscription,
-  changePlan,
-} from "@/lib/checkout.functions";
+import { createPortalSession, cancelSubscription, changePlan } from "@/lib/checkout.functions";
 import { useStripeCheckout } from "@/hooks/useStripeCheckout";
 import { useAuth } from "@/lib/auth-context";
 
@@ -36,12 +32,17 @@ export function ManageSubscriptionPanel() {
   if (!isActive || !subscription) {
     return (
       <Card>
-        <CardHeader><CardTitle>Subscription</CardTitle></CardHeader>
+        <CardHeader>
+          <CardTitle>Subscription</CardTitle>
+        </CardHeader>
         <CardContent className="space-y-3">
           <p className="text-sm text-muted-foreground">You're on the free plan.</p>
           <Button
             onClick={() => {
-              if (!user) { window.location.href = "/auth"; return; }
+              if (!user) {
+                window.location.href = "/auth";
+                return;
+              }
               openCheckout({
                 variant: { kind: "price", priceId: "consumer_plus_monthly", accountType: "user" },
                 customerEmail: user.email ?? undefined,
@@ -71,7 +72,9 @@ export function ManageSubscriptionPanel() {
       window.open(url, "_blank");
     } catch (e: any) {
       toast.error(e?.message ?? "Could not open billing portal");
-    } finally { setBusy(false); }
+    } finally {
+      setBusy(false);
+    }
   };
 
   const handleCancel = async () => {
@@ -83,7 +86,9 @@ export function ManageSubscriptionPanel() {
       await refetch();
     } catch (e: any) {
       toast.error(e?.message ?? "Could not cancel");
-    } finally { setBusy(false); }
+    } finally {
+      setBusy(false);
+    }
   };
 
   const handleChange = async (newPriceId: "consumer_plus_monthly" | "consumer_crew_monthly") => {
@@ -101,7 +106,9 @@ export function ManageSubscriptionPanel() {
       await refetch();
     } catch (e: any) {
       toast.error(e?.message ?? "Could not change plan");
-    } finally { setBusy(false); }
+    } finally {
+      setBusy(false);
+    }
   };
 
   const isConsumer = priceId?.startsWith("consumer_");
@@ -126,7 +133,8 @@ export function ManageSubscriptionPanel() {
           )}
           {subscription.pending_price_id && (
             <p className="text-xs text-muted-foreground">
-              Switches to {LABEL[subscription.pending_price_id] ?? subscription.pending_price_id} at period end.
+              Switches to {LABEL[subscription.pending_price_id] ?? subscription.pending_price_id} at
+              period end.
             </p>
           )}
         </div>
@@ -134,14 +142,22 @@ export function ManageSubscriptionPanel() {
         {isConsumer && (
           <div className="flex flex-wrap gap-2">
             {priceId !== "consumer_plus_monthly" && (
-              <Button size="sm" variant="outline" disabled={busy}
-                onClick={() => handleChange("consumer_plus_monthly")}>
+              <Button
+                size="sm"
+                variant="outline"
+                disabled={busy}
+                onClick={() => handleChange("consumer_plus_monthly")}
+              >
                 Switch to Plus
               </Button>
             )}
             {priceId !== "consumer_crew_monthly" && (
-              <Button size="sm" variant="outline" disabled={busy}
-                onClick={() => handleChange("consumer_crew_monthly")}>
+              <Button
+                size="sm"
+                variant="outline"
+                disabled={busy}
+                onClick={() => handleChange("consumer_crew_monthly")}
+              >
                 Switch to Crew
               </Button>
             )}
@@ -152,8 +168,13 @@ export function ManageSubscriptionPanel() {
           <Button size="sm" variant="outline" disabled={busy} onClick={handlePortal}>
             Manage billing
           </Button>
-          <Button size="sm" variant="ghost" disabled={busy} onClick={handleCancel}
-            className="text-destructive hover:text-destructive">
+          <Button
+            size="sm"
+            variant="ghost"
+            disabled={busy}
+            onClick={handleCancel}
+            className="text-destructive hover:text-destructive"
+          >
             Cancel subscription
           </Button>
         </div>

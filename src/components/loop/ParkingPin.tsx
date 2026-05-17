@@ -74,9 +74,7 @@ export function ParkingPin() {
 
   const appleFirst = useMemo(() => isAppleDevice(), []);
 
-  const appleUrl = spot
-    ? `https://maps.apple.com/?daddr=${spot.lat},${spot.lng}&dirflg=w`
-    : null;
+  const appleUrl = spot ? `https://maps.apple.com/?daddr=${spot.lat},${spot.lng}&dirflg=w` : null;
   const googleUrl = spot
     ? `https://www.google.com/maps/dir/?api=1&destination=${spot.lat},${spot.lng}&travelmode=walking`
     : null;
@@ -106,10 +104,10 @@ export function ParkingPin() {
         toast.error(
           err.code === err.PERMISSION_DENIED
             ? "Allow location access to save your spot"
-            : "Couldn't read your location"
+            : "Couldn't read your location",
         );
       },
-      { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 }
+      { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 },
     );
   }
 
@@ -154,7 +152,11 @@ export function ParkingPin() {
             disabled={busy}
             className="inline-flex shrink-0 items-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-60"
           >
-            {busy ? <Loader2 className="h-3 w-3 animate-spin" /> : <Crosshair className="h-3 w-3" />}
+            {busy ? (
+              <Loader2 className="h-3 w-3 animate-spin" />
+            ) : (
+              <Crosshair className="h-3 w-3" />
+            )}
             Save spot
           </button>
         ) : (
@@ -165,7 +167,11 @@ export function ParkingPin() {
             title="Update with current location"
             className="inline-flex shrink-0 items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink transition-pop hover:bg-gold disabled:opacity-60"
           >
-            {busy ? <Loader2 className="h-3 w-3 animate-spin" /> : <Crosshair className="h-3 w-3" />}
+            {busy ? (
+              <Loader2 className="h-3 w-3 animate-spin" />
+            ) : (
+              <Crosshair className="h-3 w-3" />
+            )}
             Update
           </button>
         )}

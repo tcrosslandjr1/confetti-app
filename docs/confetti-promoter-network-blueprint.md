@@ -5,6 +5,7 @@
 **Summary.** Built-in marketplace connecting restaurants, lounges, bars, and food businesses with verified influencers and food critics. Creators get paid to produce content, businesses get exposure, and Confetti gets organic marketing because every review must be planned using the app.
 
 **Core objectives.**
+
 - Turn Confetti into a creator marketplace
 - Drive organic, lifestyle-driven marketing
 - Provide businesses with measurable ROI
@@ -12,6 +13,7 @@
 - Make Confetti Boarding Passes part of the content
 
 **User types.**
+
 - **Promoters (influencers):** food reviewers, food critics, nightlife influencers, lifestyle creators, micro-influencers
 - **Businesses:** restaurants, bars, lounges, dessert shops, food trucks, cafés
 - **Confetti users:** view content, discover venues, book experiences
@@ -21,6 +23,7 @@
 **Business dashboard.** Browse promoters · filter by niche/audience/price · view past Confetti-powered reviews · hire directly · track campaign performance.
 
 **Campaign workflow.**
+
 1. Business sends booking request
 2. Promoter accepts
 3. Promoter must create a Boarding Pass
@@ -35,6 +38,7 @@
 ## 2. UI Screens (text wireframes)
 
 ### Screen 1 — Promoter Hub
+
 ```
 [Header] Become a Promoter
 [Button] Create Promoter Profile
@@ -45,6 +49,7 @@
 ```
 
 ### Screen 2 — Promoter Profile Setup
+
 ```
 [Header] Build Your Promoter Profile
 Fields:
@@ -59,6 +64,7 @@ Fields:
 ```
 
 ### Screen 3 — Business Dashboard
+
 ```
 [Header] Hire a Promoter
 Filters: Audience Size · Price · Niche · City
@@ -67,6 +73,7 @@ Promoter Cards: Photo · Niche · Rate · Engagement Score
 ```
 
 ### Screen 4 — Campaign Requirements
+
 ```
 [Header] Campaign Checklist
  - Create Boarding Pass
@@ -78,6 +85,7 @@ Promoter Cards: Photo · Niche · Rate · Engagement Score
 ```
 
 ### Screen 5 — Analytics
+
 ```
 [Header] Campaign Performance
  - Views: 128,400
@@ -92,6 +100,7 @@ Promoter Cards: Photo · Niche · Rate · Engagement Score
 **Title:** Confetti Promoter Network — Monetization Engine.
 
 **Revenue streams.**
+
 - Commission on promoter bookings (10–20%)
 - Boosted placement for businesses
 - Affiliate revenue from influencer-driven downloads
@@ -100,7 +109,7 @@ Promoter Cards: Photo · Niche · Rate · Engagement Score
 
 **Why it works.** Influencers want paid gigs · businesses want exposure · Confetti wants organic growth · every review becomes a Confetti tutorial.
 
-**Tagline:** *Creators get paid. Businesses get customers. Confetti gets culture.*
+**Tagline:** _Creators get paid. Businesses get customers. Confetti gets culture._
 
 ## 4. Creator Onboarding Script
 
@@ -121,6 +130,7 @@ Promoter Cards: Photo · Niche · Rate · Engagement Score
 ## 6. Implementation Status
 
 Already shipped in this repo:
+
 - DB: `promoters`, `promoter_jobs`, `promoter_submissions`, `promoter_payouts`, `promoter_metrics_daily`
 - Server fns: `src/lib/promoter.functions.ts`
 - Routes: `/promoter`, `/promoter/jobs`, `/business/promoters`, `/admin/promoters`

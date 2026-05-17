@@ -16,7 +16,16 @@ export const Route = createFileRoute("/promoter/")({
   component: PromoterProfilePage,
 });
 
-const NICHES = ["food", "nightlife", "lifestyle", "cocktails", "rooftop", "dessert", "brunch", "fine-dining"];
+const NICHES = [
+  "food",
+  "nightlife",
+  "lifestyle",
+  "cocktails",
+  "rooftop",
+  "dessert",
+  "brunch",
+  "fine-dining",
+];
 
 function PromoterProfilePage() {
   const fetchProfile = useServerFn(getMyPromoterProfile);
@@ -102,7 +111,9 @@ function PromoterProfilePage() {
       <header className="flex items-start justify-between gap-4 flex-wrap">
         <div>
           <h1 className="text-3xl font-bold">Promoter Profile</h1>
-          <p className="text-muted-foreground">Build your profile so venues can hire you through Confetti.</p>
+          <p className="text-muted-foreground">
+            Build your profile so venues can hire you through Confetti.
+          </p>
         </div>
         <StatusBadge status={promoter?.status ?? "draft"} />
       </header>
@@ -112,16 +123,29 @@ function PromoterProfilePage() {
         <div className="grid sm:grid-cols-2 gap-4">
           <div>
             <Label>Display name</Label>
-            <Input value={form.display_name} onChange={(e) => setForm({ ...form, display_name: e.target.value })} maxLength={120} />
+            <Input
+              value={form.display_name}
+              onChange={(e) => setForm({ ...form, display_name: e.target.value })}
+              maxLength={120}
+            />
           </div>
           <div>
             <Label>Avatar URL</Label>
-            <Input value={form.avatar_url} onChange={(e) => setForm({ ...form, avatar_url: e.target.value })} placeholder="https://..." />
+            <Input
+              value={form.avatar_url}
+              onChange={(e) => setForm({ ...form, avatar_url: e.target.value })}
+              placeholder="https://..."
+            />
           </div>
         </div>
         <div>
           <Label>Bio</Label>
-          <Textarea value={form.bio} onChange={(e) => setForm({ ...form, bio: e.target.value })} rows={4} maxLength={2000} />
+          <Textarea
+            value={form.bio}
+            onChange={(e) => setForm({ ...form, bio: e.target.value })}
+            rows={4}
+            maxLength={2000}
+          />
         </div>
       </Card>
 
@@ -137,11 +161,15 @@ function PromoterProfilePage() {
                 onClick={() =>
                   setForm({
                     ...form,
-                    niche: active ? form.niche.filter((x) => x !== n) : [...form.niche, n].slice(0, 10),
+                    niche: active
+                      ? form.niche.filter((x) => x !== n)
+                      : [...form.niche, n].slice(0, 10),
                   })
                 }
                 className={`px-3 py-1.5 rounded-full text-sm border ${
-                  active ? "bg-primary text-primary-foreground border-primary" : "border-border hover:bg-muted"
+                  active
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "border-border hover:bg-muted"
                 }`}
               >
                 {n}
@@ -161,7 +189,11 @@ function PromoterProfilePage() {
             onKeyDown={(e) => {
               if (e.key === "Enter" && form.cityInput.trim()) {
                 e.preventDefault();
-                setForm({ ...form, cities: [...form.cities, form.cityInput.trim()].slice(0, 10), cityInput: "" });
+                setForm({
+                  ...form,
+                  cities: [...form.cities, form.cityInput.trim()].slice(0, 10),
+                  cityInput: "",
+                });
               }
             }}
           />
@@ -170,7 +202,11 @@ function PromoterProfilePage() {
             variant="secondary"
             onClick={() => {
               if (form.cityInput.trim())
-                setForm({ ...form, cities: [...form.cities, form.cityInput.trim()].slice(0, 10), cityInput: "" });
+                setForm({
+                  ...form,
+                  cities: [...form.cities, form.cityInput.trim()].slice(0, 10),
+                  cityInput: "",
+                });
             }}
           >
             <Plus className="h-4 w-4" />
@@ -180,7 +216,9 @@ function PromoterProfilePage() {
           {form.cities.map((c) => (
             <Badge key={c} variant="secondary" className="gap-1">
               {c}
-              <button onClick={() => setForm({ ...form, cities: form.cities.filter((x) => x !== c) })}>
+              <button
+                onClick={() => setForm({ ...form, cities: form.cities.filter((x) => x !== c) })}
+              >
                 <X className="h-3 w-3" />
               </button>
             </Badge>
@@ -193,15 +231,30 @@ function PromoterProfilePage() {
         <div className="grid sm:grid-cols-3 gap-4">
           <div>
             <Label>Instagram followers</Label>
-            <Input type="number" min={0} value={form.instagram_followers} onChange={(e) => setForm({ ...form, instagram_followers: +e.target.value || 0 })} />
+            <Input
+              type="number"
+              min={0}
+              value={form.instagram_followers}
+              onChange={(e) => setForm({ ...form, instagram_followers: +e.target.value || 0 })}
+            />
           </div>
           <div>
             <Label>TikTok followers</Label>
-            <Input type="number" min={0} value={form.tiktok_followers} onChange={(e) => setForm({ ...form, tiktok_followers: +e.target.value || 0 })} />
+            <Input
+              type="number"
+              min={0}
+              value={form.tiktok_followers}
+              onChange={(e) => setForm({ ...form, tiktok_followers: +e.target.value || 0 })}
+            />
           </div>
           <div>
             <Label>YouTube subscribers</Label>
-            <Input type="number" min={0} value={form.youtube_followers} onChange={(e) => setForm({ ...form, youtube_followers: +e.target.value || 0 })} />
+            <Input
+              type="number"
+              min={0}
+              value={form.youtube_followers}
+              onChange={(e) => setForm({ ...form, youtube_followers: +e.target.value || 0 })}
+            />
           </div>
         </div>
       </Card>
@@ -211,15 +264,36 @@ function PromoterProfilePage() {
         <div className="grid sm:grid-cols-3 gap-4">
           <div>
             <Label>Per post ($)</Label>
-            <Input type="number" min={0} value={form.rate_post_cents / 100} onChange={(e) => setForm({ ...form, rate_post_cents: Math.round((+e.target.value || 0) * 100) })} />
+            <Input
+              type="number"
+              min={0}
+              value={form.rate_post_cents / 100}
+              onChange={(e) =>
+                setForm({ ...form, rate_post_cents: Math.round((+e.target.value || 0) * 100) })
+              }
+            />
           </div>
           <div>
             <Label>Per reel ($)</Label>
-            <Input type="number" min={0} value={form.rate_reel_cents / 100} onChange={(e) => setForm({ ...form, rate_reel_cents: Math.round((+e.target.value || 0) * 100) })} />
+            <Input
+              type="number"
+              min={0}
+              value={form.rate_reel_cents / 100}
+              onChange={(e) =>
+                setForm({ ...form, rate_reel_cents: Math.round((+e.target.value || 0) * 100) })
+              }
+            />
           </div>
           <div>
             <Label>Per crawl ($)</Label>
-            <Input type="number" min={0} value={form.rate_crawl_cents / 100} onChange={(e) => setForm({ ...form, rate_crawl_cents: Math.round((+e.target.value || 0) * 100) })} />
+            <Input
+              type="number"
+              min={0}
+              value={form.rate_crawl_cents / 100}
+              onChange={(e) =>
+                setForm({ ...form, rate_crawl_cents: Math.round((+e.target.value || 0) * 100) })
+              }
+            />
           </div>
         </div>
       </Card>
@@ -234,7 +308,11 @@ function PromoterProfilePage() {
             onKeyDown={(e) => {
               if (e.key === "Enter" && form.sampleInput.trim()) {
                 e.preventDefault();
-                setForm({ ...form, sample_links: [...form.sample_links, form.sampleInput.trim()].slice(0, 20), sampleInput: "" });
+                setForm({
+                  ...form,
+                  sample_links: [...form.sample_links, form.sampleInput.trim()].slice(0, 20),
+                  sampleInput: "",
+                });
               }
             }}
           />
@@ -243,7 +321,11 @@ function PromoterProfilePage() {
             variant="secondary"
             onClick={() => {
               if (form.sampleInput.trim())
-                setForm({ ...form, sample_links: [...form.sample_links, form.sampleInput.trim()].slice(0, 20), sampleInput: "" });
+                setForm({
+                  ...form,
+                  sample_links: [...form.sample_links, form.sampleInput.trim()].slice(0, 20),
+                  sampleInput: "",
+                });
             }}
           >
             <Plus className="h-4 w-4" />
@@ -252,8 +334,19 @@ function PromoterProfilePage() {
         <ul className="space-y-1 text-sm">
           {form.sample_links.map((l) => (
             <li key={l} className="flex items-center justify-between gap-2 p-2 bg-muted/40 rounded">
-              <a href={l} target="_blank" rel="noreferrer" className="truncate text-primary hover:underline">{l}</a>
-              <button onClick={() => setForm({ ...form, sample_links: form.sample_links.filter((x) => x !== l) })}>
+              <a
+                href={l}
+                target="_blank"
+                rel="noreferrer"
+                className="truncate text-primary hover:underline"
+              >
+                {l}
+              </a>
+              <button
+                onClick={() =>
+                  setForm({ ...form, sample_links: form.sample_links.filter((x) => x !== l) })
+                }
+              >
                 <X className="h-4 w-4" />
               </button>
             </li>
@@ -262,7 +355,11 @@ function PromoterProfilePage() {
       </Card>
 
       <div className="flex justify-end">
-        <Button size="lg" disabled={save.isPending || !form.display_name.trim()} onClick={() => save.mutate()}>
+        <Button
+          size="lg"
+          disabled={save.isPending || !form.display_name.trim()}
+          onClick={() => save.mutate()}
+        >
           {save.isPending ? "Saving…" : promoter ? "Save changes" : "Submit for review"}
         </Button>
       </div>
@@ -272,12 +369,39 @@ function PromoterProfilePage() {
 
 function StatusBadge({ status }: { status: string }) {
   const map: Record<string, { icon: React.ReactNode; label: string; cls: string }> = {
-    draft: { icon: <AlertCircle className="h-4 w-4" />, label: "Not submitted", cls: "bg-muted text-muted-foreground" },
-    pending: { icon: <Clock className="h-4 w-4" />, label: "Pending review", cls: "bg-amber-100 text-amber-900" },
-    approved: { icon: <CheckCircle2 className="h-4 w-4" />, label: "Approved", cls: "bg-green-100 text-green-900" },
-    suspended: { icon: <AlertCircle className="h-4 w-4" />, label: "Suspended", cls: "bg-red-100 text-red-900" },
-    rejected: { icon: <AlertCircle className="h-4 w-4" />, label: "Rejected", cls: "bg-red-100 text-red-900" },
+    draft: {
+      icon: <AlertCircle className="h-4 w-4" />,
+      label: "Not submitted",
+      cls: "bg-muted text-muted-foreground",
+    },
+    pending: {
+      icon: <Clock className="h-4 w-4" />,
+      label: "Pending review",
+      cls: "bg-amber-100 text-amber-900",
+    },
+    approved: {
+      icon: <CheckCircle2 className="h-4 w-4" />,
+      label: "Approved",
+      cls: "bg-green-100 text-green-900",
+    },
+    suspended: {
+      icon: <AlertCircle className="h-4 w-4" />,
+      label: "Suspended",
+      cls: "bg-red-100 text-red-900",
+    },
+    rejected: {
+      icon: <AlertCircle className="h-4 w-4" />,
+      label: "Rejected",
+      cls: "bg-red-100 text-red-900",
+    },
   };
   const v = map[status] ?? map.draft;
-  return <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${v.cls}`}>{v.icon}{v.label}</span>;
+  return (
+    <span
+      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${v.cls}`}
+    >
+      {v.icon}
+      {v.label}
+    </span>
+  );
 }

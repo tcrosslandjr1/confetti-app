@@ -1,4 +1,15 @@
-import { Flame, Bookmark, CalendarCheck, Sparkles, Star, MapPin, Users, Info, ThumbsUp, ThumbsDown } from "lucide-react";
+import {
+  Flame,
+  Bookmark,
+  CalendarCheck,
+  Sparkles,
+  Star,
+  MapPin,
+  Users,
+  Info,
+  ThumbsUp,
+  ThumbsDown,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { trackPickEvent } from "@/lib/pick-analytics";
@@ -18,13 +29,13 @@ export type PickSignal = {
   label: string;
 };
 
-const SIGNAL_META: Record<
-  PickSignalKind,
-  { Icon: typeof Flame; tone: string }
-> = {
+const SIGNAL_META: Record<PickSignalKind, { Icon: typeof Flame; tone: string }> = {
   trending: { Icon: Flame, tone: "bg-rose-500/10 text-rose-600 border-rose-500/30" },
   "most-saved": { Icon: Bookmark, tone: "bg-amber-500/10 text-amber-700 border-amber-500/30" },
-  "most-booked": { Icon: CalendarCheck, tone: "bg-emerald-500/10 text-emerald-700 border-emerald-500/30" },
+  "most-booked": {
+    Icon: CalendarCheck,
+    tone: "bg-emerald-500/10 text-emerald-700 border-emerald-500/30",
+  },
   "highly-rated": { Icon: Star, tone: "bg-yellow-500/10 text-yellow-700 border-yellow-500/30" },
   "near-you": { Icon: MapPin, tone: "bg-sky-500/10 text-sky-700 border-sky-500/30" },
   "matches-vibe": { Icon: Sparkles, tone: "bg-purple/15 text-purple border-purple/30" },
@@ -66,7 +77,14 @@ function writeFeedback(map: Record<string, FeedbackVote>) {
   }
 }
 
-export function WhyThisPick({ signals, rationale, className = "", compact = false, pickId, context }: Props) {
+export function WhyThisPick({
+  signals,
+  rationale,
+  className = "",
+  compact = false,
+  pickId,
+  context,
+}: Props) {
   const trimmed = signals.filter(Boolean).slice(0, 3);
   const signalKinds = trimmed.map((s) => s.kind);
   const [vote, setVote] = useState<FeedbackVote | null>(null);
@@ -106,7 +124,9 @@ export function WhyThisPick({ signals, rationale, className = "", compact = fals
     if (!pickId || trimmed.length === 0) return;
     const node = rootRef.current;
     if (!node) return;
-    const target = (node.closest("a, button, article, [data-pick-trackable]") as HTMLElement | null) ?? node.parentElement;
+    const target =
+      (node.closest("a, button, article, [data-pick-trackable]") as HTMLElement | null) ??
+      node.parentElement;
     if (!target) return;
     const onClick = (ev: Event) => {
       // Ignore clicks that originated from the feedback buttons themselves.
@@ -130,7 +150,9 @@ export function WhyThisPick({ signals, rationale, className = "", compact = fals
     } else {
       current[pickId] = next;
       setVote(next);
-      toast.success(next === "up" ? "Thanks — we'll show more like this." : "Got it — we'll tune this down.");
+      toast.success(
+        next === "up" ? "Thanks — we'll show more like this." : "Got it — we'll tune this down.",
+      );
       trackPickEvent(next === "up" ? "pick_feedback_up" : "pick_feedback_down", {
         pickId,
         context,
@@ -182,7 +204,11 @@ export function WhyThisPick({ signals, rationale, className = "", compact = fals
             <button
               type="button"
               data-pick-feedback="1"
-              onClick={(e) => { e.stopPropagation(); e.preventDefault(); submitVote("up"); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                submitVote("up");
+              }}
               aria-label="Helpful pick"
               aria-pressed={vote === "up"}
               className={`inline-flex h-6 w-6 items-center justify-center rounded-full border transition ${
@@ -196,7 +222,11 @@ export function WhyThisPick({ signals, rationale, className = "", compact = fals
             <button
               type="button"
               data-pick-feedback="1"
-              onClick={(e) => { e.stopPropagation(); e.preventDefault(); submitVote("down"); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                submitVote("down");
+              }}
               aria-label="Not helpful"
               aria-pressed={vote === "down"}
               className={`inline-flex h-6 w-6 items-center justify-center rounded-full border transition ${
@@ -247,9 +277,10 @@ export function derivePickSignals(input: {
   if (typeof input.distanceKm === "number" && input.distanceKm <= 3) {
     signals.push({
       kind: "near-you",
-      label: input.distanceKm < 1
-        ? `${Math.round(input.distanceKm * 1000)} m away`
-        : `${input.distanceKm.toFixed(1)} km away`,
+      label:
+        input.distanceKm < 1
+          ? `${Math.round(input.distanceKm * 1000)} m away`
+          : `${input.distanceKm.toFixed(1)} km away`,
     });
     reasons.push("close to where you are right now");
   }

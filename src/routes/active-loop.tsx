@@ -165,12 +165,10 @@ function ActiveLoopPage() {
             aria-label="Directions mode"
             className="absolute top-2 right-2 inline-flex rounded-full border-2 border-ink bg-cream p-0.5 shadow-brut"
           >
-            {(
-              [
-                { mode: "WALKING" as const, label: "Walk", Icon: Footprints },
-                { mode: "DRIVING" as const, label: "Drive", Icon: Car },
-              ]
-            ).map(({ mode, label, Icon }) => {
+            {[
+              { mode: "WALKING" as const, label: "Walk", Icon: Footprints },
+              { mode: "DRIVING" as const, label: "Drive", Icon: Car },
+            ].map(({ mode, label, Icon }) => {
               const active = travelMode === mode;
               return (
                 <button
@@ -200,9 +198,7 @@ function ActiveLoopPage() {
           />
         )}
 
-        {!completed && (
-          <NightModeWarnings stops={loop.stops} onJump={jumpToStop} />
-        )}
+        {!completed && <NightModeWarnings stops={loop.stops} onJump={jumpToStop} />}
 
         {completed ? (
           <div className="mt-6 rounded-3xl border-2 border-ink bg-coral p-6 text-cream shadow-brut text-center">
@@ -279,38 +275,38 @@ function ActiveLoopPage() {
                         ? "ring-1 ring-ink/30"
                         : "";
                 return (
-                <li key={s.id}>
-                  <button
-                    type="button"
-                    onClick={() => jumpToStop(s.id)}
-                    className={`flex w-full items-center gap-2 rounded-lg px-1.5 py-1 text-left hover:bg-coral/5 ${ringClass}`}
-                  >
-                    <span
-                      className={`grid h-6 w-6 place-items-center rounded-full border-2 border-ink ${s.done ? "bg-coral text-cream" : i === currentIdx ? "bg-gold" : "bg-cream"}`}
+                  <li key={s.id}>
+                    <button
+                      type="button"
+                      onClick={() => jumpToStop(s.id)}
+                      className={`flex w-full items-center gap-2 rounded-lg px-1.5 py-1 text-left hover:bg-coral/5 ${ringClass}`}
                     >
-                      {s.done ? (
-                        <Check className="h-3 w-3" strokeWidth={3} />
-                      ) : (
-                        <span className="font-mono text-[9px] font-bold">{i + 1}</span>
-                      )}
-                    </span>
-                    <div className="flex-1 text-sm font-semibold">{s.name}</div>
-                    {sev && !s.done && (
                       <span
-                        className={`rounded-full border px-1.5 py-px font-mono text-[9px] font-bold uppercase tracking-widest ${
-                          sev === "critical"
-                            ? "border-destructive text-destructive"
-                            : sev === "warn"
-                              ? "border-coral text-coral"
-                              : "border-ink/40 text-ink/60"
-                        }`}
+                        className={`grid h-6 w-6 place-items-center rounded-full border-2 border-ink ${s.done ? "bg-coral text-cream" : i === currentIdx ? "bg-gold" : "bg-cream"}`}
                       >
-                        At risk
+                        {s.done ? (
+                          <Check className="h-3 w-3" strokeWidth={3} />
+                        ) : (
+                          <span className="font-mono text-[9px] font-bold">{i + 1}</span>
+                        )}
                       </span>
-                    )}
-                    <span className="font-mono text-[10px] text-ink/60">{s.time}</span>
-                  </button>
-                </li>
+                      <div className="flex-1 text-sm font-semibold">{s.name}</div>
+                      {sev && !s.done && (
+                        <span
+                          className={`rounded-full border px-1.5 py-px font-mono text-[9px] font-bold uppercase tracking-widest ${
+                            sev === "critical"
+                              ? "border-destructive text-destructive"
+                              : sev === "warn"
+                                ? "border-coral text-coral"
+                                : "border-ink/40 text-ink/60"
+                          }`}
+                        >
+                          At risk
+                        </span>
+                      )}
+                      <span className="font-mono text-[10px] text-ink/60">{s.time}</span>
+                    </button>
+                  </li>
                 );
               })}
             </ol>

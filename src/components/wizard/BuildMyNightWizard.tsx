@@ -40,7 +40,13 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { getDishInfo, dishMatches, hasAllergenConflict, ALL_DISH_NAMES, type DietFilter } from "@/lib/dish-info";
+import {
+  getDishInfo,
+  dishMatches,
+  hasAllergenConflict,
+  ALL_DISH_NAMES,
+  type DietFilter,
+} from "@/lib/dish-info";
 import { StopShareCard, type StopShareData } from "./StopShareCard";
 import { toPng } from "html-to-image";
 import { useNavigate } from "@tanstack/react-router";
@@ -515,7 +521,8 @@ export function BuildMyNightWizard() {
   const toggleStop = (i: number) =>
     setOpenStops((prev) => {
       const next = new Set(prev);
-      if (next.has(i)) next.delete(i); else next.add(i);
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
       return next;
     });
   const [sortBy, setSortBy] = useState<"order" | "rating" | "price" | "distance" | "availability">(
@@ -538,7 +545,10 @@ export function BuildMyNightWizard() {
   const [placesLoading, setPlacesLoading] = useState(false);
   const [dynamicStops, setDynamicStops] = useState<Stop[] | null>(null);
   const [dynamicLoading, setDynamicLoading] = useState(false);
-  const [dynamicError, setDynamicError] = useState<{ city: string | null; reason: "error" | "empty" } | null>(null);
+  const [dynamicError, setDynamicError] = useState<{
+    city: string | null;
+    reason: "error" | "empty";
+  } | null>(null);
   const [replacements, setReplacements] = useState<Record<number, Stop>>({});
   const [swapTarget, setSwapTarget] = useState<{ index: number; stop: Stop } | null>(null);
   const [swapLoading, setSwapLoading] = useState(false);
@@ -793,9 +803,7 @@ export function BuildMyNightWizard() {
       try {
         let loc = getActiveLocation();
         if (!loc) loc = await requestUserLocation().catch(() => null);
-        const excludeIds = stops
-          .map((s) => s.placeId)
-          .filter((id): id is string => !!id);
+        const excludeIds = stops.map((s) => s.placeId).filter((id): id is string => !!id);
         const sel = getSelectedCity();
         const { data, error } = await supabase.functions.invoke("wizard-itinerary", {
           body: {
@@ -1432,7 +1440,6 @@ export function BuildMyNightWizard() {
     }, 350);
   }
 
-
   return (
     <div className="fixed inset-0 z-[70] grid place-items-center p-3 sm:p-6">
       {/* Backdrop */}
@@ -1583,7 +1590,9 @@ export function BuildMyNightWizard() {
                       className={`rounded-2xl border-2 border-ink p-5 text-center shadow-brut transition-pop hover:-translate-y-0.5 ${active ? "-translate-y-1 bg-purple text-cream shadow-brut-lg" : "bg-cream text-ink"}`}
                     >
                       <div className="font-display text-3xl font-extrabold">{b.label}</div>
-                      <div className={`mt-1 font-mono text-[10px] uppercase tracking-widest ${active ? "opacity-100" : "opacity-70"}`}>
+                      <div
+                        className={`mt-1 font-mono text-[10px] uppercase tracking-widest ${active ? "opacity-100" : "opacity-70"}`}
+                      >
                         {b.sub}
                       </div>
                     </button>
@@ -1720,7 +1729,9 @@ export function BuildMyNightWizard() {
                     <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-mint-foreground">
                       Saved to your profile
                     </p>
-                  ) : <span />}
+                  ) : (
+                    <span />
+                  )}
                   {(dietPrefs.vegan ||
                     dietPrefs.vegetarian ||
                     dietPrefs.pescatarian ||
@@ -2041,7 +2052,9 @@ export function BuildMyNightWizard() {
                     [s.address, s.neighborhood].filter(Boolean).join(" · ");
                   const mapsHref =
                     live?.googleMapsUri ??
-                    buildSmartSearchUrl({ name: `${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}` });
+                    buildSmartSearchUrl({
+                      name: `${s.venue}${s.address ? `, ${s.address}` : ""}${s.neighborhood ? `, ${s.neighborhood}` : ""}`,
+                    });
                   return (
                     <li
                       key={`${variant}-${i}`}
@@ -2140,7 +2153,11 @@ export function BuildMyNightWizard() {
                             >
                               <Heart className={`h-3.5 w-3.5 ${isFav ? "fill-cream" : ""}`} />
                             </button>
-                            <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold" title={`Stop ${displayIdx + 1}`} aria-label={`Stop ${displayIdx + 1}`}>
+                            <span
+                              className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold"
+                              title={`Stop ${displayIdx + 1}`}
+                              aria-label={`Stop ${displayIdx + 1}`}
+                            >
                               #{displayIdx + 1}
                             </span>
                           </div>
@@ -2646,8 +2663,7 @@ export function BuildMyNightWizard() {
                           <span className="inline-flex items-center gap-1 rounded-full bg-gold px-2 py-0.5 text-[10px] font-bold text-ink">
                             <Star className="h-2.5 w-2.5 fill-current" />
                             {c.rating.toFixed(1)}
-                            {typeof c.userRatingCount === "number" &&
-                              ` · ${c.userRatingCount}`}
+                            {typeof c.userRatingCount === "number" && ` · ${c.userRatingCount}`}
                           </span>
                         )}
                         {typeof c.priceLevel === "number" && c.priceLevel > 0 && (

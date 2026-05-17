@@ -23,10 +23,7 @@ import { Download, Map as MapIcon, AlertTriangle } from "lucide-react";
 
 export const Route = createFileRoute("/admin/routes-map")({
   head: () => ({
-    meta: [
-      { title: "Routes map — Admin" },
-      { name: "robots", content: "noindex, nofollow" },
-    ],
+    meta: [{ title: "Routes map — Admin" }, { name: "robots", content: "noindex, nofollow" }],
   }),
   component: RoutesMapPage,
 });
@@ -187,9 +184,7 @@ function RoutesMapPage() {
         </select>
         <select
           value={flag}
-          onChange={(e) =>
-            setFlag(e.target.value as ConsolidationFlag | "all" | "any" | "none")
-          }
+          onChange={(e) => setFlag(e.target.value as ConsolidationFlag | "all" | "any" | "none")}
           className="rounded-md border px-2 py-2 text-sm"
         >
           <option value="all">All routes</option>
@@ -231,15 +226,12 @@ function RoutesMapPage() {
             {filtered.map((r) => (
               <TableRow key={r.path}>
                 <TableCell className="font-mono text-xs">
-                  {r.path.includes("$") || r.path.startsWith("/admin") || r.path.endsWith(".xml") ? (
+                  {r.path.includes("$") ||
+                  r.path.startsWith("/admin") ||
+                  r.path.endsWith(".xml") ? (
                     <span>{r.path}</span>
                   ) : (
-                    <Link
-                      to={r.path}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="hover:underline"
-                    >
+                    <Link to={r.path} target="_blank" rel="noreferrer" className="hover:underline">
                       {r.path}
                     </Link>
                   )}
@@ -262,9 +254,7 @@ function RoutesMapPage() {
                           </Badge>
                         ))}
                       </div>
-                      {r.notes && (
-                        <div className="text-muted-foreground text-xs">{r.notes}</div>
-                      )}
+                      {r.notes && <div className="text-muted-foreground text-xs">{r.notes}</div>}
                     </div>
                   ) : (
                     <span className="text-muted-foreground text-xs">—</span>

@@ -9,7 +9,10 @@ import { GOOGLE_MAPS_API_KEY } from "@/lib/config";
 export function MapProvider({ children }: { children: React.ReactNode }) {
   if (!GOOGLE_MAPS_API_KEY) return <>{children}</>;
   return (
-    <APIProvider apiKey={GOOGLE_MAPS_API_KEY} libraries={["places", "geometry", "routes", "marker"]}>
+    <APIProvider
+      apiKey={GOOGLE_MAPS_API_KEY}
+      libraries={["places", "geometry", "routes", "marker"]}
+    >
       {children}
     </APIProvider>
   );

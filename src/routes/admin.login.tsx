@@ -6,10 +6,7 @@ import { useAuth } from "@/lib/auth-context";
 
 export const Route = createFileRoute("/admin/login")({
   head: () => ({
-    meta: [
-      { title: "Admin sign in — Confetti" },
-      { name: "robots", content: "noindex, nofollow" },
-    ],
+    meta: [{ title: "Admin sign in — Confetti" }, { name: "robots", content: "noindex, nofollow" }],
   }),
   component: AdminLoginPage,
 });

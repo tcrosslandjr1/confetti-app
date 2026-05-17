@@ -56,7 +56,10 @@ function RecapPage() {
   function setSentiment(stopId: string, s: Sentiment) {
     setStopState((prev) => ({
       ...prev,
-      [stopId]: { sentiment: s, reasons: prev[stopId]?.sentiment === s ? prev[stopId].reasons : [] },
+      [stopId]: {
+        sentiment: s,
+        reasons: prev[stopId]?.sentiment === s ? prev[stopId].reasons : [],
+      },
     }));
   }
 
@@ -193,10 +196,7 @@ function RecapPage() {
             const st = stopState[s.id] ?? { sentiment: null, reasons: [] };
             const reasons = st.sentiment === "up" ? REASONS_UP : REASONS_DOWN;
             return (
-              <div
-                key={s.id}
-                className="rounded-2xl border-2 border-ink bg-card p-4 shadow-brut"
-              >
+              <div key={s.id} className="rounded-2xl border-2 border-ink bg-card p-4 shadow-brut">
                 <div className="flex items-center gap-2">
                   <span className="grid h-6 w-6 place-items-center rounded-full border-2 border-ink bg-cream font-mono text-[9px] font-bold">
                     {i + 1}
@@ -295,9 +295,7 @@ function SentimentButton({
 }) {
   const Icon = kind === "up" ? ThumbsUp : ThumbsDown;
   const activeCls =
-    kind === "up"
-      ? "border-ink bg-coral text-cream"
-      : "border-ink bg-ink text-cream";
+    kind === "up" ? "border-ink bg-coral text-cream" : "border-ink bg-ink text-cream";
   return (
     <button
       type="button"

@@ -99,9 +99,7 @@ export function UploadPhotoModal({
         </DialogHeader>
 
         <div className="space-y-4">
-          <div
-            className="flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed p-6 text-center"
-          >
+          <div className="flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed p-6 text-center">
             <Upload className="h-8 w-8 text-muted-foreground" />
             <input
               type="file"

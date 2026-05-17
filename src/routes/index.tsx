@@ -35,10 +35,42 @@ const TapToGoBookingModal = lazy(() =>
 );
 
 const SAMPLE_ITINERARY_STOPS: TapToGoStop[] = [
-  { id: "lilas", time: "6:30p", title: "Lila's Patio", type: "Small plates · Mission", source: "RESY", cost: "~$38/pp", emoji: "🍽️" },
-  { id: "mason", time: "8:15p", title: "Mason St. Record Bar", type: "Vinyl + nat wine", source: "WALK-IN", cost: "~$22/pp", emoji: "🎧" },
-  { id: "saratoga", time: "9:30p", title: "The Saratoga", type: "Cocktail bar · Tenderloin", source: "OPENTABLE", cost: "~$28/pp", emoji: "🍸" },
-  { id: "aera", time: "11:00p", title: "Aera Rooftop", type: "Nightcap · Nob Hill", source: "RESY", cost: "~$24/pp", emoji: "🌃" },
+  {
+    id: "lilas",
+    time: "6:30p",
+    title: "Lila's Patio",
+    type: "Small plates · Mission",
+    source: "RESY",
+    cost: "~$38/pp",
+    emoji: "🍽️",
+  },
+  {
+    id: "mason",
+    time: "8:15p",
+    title: "Mason St. Record Bar",
+    type: "Vinyl + nat wine",
+    source: "WALK-IN",
+    cost: "~$22/pp",
+    emoji: "🎧",
+  },
+  {
+    id: "saratoga",
+    time: "9:30p",
+    title: "The Saratoga",
+    type: "Cocktail bar · Tenderloin",
+    source: "OPENTABLE",
+    cost: "~$28/pp",
+    emoji: "🍸",
+  },
+  {
+    id: "aera",
+    time: "11:00p",
+    title: "Aera Rooftop",
+    type: "Nightcap · Nob Hill",
+    source: "RESY",
+    cost: "~$24/pp",
+    emoji: "🌃",
+  },
 ];
 
 const SAMPLE_ITINERARY_SUMMARY = {
@@ -352,14 +384,27 @@ function Landing() {
             <p className="mt-5 max-w-xl text-base leading-snug sm:text-lg">
               Tell us the vibe — date night, rooftop drinks, dive bar crawl. Confetti picks the
               venues, books the table, lines up the walking + Lyft route between stops, and hands
-              you a tap-to-go itinerary. <span className="font-serif italic">Free, no signup to try.</span>
+              you a tap-to-go itinerary.{" "}
+              <span className="font-serif italic">Free, no signup to try.</span>
             </p>
 
             <ul className="mt-5 grid max-w-xl gap-2 text-sm sm:grid-cols-2">
-              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Real venues open right now, not a generic list</li>
-              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Reservations booked in one tap</li>
-              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Walking + Lyft routes between every stop</li>
-              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Earn Confetti rewards every time you go out</li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
+                Real venues open right now, not a generic list
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
+                Reservations booked in one tap
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
+                Walking + Lyft routes between every stop
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
+                Earn Confetti rewards every time you go out
+              </li>
             </ul>
 
             <div className="mt-7 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
@@ -585,57 +630,61 @@ function Landing() {
                 aria-hidden
                 className="absolute left-[27px] top-3 bottom-3 w-0.5 bg-ink/20 sm:left-[31px]"
               />
-              {([
-                {
-                  t: "6:30p",
-                  title: "Lila’s Patio",
-                  type: "Small plates · Mission",
-                  desc: "Start with shared plates on the heated back patio. Reservation held for 90 min.",
-                  chip: "RESY",
-                  chipBg: "bg-coral",
-                  emoji: "🍽️",
-                  cost: "~$38/pp",
-                },
-                { leg: "12 min walk · 0.5 mi · down Valencia", legIcon: "🚶" },
-                {
-                  t: "8:15p",
-                  title: "Mason St. Record Bar",
-                  type: "Vinyl + nat wine · Mission",
-                  desc: "Walk-in friendly. DJ set starts 8:30. Two glasses, then move on.",
-                  chip: "WALK-IN",
-                  chipBg: "bg-purple text-cream",
-                  emoji: "🎧",
-                  cost: "~$22/pp",
-                },
-                { leg: "9 min Lyft · ~$14 · pre-booked", legIcon: "🚗" },
-                {
-                  t: "9:30p",
-                  title: "The Saratoga",
-                  type: "Cocktail bar · Tenderloin",
-                  desc: "Reserved bar seats. Order the Improved Whiskey Cocktail — house signature.",
-                  chip: "OPENTABLE",
-                  chipBg: "bg-gold",
-                  emoji: "🍸",
-                  cost: "~$28/pp",
-                },
-                { leg: "6 min walk · 0.3 mi · uphill, worth it", legIcon: "🚶" },
-                {
-                  t: "11:00p",
-                  title: "Aera Rooftop",
-                  type: "Nightcap · Nob Hill",
-                  desc: "Skyline view, slow drink to close the night. Last call 12:30.",
-                  chip: "RESY",
-                  chipBg: "bg-coral",
-                  emoji: "🌃",
-                  cost: "~$24/pp",
-                },
-              ] as Array<any>).map((row, i) =>
+              {(
+                [
+                  {
+                    t: "6:30p",
+                    title: "Lila’s Patio",
+                    type: "Small plates · Mission",
+                    desc: "Start with shared plates on the heated back patio. Reservation held for 90 min.",
+                    chip: "RESY",
+                    chipBg: "bg-coral",
+                    emoji: "🍽️",
+                    cost: "~$38/pp",
+                  },
+                  { leg: "12 min walk · 0.5 mi · down Valencia", legIcon: "🚶" },
+                  {
+                    t: "8:15p",
+                    title: "Mason St. Record Bar",
+                    type: "Vinyl + nat wine · Mission",
+                    desc: "Walk-in friendly. DJ set starts 8:30. Two glasses, then move on.",
+                    chip: "WALK-IN",
+                    chipBg: "bg-purple text-cream",
+                    emoji: "🎧",
+                    cost: "~$22/pp",
+                  },
+                  { leg: "9 min Lyft · ~$14 · pre-booked", legIcon: "🚗" },
+                  {
+                    t: "9:30p",
+                    title: "The Saratoga",
+                    type: "Cocktail bar · Tenderloin",
+                    desc: "Reserved bar seats. Order the Improved Whiskey Cocktail — house signature.",
+                    chip: "OPENTABLE",
+                    chipBg: "bg-gold",
+                    emoji: "🍸",
+                    cost: "~$28/pp",
+                  },
+                  { leg: "6 min walk · 0.3 mi · uphill, worth it", legIcon: "🚶" },
+                  {
+                    t: "11:00p",
+                    title: "Aera Rooftop",
+                    type: "Nightcap · Nob Hill",
+                    desc: "Skyline view, slow drink to close the night. Last call 12:30.",
+                    chip: "RESY",
+                    chipBg: "bg-coral",
+                    emoji: "🌃",
+                    cost: "~$24/pp",
+                  },
+                ] as Array<any>
+              ).map((row, i) =>
                 row.leg ? (
                   <li
                     key={`leg-${i}`}
                     className="relative ml-12 flex items-center gap-2 py-2 pl-2 text-xs text-ink/60 sm:ml-14"
                   >
-                    <span aria-hidden className="text-base">{row.legIcon}</span>
+                    <span aria-hidden className="text-base">
+                      {row.legIcon}
+                    </span>
                     <span className="font-mono uppercase tracking-widest">{row.leg}</span>
                   </li>
                 ) : (
@@ -649,7 +698,9 @@ function Landing() {
                       <div className="flex flex-wrap items-start justify-between gap-2">
                         <div className="min-w-0">
                           <div className="flex items-center gap-2">
-                            <span aria-hidden className="text-xl">{row.emoji}</span>
+                            <span aria-hidden className="text-xl">
+                              {row.emoji}
+                            </span>
                             <h3 className="font-display text-lg font-extrabold leading-tight">
                               {row.title}
                             </h3>
@@ -703,9 +754,7 @@ function Landing() {
                   <div className="font-mono text-[10px] uppercase tracking-widest text-ink/70">
                     Earned
                   </div>
-                  <div className="mt-1 font-display text-base font-extrabold">
-                    +120 Confetti
-                  </div>
+                  <div className="mt-1 font-display text-base font-extrabold">+120 Confetti</div>
                   <div className="text-ink/70">Auto-credited after the last booking.</div>
                 </div>
 
@@ -1291,16 +1340,34 @@ function Landing() {
               Promoted itinerary slots, home-page spotlights, and verified analytics.
             </p>
             <ul className="mt-5 grid max-w-xl gap-2 text-sm text-cream/80 sm:grid-cols-2">
-              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Promoted in real itineraries</li>
-              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Claim &amp; verify your venue free</li>
-              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Impressions, clicks, CTR dashboard</li>
-              <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Pause anytime — no contracts</li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
+                Promoted in real itineraries
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
+                Claim &amp; verify your venue free
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
+                Impressions, clicks, CTR dashboard
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
+                Pause anytime — no contracts
+              </li>
             </ul>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link to="/advertise" className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-cream bg-coral px-6 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5">
+              <Link
+                to="/advertise"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-cream bg-coral px-6 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5"
+              >
                 See packages <ArrowUpRight className="h-4 w-4" />
               </Link>
-              <Link to="/advertise/portal" className="inline-flex h-12 items-center justify-center rounded-full border-2 border-cream/60 px-6 text-sm font-bold text-cream transition-pop hover:bg-cream/10">
+              <Link
+                to="/advertise/portal"
+                className="inline-flex h-12 items-center justify-center rounded-full border-2 border-cream/60 px-6 text-sm font-bold text-cream transition-pop hover:bg-cream/10"
+              >
                 Already a partner? Sign in
               </Link>
             </div>
@@ -1308,13 +1375,21 @@ function Landing() {
           <div className="relative">
             <div className="rounded-2xl border-2 border-cream/30 bg-cream/5 p-5 shadow-brut-lg backdrop-blur">
               <div className="flex items-center justify-between border-b-2 border-dashed border-cream/30 pb-3">
-                <span className="font-mono text-[11px] uppercase tracking-widest text-cream/70">PARTNER · last 30d</span>
+                <span className="font-mono text-[11px] uppercase tracking-widest text-cream/70">
+                  PARTNER · last 30d
+                </span>
                 <span className="font-mono text-[11px] text-coral">LIVE</span>
               </div>
               <div className="mt-4 grid grid-cols-3 gap-3">
-                {[{ k: "Impressions", v: "12.4k" }, { k: "Clicks", v: "892" }, { k: "CTR", v: "7.2%" }].map((s) => (
+                {[
+                  { k: "Impressions", v: "12.4k" },
+                  { k: "Clicks", v: "892" },
+                  { k: "CTR", v: "7.2%" },
+                ].map((s) => (
                   <div key={s.k} className="rounded-xl border-2 border-cream/30 bg-ink/40 p-3">
-                    <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">{s.k}</div>
+                    <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
+                      {s.k}
+                    </div>
                     <div className="mt-1 font-display text-2xl font-extrabold">{s.v}</div>
                   </div>
                 ))}

@@ -63,8 +63,7 @@ function ConciergeHome() {
             Tonight in {city.name}
           </div>
           <h1 className="mt-1 font-display text-3xl font-bold leading-tight">
-            Hey {firstNameOrFriend(user, profile)}{" "}
-            <span className="text-gradient">👋</span>
+            Hey {firstNameOrFriend(user, profile)} <span className="text-gradient">👋</span>
           </h1>
         </div>
         <div className="rounded-2xl border border-border bg-card px-3 py-2 text-right">

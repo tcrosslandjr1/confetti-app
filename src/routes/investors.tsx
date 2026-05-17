@@ -144,8 +144,8 @@ function InvestorsPage() {
             Back the planner that gets <span className="text-gradient">people out the door.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-ink/70">
-            Confetti is building the operating system for going out — itineraries, bookings, and venue
-            discovery in one joyful flow. We're raising to expand to 25 metros and double the
+            Confetti is building the operating system for going out — itineraries, bookings, and
+            venue discovery in one joyful flow. We're raising to expand to 25 metros and double the
             advertiser base.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">

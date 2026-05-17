@@ -14,9 +14,7 @@ export const Route = createFileRoute("/scan")({
 
 // Minimal type for the experimental BarcodeDetector API.
 type BarcodeDetectorCtor = new (opts?: { formats?: string[] }) => {
-  detect: (
-    source: HTMLVideoElement,
-  ) => Promise<{ rawValue: string; format: string }[]>;
+  detect: (source: HTMLVideoElement) => Promise<{ rawValue: string; format: string }[]>;
 };
 
 function ScanPage() {
@@ -31,7 +29,10 @@ function ScanPage() {
   // Route to /check-in given a scanned URL or raw "loop=...&stop=..." string.
   function handleScannedValue(raw: string) {
     try {
-      const url = new URL(raw, typeof window !== "undefined" ? window.location.origin : "https://x");
+      const url = new URL(
+        raw,
+        typeof window !== "undefined" ? window.location.origin : "https://x",
+      );
       const loop = url.searchParams.get("loop");
       const stop = url.searchParams.get("stop");
       if (loop && stop) {
@@ -133,8 +134,7 @@ function ScanPage() {
                 {status === "unsupported" ? (
                   <div className="px-4 text-center text-xs">
                     <AlertTriangle className="mx-auto mb-2 h-6 w-6" />
-                    Your browser doesn't support camera QR scanning. Use the manual code box
-                    below.
+                    Your browser doesn't support camera QR scanning. Use the manual code box below.
                   </div>
                 ) : status === "error" ? (
                   <div className="px-4 text-center text-xs">

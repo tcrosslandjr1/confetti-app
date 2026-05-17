@@ -22,10 +22,7 @@ import {
 
 export const Route = createFileRoute("/admin/outreach")({
   head: () => ({
-    meta: [
-      { title: "Weekly Outreach — Admin" },
-      { name: "robots", content: "noindex, nofollow" },
-    ],
+    meta: [{ title: "Weekly Outreach — Admin" }, { name: "robots", content: "noindex, nofollow" }],
   }),
   component: AdminOutreachPage,
 });
@@ -50,7 +47,6 @@ function AdminOutreachPage() {
       // non-fatal
     }
   };
-
 
   const load = async (d = days) => {
     setLoading(true);
@@ -106,7 +102,6 @@ function AdminOutreachPage() {
   const top = venues.slice(0, 10);
   const rest = venues.slice(10);
 
-
   return (
     <div className="p-6 space-y-6 max-w-6xl">
       <header className="flex flex-wrap items-end justify-between gap-4">
@@ -116,9 +111,9 @@ function AdminOutreachPage() {
             Weekly outreach
           </h1>
           <p className="text-sm text-muted-foreground mt-1 max-w-2xl">
-            Top organic (unclaimed) venues ranked by recent itinerary appearances,
-            bookings and saves. Use the CSV with your outreach tool — keep cold
-            sends off the transactional sender domain.
+            Top organic (unclaimed) venues ranked by recent itinerary appearances, bookings and
+            saves. Use the CSV with your outreach tool — keep cold sends off the transactional
+            sender domain.
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -159,8 +154,8 @@ function AdminOutreachPage() {
 
       {generatedAt && (
         <div className="text-xs text-muted-foreground">
-          Generated {new Date(generatedAt).toLocaleString()} · {venues.length} venues ·{" "}
-          window {days}d
+          Generated {new Date(generatedAt).toLocaleString()} · {venues.length} venues · window{" "}
+          {days}d
         </div>
       )}
 
@@ -172,8 +167,8 @@ function AdminOutreachPage() {
             {snapshot ? (
               <div className="text-xs text-muted-foreground">
                 Last computed {new Date(snapshot.generated_at).toLocaleString()} ·{" "}
-                {snapshot.venue_count} venues · {snapshot.window_days}d window ·{" "}
-                source: {snapshot.source}
+                {snapshot.venue_count} venues · {snapshot.window_days}d window · source:{" "}
+                {snapshot.source}
               </div>
             ) : (
               <div className="text-xs text-muted-foreground">

@@ -3,12 +3,7 @@ import { z } from "zod";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 
 const EventSchema = z.object({
-  name: z.enum([
-    "pick_impression",
-    "pick_click",
-    "pick_feedback_up",
-    "pick_feedback_down",
-  ]),
+  name: z.enum(["pick_impression", "pick_click", "pick_feedback_up", "pick_feedback_down"]),
   pickId: z.string().min(1).max(255),
   context: z.string().max(255).optional(),
   signals: z.array(z.string().min(1).max(64)).max(20).default([]),

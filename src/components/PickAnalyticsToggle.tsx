@@ -49,9 +49,9 @@ export function PickAnalyticsToggle({ className = "" }: { className?: string }) 
           <h3 className="font-display text-sm font-bold">Pick analytics</h3>
         </div>
         <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-          Tracks which trust signals (trending, most-booked, most-saved) lead you to tap a
-          pick. Stored locally in your browser, never sold. Turn off to disable tracking and
-          clear stored events.
+          Tracks which trust signals (trending, most-booked, most-saved) lead you to tap a pick.
+          Stored locally in your browser, never sold. Turn off to disable tracking and clear stored
+          events.
         </p>
       </div>
       <button

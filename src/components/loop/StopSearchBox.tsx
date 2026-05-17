@@ -26,7 +26,7 @@ export function StopSearchBox({
     const term = q.trim().toLowerCase();
     if (!term) return stops;
     return stops.filter((s) =>
-      [s.name, s.area, s.address, s.type].filter(Boolean).join(" ").toLowerCase().includes(term)
+      [s.name, s.area, s.address, s.type].filter(Boolean).join(" ").toLowerCase().includes(term),
     );
   }, [q, stops]);
 

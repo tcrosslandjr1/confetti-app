@@ -1,7 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { Check, Wallet, Apple, Share2 } from "lucide-react";
-import { getActiveLoop, makeDemoLoop, subscribeActiveLoop, type ActiveLoop } from "@/lib/loop-store";
+import {
+  getActiveLoop,
+  makeDemoLoop,
+  subscribeActiveLoop,
+  type ActiveLoop,
+} from "@/lib/loop-store";
 import { TravelLeg } from "@/components/TravelLeg";
 import { ChangeMyNight } from "@/components/ChangeMyNight";
 import { toast } from "sonner";
@@ -219,7 +224,11 @@ function ConfirmationPage() {
         <button
           onClick={() => {
             navigator
-              .share?.({ title: "Confetti", text: "Check out my Confetti plan", url: location.href })
+              .share?.({
+                title: "Confetti",
+                text: "Check out my Confetti plan",
+                url: location.href,
+              })
               .catch(() => toast.success("Share link copied"));
           }}
           className="mt-3 inline-flex items-center justify-center gap-2 text-sm font-semibold text-ink/70 hover:text-ink"

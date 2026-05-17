@@ -108,10 +108,9 @@ function TermsPage() {
         <Section id="liability" title="8. Limitation of liability">
           <p>
             To the fullest extent permitted by law, Confettiplan and its affiliates will not be
-            liable for indirect, incidental, special, consequential, or punitive damages, or for
-            any loss of profits, data, or goodwill. Our total liability for any claim is capped at
-            the greater of (a) the amount you paid us in the 12 months before the claim, or
-            (b) USD 100.
+            liable for indirect, incidental, special, consequential, or punitive damages, or for any
+            loss of profits, data, or goodwill. Our total liability for any claim is capped at the
+            greater of (a) the amount you paid us in the 12 months before the claim, or (b) USD 100.
           </p>
         </Section>
 
@@ -125,9 +124,8 @@ function TermsPage() {
         <Section id="law" title="10. Governing law & disputes">
           <p>
             These terms are governed by the laws of the State of Delaware, USA, excluding its
-            conflict-of-laws rules. Disputes will be resolved in the state or federal courts
-            located in Delaware, unless your local consumer law gives you the right to your local
-            forum.
+            conflict-of-laws rules. Disputes will be resolved in the state or federal courts located
+            in Delaware, unless your local consumer law gives you the right to your local forum.
           </p>
         </Section>
 

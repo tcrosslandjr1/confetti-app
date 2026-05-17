@@ -59,10 +59,7 @@ function BusinessDashboardPage() {
   });
 
   const claim = claimsData?.claims?.[0] ?? null;
-  const venueName =
-    (claim as any)?.proposed_name ||
-    (claim as any)?.venue_name ||
-    "Your Venue";
+  const venueName = (claim as any)?.proposed_name || (claim as any)?.venue_name || "Your Venue";
   const claimStatus = (claim?.status as string) ?? "pending";
   const promotionUnlocked = claimStatus === "approved";
 
@@ -91,7 +88,10 @@ function BusinessDashboardPage() {
         <BusinessUpgradePanel />
         <section className="space-y-3">
           <h2 className="text-2xl font-bold">Promo Marketplace</h2>
-          <p className="text-muted-foreground text-sm">Pay once or auto-renew monthly. Boosts apply to your default venue — open a venue page to target a specific one.</p>
+          <p className="text-muted-foreground text-sm">
+            Pay once or auto-renew monthly. Boosts apply to your default venue — open a venue page
+            to target a specific one.
+          </p>
           <PromoStorefront />
         </section>
         <AIRefreshStatus />
@@ -120,8 +120,8 @@ function DashboardHero({
     status === "approved"
       ? "bg-emerald-100 text-emerald-700 border-emerald-200"
       : status === "rejected"
-      ? "bg-red-100 text-red-700 border-red-200"
-      : "bg-amber-100 text-amber-700 border-amber-200";
+        ? "bg-red-100 text-red-700 border-red-200"
+        : "bg-amber-100 text-amber-700 border-amber-200";
 
   return (
     <motion.section
@@ -143,9 +143,7 @@ function DashboardHero({
               Welcome back
             </div>
             <h1 className="mt-1 text-2xl font-bold md:text-3xl">{venueName}</h1>
-            <p className="text-sm text-muted-foreground">
-              Your venue performance at a glance.
-            </p>
+            <p className="text-sm text-muted-foreground">Your venue performance at a glance.</p>
           </div>
         </div>
 
@@ -153,7 +151,9 @@ function DashboardHero({
           <HeroStat
             icon={<ShieldCheck className="h-4 w-4" />}
             label="Status"
-            valueClass={statusTone + " border px-2 py-0.5 rounded-full text-xs font-medium capitalize"}
+            valueClass={
+              statusTone + " border px-2 py-0.5 rounded-full text-xs font-medium capitalize"
+            }
             value={status}
           />
           <HeroStat
@@ -162,7 +162,9 @@ function DashboardHero({
             value={`${boostLevel} / 4`}
           />
           <HeroStat
-            icon={promotionUnlocked ? <Megaphone className="h-4 w-4" /> : <Lock className="h-4 w-4" />}
+            icon={
+              promotionUnlocked ? <Megaphone className="h-4 w-4" /> : <Lock className="h-4 w-4" />
+            }
             label="Promotion"
             value={promotionUnlocked ? "Unlocked" : "Locked"}
           />
@@ -194,9 +196,7 @@ function HeroStat({
         {icon}
         {label}
       </div>
-      <div className={cn("mt-1.5 text-sm font-semibold", valueClass)}>
-        {value}
-      </div>
+      <div className={cn("mt-1.5 text-sm font-semibold", valueClass)}>{value}</div>
     </div>
   );
 }
@@ -206,7 +206,13 @@ function HeroStat({
 const KPI = [
   { icon: Eye, label: "Profile Views", value: "1,284", delta: "+14%", hint: "this week" },
   { icon: Film, label: "Reels Views", value: "3,912", delta: "Boosted", hint: "Tier 2+" },
-  { icon: MousePointerClick, label: "Website Clicks", value: "482", delta: "+7%", hint: "intent to visit" },
+  {
+    icon: MousePointerClick,
+    label: "Website Clicks",
+    value: "482",
+    delta: "+7%",
+    hint: "intent to visit",
+  },
   { icon: Music2, label: "TikTok Clicks", value: "1,102", delta: "+22%", hint: "nightlife signal" },
   { icon: Instagram, label: "Instagram Clicks", value: "876", delta: "+9%", hint: "this week" },
 ];
@@ -230,9 +236,7 @@ function KPIStats() {
                 <div className="rounded-lg bg-primary/10 p-2 text-primary">
                   <k.icon className="h-4 w-4" />
                 </div>
-                <span className="text-[10px] font-semibold text-emerald-600">
-                  {k.delta}
-                </span>
+                <span className="text-[10px] font-semibold text-emerald-600">{k.delta}</span>
               </div>
               <div className="mt-3 text-2xl font-bold tracking-tight">{k.value}</div>
               <div className="text-xs text-muted-foreground">{k.label}</div>
@@ -319,9 +323,24 @@ function QuickActions({ promotionUnlocked }: { promotionUnlocked: boolean }) {
 /* ---------------- EVENTS ---------------- */
 
 const EVENTS = [
-  { title: "Afrobeats Friday", date: "Fri · 10:00 PM", status: "Published", gradient: "from-orange-300 to-pink-300" },
-  { title: "Rooftop Sessions", date: "Sat · 9:00 PM", status: "Published", gradient: "from-primary/50 to-orange-200" },
-  { title: "Sunday Brunch DJ", date: "Sun · 12:00 PM", status: "Draft", gradient: "from-amber-200 to-yellow-200" },
+  {
+    title: "Afrobeats Friday",
+    date: "Fri · 10:00 PM",
+    status: "Published",
+    gradient: "from-orange-300 to-pink-300",
+  },
+  {
+    title: "Rooftop Sessions",
+    date: "Sat · 9:00 PM",
+    status: "Published",
+    gradient: "from-primary/50 to-orange-200",
+  },
+  {
+    title: "Sunday Brunch DJ",
+    date: "Sun · 12:00 PM",
+    status: "Draft",
+    gradient: "from-amber-200 to-yellow-200",
+  },
 ];
 
 function EventsPreview() {
@@ -331,8 +350,13 @@ function EventsPreview() {
         title="Upcoming events"
         action={
           <div className="flex gap-2">
-            <Button size="sm" variant="outline">Manage all</Button>
-            <Button size="sm"><CalendarPlus className="mr-1.5 h-3.5 w-3.5" />Add</Button>
+            <Button size="sm" variant="outline">
+              Manage all
+            </Button>
+            <Button size="sm">
+              <CalendarPlus className="mr-1.5 h-3.5 w-3.5" />
+              Add
+            </Button>
           </div>
         }
       />
@@ -380,8 +404,13 @@ function MediaPreview() {
         title="Your photos & media"
         action={
           <div className="flex gap-2">
-            <Button size="sm" variant="outline">Gallery</Button>
-            <Button size="sm"><ImageIcon className="mr-1.5 h-3.5 w-3.5" />Upload</Button>
+            <Button size="sm" variant="outline">
+              Gallery
+            </Button>
+            <Button size="sm">
+              <ImageIcon className="mr-1.5 h-3.5 w-3.5" />
+              Upload
+            </Button>
           </div>
         }
       />
@@ -408,7 +437,11 @@ function SocialPanel() {
     <Card className="p-5">
       <SectionHeader
         title="Social accounts"
-        action={<Button size="sm" variant="outline">Settings</Button>}
+        action={
+          <Button size="sm" variant="outline">
+            Settings
+          </Button>
+        }
       />
       <div className="space-y-3">
         <SocialRow
@@ -418,11 +451,7 @@ function SocialPanel() {
           handle="@rooftop.dc"
           lastSync="2h ago"
         />
-        <SocialRow
-          icon={<Instagram className="h-4 w-4" />}
-          name="Instagram"
-          connected={false}
-        />
+        <SocialRow icon={<Instagram className="h-4 w-4" />} name="Instagram" connected={false} />
       </div>
     </Card>
   );
@@ -466,10 +495,13 @@ function PromotionPanel({ unlocked }: { unlocked: boolean }) {
     return (
       <Card className="relative overflow-hidden p-5">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/8 via-transparent to-orange-100/40" />
-        <SectionHeader title="Promotion tools" icon={<Lock className="h-4 w-4 text-muted-foreground" />} />
+        <SectionHeader
+          title="Promotion tools"
+          icon={<Lock className="h-4 w-4 text-muted-foreground" />}
+        />
         <p className="text-sm text-muted-foreground">
-          Promotion tools are invite-only. Request access and our team will
-          reach out within 24 hours.
+          Promotion tools are invite-only. Request access and our team will reach out within 24
+          hours.
         </p>
         <Button className="mt-4" size="sm" asChild>
           <Link to="/business/pricing">Request access</Link>
@@ -478,12 +510,7 @@ function PromotionPanel({ unlocked }: { unlocked: boolean }) {
     );
   }
 
-  const features = [
-    "Featured badge",
-    "Boosted reels",
-    "Priority search",
-    "Hot Spots rotation",
-  ];
+  const features = ["Featured badge", "Boosted reels", "Priority search", "Hot Spots rotation"];
 
   return (
     <Card className="relative overflow-hidden p-5">
@@ -516,7 +543,11 @@ function AnalyticsPreview() {
     <Card className="p-5">
       <SectionHeader
         title="Performance overview"
-        action={<Button size="sm" variant="outline">Full analytics</Button>}
+        action={
+          <Button size="sm" variant="outline">
+            Full analytics
+          </Button>
+        }
       />
       <div className="grid gap-4 md:grid-cols-3">
         <ChartCard label="Profile views" sparkline="line" />
@@ -545,7 +576,11 @@ function ChartCard({ label, sparkline }: { label: string; sparkline: "line" | "b
         {sparkline === "bar" && (
           <div className="flex h-full items-end gap-1">
             {[40, 65, 30, 80, 55, 90, 70].map((h, i) => (
-              <div key={i} className="flex-1 rounded-sm bg-primary/70" style={{ height: `${h}%` }} />
+              <div
+                key={i}
+                className="flex-1 rounded-sm bg-primary/70"
+                style={{ height: `${h}%` }}
+              />
             ))}
           </div>
         )}
@@ -581,13 +616,9 @@ function AIRefreshStatus() {
       />
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <div className="text-xs uppercase tracking-wider text-muted-foreground">
-            Last refresh
-          </div>
+          <div className="text-xs uppercase tracking-wider text-muted-foreground">Last refresh</div>
           <div className="mt-1 text-base font-semibold">3 days ago</div>
-          <div className="text-xs text-muted-foreground">
-            Next scheduled: in 27 days
-          </div>
+          <div className="text-xs text-muted-foreground">Next scheduled: in 27 days</div>
         </div>
         <div>
           <div className="text-xs uppercase tracking-wider text-muted-foreground">
@@ -612,10 +643,18 @@ function DashboardFooter() {
       <div className="flex flex-col items-center justify-between gap-3 md:flex-row">
         <div>Confetti for Business · Premium nightlife discovery</div>
         <div className="flex gap-4">
-          <a href="#" className="hover:text-foreground">Help</a>
-          <a href="mailto:support@confetti.app" className="hover:text-foreground">Support</a>
-          <Link to="/business/pricing" className="hover:text-foreground">Pricing</Link>
-          <a href="#" className="hover:text-foreground">Terms</a>
+          <a href="#" className="hover:text-foreground">
+            Help
+          </a>
+          <a href="mailto:support@confetti.app" className="hover:text-foreground">
+            Support
+          </a>
+          <Link to="/business/pricing" className="hover:text-foreground">
+            Pricing
+          </Link>
+          <a href="#" className="hover:text-foreground">
+            Terms
+          </a>
         </div>
       </div>
     </footer>

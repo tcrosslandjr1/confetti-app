@@ -4,13 +4,13 @@
 
 export type ShareEventName =
   | "share_menu_open"
-  | "share_link_native"      // navigator.share invoked
-  | "share_link_clipboard"   // navigator.share unavailable → copied to clipboard
-  | "share_copy_link"        // explicit "Copy link" button
-  | "share_email_link"       // mailto:
-  | "share_save_image"       // PNG download
-  | "share_save_pdf"         // print → PDF
-  | "share_add_to_calendar"  // .ics download
+  | "share_link_native" // navigator.share invoked
+  | "share_link_clipboard" // navigator.share unavailable → copied to clipboard
+  | "share_copy_link" // explicit "Copy link" button
+  | "share_email_link" // mailto:
+  | "share_save_image" // PNG download
+  | "share_save_pdf" // print → PDF
+  | "share_add_to_calendar" // .ics download
   | "share_error";
 
 export type ShareEvent = {

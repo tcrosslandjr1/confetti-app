@@ -43,7 +43,10 @@ export function estimateLeg(
   const uberMin = Math.max(3, Math.round(((km * 1.2) / 22) * 60) + 3);
   // Rough US rideshare: $4 base + $1.6/km, +25% surge band.
   const base = 4 + km * 1.6;
-  const uberCost = { low: Math.max(7, Math.round(base)), high: Math.max(11, Math.round(base * 1.45)) };
+  const uberCost = {
+    low: Math.max(7, Math.round(base)),
+    high: Math.max(11, Math.round(base * 1.45)),
+  };
 
   const walkCap = opts.walkability === "high" ? 18 : opts.walkability === "low" ? 8 : 12;
   let recommended: LegEstimate["recommended"] = "rideshare";
@@ -62,7 +65,7 @@ export function uberDeepLink(to: LatLng, label?: string): string {
   // Universal link works on iOS/Android/web. Falls back to uber.com if app not installed.
   const params = new URLSearchParams({
     action: "setPickup",
-    "pickup": "my_location",
+    pickup: "my_location",
     "dropoff[latitude]": fmtCoord(to.lat),
     "dropoff[longitude]": fmtCoord(to.lng),
   });
@@ -86,7 +89,9 @@ export function lyftDeepLink(to: LatLng, label?: string): string {
 }
 
 export function appleMapsDirections(to: LatLng, label?: string): string {
-  const daddr = label ? `${label}@${fmtCoord(to.lat)},${fmtCoord(to.lng)}` : `${fmtCoord(to.lat)},${fmtCoord(to.lng)}`;
+  const daddr = label
+    ? `${label}@${fmtCoord(to.lat)},${fmtCoord(to.lng)}`
+    : `${fmtCoord(to.lat)},${fmtCoord(to.lng)}`;
   return `https://maps.apple.com/?daddr=${encodeURIComponent(daddr)}&dirflg=d`;
 }
 

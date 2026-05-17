@@ -78,11 +78,7 @@ export function AuthDebugPanel() {
             v={bool(auth.sessionLoading)}
             tone={auth.sessionLoading ? "warn" : "ok"}
           />
-          <Row
-            k="roleLoading"
-            v={bool(auth.roleLoading)}
-            tone={auth.roleLoading ? "warn" : "ok"}
-          />
+          <Row k="roleLoading" v={bool(auth.roleLoading)} tone={auth.roleLoading ? "warn" : "ok"} />
           <Row
             k="viewAsLoaded"
             v={bool(auth.viewAsLoaded)}
@@ -90,7 +86,11 @@ export function AuthDebugPanel() {
           />
           <div className="my-1 border-t border-white/10" />
           <Row k="user" v={auth.user?.email ?? auth.user?.id?.slice(0, 8) ?? "—"} />
-          <Row k="session" v={auth.session ? "active" : "none"} tone={auth.session ? "ok" : undefined} />
+          <Row
+            k="session"
+            v={auth.session ? "active" : "none"}
+            tone={auth.session ? "ok" : undefined}
+          />
           <Row k="isAdmin" v={bool(auth.isAdmin)} tone={auth.isAdmin ? "ok" : undefined} />
           <Row k="viewAs" v={auth.viewAs} />
           <Row k="effectiveRole" v={auth.effectiveRole} />

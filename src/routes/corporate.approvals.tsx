@@ -3,10 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  CorporatePageHeader,
-  useActiveCorporateCompany,
-} from "@/components/CorporateShell";
+import { CorporatePageHeader, useActiveCorporateCompany } from "@/components/CorporateShell";
 
 export const Route = createFileRoute("/corporate/approvals")({
   component: CorporateApprovalsPage,
@@ -22,9 +19,7 @@ function CorporateApprovalsPage() {
     queryFn: async () => {
       const { data } = await supabase
         .from("corporate_outings")
-        .select(
-          "id,title,status,starts_at,headcount,total_budget_cents,team_id",
-        )
+        .select("id,title,status,starts_at,headcount,total_budget_cents,team_id")
         .eq("company_id", companyId!)
         .eq("status", "pending_approval")
         .order("starts_at");
@@ -47,18 +42,12 @@ function CorporateApprovalsPage() {
         ) : (
           <ul className="divide-y divide-border">
             {outings.map((o) => (
-              <li
-                key={o.id}
-                className="flex flex-wrap items-center justify-between gap-3 p-4"
-              >
+              <li key={o.id} className="flex flex-wrap items-center justify-between gap-3 p-4">
                 <div className="min-w-0">
                   <div className="font-medium">{o.title}</div>
                   <div className="text-xs text-muted-foreground">
-                    {o.starts_at
-                      ? new Date(o.starts_at).toLocaleString()
-                      : "TBD"}{" "}
-                    · party of {o.headcount} · $
-                    {(o.total_budget_cents / 100).toFixed(0)}
+                    {o.starts_at ? new Date(o.starts_at).toLocaleString() : "TBD"} · party of{" "}
+                    {o.headcount} · ${(o.total_budget_cents / 100).toFixed(0)}
                   </div>
                 </div>
                 <div className="flex gap-2">

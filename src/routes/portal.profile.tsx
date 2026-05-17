@@ -219,7 +219,7 @@ function ProfilePage() {
         )}
       </section>
 
-      {(
+      {
         <ReorderableSections
           sections={[
             {
@@ -615,7 +615,7 @@ function ProfilePage() {
             },
           ]}
         />
-      )}
+      }
       <Button variant="outline" onClick={signOut} className="gap-2">
         <LogOut className="h-4 w-4" /> Sign out
       </Button>

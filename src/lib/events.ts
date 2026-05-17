@@ -124,18 +124,14 @@ export const EVENTS: EventItem[] = (
   ] as Omit<EventItem, "lat" | "lng">[]
 ).map((e) => ({ ...e, ...coords(e.city) }));
 
-export function distanceMiles(
-  a: { lat: number; lng: number },
-  b: { lat: number; lng: number },
-) {
+export function distanceMiles(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
   const toRad = (n: number) => (n * Math.PI) / 180;
   const R = 3958.8; // miles
   const dLat = toRad(b.lat - a.lat);
   const dLng = toRad(b.lng - a.lng);
   const lat1 = toRad(a.lat);
   const lat2 = toRad(b.lat);
-  const h =
-    Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
   return 2 * R * Math.asin(Math.sqrt(h));
 }
 
@@ -186,19 +182,13 @@ export function liveSeatsRemaining(eventId: string, now: Date = new Date()): num
  * then deterministically cycles past events by day-of-year so the preview
  * never looks empty.
  */
-export function getTonightsPick(
-  preferredCity?: string | null,
-  now: Date = new Date(),
-): EventItem {
-  const future = EVENTS
-    .filter((e) => new Date(e.date).getTime() >= now.getTime())
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+export function getTonightsPick(preferredCity?: string | null, now: Date = new Date()): EventItem {
+  const future = EVENTS.filter((e) => new Date(e.date).getTime() >= now.getTime()).sort(
+    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+  );
 
   const cityMatch =
-    preferredCity &&
-    future.find((e) =>
-      e.city.toLowerCase().includes(preferredCity.toLowerCase()),
-    );
+    preferredCity && future.find((e) => e.city.toLowerCase().includes(preferredCity.toLowerCase()));
   if (cityMatch) return cityMatch;
   if (future.length > 0) return future[0];
 

@@ -111,7 +111,10 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
       priceId: z.enum(ALL_PRICES),
       quantity: z.number().int().min(1).max(10).optional(),
       customerEmail: z.string().email().optional(),
-      userId: z.string().regex(/^[a-zA-Z0-9_-]+$/).optional(),
+      userId: z
+        .string()
+        .regex(/^[a-zA-Z0-9_-]+$/)
+        .optional(),
       accountType: z.enum(["user", "business", "corporate"]).optional(),
       // Promo target — for boost/event/reel SKUs only
       targetType: z.enum(["venue", "event", "reel", "vendor"]).optional(),
@@ -131,20 +134,20 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
     const stripePrice = prices.data[0];
     const isRecurring = stripePrice.type === "recurring";
 
-    const customerId = (data.customerEmail || data.userId)
-      ? await resolveOrCreateCustomer(stripe, {
-          email: data.customerEmail,
-          userId: data.userId,
-        })
-      : undefined;
+    const customerId =
+      data.customerEmail || data.userId
+        ? await resolveOrCreateCustomer(stripe, {
+            email: data.customerEmail,
+            userId: data.userId,
+          })
+        : undefined;
 
     const accountType = data.accountType ?? "user";
 
     const baseMetadata: Record<string, string> = {
       priceId: data.priceId,
-      productId: typeof stripePrice.product === "string"
-        ? stripePrice.product
-        : stripePrice.product.id,
+      productId:
+        typeof stripePrice.product === "string" ? stripePrice.product : stripePrice.product.id,
       accountType,
       ...(data.userId && { userId: data.userId }),
       ...(data.targetType && { targetType: data.targetType }),
@@ -153,9 +156,7 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
 
     // Resolve trial period: explicit input wins, else per-price default.
     // Only attached when the price is recurring and > 0.
-    const trialDays = isRecurring
-      ? (data.trialDays ?? DEFAULT_TRIAL_DAYS[data.priceId] ?? 0)
-      : 0;
+    const trialDays = isRecurring ? (data.trialDays ?? DEFAULT_TRIAL_DAYS[data.priceId] ?? 0) : 0;
 
     const session = await stripe.checkout.sessions.create({
       line_items: [{ price: stripePrice.id, quantity: data.quantity || 1 }],
@@ -183,10 +184,7 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
 let _adminClient: ReturnType<typeof createClient> | null = null;
 function adminClient() {
   if (!_adminClient) {
-    _adminClient = createClient(
-      process.env.SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    );
+    _adminClient = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!);
   }
   return _adminClient;
 }
@@ -209,7 +207,13 @@ export const createTicketCheckout = createServerFn({ method: "POST" })
       .eq("id", data.eventId)
       .maybeSingle();
     if (error || !event) throw new Error("Event not found");
-    const ev = event as { id: string; title: string; price_cents: number | null; currency: string | null; tickets_enabled: boolean | null };
+    const ev = event as {
+      id: string;
+      title: string;
+      price_cents: number | null;
+      currency: string | null;
+      tickets_enabled: boolean | null;
+    };
     if (!ev.tickets_enabled) throw new Error("Tickets not enabled for this event");
     if (!ev.price_cents || ev.price_cents < 50) throw new Error("Event has no valid price");
 
@@ -217,14 +221,16 @@ export const createTicketCheckout = createServerFn({ method: "POST" })
     const customerId = await resolveOrCreateCustomer(stripe, { userId });
 
     const session = await stripe.checkout.sessions.create({
-      line_items: [{
-        price_data: {
-          currency: ev.currency || "usd",
-          product_data: { name: `Ticket — ${ev.title}` },
-          unit_amount: ev.price_cents,
+      line_items: [
+        {
+          price_data: {
+            currency: ev.currency || "usd",
+            product_data: { name: `Ticket — ${ev.title}` },
+            unit_amount: ev.price_cents,
+          },
+          quantity: data.quantity,
         },
-        quantity: data.quantity,
-      }],
+      ],
       mode: "payment",
       ui_mode: "embedded_page",
       return_url: data.returnUrl,
@@ -349,9 +355,7 @@ export const changePlan = createServerFn({ method: "POST" })
 // ============================================================================
 export const cancelSubscription = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator(
-    z.object({ environment: StripeEnvSchema }).parse,
-  )
+  .inputValidator(z.object({ environment: StripeEnvSchema }).parse)
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
     const { data: sub } = await supabase

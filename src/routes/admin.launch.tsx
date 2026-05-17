@@ -1,18 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle2, Circle, Loader2, RefreshCw, Rocket } from "lucide-react";
-import {
-  CHECKLIST,
-  setChecklistItem,
-  useAutoChecker,
-  useChecklist,
-} from "@/lib/launch-checklist";
+import { CHECKLIST, setChecklistItem, useAutoChecker, useChecklist } from "@/lib/launch-checklist";
 
 export const Route = createFileRoute("/admin/launch")({
   head: () => ({
-    meta: [
-      { title: "Launch checklist — Admin" },
-      { name: "robots", content: "noindex, nofollow" },
-    ],
+    meta: [{ title: "Launch checklist — Admin" }, { name: "robots", content: "noindex, nofollow" }],
   }),
   component: LaunchChecklistPage,
 });
@@ -58,14 +50,9 @@ function LaunchChecklistPage() {
         {/* progress bar */}
         <div className="mt-6 flex items-center gap-3">
           <div className="relative h-3 flex-1 overflow-hidden rounded-full border-2 border-ink bg-background">
-            <div
-              className="h-full bg-coral transition-all"
-              style={{ width: `${pct}%` }}
-            />
+            <div className="h-full bg-coral transition-all" style={{ width: `${pct}%` }} />
           </div>
-          <span className="font-mono text-[11px] font-bold uppercase tracking-widest">
-            {pct}%
-          </span>
+          <span className="font-mono text-[11px] font-bold uppercase tracking-widest">{pct}%</span>
           <Rocket className="h-5 w-5 text-coral" />
         </div>
       </header>
@@ -75,8 +62,7 @@ function LaunchChecklistPage() {
         {CHECKLIST.map((item, i) => {
           const entry = state[item.id];
           const done = !!entry?.done;
-          const accent =
-            i % 3 === 0 ? "bg-coral" : i % 3 === 1 ? "bg-gold" : "bg-purple";
+          const accent = i % 3 === 0 ? "bg-coral" : i % 3 === 1 ? "bg-gold" : "bg-purple";
           return (
             <li
               key={item.id}
@@ -118,9 +104,7 @@ function LaunchChecklistPage() {
                 <h3 className="mt-2 font-display text-xl font-extrabold leading-tight">
                   {item.title}
                 </h3>
-                <p className="mt-1 text-sm leading-snug text-ink/70">
-                  {item.description}
-                </p>
+                <p className="mt-1 text-sm leading-snug text-ink/70">{item.description}</p>
 
                 {done && entry?.at ? (
                   <p className="mt-2 font-mono text-[11px] uppercase tracking-widest text-ink/50">

@@ -42,7 +42,7 @@ export const Route = createFileRoute("/api/public/wallet/google")({
               error:
                 "Google Wallet not configured. Missing GOOGLE_WALLET_ISSUER_ID, GOOGLE_WALLET_CLASS_ID, GOOGLE_WALLET_SERVICE_ACCOUNT_EMAIL, or GOOGLE_WALLET_SERVICE_ACCOUNT_PRIVATE_KEY.",
             },
-            { status: 503 }
+            { status: 503 },
           );
         }
 
@@ -57,7 +57,7 @@ export const Route = createFileRoute("/api/public/wallet/google")({
         if (!parsed.success) {
           return Response.json(
             { error: "Invalid payload", issues: parsed.error.issues },
-            { status: 400 }
+            { status: 400 },
           );
         }
 
@@ -66,7 +66,10 @@ export const Route = createFileRoute("/api/public/wallet/google")({
         const objectId = `${issuerId}.${objectSuffix}`;
 
         const itinerary = data.stops
-          .map((s, i) => `${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}${s.area ? ` (${s.area})` : ""}`)
+          .map(
+            (s, i) =>
+              `${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}${s.area ? ` (${s.area})` : ""}`,
+          )
           .join("\n");
 
         const genericObject = {
@@ -81,7 +84,9 @@ export const Route = createFileRoute("/api/public/wallet/google")({
             { id: "passenger", header: "Passenger", body: data.passenger },
             { id: "date", header: "Date", body: data.date },
             ...(data.gate ? [{ id: "gate", header: "Gate", body: data.gate }] : []),
-            ...(data.boardingTime ? [{ id: "boarding", header: "Boarding", body: data.boardingTime }] : []),
+            ...(data.boardingTime
+              ? [{ id: "boarding", header: "Boarding", body: data.boardingTime }]
+              : []),
             { id: "itinerary", header: "Itinerary", body: itinerary },
           ],
           barcode: {
@@ -117,7 +122,7 @@ export const Route = createFileRoute("/api/public/wallet/google")({
           console.error("Google Wallet JWT signing failed:", err);
           return Response.json(
             { error: "Failed to sign Google Wallet JWT", detail: String(err) },
-            { status: 500 }
+            { status: 500 },
           );
         }
       },

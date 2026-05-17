@@ -89,9 +89,7 @@ export function CorporateShell() {
             </div>
             <nav className="space-y-1">
               {NAV.map(({ to, label, icon: Icon, exact }) => {
-                const active = exact
-                  ? location.pathname === to
-                  : location.pathname.startsWith(to);
+                const active = exact ? location.pathname === to : location.pathname.startsWith(to);
                 return (
                   <Link
                     key={to}
@@ -144,16 +142,10 @@ export function CorporatePageHeader({
   return (
     <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
       <div>
-        {eyebrow && (
-          <div className="text-xs uppercase tracking-widest text-primary">
-            {eyebrow}
-          </div>
-        )}
+        {eyebrow && <div className="text-xs uppercase tracking-widest text-primary">{eyebrow}</div>}
         <h1 className="mt-1 text-3xl font-bold tracking-tight">{title}</h1>
         {description && (
-          <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-            {description}
-          </p>
+          <p className="mt-1 max-w-2xl text-sm text-muted-foreground">{description}</p>
         )}
       </div>
       {actions && <div className="flex gap-2">{actions}</div>}

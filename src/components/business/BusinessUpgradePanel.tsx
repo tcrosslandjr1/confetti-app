@@ -93,8 +93,7 @@ export function BusinessUpgradePanel() {
   const [busy, setBusy] = useState<string | null>(null);
 
   const env = getStripeEnvironment();
-  const isBusinessSub =
-    isActive && (priceId?.startsWith("business_") ?? false) && subscription;
+  const isBusinessSub = isActive && (priceId?.startsWith("business_") ?? false) && subscription;
   const currentTier = isBusinessSub ? priceId : null;
 
   const startCheckout = (tierId: BusinessPriceId, label: string) => {
@@ -119,8 +118,8 @@ export function BusinessUpgradePanel() {
         res.mode === "upgrade"
           ? "Upgraded — changes are live"
           : res.mode === "downgrade_at_period_end"
-          ? "Downgrade scheduled for end of period"
-          : "Plan unchanged",
+            ? "Downgrade scheduled for end of period"
+            : "Plan unchanged",
       );
       await refetch();
     } catch (e: any) {
@@ -185,9 +184,7 @@ export function BusinessUpgradePanel() {
                 {subscription?.status}
               </Badge>
               <div className="text-sm">
-                <p className="font-semibold">
-                  {TIER_LABEL[currentTier] ?? currentTier}
-                </p>
+                <p className="font-semibold">{TIER_LABEL[currentTier] ?? currentTier}</p>
                 {renewsOn && (
                   <p className="text-xs text-muted-foreground">
                     {subscription?.cancel_at_period_end ? "Ends" : "Renews"} {renewsOn}
@@ -195,8 +192,9 @@ export function BusinessUpgradePanel() {
                 )}
                 {subscription?.pending_price_id && (
                   <p className="text-xs text-muted-foreground">
-                    Switches to {TIER_LABEL[subscription.pending_price_id] ??
-                      subscription.pending_price_id} at period end
+                    Switches to{" "}
+                    {TIER_LABEL[subscription.pending_price_id] ?? subscription.pending_price_id} at
+                    period end
                   </p>
                 )}
               </div>
@@ -251,9 +249,7 @@ export function BusinessUpgradePanel() {
                   <h3 className="text-xl font-bold">{tier.name}</h3>
                   <p className="text-3xl font-bold">
                     {tier.price}
-                    <span className="text-sm font-normal text-muted-foreground">
-                      {" "}/ month
-                    </span>
+                    <span className="text-sm font-normal text-muted-foreground"> / month</span>
                   </p>
                 </div>
 
@@ -298,12 +294,7 @@ export function BusinessUpgradePanel() {
 
       {isBusinessSub && (
         <div className="flex flex-wrap gap-2 pt-2">
-          <Button
-            variant="outline"
-            size="sm"
-            disabled={!!busy}
-            onClick={handlePortal}
-          >
+          <Button variant="outline" size="sm" disabled={!!busy} onClick={handlePortal}>
             {busy === "portal" && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Manage billing
           </Button>

@@ -10,8 +10,7 @@ const corsHeaders = {
 export const Route = createFileRoute("/api/plans/generate")({
   server: {
     handlers: {
-      OPTIONS: async () =>
-        new Response(null, { status: 204, headers: corsHeaders }),
+      OPTIONS: async () => new Response(null, { status: 204, headers: corsHeaders }),
       POST: async ({ request }) => {
         let body: unknown;
         try {
@@ -31,19 +30,12 @@ export const Route = createFileRoute("/api/plans/generate")({
           //   → PlanGenerator (template-driven structured output)
           //   → Explainer (rationale + tagline + guardrail note)
           const plan = await generatePlan({ data: body as never });
-          return Response.json(
-            { plan },
-            { status: 200, headers: corsHeaders },
-          );
+          return Response.json({ plan }, { status: 200, headers: corsHeaders });
         } catch (err) {
-          const message =
-            err instanceof Error ? err.message : "Pipeline failed";
+          const message = err instanceof Error ? err.message : "Pipeline failed";
           const status = /invalid|required|expected/i.test(message) ? 400 : 500;
           console.error("[/api/plans/generate] pipeline error:", err);
-          return Response.json(
-            { error: message },
-            { status, headers: corsHeaders },
-          );
+          return Response.json({ error: message }, { status, headers: corsHeaders });
         }
       },
     },

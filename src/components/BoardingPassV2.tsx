@@ -109,7 +109,8 @@ export const sampleMothersDayData: BoardingPassData = {
       },
       sundayParking: "Free street meter parking · meters not enforced Sundays",
       appleMapUrl: "maps://maps.apple.com/?daddr=Eastern+Market+Washington+DC&dirflg=d",
-      googleMapUrl: "https://www.google.com/maps/dir/?api=1&destination=Eastern+Market+Washington+DC",
+      googleMapUrl:
+        "https://www.google.com/maps/dir/?api=1&destination=Eastern+Market+Washington+DC",
       tags: ["Celebration", "Foodie", "~2 hrs"],
     },
   ],
@@ -134,10 +135,7 @@ function Barcode({ code }: { code: string }) {
     <div className="flex flex-col items-center gap-2">
       <div className="flex items-end gap-[2px] h-12">
         {bars.map((b, i) => (
-          <div
-            key={i}
-            style={{ width: b.w, height: b.h, background: "#1a1a2e" }}
-          />
+          <div key={i} style={{ width: b.w, height: b.h, background: "#1a1a2e" }} />
         ))}
       </div>
       <div
@@ -198,8 +196,7 @@ export function BoardingPassV2({ data = sampleMothersDayData }: { data?: Boardin
         <div
           className="relative px-6 pt-6 pb-5 text-white"
           style={{
-            background:
-              "linear-gradient(135deg, #6C3CE1 0%, #8B5CF6 50%, #A78BFA 100%)",
+            background: "linear-gradient(135deg, #6C3CE1 0%, #8B5CF6 50%, #A78BFA 100%)",
           }}
         >
           <div className="flex items-start justify-between gap-4">
@@ -257,9 +254,7 @@ export function BoardingPassV2({ data = sampleMothersDayData }: { data?: Boardin
                 <div style={{ ...mono, fontSize: 9, opacity: 0.7, letterSpacing: "2px" }}>
                   {m.k}
                 </div>
-                <div style={{ ...mono, fontSize: 13, fontWeight: 700, marginTop: 2 }}>
-                  {m.v}
-                </div>
+                <div style={{ ...mono, fontSize: 13, fontWeight: 700, marginTop: 2 }}>{m.v}</div>
               </div>
             ))}
           </div>
@@ -269,9 +264,7 @@ export function BoardingPassV2({ data = sampleMothersDayData }: { data?: Boardin
         <div className="px-6 pt-6 pb-4 bg-white">
           <div className="flex items-end justify-between gap-3">
             <div className="text-left">
-              <div
-                style={{ ...mono, fontSize: 9, color: "#6C3CE1", letterSpacing: "2px" }}
-              >
+              <div style={{ ...mono, fontSize: 9, color: "#6C3CE1", letterSpacing: "2px" }}>
                 DEPARTURE
               </div>
               <div
@@ -289,10 +282,10 @@ export function BoardingPassV2({ data = sampleMothersDayData }: { data?: Boardin
               <div className="mt-1 text-xs text-[#1a1a2e]/60">{data.origin.name}</div>
             </div>
 
-            <div className="relative flex-1 mx-2 mb-3 h-[2px]"
+            <div
+              className="relative flex-1 mx-2 mb-3 h-[2px]"
               style={{
-                background:
-                  "linear-gradient(90deg, #6C3CE1 0%, #FCD34D 50%, #22C55E 100%)",
+                background: "linear-gradient(90deg, #6C3CE1 0%, #FCD34D 50%, #22C55E 100%)",
               }}
             >
               <div
@@ -310,9 +303,7 @@ export function BoardingPassV2({ data = sampleMothersDayData }: { data?: Boardin
             </div>
 
             <div className="text-right">
-              <div
-                style={{ ...mono, fontSize: 9, color: "#15803D", letterSpacing: "2px" }}
-              >
+              <div style={{ ...mono, fontSize: 9, color: "#15803D", letterSpacing: "2px" }}>
                 DESTINATION
               </div>
               <div
@@ -374,8 +365,8 @@ export function BoardingPassV2({ data = sampleMothersDayData }: { data?: Boardin
               stop.type === "departure"
                 ? "bp-marker-purple"
                 : stop.type === "layover"
-                ? "bp-marker-amber"
-                : "bp-marker-green";
+                  ? "bp-marker-amber"
+                  : "bp-marker-green";
             const markerDelay = 0.8 + i * 0.6;
             const contentDelay = markerDelay + 0.2;
             return (
@@ -427,15 +418,10 @@ export function BoardingPassV2({ data = sampleMothersDayData }: { data?: Boardin
                     >
                       {stop.type} — {stop.time}
                     </div>
-                    <div
-                      className="mt-1 font-bold"
-                      style={{ fontSize: 15, color: "#1a1a2e" }}
-                    >
+                    <div className="mt-1 font-bold" style={{ fontSize: 15, color: "#1a1a2e" }}>
                       {stop.name}
                     </div>
-                    <div className="mt-0.5 text-[11px] text-[#1a1a2e]/60">
-                      {stop.detail}
-                    </div>
+                    <div className="mt-0.5 text-[11px] text-[#1a1a2e]/60">{stop.detail}</div>
 
                     {stop.parkingInfo && (
                       <div
@@ -472,8 +458,7 @@ export function BoardingPassV2({ data = sampleMothersDayData }: { data?: Boardin
                       <div
                         className="mt-2 flex items-center gap-2 rounded-xl px-3 py-2"
                         style={{
-                          background:
-                            "linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%)",
+                          background: "linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%)",
                           border: "1px solid #A7F3D0",
                         }}
                       >
@@ -483,9 +468,7 @@ export function BoardingPassV2({ data = sampleMothersDayData }: { data?: Boardin
                         >
                           SUN
                         </span>
-                        <span className="text-[11px] text-[#15803D]">
-                          {stop.sundayParking}
-                        </span>
+                        <span className="text-[11px] text-[#15803D]">{stop.sundayParking}</span>
                       </div>
                     )}
 
@@ -532,15 +515,14 @@ export function BoardingPassV2({ data = sampleMothersDayData }: { data?: Boardin
                             href={stop.appleMapUrl}
                             className="rounded-xl px-3 py-2 text-center text-white"
                             style={{
-                              background:
-                                "linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%)",
+                              background: "linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%)",
                               ...mono,
                               fontSize: 11,
                               fontWeight: 700,
                               letterSpacing: "1px",
                             }}
                           >
-                             APPLE MAPS
+                            APPLE MAPS
                           </a>
                         )}
                         {stop.googleMapUrl && (
@@ -550,8 +532,7 @@ export function BoardingPassV2({ data = sampleMothersDayData }: { data?: Boardin
                             rel="noreferrer"
                             className="rounded-xl px-3 py-2 text-center text-white"
                             style={{
-                              background:
-                                "linear-gradient(135deg, #4285F4 0%, #5B9BF5 100%)",
+                              background: "linear-gradient(135deg, #4285F4 0%, #5B9BF5 100%)",
                               ...mono,
                               fontSize: 11,
                               fontWeight: 700,

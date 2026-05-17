@@ -52,7 +52,8 @@ function AdminSettingsPage() {
       } else {
         const d = data as Diag;
         setDiag(d);
-        if (d.ok) toast.success("Key verified", { description: "Places API responded successfully." });
+        if (d.ok)
+          toast.success("Key verified", { description: "Places API responded successfully." });
         else
           toast.error("Key not working", {
             description: d.checks?.find((c) => !c.ok)?.detail ?? "See details below.",
@@ -132,8 +133,7 @@ function AdminSettingsPage() {
             , enable <strong>Places API (New)</strong>.
           </li>
           <li>
-            Create or open an API key under{" "}
-            <strong>APIs &amp; Services → Credentials</strong>.
+            Create or open an API key under <strong>APIs &amp; Services → Credentials</strong>.
           </li>
           <li>
             Set <strong>Application restrictions = None</strong> (or IP-restricted), and under{" "}

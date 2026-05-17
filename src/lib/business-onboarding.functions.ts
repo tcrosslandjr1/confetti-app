@@ -21,7 +21,9 @@ export const searchVenuesForClaim = createServerFn({ method: "GET" })
     const q = data.q.trim();
     const { data: rows, error } = await supabase
       .from("venues")
-      .select("id, name, city, neighborhood, hero_image_url, image_url, claim_status, claimed_by, website")
+      .select(
+        "id, name, city, neighborhood, hero_image_url, image_url, claim_status, claimed_by, website",
+      )
       .or(`name.ilike.%${q}%,city.ilike.%${q}%,neighborhood.ilike.%${q}%`)
       .order("name")
       .limit(20);
@@ -141,7 +143,9 @@ export const adminListVenueClaims = createServerFn({ method: "GET" })
       venueIds.length
         ? supabase
             .from("venues")
-            .select("id, name, city, neighborhood, hero_image_url, image_url, claim_status, claimed_by, website")
+            .select(
+              "id, name, city, neighborhood, hero_image_url, image_url, claim_status, claimed_by, website",
+            )
             .in("id", venueIds)
         : Promise.resolve({ data: [], error: null } as const),
       userIds.length
@@ -155,8 +159,8 @@ export const adminListVenueClaims = createServerFn({ method: "GET" })
     return {
       claims: (claims ?? []).map((c) => ({
         ...c,
-        venue: c.venue_id ? venueMap.get(c.venue_id) ?? null : null,
-        claimant: c.user_id ? profileMap.get(c.user_id) ?? null : null,
+        venue: c.venue_id ? (venueMap.get(c.venue_id) ?? null) : null,
+        claimant: c.user_id ? (profileMap.get(c.user_id) ?? null) : null,
       })),
     };
   });

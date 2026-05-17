@@ -35,7 +35,17 @@ const TikTokIcon = ({ size = 14 }: { size?: number }) => (
 );
 
 const InstagramIcon = ({ size = 14 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden
+  >
     <rect x="2" y="2" width="20" height="20" rx="5" />
     <circle cx="12" cy="12" r="4" />
     <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
@@ -78,11 +88,14 @@ function HeroChips({ venue }: { venue: VenueCard }) {
 }
 
 function SocialActionRow({ venue }: { venue: VenueCard }) {
-  const links: Array<{ label: string; icon: ReactNode; href: string } | null | undefined | false | ""> = [
+  const links: Array<
+    { label: string; icon: ReactNode; href: string } | null | undefined | false | ""
+  > = [
     {
       label: "Google",
       icon: <Search className="h-3.5 w-3.5" />,
-      href: venue.googleMapsUrl ?? `https://www.google.com/search?q=${encodeURIComponent(venue.name)}`,
+      href:
+        venue.googleMapsUrl ?? `https://www.google.com/search?q=${encodeURIComponent(venue.name)}`,
     },
     venue.websiteUrl
       ? {
@@ -99,7 +112,9 @@ function SocialActionRow({ venue }: { venue: VenueCard }) {
     {
       label: "Instagram",
       icon: <InstagramIcon />,
-      href: venue.instagramUrl ?? `https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(venue.name)}`,
+      href:
+        venue.instagramUrl ??
+        `https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(venue.name)}`,
     },
   ];
   const visible = links.filter(Boolean) as Array<{ label: string; icon: ReactNode; href: string }>;
@@ -168,8 +183,14 @@ function CommunityDrawer({ reels }: { reels: SocialReel[] }) {
                   className="h-full w-full object-cover transition group-hover:scale-105"
                 />
                 <span className="absolute bottom-1 left-1 right-1 flex items-center gap-1 rounded-full bg-black/55 px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-wider text-white backdrop-blur">
-                  {reel.platform === "tiktok" ? <TikTokIcon size={9} /> : <InstagramIcon size={9} />}
-                  <span className="truncate">{reel.isPromoted ? "Promoted" : reel.viewCount ?? ""}</span>
+                  {reel.platform === "tiktok" ? (
+                    <TikTokIcon size={9} />
+                  ) : (
+                    <InstagramIcon size={9} />
+                  )}
+                  <span className="truncate">
+                    {reel.isPromoted ? "Promoted" : (reel.viewCount ?? "")}
+                  </span>
                 </span>
               </a>
             ))}

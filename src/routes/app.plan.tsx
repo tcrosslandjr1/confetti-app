@@ -45,10 +45,7 @@ function PlanMyNightPage() {
           {steps.map((_, i) => (
             <div
               key={i}
-              className={cn(
-                "h-1 flex-1 rounded-full",
-                i <= step ? "bg-primary" : "bg-muted",
-              )}
+              className={cn("h-1 flex-1 rounded-full", i <= step ? "bg-primary" : "bg-muted")}
             />
           ))}
         </div>
@@ -84,9 +81,7 @@ function PlanMyNightPage() {
                   >
                     −
                   </button>
-                  <span className="w-8 text-center text-lg font-bold">
-                    {groupSize}
-                  </span>
+                  <span className="w-8 text-center text-lg font-bold">{groupSize}</span>
                   <button
                     className="grid size-9 place-items-center rounded-full bg-muted text-lg"
                     onClick={() => setGroupSize((g) => g + 1)}
@@ -97,17 +92,10 @@ function PlanMyNightPage() {
               </div>
             )}
             <div className="mt-6 flex justify-between">
-              <Button
-                variant="ghost"
-                disabled={step === 0}
-                onClick={() => setStep((s) => s - 1)}
-              >
+              <Button variant="ghost" disabled={step === 0} onClick={() => setStep((s) => s - 1)}>
                 Back
               </Button>
-              <Button
-                disabled={!current.value}
-                onClick={() => setStep((s) => s + 1)}
-              >
+              <Button disabled={!current.value} onClick={() => setStep((s) => s + 1)}>
                 Next
               </Button>
             </div>
@@ -119,8 +107,7 @@ function PlanMyNightPage() {
                 <Sparkles className="size-3.5" /> 3 plans cooked up
               </div>
               <p className="mt-2 text-sm">
-                {occasion} · {vibe} · {budget} · party of {groupSize} ·{" "}
-                {when?.toLowerCase()}
+                {occasion} · {vibe} · {budget} · party of {groupSize} · {when?.toLowerCase()}
               </p>
             </Card>
 
@@ -128,16 +115,12 @@ function PlanMyNightPage() {
               <Card key={id} className="p-5">
                 <div className="flex items-start justify-between">
                   <div>
-                    <div className="text-xs uppercase tracking-widest text-primary">
-                      Plan {id}
-                    </div>
+                    <div className="text-xs uppercase tracking-widest text-primary">Plan {id}</div>
                     <h3 className="mt-1 text-lg font-semibold">
                       {["Rooftop opener", "Classy crawl", "Late-night spin"][i]}
                     </h3>
                   </div>
-                  <span className="rounded-full bg-muted px-3 py-1 text-xs">
-                    3 stops
-                  </span>
+                  <span className="rounded-full bg-muted px-3 py-1 text-xs">3 stops</span>
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">
                   Vibe-matched stops with timing and estimated cost.
@@ -153,11 +136,7 @@ function PlanMyNightPage() {
               </Card>
             ))}
 
-            <Button
-              variant="ghost"
-              className="w-full"
-              onClick={() => setStep(0)}
-            >
+            <Button variant="ghost" className="w-full" onClick={() => setStep(0)}>
               Start over
             </Button>
           </div>

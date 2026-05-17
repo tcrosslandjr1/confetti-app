@@ -75,7 +75,7 @@ export function useGeocodedPoints(inputs: GeocodeInput[]) {
 
   const key = useMemo(
     () => inputs.map((i) => `${i.id}|${i.query}|${i.lat ?? ""}|${i.lng ?? ""}`).join("::"),
-    [inputs]
+    [inputs],
   );
 
   useEffect(() => {
@@ -84,7 +84,7 @@ export function useGeocodedPoints(inputs: GeocodeInput[]) {
 
     // Skip network entirely if every input already resolved synchronously.
     const needsLookup = inputs.some(
-      (i) => !(typeof i.lat === "number" && typeof i.lng === "number") && !getCache(i.query)
+      (i) => !(typeof i.lat === "number" && typeof i.lng === "number") && !getCache(i.query),
     );
     if (!needsLookup) return;
 
@@ -126,7 +126,6 @@ export function useGeocodedPoints(inputs: GeocodeInput[]) {
 
   return points;
 }
-
 
 /**
  * Build a directions URL for desktop/native handoff.

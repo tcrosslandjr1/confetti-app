@@ -5,10 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import {
-  CorporatePageHeader,
-  useActiveCorporateCompany,
-} from "@/components/CorporateShell";
+import { CorporatePageHeader, useActiveCorporateCompany } from "@/components/CorporateShell";
 
 export const Route = createFileRoute("/corporate/settings")({
   component: CorporateSettingsPage,
@@ -46,10 +43,7 @@ function CorporateSettingsPage() {
           </div>
           <div className="space-y-2">
             <Label>Domain</Label>
-            <Input
-              defaultValue={company?.domain ?? ""}
-              placeholder="acme.com"
-            />
+            <Input defaultValue={company?.domain ?? ""} placeholder="acme.com" />
           </div>
           <div className="space-y-2">
             <Label>Primary city</Label>
@@ -73,17 +67,13 @@ function CorporateSettingsPage() {
           </Button>
         </div>
         {!admins || admins.length === 0 ? (
-          <p className="mt-3 text-sm text-muted-foreground">
-            Only the owner currently has access.
-          </p>
+          <p className="mt-3 text-sm text-muted-foreground">Only the owner currently has access.</p>
         ) : (
           <ul className="mt-4 divide-y divide-border">
             {admins.map((m) => (
               <li key={m.id} className="flex items-center justify-between py-3 text-sm">
                 <span>{m.invited_email ?? m.user_id}</span>
-                <span className="rounded-full bg-muted px-3 py-1 text-xs capitalize">
-                  {m.role}
-                </span>
+                <span className="rounded-full bg-muted px-3 py-1 text-xs capitalize">{m.role}</span>
               </li>
             ))}
           </ul>

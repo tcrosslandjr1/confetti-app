@@ -27,7 +27,10 @@ const SEVERITY_RANK: Record<WarningSeverity, number> = {
 /** Parse a "10:30 PM" / "22:30" / "10pm" style label into minutes-since-midnight. */
 function parseTimeLabel(label?: string): number | null {
   if (!label) return null;
-  const m = label.trim().toLowerCase().match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)?$/);
+  const m = label
+    .trim()
+    .toLowerCase()
+    .match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)?$/);
   if (!m) return null;
   let h = parseInt(m[1], 10);
   const min = m[2] ? parseInt(m[2], 10) : 0;
@@ -40,7 +43,8 @@ function parseTimeLabel(label?: string): number | null {
 
 function classifyType(t?: string): "food" | "bar" | "club" | "show" | "other" {
   const s = (t || "").toLowerCase();
-  if (/(restaurant|dinner|food|kitchen|tasting|brunch|cafe|bistro|pizza|sushi|tacos|ramen)/.test(s)) return "food";
+  if (/(restaurant|dinner|food|kitchen|tasting|brunch|cafe|bistro|pizza|sushi|tacos|ramen)/.test(s))
+    return "food";
   if (/(club|nightclub|dance|rave|warehouse)/.test(s)) return "club";
   if (/(bar|cocktail|lounge|speakeasy|brewery|pub|wine|natural wine)/.test(s)) return "bar";
   if (/(show|concert|live|comedy|theater|theatre|dj|set)/.test(s)) return "show";
@@ -73,11 +77,15 @@ export function computeNightWarnings(stops: LoopStop[], now: Date = new Date()):
     // Heuristic close times (minutes-since-midnight on a "logical" night).
     // food kitchens close ~22:30, bars ~01:30 (next day = 25:30), clubs ~02:30.
     const closeMin =
-      kind === "food" ? 22 * 60 + 30 :
-      kind === "bar"  ? 25 * 60 + 30 :
-      kind === "club" ? 26 * 60 + 30 :
-      kind === "show" ? 23 * 60 + 30 :
-      null;
+      kind === "food"
+        ? 22 * 60 + 30
+        : kind === "bar"
+          ? 25 * 60 + 30
+          : kind === "club"
+            ? 26 * 60 + 30
+            : kind === "show"
+              ? 23 * 60 + 30
+              : null;
 
     if (t != null && closeMin != null) {
       // arrivalAbs treats stops scheduled before noon as next-day.
@@ -87,12 +95,16 @@ export function computeNightWarnings(stops: LoopStop[], now: Date = new Date()):
       if (kind === "food") {
         if (minsBeforeClose <= 0) {
           out.push({
-            stopId: s.id, severity: "critical", tag: "kitchen closed",
+            stopId: s.id,
+            severity: "critical",
+            tag: "kitchen closed",
             message: `Kitchen likely closed by your ${s.time} arrival — call ahead`,
           });
         } else if (minsBeforeClose <= 45) {
           out.push({
-            stopId: s.id, severity: "warn", tag: "kitchen closing",
+            stopId: s.id,
+            severity: "warn",
+            tag: "kitchen closing",
             message: `Kitchen closes ~${minsBeforeClose}m after you arrive — order fast`,
             minutesUntil: minsBeforeClose,
           });
@@ -100,7 +112,9 @@ export function computeNightWarnings(stops: LoopStop[], now: Date = new Date()):
       } else if (kind === "bar" || kind === "club" || kind === "show") {
         if (minsBeforeClose <= 30 && minsBeforeClose > 0) {
           out.push({
-            stopId: s.id, severity: "warn", tag: "last call",
+            stopId: s.id,
+            severity: "warn",
+            tag: "last call",
             message: `Only ~${minsBeforeClose}m left after arrival before last call`,
             minutesUntil: minsBeforeClose,
           });
@@ -127,7 +141,9 @@ export function computeNightWarnings(stops: LoopStop[], now: Date = new Date()):
     // Running-late nudge: scheduled time already passed and not checked in.
     if (delta != null && delta <= -10) {
       out.push({
-        stopId: s.id, severity: "warn", tag: "running late",
+        stopId: s.id,
+        severity: "warn",
+        tag: "running late",
         message: `You're ${Math.abs(delta)}m past the planned ${s.time} arrival`,
       });
     }
@@ -149,6 +165,8 @@ export function indexWarnings(warnings: StopWarning[]): Map<string, StopWarning[
 
 export function topSeverity(list: StopWarning[] | undefined): WarningSeverity | null {
   if (!list || list.length === 0) return null;
-  return list.reduce<WarningSeverity>((acc, w) =>
-    SEVERITY_RANK[w.severity] > SEVERITY_RANK[acc] ? w.severity : acc, "info");
+  return list.reduce<WarningSeverity>(
+    (acc, w) => (SEVERITY_RANK[w.severity] > SEVERITY_RANK[acc] ? w.severity : acc),
+    "info",
+  );
 }

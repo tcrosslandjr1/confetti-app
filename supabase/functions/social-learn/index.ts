@@ -27,14 +27,17 @@ Deno.serve(async (req) => {
 
   try {
     const b = (await req.json()) as Body;
-    if (!b.pasted || b.pasted.trim().length < 5) return json({ error: "Need some pasted content" }, 400);
+    if (!b.pasted || b.pasted.trim().length < 5)
+      return json({ error: "Need some pasted content" }, 400);
 
     const apiKey = Deno.env.get("LOVABLE_API_KEY");
     if (!apiKey) return json({ error: "missing LOVABLE_API_KEY" }, 500);
 
-    const handlesBlock = Object.entries(b.handles ?? {})
-      .filter(([, v]) => v)
-      .map(([k, v]) => `${k}: @${v}`).join("\n") || "(none)";
+    const handlesBlock =
+      Object.entries(b.handles ?? {})
+        .filter(([, v]) => v)
+        .map(([k, v]) => `${k}: @${v}`)
+        .join("\n") || "(none)";
 
     const sys = `You are a taste analyst for Confetti, a day-planning app.
 The user pasted social-media content (their bio, top hashtags, favorite creators, recent captions, etc.).

@@ -34,7 +34,9 @@ export const CHECKLIST: ChecklistItem[] = [
         });
         if (!res.ok) return false;
         const json = (await res.json()) as { saveUrl?: string };
-        return typeof json.saveUrl === "string" && json.saveUrl.startsWith("https://pay.google.com/");
+        return (
+          typeof json.saveUrl === "string" && json.saveUrl.startsWith("https://pay.google.com/")
+        );
       } catch {
         return false;
       }
@@ -43,7 +45,8 @@ export const CHECKLIST: ChecklistItem[] = [
   {
     id: "apple-wallet-pass",
     title: "Apple Wallet pass",
-    description: "Pass type ID, team ID, signing cert, and WWDR cert in place to issue .pkpass downloads.",
+    description:
+      "Pass type ID, team ID, signing cert, and WWDR cert in place to issue .pkpass downloads.",
   },
 ];
 

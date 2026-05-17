@@ -11,10 +11,7 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/admin/wallet-debug")({
   head: () => ({
-    meta: [
-      { title: "Wallet JWT Debug — Admin" },
-      { name: "robots", content: "noindex, nofollow" },
-    ],
+    meta: [{ title: "Wallet JWT Debug — Admin" }, { name: "robots", content: "noindex, nofollow" }],
   }),
   component: WalletDebugPage,
 });
@@ -79,7 +76,8 @@ function WalletDebugPage() {
       let stops: Stop[];
       try {
         stops = JSON.parse(stopsJson);
-        if (!Array.isArray(stops) || stops.length === 0) throw new Error("stops must be a non-empty array");
+        if (!Array.isArray(stops) || stops.length === 0)
+          throw new Error("stops must be a non-empty array");
       } catch (e) {
         throw new Error(`Invalid stops JSON: ${(e as Error).message}`);
       }
@@ -120,7 +118,8 @@ function WalletDebugPage() {
         <div>
           <h1 className="font-display text-2xl font-bold">Google Wallet JWT Debug</h1>
           <p className="text-sm text-muted-foreground">
-            Admin-only. Generates a signed JWT for a sample plan and shows decoded claims, classId, objectId, and barcode so you can verify they match the Generic class schema.
+            Admin-only. Generates a signed JWT for a sample plan and shows decoded claims, classId,
+            objectId, and barcode so you can verify they match the Generic class schema.
           </p>
         </div>
       </header>
@@ -130,16 +129,18 @@ function WalletDebugPage() {
           Plan input
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          {(["loopId", "passenger", "from", "to", "date", "gate", "boardingTime"] as const).map((k) => (
-            <div key={k} className="space-y-1.5">
-              <Label htmlFor={k}>{k}</Label>
-              <Input
-                id={k}
-                value={form[k]}
-                onChange={(e) => setForm({ ...form, [k]: e.target.value })}
-              />
-            </div>
-          ))}
+          {(["loopId", "passenger", "from", "to", "date", "gate", "boardingTime"] as const).map(
+            (k) => (
+              <div key={k} className="space-y-1.5">
+                <Label htmlFor={k}>{k}</Label>
+                <Input
+                  id={k}
+                  value={form[k]}
+                  onChange={(e) => setForm({ ...form, [k]: e.target.value })}
+                />
+              </div>
+            ),
+          )}
         </div>
         <div className="mt-4 space-y-1.5">
           <Label htmlFor="stops">stops (JSON array)</Label>
@@ -237,7 +238,11 @@ function WalletDebugPage() {
                   <Button size="sm" variant="outline" onClick={() => copy("JWT", result.jwt)}>
                     <Copy className="mr-1 h-3 w-3" /> JWT
                   </Button>
-                  <Button size="sm" variant="outline" onClick={() => copy("Save URL", result.saveUrl)}>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => copy("Save URL", result.saveUrl)}
+                  >
                     <Copy className="mr-1 h-3 w-3" /> Save URL
                   </Button>
                 </div>

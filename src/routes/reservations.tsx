@@ -40,10 +40,22 @@ function ReservationsPage() {
 
   useEffect(() => {
     if (authLoading) return;
-    if (!user) { nav({ to: "/auth" }); return; }
-    if (viewAs === "admin") { nav({ to: "/admin" }); return; }
-    if (viewAs === "business") { nav({ to: "/advertise/portal" }); return; }
-    if (viewAs === "visitor") { nav({ to: "/" }); return; }
+    if (!user) {
+      nav({ to: "/auth" });
+      return;
+    }
+    if (viewAs === "admin") {
+      nav({ to: "/admin" });
+      return;
+    }
+    if (viewAs === "business") {
+      nav({ to: "/advertise/portal" });
+      return;
+    }
+    if (viewAs === "visitor") {
+      nav({ to: "/" });
+      return;
+    }
     listReservations()
       .then(setRows)
       .catch((e) => setErr(e.message));

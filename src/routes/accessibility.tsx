@@ -70,8 +70,8 @@ function AccessibilityPage() {
             >
               Web Content Accessibility Guidelines (WCAG) 2.2, Level AA
             </a>
-            . We also consider EN 301 549 (EU), Section 508 (US), and the European Accessibility
-            Act (EAA, effective June 2025).
+            . We also consider EN 301 549 (EU), Section 508 (US), and the European Accessibility Act
+            (EAA, effective June 2025).
           </p>
         </Section>
 
@@ -89,8 +89,8 @@ function AccessibilityPage() {
         <Section id="limitations" title="4. Known limitations">
           <p>
             Some areas are still being improved. Known issues include older marketing pages, some
-            complex data tables, and embedded third-party content (maps, video) that we don't
-            fully control. We're actively working on these.
+            complex data tables, and embedded third-party content (maps, video) that we don't fully
+            control. We're actively working on these.
           </p>
         </Section>
 
@@ -100,8 +100,8 @@ function AccessibilityPage() {
             <a className="text-foreground underline" href="mailto:accessibility@confettiplan.app">
               accessibility@confettiplan.app
             </a>
-            . We aim to respond within 5 business days. Please include the page URL, the issue,
-            and any assistive technology you're using.
+            . We aim to respond within 5 business days. Please include the page URL, the issue, and
+            any assistive technology you're using.
           </p>
         </Section>
 

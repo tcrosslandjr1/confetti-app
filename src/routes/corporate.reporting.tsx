@@ -2,10 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
-import {
-  CorporatePageHeader,
-  useActiveCorporateCompany,
-} from "@/components/CorporateShell";
+import { CorporatePageHeader, useActiveCorporateCompany } from "@/components/CorporateShell";
 
 export const Route = createFileRoute("/corporate/reporting")({
   component: CorporateReportingPage,
@@ -49,12 +46,8 @@ function CorporateReportingPage() {
       />
       <div className="grid gap-4 md:grid-cols-3">
         <Card className="p-5">
-          <div className="text-xs uppercase tracking-widest text-muted-foreground">
-            Total spend
-          </div>
-          <div className="mt-2 text-3xl font-semibold">
-            ${(totalSpend / 100).toFixed(0)}
-          </div>
+          <div className="text-xs uppercase tracking-widest text-muted-foreground">Total spend</div>
+          <div className="mt-2 text-3xl font-semibold">${(totalSpend / 100).toFixed(0)}</div>
         </Card>
         <Card className="p-5">
           <div className="text-xs uppercase tracking-widest text-muted-foreground">
@@ -77,14 +70,10 @@ function CorporateReportingPage() {
             {[...byTeam.entries()].map(([team, cents]) => (
               <li key={team} className="flex justify-between">
                 <span className="text-muted-foreground">{team.slice(0, 8)}</span>
-                <span className="font-medium">
-                  ${(cents / 100).toFixed(0)}
-                </span>
+                <span className="font-medium">${(cents / 100).toFixed(0)}</span>
               </li>
             ))}
-            {byTeam.size === 0 && (
-              <li className="text-muted-foreground">No data.</li>
-            )}
+            {byTeam.size === 0 && <li className="text-muted-foreground">No data.</li>}
           </ul>
         </Card>
         <Card className="p-6">
@@ -93,14 +82,10 @@ function CorporateReportingPage() {
             {[...byCity.entries()].map(([city, cents]) => (
               <li key={city} className="flex justify-between">
                 <span className="text-muted-foreground">{city}</span>
-                <span className="font-medium">
-                  ${(cents / 100).toFixed(0)}
-                </span>
+                <span className="font-medium">${(cents / 100).toFixed(0)}</span>
               </li>
             ))}
-            {byCity.size === 0 && (
-              <li className="text-muted-foreground">No data.</li>
-            )}
+            {byCity.size === 0 && <li className="text-muted-foreground">No data.</li>}
           </ul>
         </Card>
       </div>

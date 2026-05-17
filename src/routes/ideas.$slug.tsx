@@ -110,10 +110,15 @@ function fallbackIdeas(slug: string, format: IdeaFormat, excludeTitles: string[]
           : [
               { label: "Start", detail: template.hook },
               { label: "Main move", detail: template.description },
-              { label: "Close", detail: "Add one nearby low-effort stop if the group wants to keep going." },
+              {
+                label: "Close",
+                detail: "Add one nearby low-effort stop if the group wants to keep going.",
+              },
             ],
-      whatToWear: format === "full" ? "Comfortable but photo-ready; choose shoes you can walk in." : "",
-      conversationStarter: format === "full" ? "What’s the most underrated place within 20 minutes of here?" : "",
+      whatToWear:
+        format === "full" ? "Comfortable but photo-ready; choose shoes you can walk in." : "",
+      conversationStarter:
+        format === "full" ? "What’s the most underrated place within 20 minutes of here?" : "",
       imagePrompt: `${template.title} for ${slug.replaceAll("-", " ")}`,
     }));
 }
@@ -301,7 +306,11 @@ function IdeasPage() {
           {current ? (
             <FlashCard idea={current} format={format} occasionGradient={occasion.gradient} />
           ) : (
-            <EmptyDeck onReset={reset} onGenerate={() => generateMore({ showNew: true })} loading={loading} />
+            <EmptyDeck
+              onReset={reset}
+              onGenerate={() => generateMore({ showNew: true })}
+              loading={loading}
+            />
           )}
 
           {current && (

@@ -27,9 +27,7 @@ export function ViralNow({ city, limit = 8 }: { city?: string; limit?: number })
   );
   useEffect(() => {
     if (city) return;
-    return subscribeSelectedCity(() =>
-      setSelectedName((getSelectedCity() ?? DEFAULT_CITY).name),
-    );
+    return subscribeSelectedCity(() => setSelectedName((getSelectedCity() ?? DEFAULT_CITY).name));
   }, [city]);
   const resolvedCity = city ?? selectedName;
   const [venues, setVenues] = useState<ViralVenue[] | null>(null);
@@ -145,7 +143,14 @@ function ViralCard({ v }: { v: ViralVenue }) {
           <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2">{v.summary}</p>
         )}
         {(signals.length > 0 || rationale) && (
-          <WhyThisPick signals={signals} rationale={rationale} className="mt-2" compact pickId={`viral:${v.id}`} context="viral-now" />
+          <WhyThisPick
+            signals={signals}
+            rationale={rationale}
+            className="mt-2"
+            compact
+            pickId={`viral:${v.id}`}
+            context="viral-now"
+          />
         )}
       </div>
     </Link>

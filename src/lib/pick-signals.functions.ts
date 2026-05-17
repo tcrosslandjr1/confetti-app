@@ -128,8 +128,7 @@ export const getTasteCandidates = createServerFn({ method: "GET" })
     for (const row of data ?? []) {
       const v = (row.value || "").toLowerCase();
       if (!v) continue;
-      const b =
-        buckets.get(v) ?? { linger: 0, save: 0, reopen: 0, swipe_away: 0 };
+      const b = buckets.get(v) ?? { linger: 0, save: 0, reopen: 0, swipe_away: 0 };
       const k = row.kind as keyof typeof b;
       if (k in b) (b as Record<string, number>)[k] = (b[k] ?? 0) + 1;
       buckets.set(v, b);
@@ -171,10 +170,16 @@ export const confirmTasteUpdate = createServerFn({ method: "POST" })
         avoid?: string[];
       }) || {};
     const loves = Array.from(
-      new Set([...(tp.loves ?? []).map((s) => s.toLowerCase()), ...data.loves.map((s) => s.toLowerCase())]),
+      new Set([
+        ...(tp.loves ?? []).map((s) => s.toLowerCase()),
+        ...data.loves.map((s) => s.toLowerCase()),
+      ]),
     ).slice(0, 30);
     const avoid = Array.from(
-      new Set([...(tp.avoid ?? []).map((s) => s.toLowerCase()), ...data.avoids.map((s) => s.toLowerCase())]),
+      new Set([
+        ...(tp.avoid ?? []).map((s) => s.toLowerCase()),
+        ...data.avoids.map((s) => s.toLowerCase()),
+      ]),
     ).slice(0, 30);
     // Drop anything that ended up on both lists in favor of the most recent vote.
     const filteredLoves = loves.filter((l) => !data.avoids.map((s) => s.toLowerCase()).includes(l));

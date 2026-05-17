@@ -109,7 +109,12 @@ function EventAnalyticsPage() {
           label="Median time-to-interaction"
           value={stats.medianTti != null ? `${stats.medianTti} ms` : "—"}
         />
-        <Kpi icon={AlertTriangle} label="Errors" value={stats.errors} tone={stats.errors > 0 ? "warn" : "ok"} />
+        <Kpi
+          icon={AlertTriangle}
+          label="Errors"
+          value={stats.errors}
+          tone={stats.errors > 0 ? "warn" : "ok"}
+        />
       </div>
 
       {/* Per-path table */}
@@ -159,7 +164,9 @@ function EventAnalyticsPage() {
               <li key={e.id} className="rounded-lg border border-border bg-card p-3 text-xs">
                 <div className="flex items-center justify-between">
                   <span className="font-mono font-bold">{e.event_name}</span>
-                  <span className="text-muted-foreground">{new Date(e.created_at).toLocaleString()}</span>
+                  <span className="text-muted-foreground">
+                    {new Date(e.created_at).toLocaleString()}
+                  </span>
                 </div>
                 <div className="mt-1 text-muted-foreground">{e.path}</div>
                 {e.metadata && (
@@ -314,7 +321,13 @@ function computeStats(rows: Row[]) {
   // scroll depth by path — count distinct sessions reaching each milestone
   const scrollMap = new Map<
     string,
-    { sessions: Set<string>; p25: Set<string>; p50: Set<string>; p75: Set<string>; p100: Set<string> }
+    {
+      sessions: Set<string>;
+      p25: Set<string>;
+      p50: Set<string>;
+      p75: Set<string>;
+      p100: Set<string>;
+    }
   >();
   for (const r of rows) {
     if (!scrollMap.has(r.path))

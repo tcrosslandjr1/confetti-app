@@ -299,17 +299,17 @@ function AdminVenuesPage() {
                 <Plus className="mr-1 h-4 w-4" /> Add venue
               </Button>
             </DialogTrigger>
-          <VenueDialog
-            title="Add venue"
-            description="Create a new venue. Customers will see it in search and the wizard."
-            initial={EMPTY_DRAFT}
-            submitLabel="Add venue"
-            onSubmit={async (draft) => {
-              const ok = await onCreate(draft);
-              if (ok) setAdding(false);
-            }}
-          />
-        </Dialog>
+            <VenueDialog
+              title="Add venue"
+              description="Create a new venue. Customers will see it in search and the wizard."
+              initial={EMPTY_DRAFT}
+              submitLabel="Add venue"
+              onSubmit={async (draft) => {
+                const ok = await onCreate(draft);
+                if (ok) setAdding(false);
+              }}
+            />
+          </Dialog>
         </div>
       </header>
 

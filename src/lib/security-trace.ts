@@ -3,10 +3,7 @@
 // localStorage so admins can trace recent activity across navigations.
 import { useSyncExternalStore } from "react";
 
-export type SecurityTraceKind =
-  | "view-switch"
-  | "view-exit"
-  | "protected-attempt";
+export type SecurityTraceKind = "view-switch" | "view-exit" | "protected-attempt";
 
 export type SecurityTraceOutcome = "allowed" | "denied" | "info";
 

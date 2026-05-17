@@ -4,10 +4,7 @@ import { Users } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  CorporatePageHeader,
-  useActiveCorporateCompany,
-} from "@/components/CorporateShell";
+import { CorporatePageHeader, useActiveCorporateCompany } from "@/components/CorporateShell";
 
 export const Route = createFileRoute("/corporate/teams")({
   component: CorporateTeamsPage,
@@ -34,9 +31,7 @@ function CorporateTeamsPage() {
         .select("team_id")
         .in("team_id", ids);
       const counts = new Map<string, number>();
-      (members ?? []).forEach((m) =>
-        counts.set(m.team_id, (counts.get(m.team_id) ?? 0) + 1),
-      );
+      (members ?? []).forEach((m) => counts.set(m.team_id, (counts.get(m.team_id) ?? 0) + 1));
       return rows.map((r) => ({ ...r, member_count: counts.get(r.id) ?? 0 }));
     },
   });
@@ -50,9 +45,7 @@ function CorporateTeamsPage() {
         actions={<Button>New team</Button>}
       />
       {(!teams || teams.length === 0) && (
-        <Card className="p-8 text-center text-sm text-muted-foreground">
-          No teams yet.
-        </Card>
+        <Card className="p-8 text-center text-sm text-muted-foreground">No teams yet.</Card>
       )}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {teams?.map((t) => (
@@ -60,20 +53,14 @@ function CorporateTeamsPage() {
             <div className="flex items-start justify-between">
               <div>
                 <h3 className="text-lg font-semibold">{t.name}</h3>
-                <p className="text-xs text-muted-foreground">
-                  {t.city ?? "Unspecified city"}
-                </p>
+                <p className="text-xs text-muted-foreground">{t.city ?? "Unspecified city"}</p>
               </div>
               <span className="inline-flex items-center gap-1 rounded-full bg-muted px-3 py-1 text-xs">
                 <Users className="size-3" />
                 {t.member_count}
               </span>
             </div>
-            {t.description && (
-              <p className="mt-3 text-sm text-muted-foreground">
-                {t.description}
-              </p>
-            )}
+            {t.description && <p className="mt-3 text-sm text-muted-foreground">{t.description}</p>}
             <div className="mt-4 flex gap-2">
               <Button variant="outline" size="sm">
                 Manage

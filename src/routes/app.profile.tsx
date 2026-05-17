@@ -1,14 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import {
-  ChevronRight,
-  Heart,
-  Bookmark,
-  Trophy,
-  Sparkles,
-  Settings,
-  LogOut,
-} from "lucide-react";
+import { ChevronRight, Heart, Bookmark, Trophy, Sparkles, Settings, LogOut } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { MobileHeader } from "@/components/AppShell";
@@ -41,9 +33,18 @@ function ProfilePage() {
     queryKey: ["app", "profile", "counts", userId],
     queryFn: async () => {
       const [trips, faves, bookings] = await Promise.all([
-        supabase.from("itineraries").select("id", { count: "exact", head: true }).eq("user_id", userId!),
-        supabase.from("favorite_stops").select("id", { count: "exact", head: true }).eq("user_id", userId!),
-        supabase.from("bookings").select("id", { count: "exact", head: true }).eq("user_id", userId!),
+        supabase
+          .from("itineraries")
+          .select("id", { count: "exact", head: true })
+          .eq("user_id", userId!),
+        supabase
+          .from("favorite_stops")
+          .select("id", { count: "exact", head: true })
+          .eq("user_id", userId!),
+        supabase
+          .from("bookings")
+          .select("id", { count: "exact", head: true })
+          .eq("user_id", userId!),
       ]);
       return {
         trips: trips.count ?? 0,
@@ -120,9 +121,7 @@ function Stat({ label, value }: { label: string; value: number }) {
   return (
     <Card className="p-3 text-center">
       <div className="text-xl font-bold">{value}</div>
-      <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
-        {label}
-      </div>
+      <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{label}</div>
     </Card>
   );
 }

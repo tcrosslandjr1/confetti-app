@@ -17,8 +17,7 @@ export function RecapBanner() {
     findPendingRecap()
       .then((r) => {
         if (!alive || !r) return;
-        const dismissed =
-          typeof window !== "undefined" ? localStorage.getItem(DISMISS_KEY) : null;
+        const dismissed = typeof window !== "undefined" ? localStorage.getItem(DISMISS_KEY) : null;
         if (dismissed === r.id) return;
         setPending(r);
       })

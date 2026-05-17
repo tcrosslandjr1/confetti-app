@@ -39,9 +39,8 @@ function BusinessLandingPage() {
             <span className="text-primary">Own the night.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Showcase your venue to nightlife lovers searching Confetti every weekend.
-            Verify ownership, control your gallery, and unlock promotional boosts —
-            invite‑only.
+            Showcase your venue to nightlife lovers searching Confetti every weekend. Verify
+            ownership, control your gallery, and unlock promotional boosts — invite‑only.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

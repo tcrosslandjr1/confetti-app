@@ -50,7 +50,11 @@ const INTEGRATIONS: Integration[] = [
         body: { diag: true },
       });
       if (error) {
-        return { ok: false, detail: error.message, checks: [{ name: "Edge function reachable", ok: false, detail: error.message }] };
+        return {
+          ok: false,
+          detail: error.message,
+          checks: [{ name: "Edge function reachable", ok: false, detail: error.message }],
+        };
       }
       const d = data as {
         ok: boolean;
@@ -61,7 +65,7 @@ const INTEGRATIONS: Integration[] = [
       const failed = d.checks?.find((c) => !c.ok);
       return {
         ok: d.ok,
-        detail: d.ok ? "All checks passed" : failed?.detail ?? "Failed",
+        detail: d.ok ? "All checks passed" : (failed?.detail ?? "Failed"),
         checks: d.checks,
         remediation: d.remediation,
         keyMasked: d.keyMasked,
@@ -115,14 +119,17 @@ function StatusPill({ status, detail }: { status: Status; detail: string }) {
 }
 
 function AdminIntegrationsPage() {
-  const [statuses, setStatuses] = useState<
-    Record<string, { status: Status; result: TestResult }>
-  >({});
+  const [statuses, setStatuses] = useState<Record<string, { status: Status; result: TestResult }>>(
+    {},
+  );
   const [runningAll, setRunningAll] = useState(false);
   const [lastRun, setLastRun] = useState<Date | null>(null);
 
   const runTest = async (i: Integration) => {
-    setStatuses((s) => ({ ...s, [i.key]: { status: "checking", result: { ok: false, detail: "" } } }));
+    setStatuses((s) => ({
+      ...s,
+      [i.key]: { status: "checking", result: { ok: false, detail: "" } },
+    }));
     try {
       const r = await i.test();
       setStatuses((s) => ({ ...s, [i.key]: { status: r.ok ? "ok" : "error", result: r } }));
@@ -185,7 +192,10 @@ function AdminIntegrationsPage() {
 
       <div className="grid gap-4 lg:grid-cols-2">
         {INTEGRATIONS.map((i) => {
-          const st = statuses[i.key] ?? { status: "idle" as Status, result: { ok: false, detail: "" } };
+          const st = statuses[i.key] ?? {
+            status: "idle" as Status,
+            result: { ok: false, detail: "" },
+          };
           const r = st.result;
           return (
             <article

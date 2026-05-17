@@ -3,11 +3,7 @@ import { useEffect, useState } from "react";
 import { Heart, Loader2, Trash2, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth-context";
-import {
-  listMyFavorites,
-  removeFavorite,
-  type VenueFavorite,
-} from "@/lib/venue-favorites";
+import { listMyFavorites, removeFavorite, type VenueFavorite } from "@/lib/venue-favorites";
 
 const SITE_ORIGIN = "https://confettiplan.lovable.app";
 
@@ -108,11 +104,7 @@ function FavoritesPage() {
                   key={fav.id}
                   className="group relative overflow-hidden rounded-2xl border-2 border-ink bg-white shadow-brut"
                 >
-                  <Link
-                    to="/venue/$id"
-                    params={{ id: fav.venue_id }}
-                    className="block"
-                  >
+                  <Link to="/venue/$id" params={{ id: fav.venue_id }} className="block">
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-br from-rose-300 via-fuchsia-400 to-indigo-500">
                       {fav.image_url && (
                         <img

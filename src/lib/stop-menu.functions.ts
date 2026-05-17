@@ -39,23 +39,89 @@ const isUuid = (s: string) =>
 
 const FALLBACK: Record<string, MenuItem[]> = {
   drinks: [
-    { id: "old-fashioned", emoji: "🥃", name: "Old Fashioned", desc: "Bourbon, demerara, angostura, orange", price: 16 },
-    { id: "spritz", emoji: "🥂", name: "Aperol Spritz", desc: "Aperol, prosecco, soda, orange", price: 14 },
-    { id: "negroni", emoji: "🍹", name: "Negroni", desc: "Gin, Campari, sweet vermouth", price: 15 },
-    { id: "house-lager", emoji: "🍺", name: "House Lager", desc: "Local craft, 16oz draft", price: 8 },
+    {
+      id: "old-fashioned",
+      emoji: "🥃",
+      name: "Old Fashioned",
+      desc: "Bourbon, demerara, angostura, orange",
+      price: 16,
+    },
+    {
+      id: "spritz",
+      emoji: "🥂",
+      name: "Aperol Spritz",
+      desc: "Aperol, prosecco, soda, orange",
+      price: 14,
+    },
+    {
+      id: "negroni",
+      emoji: "🍹",
+      name: "Negroni",
+      desc: "Gin, Campari, sweet vermouth",
+      price: 15,
+    },
+    {
+      id: "house-lager",
+      emoji: "🍺",
+      name: "House Lager",
+      desc: "Local craft, 16oz draft",
+      price: 8,
+    },
   ],
   meal: [
-    { id: "burger", emoji: "🍔", name: "Smash Burger", desc: "Double patty, american, pickles, special sauce", price: 18 },
-    { id: "caesar", emoji: "🥗", name: "Little Gem Caesar", desc: "Anchovy, parmesan, sourdough crumbs", price: 14 },
-    { id: "pasta", emoji: "🍝", name: "Cacio e Pepe", desc: "Tonnarelli, pecorino, black pepper", price: 22 },
-    { id: "tiramisu", emoji: "🍰", name: "Tiramisu", desc: "Espresso-soaked savoiardi, mascarpone", price: 12 },
+    {
+      id: "burger",
+      emoji: "🍔",
+      name: "Smash Burger",
+      desc: "Double patty, american, pickles, special sauce",
+      price: 18,
+    },
+    {
+      id: "caesar",
+      emoji: "🥗",
+      name: "Little Gem Caesar",
+      desc: "Anchovy, parmesan, sourdough crumbs",
+      price: 14,
+    },
+    {
+      id: "pasta",
+      emoji: "🍝",
+      name: "Cacio e Pepe",
+      desc: "Tonnarelli, pecorino, black pepper",
+      price: 22,
+    },
+    {
+      id: "tiramisu",
+      emoji: "🍰",
+      name: "Tiramisu",
+      desc: "Espresso-soaked savoiardi, mascarpone",
+      price: 12,
+    },
   ],
   activity: [
-    { id: "entry", emoji: "🎟️", name: "General Entry", desc: "One adult ticket, valid today", price: 25 },
-    { id: "guide", emoji: "📖", name: "Guided Add-on", desc: "45-min expert walkthrough", price: 15 },
+    {
+      id: "entry",
+      emoji: "🎟️",
+      name: "General Entry",
+      desc: "One adult ticket, valid today",
+      price: 25,
+    },
+    {
+      id: "guide",
+      emoji: "📖",
+      name: "Guided Add-on",
+      desc: "45-min expert walkthrough",
+      price: 15,
+    },
   ],
   scenic: [
-    { id: "skip", emoji: "⚡", name: "Skip-the-Line", desc: "Priority entry, valid today", price: 20 },
+    {
+      id: "skip",
+      emoji: "⚡",
+      name: "Skip-the-Line",
+      desc: "Priority entry, valid today",
+      price: 20,
+    },
     { id: "audio", emoji: "🎧", name: "Audio Guide", desc: "Self-paced narrated tour", price: 8 },
   ],
 };
@@ -104,9 +170,7 @@ export const getStopMenu = createServerFn({ method: "POST" })
         const gateway = createLovableAiGatewayProvider(apiKey);
         const model = gateway("google/gemini-2.5-flash");
         const cat = (data.category ?? "drinks").toLowerCase();
-        const venueDesc = data.city
-          ? `${data.stopName} in ${data.city}`
-          : data.stopName;
+        const venueDesc = data.city ? `${data.stopName} in ${data.city}` : data.stopName;
 
         const system =
           "You generate concise, realistic pre-order menus for a night-out booking app. Items must feel native to the venue type. Prices in USD, integer dollars. Each desc is a short ingredient/details line under 120 chars. Use one emoji per item. Provide 4 items.";
@@ -115,8 +179,8 @@ export const getStopMenu = createServerFn({ method: "POST" })
           cat === "meal"
             ? `Generate a 4-item small-plates pre-order menu for ${venueDesc}. Mix shareable starters and one main. Realistic restaurant pricing.`
             : cat === "activity" || cat === "scenic"
-            ? `Generate a 4-item pre-order add-on menu for ${venueDesc} (an ${cat}). Think tickets, upgrades, snacks, merch. Realistic pricing.`
-            : `Generate a 4-item signature cocktail pre-order menu for ${venueDesc}. Mix two cocktails, one beer/wine, one non-alcoholic. Realistic bar pricing.`;
+              ? `Generate a 4-item pre-order add-on menu for ${venueDesc} (an ${cat}). Think tickets, upgrades, snacks, merch. Realistic pricing.`
+              : `Generate a 4-item signature cocktail pre-order menu for ${venueDesc}. Mix two cocktails, one beer/wine, one non-alcoholic. Realistic bar pricing.`;
 
         const { experimental_output } = await generateText({
           model,
@@ -128,11 +192,12 @@ export const getStopMenu = createServerFn({ method: "POST" })
         if (parsed?.items?.length) {
           items = parsed.items.map((it) => ({
             ...it,
-            id: it.id
-              .toLowerCase()
-              .replace(/[^a-z0-9]+/g, "-")
-              .replace(/^-|-$/g, "")
-              .slice(0, 40) || `item-${Math.random().toString(36).slice(2, 8)}`,
+            id:
+              it.id
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/^-|-$/g, "")
+                .slice(0, 40) || `item-${Math.random().toString(36).slice(2, 8)}`,
           }));
         }
       } catch {
@@ -146,14 +211,12 @@ export const getStopMenu = createServerFn({ method: "POST" })
 
     // 3. Cache when possible
     if (persistable && items.length) {
-      await supabase
-        .from("stop_menus")
-        .upsert({
-          stop_id: data.stopId,
-          items: items as unknown as never,
-          source: apiKey ? "ai" : "fallback",
-          generated_at: new Date().toISOString(),
-        });
+      await supabase.from("stop_menus").upsert({
+        stop_id: data.stopId,
+        items: items as unknown as never,
+        source: apiKey ? "ai" : "fallback",
+        generated_at: new Date().toISOString(),
+      });
     }
 
     return { items, cached: false };
@@ -204,9 +267,7 @@ export const placeStopOrder = createServerFn({ method: "POST" })
       throw new Error("This venue isn't verified with Confetti — pre-orders unavailable.");
     }
 
-    const totalCents = Math.round(
-      data.items.reduce((acc, it) => acc + it.price * it.qty, 0) * 100,
-    );
+    const totalCents = Math.round(data.items.reduce((acc, it) => acc + it.price * it.qty, 0) * 100);
     const { data: inserted, error } = await supabase
       .from("stop_orders")
       .insert({
@@ -230,9 +291,7 @@ export const placeStopOrder = createServerFn({ method: "POST" })
 
 export const listStopOrders = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((input: unknown) =>
-    z.object({ stopId: z.string().uuid() }).parse(input),
-  )
+  .inputValidator((input: unknown) => z.object({ stopId: z.string().uuid() }).parse(input))
   .handler(async ({ data, context }) => {
     const { supabase } = context;
     const { data: rows, error } = await supabase

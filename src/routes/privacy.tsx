@@ -104,8 +104,12 @@ function PrivacyPage() {
             <li>Account data: name, email, password hash, profile photo.</li>
             <li>Plan data: trips, RSVPs, messages, preferences, locations you share.</li>
             <li>Device & usage data: IP address, device, browser, pages viewed, referrers.</li>
-            <li>Optional signals: social handles, photos, and taste signals you choose to share.</li>
-            <li>Payment data (processed by our payment providers; we never store full card numbers).</li>
+            <li>
+              Optional signals: social handles, photos, and taste signals you choose to share.
+            </li>
+            <li>
+              Payment data (processed by our payment providers; we never store full card numbers).
+            </li>
           </ul>
         </Section>
 
@@ -121,19 +125,24 @@ function PrivacyPage() {
 
         <Section id="legal" title="4. Legal bases (EEA / UK)">
           <p>
-            We rely on contract (to deliver the service you signed up for), legitimate interests
-            (to improve and secure the product), consent (for optional signals, marketing emails,
-            and non-essential cookies), and legal obligation (tax, security, law enforcement
-            requests).
+            We rely on contract (to deliver the service you signed up for), legitimate interests (to
+            improve and secure the product), consent (for optional signals, marketing emails, and
+            non-essential cookies), and legal obligation (tax, security, law enforcement requests).
           </p>
         </Section>
 
         <Section id="sharing" title="5. Sharing & processors">
           <ul className="list-disc space-y-1.5 pl-5">
             <li>Infrastructure: Lovable Cloud (Supabase), Cloudflare.</li>
-            <li>AI providers: OpenAI, Google, Anthropic via the Lovable AI Gateway. Prompts are processed transiently and not used for cross-customer training.</li>
+            <li>
+              AI providers: OpenAI, Google, Anthropic via the Lovable AI Gateway. Prompts are
+              processed transiently and not used for cross-customer training.
+            </li>
             <li>Payments: Stripe / Paddle (where applicable).</li>
-            <li>Analytics & error monitoring: privacy-preserving providers under data-processing agreements.</li>
+            <li>
+              Analytics & error monitoring: privacy-preserving providers under data-processing
+              agreements.
+            </li>
           </ul>
           <p>We do not sell your personal data.</p>
         </Section>
@@ -170,9 +179,9 @@ function PrivacyPage() {
 
         <Section id="security" title="9. Security">
           <p>
-            We use encryption in transit, hashed passwords, role-based access, and audit logging.
-            No system is perfectly secure; we'll notify you and regulators of any breach as
-            required by law.
+            We use encryption in transit, hashed passwords, role-based access, and audit logging. No
+            system is perfectly secure; we'll notify you and regulators of any breach as required by
+            law.
           </p>
         </Section>
 

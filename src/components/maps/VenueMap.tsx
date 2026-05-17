@@ -25,7 +25,7 @@ export function VenueMap({ name, address, area, lat, lng, height = 180 }: Props)
         lng,
       },
     ],
-    [name, address, area, lat, lng]
+    [name, address, area, lat, lng],
   );
   const points = useGeocodedPoints(inputs);
   const point = points[0] ?? null;
@@ -38,7 +38,7 @@ export function VenueMap({ name, address, area, lat, lng, height = 180 }: Props)
     navigator.geolocation.getCurrentPosition(
       (pos) => setUser({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
       () => {},
-      { timeout: 5000, maximumAge: 60_000 }
+      { timeout: 5000, maximumAge: 60_000 },
     );
   }, []);
 
@@ -53,7 +53,9 @@ export function VenueMap({ name, address, area, lat, lng, height = 180 }: Props)
     );
   }
 
-  const directionsUrl = point ? buildDirectionsUrl([point], "driving") : "https://www.google.com/maps";
+  const directionsUrl = point
+    ? buildDirectionsUrl([point], "driving")
+    : "https://www.google.com/maps";
 
   return (
     <div className="space-y-2">
@@ -89,9 +91,7 @@ export function VenueMap({ name, address, area, lat, lng, height = 180 }: Props)
         </a>
       </div>
       <div className="flex items-baseline justify-between gap-3 text-xs">
-        <span className="text-muted-foreground">
-          {address || area || "Address coming soon"}
-        </span>
+        <span className="text-muted-foreground">{address || area || "Address coming soon"}</span>
         <span className="font-mono font-bold uppercase tracking-widest text-ink/70">
           {travel ? `${travel} away` : user ? "—" : "Tap for ETA"}
         </span>
@@ -164,7 +164,7 @@ function SingleMarker({
         if (status === "OK" && res?.routes[0]?.legs[0]?.duration?.text) {
           onTravel(res.routes[0].legs[0].duration.text);
         }
-      }
+      },
     );
   }, [routesLib, point, user, onTravel]);
 

@@ -309,10 +309,7 @@ export function expandAllergenTerms(term: string): string[] {
  * True if any user-avoided allergen overlaps any dish allergen tag,
  * accounting for common synonyms (e.g. "lactose" ↔ "dairy").
  */
-export function hasAllergenConflict(
-  dishAllergens: string[],
-  avoid: string[] | undefined,
-): boolean {
+export function hasAllergenConflict(dishAllergens: string[], avoid: string[] | undefined): boolean {
   if (!avoid || avoid.length === 0) return false;
   const dishExpanded = new Set<string>();
   for (const a of dishAllergens) for (const e of expandAllergenTerms(a)) dishExpanded.add(e);

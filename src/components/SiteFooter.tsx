@@ -72,13 +72,7 @@ const socials = [
   },
 ];
 
-function FooterAccordionItem({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
+function FooterAccordionItem({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <AccordionPrimitive.Item value={title} className="border-b border-cream/15">
       <AccordionPrimitive.Header className="flex">
@@ -87,16 +81,14 @@ function FooterAccordionItem({
             "flex flex-1 items-center justify-between py-4 text-left",
             "font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-cream/50",
             "hover:text-coral transition-colors",
-            "[&[data-state=open]>svg]:rotate-180"
+            "[&[data-state=open]>svg]:rotate-180",
           )}
         >
           <span>/ {title}</span>
           <ChevronDown className="h-4 w-4 shrink-0 text-cream/50 transition-transform duration-200" />
         </AccordionPrimitive.Trigger>
       </AccordionPrimitive.Header>
-      <AccordionPrimitive.Content
-        className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
-      >
+      <AccordionPrimitive.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
         <div className="pb-4 pt-0">{children}</div>
       </AccordionPrimitive.Content>
     </AccordionPrimitive.Item>

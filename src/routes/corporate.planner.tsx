@@ -46,9 +46,7 @@ function CorporatePlannerPage() {
               <li
                 key={n}
                 className={`grid size-6 place-items-center rounded-full ${
-                  n <= step
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted"
+                  n <= step ? "bg-primary text-primary-foreground" : "bg-muted"
                 }`}
               >
                 {n}
@@ -69,11 +67,7 @@ function CorporatePlannerPage() {
           {step === 2 && (
             <div className="space-y-3">
               <Label>Date & time</Label>
-              <Input
-                type="datetime-local"
-                value={when}
-                onChange={(e) => setWhen(e.target.value)}
-              />
+              <Input type="datetime-local" value={when} onChange={(e) => setWhen(e.target.value)} />
             </div>
           )}
           {step === 3 && (
@@ -107,8 +101,8 @@ function CorporatePlannerPage() {
           {step === 5 && (
             <div className="space-y-3 text-sm">
               <p className="text-muted-foreground">
-                Ready to generate three vetted options for your{" "}
-                <strong>{purpose}</strong> with {size} people.
+                Ready to generate three vetted options for your <strong>{purpose}</strong> with{" "}
+                {size} people.
               </p>
               <Button className="w-full">
                 <Sparkles className="mr-2 size-4" /> Generate options
@@ -117,17 +111,10 @@ function CorporatePlannerPage() {
           )}
 
           <div className="mt-6 flex justify-between">
-            <Button
-              variant="ghost"
-              disabled={step === 1}
-              onClick={() => setStep((s) => s - 1)}
-            >
+            <Button variant="ghost" disabled={step === 1} onClick={() => setStep((s) => s - 1)}>
               Back
             </Button>
-            <Button
-              disabled={step === 5}
-              onClick={() => setStep((s) => Math.min(5, s + 1))}
-            >
+            <Button disabled={step === 5} onClick={() => setStep((s) => Math.min(5, s + 1))}>
               Next
             </Button>
           </div>
@@ -138,13 +125,10 @@ function CorporatePlannerPage() {
             <Card key={id} className="p-6">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold">Option {id}</h3>
-                <span className="rounded-full bg-muted px-3 py-1 text-xs">
-                  Draft
-                </span>
+                <span className="rounded-full bg-muted px-3 py-1 text-xs">Draft</span>
               </div>
               <p className="mt-2 text-sm text-muted-foreground">
-                Venues, timing, and estimated cost will appear here after
-                generation.
+                Venues, timing, and estimated cost will appear here after generation.
               </p>
               <div className="mt-4 flex gap-2">
                 <Button variant="outline" size="sm" disabled>

@@ -3,12 +3,12 @@
 // without a backend dependency. Mirrors the activity-log subscription pattern.
 
 export type WalletEventName =
-  | "wallet_qr_modal_open"      // QR modal shown (desktop or iOS popup-blocked)
-  | "wallet_copy_link"          // user copied the save link
+  | "wallet_qr_modal_open" // QR modal shown (desktop or iOS popup-blocked)
+  | "wallet_copy_link" // user copied the save link
   | "wallet_direct_open_success" // window.open returned a window (Android / iOS new-tab worked)
   | "wallet_direct_open_blocked" // iOS popup blocked → fell back to QR
-  | "wallet_print_qr"           // user opened the print-friendly QR view
-  | "wallet_open_link_click";   // user clicked "Open save link in new tab" inside the modal
+  | "wallet_print_qr" // user opened the print-friendly QR view
+  | "wallet_open_link_click"; // user clicked "Open save link in new tab" inside the modal
 
 export type WalletEvent = {
   name: WalletEventName;

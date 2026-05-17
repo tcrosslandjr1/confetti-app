@@ -11,7 +11,11 @@ import {
   type LatLng,
 } from "@/lib/transport";
 import { findCity } from "@/lib/agents/city-context";
-import { getTransportProfile, subscribeTransportProfile, type TransportProfile } from "@/lib/transport-profile";
+import {
+  getTransportProfile,
+  subscribeTransportProfile,
+  type TransportProfile,
+} from "@/lib/transport-profile";
 
 type Props = {
   from: { lat?: number; lng?: number; name?: string } | undefined;
@@ -51,9 +55,7 @@ export function TravelLeg({ from, to, city, groupSize = 2 }: Props) {
     : null;
 
   const targetCoords: LatLng | null =
-    typeof to.lat === "number" && typeof to.lng === "number"
-      ? { lat: to.lat, lng: to.lng }
-      : null;
+    typeof to.lat === "number" && typeof to.lng === "number" ? { lat: to.lat, lng: to.lng } : null;
 
   // Fall back to label-based maps deep-link when we don't have coords.
   const mapsHref = targetCoords
@@ -122,7 +124,12 @@ export function TravelLeg({ from, to, city, groupSize = 2 }: Props) {
         <div className="mt-2 flex flex-wrap gap-1.5">
           {uberHref && (
             <DeepLinkChip href={uberHref}>
-              <Car className="h-3 w-3" /> {profile.preferredRideshare === "uber" || groupSize < 4 ? (groupSize >= 4 ? "UberXL" : "Uber") : "Uber"}
+              <Car className="h-3 w-3" />{" "}
+              {profile.preferredRideshare === "uber" || groupSize < 4
+                ? groupSize >= 4
+                  ? "UberXL"
+                  : "Uber"
+                : "Uber"}
             </DeepLinkChip>
           )}
           {lyftHref && (
@@ -151,7 +158,9 @@ function Row({ icon, label, value }: { icon: React.ReactNode; label: string; val
   return (
     <div className="flex items-center gap-1.5">
       <span className="text-ink/60">{icon}</span>
-      <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/55">{label}</span>
+      <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/55">
+        {label}
+      </span>
       <span className="ml-auto truncate text-[11px] font-semibold">{value}</span>
     </div>
   );

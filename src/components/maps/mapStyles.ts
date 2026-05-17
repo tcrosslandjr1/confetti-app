@@ -4,7 +4,11 @@ export const confettiMapStyle: google.maps.MapTypeStyle[] = [
   { elementType: "geometry", stylers: [{ color: "#FAF6F0" }] },
   { elementType: "labels.text.fill", stylers: [{ color: "#5A5048" }] },
   { elementType: "labels.text.stroke", stylers: [{ color: "#FAF6F0" }] },
-  { featureType: "administrative", elementType: "geometry.stroke", stylers: [{ color: "#E5DCCC" }] },
+  {
+    featureType: "administrative",
+    elementType: "geometry.stroke",
+    stylers: [{ color: "#E5DCCC" }],
+  },
   { featureType: "administrative.land_parcel", stylers: [{ visibility: "off" }] },
   { featureType: "administrative.neighborhood", stylers: [{ visibility: "off" }] },
   { featureType: "poi", elementType: "labels.icon", stylers: [{ color: "#F0905A" }] },

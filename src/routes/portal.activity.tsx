@@ -230,7 +230,9 @@ function PortalActivityPage() {
             <Filter className="h-3 w-3" /> Filter
           </div>
           <label className="flex items-center gap-2 text-xs">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">Plan</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+              Plan
+            </span>
             <select
               value={tripFilter}
               onChange={(e) => setTripFilter(e.target.value)}
@@ -245,7 +247,9 @@ function PortalActivityPage() {
             </select>
           </label>
           <label className="flex items-center gap-2 text-xs">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">Type</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+              Type
+            </span>
             <select
               value={kindFilter}
               onChange={(e) => setKindFilter(e.target.value as KindFilter)}
@@ -269,7 +273,8 @@ function PortalActivityPage() {
         <div className="mt-6 rounded-2xl border-2 border-dashed border-ink/30 bg-cream/40 p-8 text-center">
           <Activity className="mx-auto h-6 w-6 text-ink/40" />
           <p className="mt-2 text-sm text-muted-foreground">
-            No activity yet. As you and your group check in, swap stops, or reschedule, every change shows up here.
+            No activity yet. As you and your group check in, swap stops, or reschedule, every change
+            shows up here.
           </p>
           <Link
             to="/portal"
@@ -289,7 +294,10 @@ function PortalActivityPage() {
                 {group.items.map((e) => {
                   const Icon = ICONS[e.kind] ?? Activity;
                   return (
-                    <li key={e.id} className="flex items-start gap-3 rounded-xl px-2 py-2 hover:bg-cream/60">
+                    <li
+                      key={e.id}
+                      className="flex items-start gap-3 rounded-xl px-2 py-2 hover:bg-cream/60"
+                    >
                       <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink bg-cream text-ink">
                         <Icon className="h-4 w-4" />
                       </span>
@@ -339,7 +347,12 @@ function PortalActivityPage() {
             type="button"
             onClick={() => {
               if (typeof window === "undefined") return;
-              if (!window.confirm("Clear the entire activity log on this device? This won't affect anyone else.")) return;
+              if (
+                !window.confirm(
+                  "Clear the entire activity log on this device? This won't affect anyone else.",
+                )
+              )
+                return;
               localStorage.removeItem("confetti:activity-log:v1");
               window.dispatchEvent(new CustomEvent("confetti:activity-log:changed"));
             }}

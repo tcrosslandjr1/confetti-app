@@ -206,7 +206,6 @@ export function clearStamps() {
   emit(EVENT_STAMPS);
 }
 
-
 export function getActiveLoop(): ActiveLoop | null {
   if (!isClient()) return null;
   try {
@@ -421,8 +420,20 @@ export const PLAN_PRESETS: PlanPreset[] = [
         vibes: ["✨ Date night", "🎶 Vinyl"],
         stops: [
           { id: "s1", name: "Lila's Patio", type: "Small plates", time: "6:30 PM", area: "Shaw" },
-          { id: "s2", name: "Mason St. Records", type: "Vinyl + nat wine", time: "8:15 PM", area: "U Street" },
-          { id: "s3", name: "Aera Rooftop", type: "Nightcap", time: "10:00 PM", area: "Logan Circle" },
+          {
+            id: "s2",
+            name: "Mason St. Records",
+            type: "Vinyl + nat wine",
+            time: "8:15 PM",
+            area: "U Street",
+          },
+          {
+            id: "s3",
+            name: "Aera Rooftop",
+            type: "Nightcap",
+            time: "10:00 PM",
+            area: "Logan Circle",
+          },
         ],
       }),
   },
@@ -441,9 +452,27 @@ export const PLAN_PRESETS: PlanPreset[] = [
         occasionEmoji: "☀",
         vibes: ["🥐 Slow morning", "🚶 Stroll"],
         stops: [
-          { id: "s1", name: "Bluestone Lane", type: "Brunch + flat whites", time: "10:30 AM", area: "Georgetown" },
-          { id: "s2", name: "Georgetown Waterfront", type: "Riverside walk", time: "12:00 PM", area: "Waterfront" },
-          { id: "s3", name: "Grace Street Coffee", type: "Tasting flight", time: "1:15 PM", area: "Georgetown" },
+          {
+            id: "s1",
+            name: "Bluestone Lane",
+            type: "Brunch + flat whites",
+            time: "10:30 AM",
+            area: "Georgetown",
+          },
+          {
+            id: "s2",
+            name: "Georgetown Waterfront",
+            type: "Riverside walk",
+            time: "12:00 PM",
+            area: "Waterfront",
+          },
+          {
+            id: "s3",
+            name: "Grace Street Coffee",
+            type: "Tasting flight",
+            time: "1:15 PM",
+            area: "Georgetown",
+          },
         ],
       }),
   },
@@ -462,9 +491,27 @@ export const PLAN_PRESETS: PlanPreset[] = [
         occasionEmoji: "🎉",
         vibes: ["🎮 Playful", "🎤 Live music"],
         stops: [
-          { id: "s1", name: "Taqueria Habanero", type: "Tacos + mezcal", time: "7:00 PM", area: "H Street" },
-          { id: "s2", name: "Atlas Arcade", type: "Arcade bar", time: "8:30 PM", area: "Atlas District" },
-          { id: "s3", name: "Pie Shop", type: "Live music + pie", time: "10:00 PM", area: "H Street" },
+          {
+            id: "s1",
+            name: "Taqueria Habanero",
+            type: "Tacos + mezcal",
+            time: "7:00 PM",
+            area: "H Street",
+          },
+          {
+            id: "s2",
+            name: "Atlas Arcade",
+            type: "Arcade bar",
+            time: "8:30 PM",
+            area: "Atlas District",
+          },
+          {
+            id: "s3",
+            name: "Pie Shop",
+            type: "Live music + pie",
+            time: "10:00 PM",
+            area: "H Street",
+          },
         ],
       }),
   },
@@ -483,11 +530,28 @@ export const PLAN_PRESETS: PlanPreset[] = [
         occasionEmoji: "💐",
         vibes: ["🌊 Waterfront", "🥂 Romantic"],
         stops: [
-          { id: "s1", name: "Rappahannock Oyster Bar", type: "Oysters + bubbles", time: "5:30 PM", area: "The Wharf" },
-          { id: "s2", name: "Sunset Cruise", type: "Potomac River", time: "7:00 PM", area: "The Wharf" },
-          { id: "s3", name: "Bar Spero", type: "Speakeasy nightcap", time: "9:15 PM", area: "Capitol Crossing" },
+          {
+            id: "s1",
+            name: "Rappahannock Oyster Bar",
+            type: "Oysters + bubbles",
+            time: "5:30 PM",
+            area: "The Wharf",
+          },
+          {
+            id: "s2",
+            name: "Sunset Cruise",
+            type: "Potomac River",
+            time: "7:00 PM",
+            area: "The Wharf",
+          },
+          {
+            id: "s3",
+            name: "Bar Spero",
+            type: "Speakeasy nightcap",
+            time: "9:15 PM",
+            area: "Capitol Crossing",
+          },
         ],
       }),
   },
 ];
-

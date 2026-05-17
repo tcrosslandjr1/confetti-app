@@ -148,8 +148,8 @@ export function ReportVenueButton({ venueName, city, placeId, className }: Props
             </div>
             {!resolvedPlaceId && (
               <p className="text-xs text-ink/60">
-                Heads up: we couldn't find a Google Places ID for this venue, so this report
-                will only block it for your account.
+                Heads up: we couldn't find a Google Places ID for this venue, so this report will
+                only block it for your account.
               </p>
             )}
           </div>

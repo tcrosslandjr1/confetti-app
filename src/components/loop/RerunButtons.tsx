@@ -9,7 +9,10 @@ import { tasteSummary, loadPrefs } from "@/lib/taste";
 
 type RerunKind = "swap-stops" | "earlier" | "cheaper";
 
-const TWEAKS: Record<RerunKind, { label: string; icon: typeof Sparkles; directive: string; minutesShift: number }> = {
+const TWEAKS: Record<
+  RerunKind,
+  { label: string; icon: typeof Sparkles; directive: string; minutesShift: number }
+> = {
   "swap-stops": {
     label: "Different stops",
     icon: Sparkles,
@@ -97,8 +100,16 @@ export function RerunButtons({ loop }: { loop: ActiveLoop }) {
           to: loop.to,
           boardingTime: plan.stops[0]?.time ?? loop.boardingTime,
           stops: plan.stops.map((s) => ({
-            id: s.id, name: s.name, type: s.type, time: s.time, area: s.area,
-            venueId: s.venueId, lat: s.lat, lng: s.lng, rationale: s.rationale, slot: s.slot,
+            id: s.id,
+            name: s.name,
+            type: s.type,
+            time: s.time,
+            area: s.area,
+            venueId: s.venueId,
+            lat: s.lat,
+            lng: s.lng,
+            rationale: s.rationale,
+            slot: s.slot,
           })),
         }),
         city: plan.city,
@@ -146,7 +157,11 @@ export function RerunButtons({ loop }: { loop: ActiveLoop }) {
               disabled={busy !== null}
               className="inline-flex items-center justify-center gap-1.5 rounded-2xl border-2 border-ink bg-cream px-2 py-2 text-[11px] font-bold text-ink shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {active ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Icon className="h-3.5 w-3.5" />}
+              {active ? (
+                <Loader2 className="h-3.5 w-3.5 animate-spin" />
+              ) : (
+                <Icon className="h-3.5 w-3.5" />
+              )}
               <span className="truncate">{t.label}</span>
             </button>
           );

@@ -90,7 +90,7 @@ export const Route = createFileRoute("/api/admin/wallet/google-debug")({
         if (!parsed.success) {
           return Response.json(
             { error: "Invalid payload", issues: parsed.error.issues, envStatus },
-            { status: 400 }
+            { status: 400 },
           );
         }
         const data = parsed.data;
@@ -98,7 +98,10 @@ export const Route = createFileRoute("/api/admin/wallet/google-debug")({
         const objectSuffix = `${data.loopId}`.replace(/[^a-zA-Z0-9_-]/g, "_");
         const objectId = issuerId ? `${issuerId}.${objectSuffix}` : `<issuerId>.${objectSuffix}`;
         const itinerary = data.stops
-          .map((s, i) => `${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}${s.area ? ` (${s.area})` : ""}`)
+          .map(
+            (s, i) =>
+              `${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}${s.area ? ` (${s.area})` : ""}`,
+          )
           .join("\n");
 
         const barcode = {
@@ -118,7 +121,9 @@ export const Route = createFileRoute("/api/admin/wallet/google-debug")({
             { id: "passenger", header: "Passenger", body: data.passenger },
             { id: "date", header: "Date", body: data.date },
             ...(data.gate ? [{ id: "gate", header: "Gate", body: data.gate }] : []),
-            ...(data.boardingTime ? [{ id: "boarding", header: "Boarding", body: data.boardingTime }] : []),
+            ...(data.boardingTime
+              ? [{ id: "boarding", header: "Boarding", body: data.boardingTime }]
+              : []),
             { id: "itinerary", header: "Itinerary", body: itinerary },
           ],
           barcode,
@@ -144,9 +149,10 @@ export const Route = createFileRoute("/api/admin/wallet/google-debug")({
         checks.push({
           name: "classId starts with issuerId.",
           pass: !!(classId && issuerId && classId.startsWith(`${issuerId}.`)),
-          detail: classId && issuerId
-            ? `${classId}.startsWith("${issuerId}.") = ${classId.startsWith(`${issuerId}.`)}`
-            : "issuerId or classId missing",
+          detail:
+            classId && issuerId
+              ? `${classId}.startsWith("${issuerId}.") = ${classId.startsWith(`${issuerId}.`)}`
+              : "issuerId or classId missing",
         });
         checks.push({
           name: "objectId starts with issuerId.",
@@ -161,7 +167,12 @@ export const Route = createFileRoute("/api/admin/wallet/google-debug")({
         checks.push({
           name: "barcode.value is a valid URL",
           pass: (() => {
-            try { new URL(barcode.value); return true; } catch { return false; }
+            try {
+              new URL(barcode.value);
+              return true;
+            } catch {
+              return false;
+            }
           })(),
           detail: barcode.value,
         });

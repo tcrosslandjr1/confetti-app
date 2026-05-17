@@ -348,8 +348,13 @@ function PortalViralPage() {
             <div className="space-y-1">
               <p className="font-semibold text-foreground">How to use this page</p>
               <ol className="ml-4 list-decimal space-y-0.5">
-                <li>Pick a <strong>city</strong> below to switch the feed.</li>
-                <li>Filter by <strong>vibe</strong> (TikTok Viral, Date Night…) or drag the <strong>Min score</strong> slider for only the hottest spots.</li>
+                <li>
+                  Pick a <strong>city</strong> below to switch the feed.
+                </li>
+                <li>
+                  Filter by <strong>vibe</strong> (TikTok Viral, Date Night…) or drag the{" "}
+                  <strong>Min score</strong> slider for only the hottest spots.
+                </li>
                 <li>Tap any card to see the venue, photos, and the posts driving the buzz.</li>
               </ol>
             </div>
@@ -517,27 +522,41 @@ function PortalViralPage() {
             <ul className="grid gap-1.5 sm:grid-cols-2">
               <li className="flex items-start gap-2">
                 <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-rose-500" />
-                <span><strong>TikTok mentions</strong> · 30% — log-dampened so 1 post still counts.</span>
+                <span>
+                  <strong>TikTok mentions</strong> · 30% — log-dampened so 1 post still counts.
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-fuchsia-500" />
-                <span><strong>Instagram mentions</strong> · 25% — same dampening.</span>
+                <span>
+                  <strong>Instagram mentions</strong> · 25% — same dampening.
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
-                <span><strong>Recency</strong> · 20% — full credit if mentioned in the last 7 days, decays to 30 days.</span>
+                <span>
+                  <strong>Recency</strong> · 20% — full credit if mentioned in the last 7 days,
+                  decays to 30 days.
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-amber-500" />
-                <span><strong>Source authority</strong> · 10% — Eater, Washingtonian, Infatuation, etc. weigh more than random blogs.</span>
+                <span>
+                  <strong>Source authority</strong> · 10% — Eater, Washingtonian, Infatuation, etc.
+                  weigh more than random blogs.
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                <span><strong>Google rating</strong> · 10% — normalized around 3.5–5.0 stars.</span>
+                <span>
+                  <strong>Google rating</strong> · 10% — normalized around 3.5–5.0 stars.
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-sky-500" />
-                <span><strong>App engagement</strong> · 5% — saves, taps, and bookings inside Confetti.</span>
+                <span>
+                  <strong>App engagement</strong> · 5% — saves, taps, and bookings inside Confetti.
+                </span>
               </li>
             </ul>
             <div className="rounded-lg border border-dashed border-border bg-background/60 p-2.5">

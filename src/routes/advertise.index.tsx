@@ -209,9 +209,9 @@ function AdvertiseLanding() {
             Be the plan, <span className="text-gradient">not an afterthought.</span>
           </h1>
           <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-            Confetti is where people decide what to do tonight. Get your venue in front of planners the
-            moment they're choosing — with promoted rails, itinerary boosts, and home-page spotlight
-            slots.
+            Confetti is where people decide what to do tonight. Get your venue in front of planners
+            the moment they're choosing — with promoted rails, itinerary boosts, and home-page
+            spotlight slots.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a
@@ -351,7 +351,9 @@ function AdvertiseLanding() {
                         }`}
                       >
                         <Icon className="h-3.5 w-3.5" />
-                        <span>{s.n}. {s.label}</span>
+                        <span>
+                          {s.n}. {s.label}
+                        </span>
                       </button>
                       {i < 2 && <span className="h-px flex-1 bg-border" />}
                     </li>

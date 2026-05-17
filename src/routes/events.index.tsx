@@ -5,13 +5,7 @@ import { toast } from "sonner";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EventCard } from "@/components/EventCard";
-import {
-  CATEGORIES,
-  CITIES,
-  EVENTS,
-  distanceMiles,
-  type EventCategory,
-} from "@/lib/events";
+import { CATEGORIES, CITIES, EVENTS, distanceMiles, type EventCategory } from "@/lib/events";
 
 type EventsSearch = {
   cat?: EventCategory;

@@ -26,8 +26,7 @@ export const Route = createFileRoute("/business/pricing")({
       { property: "og:title", content: "Pricing — Confetti for Business" },
       {
         property: "og:description",
-        content:
-          "AI-powered discovery. Social-driven visibility. Real nightlife results.",
+        content: "AI-powered discovery. Social-driven visibility. Real nightlife results.",
       },
     ],
   }),
@@ -147,7 +146,10 @@ const COMPARISON: { label: string; values: (string | boolean)[] }[] = [
   { label: "Priority search", values: [false, false, true, true, true] },
   { label: "Hot Spots rotation", values: [false, false, false, true, true] },
   { label: "AI photo refresh", values: ["Monthly", "Weekly", "Weekly", "Daily", "On demand"] },
-  { label: "Analytics depth", values: ["—", "Basic", "Full", "Full + insights", "Full + insights"] },
+  {
+    label: "Analytics depth",
+    values: ["—", "Basic", "Full", "Full + insights", "Full + insights"],
+  },
   { label: "AI content tools", values: [false, false, true, true, true] },
   { label: "Account manager", values: [false, false, false, true, true] },
   { label: "Takeover eligibility", values: [false, false, false, true, true] },
@@ -243,16 +245,13 @@ function PricingHero() {
             <Link to="/business/signup">Get Started</Link>
           </Button>
           <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
-            <a href="mailto:sales@confetti.app?subject=Confetti%20for%20Business">
-              Talk to Sales
-            </a>
+            <a href="mailto:sales@confetti.app?subject=Confetti%20for%20Business">Talk to Sales</a>
           </Button>
         </div>
       </div>
     </section>
   );
 }
-
 
 type CtaHandler = (priceId: string | undefined, name: string, fallback?: string) => void;
 
@@ -285,16 +284,19 @@ function PricingCard({ tier, index, onCta }: { tier: Tier; index: number; onCta:
           Most popular
         </div>
       )}
-      <div className={cn("absolute inset-x-0 top-0 -z-10 h-32 rounded-t-3xl bg-gradient-to-b opacity-60", tier.accent)} />
+      <div
+        className={cn(
+          "absolute inset-x-0 top-0 -z-10 h-32 rounded-t-3xl bg-gradient-to-b opacity-60",
+          tier.accent,
+        )}
+      />
       <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
         {tier.tag}
       </div>
       <h3 className="mt-2 text-2xl font-bold">{tier.name}</h3>
       <div className="mt-4 flex items-baseline gap-1">
         <span className="text-4xl font-bold tracking-tight">{tier.price}</span>
-        {tier.cadence && (
-          <span className="text-sm text-muted-foreground">{tier.cadence}</span>
-        )}
+        {tier.cadence && <span className="text-sm text-muted-foreground">{tier.cadence}</span>}
       </div>
       <p className="mt-3 text-sm text-muted-foreground">{tier.value}</p>
 
@@ -433,9 +435,7 @@ function FAQ() {
       <Accordion type="single" collapsible className="w-full">
         {FAQS.map((f, i) => (
           <AccordionItem key={i} value={`q-${i}`}>
-            <AccordionTrigger className="text-left text-base font-semibold">
-              {f.q}
-            </AccordionTrigger>
+            <AccordionTrigger className="text-left text-base font-semibold">{f.q}</AccordionTrigger>
             <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
           </AccordionItem>
         ))}
@@ -449,9 +449,7 @@ function FinalCTA() {
     <section className="relative overflow-hidden border-t">
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/15 via-orange-100/40 to-background" />
       <div className="mx-auto max-w-4xl px-6 py-20 text-center">
-        <h2 className="text-balance text-4xl font-bold md:text-5xl">
-          Ready to grow your venue?
-        </h2>
+        <h2 className="text-balance text-4xl font-bold md:text-5xl">Ready to grow your venue?</h2>
         <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
           Claim your venue in minutes. Unlock promotion tools whenever you're ready.
         </p>
@@ -460,9 +458,7 @@ function FinalCTA() {
             <Link to="/business/signup">Get Started</Link>
           </Button>
           <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
-            <a href="mailto:sales@confetti.app?subject=Confetti%20for%20Business">
-              Talk to Sales
-            </a>
+            <a href="mailto:sales@confetti.app?subject=Confetti%20for%20Business">Talk to Sales</a>
           </Button>
         </div>
       </div>

@@ -11,7 +11,15 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { CheckCircle2, ExternalLink, Instagram, Mail, Music2, Building2, XCircle } from "lucide-react";
+import {
+  CheckCircle2,
+  ExternalLink,
+  Instagram,
+  Mail,
+  Music2,
+  Building2,
+  XCircle,
+} from "lucide-react";
 
 export const Route = createFileRoute("/admin/business-claims")({
   head: () => ({ meta: [{ title: "Venue Claims — Admin" }] }),
@@ -117,8 +125,8 @@ function AdminBusinessClaimsPage() {
                         c.status === "approved"
                           ? "default"
                           : c.status === "rejected"
-                          ? "destructive"
-                          : "secondary"
+                            ? "destructive"
+                            : "secondary"
                       }
                     >
                       {c.status}
@@ -126,8 +134,8 @@ function AdminBusinessClaimsPage() {
                     {!c.venue_id && <Badge variant="outline">New venue</Badge>}
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    {c.venue?.city ?? c.proposed_city ?? "—"} ·{" "}
-                    Submitted {new Date(c.created_at).toLocaleString()}
+                    {c.venue?.city ?? c.proposed_city ?? "—"} · Submitted{" "}
+                    {new Date(c.created_at).toLocaleString()}
                   </p>
                   <p className="text-xs text-muted-foreground">
                     Claimant: {c.claimant?.display_name ?? c.user_id?.slice(0, 8) ?? "—"}
@@ -165,9 +173,7 @@ function AdminBusinessClaimsPage() {
                 {c.evidence_email && (
                   <p className="text-muted-foreground">Email: {c.evidence_email}</p>
                 )}
-                {c.notes && (
-                  <p className="text-muted-foreground italic">"{c.notes}"</p>
-                )}
+                {c.notes && <p className="text-muted-foreground italic">"{c.notes}"</p>}
                 {c.admin_note && c.status !== "pending" && (
                   <p className="text-foreground">
                     <span className="font-medium">Admin note:</span> {c.admin_note}
@@ -180,9 +186,7 @@ function AdminBusinessClaimsPage() {
                   <Textarea
                     placeholder="Admin note (required to reject)"
                     value={notes[c.id] ?? ""}
-                    onChange={(e) =>
-                      setNotes((n) => ({ ...n, [c.id]: e.target.value }))
-                    }
+                    onChange={(e) => setNotes((n) => ({ ...n, [c.id]: e.target.value }))}
                     rows={2}
                   />
                   <div className="flex gap-2">

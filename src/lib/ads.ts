@@ -289,7 +289,10 @@ export async function updateAdvertiser(id: string, patch: Partial<Advertiser>) {
 }
 
 export async function deleteCampaign(id: string) {
-  const { error } = await supabase.from("ad_campaigns" as never).delete().eq("id", id);
+  const { error } = await supabase
+    .from("ad_campaigns" as never)
+    .delete()
+    .eq("id", id);
   if (error) throw error;
 }
 
@@ -559,11 +562,7 @@ export async function listAdminClaims(): Promise<VenueClaim[]> {
   return (data as unknown as VenueClaim[]) ?? [];
 }
 
-export async function reviewVenueClaim(
-  id: string,
-  status: ClaimStatus,
-  admin_note?: string,
-) {
+export async function reviewVenueClaim(id: string, status: ClaimStatus, admin_note?: string) {
   const patch: Record<string, unknown> = {
     status,
     reviewed_at: new Date().toISOString(),
@@ -582,4 +581,3 @@ export async function reviewVenueClaim(
     await setVenueVerified(c.venue_id, true);
   }
 }
-

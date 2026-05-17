@@ -52,9 +52,9 @@ function CookiesPage() {
       <div className="space-y-10">
         <Section id="what" title="1. What are cookies?">
           <p>
-            Cookies are small text files stored on your device when you visit a website. We also
-            use similar technologies like local storage and pixels. Together we call these
-            "cookies" in this policy.
+            Cookies are small text files stored on your device when you visit a website. We also use
+            similar technologies like local storage and pixels. Together we call these "cookies" in
+            this policy.
           </p>
         </Section>
 
@@ -81,8 +81,8 @@ function CookiesPage() {
         <Section id="third-parties" title="3. Third-party cookies">
           <p>
             Some pages may load services from trusted partners (e.g. embedded maps, video, payment
-            forms) that set their own cookies. We list active partners and their purposes here as
-            we add them.
+            forms) that set their own cookies. We list active partners and their purposes here as we
+            add them.
           </p>
         </Section>
 
@@ -100,8 +100,8 @@ function CookiesPage() {
 
         <Section id="changes" title="5. Changes">
           <p>
-            We'll update this policy when our use of cookies changes. The "last updated" date at
-            the top will reflect the most recent change.
+            We'll update this policy when our use of cookies changes. The "last updated" date at the
+            top will reflect the most recent change.
           </p>
         </Section>
 

@@ -3,9 +3,11 @@
 The operating system for Confetti: business model, growth engines, pricing, pitch, sales, and backend principles. Use as the canonical reference for product, agents, and backend decisions.
 
 ## 1. Core Identity
+
 Confetti is an AI-powered nightlife and experience platform connecting users, venues, and corporate teams. It generates personalized plans, curates real-time recommendations, and provides a two-sided marketplace for nightlife discovery and bookings.
 
 ## 2. User Value Proposition
+
 - Discover trending nightlife spots
 - See real-time vibes, reels, and energy levels
 - Generate AI plans (date nights, birthdays, weekends, corporate outings)
@@ -16,6 +18,7 @@ Confetti is an AI-powered nightlife and experience platform connecting users, ve
 Confetti = the daily nightlife companion.
 
 ## 3. Business Value Proposition
+
 - Get discovered by high-spending users
 - Reach corporate teams planning outings
 - Promote events, reels, and specials
@@ -26,6 +29,7 @@ Confetti = the daily nightlife companion.
 Confetti = the digital marketing engine for nightlife venues.
 
 ## 4. Corporate Value Proposition
+
 - Plan team outings in minutes
 - Discover approved venues
 - Manage budgets and receipts
@@ -35,6 +39,7 @@ Confetti = the digital marketing engine for nightlife venues.
 Confetti = the corporate event concierge.
 
 ## 5. User Growth Engine
+
 1. **Tonight Feed** — real-time trending spots, events, deals
 2. **Reels Integration** — TikTok/IG-style discovery in-app
 3. **AI Itinerary Generator** — "Plan my night" as a habit
@@ -44,6 +49,7 @@ Confetti = the corporate event concierge.
 7. **Hotel + Rideshare Partnerships** — nightlife guide for travelers
 
 ## 6. Business Growth Engine
+
 1. **Business Dashboard** — upload events, reels, promotions
 2. **Sponsored Placement** — boosted visibility in feeds
 3. **AI Itinerary Placement** — venues pay to appear in plans
@@ -52,6 +58,7 @@ Confetti = the corporate event concierge.
 6. **QR Codes in Venues** — "Find more places like this on Confetti"
 
 ## 7. Corporate Growth Engine
+
 1. **Corporate Concierge** — AI-generated team outings
 2. **Approved Vendor Lists** — pre-vetted venues for HR
 3. **Budget + Receipt Tools** — easy expense management
@@ -60,12 +67,12 @@ Confetti = the corporate event concierge.
 
 ## 8. Pricing Model
 
-| Tier | Price | Includes |
-|------|-------|----------|
-| Basic | $0–$49/mo | Listed in app, add events, basic analytics |
-| Plus | $149/mo | Featured placement, boosted reels, category priority, corporate visibility |
-| Premium | $399/mo | Top search placement, AI itinerary placement, full analytics, corporate pipeline, account manager |
-| Enterprise | Custom | Multi-location, API access, corporate integrations |
+| Tier       | Price     | Includes                                                                                          |
+| ---------- | --------- | ------------------------------------------------------------------------------------------------- |
+| Basic      | $0–$49/mo | Listed in app, add events, basic analytics                                                        |
+| Plus       | $149/mo   | Featured placement, boosted reels, category priority, corporate visibility                        |
+| Premium    | $399/mo   | Top search placement, AI itinerary placement, full analytics, corporate pipeline, account manager |
+| Enterprise | Custom    | Multi-location, API access, corporate integrations                                                |
 
 ## 9. Pitch Deck Content
 
@@ -76,6 +83,7 @@ Confetti = the corporate event concierge.
 **Why Now** — TikTok drives nightlife decisions. AI enables personalization. Corporate teams want curated experiences. Venues need digital visibility.
 
 **Business Model** — Two-sided revenue engine:
+
 - Users → premium planning
 - Businesses → subscriptions + promotions
 - Corporations → booking fees
@@ -87,6 +95,7 @@ Confetti = the corporate event concierge.
 **Subheadline:** Confetti connects your venue to thousands of users and corporate teams looking for places to go and events to book.
 
 **Value Props:**
+
 - Reach high-spending nightlife explorers
 - Get featured in AI-generated plans
 - Boost your reels and events
@@ -113,6 +122,7 @@ Confetti = the corporate event concierge.
 ## 13. System Prompt for Agents
 
 Confetti System Rules:
+
 1. Always generate personalized nightlife recommendations.
 2. Always consider user preferences, location, time, and group size.
 3. Always prioritize venues with active promotions or boosted visibility.

@@ -216,7 +216,10 @@ function BookingsTabs({
   const rows = tab === "upcoming" ? upcoming : past;
   return (
     <div>
-      <div role="tablist" className="inline-flex rounded-2xl border-2 border-ink bg-cream p-1 shadow-brut">
+      <div
+        role="tablist"
+        className="inline-flex rounded-2xl border-2 border-ink bg-cream p-1 shadow-brut"
+      >
         {(["upcoming", "past"] as const).map((k) => {
           const count = k === "upcoming" ? upcoming.length : past.length;
           const active = tab === k;

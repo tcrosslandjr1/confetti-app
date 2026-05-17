@@ -173,7 +173,8 @@ export const Route = createFileRoute("/api/chat")({
 
           const viral = (viralRes.data ?? [])
             .map((v) => {
-              const tags = Array.isArray(v.tags) && v.tags.length ? ` [${v.tags.slice(0, 3).join(", ")}]` : "";
+              const tags =
+                Array.isArray(v.tags) && v.tags.length ? ` [${v.tags.slice(0, 3).join(", ")}]` : "";
               const hood = v.neighborhood ? ` (${v.neighborhood})` : "";
               return `${v.venue_name}${hood}${tags}`;
             })
@@ -192,13 +193,20 @@ export const Route = createFileRoute("/api/chat")({
           if (topBooked.length)
             ctx.push(`MOST-BOOKED on Confetti (last 30d): ${topBooked.join(" • ")}`);
 
-          const saveCounts = new Map<string, { count: number; cat?: string; hood?: string | null }>();
+          const saveCounts = new Map<
+            string,
+            { count: number; cat?: string; hood?: string | null }
+          >();
           for (const s of (savedRes.data ?? []) as Array<{
             venues?: { name?: string; category?: string; neighborhood?: string | null } | null;
           }>) {
             const v = s.venues;
             if (!v?.name) continue;
-            const cur = saveCounts.get(v.name) ?? { count: 0, cat: v.category, hood: v.neighborhood };
+            const cur = saveCounts.get(v.name) ?? {
+              count: 0,
+              cat: v.category,
+              hood: v.neighborhood,
+            };
             cur.count += 1;
             saveCounts.set(v.name, cur);
           }
@@ -206,8 +214,7 @@ export const Route = createFileRoute("/api/chat")({
             .sort((a, b) => b[1].count - a[1].count)
             .slice(0, 8)
             .map(([n, v]) => `${n}${v.cat ? ` — ${v.cat}` : ""}`);
-          if (topSaved.length)
-            ctx.push(`MOST-SAVED by users: ${topSaved.join(" • ")}`);
+          if (topSaved.length) ctx.push(`MOST-SAVED by users: ${topSaved.join(" • ")}`);
         } catch (err) {
           console.warn("[chat] trending context fetch failed", err);
         }

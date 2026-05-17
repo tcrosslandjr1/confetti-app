@@ -52,12 +52,7 @@ function clampBoost(n: unknown): 0 | 1 | 2 | 3 {
 export function mapVenueRow(row: Tables<"venues">): Venue {
   const gallery = toStringArray(row.gallery_urls as unknown);
   const google = toStringArray(row.google_images as unknown);
-  const hero =
-    row.hero_image_url ||
-    row.image_url ||
-    google[0] ||
-    gallery[0] ||
-    "";
+  const hero = row.hero_image_url || row.image_url || google[0] || gallery[0] || "";
 
   const mapsUrl =
     row.google_maps_url ||

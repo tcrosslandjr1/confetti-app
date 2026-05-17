@@ -106,9 +106,7 @@ export const Route = createFileRoute("/api/admin/wallet/google-class")({
             classId,
             issuerId,
             payloadShapeValid: payloadValid,
-            payloadShapeError: payloadValid
-              ? null
-              : `classId must start with "${issuerId}."`,
+            payloadShapeError: payloadValid ? null : `classId must start with "${issuerId}."`,
             sampleObject: buildSampleObject(classId!, issuerId!),
             googleResponse: res.ok ? { id: body.id, reviewStatus: body.reviewStatus } : body,
           });
@@ -132,7 +130,7 @@ export const Route = createFileRoute("/api/admin/wallet/google-class")({
         if (!classId.startsWith(`${issuerId}.`)) {
           return Response.json(
             { error: `GOOGLE_WALLET_CLASS_ID must start with "${issuerId}."` },
-            { status: 400 }
+            { status: 400 },
           );
         }
 
@@ -142,7 +140,7 @@ export const Route = createFileRoute("/api/admin/wallet/google-class")({
           // Check existence
           const existing = await fetch(
             `${WALLET_API}/genericClass/${encodeURIComponent(classId)}`,
-            { headers: { Authorization: `Bearer ${token}` } }
+            { headers: { Authorization: `Bearer ${token}` } },
           );
           if (existing.ok) {
             const body = await existing.json();

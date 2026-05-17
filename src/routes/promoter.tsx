@@ -12,7 +12,10 @@ export const Route = createFileRoute("/promoter")({
   head: () => ({
     meta: [
       { title: "Promoter Portal — Confetti" },
-      { name: "description", content: "Manage your Confetti promoter profile, jobs, and earnings." },
+      {
+        name: "description",
+        content: "Manage your Confetti promoter profile, jobs, and earnings.",
+      },
     ],
   }),
 });
@@ -44,9 +47,7 @@ function NavTab({ to, icon, label }: { to: string; icon: React.ReactNode; label:
     <Link
       to={to}
       activeOptions={{ exact: to === "/promoter" }}
-      className={cn(
-        "px-3 py-2 rounded-md hover:bg-muted/60 inline-flex items-center gap-2"
-      )}
+      className={cn("px-3 py-2 rounded-md hover:bg-muted/60 inline-flex items-center gap-2")}
       activeProps={{ className: "bg-primary/10 text-primary font-medium" }}
     >
       {icon}

@@ -9,7 +9,11 @@ type Props = {
   instagramUrl?: string | null;
 };
 
-function googleMapsUrl(name?: string | null, address?: string | null, city?: string | null): string {
+function googleMapsUrl(
+  name?: string | null,
+  address?: string | null,
+  city?: string | null,
+): string {
   const q = [name, address, city].filter(Boolean).join(" ");
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q || "")}`;
 }

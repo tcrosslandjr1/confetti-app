@@ -110,9 +110,14 @@ async function diagnose(key: string | undefined) {
       keyPresent: false,
       keyMasked: null,
       checks: [
-        { name: "Secret configured", ok: false, detail: "GOOGLE_PLACES_API_KEY is not set in Lovable Cloud secrets." },
+        {
+          name: "Secret configured",
+          ok: false,
+          detail: "GOOGLE_PLACES_API_KEY is not set in Lovable Cloud secrets.",
+        },
       ],
-      remediation: "Open Lovable Cloud → Secrets and add GOOGLE_PLACES_API_KEY (server-side key with Places API (New) enabled).",
+      remediation:
+        "Open Lovable Cloud → Secrets and add GOOGLE_PLACES_API_KEY (server-side key with Places API (New) enabled).",
     };
   }
   const masked = `${key.slice(0, 6)}…${key.slice(-4)} (len ${key.length})`;
@@ -133,7 +138,11 @@ async function diagnose(key: string | undefined) {
     });
     const text = await res.text();
     let parsed: any = null;
-    try { parsed = JSON.parse(text); } catch { /* keep raw */ }
+    try {
+      parsed = JSON.parse(text);
+    } catch {
+      /* keep raw */
+    }
     if (res.ok) {
       const sample = parsed?.places?.[0];
       checks.push({
@@ -149,11 +158,14 @@ async function diagnose(key: string | undefined) {
       const msg = parsed?.error?.message ?? text.slice(0, 200);
       checks.push({ name: "Places API (New) reachable", ok: false, detail: `${code} — ${msg}` });
       if (/API_KEY_INVALID|API key not valid/i.test(msg)) {
-        remediation = "Key rejected. Create a server-side key with Application restrictions = None and API restrictions including 'Places API (New)'.";
+        remediation =
+          "Key rejected. Create a server-side key with Application restrictions = None and API restrictions including 'Places API (New)'.";
       } else if (/referer|referrer|HTTP referer/i.test(msg)) {
-        remediation = "Browser-restricted key detected. Server calls need an unrestricted (or IP-restricted) key.";
+        remediation =
+          "Browser-restricted key detected. Server calls need an unrestricted (or IP-restricted) key.";
       } else if (/SERVICE_DISABLED|has not been used|disabled/i.test(msg)) {
-        remediation = "Enable 'Places API (New)' in Google Cloud Console → APIs & Services → Library.";
+        remediation =
+          "Enable 'Places API (New)' in Google Cloud Console → APIs & Services → Library.";
       } else if (/billing/i.test(msg)) {
         remediation = "Enable billing on the Google Cloud project linked to this key.";
       } else if (/quota|RESOURCE_EXHAUSTED/i.test(msg)) {
@@ -161,7 +173,11 @@ async function diagnose(key: string | undefined) {
       }
     }
   } catch (e) {
-    checks.push({ name: "Places API (New) reachable", ok: false, detail: `Network error: ${(e as Error).message}` });
+    checks.push({
+      name: "Places API (New) reachable",
+      ok: false,
+      detail: `Network error: ${(e as Error).message}`,
+    });
   }
   return { ok, keyPresent: true, keyMasked: masked, checks, remediation };
 }

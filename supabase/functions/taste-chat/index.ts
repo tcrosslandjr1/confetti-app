@@ -7,14 +7,14 @@ const corsHeaders = {
 
 type Msg = { role: "user" | "assistant"; content: string };
 type Profile = {
-  age_range?: string;            // "20s" | "30s" | "40s" | "50s+" | freeform
-  life_stage?: string;           // single | dating | married | married_with_kids | empty_nest | retired | freeform
-  energy?: string;               // chill | balanced | high_energy
-  music_taste?: string[];        // ["jazz","r&b","afrobeats","classical","country","hip hop","edm",...]
-  scene_keywords?: string[];     // ["upscale","cozy","outdoorsy","intimate","loud","family-friendly","historic","trendy",...]
-  loves?: string[];              // hobbies / activities they love
-  avoid?: string[];              // things they don't like
-  cities?: string[];             // home city + frequent travel cities
+  age_range?: string; // "20s" | "30s" | "40s" | "50s+" | freeform
+  life_stage?: string; // single | dating | married | married_with_kids | empty_nest | retired | freeform
+  energy?: string; // chill | balanced | high_energy
+  music_taste?: string[]; // ["jazz","r&b","afrobeats","classical","country","hip hop","edm",...]
+  scene_keywords?: string[]; // ["upscale","cozy","outdoorsy","intimate","loud","family-friendly","historic","trendy",...]
+  loves?: string[]; // hobbies / activities they love
+  avoid?: string[]; // things they don't like
+  cities?: string[]; // home city + frequent travel cities
 };
 
 type Body = { messages: Msg[]; profile?: Profile };
@@ -62,7 +62,10 @@ Rules:
             loves: { type: "array", items: { type: "string" } },
             avoid: { type: "array", items: { type: "string" } },
             cities: { type: "array", items: { type: "string" } },
-            assistant_message: { type: "string", description: "The next message to show the user." },
+            assistant_message: {
+              type: "string",
+              description: "The next message to show the user.",
+            },
           },
           required: ["assistant_message"],
         },

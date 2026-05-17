@@ -13,9 +13,7 @@ function ReelsPage() {
     queryFn: async () => {
       const { data } = await supabase
         .from("reels")
-        .select(
-          "id,title,caption,video_url,thumbnail_url,city,venue_id,like_count,view_count",
-        )
+        .select("id,title,caption,video_url,thumbnail_url,city,venue_id,like_count,view_count")
         .eq("status", "published")
         .order("trending_score", { ascending: false })
         .limit(20);
@@ -67,21 +65,13 @@ function ReelsPage() {
                 <MapPin className="size-3" /> View venue
               </Link>
             )}
-            <h2 className="mt-3 text-lg font-bold leading-tight">
-              {r.title ?? "Untitled"}
-            </h2>
-            {r.caption && (
-              <p className="mt-1 line-clamp-2 text-sm text-white/80">
-                {r.caption}
-              </p>
-            )}
+            <h2 className="mt-3 text-lg font-bold leading-tight">{r.title ?? "Untitled"}</h2>
+            {r.caption && <p className="mt-1 line-clamp-2 text-sm text-white/80">{r.caption}</p>}
           </div>
         </article>
       ))}
       {!reels?.length && (
-        <div className="grid h-full place-items-center text-sm text-white/70">
-          No reels yet
-        </div>
+        <div className="grid h-full place-items-center text-sm text-white/70">No reels yet</div>
       )}
     </div>
   );

@@ -125,7 +125,7 @@ function SwapStopDialog({
               lat: undefined,
               lng: undefined,
             }
-          : s
+          : s,
       ),
     };
     setActiveLoop(next);
@@ -172,7 +172,15 @@ function SwapStopDialog({
         <Field label="Time" value={time} onChange={setTime} placeholder="7:30 PM" />
       </div>
 
-      <Actions onSave={save} onClose={onClose} saveLabel={<><Repeat2 className="h-3.5 w-3.5" /> Swap & notify</>} />
+      <Actions
+        onSave={save}
+        onClose={onClose}
+        saveLabel={
+          <>
+            <Repeat2 className="h-3.5 w-3.5" /> Swap & notify
+          </>
+        }
+      />
     </Backdrop>
   );
 }
@@ -224,7 +232,12 @@ function RescheduleDialog({
       </p>
 
       <Field label="Date" value={date} onChange={setDate} placeholder="May 15, 2026" />
-      <Field label="Boarding time" value={boardingTime} onChange={setBoardingTime} placeholder="6:30 PM" />
+      <Field
+        label="Boarding time"
+        value={boardingTime}
+        onChange={setBoardingTime}
+        placeholder="6:30 PM"
+      />
 
       <label className="mt-4 block font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70">
         Shift every stop by
@@ -247,7 +260,11 @@ function RescheduleDialog({
       <Actions
         onSave={save}
         onClose={onClose}
-        saveLabel={<><CalendarClock className="h-3.5 w-3.5" /> Save & notify</>}
+        saveLabel={
+          <>
+            <CalendarClock className="h-3.5 w-3.5" /> Save & notify
+          </>
+        }
       />
     </Backdrop>
   );

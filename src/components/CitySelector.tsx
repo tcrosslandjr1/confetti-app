@@ -1,5 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { AlertTriangle, Check, ChevronDown, ExternalLink, MapPin, Navigation, RefreshCw } from "lucide-react";
+import {
+  AlertTriangle,
+  Check,
+  ChevronDown,
+  ExternalLink,
+  MapPin,
+  Navigation,
+  RefreshCw,
+} from "lucide-react";
 import {
   CITIES,
   DEFAULT_CITY,
@@ -78,10 +86,13 @@ export function CitySelector({ compact = false, className = "" }: Props) {
       const loc = result.location;
       setLocError(null);
       // Snap to the nearest city in our registry.
-      const nearest = CITIES.reduce((best, c) => {
-        const d = Math.hypot(c.lat - loc.lat, c.lng - loc.lng);
-        return d < best.d ? { c, d } : best;
-      }, { c: DEFAULT_CITY, d: Number.POSITIVE_INFINITY }).c;
+      const nearest = CITIES.reduce(
+        (best, c) => {
+          const d = Math.hypot(c.lat - loc.lat, c.lng - loc.lng);
+          return d < best.d ? { c, d } : best;
+        },
+        { c: DEFAULT_CITY, d: Number.POSITIVE_INFINITY },
+      ).c;
       setSelectedCity(nearest.slug);
       setOpen(false);
       toast.success(`Snapped to ${nearest.name}`);
@@ -232,7 +243,9 @@ export function CitySelector({ compact = false, className = "" }: Props) {
                     }`}
                   >
                     <span className="flex items-center gap-2 min-w-0">
-                      <span aria-hidden className="text-base">{c.emoji}</span>
+                      <span aria-hidden className="text-base">
+                        {c.emoji}
+                      </span>
                       <span className="min-w-0">
                         <span className="block truncate font-display text-sm font-bold text-ink">
                           {c.name}

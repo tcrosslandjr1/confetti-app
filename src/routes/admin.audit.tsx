@@ -490,7 +490,9 @@ function PlacesMatchAuditSection() {
   const [rows, setRows] = useState<PlacesMatchRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
-  const [statusFilter, setStatusFilter] = useState<"all" | "matched" | "fallback" | "unmatched">("all");
+  const [statusFilter, setStatusFilter] = useState<"all" | "matched" | "fallback" | "unmatched">(
+    "all",
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -518,7 +520,8 @@ function PlacesMatchAuditSection() {
     return rows.filter((r) => {
       if (statusFilter !== "all" && r.status !== statusFilter) return false;
       if (s) {
-        const hay = `${r.source} ${r.city ?? ""} ${r.requested_name ?? ""} ${r.matched_name ?? ""} ${r.place_id ?? ""} ${r.query ?? ""}`.toLowerCase();
+        const hay =
+          `${r.source} ${r.city ?? ""} ${r.requested_name ?? ""} ${r.matched_name ?? ""} ${r.place_id ?? ""} ${r.query ?? ""}`.toLowerCase();
         if (!hay.includes(s)) return false;
       }
       return true;
@@ -574,7 +577,8 @@ function PlacesMatchAuditSection() {
             <MapPin className="h-6 w-6 text-coral" /> Places match audit
           </h2>
           <p className="text-sm text-muted-foreground">
-            Every Google Places lookup performed while building an itinerary — name, status, and score.
+            Every Google Places lookup performed while building an itinerary — name, status, and
+            score.
           </p>
         </div>
         <div className="flex gap-2">
@@ -750,11 +754,7 @@ function SecurityTraceSection() {
     URL.revokeObjectURL(a.href);
   }
 
-  const KINDS: SecurityTraceEntry["kind"][] = [
-    "view-switch",
-    "view-exit",
-    "protected-attempt",
-  ];
+  const KINDS: SecurityTraceEntry["kind"][] = ["view-switch", "view-exit", "protected-attempt"];
 
   return (
     <section className="mt-12 space-y-4">

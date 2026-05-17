@@ -19,7 +19,11 @@ export function isAppleDevice(): boolean {
   const ua = navigator.userAgent || "";
   const platform = navigator.platform || "";
   if (/iPhone|iPad|iPod/.test(ua)) return true;
-  if (platform === "MacIntel" && (navigator as Navigator & { maxTouchPoints?: number }).maxTouchPoints! > 1) return true;
+  if (
+    platform === "MacIntel" &&
+    (navigator as Navigator & { maxTouchPoints?: number }).maxTouchPoints! > 1
+  )
+    return true;
   if (/Macintosh/.test(ua)) return true;
   return false;
 }

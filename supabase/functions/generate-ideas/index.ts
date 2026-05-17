@@ -17,7 +17,8 @@ type Body = {
 
 const FORMAT_PROMPT: Record<Body["format"], string> = {
   quick: "Each idea is ONE single venue, activity, or moment. Short, punchy. No multi-stop plans.",
-  bundle: "Each idea is a themed evening BUNDLE: dinner + a main activity + a nightcap. Give a brief 3-step timeline.",
+  bundle:
+    "Each idea is a themed evening BUNDLE: dinner + a main activity + a nightcap. Give a brief 3-step timeline.",
   full: "Each idea is a FULL plan: vibe summary, 2-3 venue/activity suggestions bundled, est. cost, time of day, what to wear, conversation starters.",
 };
 
@@ -26,7 +27,15 @@ Deno.serve(async (req) => {
 
   try {
     const body = (await req.json()) as Body;
-    const { occasion, vibe, format, count = 6, city = "your city", excludeTitles = [], tasteSummary } = body;
+    const {
+      occasion,
+      vibe,
+      format,
+      count = 6,
+      city = "your city",
+      excludeTitles = [],
+      tasteSummary,
+    } = body;
     if (!occasion || !format) return json({ error: "occasion and format required" }, 400);
 
     const apiKey = Deno.env.get("LOVABLE_API_KEY");
@@ -78,9 +87,19 @@ For ALL ideas: be specific (name the venue type and what to do/order), match the
                   title: { type: "string", description: "5-9 word evocative title" },
                   hook: { type: "string", description: "One-sentence hook, max 140 chars" },
                   description: { type: "string", description: "2-3 sentence description" },
-                  vibeTags: { type: "array", items: { type: "string" }, description: "3-5 short vibe tags" },
-                  estCost: { type: "string", description: "e.g. '$', '$$', '$$$' or '$40-80 / couple'" },
-                  timeOfDay: { type: "string", enum: ["Morning", "Afternoon", "Evening", "Late night", "All day"] },
+                  vibeTags: {
+                    type: "array",
+                    items: { type: "string" },
+                    description: "3-5 short vibe tags",
+                  },
+                  estCost: {
+                    type: "string",
+                    description: "e.g. '$', '$$', '$$$' or '$40-80 / couple'",
+                  },
+                  timeOfDay: {
+                    type: "string",
+                    enum: ["Morning", "Afternoon", "Evening", "Late night", "All day"],
+                  },
                   duration: { type: "string", description: "e.g. '2 hours', 'Half day'" },
                   steps: {
                     type: "array",
@@ -94,11 +113,32 @@ For ALL ideas: be specific (name the venue type and what to do/order), match the
                       required: ["label", "detail"],
                     },
                   },
-                  whatToWear: { type: "string", description: "For full plan only; otherwise empty string" },
-                  conversationStarter: { type: "string", description: "For full plan only; otherwise empty string" },
-                  imagePrompt: { type: "string", description: "Short evocative prompt for a hero image" },
+                  whatToWear: {
+                    type: "string",
+                    description: "For full plan only; otherwise empty string",
+                  },
+                  conversationStarter: {
+                    type: "string",
+                    description: "For full plan only; otherwise empty string",
+                  },
+                  imagePrompt: {
+                    type: "string",
+                    description: "Short evocative prompt for a hero image",
+                  },
                 },
-                required: ["title", "hook", "description", "vibeTags", "estCost", "timeOfDay", "duration", "steps", "whatToWear", "conversationStarter", "imagePrompt"],
+                required: [
+                  "title",
+                  "hook",
+                  "description",
+                  "vibeTags",
+                  "estCost",
+                  "timeOfDay",
+                  "duration",
+                  "steps",
+                  "whatToWear",
+                  "conversationStarter",
+                  "imagePrompt",
+                ],
               },
             },
           },
@@ -112,14 +152,18 @@ For ALL ideas: be specific (name the venue type and what to do/order), match the
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
       body: JSON.stringify({
         model: "google/gemini-2.5-flash",
-        messages: [{ role: "system", content: sys }, { role: "user", content: `Generate ${count} ideas now.` }],
+        messages: [
+          { role: "system", content: sys },
+          { role: "user", content: `Generate ${count} ideas now.` },
+        ],
         tools: [tool],
         tool_choice: { type: "function", function: { name: "return_ideas" } },
       }),
     });
 
     if (resp.status === 429) return json({ error: "Rate limit — try again in a moment." }, 429);
-    if (resp.status === 402) return json({ error: "AI credits exhausted. Add credits in workspace usage." }, 402);
+    if (resp.status === 402)
+      return json({ error: "AI credits exhausted. Add credits in workspace usage." }, 402);
     if (!resp.ok) return json({ error: `AI error ${resp.status}: ${await resp.text()}` }, 500);
 
     const data = await resp.json();

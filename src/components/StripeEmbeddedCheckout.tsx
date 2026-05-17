@@ -20,12 +20,17 @@ interface Props {
 
 export function StripeEmbeddedCheckout({ variant, customerEmail, userId, returnUrl }: Props) {
   const fetchClientSecret = async (): Promise<string> => {
-    const url = returnUrl
-      ?? `${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`;
+    const url =
+      returnUrl ?? `${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`;
     const environment = getStripeEnvironment();
     if (variant.kind === "ticket") {
       const secret = await createTicketCheckout({
-        data: { eventId: variant.eventId, quantity: variant.quantity ?? 1, returnUrl: url, environment },
+        data: {
+          eventId: variant.eventId,
+          quantity: variant.quantity ?? 1,
+          returnUrl: url,
+          environment,
+        },
       });
       if (!secret) throw new Error("Could not start checkout");
       return secret;

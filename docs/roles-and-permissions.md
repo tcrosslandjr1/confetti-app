@@ -11,11 +11,11 @@ Source of truth for every role check, server- and client-side.
 
 ### Roles
 
-| Role       | Source                            | Granted by                       |
-| ---------- | --------------------------------- | -------------------------------- |
-| `admin`    | `user_roles` row, `role='admin'`  | Admin via `admins manage roles`. |
-| `customer` | Implicit on signup (trigger)      | `handle_new_user_role`.          |
-| `visitor`  | No session                        | n/a                              |
+| Role       | Source                           | Granted by                       |
+| ---------- | -------------------------------- | -------------------------------- |
+| `admin`    | `user_roles` row, `role='admin'` | Admin via `admins manage roles`. |
+| `customer` | Implicit on signup (trigger)     | `handle_new_user_role`.          |
+| `visitor`  | No session                       | n/a                              |
 
 The app currently distinguishes only `admin` from non-admin server-side. The
 `viewAs` value `business` is a UI preview filter, **not** a server role.
@@ -50,7 +50,7 @@ import { RoleGate, useHasRole } from "@/components/RoleGate";
 // Hide a button entirely
 <RoleGate role="admin">
   <Button onClick={deleteVenue}>Delete venue</Button>
-</RoleGate>
+</RoleGate>;
 
 // Or branch imperatively
 const { ok: isAdmin } = useHasRole("admin");

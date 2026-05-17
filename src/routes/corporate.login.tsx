@@ -49,9 +49,7 @@ function CorporateLoginPage() {
             <Building2 className="size-5" />
           </div>
           <div>
-            <div className="text-xs uppercase tracking-widest text-primary">
-              Confetti
-            </div>
+            <div className="text-xs uppercase tracking-widest text-primary">Confetti</div>
             <h1 className="text-xl font-semibold">Corporate Portal</h1>
           </div>
         </div>

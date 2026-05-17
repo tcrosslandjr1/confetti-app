@@ -33,10 +33,22 @@ function TripsList() {
 
   useEffect(() => {
     if (authLoading) return;
-    if (!user) { nav({ to: "/auth" }); return; }
-    if (viewAs === "admin") { nav({ to: "/admin" }); return; }
-    if (viewAs === "business") { nav({ to: "/advertise/portal" }); return; }
-    if (viewAs === "visitor") { nav({ to: "/" }); return; }
+    if (!user) {
+      nav({ to: "/auth" });
+      return;
+    }
+    if (viewAs === "admin") {
+      nav({ to: "/admin" });
+      return;
+    }
+    if (viewAs === "business") {
+      nav({ to: "/advertise/portal" });
+      return;
+    }
+    if (viewAs === "visitor") {
+      nav({ to: "/" });
+      return;
+    }
     load();
   }, [user, authLoading, viewAs, nav, load]);
 
@@ -44,93 +56,93 @@ function TripsList() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <PullToRefresh onRefresh={load}>
-      <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <h1 className="font-display text-4xl font-bold tracking-tight">My trips</h1>
-            <p className="mt-1 text-muted-foreground">Saved day plans, ready when you are.</p>
-          </div>
-          <Link
-            to="/create"
-            className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-pop"
-          >
-            <CalendarPlus className="h-4 w-4" /> Plan a new day
-          </Link>
-        </div>
-
-        {err && (
-          <p className="rounded-lg bg-destructive/10 px-4 py-2 text-sm text-destructive">{err}</p>
-        )}
-        {loading ? (
-          <p className="text-sm text-muted-foreground">Loading...</p>
-        ) : trips.length === 0 ? (
-          <div className="rounded-3xl border-2 border-dashed border-border bg-card p-12 text-center">
-            <Sparkles className="mx-auto h-10 w-10 text-primary" />
-            <h3 className="mt-4 font-display text-xl font-bold">No trips yet</h3>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Build your first one — pick an occasion or describe your perfect day.
-            </p>
-            <div className="mt-5 flex flex-wrap justify-center gap-3">
-              <Link
-                to="/create"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
-              >
-                <CalendarPlus className="h-4 w-4" /> Plan a day
-              </Link>
-              <Link
-                to="/"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold"
-              >
-                Browse occasions
-              </Link>
+        <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h1 className="font-display text-4xl font-bold tracking-tight">My trips</h1>
+              <p className="mt-1 text-muted-foreground">Saved day plans, ready when you are.</p>
             </div>
+            <Link
+              to="/create"
+              className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-pop"
+            >
+              <CalendarPlus className="h-4 w-4" /> Plan a new day
+            </Link>
           </div>
-        ) : (
-          <div className="grid gap-4 sm:grid-cols-2">
-            {trips.map((t) => (
-              <Link
-                key={t.id}
-                to="/trips/$id"
-                params={{ id: t.id }}
-                className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-pop hover:-translate-y-1 hover:shadow-pop"
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <h3 className="font-display text-lg font-bold leading-tight group-hover:text-primary">
-                    {t.title}
-                  </h3>
-                  {t.est_total_cost && (
-                    <span className="rounded-full bg-muted px-2 py-1 text-xs font-semibold">
-                      {t.est_total_cost}
-                    </span>
+
+          {err && (
+            <p className="rounded-lg bg-destructive/10 px-4 py-2 text-sm text-destructive">{err}</p>
+          )}
+          {loading ? (
+            <p className="text-sm text-muted-foreground">Loading...</p>
+          ) : trips.length === 0 ? (
+            <div className="rounded-3xl border-2 border-dashed border-border bg-card p-12 text-center">
+              <Sparkles className="mx-auto h-10 w-10 text-primary" />
+              <h3 className="mt-4 font-display text-xl font-bold">No trips yet</h3>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Build your first one — pick an occasion or describe your perfect day.
+              </p>
+              <div className="mt-5 flex flex-wrap justify-center gap-3">
+                <Link
+                  to="/create"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
+                >
+                  <CalendarPlus className="h-4 w-4" /> Plan a day
+                </Link>
+                <Link
+                  to="/"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold"
+                >
+                  Browse occasions
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-2">
+              {trips.map((t) => (
+                <Link
+                  key={t.id}
+                  to="/trips/$id"
+                  params={{ id: t.id }}
+                  className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-pop hover:-translate-y-1 hover:shadow-pop"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="font-display text-lg font-bold leading-tight group-hover:text-primary">
+                      {t.title}
+                    </h3>
+                    {t.est_total_cost && (
+                      <span className="rounded-full bg-muted px-2 py-1 text-xs font-semibold">
+                        {t.est_total_cost}
+                      </span>
+                    )}
+                  </div>
+                  {t.summary && (
+                    <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">{t.summary}</p>
                   )}
-                </div>
-                {t.summary && (
-                  <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">{t.summary}</p>
-                )}
-                <div className="mt-3 flex flex-wrap gap-3 text-xs text-muted-foreground">
-                  {t.date && (
-                    <span>
-                      {new Date(t.date).toLocaleDateString(undefined, {
-                        weekday: "short",
-                        month: "short",
-                        day: "numeric",
-                      })}
+                  <div className="mt-3 flex flex-wrap gap-3 text-xs text-muted-foreground">
+                    {t.date && (
+                      <span>
+                        {new Date(t.date).toLocaleDateString(undefined, {
+                          weekday: "short",
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </span>
+                    )}
+                    {t.city && (
+                      <span className="inline-flex items-center gap-1">
+                        <MapPin className="h-3 w-3" /> {t.city}
+                      </span>
+                    )}
+                    <span className="ml-auto opacity-70">
+                      {new Date(t.created_at).toLocaleDateString()}
                     </span>
-                  )}
-                  {t.city && (
-                    <span className="inline-flex items-center gap-1">
-                      <MapPin className="h-3 w-3" /> {t.city}
-                    </span>
-                  )}
-                  <span className="ml-auto opacity-70">
-                    {new Date(t.created_at).toLocaleDateString()}
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
       </PullToRefresh>
     </div>
   );

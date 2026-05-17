@@ -45,7 +45,11 @@ const SOURCE_STYLES: Record<TapToGoStop["source"], string> = {
 };
 
 function makeRef(id: string) {
-  const tail = id.replace(/[^a-zA-Z0-9]/g, "").slice(-3).toUpperCase() || "STP";
+  const tail =
+    id
+      .replace(/[^a-zA-Z0-9]/g, "")
+      .slice(-3)
+      .toUpperCase() || "STP";
   const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
   return `CF-${tail}-${rand}`;
 }
@@ -61,10 +65,7 @@ export function TapToGoBookingModal({
   summary,
   onConfirm,
 }: Props) {
-  const bookable = useMemo(
-    () => stops.filter((s) => s.source !== "WALK-IN"),
-    [stops],
-  );
+  const bookable = useMemo(() => stops.filter((s) => s.source !== "WALK-IN"), [stops]);
   const [status, setStatus] = useState<Record<string, Status>>({});
   const [refs, setRefs] = useState<Record<string, string>>({});
   const [planRef, setPlanRef] = useState<string | null>(null);
@@ -77,8 +78,7 @@ export function TapToGoBookingModal({
     setPlanRef(null);
   }, [open]);
 
-  const allBooked =
-    bookable.length > 0 && bookable.every((s) => status[s.id] === "booked");
+  const allBooked = bookable.length > 0 && bookable.every((s) => status[s.id] === "booked");
 
   // Lock body scroll while open
   useEffect(() => {
@@ -171,9 +171,7 @@ export function TapToGoBookingModal({
                 <div className="font-mono text-[9px] uppercase tracking-widest opacity-60">
                   {m.label}
                 </div>
-                <div className="font-display text-[12px] font-extrabold truncate">
-                  {m.value}
-                </div>
+                <div className="font-display text-[12px] font-extrabold truncate">{m.value}</div>
               </div>
             ))}
           </div>
@@ -298,8 +296,7 @@ export function TapToGoBookingModal({
                 onClick={bookAll}
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-coral px-5 font-display text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
               >
-                Confirm itinerary — tap to book all{" "}
-                <ArrowUpRight className="h-4 w-4" />
+                Confirm itinerary — tap to book all <ArrowUpRight className="h-4 w-4" />
               </button>
               <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-ink/50">
                 {bookable.length} reservations · no charge until you arrive

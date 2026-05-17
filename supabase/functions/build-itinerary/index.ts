@@ -13,18 +13,18 @@ type SeedIdea = {
 };
 
 type Body = {
-  occasion: string;          // e.g. "Date night"
-  vibe?: string;             // tagline / extra hint
+  occasion: string; // e.g. "Date night"
+  vibe?: string; // tagline / extra hint
   city?: string;
-  region?: string;           // e.g. "DC · MD · VA" — disambiguates city name
-  lat?: number | null;       // selected city coords for Places location bias
+  region?: string; // e.g. "DC · MD · VA" — disambiguates city name
+  lat?: number | null; // selected city coords for Places location bias
   lng?: number | null;
-  date?: string;             // ISO date
-  startTime?: string;        // "11:00"
-  durationHours?: number;    // total day length
-  budget?: string;           // '$' | '$$' | '$$$' or freeform
+  date?: string; // ISO date
+  startTime?: string; // "11:00"
+  durationHours?: number; // total day length
+  budget?: string; // '$' | '$$' | '$$$' or freeform
   neighborhood?: string;
-  seedIdea?: SeedIdea;       // expand a flashcard into a day
+  seedIdea?: SeedIdea; // expand a flashcard into a day
   notes?: string;
   tasteSummary?: string;
   transportMode?: "auto" | "car" | "transit" | "lyft" | "uber" | "walk"; // user preference
@@ -102,7 +102,11 @@ function operational(hits: PlaceHit[]): PlaceHit[] {
 
 function nameSimilar(a: string, b: string): boolean {
   const norm = (s: string) =>
-    s.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9 ]+/g, "").trim();
+    s
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9 ]+/g, "")
+      .trim();
   const A = norm(a);
   const B = norm(b);
   if (!A || !B) return false;
@@ -138,7 +142,9 @@ async function verifyStop(
     const direct = operational(
       await placesSearch(cityForQuery ? `${name} ${cityForQuery}` : name, key, bias),
     );
-    const match = direct.find((h) => nameSimilar(h.displayName?.text ?? "", name) && !used.has(h.id));
+    const match = direct.find(
+      (h) => nameSimilar(h.displayName?.text ?? "", name) && !used.has(h.id),
+    );
     if (match) {
       used.add(match.id);
       audit.push({
@@ -290,18 +296,15 @@ async function fetchBlockedPlaceIds(
     }
     // City-wide aggregated blocks (3+ distinct reporters)
     if (city) {
-      const r = await fetch(
-        `${url}/rest/v1/rpc/blocked_place_ids_for_city`,
-        {
-          method: "POST",
-          headers: {
-            apikey: srk,
-            Authorization: `Bearer ${srk}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ _city: city }),
+      const r = await fetch(`${url}/rest/v1/rpc/blocked_place_ids_for_city`, {
+        method: "POST",
+        headers: {
+          apikey: srk,
+          Authorization: `Bearer ${srk}`,
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({ _city: city }),
+      });
       if (r.ok) {
         const rows = (await r.json()) as Array<{ place_id: string }>;
         rows.forEach((row) => row.place_id && blocked.add(row.place_id));
@@ -423,42 +426,72 @@ The first stop has no travelFromPrev. Make the schedule realistic — startTime 
                 type: "object",
                 properties: {
                   name: { type: "string" },
-                  category: { type: "string", enum: ["meal", "activity", "drinks", "scenic", "travel", "other"] },
+                  category: {
+                    type: "string",
+                    enum: ["meal", "activity", "drinks", "scenic", "travel", "other"],
+                  },
                   description: { type: "string", description: "1-2 sentence description" },
                   address: { type: "string", description: "Neighborhood or cross-streets hint" },
                   startTime: { type: "string", description: "HH:MM 24h" },
                   durationMinutes: { type: "integer" },
                   estCost: { type: "string", description: "e.g. '$$' or '$30-50'" },
-                  whatToDo: { type: "string", description: "Specific recommendation: what to order, what to see, etc." },
-                  bookingUrl: { type: "string", description: "Search URL the user can use to find/book this stop" },
-                  bookingProvider: { type: "string", description: "opentable | resy | eventbrite | ticketmaster | google-maps | website" },
+                  whatToDo: {
+                    type: "string",
+                    description: "Specific recommendation: what to order, what to see, etc.",
+                  },
+                  bookingUrl: {
+                    type: "string",
+                    description: "Search URL the user can use to find/book this stop",
+                  },
+                  bookingProvider: {
+                    type: "string",
+                    description:
+                      "opentable | resy | eventbrite | ticketmaster | google-maps | website",
+                  },
                   reviewSnippets: {
                     type: "array",
-                    minItems: 2, maxItems: 3,
-                    items: { type: "string", description: "1 sentence, what visitors typically say" },
+                    minItems: 2,
+                    maxItems: 3,
+                    items: {
+                      type: "string",
+                      description: "1 sentence, what visitors typically say",
+                    },
                   },
                   parking: {
                     type: "object",
                     properties: {
-                      type: { type: "string", enum: ["lot", "street", "valet", "garage", "transit"] },
+                      type: {
+                        type: "string",
+                        enum: ["lot", "street", "valet", "garage", "transit"],
+                      },
                       cost: { type: "string" },
-                      access: { type: "string", description: "1 short sentence on how to access it" },
+                      access: {
+                        type: "string",
+                        description: "1 short sentence on how to access it",
+                      },
                     },
                     required: ["type", "cost", "access"],
                   },
                   tips: {
-                    type: "array", minItems: 2, maxItems: 3,
+                    type: "array",
+                    minItems: 2,
+                    maxItems: 3,
                     items: { type: "string" },
                   },
                   dressCode: {
                     type: "string",
-                    description: "3-10 word note on what to wear at this stop, specific to the venue/activity.",
+                    description:
+                      "3-10 word note on what to wear at this stop, specific to the venue/activity.",
                   },
                   travelFromPrev: {
                     type: "object",
-                    description: "How to get here from the previous stop. Omit/null on the first stop.",
+                    description:
+                      "How to get here from the previous stop. Omit/null on the first stop.",
                     properties: {
-                      mode: { type: "string", enum: ["walk", "car", "transit", "lyft", "uber", "rideshare", "bike"] },
+                      mode: {
+                        type: "string",
+                        enum: ["walk", "car", "transit", "lyft", "uber", "rideshare", "bike"],
+                      },
                       durationMinutes: { type: "integer" },
                       distance: { type: "string" },
                       instructions: { type: "string" },
@@ -467,7 +500,22 @@ The first stop has no travelFromPrev. Make the schedule realistic — startTime 
                     required: ["mode", "durationMinutes", "instructions"],
                   },
                 },
-                required: ["name", "category", "description", "address", "startTime", "durationMinutes", "estCost", "whatToDo", "bookingUrl", "bookingProvider", "reviewSnippets", "parking", "tips", "dressCode"],
+                required: [
+                  "name",
+                  "category",
+                  "description",
+                  "address",
+                  "startTime",
+                  "durationMinutes",
+                  "estCost",
+                  "whatToDo",
+                  "bookingUrl",
+                  "bookingProvider",
+                  "reviewSnippets",
+                  "parking",
+                  "tips",
+                  "dressCode",
+                ],
               },
             },
           },
@@ -481,14 +529,18 @@ The first stop has no travelFromPrev. Make the schedule realistic — startTime 
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
       body: JSON.stringify({
         model: "google/gemini-2.5-flash",
-        messages: [{ role: "system", content: sys }, { role: "user", content: "Build the itinerary now." }],
+        messages: [
+          { role: "system", content: sys },
+          { role: "user", content: "Build the itinerary now." },
+        ],
         tools: [tool],
         tool_choice: { type: "function", function: { name: "return_itinerary" } },
       }),
     });
 
     if (resp.status === 429) return json({ error: "Rate limit — try again in a moment." }, 429);
-    if (resp.status === 402) return json({ error: "AI credits exhausted. Add credits in workspace usage." }, 402);
+    if (resp.status === 402)
+      return json({ error: "AI credits exhausted. Add credits in workspace usage." }, 402);
     if (!resp.ok) return json({ error: `AI error ${resp.status}: ${await resp.text()}` }, 500);
 
     const data = await resp.json();

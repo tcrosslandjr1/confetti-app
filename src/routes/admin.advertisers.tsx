@@ -143,8 +143,17 @@ function AdminAdvertisersPage() {
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         <KPI label="Advertisers" value={advertisers.length} icon={Megaphone} />
-        <KPI label="Approved campaigns" value={campaigns.filter((c) => c.status === "approved").length} icon={CheckCircle2} />
-        <KPI label="Pending" value={campaigns.filter((c) => c.status === "pending").length} icon={Pause} accent="amber" />
+        <KPI
+          label="Approved campaigns"
+          value={campaigns.filter((c) => c.status === "approved").length}
+          icon={CheckCircle2}
+        />
+        <KPI
+          label="Pending"
+          value={campaigns.filter((c) => c.status === "pending").length}
+          icon={Pause}
+          accent="amber"
+        />
         <KPI label="30d impressions" value={totals.impressions.toLocaleString()} icon={Eye} />
         <KPI label="Est. MRR" value={formatCents(mrrCents)} icon={Gem} accent="emerald" />
       </div>
@@ -167,9 +176,14 @@ function AdminAdvertisersPage() {
             </TabsTrigger>
             <TabsTrigger value="advertisers">
               Advertisers
-              {advertisers.filter((a) => a.status === "pending_review" || a.status === "pending").length > 0 && (
+              {advertisers.filter((a) => a.status === "pending_review" || a.status === "pending")
+                .length > 0 && (
                 <Badge variant="secondary" className="ml-2">
-                  {advertisers.filter((a) => a.status === "pending_review" || a.status === "pending").length}
+                  {
+                    advertisers.filter(
+                      (a) => a.status === "pending_review" || a.status === "pending",
+                    ).length
+                  }
                 </Badge>
               )}
             </TabsTrigger>
@@ -300,7 +314,10 @@ function OverviewTab({
           {Object.entries(PLACEMENT_LABELS).map(([key, label]) => {
             const n = placementCounts[key] ?? 0;
             return (
-              <li key={key} className="flex items-center justify-between rounded-xl bg-muted/40 px-3 py-2">
+              <li
+                key={key}
+                className="flex items-center justify-between rounded-xl bg-muted/40 px-3 py-2"
+              >
                 <span className="text-sm">{label}</span>
                 <span className="font-display text-lg font-bold">{n}</span>
               </li>
@@ -308,7 +325,8 @@ function OverviewTab({
           })}
         </ul>
         <div className="mt-4 rounded-xl border border-dashed border-border p-3 text-xs text-muted-foreground">
-          <TrendingUp className="mr-1 inline h-3 w-3" /> Approve more pending campaigns to grow inventory.
+          <TrendingUp className="mr-1 inline h-3 w-3" /> Approve more pending campaigns to grow
+          inventory.
         </div>
       </article>
     </div>
@@ -409,7 +427,10 @@ function CampaignsTab({
             const s = stats[c.id] ?? { impressions: 0, clicks: 0 };
             const ctr = s.impressions ? ((s.clicks / s.impressions) * 100).toFixed(1) : "0.0";
             return (
-              <article key={c.id} className="rounded-2xl border border-border bg-card p-4 shadow-card">
+              <article
+                key={c.id}
+                className="rounded-2xl border border-border bg-card p-4 shadow-card"
+              >
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
@@ -569,7 +590,10 @@ function CampaignEditDialog({
             </Field>
           </div>
           <Field label="Linked venue">
-            <Select value={venueId || "__none"} onValueChange={(v) => setVenueId(v === "__none" ? "" : v)}>
+            <Select
+              value={venueId || "__none"}
+              onValueChange={(v) => setVenueId(v === "__none" ? "" : v)}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="None" />
               </SelectTrigger>
@@ -585,7 +609,11 @@ function CampaignEditDialog({
           </Field>
           <div className="grid grid-cols-2 gap-3">
             <Field label="CTA URL">
-              <Input value={ctaUrl} onChange={(e) => setCtaUrl(e.target.value)} placeholder="https://" />
+              <Input
+                value={ctaUrl}
+                onChange={(e) => setCtaUrl(e.target.value)}
+                placeholder="https://"
+              />
             </Field>
             <Field label="CTA label">
               <Input value={ctaLabel} onChange={(e) => setCtaLabel(e.target.value)} />
@@ -679,7 +707,10 @@ function AdvertisersTab({
       ) : (
         <div className="grid gap-3">
           {filtered.map((a) => (
-            <article key={a.id} className="rounded-2xl border border-border bg-card p-4 shadow-card">
+            <article
+              key={a.id}
+              className="rounded-2xl border border-border bg-card p-4 shadow-card"
+            >
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
@@ -687,7 +718,9 @@ function AdvertisersTab({
                     <StatusBadge status={a.status} />
                   </div>
                   <div className="mt-1 text-sm text-muted-foreground">
-                    {a.owner_name ? <span className="font-medium text-foreground">{a.owner_name} · </span> : null}
+                    {a.owner_name ? (
+                      <span className="font-medium text-foreground">{a.owner_name} · </span>
+                    ) : null}
                     {a.contact_email}
                     {a.contact_phone ? ` · ${a.contact_phone}` : ""}
                   </div>
@@ -700,7 +733,12 @@ function AdvertisersTab({
                     {a.city && <Chip>{a.city}</Chip>}
                     {a.website && (
                       <Chip>
-                        <a href={a.website} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                        <a
+                          href={a.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline"
+                        >
                           {a.website.replace(/^https?:\/\//, "")}
                         </a>
                       </Chip>
@@ -737,16 +775,19 @@ function AdvertisersTab({
                         <CheckCircle2 className="mr-1 h-3.5 w-3.5" /> Activate
                       </Button>
                     )}
-                  {a.status !== "suspended" && a.status !== "rejected" && a.status !== "pending_review" && a.status !== "pending" && (
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      className="text-destructive hover:text-destructive"
-                      onClick={() => setStatus(a, "suspended")}
-                    >
-                      <XCircle className="mr-1 h-3.5 w-3.5" /> Suspend
-                    </Button>
-                  )}
+                  {a.status !== "suspended" &&
+                    a.status !== "rejected" &&
+                    a.status !== "pending_review" &&
+                    a.status !== "pending" && (
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="text-destructive hover:text-destructive"
+                        onClick={() => setStatus(a, "suspended")}
+                      >
+                        <XCircle className="mr-1 h-3.5 w-3.5" /> Suspend
+                      </Button>
+                    )}
                   <Button size="sm" variant="outline" onClick={() => setEditing(a)}>
                     <Pencil className="mr-1 h-3.5 w-3.5" /> Edit
                   </Button>
@@ -829,7 +870,11 @@ function AdvertiserEditDialog({
             </Field>
           </div>
           <Field label="Website">
-            <Input value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="https://" />
+            <Input
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+              placeholder="https://"
+            />
           </Field>
           <div className="grid grid-cols-2 gap-3">
             <Field label="Category">
@@ -960,12 +1005,18 @@ function VenuesTab({
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="font-bold">{v.name}</span>
                   {v.verified && (
-                    <Badge variant="outline" className="border-emerald-400/40 bg-emerald-500/10 text-emerald-700">
+                    <Badge
+                      variant="outline"
+                      className="border-emerald-400/40 bg-emerald-500/10 text-emerald-700"
+                    >
                       <BadgeCheck className="mr-1 h-3 w-3" /> Verified
                     </Badge>
                   )}
                   {v.featured && (
-                    <Badge variant="outline" className="border-amber-400/40 bg-amber-500/10 text-amber-700">
+                    <Badge
+                      variant="outline"
+                      className="border-amber-400/40 bg-amber-500/10 text-amber-700"
+                    >
                       <Star className="mr-1 h-3 w-3 fill-amber-500" /> Featured
                     </Badge>
                   )}
@@ -1035,7 +1086,10 @@ function BillingTab({
   }, [approved]);
 
   const byAdvertiser = useMemo(() => {
-    const map: Record<string, { advertiser: Advertiser | undefined; cents: number; count: number }> = {};
+    const map: Record<
+      string,
+      { advertiser: Advertiser | undefined; cents: number; count: number }
+    > = {};
     for (const c of approved) {
       const id = c.advertiser_id;
       if (!map[id]) map[id] = { advertiser: advertiserById[id], cents: 0, count: 0 };
@@ -1094,7 +1148,10 @@ function BillingTab({
             <p className="py-6 text-sm text-muted-foreground">No active advertisers yet.</p>
           ) : (
             byAdvertiser.slice(0, 12).map((row) => (
-              <div key={row.advertiser?.id ?? Math.random()} className="flex items-center justify-between py-2">
+              <div
+                key={row.advertiser?.id ?? Math.random()}
+                className="flex items-center justify-between py-2"
+              >
                 <div>
                   <div className="font-bold">{row.advertiser?.business_name ?? "Unknown"}</div>
                   <div className="text-xs text-muted-foreground">
@@ -1118,14 +1175,20 @@ function BillingTab({
             <p className="text-sm text-muted-foreground">Nothing live yet.</p>
           ) : (
             approved.slice(0, 8).map((c) => (
-              <div key={c.id} className="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-muted/40 px-3 py-2">
+              <div
+                key={c.id}
+                className="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-muted/40 px-3 py-2"
+              >
                 <div className="min-w-0 flex-1">
                   <div className="truncate text-sm font-bold">{c.headline}</div>
                   <div className="text-xs text-muted-foreground">
                     {advertiserById[c.advertiser_id]?.business_name ?? "—"}
                   </div>
                 </div>
-                <Select value={c.package_tier} onValueChange={(v) => changeTier(c, v as PackageTier)}>
+                <Select
+                  value={c.package_tier}
+                  onValueChange={(v) => changeTier(c, v as PackageTier)}
+                >
                   <SelectTrigger className="h-8 w-44">
                     <SelectValue />
                   </SelectTrigger>
@@ -1189,7 +1252,9 @@ function StatusBadge({ status }: { status: string }) {
               ? "bg-destructive/15 text-destructive"
               : "bg-muted text-muted-foreground";
   return (
-    <span className={`inline-flex rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${tone}`}>
+    <span
+      className={`inline-flex rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${tone}`}
+    >
       {status}
     </span>
   );
@@ -1274,7 +1339,10 @@ function ClaimsTab({
             const a = advertiserById[c.advertiser_id];
             const v = venueById[c.venue_id];
             return (
-              <article key={c.id} className="rounded-2xl border border-border bg-card p-4 shadow-card">
+              <article
+                key={c.id}
+                className="rounded-2xl border border-border bg-card p-4 shadow-card"
+              >
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">

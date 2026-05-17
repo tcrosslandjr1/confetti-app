@@ -52,7 +52,9 @@ function writeLog(entries: ActivityEntry[]) {
   window.dispatchEvent(new CustomEvent(EVENT));
 }
 
-export function logActivity(input: Omit<ActivityEntry, "id" | "ts"> & { ts?: number }): ActivityEntry {
+export function logActivity(
+  input: Omit<ActivityEntry, "id" | "ts"> & { ts?: number },
+): ActivityEntry {
   const entry: ActivityEntry = {
     id: `a-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
     ts: input.ts ?? Date.now(),

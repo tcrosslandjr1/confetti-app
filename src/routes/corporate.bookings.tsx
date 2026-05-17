@@ -2,10 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
-import {
-  CorporatePageHeader,
-  useActiveCorporateCompany,
-} from "@/components/CorporateShell";
+import { CorporatePageHeader, useActiveCorporateCompany } from "@/components/CorporateShell";
 
 export const Route = createFileRoute("/corporate/bookings")({
   component: CorporateBookingsPage,
@@ -30,9 +27,7 @@ function CorporateBookingsPage() {
     queryFn: async () => {
       const { data } = await supabase
         .from("corporate_outings")
-        .select(
-          "id,title,status,starts_at,headcount,total_budget_cents,city",
-        )
+        .select("id,title,status,starts_at,headcount,total_budget_cents,city")
         .eq("company_id", companyId!)
         .order("starts_at", { ascending: false });
       return data ?? [];
@@ -48,9 +43,7 @@ function CorporateBookingsPage() {
       />
       <Card className="p-0">
         {!outings || outings.length === 0 ? (
-          <div className="p-8 text-center text-sm text-muted-foreground">
-            No bookings yet.
-          </div>
+          <div className="p-8 text-center text-sm text-muted-foreground">No bookings yet.</div>
         ) : (
           <ul className="divide-y divide-border">
             {outings.map((o) => (
@@ -58,10 +51,8 @@ function CorporateBookingsPage() {
                 <div>
                   <div className="font-medium">{o.title}</div>
                   <div className="text-xs text-muted-foreground">
-                    {o.starts_at
-                      ? new Date(o.starts_at).toLocaleString()
-                      : "TBD"}{" "}
-                    · {o.city ?? "—"} · party of {o.headcount}
+                    {o.starts_at ? new Date(o.starts_at).toLocaleString() : "TBD"} · {o.city ?? "—"}{" "}
+                    · party of {o.headcount}
                   </div>
                 </div>
                 <div className="flex items-center gap-3">

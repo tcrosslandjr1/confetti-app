@@ -84,9 +84,7 @@ export function CookieConsent() {
     window.addEventListener("open-cookie-settings", onOpen);
 
     const check = () =>
-      setOverlayOpen(
-        !!document.querySelector('[data-radix-dialog-overlay], [data-vaul-overlay]'),
-      );
+      setOverlayOpen(!!document.querySelector("[data-radix-dialog-overlay], [data-vaul-overlay]"));
     check();
     const mo = new MutationObserver(check);
     mo.observe(document.body, { childList: true, subtree: true });

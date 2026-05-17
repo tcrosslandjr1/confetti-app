@@ -55,7 +55,8 @@ const MOCK_THREADS: Record<string, { title: string; messages: Msg[] }> = {
       {
         id: "m1",
         role: "user",
-        content: "Need a private dining room for a birthday dinner, party of 8, May 17. Modern American, $$$ ok.",
+        content:
+          "Need a private dining room for a birthday dinner, party of 8, May 17. Modern American, $$$ ok.",
       },
       {
         id: "m2",

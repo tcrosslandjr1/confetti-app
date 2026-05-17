@@ -185,7 +185,10 @@ async function shapeCandidate(
   const photoName = pick.photos?.[0]?.name;
   const photo = photoName ? await resolvePhoto(photoName, key) : null;
   const addr = pick.shortFormattedAddress ?? pick.formattedAddress ?? "";
-  const parts = addr.split(",").map((s) => s.trim()).filter(Boolean);
+  const parts = addr
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
   const neighborhood = parts.length >= 2 ? parts[parts.length - 2] : undefined;
   return {
     id: pick.id,
@@ -297,15 +300,16 @@ Deno.serve(async (req) => {
     if (body.mode === "alternatives") {
       const exclude = new Set([...(body.excludeIds ?? []), ...blocked]);
       const limit = Math.max(1, Math.min(body.limit ?? 6, 10));
-      const recipe = body.vibe && VIBE_RECIPES[body.vibe]
-        ? VIBE_RECIPES[body.vibe]
-        : {
-            query: body.query || "restaurant bar",
-            types: ["restaurant"],
-            time: "8:00 PM",
-            vibeLabel: body.query || "Pick",
-            tone: "bg-coral",
-          };
+      const recipe =
+        body.vibe && VIBE_RECIPES[body.vibe]
+          ? VIBE_RECIPES[body.vibe]
+          : {
+              query: body.query || "restaurant bar",
+              types: ["restaurant"],
+              time: "8:00 PM",
+              vibeLabel: body.query || "Pick",
+              tone: "bg-coral",
+            };
       const raw = await searchCandidates(recipe, body, exclude, key, Math.max(limit + 2, 8));
       const shaped = await Promise.all(raw.slice(0, limit).map((p) => shapeCandidate(p, key)));
       return json({

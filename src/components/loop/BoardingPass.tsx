@@ -2,7 +2,24 @@ import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { QRCodeSVG } from "qrcode.react";
-import { Apple, Wallet, Loader2, X, Smartphone, Navigation, Plane, Printer, Share2, Link2, Image as ImageIcon, FileText, Check, Repeat, Mail, CalendarPlus } from "lucide-react";
+import {
+  Apple,
+  Wallet,
+  Loader2,
+  X,
+  Smartphone,
+  Navigation,
+  Plane,
+  Printer,
+  Share2,
+  Link2,
+  Image as ImageIcon,
+  FileText,
+  Check,
+  Repeat,
+  Mail,
+  CalendarPlus,
+} from "lucide-react";
 import type { ActiveLoop, LoopStop, StopKind } from "@/lib/loop-store";
 import { checkInStop, setActiveLoop, PLAN_PRESETS } from "@/lib/loop-store";
 import { appendNotifications } from "@/lib/trip-status";
@@ -23,8 +40,11 @@ function isIOS() {
   if (typeof navigator === "undefined") return false;
   const ua = navigator.userAgent;
   // iPad on iPadOS 13+ reports as "MacIntel" with touch — include that case.
-  return /iPad|iPhone|iPod/.test(ua) ||
-    (navigator.platform === "MacIntel" && (navigator as Navigator & { maxTouchPoints?: number }).maxTouchPoints! > 1);
+  return (
+    /iPad|iPhone|iPod/.test(ua) ||
+    (navigator.platform === "MacIntel" &&
+      (navigator as Navigator & { maxTouchPoints?: number }).maxTouchPoints! > 1)
+  );
 }
 
 /**
@@ -63,14 +83,14 @@ function vibesOf(loop: ActiveLoop): string[] {
 
 // ─── Tone tokens (mapped to design system, no raw colors) ──────────────
 const kindStyles: Record<StopKind, { marker: string; label: string; line: string }> = {
-  departure:   { marker: "bg-coral text-cream",   label: "text-coral",          line: "border-coral/40" },
-  layover:     { marker: "bg-gold text-ink",      label: "text-ink/70",         line: "border-ink/30" },
-  destination: { marker: "bg-ink text-cream",     label: "text-ink",            line: "border-ink/40" },
+  departure: { marker: "bg-coral text-cream", label: "text-coral", line: "border-coral/40" },
+  layover: { marker: "bg-gold text-ink", label: "text-ink/70", line: "border-ink/30" },
+  destination: { marker: "bg-ink text-cream", label: "text-ink", line: "border-ink/40" },
 };
 
 const tagToneClass: Record<NonNullable<LoopStop["tags"]>[number]["variant"], string> = {
   vibe: "bg-coral/10 text-coral border-coral/30",
-  ev:   "bg-gold/30 text-ink border-ink/30",
+  ev: "bg-gold/30 text-ink border-ink/30",
   time: "bg-ink/5 text-ink border-ink/20",
 };
 
@@ -100,7 +120,9 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
 
   const selectedStop = loop.stops.find((s) => s.id === selectedStopId) ?? loop.stops[0];
   const selectedAddress =
-    selectedStop?.address ?? selectedStop?.area ?? `${selectedStop?.name ?? ""} ${loop.to ?? ""}`.trim();
+    selectedStop?.address ??
+    selectedStop?.area ??
+    `${selectedStop?.name ?? ""} ${loop.to ?? ""}`.trim();
   const appleDirUrl = selectedAddress
     ? `https://maps.apple.com/?daddr=${encodeURIComponent(selectedAddress)}&dirflg=d`
     : null;
@@ -136,22 +158,34 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         setShareOpen(false);
       } else if (nav?.clipboard) {
         await nav.clipboard.writeText(shareUrl);
-        trackShareEvent("share_link_clipboard", { loopId: loop.id, meta: { reason: "no_native_share" } });
+        trackShareEvent("share_link_clipboard", {
+          loopId: loop.id,
+          meta: { reason: "no_native_share" },
+        });
         setLinkCopied(true);
         toast.success("Link copied to clipboard");
         setTimeout(() => setLinkCopied(false), 2000);
       } else {
-        trackShareEvent("share_error", { loopId: loop.id, meta: { source: "share_link", reason: "unsupported" } });
+        trackShareEvent("share_error", {
+          loopId: loop.id,
+          meta: { source: "share_link", reason: "unsupported" },
+        });
         toast.error("Sharing isn't supported on this device");
       }
     } catch (err) {
       // User-cancelled share rejects with AbortError — stay silent for that.
       const name = (err as { name?: string })?.name;
       if (name !== "AbortError") {
-        trackShareEvent("share_error", { loopId: loop.id, meta: { source: "share_link", error: name } });
+        trackShareEvent("share_error", {
+          loopId: loop.id,
+          meta: { source: "share_link", error: name },
+        });
         toast.error("Couldn't share this plan");
       } else {
-        trackShareEvent("share_error", { loopId: loop.id, meta: { source: "share_link", reason: "user_cancelled" } });
+        trackShareEvent("share_error", {
+          loopId: loop.id,
+          meta: { source: "share_link", reason: "user_cancelled" },
+        });
       }
     } finally {
       setShareBusy(null);
@@ -260,7 +294,10 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         `Passenger: ${loop.passenger ?? "—"}`,
         `Boarding: ${loop.boardingTime ?? "—"}  Gate: ${loop.gate ?? "—"}`,
         `Stops (${loop.stops.length}):`,
-        ...loop.stops.map((s, i) => `  ${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}${s.area ? " (" + s.area + ")" : ""}`),
+        ...loop.stops.map(
+          (s, i) =>
+            `  ${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}${s.area ? " (" + s.area + ")" : ""}`,
+        ),
         "",
         `Boarding pass: ${shareUrl}`,
       ];
@@ -302,7 +339,10 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
       a.click();
       a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
-      trackShareEvent("share_add_to_calendar", { loopId: loop.id, meta: { stops: loop.stops.length } });
+      trackShareEvent("share_add_to_calendar", {
+        loopId: loop.id,
+        meta: { stops: loop.stops.length },
+      });
       setShareOpen(false);
       toast.success("Calendar event downloaded");
     } catch {
@@ -310,8 +350,6 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
       toast.error("Couldn't create calendar event");
     }
   }
-
-
 
   async function addToGoogleWallet() {
     setGoogleLoading(true);
@@ -328,7 +366,11 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           gate: loop.gate,
           boardingTime: loop.boardingTime,
           stops: loop.stops.map((s) => ({
-            id: s.id, name: s.name, type: s.type, time: s.time, area: s.area,
+            id: s.id,
+            name: s.name,
+            type: s.type,
+            time: s.time,
+            area: s.area,
           })),
         }),
       });
@@ -367,7 +409,10 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         } else {
           trackWalletEvent("wallet_direct_open_blocked", { loopId: loop.id });
           setQrUrl(data.saveUrl);
-          trackWalletEvent("wallet_qr_modal_open", { loopId: loop.id, meta: { reason: "ios_popup_blocked" } });
+          trackWalletEvent("wallet_qr_modal_open", {
+            loopId: loop.id,
+            meta: { reason: "ios_popup_blocked" },
+          });
         }
       } else {
         setQrUrl(data.saveUrl);
@@ -424,19 +469,18 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                 onClick={handleCopyLink}
                 className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-[12px] font-bold hover:bg-gold/40"
               >
-                {linkCopied ? <Check className="h-4 w-4 text-coral" /> : <Link2 className="h-4 w-4" />}
+                {linkCopied ? (
+                  <Check className="h-4 w-4 text-coral" />
+                ) : (
+                  <Link2 className="h-4 w-4" />
+                )}
                 {linkCopied ? "Link copied" : "Copy link"}
               </button>
               <button
                 type="button"
                 onClick={() => {
                   const subject = encodeURIComponent(shareTitle);
-                  const lines = [
-                    shareText,
-                    "",
-                    "View the full boarding pass:",
-                    shareUrl,
-                  ];
+                  const lines = [shareText, "", "View the full boarding pass:", shareUrl];
                   const body = encodeURIComponent(lines.join("\n"));
                   trackShareEvent("share_email_link", { loopId: loop.id });
                   // Open the user's default mail client with a prefilled message.
@@ -486,8 +530,10 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
         </div>
       </div>
       <RerunButtons loop={loop} />
-      <div ref={passRef} className="relative rounded-3xl border-2 border-ink bg-cream shadow-brut-lg overflow-hidden">
-
+      <div
+        ref={passRef}
+        className="relative rounded-3xl border-2 border-ink bg-cream shadow-brut-lg overflow-hidden"
+      >
         {/* ── Header ── */}
         <div className="bg-ink px-6 py-5 text-cream">
           <div className="flex items-start justify-between gap-3">
@@ -670,7 +716,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                             onClick={() => setDirOpen(false)}
                             className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-[11px] font-bold text-cream"
                           >
-                             Open in Apple Maps
+                            Open in Apple Maps
                           </a>
                         )}
                         {googleDirUrl && (
@@ -706,7 +752,7 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                             onClick={() => setDirOpen(false)}
                             className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 text-[11px] font-bold text-ink hover:bg-gold"
                           >
-                             Open in Apple Maps
+                            Open in Apple Maps
                           </a>
                         )}
                       </>
@@ -734,9 +780,18 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                 Stops · ETA · Status
               </div>
               <div className="flex items-center gap-1.5 font-mono text-[8px] font-bold uppercase tracking-wider text-ink/50">
-                <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-[#3FA66B] border border-ink" />Done</span>
-                <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-coral border border-ink" />Now</span>
-                <span className="inline-flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-gold border border-ink" />Next</span>
+                <span className="inline-flex items-center gap-1">
+                  <span className="h-2 w-2 rounded-full bg-[#3FA66B] border border-ink" />
+                  Done
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <span className="h-2 w-2 rounded-full bg-coral border border-ink" />
+                  Now
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <span className="h-2 w-2 rounded-full bg-gold border border-ink" />
+                  Next
+                </span>
               </div>
             </div>
             <ul className="flex flex-col gap-1.5">
@@ -746,27 +801,27 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                   const status: "done" | "current" | "next" | "upcoming" = s.done
                     ? "done"
                     : i === currentIdx
-                    ? "current"
-                    : currentIdx >= 0 && i === currentIdx + 1
-                    ? "next"
-                    : "upcoming";
+                      ? "current"
+                      : currentIdx >= 0 && i === currentIdx + 1
+                        ? "next"
+                        : "upcoming";
                   const active = s.id === selectedStopId;
                   const dotClass =
                     status === "done"
                       ? "bg-[#3FA66B] text-cream"
                       : status === "current"
-                      ? "bg-coral text-cream"
-                      : status === "next"
-                      ? "bg-gold text-ink"
-                      : "bg-cream text-ink";
+                        ? "bg-coral text-cream"
+                        : status === "next"
+                          ? "bg-gold text-ink"
+                          : "bg-cream text-ink";
                   const badgeClass =
                     status === "done"
                       ? "border-ink/40 bg-[#3FA66B]/15 text-[#1A1410]"
                       : status === "current"
-                      ? "border-coral bg-coral text-cream"
-                      : status === "next"
-                      ? "border-ink bg-gold text-ink"
-                      : "border-ink/30 bg-cream text-ink/70";
+                        ? "border-coral bg-coral text-cream"
+                        : status === "next"
+                          ? "border-ink bg-gold text-ink"
+                          : "border-ink/30 bg-cream text-ink/70";
                   return (
                     <li key={s.id}>
                       <button
@@ -798,7 +853,13 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
                         <span
                           className={`shrink-0 rounded-full border px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest ${badgeClass}`}
                         >
-                          {status === "current" ? "Now" : status === "done" ? "Done" : status === "next" ? "Next" : "Up"}
+                          {status === "current"
+                            ? "Now"
+                            : status === "done"
+                              ? "Done"
+                              : status === "next"
+                                ? "Next"
+                                : "Up"}
                         </span>
                       </button>
                     </li>
@@ -809,7 +870,6 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           </div>
         </div>
 
-
         {/* Tear */}
         <TearDivider />
 
@@ -818,7 +878,9 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           {[
             { value: String(loop.stops.length), label: "Stops" },
             {
-              value: String(new Set(loop.stops.map((s) => s.area).filter(Boolean)).size || loop.stops.length),
+              value: String(
+                new Set(loop.stops.map((s) => s.area).filter(Boolean)).size || loop.stops.length,
+              ),
               label: "Hoods",
             },
             { value: loop.boardingTime, label: "Start" },
@@ -883,7 +945,11 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           disabled={googleLoading}
           className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-y-0.5 disabled:opacity-60"
         >
-          {googleLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Wallet className="h-4 w-4" />}
+          {googleLoading ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : (
+            <Wallet className="h-4 w-4" />
+          )}
           Add to Google Wallet
         </button>
       </div>
@@ -903,7 +969,12 @@ export function BoardingPass({ loop }: { loop: ActiveLoop }) {
           }}
         />
       )}
-      <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} loop={loop} reward={reward} />
+      <BookingModal
+        open={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+        loop={loop}
+        reward={reward}
+      />
     </div>
   );
 }
@@ -962,7 +1033,7 @@ function Barcode({ code }: { code: string }) {
               height={VIEW_HEIGHT}
               className="fill-ink print:fill-black"
             />
-          )
+          ),
         )}
       </svg>
       <div className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-ink/70 truncate print:text-black">
@@ -971,7 +1042,6 @@ function Barcode({ code }: { code: string }) {
     </div>
   );
 }
-
 
 // ─── Tear divider with notches ─────────────────────────────────────────
 function TearDivider() {
@@ -1033,7 +1103,8 @@ function StopCard({
   }
 
   const tone = kindStyles[kind];
-  const typeLabel = kind === "departure" ? "Departure" : kind === "destination" ? "Destination" : "Layover";
+  const typeLabel =
+    kind === "departure" ? "Departure" : kind === "destination" ? "Destination" : "Layover";
   const emoji = stop.emoji ?? defaultEmoji(kind);
   const address = stop.address ?? stop.area ?? "";
   const appleUrl = address
@@ -1062,9 +1133,7 @@ function StopCard({
         >
           {emoji}
         </span>
-        {!isLast && (
-          <span className={`mt-1 flex-1 w-px border-l-2 border-dashed ${tone.line}`} />
-        )}
+        {!isLast && <span className={`mt-1 flex-1 w-px border-l-2 border-dashed ${tone.line}`} />}
       </div>
 
       {/* Content */}
@@ -1073,7 +1142,11 @@ function StopCard({
           {typeLabel} — {stop.time}
         </div>
         {stop.venueId ? (
-          <Link to="/venue/$id" params={{ id: stop.venueId }} className="mt-0.5 block hover:underline underline-offset-4 decoration-coral">
+          <Link
+            to="/venue/$id"
+            params={{ id: stop.venueId }}
+            className="mt-0.5 block hover:underline underline-offset-4 decoration-coral"
+          >
             {titleNode}
           </Link>
         ) : (
@@ -1091,9 +1164,7 @@ function StopCard({
               <span className="text-ink/70">{stop.ev.spec}</span>
               <span className="text-coral">{stop.ev.chargeTime}</span>
             </div>
-            {stop.ev.sub && (
-              <div className="mt-1 text-[10px] text-ink/60">{stop.ev.sub}</div>
-            )}
+            {stop.ev.sub && <div className="mt-1 text-[10px] text-ink/60">{stop.ev.sub}</div>}
           </div>
         )}
 
@@ -1246,7 +1317,11 @@ function BookingModal({
   const allBooked = bookable.length > 0 && bookable.every((s) => status[s.id] === "booked");
 
   function makeRef(stopId: string) {
-    const tail = stopId.replace(/[^a-zA-Z0-9]/g, "").slice(-3).toUpperCase() || "STP";
+    const tail =
+      stopId
+        .replace(/[^a-zA-Z0-9]/g, "")
+        .slice(-3)
+        .toUpperCase() || "STP";
     const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
     return `CF-${tail}-${rand}`;
   }
@@ -1315,9 +1390,7 @@ function BookingModal({
               <div className="font-display text-lg font-extrabold tracking-tight">
                 Book this plan
               </div>
-              <div className="mt-0.5 text-[11px] opacity-75">
-                Reserve everything in one tap
-              </div>
+              <div className="mt-0.5 text-[11px] opacity-75">Reserve everything in one tap</div>
             </div>
             <button
               onClick={onClose}
@@ -1352,8 +1425,8 @@ function BookingModal({
               stop.bookingType === "parking"
                 ? "Garage pre-pay"
                 : stop.bookingType === "both"
-                ? "Reservation + Parking"
-                : "Table reservation";
+                  ? "Reservation + Parking"
+                  : "Table reservation";
             return (
               <div
                 key={stop.id}
@@ -1380,8 +1453,8 @@ function BookingModal({
                     s === "booked"
                       ? "bg-ink text-cream"
                       : s === "booking"
-                      ? "bg-coral/20 text-coral animate-pulse"
-                      : "bg-coral text-cream hover:-translate-y-0.5"
+                        ? "bg-coral/20 text-coral animate-pulse"
+                        : "bg-coral text-cream hover:-translate-y-0.5"
                   }`}
                 >
                   {s === "booked" ? "✓ BOOKED" : s === "booking" ? "BOOKING…" : "BOOK"}
@@ -1436,9 +1509,8 @@ function WalletQrModal({
 
   // Focus management: remember the trigger, focus close on open, restore on unmount.
   useEffect(() => {
-    const previouslyFocused = (typeof document !== "undefined"
-      ? (document.activeElement as HTMLElement | null)
-      : null);
+    const previouslyFocused =
+      typeof document !== "undefined" ? (document.activeElement as HTMLElement | null) : null;
     closeBtnRef.current?.focus();
     return () => {
       previouslyFocused?.focus?.();
@@ -1472,7 +1544,6 @@ function WalletQrModal({
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
-
 
   function handlePrint() {
     const svgEl = qrWrapRef.current?.querySelector("svg");
@@ -1525,7 +1596,7 @@ function WalletQrModal({
     <h1>Scan from another device</h1>
     <p>Open your Android phone's camera and aim at the QR code. The pass will open in Google Wallet.</p>
     <div class="qr">${svgMarkup}</div>
-    <div class="url">${url.replace(/[<&>]/g, (c) => ({"<":"&lt;","&":"&amp;",">":"&gt;"}[c]!))}</div>
+    <div class="url">${url.replace(/[<&>]/g, (c) => ({ "<": "&lt;", "&": "&amp;", ">": "&gt;" })[c]!)}</div>
     <button class="btn" onclick="window.print()">Print this page</button>
   </div>
   <script>setTimeout(function(){ try { window.focus(); window.print(); } catch(e){} }, 300);</script>
@@ -1558,7 +1629,10 @@ function WalletQrModal({
         </button>
         <div className="flex items-center gap-2">
           <Smartphone className="h-4 w-4 text-coral" aria-hidden="true" />
-          <h2 id={headingId} className="font-display text-lg font-extrabold tracking-tight text-ink">
+          <h2
+            id={headingId}
+            className="font-display text-lg font-extrabold tracking-tight text-ink"
+          >
             {pending ? "Google Wallet — preview" : "Scan to add to Google Wallet"}
           </h2>
         </div>
@@ -1568,9 +1642,9 @@ function WalletQrModal({
               ⚠ launching soon
             </p>
             <p id={descId} className="mt-1 text-xs leading-snug text-ink/80">
-              Our Google Wallet issuer credentials aren't live yet, so this is a preview of how
-              the hand-off will work. Once we're approved, the QR will sign you straight into
-              your pass. Press Escape to close.
+              Our Google Wallet issuer credentials aren't live yet, so this is a preview of how the
+              hand-off will work. Once we're approved, the QR will sign you straight into your pass.
+              Press Escape to close.
             </p>
           </div>
         ) : (
@@ -1584,7 +1658,14 @@ function WalletQrModal({
           className={`mt-4 grid place-items-center rounded-2xl border-2 border-ink bg-cream p-4 ${pending ? "opacity-60" : ""}`}
           aria-hidden={pending ? "true" : undefined}
         >
-          <QRCodeSVG value={url} size={208} bgColor="#FFF7EC" fgColor="#1B1B1B" level="M" includeMargin={false} />
+          <QRCodeSVG
+            value={url}
+            size={208}
+            bgColor="#FFF7EC"
+            fgColor="#1B1B1B"
+            level="M"
+            includeMargin={false}
+          />
         </div>
         <a
           href={url}

@@ -10,11 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import {
-  listMyPromoterJobs,
-  promoterJobAction,
-  submitContent,
-} from "@/lib/promoter.functions";
+import { listMyPromoterJobs, promoterJobAction, submitContent } from "@/lib/promoter.functions";
 
 export const Route = createFileRoute("/promoter/jobs")({
   component: PromoterJobsPage,
@@ -47,8 +43,10 @@ function PromoterJobsPage() {
   });
 
   const act = useMutation({
-    mutationFn: (vars: { job_id: string; action: "accept" | "decline" | "mark_in_progress" | "cancel" }) =>
-      action({ data: vars }),
+    mutationFn: (vars: {
+      job_id: string;
+      action: "accept" | "decline" | "mark_in_progress" | "cancel";
+    }) => action({ data: vars }),
     onSuccess: () => {
       toast.success("Updated");
       qc.invalidateQueries({ queryKey: ["my-promoter-jobs"] });
@@ -63,11 +61,15 @@ function PromoterJobsPage() {
     <div className="space-y-6">
       <header>
         <h1 className="text-3xl font-bold">Job inbox</h1>
-        <p className="text-muted-foreground">Accept offers, plan the outing with Confetti, and submit your content.</p>
+        <p className="text-muted-foreground">
+          Accept offers, plan the outing with Confetti, and submit your content.
+        </p>
       </header>
 
       {jobs.length === 0 ? (
-        <Card className="p-12 text-center text-muted-foreground">No jobs yet. Once your profile is approved, businesses can hire you.</Card>
+        <Card className="p-12 text-center text-muted-foreground">
+          No jobs yet. Once your profile is approved, businesses can hire you.
+        </Card>
       ) : (
         <div className="space-y-3">
           {jobs.map((j: any) => (
@@ -76,34 +78,57 @@ function PromoterJobsPage() {
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
                     <h3 className="font-semibold">{j.title}</h3>
-                    <Badge className={STATUS_COLORS[j.status] ?? ""}>{j.status.replace(/_/g, " ")}</Badge>
+                    <Badge className={STATUS_COLORS[j.status] ?? ""}>
+                      {j.status.replace(/_/g, " ")}
+                    </Badge>
                   </div>
                   <p className="text-sm text-muted-foreground mt-1">
                     {j.advertisers?.business_name ?? "Business"} · {fmtMoney(j.amount_cents)} ·{" "}
                     Confetti fee {(j.platform_fee_bps / 100).toFixed(1)}% · you net{" "}
-                    {fmtMoney(Math.floor(j.amount_cents * (10000 - j.platform_fee_bps) / 10000))}
+                    {fmtMoney(Math.floor((j.amount_cents * (10000 - j.platform_fee_bps)) / 10000))}
                   </p>
                 </div>
                 <div className="flex gap-2">
                   {j.status === "offered" && (
                     <>
-                      <Button size="sm" variant="outline" onClick={() => act.mutate({ job_id: j.id, action: "decline" })}>Decline</Button>
-                      <Button size="sm" onClick={() => act.mutate({ job_id: j.id, action: "accept" })}>Accept</Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => act.mutate({ job_id: j.id, action: "decline" })}
+                      >
+                        Decline
+                      </Button>
+                      <Button
+                        size="sm"
+                        onClick={() => act.mutate({ job_id: j.id, action: "accept" })}
+                      >
+                        Accept
+                      </Button>
                     </>
                   )}
                   {j.status === "accepted" && (
-                    <Button size="sm" onClick={() => act.mutate({ job_id: j.id, action: "mark_in_progress" })}>Start work</Button>
+                    <Button
+                      size="sm"
+                      onClick={() => act.mutate({ job_id: j.id, action: "mark_in_progress" })}
+                    >
+                      Start work
+                    </Button>
                   )}
                 </div>
               </div>
 
               <details className="text-sm">
-                <summary className="cursor-pointer text-muted-foreground hover:text-foreground">Brief</summary>
+                <summary className="cursor-pointer text-muted-foreground hover:text-foreground">
+                  Brief
+                </summary>
                 <p className="mt-2 whitespace-pre-wrap">{j.brief}</p>
               </details>
 
               {(j.status === "in_progress" || j.status === "accepted") && (
-                <SubmitForm jobId={j.id} onDone={() => qc.invalidateQueries({ queryKey: ["my-promoter-jobs"] })} />
+                <SubmitForm
+                  jobId={j.id}
+                  onDone={() => qc.invalidateQueries({ queryKey: ["my-promoter-jobs"] })}
+                />
               )}
 
               {j.promoter_submissions?.length > 0 && (
@@ -111,7 +136,14 @@ function PromoterJobsPage() {
                   <p className="text-xs font-medium text-muted-foreground uppercase">Submissions</p>
                   {j.promoter_submissions.map((s: any) => (
                     <div key={s.id} className="flex items-center justify-between gap-3 text-sm">
-                      <a href={s.content_url} target="_blank" rel="noreferrer" className="text-primary hover:underline truncate">{s.content_url}</a>
+                      <a
+                        href={s.content_url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-primary hover:underline truncate"
+                      >
+                        {s.content_url}
+                      </a>
                       <Badge variant="outline">{s.verification_status}</Badge>
                     </div>
                   ))}
@@ -184,12 +216,17 @@ function SubmitForm({ jobId, onDone }: { jobId: string; onDone: () => void }) {
   return (
     <div className="border-t pt-4 space-y-3">
       <div className="bg-amber-50 border border-amber-200 rounded p-3 text-sm">
-        <strong>Required:</strong> your content must feature your Confetti Boarding Pass on-screen and tag both the venue and @confetti.
+        <strong>Required:</strong> your content must feature your Confetti Boarding Pass on-screen
+        and tag both the venue and @confetti.
       </div>
       <div className="grid sm:grid-cols-2 gap-3">
         <div>
           <Label>Content URL</Label>
-          <Input value={form.content_url} onChange={(e) => setForm({ ...form, content_url: e.target.value })} placeholder="https://instagram.com/p/…" />
+          <Input
+            value={form.content_url}
+            onChange={(e) => setForm({ ...form, content_url: e.target.value })}
+            placeholder="https://instagram.com/p/…"
+          />
         </div>
         <div>
           <Label>Platform</Label>
@@ -215,18 +252,28 @@ function SubmitForm({ jobId, onDone }: { jobId: string; onDone: () => void }) {
         >
           <option value="">Select a Confetti trip…</option>
           {itineraries.map((it) => (
-            <option key={it.id} value={it.id}>{it.title}</option>
+            <option key={it.id} value={it.id}>
+              {it.title}
+            </option>
           ))}
         </select>
         {itineraries.length === 0 && (
           <p className="text-xs text-muted-foreground mt-1">
-            No trips yet. <Link to="/concierge" className="text-primary underline">Plan one with Confetti</Link>.
+            No trips yet.{" "}
+            <Link to="/concierge" className="text-primary underline">
+              Plan one with Confetti
+            </Link>
+            .
           </p>
         )}
       </div>
       <div>
         <Label>Caption (optional)</Label>
-        <Textarea rows={3} value={form.caption} onChange={(e) => setForm({ ...form, caption: e.target.value })} />
+        <Textarea
+          rows={3}
+          value={form.caption}
+          onChange={(e) => setForm({ ...form, caption: e.target.value })}
+        />
       </div>
       <label className="flex items-center gap-2 text-sm">
         <input
@@ -237,10 +284,17 @@ function SubmitForm({ jobId, onDone }: { jobId: string; onDone: () => void }) {
         Boarding Pass is clearly visible in the content
       </label>
       <div className="flex gap-2 justify-end">
-        <Button variant="ghost" onClick={() => setOpen(false)}>Cancel</Button>
+        <Button variant="ghost" onClick={() => setOpen(false)}>
+          Cancel
+        </Button>
         <Button
           onClick={() => mut.mutate()}
-          disabled={mut.isPending || !form.content_url || !form.boarding_pass_itinerary_id || !form.boarding_pass_visible}
+          disabled={
+            mut.isPending ||
+            !form.content_url ||
+            !form.boarding_pass_itinerary_id ||
+            !form.boarding_pass_visible
+          }
         >
           {mut.isPending ? "Submitting…" : "Submit for verification"}
         </Button>

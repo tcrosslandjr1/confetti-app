@@ -87,9 +87,7 @@ export function SubscriptionPanel({ advertiserId, onChange }: Props) {
             </p>
           )}
           {sub?.status === "cancelled" && (
-            <p className="text-xs text-amber-600">
-              Cancelled — re-pick a plan to reactivate.
-            </p>
+            <p className="text-xs text-amber-600">Cancelled — re-pick a plan to reactivate.</p>
           )}
         </div>
         {sub?.status === "active" && (
@@ -151,8 +149,8 @@ export function SubscriptionPanel({ advertiserId, onChange }: Props) {
       </div>
 
       <p className="mt-3 flex items-center gap-1.5 text-[11px] text-muted-foreground">
-        <Sparkles className="h-3 w-3" /> Stub billing for now — no card needed. Real Stripe
-        checkout coming soon.
+        <Sparkles className="h-3 w-3" /> Stub billing for now — no card needed. Real Stripe checkout
+        coming soon.
       </p>
     </section>
   );

@@ -51,9 +51,7 @@ function PortalLayout() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   // Allow unauthenticated access to /portal/saved for App Store demo screenshots.
-  const isDemoPage =
-    pathname === "/portal/saved" ||
-    pathname === "/portal/profile";
+  const isDemoPage = pathname === "/portal/saved" || pathname === "/portal/profile";
 
   useEffect(() => {
     if (loading) return;
@@ -99,9 +97,7 @@ function PortalLayout() {
       >
         <div className="flex flex-col items-center gap-4">
           <Loader2 className="h-10 w-10 animate-spin text-coral" aria-hidden="true" />
-          <p className="font-display text-sm font-bold tracking-tight text-ink/70">
-            {message}
-          </p>
+          <p className="font-display text-sm font-bold tracking-tight text-ink/70">{message}</p>
           <span className="sr-only">{message}</span>
         </div>
       </div>
@@ -115,7 +111,9 @@ function PortalLayout() {
         <aside className="hidden lg:block">
           <nav className="sticky top-20 rounded-2xl border-2 border-ink bg-cream p-3 shadow-brut">
             <div className="mb-3 border-b-2 border-dashed border-ink pb-2 px-2">
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/60">/ portal</span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/60">
+                / portal
+              </span>
             </div>
             {NAV.map(({ to, label, icon: Icon, exact }) => {
               const active = exact ? pathname === to : pathname.startsWith(to);

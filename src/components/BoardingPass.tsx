@@ -324,7 +324,9 @@ export function BoardingPass({
               <div className={`font-mono text-[10px] uppercase tracking-widest ${theme.muted}`}>
                 From
               </div>
-              <div className="truncate font-display text-2xl font-black leading-none sm:text-3xl">{fromCode}</div>
+              <div className="truncate font-display text-2xl font-black leading-none sm:text-3xl">
+                {fromCode}
+              </div>
               <div className={`mt-1 text-xs ${theme.muted}`}>Right now</div>
             </div>
             <div className="flex-1 px-2">
@@ -338,8 +340,12 @@ export function BoardingPass({
               <div className={`font-mono text-[10px] uppercase tracking-widest ${theme.muted}`}>
                 To
               </div>
-              <div className="truncate font-display text-2xl font-black leading-none sm:text-3xl">{toCode}</div>
-              <div className={`mt-1 truncate text-xs ${theme.muted}`}>{itinerary.city ?? "TBD"}</div>
+              <div className="truncate font-display text-2xl font-black leading-none sm:text-3xl">
+                {toCode}
+              </div>
+              <div className={`mt-1 truncate text-xs ${theme.muted}`}>
+                {itinerary.city ?? "TBD"}
+              </div>
             </div>
           </div>
 

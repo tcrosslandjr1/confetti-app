@@ -27,12 +27,7 @@ async function getUserId(): Promise<string | null> {
   }
 }
 
-export type EventType =
-  | "pageview"
-  | "cta_click"
-  | "scroll_depth"
-  | "time_to_interaction"
-  | "error";
+export type EventType = "pageview" | "cta_click" | "scroll_depth" | "time_to_interaction" | "error";
 
 export async function trackEvent(
   type: EventType,
@@ -128,8 +123,10 @@ export function trackCta(name: string, metadata: Record<string, unknown> = {}) {
 /** Global error tracker — call once at app root. */
 export function installErrorTracking() {
   if (typeof window === "undefined") return;
-  if ((window as unknown as { __confettiErrTrackInstalled?: boolean }).__confettiErrTrackInstalled) return;
-  (window as unknown as { __confettiErrTrackInstalled?: boolean }).__confettiErrTrackInstalled = true;
+  if ((window as unknown as { __confettiErrTrackInstalled?: boolean }).__confettiErrTrackInstalled)
+    return;
+  (window as unknown as { __confettiErrTrackInstalled?: boolean }).__confettiErrTrackInstalled =
+    true;
 
   window.addEventListener("error", (e) => {
     void trackEvent("error", "window_error", {

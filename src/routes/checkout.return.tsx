@@ -117,10 +117,10 @@ function SuccessState({ data }: { data: Awaited<ReturnType<typeof getCheckoutSes
   const headline = isTrialing
     ? "Your trial is live."
     : isPaid
-    ? "You're in."
-    : isProcessing
-    ? "Payment processing…"
-    : "Order received.";
+      ? "You're in."
+      : isProcessing
+        ? "Payment processing…"
+        : "Order received.";
 
   const Icon = isTrialing ? Sparkles : isPaid ? CheckCircle2 : Clock;
 

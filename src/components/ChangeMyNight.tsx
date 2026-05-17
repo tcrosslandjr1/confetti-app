@@ -6,13 +6,48 @@ import { generatePlan } from "@/lib/generate-plan.functions";
 import { getActiveLoop, setActiveLoop, type ActiveLoop } from "@/lib/loop-store";
 
 const TWEAKS: { id: string; label: string; emoji: string; directive: string }[] = [
-  { id: "hype", label: "More hype", emoji: "🔥", directive: "Crank up the energy — louder, busier, more dance-floor and rooftop scenes." },
-  { id: "chill", label: "More chill", emoji: "🌙", directive: "Quieter and slower — cozy bars, low-lit lounges, conversation-friendly." },
-  { id: "cheaper", label: "Cheaper", emoji: "💸", directive: "Drop the price tier — happy hours, neighborhood spots, no cover venues." },
-  { id: "romantic", label: "More romantic", emoji: "💞", directive: "Lean into intimacy — candlelit, scenic views, slow-paced." },
-  { id: "closer", label: "Keep it closer", emoji: "🧭", directive: "Cluster all stops within ~8 minutes of each other; minimize travel." },
-  { id: "insta", label: "More Instagram-y", emoji: "📸", directive: "Optimize for visual moments — viewpoints, neon, plated bites, bold interiors." },
-  { id: "group", label: "Group friendly", emoji: "🫶", directive: "Bias toward group seating, big tables, shareable plates, group-friendly logistics." },
+  {
+    id: "hype",
+    label: "More hype",
+    emoji: "🔥",
+    directive: "Crank up the energy — louder, busier, more dance-floor and rooftop scenes.",
+  },
+  {
+    id: "chill",
+    label: "More chill",
+    emoji: "🌙",
+    directive: "Quieter and slower — cozy bars, low-lit lounges, conversation-friendly.",
+  },
+  {
+    id: "cheaper",
+    label: "Cheaper",
+    emoji: "💸",
+    directive: "Drop the price tier — happy hours, neighborhood spots, no cover venues.",
+  },
+  {
+    id: "romantic",
+    label: "More romantic",
+    emoji: "💞",
+    directive: "Lean into intimacy — candlelit, scenic views, slow-paced.",
+  },
+  {
+    id: "closer",
+    label: "Keep it closer",
+    emoji: "🧭",
+    directive: "Cluster all stops within ~8 minutes of each other; minimize travel.",
+  },
+  {
+    id: "insta",
+    label: "More Instagram-y",
+    emoji: "📸",
+    directive: "Optimize for visual moments — viewpoints, neon, plated bites, bold interiors.",
+  },
+  {
+    id: "group",
+    label: "Group friendly",
+    emoji: "🫶",
+    directive: "Bias toward group seating, big tables, shareable plates, group-friendly logistics.",
+  },
 ];
 
 /**
@@ -120,7 +155,11 @@ export function ChangeMyNight() {
                   onClick={() => applyTweak(t.id, t.directive)}
                   className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink/15 bg-background px-3 py-2.5 text-xs font-bold transition-pop hover:-translate-y-0.5 hover:border-ink disabled:opacity-40"
                 >
-                  {loading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <span>{t.emoji}</span>}
+                  {loading ? (
+                    <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                  ) : (
+                    <span>{t.emoji}</span>
+                  )}
                   <span>{t.label}</span>
                 </button>
               );

@@ -277,7 +277,7 @@ function AuthPage() {
           <span aria-hidden className="pointer-events-none absolute left-[20%] bottom-[28%] h-2 w-2 rounded-full bg-ink animate-[float_9s_ease-in-out_infinite]" />
 
           <div className="relative mt-10 flex items-center gap-3 text-primary-foreground">
-            <div className="grid h-12 w-12 place-items-center rounded-2xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform hover:-translate-y-0.5 hover:rotate-3">
+            <div className="grid h-12 w-12 place-items-center rounded-2xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform hover:-translate-y-0.5 hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
               <Sparkles className="h-6 w-6" />
             </div>
             <div>
@@ -287,8 +287,8 @@ function AuthPage() {
           </div>
 
           {/* Floating preview collage — fills the middle breathing space */}
-          <div className="relative my-6 hidden h-[220px] xl:block">
-            <div className="absolute left-[6%] top-2 w-[58%] -rotate-[5deg] rounded-2xl border-2 border-ink bg-cream p-4 text-ink shadow-brut-lg transition-transform hover:-translate-y-1 hover:-rotate-[3deg]">
+          <div className="relative my-6 hidden h-[220px] lg:block">
+            <div className="auth-collage-card absolute left-[6%] top-2 w-[58%] -rotate-[5deg] rounded-2xl border-2 border-ink bg-cream p-4 text-ink shadow-brut-lg transition-transform hover:-translate-y-1 hover:-rotate-[3deg] motion-reduce:transform-none motion-reduce:transition-none">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink/60">tonight · 8:30pm</span>
                 <span className="inline-flex items-center gap-1 rounded-full bg-coral px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream">
@@ -307,7 +307,7 @@ function AuthPage() {
               </div>
             </div>
 
-            <div className="absolute right-[4%] top-[42%] w-[46%] rotate-[6deg] rounded-2xl border-2 border-ink bg-ink p-4 text-cream shadow-brut-lg transition-transform hover:-translate-y-1 hover:rotate-[3deg]">
+            <div className="auth-collage-card absolute right-[4%] top-[42%] w-[46%] rotate-[6deg] rounded-2xl border-2 border-ink bg-ink p-4 text-cream shadow-brut-lg transition-transform hover:-translate-y-1 hover:rotate-[3deg] motion-reduce:transform-none motion-reduce:transition-none">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] opacity-70">your reward</span>
                 <PartyPopper className="h-4 w-4 text-coral" />
@@ -322,7 +322,7 @@ function AuthPage() {
               <div className="mt-1.5 font-mono text-[9px] uppercase tracking-widest opacity-70">320 to gold tier</div>
             </div>
 
-            <div className="absolute left-[2%] bottom-0 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut">
+            <div className="auth-collage-card absolute left-[2%] bottom-0 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut motion-reduce:transform-none motion-reduce:transition-none">
               <ShieldCheck className="h-3 w-3 text-coral" /> skip the line
             </div>
           </div>
@@ -354,19 +354,19 @@ function AuthPage() {
             </p>
             <ul className="space-y-3 text-sm">
               <li className="group flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3">
+                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
                   <PartyPopper className="h-4 w-4" />
                 </span>
                 Earn <span className="font-bold">Confetti</span> on every booking
               </li>
               <li className="group flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3">
+                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
                   <MapPin className="h-4 w-4" />
                 </span>
                 Hand-picked spots in 40+ cities
               </li>
               <li className="group flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3">
+                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
                   <ShieldCheck className="h-4 w-4" />
                 </span>
                 Skip-the-line perks at partner venues
@@ -457,6 +457,35 @@ function AuthPage() {
                     {t}
                   </span>
                 ))}
+              </div>
+
+              {/* Mobile collage preview */}
+              <div className="relative mt-4 flex gap-2.5">
+                <div className="flex-1 rounded-xl border-2 border-ink bg-cream p-3 text-ink shadow-brut motion-reduce:transform-none motion-reduce:transition-none">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[8px] font-bold uppercase tracking-[0.2em] text-ink/60">tonight</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-coral px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest text-cream">
+                      <Sparkles className="h-2 w-2" /> pick
+                    </span>
+                  </div>
+                  <div className="mt-1 font-display text-sm font-extrabold leading-tight">Rooftop omakase</div>
+                  <div className="mt-0.5 flex items-center gap-1 font-mono text-[9px] uppercase tracking-widest text-ink/70">
+                    <MapPin className="h-2.5 w-2.5" /> brooklyn
+                  </div>
+                </div>
+                <div className="flex-1 rounded-xl border-2 border-ink bg-ink p-3 text-cream shadow-brut motion-reduce:transform-none motion-reduce:transition-none">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[8px] font-bold uppercase tracking-[0.2em] opacity-70">reward</span>
+                    <PartyPopper className="h-3 w-3 text-coral" />
+                  </div>
+                  <div className="mt-1 flex items-baseline gap-1">
+                    <span className="font-display text-lg font-extrabold leading-none">+250</span>
+                    <span className="font-mono text-[9px] uppercase tracking-widest opacity-80">confetti</span>
+                  </div>
+                  <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-cream/15">
+                    <div className="h-full w-[68%] rounded-full bg-coral" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

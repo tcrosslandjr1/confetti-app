@@ -547,6 +547,13 @@
     html {
       scroll-behavior: auto;
     }
+    /* Auth collage — flatten static tilts and disable hover transforms */
+    .auth-collage-card {
+      transform: none !important;
+    }
+    .auth-collage-card:hover {
+      transform: none !important;
+    }
   }
   .hero-gradient {
     background: linear-gradient(

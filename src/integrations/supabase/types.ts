@@ -1883,6 +1883,8 @@ export type Database = {
           advertiser_id: string | null
           category: string
           city: string | null
+          claim_status: string | null
+          claimed_by: string | null
           created_at: string
           description: string | null
           featured: boolean
@@ -1900,6 +1902,8 @@ export type Database = {
           advertiser_id?: string | null
           category: string
           city?: string | null
+          claim_status?: string | null
+          claimed_by?: string | null
           created_at?: string
           description?: string | null
           featured?: boolean
@@ -1917,6 +1921,8 @@ export type Database = {
           advertiser_id?: string | null
           category?: string
           city?: string | null
+          claim_status?: string | null
+          claimed_by?: string | null
           created_at?: string
           description?: string | null
           featured?: boolean
@@ -1936,6 +1942,13 @@ export type Database = {
             columns: ["advertiser_id"]
             isOneToOne: false
             referencedRelation: "advertisers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "venues_claimed_by_fkey"
+            columns: ["claimed_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
         ]

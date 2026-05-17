@@ -1881,6 +1881,42 @@ export type Database = {
         }
         Relationships: []
       }
+      venue_media_refresh_runs: {
+        Row: {
+          created_at: string
+          errors: Json
+          finished_at: string | null
+          id: string
+          photos_added: number
+          socials_found: number
+          started_at: string
+          trigger: string
+          venues_processed: number
+        }
+        Insert: {
+          created_at?: string
+          errors?: Json
+          finished_at?: string | null
+          id?: string
+          photos_added?: number
+          socials_found?: number
+          started_at?: string
+          trigger?: string
+          venues_processed?: number
+        }
+        Update: {
+          created_at?: string
+          errors?: Json
+          finished_at?: string | null
+          id?: string
+          photos_added?: number
+          socials_found?: number
+          started_at?: string
+          trigger?: string
+          venues_processed?: number
+        }
+        Relationships: []
+      }
       venue_reports: {
         Row: {
           city: string | null
@@ -1928,12 +1964,20 @@ export type Database = {
           description: string | null
           featured: boolean
           featured_until: string | null
+          gallery_refreshed_at: string | null
+          gallery_urls: Json
           id: string
           image_url: string | null
+          instagram_handle: string | null
+          instagram_url: string | null
           name: string
           neighborhood: string | null
+          place_id: string | null
           price_level: number
+          socials_refreshed_at: string | null
           staff_email: string | null
+          tiktok_handle: string | null
+          tiktok_url: string | null
           verified: boolean
           website: string | null
         }
@@ -1947,12 +1991,20 @@ export type Database = {
           description?: string | null
           featured?: boolean
           featured_until?: string | null
+          gallery_refreshed_at?: string | null
+          gallery_urls?: Json
           id?: string
           image_url?: string | null
+          instagram_handle?: string | null
+          instagram_url?: string | null
           name: string
           neighborhood?: string | null
+          place_id?: string | null
           price_level?: number
+          socials_refreshed_at?: string | null
           staff_email?: string | null
+          tiktok_handle?: string | null
+          tiktok_url?: string | null
           verified?: boolean
           website?: string | null
         }
@@ -1966,12 +2018,20 @@ export type Database = {
           description?: string | null
           featured?: boolean
           featured_until?: string | null
+          gallery_refreshed_at?: string | null
+          gallery_urls?: Json
           id?: string
           image_url?: string | null
+          instagram_handle?: string | null
+          instagram_url?: string | null
           name?: string
           neighborhood?: string | null
+          place_id?: string | null
           price_level?: number
+          socials_refreshed_at?: string | null
           staff_email?: string | null
+          tiktok_handle?: string | null
+          tiktok_url?: string | null
           verified?: boolean
           website?: string | null
         }

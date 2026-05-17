@@ -702,12 +702,30 @@ function AdvertisersTab({
                   )}
                 </div>
                 <div className="flex flex-shrink-0 flex-wrap gap-2">
-                  {a.status !== "approved" && (
-                    <Button size="sm" onClick={() => setStatus(a, "approved")}>
-                      <CheckCircle2 className="mr-1 h-3.5 w-3.5" /> Approve
-                    </Button>
+                  {(a.status === "pending_review" || a.status === "pending") && (
+                    <>
+                      <Button size="sm" onClick={() => decide(a, "approve")}>
+                        <CheckCircle2 className="mr-1 h-3.5 w-3.5" /> Approve
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="text-destructive hover:text-destructive"
+                        onClick={() => decide(a, "reject")}
+                      >
+                        <XCircle className="mr-1 h-3.5 w-3.5" /> Reject
+                      </Button>
+                    </>
                   )}
-                  {a.status !== "suspended" && (
+                  {a.status !== "approved" &&
+                    a.status !== "active" &&
+                    a.status !== "pending_review" &&
+                    a.status !== "pending" && (
+                      <Button size="sm" onClick={() => setStatus(a, "active")}>
+                        <CheckCircle2 className="mr-1 h-3.5 w-3.5" /> Activate
+                      </Button>
+                    )}
+                  {a.status !== "suspended" && a.status !== "rejected" && a.status !== "pending_review" && a.status !== "pending" && (
                     <Button
                       size="sm"
                       variant="ghost"

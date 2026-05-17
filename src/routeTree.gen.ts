@@ -128,6 +128,7 @@ import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public
 import { Route as ApiPublicInstagramCallbackRouteImport } from './routes/api/public/instagram.callback'
 import { Route as ApiPublicHooksTiktokRefreshRouteImport } from './routes/api/public/hooks/tiktok-refresh'
 import { Route as ApiPublicHooksRefreshVenueMediaRouteImport } from './routes/api/public/hooks/refresh-venue-media'
+import { Route as ApiPublicHooksRefreshTrendingVenuesRouteImport } from './routes/api/public/hooks/refresh-trending-venues'
 import { Route as ApiPublicHooksRefreshOutreachCsvRouteImport } from './routes/api/public/hooks/refresh-outreach-csv'
 import { Route as ApiPublicHooksDiscoverViralRouteImport } from './routes/api/public/hooks/discover-viral'
 import { Route as ApiAdminWalletGoogleDebugRouteImport } from './routes/api/admin/wallet/google-debug'
@@ -731,6 +732,12 @@ const ApiPublicHooksRefreshVenueMediaRoute =
     path: '/api/public/hooks/refresh-venue-media',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicHooksRefreshTrendingVenuesRoute =
+  ApiPublicHooksRefreshTrendingVenuesRouteImport.update({
+    id: '/api/public/hooks/refresh-trending-venues',
+    path: '/api/public/hooks/refresh-trending-venues',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicHooksRefreshOutreachCsvRoute =
   ApiPublicHooksRefreshOutreachCsvRouteImport.update({
     id: '/api/public/hooks/refresh-outreach-csv',
@@ -875,6 +882,7 @@ export interface FileRoutesByFullPath {
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/refresh-outreach-csv': typeof ApiPublicHooksRefreshOutreachCsvRoute
+  '/api/public/hooks/refresh-trending-venues': typeof ApiPublicHooksRefreshTrendingVenuesRoute
   '/api/public/hooks/refresh-venue-media': typeof ApiPublicHooksRefreshVenueMediaRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
@@ -994,6 +1002,7 @@ export interface FileRoutesByTo {
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/refresh-outreach-csv': typeof ApiPublicHooksRefreshOutreachCsvRoute
+  '/api/public/hooks/refresh-trending-venues': typeof ApiPublicHooksRefreshTrendingVenuesRoute
   '/api/public/hooks/refresh-venue-media': typeof ApiPublicHooksRefreshVenueMediaRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
@@ -1120,6 +1129,7 @@ export interface FileRoutesById {
   '/api/admin/wallet/google-debug': typeof ApiAdminWalletGoogleDebugRoute
   '/api/public/hooks/discover-viral': typeof ApiPublicHooksDiscoverViralRoute
   '/api/public/hooks/refresh-outreach-csv': typeof ApiPublicHooksRefreshOutreachCsvRoute
+  '/api/public/hooks/refresh-trending-venues': typeof ApiPublicHooksRefreshTrendingVenuesRoute
   '/api/public/hooks/refresh-venue-media': typeof ApiPublicHooksRefreshVenueMediaRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
@@ -1247,6 +1257,7 @@ export interface FileRouteTypes {
     | '/api/admin/wallet/google-debug'
     | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/refresh-outreach-csv'
+    | '/api/public/hooks/refresh-trending-venues'
     | '/api/public/hooks/refresh-venue-media'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
@@ -1366,6 +1377,7 @@ export interface FileRouteTypes {
     | '/api/admin/wallet/google-debug'
     | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/refresh-outreach-csv'
+    | '/api/public/hooks/refresh-trending-venues'
     | '/api/public/hooks/refresh-venue-media'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
@@ -1491,6 +1503,7 @@ export interface FileRouteTypes {
     | '/api/admin/wallet/google-debug'
     | '/api/public/hooks/discover-viral'
     | '/api/public/hooks/refresh-outreach-csv'
+    | '/api/public/hooks/refresh-trending-venues'
     | '/api/public/hooks/refresh-venue-media'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
@@ -1567,6 +1580,7 @@ export interface RootRouteChildren {
   ApiAdminWalletGoogleDebugRoute: typeof ApiAdminWalletGoogleDebugRoute
   ApiPublicHooksDiscoverViralRoute: typeof ApiPublicHooksDiscoverViralRoute
   ApiPublicHooksRefreshOutreachCsvRoute: typeof ApiPublicHooksRefreshOutreachCsvRoute
+  ApiPublicHooksRefreshTrendingVenuesRoute: typeof ApiPublicHooksRefreshTrendingVenuesRoute
   ApiPublicHooksRefreshVenueMediaRoute: typeof ApiPublicHooksRefreshVenueMediaRoute
   ApiPublicHooksTiktokRefreshRoute: typeof ApiPublicHooksTiktokRefreshRoute
   ApiPublicInstagramCallbackRoute: typeof ApiPublicInstagramCallbackRoute
@@ -2409,6 +2423,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicHooksRefreshVenueMediaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/hooks/refresh-trending-venues': {
+      id: '/api/public/hooks/refresh-trending-venues'
+      path: '/api/public/hooks/refresh-trending-venues'
+      fullPath: '/api/public/hooks/refresh-trending-venues'
+      preLoaderRoute: typeof ApiPublicHooksRefreshTrendingVenuesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/hooks/refresh-outreach-csv': {
       id: '/api/public/hooks/refresh-outreach-csv'
       path: '/api/public/hooks/refresh-outreach-csv'
@@ -2691,6 +2712,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAdminWalletGoogleDebugRoute: ApiAdminWalletGoogleDebugRoute,
   ApiPublicHooksDiscoverViralRoute: ApiPublicHooksDiscoverViralRoute,
   ApiPublicHooksRefreshOutreachCsvRoute: ApiPublicHooksRefreshOutreachCsvRoute,
+  ApiPublicHooksRefreshTrendingVenuesRoute:
+    ApiPublicHooksRefreshTrendingVenuesRoute,
   ApiPublicHooksRefreshVenueMediaRoute: ApiPublicHooksRefreshVenueMediaRoute,
   ApiPublicHooksTiktokRefreshRoute: ApiPublicHooksTiktokRefreshRoute,
   ApiPublicInstagramCallbackRoute: ApiPublicInstagramCallbackRoute,

@@ -277,7 +277,48 @@ export function checkInStop(stopId: string): CheckInResult | null {
   setActiveLoop(updated);
   if (award > 0) addConfetti(award);
 
+  // Award a passport stamp on the first check-in for this loop.
+  if (!alreadyAwarded) {
+    const cityRaw = loop.city || loop.toName || loop.to || "Trip";
+    const city = cityAbbreviation(cityRaw);
+    const theme = loop.experienceName || loop.blueprint || loop.occasion || "Night Out";
+    const earnedAt = new Date(stamp);
+    const date = earnedAt.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    addStamp({ id: loop.id, city, theme, date, earnedAt: earnedAt.toISOString() });
+  }
+
   return { loop: updated, stop: updatedStop, awarded: award, alreadyAwarded };
+}
+
+/** Compress a city/destination string into a short 2-4 letter stamp code. */
+function cityAbbreviation(input: string): string {
+  const map: Record<string, string> = {
+    "washington dc": "DC",
+    washington: "DC",
+    "new york": "NYC",
+    "new york city": "NYC",
+    miami: "MIA",
+    "los angeles": "LA",
+    "san francisco": "SF",
+    chicago: "CHI",
+    boston: "BOS",
+    austin: "ATX",
+    nashville: "BNA",
+    seattle: "SEA",
+    denver: "DEN",
+    atlanta: "ATL",
+  };
+  const key = input.trim().toLowerCase();
+  if (map[key]) return map[key];
+  // Initials from words (max 3)
+  const initials = input
+    .replace(/[^a-zA-Z\s]/g, "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 3)
+    .map((w) => w[0].toUpperCase())
+    .join("");
+  return initials || input.slice(0, 3).toUpperCase();
 }
 
 export function getConfetti(): number {

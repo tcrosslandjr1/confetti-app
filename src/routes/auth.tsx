@@ -6,7 +6,7 @@ import { useAuth } from "@/lib/auth-context";
 
 import { useServerFn } from "@tanstack/react-start";
 import { seedDemoAccounts } from "@/lib/seed-demo.functions";
-import { lovable } from "@/integrations/lovable";
+import { lovable } from "@/integrations/lovable"
 import { rememberReferralCode, getPendingReferralCode } from "@/lib/referrals";
 import { requestUserLocation } from "@/lib/location";
 import { getMyAdvertiser } from "@/lib/ads";
@@ -14,7 +14,7 @@ import { getTonightsPick, liveSeatsRemaining, formatEventDate } from "@/lib/even
 import { getSelectedCity, subscribeSelectedCity } from "@/lib/cities";
 
 export const Route = createFileRoute("/auth")({
-  validateSearch: (search: Record<string, unknown>) => {
+  validateSearch: (search: Record<string, unknown>): { redirect?: string } => {
     const raw = typeof search.redirect === "string" ? search.redirect : "";
     // Only allow internal paths to avoid open-redirect to off-site URLs.
     const safe = raw.startsWith("/") && !raw.startsWith("//") ? raw : "/";

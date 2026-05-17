@@ -17,6 +17,11 @@ import {
   Lock,
   Share2,
   QrCode,
+  Stamp,
+  Zap,
+  Calendar,
+  ChevronRight,
+  Star,
 } from "lucide-react";
 import { getConfetti, subscribeConfetti } from "@/lib/loop-store";
 
@@ -40,6 +45,24 @@ const REWARDS = [
   { id: "r3", label: "VIP rooftop entry", sub: "Skip the line", cost: 1000, icon: Crown },
 ];
 
+const STAMPS = [
+  { city: "DC", theme: "Harbor Heatwave", date: "May 10" },
+  { city: "DC", theme: "Moonlit Mischief", date: "Apr 28" },
+  { city: "NYC", theme: "Velvet & Vinyl", date: "Apr 15" },
+  { city: "MIA", theme: "Neon Nomads", date: "Mar 22" },
+];
+
+const TIERS = [
+  { name: "Spark", at: 0, icon: Sparkles },
+  { name: "Glow", at: 500, icon: Star },
+  { name: "Blaze", at: 1500, icon: Flame },
+  { name: "Legend", at: 3000, icon: Crown },
+];
+
+// Streak: last 7 days, true = checked-in
+const STREAK_DAYS = [true, true, false, true, true, true, true];
+const STREAK_LABELS = ["M", "T", "W", "T", "F", "S", "S"];
+
 function PassportPage() {
   const [confetti, setConfettiCount] = useState(0);
   useEffect(() => {
@@ -50,6 +73,12 @@ function PassportPage() {
   const nextLevelAt = level * 250;
   const progress = Math.min(100, ((confetti % 250) / 250) * 100);
   const unlockedCount = BADGES.filter((b) => b.unlocked).length;
+  const currentTierIndex = Math.max(
+    0,
+    TIERS.findIndex((t, i) => confetti < (TIERS[i + 1]?.at ?? Infinity)),
+  );
+  const currentTier = TIERS[currentTierIndex];
+  const nextTier = TIERS[currentTierIndex + 1];
 
   return (
     <div className="min-h-screen bg-background pb-32">
@@ -63,15 +92,31 @@ function PassportPage() {
 
         {/* Passport hero */}
         <div className="relative mt-4 overflow-hidden rounded-3xl border-2 border-ink bg-gradient-vibe p-6 text-cream shadow-brut-lg">
+          {/* layered glow */}
+          <div className="pointer-events-none absolute -left-20 -top-20 h-56 w-56 rounded-full bg-cream/20 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-24 -right-16 h-64 w-64 rounded-full bg-ink/30 blur-3xl" />
+          {/* dotted grid texture */}
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.12]"
+            style={{
+              backgroundImage:
+                "radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px)",
+              backgroundSize: "14px 14px",
+            }}
+          />
+          {/* shimmer sweep */}
+          <div className="pointer-events-none absolute -inset-x-1 inset-y-0 -translate-x-full animate-[shimmer_3.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-cream/25 to-transparent" />
           {/* decorative confetti specks */}
-          <div className="pointer-events-none absolute inset-0 opacity-60">
-            <span className="absolute left-[14%] top-[18%] h-1.5 w-1.5 rounded-full bg-cream/80" />
-            <span className="absolute left-[78%] top-[22%] h-2 w-2 rotate-12 bg-cream/70" />
-            <span className="absolute left-[88%] top-[68%] h-1 w-3 rounded-full bg-cream/60" />
-            <span className="absolute left-[8%] top-[72%] h-1.5 w-1.5 rounded-full bg-cream/70" />
+          <div className="pointer-events-none absolute inset-0 opacity-70">
+            <span className="absolute left-[12%] top-[18%] h-1.5 w-1.5 rotate-12 rounded-sm bg-cream/90 animate-[float_4s_ease-in-out_infinite]" />
+            <span className="absolute left-[80%] top-[20%] h-2 w-2 rotate-45 bg-cream/80 animate-[float_5s_ease-in-out_infinite_0.4s]" />
+            <span className="absolute left-[90%] top-[70%] h-1 w-3 rounded-full bg-cream/70 animate-[float_4.5s_ease-in-out_infinite_0.8s]" />
+            <span className="absolute left-[6%] top-[74%] h-1.5 w-1.5 rounded-full bg-cream/80 animate-[float_5.5s_ease-in-out_infinite_1.1s]" />
+            <span className="absolute left-[48%] top-[10%] h-1 w-1 rounded-full bg-cream/70" />
           </div>
+
           <div className="relative flex items-center justify-between gap-2">
-            <div className="inline-flex items-center gap-2 rounded-full bg-cream/15 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest backdrop-blur">
+            <div className="inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/15 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest backdrop-blur">
               <Award className="h-3.5 w-3.5" /> Confetti Passport
             </div>
             <button
@@ -81,33 +126,43 @@ function PassportPage() {
               <Share2 className="h-3 w-3" /> Share
             </button>
           </div>
-          <div className="relative mt-3 flex items-end justify-between gap-3">
+
+          <div className="relative mt-4 flex items-end justify-between gap-3">
             <div>
-              <div className="font-display text-6xl font-extrabold leading-none drop-shadow-[0_2px_0_rgba(0,0,0,0.2)]">
-                L{level}
+              <div className="flex items-baseline gap-2">
+                <div className="font-display text-7xl font-extrabold leading-none drop-shadow-[0_3px_0_rgba(0,0,0,0.25)]">
+                  L{level}
+                </div>
+                <div className="font-serif text-2xl italic opacity-80">explorer</div>
               </div>
-              <div className="mt-1.5 inline-flex items-center gap-1 text-xs opacity-95">
-                <Sparkles className="h-3 w-3" /> Level {level} Explorer
+              <div className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-ink/25 px-2.5 py-1 text-[11px] backdrop-blur">
+                <currentTier.icon className="h-3 w-3" />
+                <span className="font-mono font-bold uppercase tracking-widest">{currentTier.name} tier</span>
               </div>
             </div>
             <div className="text-right">
-              <div className="font-display text-3xl font-extrabold tabular-nums">
+              <div className="font-display text-4xl font-extrabold tabular-nums leading-none drop-shadow-[0_2px_0_rgba(0,0,0,0.2)]">
                 {confetti.toLocaleString()}
               </div>
-              <div className="font-mono text-[10px] uppercase tracking-widest opacity-90">
+              <div className="mt-1 font-mono text-[10px] uppercase tracking-widest opacity-90">
                 Confetti
               </div>
             </div>
           </div>
-          <div className="relative mt-4">
-            <div className="h-2.5 w-full overflow-hidden rounded-full bg-ink/30">
+
+          <div className="relative mt-5">
+            <div className="h-3 w-full overflow-hidden rounded-full bg-ink/35 ring-1 ring-cream/10">
               <div
-                className="h-full rounded-full bg-cream shadow-[0_0_12px_rgba(255,255,255,0.5)] transition-all duration-700"
+                className="relative h-full rounded-full bg-cream shadow-[0_0_14px_rgba(255,255,255,0.6)] transition-all duration-700"
                 style={{ width: `${progress}%` }}
-              />
+              >
+                <div className="absolute inset-0 animate-[shimmer_2s_linear_infinite] bg-gradient-to-r from-transparent via-coral/40 to-transparent" />
+              </div>
             </div>
-            <div className="mt-1.5 flex justify-between font-mono text-[9px] uppercase tracking-widest opacity-90">
-              <span>Level {level}</span>
+            <div className="mt-2 flex justify-between font-mono text-[10px] uppercase tracking-widest opacity-95">
+              <span className="inline-flex items-center gap-1">
+                <Zap className="h-3 w-3" /> Level {level}
+              </span>
               <span>
                 {nextLevelAt - confetti} to L{level + 1}
               </span>
@@ -116,11 +171,137 @@ function PassportPage() {
         </div>
 
         {/* Quick stats row */}
-        <div className="mt-3 grid grid-cols-3 gap-2">
+        <div className="mt-4 grid grid-cols-3 gap-2">
           <StatTile icon={Flame} value="7" label="Streak" tint="coral" />
           <StatTile icon={Award} value={`${unlockedCount}/${BADGES.length}`} label="Badges" tint="ink" />
           <StatTile icon={TrendingUp} value="12" label="Check-ins" tint="coral" />
         </div>
+
+        {/* Streak strip */}
+        <section className="mt-5 overflow-hidden rounded-2xl border-2 border-ink bg-card p-4 shadow-brut">
+          <div className="flex items-center justify-between">
+            <h3 className="flex items-center gap-2 font-display text-sm font-bold">
+              <Flame className="h-4 w-4 text-coral" /> 7-day streak
+            </h3>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+              +25 / day
+            </span>
+          </div>
+          <div className="mt-3 grid grid-cols-7 gap-1.5">
+            {STREAK_DAYS.map((on, i) => (
+              <div key={i} className="flex flex-col items-center gap-1">
+                <div
+                  className={`grid h-9 w-full place-items-center rounded-lg border-2 text-[11px] font-bold transition-transform hover:-translate-y-0.5 ${
+                    on
+                      ? "border-ink bg-gradient-vibe text-cream shadow-[0_2px_0_rgba(0,0,0,0.9)]"
+                      : "border-dashed border-ink/30 bg-background text-ink/30"
+                  }`}
+                >
+                  {on ? <Flame className="h-3.5 w-3.5" /> : "·"}
+                </div>
+                <span className="font-mono text-[9px] uppercase text-ink/50">{STREAK_LABELS[i]}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Tier ladder */}
+        <section className="mt-5">
+          <div className="flex items-end justify-between">
+            <h2 className="flex items-center gap-2 font-display text-lg font-bold">
+              <TrendingUp className="h-4 w-4 text-coral" /> Tier ladder
+            </h2>
+            {nextTier && (
+              <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                {(nextTier.at - confetti).toLocaleString()} to {nextTier.name}
+              </span>
+            )}
+          </div>
+          <div className="mt-3 grid grid-cols-4 gap-2">
+            {TIERS.map((t, i) => {
+              const reached = confetti >= t.at;
+              const isCurrent = i === currentTierIndex;
+              return (
+                <div
+                  key={t.name}
+                  className={`relative flex flex-col items-center gap-1.5 rounded-2xl border-2 p-3 text-center transition-all ${
+                    isCurrent
+                      ? "border-ink bg-gradient-vibe text-cream shadow-brut"
+                      : reached
+                        ? "border-ink bg-card shadow-brut"
+                        : "border-dashed border-ink/30 bg-card/40 text-ink/40"
+                  }`}
+                >
+                  <t.icon className="h-4 w-4" />
+                  <div className="font-display text-xs font-extrabold leading-none">{t.name}</div>
+                  <div
+                    className={`font-mono text-[9px] uppercase tracking-widest ${isCurrent ? "opacity-90" : "opacity-70"}`}
+                  >
+                    {t.at}
+                  </div>
+                  {isCurrent && (
+                    <span className="absolute -top-1.5 right-1.5 grid h-4 w-4 place-items-center rounded-full border-2 border-ink bg-coral">
+                      <span className="h-1 w-1 rounded-full bg-cream" />
+                    </span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Stamps row */}
+        <section className="mt-6">
+          <div className="flex items-end justify-between">
+            <h2 className="flex items-center gap-2 font-display text-lg font-bold">
+              <Stamp className="h-4 w-4 text-coral" /> Stamps
+            </h2>
+            <Link
+              to="/portal/passport"
+              className="inline-flex items-center gap-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink"
+            >
+              View all <ChevronRight className="h-3 w-3" />
+            </Link>
+          </div>
+          <div className="mt-3 -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {STAMPS.map((s, i) => (
+              <div
+                key={i}
+                className="relative snap-start shrink-0 overflow-hidden rounded-2xl border-2 border-ink bg-cream p-4 shadow-brut"
+                style={{ width: 140 }}
+              >
+                <div className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-coral/10 blur-xl" />
+                <div className="mx-auto grid h-20 w-20 -rotate-6 place-items-center rounded-full border-4 border-dashed border-coral bg-cream text-center">
+                  <div>
+                    <div className="font-mono text-[8px] font-bold uppercase tracking-widest text-coral">
+                      Confetti
+                    </div>
+                    <div className="mt-0.5 font-display text-[11px] font-extrabold leading-none text-ink">
+                      {s.city}
+                    </div>
+                    <div className="mt-0.5 font-mono text-[7px] uppercase text-ink/60">{s.date}</div>
+                  </div>
+                </div>
+                <div className="mt-3 text-center font-display text-[11px] font-bold leading-tight text-ink">
+                  {s.theme}
+                </div>
+              </div>
+            ))}
+            <div
+              className="grid snap-start shrink-0 place-items-center rounded-2xl border-2 border-dashed border-ink/30 bg-card/40 p-4 text-center"
+              style={{ width: 140 }}
+            >
+              <div>
+                <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-ink/10 text-ink/40">
+                  <Calendar className="h-5 w-5" />
+                </div>
+                <div className="mt-2 font-mono text-[9px] uppercase tracking-widest text-ink/50">
+                  Plan your next
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Badges */}
         <section className="mt-6">
@@ -140,10 +321,15 @@ function PassportPage() {
                     : "border-dashed border-ink/30 bg-card/50"
                 }`}
               >
+                {b.unlocked && (
+                  <span className="absolute -top-1.5 -right-1.5 rounded-full border-2 border-ink bg-gold px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest text-ink">
+                    new
+                  </span>
+                )}
                 <span
                   className={`relative grid h-12 w-12 place-items-center rounded-full ${
                     b.unlocked
-                      ? "bg-gradient-vibe text-cream shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
+                      ? "bg-gradient-vibe text-cream shadow-[0_4px_12px_rgba(0,0,0,0.18)]"
                       : "bg-muted text-muted-foreground"
                   }`}
                 >
@@ -167,33 +353,32 @@ function PassportPage() {
           </div>
         </section>
 
-        {/* Activity */}
-        <section className="mt-6">
-          <h2 className="font-display text-lg font-bold">Recent activity</h2>
-          <ul className="mt-3 space-y-2">
-            {[
-              { t: "+50 Confetti · Lila's Patio check-in", d: "Tonight", earn: true },
-              { t: "Badge unlocked · Foodie", d: "Last week", earn: false },
-              { t: "+50 Confetti · Aera Rooftop check-in", d: "Last week", earn: true },
-            ].map((a, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 rounded-xl border-2 border-ink/10 bg-card p-3 transition-colors hover:border-ink/30"
+        {/* Featured perk */}
+        <section className="mt-6 relative overflow-hidden rounded-2xl border-2 border-ink bg-ink p-5 text-cream shadow-brut-lg">
+          <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-coral/40 blur-3xl" />
+          <div className="pointer-events-none absolute -left-8 -bottom-8 h-28 w-28 rounded-full bg-gold/30 blur-2xl" />
+          <div className="relative flex items-start gap-3">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl border-2 border-cream/30 bg-cream/10 backdrop-blur">
+              <Gift className="h-5 w-5" />
+            </span>
+            <div className="min-w-0 flex-1">
+              <div className="inline-flex items-center gap-1 rounded-full bg-coral px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream">
+                Featured perk
+              </div>
+              <h3 className="mt-1.5 font-display text-lg font-extrabold leading-tight">
+                Double Confetti weekend
+              </h3>
+              <p className="mt-1 text-xs leading-snug opacity-90">
+                Every check-in Fri–Sun earns 2× rewards. Stack with your streak bonus.
+              </p>
+              <button
+                type="button"
+                className="mt-3 inline-flex items-center gap-1 rounded-full border-2 border-cream/40 bg-cream/10 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-cream/20"
               >
-                <span
-                  className={`grid h-9 w-9 shrink-0 place-items-center rounded-full ${a.earn ? "bg-coral/15 text-coral" : "bg-ink/10 text-ink"}`}
-                >
-                  {a.earn ? <Sparkles className="h-4 w-4" /> : <Award className="h-4 w-4" />}
-                </span>
-                <div className="min-w-0 flex-1">
-                  <div className="text-sm font-semibold">{a.t}</div>
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                    {a.d}
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
+                See partners <ChevronRight className="h-3 w-3" />
+              </button>
+            </div>
+          </div>
         </section>
 
         {/* Rewards */}
@@ -252,6 +437,35 @@ function PassportPage() {
                 </li>
               );
             })}
+          </ul>
+        </section>
+
+        {/* Activity */}
+        <section className="mt-6">
+          <h2 className="font-display text-lg font-bold">Recent activity</h2>
+          <ul className="mt-3 space-y-2">
+            {[
+              { t: "+50 Confetti · Lila's Patio check-in", d: "Tonight", earn: true },
+              { t: "Badge unlocked · Foodie", d: "Last week", earn: false },
+              { t: "+50 Confetti · Aera Rooftop check-in", d: "Last week", earn: true },
+            ].map((a, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-3 rounded-xl border-2 border-ink/10 bg-card p-3 transition-colors hover:border-ink/30"
+              >
+                <span
+                  className={`grid h-9 w-9 shrink-0 place-items-center rounded-full ${a.earn ? "bg-coral/15 text-coral" : "bg-ink/10 text-ink"}`}
+                >
+                  {a.earn ? <Sparkles className="h-4 w-4" /> : <Award className="h-4 w-4" />}
+                </span>
+                <div className="min-w-0 flex-1">
+                  <div className="text-sm font-semibold">{a.t}</div>
+                  <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                    {a.d}
+                  </div>
+                </div>
+              </li>
+            ))}
           </ul>
         </section>
 

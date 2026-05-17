@@ -1969,15 +1969,18 @@ export type Database = {
           google_images: Json
           google_maps_url: string | null
           hero_image_url: string | null
+          hidden_media_urls: string[]
           id: string
           image_url: string | null
           instagram_handle: string | null
           instagram_hashtags: string[]
           instagram_location_tag: string | null
+          instagram_thumbnails: string[]
           instagram_url: string | null
           is_sponsored: boolean
           name: string
           neighborhood: string | null
+          official_photos: string[]
           place_id: string | null
           price_band: string | null
           price_level: number
@@ -1990,6 +1993,7 @@ export type Database = {
           tiktok_handle: string | null
           tiktok_hashtags: string[]
           tiktok_location_tag: string | null
+          tiktok_thumbnails: string[]
           tiktok_url: string | null
           verified: boolean
           website: string | null
@@ -2009,15 +2013,18 @@ export type Database = {
           google_images?: Json
           google_maps_url?: string | null
           hero_image_url?: string | null
+          hidden_media_urls?: string[]
           id?: string
           image_url?: string | null
           instagram_handle?: string | null
           instagram_hashtags?: string[]
           instagram_location_tag?: string | null
+          instagram_thumbnails?: string[]
           instagram_url?: string | null
           is_sponsored?: boolean
           name: string
           neighborhood?: string | null
+          official_photos?: string[]
           place_id?: string | null
           price_band?: string | null
           price_level?: number
@@ -2030,6 +2037,7 @@ export type Database = {
           tiktok_handle?: string | null
           tiktok_hashtags?: string[]
           tiktok_location_tag?: string | null
+          tiktok_thumbnails?: string[]
           tiktok_url?: string | null
           verified?: boolean
           website?: string | null
@@ -2049,15 +2057,18 @@ export type Database = {
           google_images?: Json
           google_maps_url?: string | null
           hero_image_url?: string | null
+          hidden_media_urls?: string[]
           id?: string
           image_url?: string | null
           instagram_handle?: string | null
           instagram_hashtags?: string[]
           instagram_location_tag?: string | null
+          instagram_thumbnails?: string[]
           instagram_url?: string | null
           is_sponsored?: boolean
           name?: string
           neighborhood?: string | null
+          official_photos?: string[]
           place_id?: string | null
           price_band?: string | null
           price_level?: number
@@ -2070,6 +2081,7 @@ export type Database = {
           tiktok_handle?: string | null
           tiktok_hashtags?: string[]
           tiktok_location_tag?: string | null
+          tiktok_thumbnails?: string[]
           tiktok_url?: string | null
           verified?: boolean
           website?: string | null

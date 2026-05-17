@@ -1966,16 +1966,23 @@ export type Database = {
           featured_until: string | null
           gallery_refreshed_at: string | null
           gallery_urls: Json
+          google_images: Json
+          google_maps_url: string | null
+          hero_image_url: string | null
           id: string
           image_url: string | null
           instagram_handle: string | null
           instagram_url: string | null
+          is_sponsored: boolean
           name: string
           neighborhood: string | null
           place_id: string | null
+          price_band: string | null
           price_level: number
+          rating: number | null
           socials_refreshed_at: string | null
           staff_email: string | null
+          tags: string[]
           tiktok_handle: string | null
           tiktok_url: string | null
           verified: boolean
@@ -1993,16 +2000,23 @@ export type Database = {
           featured_until?: string | null
           gallery_refreshed_at?: string | null
           gallery_urls?: Json
+          google_images?: Json
+          google_maps_url?: string | null
+          hero_image_url?: string | null
           id?: string
           image_url?: string | null
           instagram_handle?: string | null
           instagram_url?: string | null
+          is_sponsored?: boolean
           name: string
           neighborhood?: string | null
           place_id?: string | null
+          price_band?: string | null
           price_level?: number
+          rating?: number | null
           socials_refreshed_at?: string | null
           staff_email?: string | null
+          tags?: string[]
           tiktok_handle?: string | null
           tiktok_url?: string | null
           verified?: boolean
@@ -2020,16 +2034,23 @@ export type Database = {
           featured_until?: string | null
           gallery_refreshed_at?: string | null
           gallery_urls?: Json
+          google_images?: Json
+          google_maps_url?: string | null
+          hero_image_url?: string | null
           id?: string
           image_url?: string | null
           instagram_handle?: string | null
           instagram_url?: string | null
+          is_sponsored?: boolean
           name?: string
           neighborhood?: string | null
           place_id?: string | null
+          price_band?: string | null
           price_level?: number
+          rating?: number | null
           socials_refreshed_at?: string | null
           staff_email?: string | null
+          tags?: string[]
           tiktok_handle?: string | null
           tiktok_url?: string | null
           verified?: boolean

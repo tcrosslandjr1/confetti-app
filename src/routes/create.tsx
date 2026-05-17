@@ -194,7 +194,7 @@ function CreatePage() {
 
   return (
     <div className="min-h-screen bg-background pb-32">
-      <div className="mx-auto max-w-md px-4 pt-5">
+      <div className="mx-auto max-w-md px-4 pt-5 sm:max-w-xl sm:pt-8 lg:max-w-2xl lg:px-6">
         {/* Top bar */}
         <div className="flex items-center justify-between">
           <button

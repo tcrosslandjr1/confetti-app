@@ -23,17 +23,22 @@ function TripsList() {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
 
+  const load = useCallback(() => {
+    setLoading(true);
+    return listItineraries()
+      .then(setTrips)
+      .catch((e) => setErr(e.message))
+      .finally(() => setLoading(false));
+  }, []);
+
   useEffect(() => {
     if (authLoading) return;
     if (!user) { nav({ to: "/auth" }); return; }
     if (viewAs === "admin") { nav({ to: "/admin" }); return; }
     if (viewAs === "business") { nav({ to: "/advertise/portal" }); return; }
     if (viewAs === "visitor") { nav({ to: "/" }); return; }
-    listItineraries()
-      .then(setTrips)
-      .catch((e) => setErr(e.message))
-      .finally(() => setLoading(false));
-  }, [user, authLoading, viewAs, nav]);
+    load();
+  }, [user, authLoading, viewAs, nav, load]);
 
   return (
     <div className="min-h-screen bg-background">

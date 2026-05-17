@@ -17,7 +17,7 @@ import { getStripeEnvironment } from '@/lib/stripe';
 
 export const Route = createFileRoute('/business/payouts')({
   component: VendorPayoutsPage,
-  validateSearch: (s: Record<string, unknown>) => ({
+      validateSearch: (s: Record<string, unknown>): { onboarded?: boolean } => ({
     onboarded: s.onboarded === 'true' || s.onboarded === true ? true : undefined,
   }),
 });

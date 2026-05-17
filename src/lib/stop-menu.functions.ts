@@ -243,3 +243,30 @@ export const listStopOrders = createServerFn({ method: "POST" })
     if (error) throw new Error(error.message);
     return { orders: rows ?? [] };
   });
+
+/* -------------------------------------------------------------------------- */
+/*  listVerifiedStopNames — which of these stop names are at Confetti-verified */
+/*  business venues (so pre-order should be offered).                          */
+/* -------------------------------------------------------------------------- */
+
+export const listVerifiedStopNames = createServerFn({ method: "POST" })
+  .inputValidator((input: unknown) =>
+    z
+      .object({
+        names: z.array(z.string().min(1).max(200)).min(1).max(30),
+      })
+      .parse(input),
+  )
+  .handler(async ({ data }) => {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const uniq = Array.from(new Set(data.names.map((n) => n.trim()).filter(Boolean)));
+    if (!uniq.length) return { verified: [] as string[] };
+    const { data: rows, error } = await supabaseAdmin
+      .from("venues")
+      .select("name")
+      .eq("verified", true)
+      .in("name", uniq);
+    if (error) return { verified: [] as string[] };
+    const set = new Set((rows ?? []).map((r) => (r.name ?? "").toLowerCase()));
+    return { verified: uniq.filter((n) => set.has(n.toLowerCase())) };
+  });

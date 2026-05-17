@@ -29,7 +29,7 @@ export const startVendorOnboarding = createServerFn({ method: 'POST' })
 
     // Look up existing vendor row for this user+env
     const { data: existing } = await supabaseAdmin
-      .from('vendor_accounts')
+      .from('vendors')
       .select('id, stripe_account_id')
       .eq('user_id', userId)
       .eq('environment', data.environment)
@@ -49,7 +49,7 @@ export const startVendorOnboarding = createServerFn({ method: 'POST' })
       });
       stripeAccountId = account.id;
 
-      await supabaseAdmin.from('vendor_accounts').upsert(
+      await supabaseAdmin.from('vendors').upsert(
         {
           user_id: userId,
           vendor_type: data.vendorType,
@@ -87,7 +87,7 @@ export const refreshVendorStatus = createServerFn({ method: 'POST' })
     const { userId } = context as { userId: string };
 
     const { data: row } = await supabaseAdmin
-      .from('vendor_accounts')
+      .from('vendors')
       .select('id, stripe_account_id')
       .eq('user_id', userId)
       .eq('environment', data.environment)
@@ -106,7 +106,7 @@ export const refreshVendorStatus = createServerFn({ method: 'POST' })
     };
 
     await supabaseAdmin
-      .from('vendor_accounts')
+      .from('vendors')
       .update(update)
       .eq('id', row.id as string);
 
@@ -130,7 +130,7 @@ export const getVendorStatus = createServerFn({ method: 'POST' })
   .handler(async ({ data, context }) => {
     const { userId } = context as { userId: string };
     const { data: row } = await supabaseAdmin
-      .from('vendor_accounts')
+      .from('vendors')
       .select('*')
       .eq('user_id', userId)
       .eq('environment', data.environment)
@@ -147,7 +147,7 @@ export const createVendorDashboardLink = createServerFn({ method: 'POST' })
   .handler(async ({ data, context }) => {
     const { userId } = context as { userId: string };
     const { data: row } = await supabaseAdmin
-      .from('vendor_accounts')
+      .from('vendors')
       .select('stripe_account_id')
       .eq('user_id', userId)
       .eq('environment', data.environment)

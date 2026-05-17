@@ -2888,48 +2888,6 @@ export type Database = {
         }
         Relationships: []
       }
-      vendor_accounts: {
-        Row: {
-          charges_enabled: boolean | null
-          created_at: string | null
-          details_submitted: boolean | null
-          environment: string
-          id: string
-          payout_schedule: string | null
-          payouts_enabled: boolean | null
-          stripe_account_id: string
-          updated_at: string | null
-          user_id: string
-          vendor_type: string
-        }
-        Insert: {
-          charges_enabled?: boolean | null
-          created_at?: string | null
-          details_submitted?: boolean | null
-          environment?: string
-          id?: string
-          payout_schedule?: string | null
-          payouts_enabled?: boolean | null
-          stripe_account_id: string
-          updated_at?: string | null
-          user_id: string
-          vendor_type: string
-        }
-        Update: {
-          charges_enabled?: boolean | null
-          created_at?: string | null
-          details_submitted?: boolean | null
-          environment?: string
-          id?: string
-          payout_schedule?: string | null
-          payouts_enabled?: boolean | null
-          stripe_account_id?: string
-          updated_at?: string | null
-          user_id?: string
-          vendor_type?: string
-        }
-        Relationships: []
-      }
       vendor_payouts: {
         Row: {
           amount_cents: number
@@ -2985,10 +2943,52 @@ export type Database = {
             foreignKeyName: "vendor_payouts_vendor_account_id_fkey"
             columns: ["vendor_account_id"]
             isOneToOne: false
-            referencedRelation: "vendor_accounts"
+            referencedRelation: "vendors"
             referencedColumns: ["id"]
           },
         ]
+      }
+      vendors: {
+        Row: {
+          charges_enabled: boolean | null
+          created_at: string | null
+          details_submitted: boolean | null
+          environment: string
+          id: string
+          payout_schedule: string | null
+          payouts_enabled: boolean | null
+          stripe_account_id: string
+          updated_at: string | null
+          user_id: string
+          vendor_type: string
+        }
+        Insert: {
+          charges_enabled?: boolean | null
+          created_at?: string | null
+          details_submitted?: boolean | null
+          environment?: string
+          id?: string
+          payout_schedule?: string | null
+          payouts_enabled?: boolean | null
+          stripe_account_id: string
+          updated_at?: string | null
+          user_id: string
+          vendor_type: string
+        }
+        Update: {
+          charges_enabled?: boolean | null
+          created_at?: string | null
+          details_submitted?: boolean | null
+          environment?: string
+          id?: string
+          payout_schedule?: string | null
+          payouts_enabled?: boolean | null
+          stripe_account_id?: string
+          updated_at?: string | null
+          user_id?: string
+          vendor_type?: string
+        }
+        Relationships: []
       }
       venue_claims: {
         Row: {

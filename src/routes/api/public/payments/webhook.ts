@@ -435,7 +435,7 @@ async function handlePaymentFailed(intent: any, env: StripeEnv) {
 
 // ---------- Stripe Connect (vendors) — unchanged ----------
 async function handleAccountUpdated(account: any, env: StripeEnv) {
-  await getSupabase().from('vendor_accounts').update({
+  await getSupabase().from('vendors').update({
     charges_enabled: !!account.charges_enabled,
     payouts_enabled: !!account.payouts_enabled,
     details_submitted: !!account.details_submitted,
@@ -444,7 +444,7 @@ async function handleAccountUpdated(account: any, env: StripeEnv) {
 }
 
 async function handleTransfer(transfer: any, env: StripeEnv) {
-  const { data: vendor } = await getSupabase().from('vendor_accounts').select('id')
+  const { data: vendor } = await getSupabase().from('vendors').select('id')
     .eq('stripe_account_id', transfer.destination).eq('environment', env).maybeSingle();
   if (!vendor) { console.warn('Transfer for unknown vendor account', transfer.destination); return; }
   await getSupabase().from('vendor_payouts').upsert({

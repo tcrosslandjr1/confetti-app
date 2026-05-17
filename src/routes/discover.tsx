@@ -38,6 +38,7 @@ function DiscoverPage() {
   const [view, setView] = useState<"list" | "map">("list");
   const [rows, setRows] = useState<VenueRow[] | null>(null);
   const [q, setQ] = useState("");
+  const [refreshNonce, setRefreshNonce] = useState(0);
 
   const filtered = useMemo(() => {
     if (!rows) return rows;
@@ -65,6 +66,9 @@ function DiscoverPage() {
         rating: r.rating != null ? Number(r.rating) : null,
       }))
     );
+    // Bump nonce so the map view re-mounts its markers and re-fits bounds,
+    // even when the underlying rows are byte-identical to the prior fetch.
+    setRefreshNonce((n) => n + 1);
   }, []);
 
   useEffect(() => {
@@ -171,7 +175,7 @@ function DiscoverPage() {
             ))}
           </ul>
         ) : (
-          <DiscoverMap rows={filtered} />
+          <DiscoverMap key={refreshNonce} rows={filtered} />
         )}
       </div>
     </div>

@@ -53,7 +53,6 @@ function PortalLayout() {
   // Allow unauthenticated access to /portal/saved for App Store demo screenshots.
   const isDemoPage =
     pathname === "/portal/saved" ||
-    pathname === "/portal/passport" ||
     pathname === "/portal/profile";
 
   useEffect(() => {

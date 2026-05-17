@@ -638,6 +638,21 @@ function AdvertisersTab({
     }
   }
 
+  async function decide(a: Advertiser, decision: "approve" | "reject") {
+    const note =
+      decision === "reject"
+        ? (window.prompt("Reason (shown to the business owner)?") ?? undefined)
+        : undefined;
+    if (decision === "reject" && !note) return;
+    try {
+      await adminDecideAdvertiser(a.id, decision, note);
+      toast.success(decision === "approve" ? "Business approved" : "Business rejected");
+      await onChange();
+    } catch (err) {
+      toast.error((err as Error).message);
+    }
+  }
+
   return (
     <>
       <div className="mb-3 rounded-2xl border border-border bg-card p-3 shadow-card">

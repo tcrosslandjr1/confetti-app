@@ -576,12 +576,12 @@ function AuthPage() {
             </div>
           )}
           {mode === "signup" && locationBlocked && (
-            <label className="flex items-start gap-2 rounded-xl border border-border bg-card/50 p-3 text-xs text-muted-foreground">
+            <label className="flex items-start gap-2 rounded-xl border-2 border-ink/30 bg-cream/60 p-3 text-xs text-ink/70">
               <input
                 type="checkbox"
                 checked={allowWithoutLocation}
                 onChange={(e) => setAllowWithoutLocation(e.target.checked)}
-                className="mt-0.5"
+                className="mt-0.5 accent-coral"
               />
               <span>
                 Continue without location. Recommendations won't be tailored to your area until you

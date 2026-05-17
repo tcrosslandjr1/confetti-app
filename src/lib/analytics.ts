@@ -50,7 +50,7 @@ export async function trackEvent(
       event_name: name,
       path,
       value: opts.value ?? null,
-      metadata: opts.metadata ?? {},
+      metadata: (opts.metadata ?? {}) as never,
       user_agent: navigator.userAgent.slice(0, 255),
     });
   } catch {

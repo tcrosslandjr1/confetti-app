@@ -589,6 +589,47 @@ function PassportPage() {
           </Link>
         </div>
       </div>
+
+      <AlertDialog open={!!pending} onOpenChange={(o) => !o && setPending(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Redeem {pending?.label}?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This will deduct <strong>{pending?.cost.toLocaleString()} Confetti</strong> from your
+              balance and generate a one-time redemption code. New balance:{" "}
+              <strong>{Math.max(0, confetti - (pending?.cost ?? 0)).toLocaleString()}</strong>.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleConfirmRedeem}>Confirm redeem</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <AlertDialog open={!!justClaimed} onOpenChange={(o) => !o && setJustClaimed(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-coral" /> Reward unlocked
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              Show this code at the venue to claim <strong>{justClaimed?.label}</strong>.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <div className="rounded-xl border-2 border-dashed border-ink/40 bg-cream/60 p-4 text-center">
+            <div className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+              Redemption code
+            </div>
+            <div className="mt-1 font-display text-2xl font-extrabold tracking-widest text-ink">
+              {justClaimed?.code}
+            </div>
+          </div>
+          <AlertDialogFooter>
+            <AlertDialogAction onClick={() => setJustClaimed(null)}>Done</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

@@ -105,8 +105,22 @@ function BoardingPassPage() {
   const loading =
     (trip && tripQuery.isLoading) || (fallbackEnabled && recentQuery.isLoading);
 
+  // Resolve the canonical itinerary id for a shareable deep link
+  const shareTripId: string | null = useMemo(() => {
+    if (trip) return trip;
+    if (tripQuery.data?.itinerary?.id) return tripQuery.data.itinerary.id;
+    if (recentQuery.data?.itinerary?.id) return recentQuery.data.itinerary.id;
+    return null;
+  }, [trip, tripQuery.data, recentQuery.data]);
+
   const buildShareContent = (lp: ActiveLoop) => {
-    const url = typeof window !== "undefined" ? window.location.href : "";
+    let url = "";
+    if (typeof window !== "undefined") {
+      const origin = window.location.origin;
+      url = shareTripId
+        ? `${origin}/boarding-pass?trip=${shareTripId}`
+        : window.location.href;
+    }
     const occasion = lp.occasion ?? "Confetti night";
     const subject = `${lp.occasionEmoji ?? "✨"} ${occasion} — Confetti itinerary`;
     const stopsText = lp.stops
@@ -131,10 +145,14 @@ function BoardingPassPage() {
         setTimeout(() => setShared(false), 2200);
         return;
       }
-      if (nav?.clipboard?.writeText) {
-        await nav.clipboard.writeText(body);
+      if (nav?.clipboard?.writeText && url) {
+        await nav.clipboard.writeText(url);
         setShared(true);
-        toast.success("Copied to clipboard", { position: "bottom-center", duration: 3000 });
+        toast.success("Link copied", {
+          description: url,
+          position: "bottom-center",
+          duration: 3000,
+        });
         setTimeout(() => setShared(false), 2200);
         return;
       }

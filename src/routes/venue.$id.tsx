@@ -79,12 +79,30 @@ function VenueBookingPage() {
 
   useEffect(() => {
     let cancelled = false;
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
     (async () => {
-      const { data: v } = await supabase
-        .from("venues")
-        .select("*")
-        .eq("id", id)
-        .maybeSingle();
+      let v: any = null;
+      let source: "venues" | "viral_venues" = "venues";
+      if (isUuid) {
+        const venuesRes = await supabase
+          .from("venues")
+          .select("*")
+          .eq("id", id)
+          .maybeSingle();
+        if (venuesRes.data) {
+          v = venuesRes.data;
+        } else {
+          const viralRes = await supabase
+            .from("viral_venues")
+            .select("*")
+            .eq("id", id)
+            .maybeSingle();
+          if (viralRes.data) {
+            v = viralRes.data;
+            source = "viral_venues";
+          }
+        }
+      }
       if (cancelled) return;
       if (v) {
         setVenue({
@@ -98,7 +116,7 @@ function VenueBookingPage() {
           rating: (v as any).rating ?? 4.8,
           price_level: (v as any).price_level ?? 3,
           tags: Array.isArray((v as any).tags) ? (v as any).tags : [],
-          source: "venues",
+          source,
           city: (v as any).city ?? null,
         });
       } else {

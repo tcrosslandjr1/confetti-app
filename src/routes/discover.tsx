@@ -54,6 +54,7 @@ const SAMPLE_VENUES: VenueRow[] = SAMPLE_DATA.map((v) => ({
   category: v.category,
   aiPick: v.aiPick,
   gradient: v.gradient,
+  description: v.description,
   coords: v.coords,
 }));
 

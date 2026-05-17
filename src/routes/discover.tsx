@@ -8,7 +8,12 @@ import { PullToRefresh } from "@/components/PullToRefresh";
 import { useCallback } from "react";
 import { SAMPLE_VENUES as SAMPLE_DATA, type SampleCategory } from "@/lib/sample-venues";
 
+const discoverSearchSchema = z.object({
+  venueId: fallback(z.string().optional(), undefined),
+});
+
 export const Route = createFileRoute("/discover")({
+  validateSearch: zodValidator(discoverSearchSchema),
   head: () => ({
     meta: [
       { title: "Discover Nearby — Confetti" },

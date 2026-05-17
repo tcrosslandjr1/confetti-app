@@ -63,7 +63,8 @@ function AuthPage() {
   }, []);
   const tonightsPick = getTonightsPick(pickCity);
   const pickTime = formatEventDate(tonightsPick.date).time;
-  const pickSeats = liveSeatsRemaining(tonightsPick.id, new Date(Date.now() + pickTick * 0));
+  void pickTick; // re-render dependency for the live counter
+  const pickSeats = liveSeatsRemaining(tonightsPick.id, new Date());
   const pickShortCity = tonightsPick.city.split(",")[0].trim().toLowerCase();
 
   // Translate OAuth provider/Supabase errors into something a user can act on.

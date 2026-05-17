@@ -619,6 +619,87 @@ export type Database = {
         }
         Relationships: []
       }
+      events: {
+        Row: {
+          address: string | null
+          boost_weight: number
+          category: string | null
+          city: string
+          created_at: string
+          created_by: string | null
+          description: string | null
+          ends_at: string | null
+          id: string
+          image_url: string | null
+          lat: number | null
+          lng: number | null
+          neighborhood: string | null
+          price_cents: number | null
+          source: string
+          source_ref: string | null
+          starts_at: string
+          status: string
+          tags: string[]
+          ticket_url: string | null
+          title: string
+          updated_at: string
+          venue_id: string | null
+          venue_name: string | null
+        }
+        Insert: {
+          address?: string | null
+          boost_weight?: number
+          category?: string | null
+          city: string
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          ends_at?: string | null
+          id?: string
+          image_url?: string | null
+          lat?: number | null
+          lng?: number | null
+          neighborhood?: string | null
+          price_cents?: number | null
+          source?: string
+          source_ref?: string | null
+          starts_at: string
+          status?: string
+          tags?: string[]
+          ticket_url?: string | null
+          title: string
+          updated_at?: string
+          venue_id?: string | null
+          venue_name?: string | null
+        }
+        Update: {
+          address?: string | null
+          boost_weight?: number
+          category?: string | null
+          city?: string
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          ends_at?: string | null
+          id?: string
+          image_url?: string | null
+          lat?: number | null
+          lng?: number | null
+          neighborhood?: string | null
+          price_cents?: number | null
+          source?: string
+          source_ref?: string | null
+          starts_at?: string
+          status?: string
+          tags?: string[]
+          ticket_url?: string | null
+          title?: string
+          updated_at?: string
+          venue_id?: string | null
+          venue_name?: string | null
+        }
+        Relationships: []
+      }
       favorite_stops: {
         Row: {
           address: string | null
@@ -1629,6 +1710,113 @@ export type Database = {
           updated_at?: string
           user_id?: string
           verified_at?: string | null
+        }
+        Relationships: []
+      }
+      reel_engagements: {
+        Row: {
+          created_at: string
+          id: string
+          kind: string
+          reel_id: string
+          session_id: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          kind: string
+          reel_id: string
+          session_id?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          kind?: string
+          reel_id?: string
+          session_id?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reel_engagements_reel_id_fkey"
+            columns: ["reel_id"]
+            isOneToOne: false
+            referencedRelation: "reels"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      reels: {
+        Row: {
+          author_id: string | null
+          caption: string | null
+          city: string | null
+          created_at: string
+          duration_seconds: number | null
+          featured: boolean
+          id: string
+          like_count: number
+          promoter_id: string | null
+          share_count: number
+          source: string
+          source_url: string | null
+          status: string
+          tags: string[]
+          thumbnail_url: string | null
+          title: string | null
+          trending_score: number
+          updated_at: string
+          venue_id: string | null
+          video_url: string
+          view_count: number
+        }
+        Insert: {
+          author_id?: string | null
+          caption?: string | null
+          city?: string | null
+          created_at?: string
+          duration_seconds?: number | null
+          featured?: boolean
+          id?: string
+          like_count?: number
+          promoter_id?: string | null
+          share_count?: number
+          source?: string
+          source_url?: string | null
+          status?: string
+          tags?: string[]
+          thumbnail_url?: string | null
+          title?: string | null
+          trending_score?: number
+          updated_at?: string
+          venue_id?: string | null
+          video_url: string
+          view_count?: number
+        }
+        Update: {
+          author_id?: string | null
+          caption?: string | null
+          city?: string | null
+          created_at?: string
+          duration_seconds?: number | null
+          featured?: boolean
+          id?: string
+          like_count?: number
+          promoter_id?: string | null
+          share_count?: number
+          source?: string
+          source_url?: string | null
+          status?: string
+          tags?: string[]
+          thumbnail_url?: string | null
+          title?: string | null
+          trending_score?: number
+          updated_at?: string
+          venue_id?: string | null
+          video_url?: string
+          view_count?: number
         }
         Relationships: []
       }

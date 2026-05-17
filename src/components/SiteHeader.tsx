@@ -87,7 +87,7 @@ export function SiteHeader() {
           {showPortal && (
             <Link
               to="/portal"
-              className="nav-underline rounded-full px-3 py-2 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink"
+              className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink lg:px-3 lg:text-xs"
               activeProps={{ className: "text-ink" }}
             >
               Portal
@@ -96,7 +96,7 @@ export function SiteHeader() {
           {showAdmin && (
             <Link
               to="/admin"
-              className="nav-underline rounded-full px-3 py-2 font-mono text-xs font-bold uppercase tracking-widest text-coral hover:text-ink"
+              className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-coral hover:text-ink lg:px-3 lg:text-xs"
               activeProps={{ className: "text-ink" }}
             >
               Admin

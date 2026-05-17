@@ -255,90 +255,107 @@ function DiscoverPage() {
 
 function DiscoverMap({ rows }: { rows: VenueRow[] }) {
   const [selected, setSelected] = useState<VenueRow | null>(null);
-  if (!GOOGLE_MAPS_API_KEY) {
-    return (
-      <div className="grid h-[60vh] place-items-center rounded-2xl border-2 border-ink bg-cream text-sm text-muted-foreground">
-        Map unavailable
-      </div>
-    );
-  }
+  // Spread out venues without coords on a soft grid so the map always has pins.
+  const pinned = useMemo(() => {
+    return rows.map((r, i) => {
+      if (r.coords) return { row: r, x: r.coords.x, y: r.coords.y };
+      const cols = 4;
+      const col = i % cols;
+      const rowIdx = Math.floor(i / cols);
+      return { row: r, x: 18 + col * 20, y: 22 + rowIdx * 18 };
+    });
+  }, [rows]);
+
   return (
-    <div className="relative h-[70vh] overflow-hidden rounded-3xl border-2 border-ink bg-cream shadow-brut">
-      <Map
-        defaultZoom={12}
-        defaultCenter={{ lat: 38.9072, lng: -77.0369 }}
-        gestureHandling="greedy"
-        disableDefaultUI={false}
-        mapTypeControl={false}
-        streetViewControl={false}
-        fullscreenControl={false}
-        styles={confettiMapStyle}
-        clickableIcons={false}
-        className="h-full w-full"
+    <div className="relative h-[70vh] overflow-hidden rounded-3xl border border-white/40 bg-gradient-to-br from-cream/90 via-white/60 to-coral/10 shadow-card backdrop-blur-xl">
+      {/* Stylized DC map placeholder */}
+      <svg
+        className="absolute inset-0 h-full w-full"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        aria-hidden
       >
-        <DiscoverMarkers rows={rows} onSelect={setSelected} />
-      </Map>
+        <defs>
+          <linearGradient id="river" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#9ec9e8" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#6fa8d6" stopOpacity="0.7" />
+          </linearGradient>
+          <pattern id="grid" width="6" height="6" patternUnits="userSpaceOnUse">
+            <path d="M6 0H0V6" fill="none" stroke="rgba(26,20,16,0.06)" strokeWidth="0.2" />
+          </pattern>
+        </defs>
+        <rect width="100" height="100" fill="url(#grid)" />
+        {/* Potomac river curve */}
+        <path d="M0 78 C 20 70, 30 60, 18 48 C 8 38, 12 22, 0 14 L 0 100 Z" fill="url(#river)" />
+        {/* Anacostia */}
+        <path d="M58 100 C 62 86, 78 78, 100 76 L 100 100 Z" fill="url(#river)" opacity="0.85" />
+        {/* Parks / green */}
+        <ellipse cx="46" cy="60" rx="6" ry="3.5" fill="#bcd6a5" opacity="0.55" />
+        <ellipse cx="70" cy="36" rx="9" ry="4" fill="#bcd6a5" opacity="0.45" />
+        {/* Avenues */}
+        <g stroke="rgba(26,20,16,0.18)" strokeWidth="0.35" fill="none">
+          <line x1="0" y1="50" x2="100" y2="50" />
+          <line x1="50" y1="0" x2="50" y2="100" />
+          <line x1="0" y1="0" x2="100" y2="100" />
+          <line x1="100" y1="0" x2="0" y2="100" />
+          <circle cx="50" cy="50" r="3" />
+        </g>
+      </svg>
+
+      {/* Aurora glow */}
+      <div className="pointer-events-none absolute -left-10 top-10 h-48 w-48 rounded-full bg-coral/25 blur-3xl" />
+      <div className="pointer-events-none absolute right-0 bottom-0 h-56 w-56 rounded-full bg-violet-400/25 blur-3xl" />
+
+      {/* Compass / legend */}
+      <div className="absolute left-3 top-3 z-20 rounded-full border border-white/50 bg-white/70 px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/70 shadow-card backdrop-blur">
+        Washington · DC
+      </div>
+      <div className="absolute right-3 top-3 z-20 grid h-9 w-9 place-items-center rounded-full border border-white/50 bg-white/70 font-mono text-[9px] font-bold text-ink shadow-card backdrop-blur">
+        N↑
+      </div>
+
+      {/* Pins */}
+      {pinned.map(({ row, x, y }) => {
+        const active = selected?.id === row.id;
+        return (
+          <button
+            key={row.id}
+            type="button"
+            onClick={() => setSelected(row)}
+            className="group absolute z-10 -translate-x-1/2 -translate-y-full focus:outline-none"
+            style={{ left: `${x}%`, top: `${y}%` }}
+            aria-label={`Show ${row.name}`}
+          >
+            <span className="relative block">
+              {(row.aiPick || active) && (
+                <span className="absolute inset-0 -m-1 animate-ping rounded-full bg-coral/40" />
+              )}
+              <span
+                className={`relative grid h-8 w-8 place-items-center rounded-full border-2 shadow-card transition ${
+                  active
+                    ? "scale-110 border-ink bg-ink text-cream"
+                    : row.aiPick
+                      ? "border-white bg-gradient-to-br from-coral to-rose-500 text-white"
+                      : "border-white bg-white/90 text-ink"
+                }`}
+              >
+                {row.aiPick ? (
+                  <Sparkles className="h-3.5 w-3.5" />
+                ) : (
+                  <MapPin className="h-3.5 w-3.5" />
+                )}
+              </span>
+              <span className="absolute left-1/2 top-full mt-1 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/60 bg-white/85 px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest text-ink/80 shadow-card backdrop-blur opacity-0 transition group-hover:opacity-100">
+                {row.name}
+              </span>
+            </span>
+          </button>
+        );
+      })}
+
       {selected ? <SelectedCard row={selected} onClose={() => setSelected(null)} /> : null}
     </div>
   );
-}
-
-function DiscoverMarkers({
-  rows,
-  onSelect,
-}: {
-  rows: VenueRow[];
-  onSelect: (row: VenueRow) => void;
-}) {
-  const map = useMap();
-  const markersRef = useRef<google.maps.Marker[]>([]);
-  const inputs = useMemo(
-    () =>
-      rows.map((r) => ({
-        id: r.id,
-        query: r.address || `${r.name}, ${r.neighborhood ?? "Washington, DC"}`,
-      })),
-    [rows]
-  );
-  const points = useGeocodedPoints(inputs);
-
-  useEffect(() => {
-    if (!map) return;
-    markersRef.current.forEach((m) => m.setMap(null));
-    markersRef.current = [];
-    if (points.length === 0) return;
-
-    rows.forEach((row) => {
-      const pt = points.find((p) => p.id === row.id);
-      if (!pt) return;
-      const marker = new google.maps.Marker({
-        position: { lat: pt.lat, lng: pt.lng },
-        map,
-        icon: {
-          path: google.maps.SymbolPath.CIRCLE,
-          scale: 9,
-          fillColor: "#F05537",
-          fillOpacity: 1,
-          strokeColor: "#1A1410",
-          strokeWeight: 2,
-        },
-        title: row.name,
-      });
-      marker.addListener("click", () => onSelect(row));
-      markersRef.current.push(marker);
-    });
-
-    const bounds = new google.maps.LatLngBounds();
-    points.forEach((p) => bounds.extend({ lat: p.lat, lng: p.lng }));
-    if (!bounds.isEmpty()) map.fitBounds(bounds, { top: 60, right: 40, bottom: 80, left: 40 });
-
-    return () => {
-      markersRef.current.forEach((m) => m.setMap(null));
-      markersRef.current = [];
-    };
-  }, [map, points, rows, onSelect]);
-
-  return null;
 }
 
 function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) {

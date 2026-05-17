@@ -339,6 +339,9 @@ function PassportPage() {
           <div className="flex items-end justify-between">
             <h2 className="flex items-center gap-2 font-display text-lg font-bold">
               <Stamp className="h-4 w-4 text-coral" /> Stamps
+              <span className="ml-1 rounded-full bg-ink/10 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/70">
+                {earnedStamps.length} earned
+              </span>
             </h2>
             <Link
               to="/portal/passport"
@@ -348,16 +351,38 @@ function PassportPage() {
             </Link>
           </div>
           <div className="mt-3 -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {STAMPS.map((s, i) => (
+            {stamps.map((s) => (
               <div
-                key={i}
-                className="relative snap-start shrink-0 overflow-hidden rounded-2xl border-2 border-ink bg-cream p-4 shadow-brut"
+                key={s.id}
+                className={`relative snap-start shrink-0 overflow-hidden rounded-2xl border-2 p-4 transition-all ${
+                  s.earned
+                    ? "border-ink bg-cream shadow-brut"
+                    : "border-ink/30 bg-card/40 opacity-60 grayscale"
+                }`}
                 style={{ width: 140 }}
               >
                 <div className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-coral/10 blur-xl" />
-                <div className="mx-auto grid h-20 w-20 -rotate-6 place-items-center rounded-full border-4 border-dashed border-coral bg-cream text-center">
+                {s.earned && (
+                  <span className="absolute right-2 top-2 rounded-full border border-ink bg-coral px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest text-cream">
+                    New
+                  </span>
+                )}
+                {!s.earned && (
+                  <span className="absolute right-2 top-2 grid h-5 w-5 place-items-center rounded-full border border-ink/40 bg-cream/80 text-ink/60">
+                    <Lock className="h-2.5 w-2.5" />
+                  </span>
+                )}
+                <div
+                  className={`mx-auto grid h-20 w-20 -rotate-6 place-items-center rounded-full border-4 border-dashed bg-cream text-center ${
+                    s.earned ? "border-coral" : "border-ink/30"
+                  }`}
+                >
                   <div>
-                    <div className="font-mono text-[8px] font-bold uppercase tracking-widest text-coral">
+                    <div
+                      className={`font-mono text-[8px] font-bold uppercase tracking-widest ${
+                        s.earned ? "text-coral" : "text-ink/40"
+                      }`}
+                    >
                       Confetti
                     </div>
                     <div className="mt-0.5 font-display text-[11px] font-extrabold leading-none text-ink">

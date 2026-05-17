@@ -65,6 +65,9 @@ const DETAILS = [
 
 function VenueBookingPage() {
   const { id } = Route.useParams();
+  const navigate = useNavigate();
+  const backToDiscover = () =>
+    navigate({ to: "/discover", search: { venueId: id } });
   const [venue, setVenue] = useState<Venue | null | undefined>(undefined);
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [dir, setDir] = useState<1 | -1>(1);
@@ -190,7 +193,7 @@ function VenueBookingPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-cream">
       <AuroraBackground />
-      <StepHeader step={step} onBack={() => (step === 1 ? window.history.back() : go((step - 1) as 1 | 2 | 3))} />
+      <StepHeader step={step} onBack={() => (step === 1 ? backToDiscover() : go((step - 1) as 1 | 2 | 3))} />
 
       <div className="relative mx-auto max-w-2xl px-4 pb-32 pt-2 sm:px-6">
         <div key={step} className={dir === 1 ? "animate-[slide-in-right_.32s_ease-out]" : "animate-[fade-in_.32s_ease-out]"}>
@@ -778,6 +781,7 @@ function StepDone({
   party: number;
   code: string;
 }) {
+  const id = venue.id;
   const date = useMemo(() => buildDates(14)[dateIdx], [dateIdx]);
   const [showXp, setShowXp] = useState(false);
 
@@ -907,6 +911,7 @@ function StepDone({
 
       <Link
         to="/discover"
+        search={{ venueId: id }}
         className="block text-center font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-ink/60 underline-offset-4 hover:underline"
       >
         Browse more spots →

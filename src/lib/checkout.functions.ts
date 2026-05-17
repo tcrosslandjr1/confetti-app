@@ -101,7 +101,6 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
       ui_mode: "embedded_page",
       return_url: data.returnUrl,
       ...(customerId && { customer: customerId }),
-      managed_payments: { enabled: true },
       metadata: {
         ...(data.userId && { userId: data.userId }),
         priceId: data.priceId,
@@ -115,7 +114,8 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
           metadata: { userId: data.userId, priceId: data.priceId, accountType },
         },
       }),
-    });
+      managed_payments: { enabled: true },
+    } as any);
 
     return session.client_secret;
   });

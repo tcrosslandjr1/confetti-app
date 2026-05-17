@@ -25,6 +25,7 @@ import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortalRouteImport } from './routes/portal'
 import { Route as PlanRouteImport } from './routes/plan'
 import { Route as PassportRouteImport } from './routes/passport'
+import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MeRouteImport } from './routes/me'
 import { Route as InvestorsRouteImport } from './routes/investors'
@@ -193,6 +194,11 @@ const PlanRoute = PlanRouteImport.update({
 const PassportRoute = PassportRouteImport.update({
   id: '/passport',
   path: '/passport',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnersRoute = PartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OnboardingRoute = OnboardingRouteImport.update({
@@ -673,6 +679,7 @@ export interface FileRoutesByFullPath {
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
+  '/partners': typeof PartnersRoute
   '/passport': typeof PassportRoute
   '/plan': typeof PlanRouteWithChildren
   '/portal': typeof PortalRouteWithChildren
@@ -777,6 +784,7 @@ export interface FileRoutesByTo {
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
+  '/partners': typeof PartnersRoute
   '/passport': typeof PassportRoute
   '/plan': typeof PlanRouteWithChildren
   '/pricing': typeof PricingRoute
@@ -883,6 +891,7 @@ export interface FileRoutesById {
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
+  '/partners': typeof PartnersRoute
   '/passport': typeof PassportRoute
   '/plan': typeof PlanRouteWithChildren
   '/portal': typeof PortalRouteWithChildren
@@ -992,6 +1001,7 @@ export interface FileRouteTypes {
     | '/investors'
     | '/me'
     | '/onboarding'
+    | '/partners'
     | '/passport'
     | '/plan'
     | '/portal'
@@ -1096,6 +1106,7 @@ export interface FileRouteTypes {
     | '/investors'
     | '/me'
     | '/onboarding'
+    | '/partners'
     | '/passport'
     | '/plan'
     | '/pricing'
@@ -1201,6 +1212,7 @@ export interface FileRouteTypes {
     | '/investors'
     | '/me'
     | '/onboarding'
+    | '/partners'
     | '/passport'
     | '/plan'
     | '/portal'
@@ -1309,6 +1321,7 @@ export interface RootRouteChildren {
   InvestorsRoute: typeof InvestorsRoute
   MeRoute: typeof MeRoute
   OnboardingRoute: typeof OnboardingRoute
+  PartnersRoute: typeof PartnersRoute
   PassportRoute: typeof PassportRoute
   PlanRoute: typeof PlanRouteWithChildren
   PortalRoute: typeof PortalRouteWithChildren
@@ -1460,6 +1473,13 @@ declare module '@tanstack/react-router' {
       path: '/passport'
       fullPath: '/passport'
       preLoaderRoute: typeof PassportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partners': {
+      id: '/partners'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/onboarding': {
@@ -2262,6 +2282,7 @@ const rootRouteChildren: RootRouteChildren = {
   InvestorsRoute: InvestorsRoute,
   MeRoute: MeRoute,
   OnboardingRoute: OnboardingRoute,
+  PartnersRoute: PartnersRoute,
   PassportRoute: PassportRoute,
   PlanRoute: PlanRouteWithChildren,
   PortalRoute: PortalRouteWithChildren,

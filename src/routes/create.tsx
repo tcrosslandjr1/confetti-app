@@ -115,6 +115,7 @@ function CreatePage() {
   async function finish() {
     if (generating) return;
     setGenerating(true);
+    trackCta("build_my_night_finish", { groupSize: group?.size, occasion: occasion?.id, vibe: vibe?.id });
     try {
       let tasteSummaryStr: string | undefined;
       try {
@@ -171,6 +172,7 @@ function CreatePage() {
       navigate({ to: "/boarding-pass" });
     } catch (err) {
       console.error("[create] finish failed", err);
+      void trackEvent("error", "create_finish_failed", { path: "/create", metadata: { msg: String(err).slice(0, 300) } });
       toast.error("Couldn't build your night. Try again.");
       try {
         const fallback = makeDemoLoop({

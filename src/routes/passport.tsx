@@ -139,6 +139,7 @@ function PassportPage() {
   const [localConfetti, setLocalConfetti] = useState(0);
   const [claimed, setClaimed] = useState<ClaimedReward[]>([]);
   const [pending, setPending] = useState<(typeof REWARDS)[number] | null>(null);
+  const [redeeming, setRedeeming] = useState(false);
   const [justClaimed, setJustClaimed] = useState<ClaimedReward | null>(null);
   const [localStamps, setLocalStamps] = useState<PassportStamp[]>([]);
   const [shareOpen, setShareOpen] = useState(false);
@@ -172,11 +173,13 @@ function PassportPage() {
         })),
       ];
 
-  function handleConfirmRedeem() {
-    if (!pending) return;
+  async function handleConfirmRedeem() {
+    if (!pending || redeeming) return;
+    setRedeeming(true);
     if (getConfetti() < pending.cost) {
       toast.error("Not enough Confetti");
       setPending(null);
+      setRedeeming(false);
       return;
     }
     addConfetti(-pending.cost);
@@ -191,6 +194,7 @@ function PassportPage() {
     setClaimed(next);
     saveClaimed(next);
     setPending(null);
+    setRedeeming(false);
     setJustClaimed(record);
     toast.success(`Redeemed ${pending.label}`, { description: `Code ${record.code}` });
   }
@@ -644,7 +648,7 @@ function PassportPage() {
                       return (
                         <button
                           type="button"
-                          disabled={!can || isClaimed}
+                          disabled={!can || isClaimed || !!pending}
                           onClick={() => setPending(r)}
                           className="shrink-0 rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-40 disabled:shadow-none"
                         >
@@ -767,7 +771,16 @@ function PassportPage() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleConfirmRedeem}>Confirm redeem</AlertDialogAction>
+            <AlertDialogAction disabled={redeeming} onClick={handleConfirmRedeem}>
+              {redeeming ? (
+                <span className="inline-flex items-center gap-2">
+                  <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-cream border-b-transparent" />
+                  Processing…
+                </span>
+              ) : (
+                "Confirm redeem"
+              )}
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

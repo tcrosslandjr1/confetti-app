@@ -588,7 +588,9 @@ function PassportPage() {
             ))}
           </div>
         </section>
+        </div>
 
+        <div className="space-y-5 sm:space-y-6">
         {/* Featured perk */}
         <section className="mt-6 relative overflow-hidden rounded-2xl border-2 border-ink bg-ink p-5 text-cream shadow-brut-lg">
           <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-coral/40 blur-3xl" />

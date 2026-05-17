@@ -64,6 +64,11 @@ function DiscoverPage() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<(typeof CATEGORIES)[number]>("All");
   const [refreshNonce, setRefreshNonce] = useState(0);
+  const [mapSelected, setMapSelected] = useState<VenueRow | null>(null);
+
+  useEffect(() => {
+    setMapSelected(null);
+  }, [view, cat, q]);
 
   const filtered = useMemo(() => {
     if (!rows) return rows;

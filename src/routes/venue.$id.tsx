@@ -781,6 +781,7 @@ function StepDone({
   party: number;
   code: string;
 }) {
+  const id = venue.id;
   const date = useMemo(() => buildDates(14)[dateIdx], [dateIdx]);
   const [showXp, setShowXp] = useState(false);
 

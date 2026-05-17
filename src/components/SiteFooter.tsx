@@ -8,7 +8,7 @@ const navCols = [
   {
     title: "Plan",
     items: [
-      { to: "/plan", label: "Build my night" },
+      { to: "/create", label: "Build my night" },
       { to: "/discover", label: "Discover venues" },
       { to: "/events", label: "What's on" },
       { to: "/portal/bookings", label: "My bookings" },

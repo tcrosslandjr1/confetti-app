@@ -136,7 +136,7 @@ function VenueBookingPage() {
           category: sample.category,
           neighborhood: sample.neighborhood,
           address: sample.address,
-          image_url: null,
+          image_url: sample.imageUrl,
           description: sample.description,
           rating: sample.rating,
           price_level: sample.price_level,

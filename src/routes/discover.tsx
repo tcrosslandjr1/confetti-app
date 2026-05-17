@@ -56,7 +56,7 @@ const SAMPLE_VENUES: VenueRow[] = SAMPLE_DATA.map((v) => ({
   name: v.name,
   neighborhood: v.neighborhood,
   address: v.address,
-  photo: null,
+  photo: v.imageUrl,
   rating: v.rating,
   price: v.price,
   tags: v.tags,

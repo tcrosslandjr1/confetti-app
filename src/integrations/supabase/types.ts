@@ -267,6 +267,45 @@ export type Database = {
         }
         Relationships: []
       }
+      analytics_events: {
+        Row: {
+          created_at: string
+          event_name: string
+          event_type: string
+          id: string
+          metadata: Json
+          path: string
+          session_id: string
+          user_agent: string | null
+          user_id: string | null
+          value: number | null
+        }
+        Insert: {
+          created_at?: string
+          event_name: string
+          event_type: string
+          id?: string
+          metadata?: Json
+          path: string
+          session_id: string
+          user_agent?: string | null
+          user_id?: string | null
+          value?: number | null
+        }
+        Update: {
+          created_at?: string
+          event_name?: string
+          event_type?: string
+          id?: string
+          metadata?: Json
+          path?: string
+          session_id?: string
+          user_agent?: string | null
+          user_id?: string | null
+          value?: number | null
+        }
+        Relationships: []
+      }
       booking_notification_deliveries: {
         Row: {
           body: string | null

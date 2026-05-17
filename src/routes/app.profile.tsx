@@ -73,14 +73,8 @@ function ProfilePage() {
 
       <section className="px-5">
         <Card className="flex items-center gap-4 p-5">
-          <div className="size-16 shrink-0 overflow-hidden rounded-full bg-muted">
-            {profile?.avatar_url && (
-              <img
-                src={profile.avatar_url}
-                alt=""
-                className="size-full object-cover"
-              />
-            )}
+          <div className="grid size-16 shrink-0 place-items-center rounded-full bg-primary/10 text-lg font-bold text-primary">
+            {(profile?.display_name ?? user.email ?? "?").slice(0, 1).toUpperCase()}
           </div>
           <div className="min-w-0 flex-1">
             <div className="truncate text-lg font-semibold">

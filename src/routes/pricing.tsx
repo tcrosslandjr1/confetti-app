@@ -2,6 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Check } from "lucide-react";
+import { useStripeCheckout } from "@/hooks/useStripeCheckout";
+import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
+import { useAuth } from "@/lib/auth-context";
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({
@@ -24,56 +27,42 @@ export const Route = createFileRoute("/pricing")({
 
 const tiers = [
   {
-    name: "Free",
-    price: "$0",
-    blurb: "Plan a few outings a month.",
-    features: [
-      "3 AI itineraries / month",
-      "Swipeable idea cards",
-      "Save up to 5 trips",
-      "Basic taste profile",
-    ],
-    cta: "Start free",
-    to: "/auth" as const,
-    highlight: false,
+    name: "Free", price: "$0", blurb: "Plan a few outings a month.",
+    features: ["3 AI itineraries / month", "Swipeable idea cards", "Save up to 5 trips", "Basic taste profile"],
+    cta: "Start free", priceId: null as string | null, highlight: false,
   },
   {
-    name: "Plus",
-    price: "$8",
-    suffix: "/mo",
-    blurb: "For people who actually go out.",
-    features: [
-      "Unlimited itineraries",
-      "Multi-stop routing & transit",
-      "Saved reservations vault",
-      "Full taste profile + social learning",
-      "Priority AI",
-    ],
-    cta: "Try Plus",
-    to: "/auth" as const,
-    highlight: true,
+    name: "Plus", price: "$8", suffix: "/mo", blurb: "For people who actually go out.",
+    features: ["Unlimited itineraries", "Multi-stop routing & transit", "Saved reservations vault", "Full taste profile + social learning", "Priority AI"],
+    cta: "Try Plus", priceId: "plus_monthly", highlight: true,
   },
   {
-    name: "Crew",
-    price: "$18",
-    suffix: "/mo",
-    blurb: "Plan with friends and family.",
-    features: [
-      "Everything in Plus",
-      "Shared trips & voting",
-      "Up to 6 members",
-      "Group reservations",
-      "Concierge chat",
-    ],
-    cta: "Get Crew",
-    to: "/auth" as const,
-    highlight: false,
+    name: "Crew", price: "$18", suffix: "/mo", blurb: "Plan with friends and family.",
+    features: ["Everything in Plus", "Shared trips & voting", "Up to 6 members", "Group reservations", "Concierge chat"],
+    cta: "Get Crew", priceId: "crew_monthly", highlight: false,
   },
 ];
 
 function PricingPage() {
+  const { user } = useAuth();
+  const { openCheckout, checkoutElement } = useStripeCheckout();
+  const handleCta = (priceId: string | null, name: string) => {
+    if (!priceId) return;
+    if (!user) {
+      window.location.href = `/auth?next=${encodeURIComponent("/pricing")}`;
+      return;
+    }
+    openCheckout({
+      variant: { kind: "price", priceId, accountType: "user" },
+      customerEmail: user.email ?? undefined,
+      userId: user.id,
+      title: `Subscribe to ${name}`,
+    });
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <PaymentTestModeBanner />
       <SiteHeader />
       <section className="border-b border-border">
         <div className="mx-auto max-w-5xl px-4 py-20 text-center sm:px-6">
@@ -108,8 +97,8 @@ function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  to={t.to}
+                <button
+                  onClick={() => (t.priceId ? handleCta(t.priceId, t.name) : (window.location.href = "/auth"))}
                   className={`mt-6 inline-flex h-11 w-full items-center justify-center rounded-full text-sm font-semibold transition-pop hover:scale-[1.02] ${
                     t.highlight
                       ? "bg-foreground text-background"
@@ -117,7 +106,7 @@ function PricingPage() {
                   }`}
                 >
                   {t.cta}
-                </Link>
+                </button>
               </div>
             ))}
           </div>
@@ -137,6 +126,7 @@ function PricingPage() {
       </section>
 
       <SiteFooter />
+      {checkoutElement}
     </div>
   );
 }

@@ -81,6 +81,19 @@ function DiscoverPage() {
     [venueId, rows],
   );
 
+  // Safeguard: drop a selected venueId from the URL if filters/search/data
+  // have made it invisible, so map pins and the card never reference stale rows.
+  useEffect(() => {
+    if (!venueId || !rows) return;
+    const visible = mapSelected != null;
+    if (!visible) {
+      navigate({
+        search: (prev: { venueId?: string }) => ({ ...prev, venueId: undefined }),
+        replace: true,
+      });
+    }
+  }, [venueId, rows, mapSelected, navigate]);
+
   const setMapSelected = useCallback(
     (row: VenueRow | null) => {
       // Closing the card: pop history so prior Discover state (filters,

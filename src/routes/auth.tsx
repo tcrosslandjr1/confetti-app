@@ -511,9 +511,12 @@ function AuthPage() {
           </p>
         )}
 
-        <div className="my-5 flex items-center gap-3 text-[10px] uppercase tracking-wider text-muted-foreground">
-          <div className="h-px flex-1 bg-border" /> or email{" "}
-          <div className="h-px flex-1 bg-border" />
+        <div className="my-5 flex items-center gap-3">
+          <div className="h-px flex-1 bg-ink/20" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink/60">
+            or email
+          </span>
+          <div className="h-px flex-1 bg-ink/20" />
         </div>
 
         <form onSubmit={onSubmit} className="space-y-3">

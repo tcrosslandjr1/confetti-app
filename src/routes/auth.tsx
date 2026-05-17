@@ -390,13 +390,21 @@ function AuthPage() {
           </p>
         </div>
 
-        <div className="mt-8 space-y-2.5">
+        <div className="mt-8">
+          <div className="mb-3 flex items-center gap-3">
+            <span className="h-px flex-1 bg-ink/20" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink/60">
+              one tap in
+            </span>
+            <span className="h-px flex-1 bg-ink/20" />
+          </div>
+          <div className="space-y-2.5">
           <button
             type="button"
             onClick={() => onOAuth("google")}
             disabled={oauthBusy !== null}
             aria-busy={oauthBusy === "google"}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-border bg-card py-4 text-sm font-semibold transition hover:bg-accent disabled:cursor-not-allowed disabled:opacity-60"
+            className="group relative inline-flex w-full items-center justify-between gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3.5 text-sm font-bold text-ink shadow-brut transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60"
           >
             {oauthBusy === "google" ? (
               <Loader2 className="h-4 w-4 animate-spin" />

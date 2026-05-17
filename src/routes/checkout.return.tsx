@@ -188,14 +188,6 @@ function SuccessState({ data }: { data: Awaited<ReturnType<typeof getCheckoutSes
       </div>
 
       <div className="px-8 py-6 border-t flex flex-col gap-2 sm:flex-row sm:justify-end">
-        {isSub && (
-          <Button asChild variant="outline">
-            <Link to="/account/billing">
-              <Receipt className="mr-2 h-4 w-4" />
-              Manage billing
-            </Link>
-          </Button>
-        )}
         <Button asChild>
           <Link to="/passport">Go to my Passport</Link>
         </Button>

@@ -529,6 +529,16 @@ function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) 
       >
         Search on TikTok
       </a>
+      {row.website && (
+        <a
+          href={row.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-1 inline-flex items-center gap-1 text-xs text-coral underline underline-offset-2"
+        >
+          Visit website
+        </a>
+      )}
     </div>
   );
 }

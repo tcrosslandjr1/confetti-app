@@ -56,6 +56,7 @@ import { Route as TeamsIndexRouteImport } from './routes/teams.index'
 import { Route as PortalIndexRouteImport } from './routes/portal.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
+import { Route as BusinessIndexRouteImport } from './routes/business.index'
 import { Route as AdvertiseIndexRouteImport } from './routes/advertise.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as VenueIdRouteImport } from './routes/venue.$id'
@@ -353,6 +354,11 @@ const ConciergeIndexRoute = ConciergeIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ConciergeRoute,
+} as any)
+const BusinessIndexRoute = BusinessIndexRouteImport.update({
+  id: '/business/',
+  path: '/business/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdvertiseIndexRoute = AdvertiseIndexRouteImport.update({
   id: '/',
@@ -763,6 +769,7 @@ export interface FileRoutesByFullPath {
   '/venue/$id': typeof VenueIdRoute
   '/admin/': typeof AdminIndexRoute
   '/advertise/': typeof AdvertiseIndexRoute
+  '/business/': typeof BusinessIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/portal/': typeof PortalIndexRoute
@@ -869,6 +876,7 @@ export interface FileRoutesByTo {
   '/venue/$id': typeof VenueIdRoute
   '/admin': typeof AdminIndexRoute
   '/advertise': typeof AdvertiseIndexRoute
+  '/business': typeof BusinessIndexRoute
   '/concierge': typeof ConciergeIndexRoute
   '/events': typeof EventsIndexRoute
   '/portal': typeof PortalIndexRoute
@@ -981,6 +989,7 @@ export interface FileRoutesById {
   '/venue/$id': typeof VenueIdRoute
   '/admin/': typeof AdminIndexRoute
   '/advertise/': typeof AdvertiseIndexRoute
+  '/business/': typeof BusinessIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/portal/': typeof PortalIndexRoute
@@ -1094,6 +1103,7 @@ export interface FileRouteTypes {
     | '/venue/$id'
     | '/admin/'
     | '/advertise/'
+    | '/business/'
     | '/concierge/'
     | '/events/'
     | '/portal/'
@@ -1200,6 +1210,7 @@ export interface FileRouteTypes {
     | '/venue/$id'
     | '/admin'
     | '/advertise'
+    | '/business'
     | '/concierge'
     | '/events'
     | '/portal'
@@ -1311,6 +1322,7 @@ export interface FileRouteTypes {
     | '/venue/$id'
     | '/admin/'
     | '/advertise/'
+    | '/business/'
     | '/concierge/'
     | '/events/'
     | '/portal/'
@@ -1385,6 +1397,7 @@ export interface RootRouteChildren {
   RsvpTripIdRoute: typeof RsvpTripIdRoute
   TripsIdRoute: typeof TripsIdRouteWithChildren
   VenueIdRoute: typeof VenueIdRoute
+  BusinessIndexRoute: typeof BusinessIndexRoute
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
   ApiPublicPickEventsRoute: typeof ApiPublicPickEventsRoute
@@ -1729,6 +1742,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/concierge/'
       preLoaderRoute: typeof ConciergeIndexRouteImport
       parentRoute: typeof ConciergeRoute
+    }
+    '/business/': {
+      id: '/business/'
+      path: '/business'
+      fullPath: '/business/'
+      preLoaderRoute: typeof BusinessIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/advertise/': {
       id: '/advertise/'
@@ -2372,6 +2392,7 @@ const rootRouteChildren: RootRouteChildren = {
   RsvpTripIdRoute: RsvpTripIdRoute,
   TripsIdRoute: TripsIdRouteWithChildren,
   VenueIdRoute: VenueIdRoute,
+  BusinessIndexRoute: BusinessIndexRoute,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
   ApiPublicPickEventsRoute: ApiPublicPickEventsRoute,

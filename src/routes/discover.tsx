@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { zodValidator, fallback } from "@tanstack/zod-adapter";
+import { zodValidator } from "@tanstack/zod-adapter";
 import { z } from "zod";
 import { LayoutList, Map as MapIcon, MapPin, Star, Loader2, Search, X, Sparkles, ArrowRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -9,8 +9,8 @@ import { useCallback } from "react";
 import { SAMPLE_VENUES as SAMPLE_DATA, type SampleCategory } from "@/lib/sample-venues";
 
 const discoverSearchSchema = z.object({
-  venueId: fallback(z.string().optional(), undefined),
-  view: fallback(z.enum(["list", "map"]).optional(), undefined),
+  venueId: z.string().optional().catch(undefined),
+  view: z.enum(["list", "map"]).optional().catch(undefined),
 });
 
 export const Route = createFileRoute("/discover")({

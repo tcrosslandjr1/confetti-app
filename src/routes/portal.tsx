@@ -16,6 +16,8 @@ import { useAuth } from "@/lib/auth-context";
 import { inferFeatureFromPath, logAccessDenial } from "@/lib/access-denials";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { PullToRefresh } from "@/components/PullToRefresh";
+import { triggerRefresh } from "@/hooks/use-refresh-bus";
 
 export const Route = createFileRoute("/portal")({
   head: () => ({

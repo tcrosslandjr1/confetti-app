@@ -848,7 +848,7 @@ function Landing() {
               </p>
             </div>
             <GatedAction
-              to="/plan"
+              to="/create"
               feature="planning"
               className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-5 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
             >

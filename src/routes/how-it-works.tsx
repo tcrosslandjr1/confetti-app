@@ -65,7 +65,7 @@ function HowItWorksPage() {
           </div>
           <div className="mt-14 text-center">
             <GatedAction
-              to="/plan"
+              to="/create"
               feature="planning"
               className="inline-flex h-12 items-center rounded-full bg-foreground px-6 text-sm font-semibold text-background transition-pop hover:scale-105"
             >

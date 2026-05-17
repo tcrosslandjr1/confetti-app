@@ -224,7 +224,7 @@ export function TonightAtAGlance() {
     <WidgetShell
       title="Tonight at a glance"
       icon={Sparkles}
-      action={{ label: "Plan", to: "/concierge/chat" }}
+      action={{ label: "Plan", to: "/create" }}
     >
       <div className="grid grid-cols-3 gap-3">
         <div className="rounded-xl bg-ink/5 p-3">

@@ -43,6 +43,7 @@ type Venue = {
   tags: string[];
   source: "venues" | "viral_venues";
   city: string | null;
+  website: string | null;
 };
 
 const FALLBACK_PHOTO =

@@ -511,6 +511,15 @@ function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) 
           Reserve <ArrowRight className="h-3 w-3" />
         </span>
       </Link>
+      <a
+        href={`https://www.google.com/search?q=${encodeURIComponent(row.name)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-2 inline-flex items-center gap-1 text-xs text-coral underline underline-offset-2"
+      >
+        Search on Google
+      </a>
+    </div>
     </div>
   );
 }

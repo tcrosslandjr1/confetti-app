@@ -3,7 +3,6 @@
  * - Photos via Google Places Photo (existing GOOGLE_PLACES_API_KEY).
  * - Social profile discovery via Firecrawl search.
  */
-import Firecrawl from "@mendable/firecrawl-js";
 
 const PLACES_KEY = process.env.GOOGLE_PLACES_API_KEY;
 
@@ -116,14 +115,17 @@ export async function discoverSocials(
     return { tiktok_url: null, tiktok_handle: null, instagram_url: null, instagram_handle: null };
   }
 
-  const firecrawl = new Firecrawl({ apiKey });
   const venuePart = [name, city].filter(Boolean).join(" ");
 
   async function searchOne(host: "tiktok" | "instagram"): Promise<{ url: string; handle: string } | null> {
     const domain = host === "tiktok" ? "tiktok.com" : "instagram.com";
     const query = `site:${domain} ${venuePart}`;
     try {
-      const result = (await firecrawl.search(query, { limit: 5 })) as unknown as {
+      const result = (await fetch("https://api.firecrawl.dev/v1/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+        body: JSON.stringify({ query, limit: 5 }),
+      }).then((r) => r.json())) as {
         web?: Array<{ url: string }>;
         data?: Array<{ url: string }>;
       };

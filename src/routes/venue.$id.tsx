@@ -92,7 +92,7 @@ function VenueBookingPage() {
           name: v.name,
           category: v.category ?? null,
           neighborhood: v.neighborhood ?? null,
-          address: v.address ?? null,
+          address: (v as any).address ?? null,
           image_url: v.image_url ?? null,
           description: v.description ?? null,
           rating: (v as any).rating ?? 4.8,

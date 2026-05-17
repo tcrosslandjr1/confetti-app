@@ -948,7 +948,7 @@ export function BoardingPassV3({ loop, containerRef }: { loop: ActiveLoop; conta
       <SectionLabel>Quick Actions</SectionLabel>
       <QuickActions />
 
-      <PreorderDrawer stop={preorderStop} onClose={() => setPreorderStop(null)} />
+      <PreorderDrawer stop={preorderStop} loop={loop} onClose={() => setPreorderStop(null)} />
     </div>
   );
 }

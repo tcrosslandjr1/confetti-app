@@ -767,7 +767,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 /*  Main                                                                       */
 /* -------------------------------------------------------------------------- */
 
-export function BoardingPassV3({ loop, containerRef }: { loop: ActiveLoop; containerRef?: React.RefObject<HTMLDivElement> }) {
+export function BoardingPassV3({ loop, containerRef }: { loop: ActiveLoop; containerRef?: React.RefObject<HTMLDivElement | null> }) {
   const [preorderStop, setPreorderStop] = useState<LoopStop | null>(null);
   const crew = useMemo(() => deriveCrew(loop), [loop]);
   const currentIdx = loop.stops.findIndex((s) => !s.done);

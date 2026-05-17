@@ -55,6 +55,20 @@ const ALL_PRICES = [
 
 const StripeEnvSchema = z.enum(["sandbox", "live"]);
 
+// Default trial period (days) by price. Caller can override per-checkout
+// via the `trialDays` input. Only applies to recurring (subscription) prices.
+export const DEFAULT_TRIAL_DAYS: Partial<Record<(typeof ALL_PRICES)[number], number>> = {
+  business_basic_monthly: 14,
+  business_featured_monthly: 14,
+  business_boosted_monthly: 14,
+  business_premium_monthly: 14,
+  corporate_addon_monthly: 14,
+  consumer_plus_monthly: 7,
+  consumer_crew_monthly: 7,
+  user_unlimited_monthly: 7,
+  user_vip_monthly: 7,
+};
+
 async function resolveOrCreateCustomer(
   stripe: ReturnType<typeof createStripeClient>,
   options: { email?: string; userId?: string },
@@ -104,6 +118,9 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
       targetId: z.string().uuid().optional(),
       returnUrl: z.string().url(),
       environment: StripeEnvSchema,
+      // Free trial in days (0 = no trial). Applied only to subscriptions.
+      // Max 730 (Stripe's hard limit).
+      trialDays: z.number().int().min(0).max(730).optional(),
     }).parse,
   )
   .handler(async ({ data }) => {
@@ -134,15 +151,24 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
       ...(data.targetId && { targetId: data.targetId }),
     };
 
+    // Resolve trial period: explicit input wins, else per-price default.
+    // Only attached when the price is recurring and > 0.
+    const trialDays = isRecurring
+      ? (data.trialDays ?? DEFAULT_TRIAL_DAYS[data.priceId] ?? 0)
+      : 0;
+
     const session = await stripe.checkout.sessions.create({
       line_items: [{ price: stripePrice.id, quantity: data.quantity || 1 }],
       mode: isRecurring ? "subscription" : "payment",
       ui_mode: "embedded_page",
       return_url: data.returnUrl,
       ...(customerId && { customer: customerId }),
-      metadata: baseMetadata,
-      ...(isRecurring && data.userId && {
-        subscription_data: { metadata: baseMetadata },
+      metadata: { ...baseMetadata, ...(trialDays > 0 && { trialDays: String(trialDays) }) },
+      ...(isRecurring && {
+        subscription_data: {
+          ...(data.userId && { metadata: baseMetadata }),
+          ...(trialDays > 0 && { trial_period_days: trialDays }),
+        },
       }),
       allow_promotion_codes: true,
       managed_payments: { enabled: true },

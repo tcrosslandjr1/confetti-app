@@ -156,7 +156,7 @@ export function TabBar() {
             const active = match(pathname);
             const labelId = `${baseId}-tab-label-${i}`;
             return (
-              <div key={to} role="listitem" className="flex flex-1 justify-center">
+              <div key={to} role="listitem" className="flex flex-1 min-w-0 justify-center">
                 <TabItem
                   to={to}
                   label={label}

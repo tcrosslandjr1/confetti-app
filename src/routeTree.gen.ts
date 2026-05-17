@@ -20,6 +20,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ScanRouteImport } from './routes/scan'
 import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as QuickGenerateRouteImport } from './routes/quick-generate'
+import { Route as PromoterRouteImport } from './routes/promoter'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortalRouteImport } from './routes/portal'
@@ -53,6 +54,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TripsIndexRouteImport } from './routes/trips.index'
 import { Route as TeamsIndexRouteImport } from './routes/teams.index'
+import { Route as PromoterIndexRouteImport } from './routes/promoter.index'
 import { Route as PortalIndexRouteImport } from './routes/portal.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
@@ -66,6 +68,7 @@ import { Route as TeamsIdRouteImport } from './routes/teams.$id'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
 import { Route as RsvpTokenRouteImport } from './routes/rsvp.$token'
 import { Route as RecapItineraryIdRouteImport } from './routes/recap.$itineraryId'
+import { Route as PromoterJobsRouteImport } from './routes/promoter.jobs'
 import { Route as PortalWalletRouteImport } from './routes/portal.wallet'
 import { Route as PortalViralRouteImport } from './routes/portal.viral'
 import { Route as PortalSavedRouteImport } from './routes/portal.saved'
@@ -84,6 +87,7 @@ import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile
 import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
 import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
 import { Route as BusinessSignupRouteImport } from './routes/business.signup'
+import { Route as BusinessPromotersRouteImport } from './routes/business.promoters'
 import { Route as BusinessPricingRouteImport } from './routes/business.pricing'
 import { Route as BusinessLoginRouteImport } from './routes/business.login'
 import { Route as BusinessDashboardRouteImport } from './routes/business.dashboard'
@@ -96,6 +100,7 @@ import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as AdminRoutesMapRouteImport } from './routes/admin.routes-map'
+import { Route as AdminPromotersRouteImport } from './routes/admin.promoters'
 import { Route as AdminPickAnalyticsRouteImport } from './routes/admin.pick-analytics'
 import { Route as AdminOutreachRouteImport } from './routes/admin.outreach'
 import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
@@ -180,6 +185,11 @@ const ReservationsRoute = ReservationsRouteImport.update({
 const QuickGenerateRoute = QuickGenerateRouteImport.update({
   id: '/quick-generate',
   path: '/quick-generate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PromoterRoute = PromoterRouteImport.update({
+  id: '/promoter',
+  path: '/promoter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -347,6 +357,11 @@ const TeamsIndexRoute = TeamsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => TeamsRoute,
 } as any)
+const PromoterIndexRoute = PromoterIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PromoterRoute,
+} as any)
 const PortalIndexRoute = PortalIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -411,6 +426,11 @@ const RecapItineraryIdRoute = RecapItineraryIdRouteImport.update({
   id: '/recap/$itineraryId',
   path: '/recap/$itineraryId',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PromoterJobsRoute = PromoterJobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => PromoterRoute,
 } as any)
 const PortalWalletRoute = PortalWalletRouteImport.update({
   id: '/wallet',
@@ -502,6 +522,11 @@ const BusinessSignupRoute = BusinessSignupRouteImport.update({
   path: '/business/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessPromotersRoute = BusinessPromotersRouteImport.update({
+  id: '/business/promoters',
+  path: '/business/promoters',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessPricingRoute = BusinessPricingRouteImport.update({
   id: '/business/pricing',
   path: '/business/pricing',
@@ -560,6 +585,11 @@ const AdminSettingsRoute = AdminSettingsRouteImport.update({
 const AdminRoutesMapRoute = AdminRoutesMapRouteImport.update({
   id: '/routes-map',
   path: '/routes-map',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPromotersRoute = AdminPromotersRouteImport.update({
+  id: '/promoters',
+  path: '/promoters',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminPickAnalyticsRoute = AdminPickAnalyticsRouteImport.update({
@@ -752,6 +782,7 @@ export interface FileRoutesByFullPath {
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/promoter': typeof PromoterRouteWithChildren
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
@@ -778,6 +809,7 @@ export interface FileRoutesByFullPath {
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/outreach': typeof AdminOutreachRoute
   '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
+  '/admin/promoters': typeof AdminPromotersRoute
   '/admin/routes-map': typeof AdminRoutesMapRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
@@ -790,6 +822,7 @@ export interface FileRoutesByFullPath {
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/pricing': typeof BusinessPricingRoute
+  '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -808,6 +841,7 @@ export interface FileRoutesByFullPath {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/portal/wallet': typeof PortalWalletRoute
+  '/promoter/jobs': typeof PromoterJobsRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -821,6 +855,7 @@ export interface FileRoutesByFullPath {
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/portal/': typeof PortalIndexRoute
+  '/promoter/': typeof PromoterIndexRoute
   '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
@@ -892,6 +927,7 @@ export interface FileRoutesByTo {
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/outreach': typeof AdminOutreachRoute
   '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
+  '/admin/promoters': typeof AdminPromotersRoute
   '/admin/routes-map': typeof AdminRoutesMapRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
@@ -904,6 +940,7 @@ export interface FileRoutesByTo {
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/pricing': typeof BusinessPricingRoute
+  '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -922,6 +959,7 @@ export interface FileRoutesByTo {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/portal/wallet': typeof PortalWalletRoute
+  '/promoter/jobs': typeof PromoterJobsRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -935,6 +973,7 @@ export interface FileRoutesByTo {
   '/concierge': typeof ConciergeIndexRoute
   '/events': typeof EventsIndexRoute
   '/portal': typeof PortalIndexRoute
+  '/promoter': typeof PromoterIndexRoute
   '/teams': typeof TeamsIndexRoute
   '/trips': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
@@ -986,6 +1025,7 @@ export interface FileRoutesById {
   '/portal': typeof PortalRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/promoter': typeof PromoterRouteWithChildren
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
@@ -1012,6 +1052,7 @@ export interface FileRoutesById {
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/outreach': typeof AdminOutreachRoute
   '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
+  '/admin/promoters': typeof AdminPromotersRoute
   '/admin/routes-map': typeof AdminRoutesMapRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
@@ -1024,6 +1065,7 @@ export interface FileRoutesById {
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/pricing': typeof BusinessPricingRoute
+  '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -1042,6 +1084,7 @@ export interface FileRoutesById {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/portal/wallet': typeof PortalWalletRoute
+  '/promoter/jobs': typeof PromoterJobsRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -1055,6 +1098,7 @@ export interface FileRoutesById {
   '/concierge/': typeof ConciergeIndexRoute
   '/events/': typeof EventsIndexRoute
   '/portal/': typeof PortalIndexRoute
+  '/promoter/': typeof PromoterIndexRoute
   '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
@@ -1107,6 +1151,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/pricing'
     | '/privacy'
+    | '/promoter'
     | '/quick-generate'
     | '/reservations'
     | '/scan'
@@ -1133,6 +1178,7 @@ export interface FileRouteTypes {
     | '/admin/notifications'
     | '/admin/outreach'
     | '/admin/pick-analytics'
+    | '/admin/promoters'
     | '/admin/routes-map'
     | '/admin/settings'
     | '/admin/testimonials'
@@ -1145,6 +1191,7 @@ export interface FileRouteTypes {
     | '/business/dashboard'
     | '/business/login'
     | '/business/pricing'
+    | '/business/promoters'
     | '/business/signup'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1163,6 +1210,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/portal/wallet'
+    | '/promoter/jobs'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1176,6 +1224,7 @@ export interface FileRouteTypes {
     | '/concierge/'
     | '/events/'
     | '/portal/'
+    | '/promoter/'
     | '/teams/'
     | '/trips/'
     | '/advertise/stories/$slug'
@@ -1247,6 +1296,7 @@ export interface FileRouteTypes {
     | '/admin/notifications'
     | '/admin/outreach'
     | '/admin/pick-analytics'
+    | '/admin/promoters'
     | '/admin/routes-map'
     | '/admin/settings'
     | '/admin/testimonials'
@@ -1259,6 +1309,7 @@ export interface FileRouteTypes {
     | '/business/dashboard'
     | '/business/login'
     | '/business/pricing'
+    | '/business/promoters'
     | '/business/signup'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1277,6 +1328,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/portal/wallet'
+    | '/promoter/jobs'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1290,6 +1342,7 @@ export interface FileRouteTypes {
     | '/concierge'
     | '/events'
     | '/portal'
+    | '/promoter'
     | '/teams'
     | '/trips'
     | '/advertise/stories/$slug'
@@ -1340,6 +1393,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/pricing'
     | '/privacy'
+    | '/promoter'
     | '/quick-generate'
     | '/reservations'
     | '/scan'
@@ -1366,6 +1420,7 @@ export interface FileRouteTypes {
     | '/admin/notifications'
     | '/admin/outreach'
     | '/admin/pick-analytics'
+    | '/admin/promoters'
     | '/admin/routes-map'
     | '/admin/settings'
     | '/admin/testimonials'
@@ -1378,6 +1433,7 @@ export interface FileRouteTypes {
     | '/business/dashboard'
     | '/business/login'
     | '/business/pricing'
+    | '/business/promoters'
     | '/business/signup'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1396,6 +1452,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/portal/wallet'
+    | '/promoter/jobs'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1409,6 +1466,7 @@ export interface FileRouteTypes {
     | '/concierge/'
     | '/events/'
     | '/portal/'
+    | '/promoter/'
     | '/teams/'
     | '/trips/'
     | '/advertise/stories/$slug'
@@ -1460,6 +1518,7 @@ export interface RootRouteChildren {
   PortalRoute: typeof PortalRouteWithChildren
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
+  PromoterRoute: typeof PromoterRouteWithChildren
   QuickGenerateRoute: typeof QuickGenerateRoute
   ReservationsRoute: typeof ReservationsRoute
   ScanRoute: typeof ScanRoute
@@ -1476,6 +1535,7 @@ export interface RootRouteChildren {
   BusinessDashboardRoute: typeof BusinessDashboardRoute
   BusinessLoginRoute: typeof BusinessLoginRoute
   BusinessPricingRoute: typeof BusinessPricingRoute
+  BusinessPromotersRoute: typeof BusinessPromotersRoute
   BusinessSignupRoute: typeof BusinessSignupRoute
   CollabTripIdRoute: typeof CollabTripIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
@@ -1578,6 +1638,13 @@ declare module '@tanstack/react-router' {
       path: '/quick-generate'
       fullPath: '/quick-generate'
       preLoaderRoute: typeof QuickGenerateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/promoter': {
+      id: '/promoter'
+      path: '/promoter'
+      fullPath: '/promoter'
+      preLoaderRoute: typeof PromoterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -1811,6 +1878,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamsIndexRouteImport
       parentRoute: typeof TeamsRoute
     }
+    '/promoter/': {
+      id: '/promoter/'
+      path: '/'
+      fullPath: '/promoter/'
+      preLoaderRoute: typeof PromoterIndexRouteImport
+      parentRoute: typeof PromoterRoute
+    }
     '/portal/': {
       id: '/portal/'
       path: '/'
@@ -1901,6 +1975,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/recap/$itineraryId'
       preLoaderRoute: typeof RecapItineraryIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/promoter/jobs': {
+      id: '/promoter/jobs'
+      path: '/jobs'
+      fullPath: '/promoter/jobs'
+      preLoaderRoute: typeof PromoterJobsRouteImport
+      parentRoute: typeof PromoterRoute
     }
     '/portal/wallet': {
       id: '/portal/wallet'
@@ -2028,6 +2109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessSignupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/promoters': {
+      id: '/business/promoters'
+      path: '/business/promoters'
+      fullPath: '/business/promoters'
+      preLoaderRoute: typeof BusinessPromotersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business/pricing': {
       id: '/business/pricing'
       path: '/business/pricing'
@@ -2110,6 +2198,13 @@ declare module '@tanstack/react-router' {
       path: '/routes-map'
       fullPath: '/admin/routes-map'
       preLoaderRoute: typeof AdminRoutesMapRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/promoters': {
+      id: '/admin/promoters'
+      path: '/promoters'
+      fullPath: '/admin/promoters'
+      preLoaderRoute: typeof AdminPromotersRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/pick-analytics': {
@@ -2341,6 +2436,7 @@ interface AdminRouteChildren {
   AdminNotificationsRoute: typeof AdminNotificationsRoute
   AdminOutreachRoute: typeof AdminOutreachRoute
   AdminPickAnalyticsRoute: typeof AdminPickAnalyticsRoute
+  AdminPromotersRoute: typeof AdminPromotersRoute
   AdminRoutesMapRoute: typeof AdminRoutesMapRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminTestimonialsRoute: typeof AdminTestimonialsRoute
@@ -2366,6 +2462,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminNotificationsRoute: AdminNotificationsRoute,
   AdminOutreachRoute: AdminOutreachRoute,
   AdminPickAnalyticsRoute: AdminPickAnalyticsRoute,
+  AdminPromotersRoute: AdminPromotersRoute,
   AdminRoutesMapRoute: AdminRoutesMapRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AdminTestimonialsRoute: AdminTestimonialsRoute,
@@ -2454,6 +2551,20 @@ const PortalRouteChildren: PortalRouteChildren = {
 const PortalRouteWithChildren =
   PortalRoute._addFileChildren(PortalRouteChildren)
 
+interface PromoterRouteChildren {
+  PromoterJobsRoute: typeof PromoterJobsRoute
+  PromoterIndexRoute: typeof PromoterIndexRoute
+}
+
+const PromoterRouteChildren: PromoterRouteChildren = {
+  PromoterJobsRoute: PromoterJobsRoute,
+  PromoterIndexRoute: PromoterIndexRoute,
+}
+
+const PromoterRouteWithChildren = PromoterRoute._addFileChildren(
+  PromoterRouteChildren,
+)
+
 interface TeamsRouteChildren {
   TeamsIdRoute: typeof TeamsIdRoute
   TeamsNewRoute: typeof TeamsNewRoute
@@ -2523,6 +2634,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortalRoute: PortalRouteWithChildren,
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
+  PromoterRoute: PromoterRouteWithChildren,
   QuickGenerateRoute: QuickGenerateRoute,
   ReservationsRoute: ReservationsRoute,
   ScanRoute: ScanRoute,
@@ -2539,6 +2651,7 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessDashboardRoute: BusinessDashboardRoute,
   BusinessLoginRoute: BusinessLoginRoute,
   BusinessPricingRoute: BusinessPricingRoute,
+  BusinessPromotersRoute: BusinessPromotersRoute,
   BusinessSignupRoute: BusinessSignupRoute,
   CollabTripIdRoute: CollabTripIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,

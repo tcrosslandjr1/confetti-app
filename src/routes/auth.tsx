@@ -354,19 +354,19 @@ function AuthPage() {
             </p>
             <ul className="space-y-3 text-sm">
               <li className="group flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3">
+                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
                   <PartyPopper className="h-4 w-4" />
                 </span>
                 Earn <span className="font-bold">Confetti</span> on every booking
               </li>
               <li className="group flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3">
+                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
                   <MapPin className="h-4 w-4" />
                 </span>
                 Hand-picked spots in 40+ cities
               </li>
               <li className="group flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3">
+                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5 group-hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
                   <ShieldCheck className="h-4 w-4" />
                 </span>
                 Skip-the-line perks at partner venues

@@ -179,14 +179,34 @@ const FAQS = [
 ];
 
 function BusinessPricingPage() {
+  const { user } = useAuth();
+  const { openCheckout, checkoutElement } = useStripeCheckout();
+  const handlePlanCta = (priceId: string | undefined, name: string, fallback?: string) => {
+    if (!priceId) {
+      if (fallback) window.location.href = fallback;
+      return;
+    }
+    if (!user) {
+      window.location.href = `/business/login?next=${encodeURIComponent("/business/pricing")}`;
+      return;
+    }
+    openCheckout({
+      variant: { kind: "price", priceId, accountType: "business" },
+      customerEmail: user.email ?? undefined,
+      userId: user.id,
+      title: `Subscribe to ${name}`,
+    });
+  };
   return (
     <div className="min-h-screen bg-background">
+      <PaymentTestModeBanner />
       <PricingHero />
-      <PricingTiers />
+      <PricingTiers onCta={handlePlanCta} />
       <TakeoverBand />
       <ComparisonTable />
       <FAQ />
       <FinalCTA />
+      {checkoutElement}
     </div>
   );
 }

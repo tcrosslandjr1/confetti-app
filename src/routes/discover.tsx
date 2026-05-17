@@ -520,7 +520,6 @@ function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) 
         Search on Google
       </a>
     </div>
-    </div>
   );
 }
 

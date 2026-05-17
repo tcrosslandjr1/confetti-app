@@ -760,6 +760,8 @@ function PassportPage() {
             ))}
           </ul>
         </section>
+        </div>
+        </div>
 
         {/* Scan-to-earn footer */}
         <div className="mt-6 flex items-center justify-between gap-3 rounded-2xl border-2 border-dashed border-ink/30 bg-cream/60 p-4">

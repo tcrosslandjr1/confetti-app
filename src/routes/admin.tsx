@@ -59,6 +59,7 @@ const NAV: NavItem[] = [
   { to: "/admin/testimonials", label: "Testimonials", icon: MessageSquareQuote },
   { to: "/admin/moderation", label: "Moderation", icon: ShieldCheck },
   { to: "/admin/analytics", label: "Analytics", icon: BarChart3 },
+  { to: "/admin/event-analytics", label: "Event analytics", icon: BarChart3 },
   { to: "/admin/pick-analytics", label: "Pick analytics", icon: BarChart3 },
   { to: "/admin/ad-analytics", label: "Ad analytics", icon: BarChart3 },
   { to: "/admin/audit", label: "Audit log", icon: ScrollText },

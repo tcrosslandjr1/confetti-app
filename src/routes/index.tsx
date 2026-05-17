@@ -18,6 +18,7 @@ import { isAdDebugEnabled, recordAdDebug } from "@/lib/ad-debug";
 import { useViewportImpression } from "@/hooks/useViewportImpression";
 import { getAdImpressionConfig } from "@/lib/ad-impression-config";
 import type { TapToGoStop } from "@/components/TapToGoBookingModal";
+import { usePageview, useScrollDepth, useTimeToInteraction, trackCta } from "@/lib/analytics";
 
 // Below-the-fold / on-demand chunks — keep the initial bundle small so the hero paints fast.
 const StepsShowcase = lazy(() =>
@@ -212,6 +213,9 @@ function Landing() {
   // Signed-in customers get the personalized portal instead of the marketing landing.
   const { user, viewAs, loading } = useAuth();
   const navigate = useNavigate();
+  usePageview("landing", "/");
+  useScrollDepth("/");
+  useTimeToInteraction("/");
   useEffect(() => {
     if (loading) return;
     if (user && viewAs === "customer") navigate({ to: "/portal" });
@@ -347,14 +351,17 @@ function Landing() {
             </ul>
 
             <div className="mt-7 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-              <WizardButton
-                ariaLabel="Plan my night"
-                className="inline-flex h-14 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg sm:w-auto"
-              >
-                Plan my night — 60 sec <ArrowUpRight className="h-5 w-5" />
-              </WizardButton>
+              <span onClick={() => trackCta("plan_my_night_hero", { location: "hero_primary" })}>
+                <WizardButton
+                  ariaLabel="Plan my night"
+                  className="inline-flex h-14 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg sm:w-auto"
+                >
+                  Plan my night — 60 sec <ArrowUpRight className="h-5 w-5" />
+                </WizardButton>
+              </span>
               <a
                 href="#sample-plan"
+                onClick={() => trackCta("see_sample_plan", { location: "hero_secondary" })}
                 className="text-sm font-bold text-ink/70 underline-offset-4 hover:text-ink hover:underline"
               >
                 or peek at a sample plan ↓

@@ -20,6 +20,7 @@ import { PageTransition } from "@/components/PageTransition";
 import { FirstRunNudge } from "@/components/FirstRunNudge";
 import { MapProvider } from "@/components/maps/MapProvider";
 import { preloadFallbackImages } from "@/lib/venue-images";
+import { installErrorTracking } from "@/lib/analytics";
 
 const RoleSwitcher = lazy(() =>
   import("@/components/RoleSwitcher").then((m) => ({ default: m.RoleSwitcher })),
@@ -227,6 +228,7 @@ function RootComponent() {
   // render swaps in instantly without flicker or layout shift.
   useEffect(() => {
     preloadFallbackImages();
+    installErrorTracking();
   }, []);
 
   return (

@@ -12,6 +12,7 @@ import { generatePlan } from "@/lib/generate-plan.functions";
 import { toast } from "sonner";
 import { ForecastForDate } from "@/components/ForecastForDate";
 import { recordPickSignal } from "@/lib/pick-signals.functions";
+import { usePageview, useScrollDepth, useTimeToInteraction, trackCta, trackEvent } from "@/lib/analytics";
 
 const MOOD_CHIPS = [
   { id: "hyped", label: "Hyped", emoji: "🔥" },
@@ -70,6 +71,9 @@ function CreatePage() {
   const generate = useServerFn(generatePlan);
   const recordSignal = useServerFn(recordPickSignal);
   const [step, setStep] = useState(0);
+  usePageview("create_wizard", "/create");
+  useScrollDepth("/create");
+  useTimeToInteraction("/create");
   const [group, setGroup] = useState<(typeof GROUP)[number] | null>(null);
   const [occasion, setOccasion] = useState<(typeof OCCASIONS)[number] | null>(null);
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
@@ -111,6 +115,7 @@ function CreatePage() {
   async function finish() {
     if (generating) return;
     setGenerating(true);
+    trackCta("build_my_night_finish", { groupSize: group?.size, occasion: occasion?.id, vibe: vibe?.id });
     try {
       let tasteSummaryStr: string | undefined;
       try {
@@ -167,6 +172,7 @@ function CreatePage() {
       navigate({ to: "/boarding-pass" });
     } catch (err) {
       console.error("[create] finish failed", err);
+      void trackEvent("error", "create_finish_failed", { path: "/create", metadata: { msg: String(err).slice(0, 300) } });
       toast.error("Couldn't build your night. Try again.");
       try {
         const fallback = makeDemoLoop({

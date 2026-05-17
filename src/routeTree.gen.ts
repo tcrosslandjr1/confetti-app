@@ -97,6 +97,7 @@ import { Route as AdminMarqueeRouteImport } from './routes/admin.marquee'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminLaunchRouteImport } from './routes/admin.launch'
 import { Route as AdminIntegrationsRouteImport } from './routes/admin.integrations'
+import { Route as AdminEventAnalyticsRouteImport } from './routes/admin.event-analytics'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as AdminAuditRouteImport } from './routes/admin.audit'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
@@ -556,6 +557,11 @@ const AdminIntegrationsRoute = AdminIntegrationsRouteImport.update({
   path: '/integrations',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminEventAnalyticsRoute = AdminEventAnalyticsRouteImport.update({
+  id: '/event-analytics',
+  path: '/event-analytics',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminBookingsRoute = AdminBookingsRouteImport.update({
   id: '/bookings',
   path: '/bookings',
@@ -701,6 +707,7 @@ export interface FileRoutesByFullPath {
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
   '/admin/login': typeof AdminLoginRoute
@@ -804,6 +811,7 @@ export interface FileRoutesByTo {
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
   '/admin/login': typeof AdminLoginRoute
@@ -913,6 +921,7 @@ export interface FileRoutesById {
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
   '/admin/login': typeof AdminLoginRoute
@@ -1023,6 +1032,7 @@ export interface FileRouteTypes {
     | '/admin/analytics'
     | '/admin/audit'
     | '/admin/bookings'
+    | '/admin/event-analytics'
     | '/admin/integrations'
     | '/admin/launch'
     | '/admin/login'
@@ -1126,6 +1136,7 @@ export interface FileRouteTypes {
     | '/admin/analytics'
     | '/admin/audit'
     | '/admin/bookings'
+    | '/admin/event-analytics'
     | '/admin/integrations'
     | '/admin/launch'
     | '/admin/login'
@@ -1234,6 +1245,7 @@ export interface FileRouteTypes {
     | '/admin/analytics'
     | '/admin/audit'
     | '/admin/bookings'
+    | '/admin/event-analytics'
     | '/admin/integrations'
     | '/admin/launch'
     | '/admin/login'
@@ -1979,6 +1991,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIntegrationsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/event-analytics': {
+      id: '/admin/event-analytics'
+      path: '/event-analytics'
+      fullPath: '/admin/event-analytics'
+      preLoaderRoute: typeof AdminEventAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/bookings': {
       id: '/admin/bookings'
       path: '/bookings'
@@ -2114,6 +2133,7 @@ interface AdminRouteChildren {
   AdminAnalyticsRoute: typeof AdminAnalyticsRoute
   AdminAuditRoute: typeof AdminAuditRoute
   AdminBookingsRoute: typeof AdminBookingsRoute
+  AdminEventAnalyticsRoute: typeof AdminEventAnalyticsRoute
   AdminIntegrationsRoute: typeof AdminIntegrationsRoute
   AdminLaunchRoute: typeof AdminLaunchRoute
   AdminLoginRoute: typeof AdminLoginRoute
@@ -2136,6 +2156,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminAnalyticsRoute: AdminAnalyticsRoute,
   AdminAuditRoute: AdminAuditRoute,
   AdminBookingsRoute: AdminBookingsRoute,
+  AdminEventAnalyticsRoute: AdminEventAnalyticsRoute,
   AdminIntegrationsRoute: AdminIntegrationsRoute,
   AdminLaunchRoute: AdminLaunchRoute,
   AdminLoginRoute: AdminLoginRoute,

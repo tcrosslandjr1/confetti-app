@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { toast } from "sonner";
+import { usePageview, useScrollDepth, useTimeToInteraction, trackCta } from "@/lib/analytics";
 
 export const Route = createFileRoute("/plan/ready")({
   head: () => ({
@@ -228,6 +229,9 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function ReadyPage() {
   const [showLoop, setShowLoop] = useState(true);
+  usePageview("plan_ready", "/plan/ready");
+  useScrollDepth("/plan/ready");
+  useTimeToInteraction("/plan/ready");
   const [copied, setCopied] = useState(false);
   const [emailInput, setEmailInput] = useState("");
   const [invites, setInvitesState] = useState<Invite[]>([]);
@@ -548,6 +552,7 @@ function ReadyPage() {
             <button
               type="button"
               onClick={() => {
+                trackCta("share_with_crew", { path: "/plan/ready" });
                 const url = typeof window !== "undefined" ? window.location.href : "";
                 if (typeof navigator !== "undefined" && navigator.share) {
                   navigator.share({ title: TRIP.title, text: TRIP.description, url }).catch(() => {});
@@ -562,6 +567,7 @@ function ReadyPage() {
             </button>
             <Link
               to="/passport"
+              onClick={() => trackCta("earn_confetti", { path: "/plan/ready" })}
               className="inline-flex h-11 items-center gap-2 rounded-full border-2 border-ink bg-cream px-5 text-sm font-bold text-ink transition-transform hover:-translate-y-0.5 hover:bg-gold"
             >
               <Sparkles className="h-4 w-4" /> Earn Confetti

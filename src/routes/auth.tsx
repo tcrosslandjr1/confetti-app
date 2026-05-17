@@ -10,6 +10,8 @@ import { lovable } from "@/integrations/lovable";
 import { rememberReferralCode, getPendingReferralCode } from "@/lib/referrals";
 import { requestUserLocation } from "@/lib/location";
 import { getMyAdvertiser } from "@/lib/ads";
+import { getTonightsPick, liveSeatsRemaining, formatEventDate } from "@/lib/events";
+import { getSelectedCity, subscribeSelectedCity } from "@/lib/cities";
 
 export const Route = createFileRoute("/auth")({
   validateSearch: (search: Record<string, unknown>) => {
@@ -40,6 +42,30 @@ function AuthPage() {
   const [seeding, setSeeding] = useState(false);
   const [seedMsg, setSeedMsg] = useState<string | null>(null);
   const seedFn = useServerFn(seedDemoAccounts);
+
+  // "Tonight's pick" preview — derives from the EVENTS registry + selected city.
+  // We re-resolve the pick when the user changes city, and tick a live
+  // seats-remaining counter every 30s so the card feels alive.
+  const [pickCity, setPickCity] = useState<string | null>(() =>
+    typeof window === "undefined" ? null : getSelectedCity()?.name ?? null,
+  );
+  const [pickTick, setPickTick] = useState(0);
+  useEffect(() => {
+    setPickCity(getSelectedCity()?.name ?? null);
+    const unsub = subscribeSelectedCity(() => {
+      setPickCity(getSelectedCity()?.name ?? null);
+    });
+    const id = window.setInterval(() => setPickTick((t) => t + 1), 30_000);
+    return () => {
+      unsub();
+      window.clearInterval(id);
+    };
+  }, []);
+  const tonightsPick = getTonightsPick(pickCity);
+  const pickTime = formatEventDate(tonightsPick.date).time;
+  void pickTick; // re-render dependency for the live counter
+  const pickSeats = liveSeatsRemaining(tonightsPick.id, new Date());
+  const pickShortCity = tonightsPick.city.split(",")[0].trim().toLowerCase();
 
   // Translate OAuth provider/Supabase errors into something a user can act on.
   function explainOAuthError(provider: "google" | "apple", raw: string): string {
@@ -290,14 +316,14 @@ function AuthPage() {
           <div className="relative my-6 hidden h-[220px] lg:block">
             <div className="auth-collage-card absolute left-[6%] top-2 w-[58%] -rotate-[5deg] rounded-2xl border-2 border-ink bg-cream p-4 text-ink shadow-brut-lg transition-transform hover:-translate-y-1 hover:-rotate-[3deg] motion-reduce:transform-none motion-reduce:transition-none">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink/60">tonight · 8:30pm</span>
+                <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink/60">tonight · {pickTime.toLowerCase()}</span>
                 <span className="inline-flex items-center gap-1 rounded-full bg-coral px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream">
                   <Sparkles className="h-2.5 w-2.5" /> pick
                 </span>
               </div>
-              <div className="mt-2 font-display text-lg font-extrabold leading-tight">Rooftop omakase</div>
+              <div className="mt-2 font-display text-lg font-extrabold leading-tight">{tonightsPick.title}</div>
               <div className="mt-0.5 flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-ink/70">
-                <MapPin className="h-3 w-3" /> brooklyn · 2 seats left
+                <MapPin className="h-3 w-3" /> {pickShortCity} · {pickSeats} seat{pickSeats === 1 ? "" : "s"} left
               </div>
               <div className="mt-3 flex items-center gap-1 text-coral">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -463,14 +489,14 @@ function AuthPage() {
               <div className="relative mt-4 flex gap-2.5">
                 <div className="flex-1 rounded-xl border-2 border-ink bg-cream p-3 text-ink shadow-brut motion-reduce:transform-none motion-reduce:transition-none">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[8px] font-bold uppercase tracking-[0.2em] text-ink/60">tonight</span>
+                    <span className="font-mono text-[8px] font-bold uppercase tracking-[0.2em] text-ink/60">tonight · {pickTime.toLowerCase()}</span>
                     <span className="inline-flex items-center gap-1 rounded-full bg-coral px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest text-cream">
                       <Sparkles className="h-2 w-2" /> pick
                     </span>
                   </div>
-                  <div className="mt-1 font-display text-sm font-extrabold leading-tight">Rooftop omakase</div>
+                  <div className="mt-1 font-display text-sm font-extrabold leading-tight">{tonightsPick.title}</div>
                   <div className="mt-0.5 flex items-center gap-1 font-mono text-[9px] uppercase tracking-widest text-ink/70">
-                    <MapPin className="h-2.5 w-2.5" /> brooklyn
+                    <MapPin className="h-2.5 w-2.5" /> {pickShortCity} · {pickSeats} left
                   </div>
                 </div>
                 <div className="flex-1 rounded-xl border-2 border-ink bg-ink p-3 text-cream shadow-brut motion-reduce:transform-none motion-reduce:transition-none">

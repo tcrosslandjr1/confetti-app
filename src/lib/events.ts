@@ -158,3 +158,52 @@ export function formatEventDate(iso: string) {
     }),
   };
 }
+
+// Stable hash from a string id — used to seed deterministic "live" numbers.
+function hashId(id: string): number {
+  let h = 0;
+  for (let i = 0; i < id.length; i += 1) {
+    h = (h * 31 + id.charCodeAt(i)) | 0;
+  }
+  return Math.abs(h);
+}
+
+/**
+ * "Live" seats-remaining number that decays through each hour and resets
+ * at the top of the next hour. Deterministic for a given event + minute,
+ * which keeps SSR + client renders aligned and avoids hydration mismatch
+ * while still feeling alive when polled on an interval.
+ */
+export function liveSeatsRemaining(eventId: string, now: Date = new Date()): number {
+  const base = 4 + (hashId(eventId) % 16); // 4..19
+  const decay = Math.floor(now.getMinutes() / 6); // 0..9
+  return Math.max(1, base - decay);
+}
+
+/**
+ * Pick a "tonight's pick" event for the auth/teaser preview.
+ * Prefers an upcoming event in the preferred city, then any upcoming event,
+ * then deterministically cycles past events by day-of-year so the preview
+ * never looks empty.
+ */
+export function getTonightsPick(
+  preferredCity?: string | null,
+  now: Date = new Date(),
+): EventItem {
+  const future = EVENTS
+    .filter((e) => new Date(e.date).getTime() >= now.getTime())
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+  const cityMatch =
+    preferredCity &&
+    future.find((e) =>
+      e.city.toLowerCase().includes(preferredCity.toLowerCase()),
+    );
+  if (cityMatch) return cityMatch;
+  if (future.length > 0) return future[0];
+
+  // All static events are in the past — cycle deterministically by day-of-year.
+  const start = Date.UTC(now.getUTCFullYear(), 0, 0);
+  const dayOfYear = Math.floor((now.getTime() - start) / 86400000);
+  return EVENTS[dayOfYear % EVENTS.length];
+}

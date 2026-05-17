@@ -295,6 +295,10 @@ function PassportPage() {
           <ArrowLeft className="h-3.5 w-3.5" /> Back
         </Link>
 
+        <div className="mt-4">
+          <ManageSubscriptionPanel />
+        </div>
+
         {/* Passport hero */}
         <div className="relative mt-4 overflow-hidden rounded-3xl border-2 border-ink bg-gradient-vibe p-6 sm:p-8 text-cream shadow-brut-lg">
           {/* layered glow */}

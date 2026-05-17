@@ -340,10 +340,16 @@ function DiscoverMap({
           <button
             key={row.id}
             type="button"
-            onClick={() => onSelect(row)}
+            onClick={() => {
+              if (selected?.id === row.id) {
+                navigate({ to: "/venue/$id", params: { id: row.id } });
+              } else {
+                onSelect(row);
+              }
+            }}
             className="group absolute z-10 -translate-x-1/2 -translate-y-full focus:outline-none"
             style={{ left: `${x}%`, top: `${y}%` }}
-            aria-label={`Show ${row.name}`}
+            aria-label={active ? `Open ${row.name}` : `Show ${row.name}`}
           >
             <span className="relative block">
               {(row.aiPick || active) && (

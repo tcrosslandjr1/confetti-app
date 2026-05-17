@@ -36,6 +36,8 @@ export type LoopStop = {
   tags?: { label: string; variant: "vibe" | "ev" | "time" }[];
   bookable?: boolean;
   bookingType?: "reservation" | "parking" | "both";
+  /** Source category for pre-order menu generation (meal/drinks/activity/scenic). */
+  category?: string;
 };
 
 export type LoopBonusMove = {

@@ -122,6 +122,7 @@ import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport
 import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
 import { Route as BusinessClaimPendingRouteImport } from './routes/business.claim.pending'
 import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pick-events'
+import { Route as ApiPlansGenerateRouteImport } from './routes/api/plans/generate'
 import { Route as AdvertiseStoriesSlugRouteImport } from './routes/advertise.stories.$slug'
 import { Route as ApiPublicWalletGoogleRouteImport } from './routes/api/public/wallet/google'
 import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public/tiktok.callback'
@@ -699,6 +700,11 @@ const ApiPublicPickEventsRoute = ApiPublicPickEventsRouteImport.update({
   path: '/api/public/pick-events',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPlansGenerateRoute = ApiPlansGenerateRouteImport.update({
+  id: '/api/plans/generate',
+  path: '/api/plans/generate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdvertiseStoriesSlugRoute = AdvertiseStoriesSlugRouteImport.update({
   id: '/stories/$slug',
   path: '/stories/$slug',
@@ -873,6 +879,7 @@ export interface FileRoutesByFullPath {
   '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
+  '/api/plans/generate': typeof ApiPlansGenerateRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
   '/business/claim/pending': typeof BusinessClaimPendingRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
@@ -993,6 +1000,7 @@ export interface FileRoutesByTo {
   '/teams': typeof TeamsIndexRoute
   '/trips': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
+  '/api/plans/generate': typeof ApiPlansGenerateRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
   '/business/claim/pending': typeof BusinessClaimPendingRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
@@ -1120,6 +1128,7 @@ export interface FileRoutesById {
   '/teams/': typeof TeamsIndexRoute
   '/trips/': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
+  '/api/plans/generate': typeof ApiPlansGenerateRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
   '/business/claim/pending': typeof BusinessClaimPendingRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
@@ -1248,6 +1257,7 @@ export interface FileRouteTypes {
     | '/teams/'
     | '/trips/'
     | '/advertise/stories/$slug'
+    | '/api/plans/generate'
     | '/api/public/pick-events'
     | '/business/claim/pending'
     | '/concierge/chat/$threadId'
@@ -1368,6 +1378,7 @@ export interface FileRouteTypes {
     | '/teams'
     | '/trips'
     | '/advertise/stories/$slug'
+    | '/api/plans/generate'
     | '/api/public/pick-events'
     | '/business/claim/pending'
     | '/concierge/chat/$threadId'
@@ -1494,6 +1505,7 @@ export interface FileRouteTypes {
     | '/teams/'
     | '/trips/'
     | '/advertise/stories/$slug'
+    | '/api/plans/generate'
     | '/api/public/pick-events'
     | '/business/claim/pending'
     | '/concierge/chat/$threadId'
@@ -1575,6 +1587,7 @@ export interface RootRouteChildren {
   BusinessIndexRoute: typeof BusinessIndexRoute
   EventsIndexRoute: typeof EventsIndexRoute
   TripsIndexRoute: typeof TripsIndexRoute
+  ApiPlansGenerateRoute: typeof ApiPlansGenerateRoute
   ApiPublicPickEventsRoute: typeof ApiPublicPickEventsRoute
   ApiAdminWalletGoogleClassRoute: typeof ApiAdminWalletGoogleClassRoute
   ApiAdminWalletGoogleDebugRoute: typeof ApiAdminWalletGoogleDebugRoute
@@ -2381,6 +2394,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicPickEventsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/plans/generate': {
+      id: '/api/plans/generate'
+      path: '/api/plans/generate'
+      fullPath: '/api/plans/generate'
+      preLoaderRoute: typeof ApiPlansGenerateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/advertise/stories/$slug': {
       id: '/advertise/stories/$slug'
       path: '/stories/$slug'
@@ -2707,6 +2727,7 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessIndexRoute: BusinessIndexRoute,
   EventsIndexRoute: EventsIndexRoute,
   TripsIndexRoute: TripsIndexRoute,
+  ApiPlansGenerateRoute: ApiPlansGenerateRoute,
   ApiPublicPickEventsRoute: ApiPublicPickEventsRoute,
   ApiAdminWalletGoogleClassRoute: ApiAdminWalletGoogleClassRoute,
   ApiAdminWalletGoogleDebugRoute: ApiAdminWalletGoogleDebugRoute,

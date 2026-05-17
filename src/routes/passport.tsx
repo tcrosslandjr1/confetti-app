@@ -832,7 +832,22 @@ function PassportPage() {
               Copy code
             </button>
           </div>
-          <AlertDialogFooter>
+          <AlertDialogFooter className="gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                if (!justClaimed) return;
+                const text = `I just unlocked "${justClaimed.label}" on Confetti! Redemption code: ${justClaimed.code}`;
+                if (navigator.share) {
+                  navigator.share({ title: "Reward unlocked — Confetti", text }).catch(() => {});
+                } else {
+                  navigator.clipboard.writeText(text).then(() => toast.success("Copied to clipboard"));
+                }
+              }}
+              className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink shadow-brut transition-transform hover:-translate-y-0.5 hover:bg-ink hover:text-cream"
+            >
+              <Share2 className="h-3.5 w-3.5" /> Share
+            </button>
             <AlertDialogAction onClick={() => setJustClaimed(null)}>Done</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

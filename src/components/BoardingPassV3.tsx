@@ -81,28 +81,8 @@ function deriveCrew(loop: ActiveLoop): CrewMember[] {
 
 const STOP_EMOJI_DEFAULT = "📍";
 
-/* -------------------------------------------------------------------------- */
-/*  Pre-order mock menu (per stop, deterministic)                              */
-/* -------------------------------------------------------------------------- */
-
-type MenuItem = { id: string; emoji: string; name: string; desc: string; price: number };
-
-const MENU_POOL: MenuItem[] = [
-  { id: "old-fashioned", emoji: "🥃", name: "Old Fashioned", desc: "Bourbon, demerara, angostura, orange", price: 16 },
-  { id: "spritz", emoji: "🥂", name: "Aperol Spritz", desc: "Aperol, prosecco, soda, orange", price: 14 },
-  { id: "negroni", emoji: "🍹", name: "Negroni", desc: "Gin, campari, sweet vermouth", price: 15 },
-  { id: "margarita", emoji: "🍸", name: "Margarita", desc: "Tequila, lime, triple sec", price: 14 },
-  { id: "beer", emoji: "🍺", name: "House Lager", desc: "Local craft, 16oz draft", price: 8 },
-  { id: "wine", emoji: "🍷", name: "Glass of Red", desc: "Tempranillo, by the glass", price: 12 },
-];
-
-function menuForStop(stopId: string): MenuItem[] {
-  // Deterministic 4-item slice based on the stop id.
-  let h = 0;
-  for (let i = 0; i < stopId.length; i++) h = (h * 31 + stopId.charCodeAt(i)) | 0;
-  const start = Math.abs(h) % MENU_POOL.length;
-  return Array.from({ length: 4 }, (_, i) => MENU_POOL[(start + i) % MENU_POOL.length]);
-}
+const isUuid = (s: string) =>
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(s);
 
 /* -------------------------------------------------------------------------- */
 /*  Section: Header                                                            */

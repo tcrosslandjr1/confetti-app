@@ -18,6 +18,7 @@ import {
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { ViralTagChip, ALL_VIRAL_TAGS, tagLabel, type ViralTag } from "@/components/ViralTagChip";
+import { useRefreshable } from "@/hooks/use-refresh-bus";
 
 export const Route = createFileRoute("/portal/viral")({
   head: () => ({
@@ -194,6 +195,8 @@ function PortalViralPage() {
   const [query, setQuery] = useState("");
   const [scoreInfoOpen, setScoreInfoOpen] = useState(false);
   const [discovering, setDiscovering] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
+  useRefreshable(() => setRefreshKey((k) => k + 1));
 
   const refetch = async () => {
     setRows(null);
@@ -275,7 +278,7 @@ function PortalViralPage() {
     return () => {
       cancelled = true;
     };
-  }, [city, sortBy]);
+  }, [city, sortBy, refreshKey]);
 
   const filtered = useMemo(() => {
     if (!rows) return null;

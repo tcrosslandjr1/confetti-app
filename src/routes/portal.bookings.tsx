@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { getMyPendingFirstBookingDiscount } from "@/lib/referrals";
+import { useRefreshable } from "@/hooks/use-refresh-bus";
 
 export const Route = createFileRoute("/portal/bookings")({
   component: PortalBookingsPage,
@@ -117,6 +118,12 @@ function PortalBookingsPage() {
       });
     getMyPendingFirstBookingDiscount().then((d) => setPendingDiscountCents(d?.amount_cents ?? 0));
   }, []);
+
+  useRefreshable(async () => {
+    load();
+    const d = await getMyPendingFirstBookingDiscount();
+    setPendingDiscountCents(d?.amount_cents ?? 0);
+  });
 
   const { upcoming, past } = useMemo(() => {
     const now = Date.now();

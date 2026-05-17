@@ -16,6 +16,8 @@ import { useAuth } from "@/lib/auth-context";
 import { inferFeatureFromPath, logAccessDenial } from "@/lib/access-denials";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { PullToRefresh } from "@/components/PullToRefresh";
+import { triggerRefresh } from "@/hooks/use-refresh-bus";
 
 export const Route = createFileRoute("/portal")({
   head: () => ({
@@ -140,7 +142,9 @@ function PortalLayout() {
           </nav>
         </aside>
         <main className="min-w-0">
-          <Outlet />
+          <PullToRefresh onRefresh={triggerRefresh}>
+            <Outlet />
+          </PullToRefresh>
         </main>
       </div>
 

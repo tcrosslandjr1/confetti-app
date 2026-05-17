@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Flame, MapPin, ExternalLink, Star, ArrowLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { ViralTagChip, ALL_VIRAL_TAGS, tagLabel, type ViralTag } from "@/components/ViralTagChip";
+import { PullToRefresh } from "@/components/PullToRefresh";
 
 export const Route = createFileRoute("/viral")({
   head: () => ({
@@ -47,6 +48,7 @@ function ViralPage() {
   const [rows, setRows] = useState<Row[] | null>(null);
   const [activeTags, setActiveTags] = useState<ViralTag[]>([]);
   const [sortBy, setSortBy] = useState<"score" | "recent">("score");
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
@@ -66,7 +68,7 @@ function ViralPage() {
     return () => {
       cancelled = true;
     };
-  }, [city, sortBy]);
+  }, [city, sortBy, refreshKey]);
 
   const filtered = useMemo(() => {
     if (!rows) return null;
@@ -78,6 +80,7 @@ function ViralPage() {
     setActiveTags((prev) => (prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]));
 
   return (
+    <PullToRefresh onRefresh={() => setRefreshKey((k) => k + 1)}>
     <div className="mx-auto max-w-6xl space-y-6 px-4 py-8">
       <Link
         to="/portal"
@@ -183,6 +186,7 @@ function ViralPage() {
         </div>
       )}
     </div>
+    </PullToRefresh>
   );
 }
 

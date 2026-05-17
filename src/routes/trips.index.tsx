@@ -1,9 +1,10 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { CalendarPlus, MapPin, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
 import { listItineraries, type Itinerary } from "@/lib/itineraries";
+import { PullToRefresh } from "@/components/PullToRefresh";
 
 export const Route = createFileRoute("/trips/")({
   head: () => ({
@@ -22,21 +23,27 @@ function TripsList() {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
 
+  const load = useCallback(() => {
+    setLoading(true);
+    return listItineraries()
+      .then(setTrips)
+      .catch((e) => setErr(e.message))
+      .finally(() => setLoading(false));
+  }, []);
+
   useEffect(() => {
     if (authLoading) return;
     if (!user) { nav({ to: "/auth" }); return; }
     if (viewAs === "admin") { nav({ to: "/admin" }); return; }
     if (viewAs === "business") { nav({ to: "/advertise/portal" }); return; }
     if (viewAs === "visitor") { nav({ to: "/" }); return; }
-    listItineraries()
-      .then(setTrips)
-      .catch((e) => setErr(e.message))
-      .finally(() => setLoading(false));
-  }, [user, authLoading, viewAs, nav]);
+    load();
+  }, [user, authLoading, viewAs, nav, load]);
 
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
+      <PullToRefresh onRefresh={load}>
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
@@ -124,6 +131,7 @@ function TripsList() {
           </div>
         )}
       </div>
+      </PullToRefresh>
     </div>
   );
 }

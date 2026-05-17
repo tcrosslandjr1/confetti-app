@@ -14,6 +14,7 @@ import {
 import { GooglePhotos } from "@/components/GooglePhotos";
 import { VenueVerificationBadge } from "@/components/VenueVerificationBadge";
 import { toast } from "sonner";
+import { useRefreshable } from "@/hooks/use-refresh-bus";
 
 export const Route = createFileRoute("/portal/saved")({
   component: SavedPage,
@@ -98,6 +99,8 @@ function SavedPage() {
         setAllVenues((data as Venue[]) ?? []);
       });
   }, []);
+
+  useRefreshable(load);
 
   const remove = async (id: string) => {
     const { error } = await supabase.from("saved_venues").delete().eq("id", id);

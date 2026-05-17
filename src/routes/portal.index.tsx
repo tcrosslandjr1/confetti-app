@@ -48,6 +48,7 @@ import {
   TrendingNearYouWidget,
 } from "@/components/widgets/AppWidgets";
 import { ActivityFeed } from "@/components/activity/ActivityFeed";
+import { useRefreshable } from "@/hooks/use-refresh-bus";
 
 export const Route = createFileRoute("/portal/")({
   head: () => ({
@@ -124,6 +125,8 @@ function PortalDiscoverPage() {
 
   const nav = useNavigate();
   const [quickBusy, setQuickBusy] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
+  useRefreshable(() => setRefreshKey((k) => k + 1));
 
   const quickGenerate = async () => {
     if (!user) {
@@ -195,7 +198,7 @@ function PortalDiscoverPage() {
       .order("created_at", { ascending: false })
       .limit(12)
       .then(({ data }) => setVenues((data as Venue[]) ?? []));
-  }, []);
+  }, [refreshKey]);
 
   useEffect(() => {
     if (!user) return;
@@ -249,7 +252,7 @@ function PortalDiscoverPage() {
     return () => {
       cancelled = true;
     };
-  }, [user]);
+  }, [user, refreshKey]);
 
   const greeting = profile?.display_name ? `Hey, ${profile.display_name.split(" ")[0]}` : "Hey";
   const unlockedCount = achievements.filter((a) => a.unlocked).length;

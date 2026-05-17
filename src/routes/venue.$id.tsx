@@ -73,6 +73,7 @@ function VenueBookingPage() {
   const [venue, setVenue] = useState<Venue | null | undefined>(undefined);
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [dir, setDir] = useState<1 | -1>(1);
+  const [modalOpen, setModalOpen] = useState(false);
 
   // Booking selections
   const [dateIdx, setDateIdx] = useState(2);

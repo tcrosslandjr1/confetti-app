@@ -45,6 +45,26 @@ const REWARD_PTS: Record<string, number> = {
   // One-time unlocks
   unlock_premium_plan_once: 25,
   unlock_vip_30d_once: 250,
+  user_plan_single_once: 10,
+};
+
+// Promo SKU → { tier, duration, targetType (default if not in metadata) }
+const PROMO_SPEC: Record<string, { tier: string; duration: string; defaultTarget?: 'venue' | 'event' | 'reel' }> = {
+  // Venue boosts — one-time + recurring auto-renew
+  boost_24h_once:     { tier: 'standard', duration: '24 hours', defaultTarget: 'venue' },
+  boost_24h_monthly:  { tier: 'standard', duration: '30 days',  defaultTarget: 'venue' },
+  boost_3d_once:      { tier: 'advanced', duration: '3 days',   defaultTarget: 'venue' },
+  boost_3d_monthly:   { tier: 'advanced', duration: '30 days',  defaultTarget: 'venue' },
+  boost_7d_once:      { tier: 'premium',  duration: '7 days',   defaultTarget: 'venue' },
+  boost_7d_monthly:   { tier: 'premium',  duration: '30 days',  defaultTarget: 'venue' },
+  // Event promos
+  event_single_once:   { tier: 'standard', duration: '7 days',  defaultTarget: 'event' },
+  event_weekend_once:  { tier: 'advanced', duration: '3 days',  defaultTarget: 'event' },
+  event_monthly_once:  { tier: 'premium',  duration: '30 days', defaultTarget: 'event' },
+  // Reel promos
+  reel_boost_once:          { tier: 'standard', duration: '24 hours', defaultTarget: 'reel' },
+  reel_trending_pack_once:  { tier: 'advanced', duration: '3 days',   defaultTarget: 'reel' },
+  reel_viral_push_once:     { tier: 'premium',  duration: '7 days',   defaultTarget: 'reel' },
 };
 
 async function awardPts(userId: string, priceId: string | null, ref: string) {

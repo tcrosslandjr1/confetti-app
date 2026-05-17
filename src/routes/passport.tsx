@@ -84,13 +84,26 @@ export const Route = createFileRoute("/passport")({
   component: PassportPage,
 });
 
-const BADGES = [
-  { id: "explorer", label: "Explorer", icon: Compass, unlocked: true, hint: "Visit 3 cities" },
-  { id: "night-owl", label: "Night Owl", icon: Moon, unlocked: true, hint: "After 11pm × 5" },
-  { id: "foodie", label: "Foodie", icon: Pizza, unlocked: true, hint: "10 dinners booked" },
-  { id: "social", label: "Social Butterfly", icon: Users, unlocked: false, hint: "Invite 3 friends" },
-  { id: "trail", label: "Trailblazer", icon: MapIcon, unlocked: false, hint: "Try a new vibe" },
-  { id: "legend", label: "Local Legend", icon: Crown, unlocked: false, hint: "25 check-ins" },
+/**
+ * Badge catalogue rendered on the Passport. `code` matches `achievements.code`
+ * in the database, so unlock status is hydrated from `user_achievements`.
+ * Items without a `code` are demo-only placeholders shown when the user has no
+ * matching achievement row.
+ */
+const BADGES: {
+  id: string;
+  code?: string;
+  label: string;
+  icon: typeof Compass;
+  hint: string;
+  fallbackUnlocked?: boolean;
+}[] = [
+  { id: "first-visit", code: "first_visit", label: "First Steps", icon: Compass, hint: "Complete your first trip" },
+  { id: "night-owl", code: "night_owl", label: "Night Owl", icon: Moon, hint: "After 11pm × 5" },
+  { id: "foodie", code: "foodie_explorer", label: "Foodie Explorer", icon: Pizza, hint: "10 dinners booked" },
+  { id: "weekend", code: "weekend_warrior", label: "Weekend Warrior", icon: Flame, hint: "3 weekends in a row" },
+  { id: "dmv", code: "dmv_native", label: "DMV Native", icon: MapIcon, hint: "10 trips in the DMV" },
+  { id: "referral", code: "referral_first", label: "First Referral", icon: Users, hint: "Invite a friend" },
 ];
 
 const REWARDS = [

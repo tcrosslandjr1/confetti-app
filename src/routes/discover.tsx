@@ -159,7 +159,7 @@ function DiscoverPage() {
                   onClick={() => setCat(c)}
                   className={`shrink-0 rounded-full border-2 px-3.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition ${
                     active
-                      ? "border-ink bg-ink text-cream shadow-brut"
+                      ? "border-transparent bg-gradient-to-r from-coral to-violet-500 text-white shadow-brut"
                       : "border-ink/30 bg-cream/60 text-ink/70 hover:border-ink hover:bg-cream"
                   }`}
                 >

@@ -18,10 +18,16 @@ import {
   Volume2,
   Shirt,
   Flame,
+  X,
 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { getSampleVenue } from "@/lib/sample-venues";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 export const Route = createFileRoute("/venue/$id")({
   head: () => ({ meta: [{ title: "Reserve — Confetti" }] }),

@@ -1,11 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { LayoutList, Map as MapIcon, MapPin, Star, Loader2, Search, X, Sparkles } from "lucide-react";
-import { Map, useMap } from "@vis.gl/react-google-maps";
 import { supabase } from "@/integrations/supabase/client";
-import { confettiMapStyle } from "@/components/maps/mapStyles";
-import { useGeocodedPoints } from "@/lib/geocode";
-import { GOOGLE_MAPS_API_KEY } from "@/lib/config";
 import { PullToRefresh } from "@/components/PullToRefresh";
 import { useCallback } from "react";
 

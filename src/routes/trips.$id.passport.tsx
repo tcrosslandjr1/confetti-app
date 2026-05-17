@@ -102,20 +102,28 @@ function Passport() {
       <SiteHeader />
 
       <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
-        <Link
-          to="/trips/$id"
-          params={{ id }}
-          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-        >
-          <ArrowLeft className="h-4 w-4" /> Back to trip
-        </Link>
+        <div className="flex items-center justify-between gap-3">
+          <Link
+            to="/trips/$id"
+            params={{ id }}
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+          >
+            <ArrowLeft className="h-4 w-4" /> Back to trip
+          </Link>
+          <Link
+            to="/passport"
+            className="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-muted-foreground hover:border-primary hover:text-primary"
+          >
+            <Stamp className="h-3 w-3" /> All stamps
+          </Link>
+        </div>
 
-        {/* Passport header */}
-        <article className="mt-5 overflow-hidden rounded-3xl border-2 border-dashed border-primary/40 bg-gradient-to-br from-amber-50 via-background to-rose-50 dark:from-amber-950/20 dark:to-rose-950/20 p-8 shadow-pop">
+        {/* Passport header — trip-scoped: rate this completed adventure. */}
+        <article className="mt-5 overflow-hidden rounded-3xl border-2 border-dashed border-primary/40 bg-gradient-to-br from-amber-50 via-background to-rose-50 p-8 shadow-pop">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary">
-                Confetti Passport
+                Trip Passport · review your stops
               </p>
               <h1 className="mt-2 font-display text-4xl font-bold tracking-tight">{it.title}</h1>
               {it.city && (

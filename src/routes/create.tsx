@@ -307,57 +307,118 @@ function CreatePage() {
         {/* Step content */}
         <div className="mt-5">
           {step === 0 && (
-            <div className="space-y-4">
+            <div className="space-y-5">
               {/* Tonight's mood — one-tap signal, distinct from long-term vibe */}
-              <div className="rounded-2xl border-2 border-dashed border-ink/20 bg-card/50 p-3">
-                <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
-                  How are you feeling tonight?{" "}
-                  <span className="font-normal normal-case text-ink/40">(optional · shapes our picks)</span>
+              <div className="relative overflow-hidden rounded-2xl border-2 border-dashed border-ink/20 bg-gradient-to-br from-coral/5 via-card/60 to-gold/5 p-4">
+                <div className="flex items-baseline justify-between gap-2">
+                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70">
+                    Tonight's mood
+                  </div>
+                  <span className="font-mono text-[9px] uppercase tracking-widest text-ink/40">
+                    optional · shapes picks
+                  </span>
                 </div>
-                <div className="mt-2 flex flex-wrap gap-1.5">
+                <p className="mt-0.5 font-display text-sm font-bold text-ink/80">
+                  How are you feeling?
+                </p>
+                <div className="mt-2.5 flex flex-wrap gap-1.5">
                   {MOOD_CHIPS.map((m) => {
                     const active = currentMood === m.id;
                     return (
                       <button
                         key={m.id}
                         onClick={() => pickMood(m.id)}
-                        className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium transition-pop ${
+                        className={`inline-flex items-center gap-1.5 rounded-full border-2 px-3 py-1.5 text-xs font-bold transition-pop ${
                           active
-                            ? "border-ink bg-ink text-cream"
-                            : "border-ink/20 bg-card hover:border-ink"
+                            ? "border-ink bg-ink text-cream shadow-brut -translate-y-0.5"
+                            : "border-ink/15 bg-card hover:border-ink hover:-translate-y-0.5"
                         }`}
                       >
-                        <span>{m.emoji}</span> {m.label}
+                        <span className="text-sm">{m.emoji}</span> {m.label}
                       </button>
                     );
                   })}
                 </div>
               </div>
+
               <div className="space-y-2.5">
-              {GROUP.map((g) => {
-                const active = group?.id === g.id;
-                return (
-                  <button
-                    key={g.id}
-                    onClick={() => setGroup(g)}
-                    className={`flex w-full items-center gap-3 rounded-2xl border-2 p-4 text-left transition-pop ${
-                      active ? "border-ink bg-coral text-cream shadow-brut" : "border-ink/15 bg-card hover:border-ink"
-                    }`}
-                  >
-                    <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-full ${active ? "bg-cream/20" : "bg-cream"}`}>
-                      <g.Icon className="h-5 w-5" />
-                    </span>
-                    <span className="min-w-0 flex-1">
-                      <span className="block font-display text-base font-bold leading-tight">{g.label}</span>
-                      <span className={`block text-xs leading-snug ${active ? "text-cream/85" : "text-muted-foreground"}`}>
-                        {g.desc}
+                {GROUP.map((g) => {
+                  const active = group?.id === g.id;
+                  const dots = Math.min(g.size, 6);
+                  return (
+                    <button
+                      key={g.id}
+                      onClick={() => setGroup(g)}
+                      className={`group/card relative flex w-full items-center gap-3 overflow-hidden rounded-2xl border-2 p-4 text-left transition-pop ${
+                        active
+                          ? "border-ink bg-gradient-to-r from-coral to-coral/85 text-cream shadow-brut -translate-y-0.5"
+                          : "border-ink/15 bg-card hover:border-ink hover:-translate-y-0.5 hover:shadow-brut"
+                      }`}
+                    >
+                      {!active && (
+                        <span className="pointer-events-none absolute -right-6 -top-6 h-16 w-16 rounded-full bg-coral/5 transition-transform group-hover/card:scale-125" />
+                      )}
+
+                      <span
+                        className={`relative grid h-12 w-12 shrink-0 place-items-center rounded-2xl border-2 ${
+                          active
+                            ? "border-cream/40 bg-cream/20"
+                            : "border-ink/10 bg-gradient-to-br from-cream to-coral/10"
+                        }`}
+                      >
+                        <g.Icon className="h-5 w-5" />
                       </span>
-                    </span>
-                    {active && <Check className="h-5 w-5 shrink-0" />}
-                  </button>
-                );
-              })}
-            </div>
+
+                      <span className="min-w-0 flex-1">
+                        <span className="flex items-center gap-2">
+                          <span className="font-display text-base font-bold leading-tight">
+                            {g.label}
+                          </span>
+                          <span
+                            className={`rounded-full px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest ${
+                              active ? "bg-cream/25 text-cream" : "bg-ink/[0.08] text-ink/60"
+                            }`}
+                          >
+                            Table for {g.size}{g.size === 6 ? "+" : ""}
+                          </span>
+                        </span>
+                        <span
+                          className={`mt-0.5 block text-xs leading-snug ${
+                            active ? "text-cream/90" : "text-muted-foreground"
+                          }`}
+                        >
+                          {g.desc}
+                        </span>
+                        <span className="mt-1.5 flex items-center gap-0.5">
+                          {Array.from({ length: dots }).map((_, i) => (
+                            <span
+                              key={i}
+                              className={`h-1.5 w-1.5 rounded-full ${
+                                active ? "bg-cream/80" : "bg-ink/40"
+                              }`}
+                            />
+                          ))}
+                          {g.size > 6 && (
+                            <span
+                              className={`ml-0.5 font-mono text-[9px] font-bold ${
+                                active ? "text-cream/80" : "text-ink/50"
+                              }`}
+                            >
+                              +
+                            </span>
+                          )}
+                        </span>
+                      </span>
+
+                      {active && (
+                        <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cream/25">
+                          <Check className="h-4 w-4" strokeWidth={3} />
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           )}
 

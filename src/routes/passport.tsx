@@ -771,7 +771,16 @@ function PassportPage() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleConfirmRedeem}>Confirm redeem</AlertDialogAction>
+            <AlertDialogAction disabled={redeeming} onClick={handleConfirmRedeem}>
+              {redeeming ? (
+                <span className="inline-flex items-center gap-2">
+                  <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-cream border-b-transparent" />
+                  Processing…
+                </span>
+              ) : (
+                "Confirm redeem"
+              )}
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

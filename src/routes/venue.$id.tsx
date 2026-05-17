@@ -429,7 +429,7 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
         </ul>
       </div>
 
-      <GradientCTA onClick={onNext} label="Reserve a Spot" />
+      <GradientCTA onClick={onReserve} label="Reserve a Spot" />
     </div>
   );
 }

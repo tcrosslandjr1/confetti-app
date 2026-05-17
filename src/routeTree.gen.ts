@@ -68,6 +68,7 @@ import { Route as TeamsIdRouteImport } from './routes/teams.$id'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
 import { Route as RsvpTokenRouteImport } from './routes/rsvp.$token'
 import { Route as RecapItineraryIdRouteImport } from './routes/recap.$itineraryId'
+import { Route as PromoterJobsRouteImport } from './routes/promoter.jobs'
 import { Route as PortalWalletRouteImport } from './routes/portal.wallet'
 import { Route as PortalViralRouteImport } from './routes/portal.viral'
 import { Route as PortalSavedRouteImport } from './routes/portal.saved'
@@ -423,6 +424,11 @@ const RecapItineraryIdRoute = RecapItineraryIdRouteImport.update({
   id: '/recap/$itineraryId',
   path: '/recap/$itineraryId',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PromoterJobsRoute = PromoterJobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => PromoterRoute,
 } as any)
 const PortalWalletRoute = PortalWalletRouteImport.update({
   id: '/wallet',
@@ -821,6 +827,7 @@ export interface FileRoutesByFullPath {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/portal/wallet': typeof PortalWalletRoute
+  '/promoter/jobs': typeof PromoterJobsRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -936,6 +943,7 @@ export interface FileRoutesByTo {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/portal/wallet': typeof PortalWalletRoute
+  '/promoter/jobs': typeof PromoterJobsRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -1058,6 +1066,7 @@ export interface FileRoutesById {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/portal/wallet': typeof PortalWalletRoute
+  '/promoter/jobs': typeof PromoterJobsRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -1181,6 +1190,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/portal/wallet'
+    | '/promoter/jobs'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1296,6 +1306,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/portal/wallet'
+    | '/promoter/jobs'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1417,6 +1428,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/portal/wallet'
+    | '/promoter/jobs'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1938,6 +1950,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/recap/$itineraryId'
       preLoaderRoute: typeof RecapItineraryIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/promoter/jobs': {
+      id: '/promoter/jobs'
+      path: '/jobs'
+      fullPath: '/promoter/jobs'
+      preLoaderRoute: typeof PromoterJobsRouteImport
+      parentRoute: typeof PromoterRoute
     }
     '/portal/wallet': {
       id: '/portal/wallet'
@@ -2492,10 +2511,12 @@ const PortalRouteWithChildren =
   PortalRoute._addFileChildren(PortalRouteChildren)
 
 interface PromoterRouteChildren {
+  PromoterJobsRoute: typeof PromoterJobsRoute
   PromoterIndexRoute: typeof PromoterIndexRoute
 }
 
 const PromoterRouteChildren: PromoterRouteChildren = {
+  PromoterJobsRoute: PromoterJobsRoute,
   PromoterIndexRoute: PromoterIndexRoute,
 }
 

@@ -185,6 +185,25 @@ export const placeStopOrder = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => PlaceOrderSchema.parse(input))
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
+
+    // Gate: only verified business venues may accept pre-orders.
+    const { data: stopRow } = await supabase
+      .from("itinerary_stops")
+      .select("name")
+      .eq("id", data.stopId)
+      .maybeSingle();
+    if (!stopRow?.name) throw new Error("Stop not found");
+    const { data: verifiedMatch } = await supabase
+      .from("venues")
+      .select("id")
+      .eq("verified", true)
+      .ilike("name", stopRow.name)
+      .limit(1)
+      .maybeSingle();
+    if (!verifiedMatch) {
+      throw new Error("This venue isn't verified with Confetti — pre-orders unavailable.");
+    }
+
     const totalCents = Math.round(
       data.items.reduce((acc, it) => acc + it.price * it.qty, 0) * 100,
     );
@@ -223,4 +242,32 @@ export const listStopOrders = createServerFn({ method: "POST" })
       .order("created_at", { ascending: false });
     if (error) throw new Error(error.message);
     return { orders: rows ?? [] };
+  });
+
+/* -------------------------------------------------------------------------- */
+/*  listVerifiedStopNames — which of these stop names are at Confetti-verified */
+/*  business venues (so pre-order should be offered).                          */
+/* -------------------------------------------------------------------------- */
+
+export const listVerifiedStopNames = createServerFn({ method: "POST" })
+  .inputValidator((input: unknown) =>
+    z
+      .object({
+        names: z.array(z.string().min(1).max(200)).min(1).max(30),
+      })
+      .parse(input),
+  )
+  .handler(async ({ data }) => {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const uniq = Array.from(new Set(data.names.map((n) => n.trim()).filter(Boolean)));
+    if (!uniq.length) return { verified: [] as string[] };
+    const orExpr = uniq.map((n) => `name.ilike.${n.replace(/[(),]/g, " ")}`).join(",");
+    const { data: rows, error } = await supabaseAdmin
+      .from("venues")
+      .select("name")
+      .eq("verified", true)
+      .or(orExpr);
+    if (error) return { verified: [] as string[] };
+    const set = new Set((rows ?? []).map((r) => (r.name ?? "").toLowerCase()));
+    return { verified: uniq.filter((n) => set.has(n.toLowerCase())) };
   });

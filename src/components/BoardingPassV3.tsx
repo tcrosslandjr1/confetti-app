@@ -25,6 +25,7 @@ import {
   getStopMenu,
   placeStopOrder,
   listStopOrders,
+  listVerifiedStopNames,
   type MenuItem,
 } from "@/lib/stop-menu.functions";
 import type { CSSProperties } from "react";
@@ -256,11 +257,13 @@ function StopCard({
   index,
   isCurrent,
   onPreorder,
+  verified,
 }: {
   stop: LoopStop;
   index: number;
   isCurrent: boolean;
   onPreorder: (stop: LoopStop) => void;
+  verified: boolean;
 }) {
   const [flipped, setFlipped] = useState(false);
   const navUrl = stop.address
@@ -318,13 +321,16 @@ function StopCard({
             >
               <MapPin className="h-3 w-3" /> Navigate
             </a>
-            <button
-              type="button"
-              onClick={() => onPreorder(stop)}
-              className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-white px-3.5 py-2 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-ink transition hover:bg-cream"
-            >
-              <MenuIcon className="h-3 w-3" /> Menu
-            </button>
+            {verified && (
+              <button
+                type="button"
+                onClick={() => onPreorder(stop)}
+                className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-white px-3.5 py-2 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-ink transition hover:bg-cream"
+              >
+                <MenuIcon className="h-3 w-3" /> Menu
+                <span className="ml-1 rounded-full bg-emerald-100 px-1.5 py-0.5 text-[7px] text-emerald-700">✓ Verified</span>
+              </button>
+            )}
             <button
               type="button"
               onClick={() => setFlipped(true)}
@@ -907,6 +913,23 @@ export function BoardingPassV3({ loop, containerRef }: { loop: ActiveLoop; conta
   const currentIdx = loop.stops.findIndex((s) => !s.done);
   const targetStop = loop.stops[currentIdx >= 0 ? currentIdx : 0];
 
+  // Which stop names are at Confetti-verified business venues?
+  const checkVerified = useServerFn(listVerifiedStopNames);
+  const stopNames = useMemo(
+    () => Array.from(new Set(loop.stops.map((s) => s.name).filter(Boolean))).slice(0, 30),
+    [loop.stops],
+  );
+  const verifiedQuery = useQuery({
+    queryKey: ["verified-stops", stopNames.join("|")],
+    queryFn: () => checkVerified({ data: { names: stopNames } }),
+    enabled: stopNames.length > 0,
+    staleTime: 1000 * 60 * 10,
+  });
+  const verifiedSet = useMemo(
+    () => new Set((verifiedQuery.data?.verified ?? []).map((n) => n.toLowerCase())),
+    [verifiedQuery.data],
+  );
+
   return (
     <div ref={containerRef} className="relative mx-auto max-w-[400px] px-4">
       {/* Ambient orbs */}
@@ -925,9 +948,10 @@ export function BoardingPassV3({ loop, containerRef }: { loop: ActiveLoop; conta
         const isCurrent = i === currentIdx;
         const next = loop.stops[i + 1];
         const drive = stop.driveAfter;
+        const isVerified = verifiedSet.has((stop.name || "").toLowerCase());
         return (
           <div key={stop.id}>
-            <StopCard stop={stop} index={i} isCurrent={isCurrent} onPreorder={setPreorderStop} />
+            <StopCard stop={stop} index={i} isCurrent={isCurrent} onPreorder={setPreorderStop} verified={isVerified} />
             {next && drive && (
               <TravelConnector minutes={drive.minutes} to={drive.destination} />
             )}

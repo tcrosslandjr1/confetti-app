@@ -87,6 +87,7 @@ import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile
 import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
 import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
 import { Route as BusinessSignupRouteImport } from './routes/business.signup'
+import { Route as BusinessPromotersRouteImport } from './routes/business.promoters'
 import { Route as BusinessPricingRouteImport } from './routes/business.pricing'
 import { Route as BusinessLoginRouteImport } from './routes/business.login'
 import { Route as BusinessDashboardRouteImport } from './routes/business.dashboard'
@@ -520,6 +521,11 @@ const BusinessSignupRoute = BusinessSignupRouteImport.update({
   path: '/business/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessPromotersRoute = BusinessPromotersRouteImport.update({
+  id: '/business/promoters',
+  path: '/business/promoters',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessPricingRoute = BusinessPricingRouteImport.update({
   id: '/business/pricing',
   path: '/business/pricing',
@@ -809,6 +815,7 @@ export interface FileRoutesByFullPath {
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/pricing': typeof BusinessPricingRoute
+  '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -925,6 +932,7 @@ export interface FileRoutesByTo {
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/pricing': typeof BusinessPricingRoute
+  '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -1048,6 +1056,7 @@ export interface FileRoutesById {
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/pricing': typeof BusinessPricingRoute
+  '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -1172,6 +1181,7 @@ export interface FileRouteTypes {
     | '/business/dashboard'
     | '/business/login'
     | '/business/pricing'
+    | '/business/promoters'
     | '/business/signup'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1288,6 +1298,7 @@ export interface FileRouteTypes {
     | '/business/dashboard'
     | '/business/login'
     | '/business/pricing'
+    | '/business/promoters'
     | '/business/signup'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1410,6 +1421,7 @@ export interface FileRouteTypes {
     | '/business/dashboard'
     | '/business/login'
     | '/business/pricing'
+    | '/business/promoters'
     | '/business/signup'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1511,6 +1523,7 @@ export interface RootRouteChildren {
   BusinessDashboardRoute: typeof BusinessDashboardRoute
   BusinessLoginRoute: typeof BusinessLoginRoute
   BusinessPricingRoute: typeof BusinessPricingRoute
+  BusinessPromotersRoute: typeof BusinessPromotersRoute
   BusinessSignupRoute: typeof BusinessSignupRoute
   CollabTripIdRoute: typeof CollabTripIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
@@ -2084,6 +2097,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessSignupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/promoters': {
+      id: '/business/promoters'
+      path: '/business/promoters'
+      fullPath: '/business/promoters'
+      preLoaderRoute: typeof BusinessPromotersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business/pricing': {
       id: '/business/pricing'
       path: '/business/pricing'
@@ -2610,6 +2630,7 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessDashboardRoute: BusinessDashboardRoute,
   BusinessLoginRoute: BusinessLoginRoute,
   BusinessPricingRoute: BusinessPricingRoute,
+  BusinessPromotersRoute: BusinessPromotersRoute,
   BusinessSignupRoute: BusinessSignupRoute,
   CollabTripIdRoute: CollabTripIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,

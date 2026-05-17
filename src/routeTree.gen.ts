@@ -89,6 +89,7 @@ import { Route as AdminVenuesRouteImport } from './routes/admin.venues'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminRoutesMapRouteImport } from './routes/admin.routes-map'
 import { Route as AdminPickAnalyticsRouteImport } from './routes/admin.pick-analytics'
 import { Route as AdminOutreachRouteImport } from './routes/admin.outreach'
 import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
@@ -517,6 +518,11 @@ const AdminSettingsRoute = AdminSettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminRoutesMapRoute = AdminRoutesMapRouteImport.update({
+  id: '/routes-map',
+  path: '/routes-map',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminPickAnalyticsRoute = AdminPickAnalyticsRouteImport.update({
   id: '/pick-analytics',
   path: '/pick-analytics',
@@ -716,6 +722,7 @@ export interface FileRoutesByFullPath {
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/outreach': typeof AdminOutreachRoute
   '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
+  '/admin/routes-map': typeof AdminRoutesMapRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
@@ -820,6 +827,7 @@ export interface FileRoutesByTo {
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/outreach': typeof AdminOutreachRoute
   '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
+  '/admin/routes-map': typeof AdminRoutesMapRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
@@ -930,6 +938,7 @@ export interface FileRoutesById {
   '/admin/notifications': typeof AdminNotificationsRoute
   '/admin/outreach': typeof AdminOutreachRoute
   '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
+  '/admin/routes-map': typeof AdminRoutesMapRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
@@ -1041,6 +1050,7 @@ export interface FileRouteTypes {
     | '/admin/notifications'
     | '/admin/outreach'
     | '/admin/pick-analytics'
+    | '/admin/routes-map'
     | '/admin/settings'
     | '/admin/testimonials'
     | '/admin/users'
@@ -1145,6 +1155,7 @@ export interface FileRouteTypes {
     | '/admin/notifications'
     | '/admin/outreach'
     | '/admin/pick-analytics'
+    | '/admin/routes-map'
     | '/admin/settings'
     | '/admin/testimonials'
     | '/admin/users'
@@ -1254,6 +1265,7 @@ export interface FileRouteTypes {
     | '/admin/notifications'
     | '/admin/outreach'
     | '/admin/pick-analytics'
+    | '/admin/routes-map'
     | '/admin/settings'
     | '/admin/testimonials'
     | '/admin/users'
@@ -1935,6 +1947,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminSettingsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/routes-map': {
+      id: '/admin/routes-map'
+      path: '/routes-map'
+      fullPath: '/admin/routes-map'
+      preLoaderRoute: typeof AdminRoutesMapRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/pick-analytics': {
       id: '/admin/pick-analytics'
       path: '/pick-analytics'
@@ -2142,6 +2161,7 @@ interface AdminRouteChildren {
   AdminNotificationsRoute: typeof AdminNotificationsRoute
   AdminOutreachRoute: typeof AdminOutreachRoute
   AdminPickAnalyticsRoute: typeof AdminPickAnalyticsRoute
+  AdminRoutesMapRoute: typeof AdminRoutesMapRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminTestimonialsRoute: typeof AdminTestimonialsRoute
   AdminUsersRoute: typeof AdminUsersRoute
@@ -2165,6 +2185,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminNotificationsRoute: AdminNotificationsRoute,
   AdminOutreachRoute: AdminOutreachRoute,
   AdminPickAnalyticsRoute: AdminPickAnalyticsRoute,
+  AdminRoutesMapRoute: AdminRoutesMapRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AdminTestimonialsRoute: AdminTestimonialsRoute,
   AdminUsersRoute: AdminUsersRoute,

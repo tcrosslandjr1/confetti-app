@@ -65,6 +65,7 @@ const NAV: NavItem[] = [
   { to: "/admin/audit", label: "Audit log", icon: ScrollText },
   { to: "/admin/wallet-debug", label: "Wallet JWT debug", icon: ShieldCheck },
   { to: "/admin/launch", label: "Launch checklist", icon: ScrollText },
+  { to: "/admin/routes-map", label: "Routes map", icon: ScrollText },
 ];
 
 function AdminLayout() {

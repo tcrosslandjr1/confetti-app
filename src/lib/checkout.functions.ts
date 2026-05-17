@@ -55,6 +55,20 @@ const ALL_PRICES = [
 
 const StripeEnvSchema = z.enum(["sandbox", "live"]);
 
+// Default trial period (days) by price. Caller can override per-checkout
+// via the `trialDays` input. Only applies to recurring (subscription) prices.
+export const DEFAULT_TRIAL_DAYS: Partial<Record<(typeof ALL_PRICES)[number], number>> = {
+  business_basic_monthly: 14,
+  business_featured_monthly: 14,
+  business_boosted_monthly: 14,
+  business_premium_monthly: 14,
+  corporate_addon_monthly: 14,
+  consumer_plus_monthly: 7,
+  consumer_crew_monthly: 7,
+  user_unlimited_monthly: 7,
+  user_vip_monthly: 7,
+};
+
 async function resolveOrCreateCustomer(
   stripe: ReturnType<typeof createStripeClient>,
   options: { email?: string; userId?: string },

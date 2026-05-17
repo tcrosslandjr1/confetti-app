@@ -56,6 +56,9 @@ import {
 import { toPng } from "html-to-image";
 import { Copy, Download, Check } from "lucide-react";
 import { toast } from "sonner";
+import { usePassportStats } from "@/hooks/usePassportStats";
+
+const EMPTY_STREAK: boolean[] = [false, false, false, false, false, false, false];
 
 type ClaimedReward = { id: string; label: string; cost: number; code: string; at: number };
 const CLAIMED_KEY = "passport:claimed-rewards";
@@ -84,13 +87,26 @@ export const Route = createFileRoute("/passport")({
   component: PassportPage,
 });
 
-const BADGES = [
-  { id: "explorer", label: "Explorer", icon: Compass, unlocked: true, hint: "Visit 3 cities" },
-  { id: "night-owl", label: "Night Owl", icon: Moon, unlocked: true, hint: "After 11pm × 5" },
-  { id: "foodie", label: "Foodie", icon: Pizza, unlocked: true, hint: "10 dinners booked" },
-  { id: "social", label: "Social Butterfly", icon: Users, unlocked: false, hint: "Invite 3 friends" },
-  { id: "trail", label: "Trailblazer", icon: MapIcon, unlocked: false, hint: "Try a new vibe" },
-  { id: "legend", label: "Local Legend", icon: Crown, unlocked: false, hint: "25 check-ins" },
+/**
+ * Badge catalogue rendered on the Passport. `code` matches `achievements.code`
+ * in the database, so unlock status is hydrated from `user_achievements`.
+ * Items without a `code` are demo-only placeholders shown when the user has no
+ * matching achievement row.
+ */
+const BADGES: {
+  id: string;
+  code?: string;
+  label: string;
+  icon: typeof Compass;
+  hint: string;
+  fallbackUnlocked?: boolean;
+}[] = [
+  { id: "first-visit", code: "first_visit", label: "First Steps", icon: Compass, hint: "Complete your first trip" },
+  { id: "night-owl", code: "night_owl", label: "Night Owl", icon: Moon, hint: "After 11pm × 5" },
+  { id: "foodie", code: "foodie_explorer", label: "Foodie Explorer", icon: Pizza, hint: "10 dinners booked" },
+  { id: "weekend", code: "weekend_warrior", label: "Weekend Warrior", icon: Flame, hint: "3 weekends in a row" },
+  { id: "dmv", code: "dmv_native", label: "DMV Native", icon: MapIcon, hint: "10 trips in the DMV" },
+  { id: "referral", code: "referral_first", label: "First Referral", icon: Users, hint: "Invite a friend" },
 ];
 
 const REWARDS = [
@@ -115,38 +131,46 @@ const TIERS = [
 ];
 
 // Streak: last 7 days, true = checked-in
-const STREAK_DAYS = [true, true, false, true, true, true, true];
+// (streak data is now provided by usePassportStats)
 const STREAK_LABELS = ["M", "T", "W", "T", "F", "S", "S"];
 
 function PassportPage() {
-  const [confetti, setConfettiCount] = useState(0);
+  const passport = usePassportStats();
+  const [localConfetti, setLocalConfetti] = useState(0);
   const [claimed, setClaimed] = useState<ClaimedReward[]>([]);
   const [pending, setPending] = useState<(typeof REWARDS)[number] | null>(null);
   const [justClaimed, setJustClaimed] = useState<ClaimedReward | null>(null);
-  const [earnedStamps, setEarnedStamps] = useState<PassportStamp[]>([]);
+  const [localStamps, setLocalStamps] = useState<PassportStamp[]>([]);
   const [shareOpen, setShareOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    setConfettiCount(getConfetti());
+    setLocalConfetti(getConfetti());
     setClaimed(loadClaimed());
-    setEarnedStamps(getStamps());
-    const unsubC = subscribeConfetti(() => setConfettiCount(getConfetti()));
-    const unsubS = subscribeStamps(() => setEarnedStamps(getStamps()));
+    setLocalStamps(getStamps());
+    const unsubC = subscribeConfetti(() => setLocalConfetti(getConfetti()));
+    const unsubS = subscribeStamps(() => setLocalStamps(getStamps()));
     return () => {
       unsubC();
       unsubS();
     };
   }, []);
 
-  // Merge live earned stamps with seed examples; live stamps first, dedup by id.
-  const stamps: (PassportStamp & { earned: boolean })[] = [
-    ...earnedStamps.map((s) => ({ ...s, earned: true })),
-    ...SEED_STAMPS.filter((s) => !earnedStamps.some((e) => e.id === s.id)).map((s) => ({
-      ...s,
-      earned: false,
-    })),
-  ];
+  // Real account data wins; localStorage demo data is the fallback for guests.
+  const confetti = passport.signedIn ? passport.confetti : localConfetti;
+  const earnedStamps = passport.signedIn ? passport.stamps : localStamps;
+
+  // Merge earned stamps with seed examples only for guests; signed-in users see
+  // their real trips with locked "Plan next" tiles instead of demo cities.
+  const stamps: (PassportStamp & { earned: boolean })[] = passport.signedIn
+    ? earnedStamps.map((s) => ({ ...s, earned: true }))
+    : [
+        ...earnedStamps.map((s) => ({ ...s, earned: true })),
+        ...SEED_STAMPS.filter((s) => !earnedStamps.some((e) => e.id === s.id)).map((s) => ({
+          ...s,
+          earned: false,
+        })),
+      ];
 
   function handleConfirmRedeem() {
     if (!pending) return;
@@ -173,7 +197,21 @@ function PassportPage() {
   const level = Math.floor(confetti / 250) + 1;
   const nextLevelAt = level * 250;
   const progress = Math.min(100, ((confetti % 250) / 250) * 100);
-  const unlockedCount = BADGES.filter((b) => b.unlocked).length;
+
+  // Hydrate per-badge unlock state from the user's achievement rows. Fall back
+  // to the demo `fallbackUnlocked` flag when there's no signed-in account.
+  const badges = BADGES.map((b) => ({
+    ...b,
+    unlocked: passport.signedIn
+      ? !!b.code && passport.unlockedBadgeCodes.has(b.code)
+      : !!b.fallbackUnlocked,
+  }));
+  const unlockedCount = badges.filter((b) => b.unlocked).length;
+  const totalBadges = badges.length;
+
+  // Streak: real activity when signed in, otherwise an empty 7-day strip.
+  const streakDays = passport.signedIn ? passport.streakDays : EMPTY_STREAK;
+
   const currentTierIndex = Math.max(
     0,
     TIERS.findIndex((t, i) => confetti < (TIERS[i + 1]?.at ?? Infinity)),
@@ -181,8 +219,9 @@ function PassportPage() {
   const currentTier = TIERS[currentTierIndex];
   const nextTier = TIERS[currentTierIndex + 1];
 
+
   const shareData: PassportShareData = {
-    name: "Guest Explorer",
+    name: passport.displayName || "Guest Explorer",
     level,
     tier: currentTier.name as PassportShareData["tier"],
     confetti,
@@ -333,9 +372,9 @@ function PassportPage() {
 
         {/* Quick stats row */}
         <div className="mt-4 grid grid-cols-3 gap-2">
-          <StatTile icon={Flame} value="7" label="Streak" tint="coral" />
-          <StatTile icon={Award} value={`${unlockedCount}/${BADGES.length}`} label="Badges" tint="ink" />
-          <StatTile icon={TrendingUp} value="12" label="Check-ins" tint="coral" />
+          <StatTile icon={Flame} value={String(streakDays.filter(Boolean).length)} label="Streak" tint="coral" />
+          <StatTile icon={Award} value={`${unlockedCount}/${totalBadges}`} label="Badges" tint="ink" />
+          <StatTile icon={TrendingUp} value={String(earnedStamps.length)} label="Check-ins" tint="coral" />
         </div>
 
         {/* Streak strip */}
@@ -349,7 +388,7 @@ function PassportPage() {
             </span>
           </div>
           <div className="mt-3 grid grid-cols-7 gap-1.5">
-            {STREAK_DAYS.map((on, i) => (
+            {streakDays.map((on, i) => (
               <div key={i} className="flex flex-col items-center gap-1">
                 <div
                   className={`grid h-9 w-full place-items-center rounded-lg border-2 text-[11px] font-bold transition-transform hover:-translate-y-0.5 ${
@@ -494,11 +533,11 @@ function PassportPage() {
           <div className="flex items-end justify-between">
             <h2 className="font-display text-lg font-bold">Badges</h2>
             <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
-              {unlockedCount} of {BADGES.length}
+              {unlockedCount} of {totalBadges}
             </span>
           </div>
           <div className="mt-3 grid grid-cols-3 gap-3">
-            {BADGES.map((b) => (
+            {badges.map((b) => (
               <div
                 key={b.id}
                 className={`group relative flex flex-col items-center gap-2 rounded-2xl border-2 p-3 text-center transition-all ${

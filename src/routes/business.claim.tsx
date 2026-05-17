@@ -40,7 +40,6 @@ type SearchHit = {
   name: string;
   city: string | null;
   neighborhood: string | null;
-  address: string | null;
   hero_image_url: string | null;
   image_url: string | null;
   claim_status: string | null;

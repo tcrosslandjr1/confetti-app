@@ -23,7 +23,40 @@ import {
   ChevronRight,
   Star,
 } from "lucide-react";
-import { getConfetti, subscribeConfetti } from "@/lib/loop-store";
+import { addConfetti, getConfetti, subscribeConfetti } from "@/lib/loop-store";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import { toast } from "sonner";
+
+type ClaimedReward = { id: string; label: string; cost: number; code: string; at: number };
+const CLAIMED_KEY = "passport:claimed-rewards";
+
+function loadClaimed(): ClaimedReward[] {
+  if (typeof window === "undefined") return [];
+  try {
+    return JSON.parse(localStorage.getItem(CLAIMED_KEY) || "[]") as ClaimedReward[];
+  } catch {
+    return [];
+  }
+}
+function saveClaimed(list: ClaimedReward[]) {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(CLAIMED_KEY, JSON.stringify(list));
+}
+function genCode() {
+  const a = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+  let s = "CF-";
+  for (let i = 0; i < 6; i++) s += a[Math.floor(Math.random() * a.length)];
+  return s;
+}
 
 export const Route = createFileRoute("/passport")({
   head: () => ({ meta: [{ title: "Passport — Confetti" }] }),

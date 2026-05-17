@@ -311,25 +311,39 @@ function StepVenue({ venue, onNext }: { venue: Venue; onNext: () => void }) {
           >
             {venue.name}
           </h1>
-          <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
-            <span className="inline-flex items-center gap-1 rounded-full bg-white/15 px-2.5 py-1 backdrop-blur">
+          <div className="mt-3 flex flex-wrap items-center gap-1.5 text-xs">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-300/60 bg-gradient-to-r from-amber-400/25 to-amber-200/10 px-2.5 py-1 backdrop-blur-md">
               <Star className="h-3.5 w-3.5 fill-amber-300 text-amber-300" />
-              <span className="font-bold">{(venue.rating ?? 4.8).toFixed(1)}</span>
-              <span className="opacity-70">(842)</span>
+              <span className="font-extrabold tracking-tight text-white">
+                {(venue.rating ?? 4.8).toFixed(1)}
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-wider text-white/60">
+                842 reviews
+              </span>
             </span>
-            <span className="rounded-full bg-white/15 px-2.5 py-1 font-mono text-xs backdrop-blur">
-              {price}
+            <span className="inline-flex items-center gap-1 rounded-full border border-white/25 bg-white/10 px-2.5 py-1 font-mono text-[11px] tracking-wider backdrop-blur-md">
+              <span className="text-emerald-300">{price}</span>
+              <span className="text-white/40">{"$".repeat(4 - price.length)}</span>
             </span>
-            {(venue.tags?.length ? venue.tags : ["date night", "cocktails", "intimate"])
-              .slice(0, 3)
-              .map((t) => (
-                <span
-                  key={t}
-                  className="rounded-full border border-white/30 bg-white/10 px-2.5 py-1 text-xs lowercase backdrop-blur"
-                >
-                  {t}
-                </span>
-              ))}
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-coral/60 bg-coral/20 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-white backdrop-blur-md">
+              <span className="relative grid h-2 w-2 place-items-center">
+                <span className="absolute inset-0 animate-ping rounded-full bg-coral/70" />
+                <span className="relative h-1.5 w-1.5 rounded-full bg-coral" />
+              </span>
+              7 tables left tonight
+            </span>
+            <div className="flex w-full flex-wrap gap-1.5 pt-1">
+              {(venue.tags?.length ? venue.tags : ["date night", "cocktails", "intimate"])
+                .slice(0, 4)
+                .map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-md border border-white/25 bg-white/5 px-2 py-0.5 font-mono text-[10px] lowercase tracking-wide text-white/90 backdrop-blur-md"
+                  >
+                    #{t.replace(/\s+/g, "-")}
+                  </span>
+                ))}
+            </div>
           </div>
         </div>
       </div>

@@ -118,6 +118,9 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
       targetId: z.string().uuid().optional(),
       returnUrl: z.string().url(),
       environment: StripeEnvSchema,
+      // Free trial in days (0 = no trial). Applied only to subscriptions.
+      // Max 730 (Stripe's hard limit).
+      trialDays: z.number().int().min(0).max(730).optional(),
     }).parse,
   )
   .handler(async ({ data }) => {
@@ -148,15 +151,24 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
       ...(data.targetId && { targetId: data.targetId }),
     };
 
+    // Resolve trial period: explicit input wins, else per-price default.
+    // Only attached when the price is recurring and > 0.
+    const trialDays = isRecurring
+      ? (data.trialDays ?? DEFAULT_TRIAL_DAYS[data.priceId] ?? 0)
+      : 0;
+
     const session = await stripe.checkout.sessions.create({
       line_items: [{ price: stripePrice.id, quantity: data.quantity || 1 }],
       mode: isRecurring ? "subscription" : "payment",
       ui_mode: "embedded_page",
       return_url: data.returnUrl,
       ...(customerId && { customer: customerId }),
-      metadata: baseMetadata,
-      ...(isRecurring && data.userId && {
-        subscription_data: { metadata: baseMetadata },
+      metadata: { ...baseMetadata, ...(trialDays > 0 && { trialDays: String(trialDays) }) },
+      ...(isRecurring && {
+        subscription_data: {
+          ...(data.userId && { metadata: baseMetadata }),
+          ...(trialDays > 0 && { trial_period_days: trialDays }),
+        },
       }),
       allow_promotion_codes: true,
       managed_payments: { enabled: true },

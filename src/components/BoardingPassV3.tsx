@@ -621,21 +621,96 @@ function QuickActions() {
 
 function PreorderDrawer({
   stop,
+  loop,
   onClose,
 }: {
   stop: LoopStop | null;
+  loop: ActiveLoop;
   onClose: () => void;
 }) {
   const [qty, setQty] = useState<Record<string, number>>({});
-  const menu = useMemo(() => (stop ? menuForStop(stop.id) : []), [stop]);
+  const [note, setNote] = useState("");
+  const open = !!stop;
+  const persistable = !!stop && isUuid(stop.id) && isUuid(loop.id);
+
+  const fetchMenu = useServerFn(getStopMenu);
+  const sendOrder = useServerFn(placeStopOrder);
+  const fetchOrders = useServerFn(listStopOrders);
+  const queryClient = useQueryClient();
+
+  const category = useMemo(() => {
+    if (!stop) return "drinks";
+    const c = (stop.category ?? stop.type ?? "").toLowerCase();
+    if (c.includes("meal") || c.includes("dinner") || c.includes("food") || c.includes("restaurant")) return "meal";
+    if (c.includes("scenic") || c.includes("view")) return "scenic";
+    if (c.includes("activity") || c.includes("show") || c.includes("event")) return "activity";
+    return "drinks";
+  }, [stop]);
+
+  const menuQuery = useQuery({
+    queryKey: ["stop-menu", stop?.id ?? "none"],
+    queryFn: () =>
+      fetchMenu({
+        data: {
+          stopId: stop!.id,
+          stopName: stop!.name,
+          category,
+          city: loop.city ?? loop.fromName,
+        },
+      }),
+    enabled: open,
+    staleTime: 1000 * 60 * 60,
+  });
+  const menu: MenuItem[] = menuQuery.data?.items ?? [];
+
+  const ordersQuery = useQuery({
+    queryKey: ["stop-orders", stop?.id ?? "none"],
+    queryFn: () => fetchOrders({ data: { stopId: stop!.id } }),
+    enabled: open && persistable,
+  });
+  const existingOrders = ordersQuery.data?.orders ?? [];
 
   useEffect(() => {
-    if (!stop) setQty({});
+    if (!stop) {
+      setQty({});
+      setNote("");
+    }
   }, [stop]);
 
   const total = menu.reduce((acc, m) => acc + (qty[m.id] || 0) * m.price, 0);
   const count = Object.values(qty).reduce((a, b) => a + b, 0);
-  const open = !!stop;
+
+  const placeMutation = useMutation({
+    mutationFn: async () => {
+      if (!stop) throw new Error("No stop");
+      if (!persistable) {
+        throw new Error("Save your trip first to place a pre-order.");
+      }
+      const items = menu
+        .filter((m) => (qty[m.id] || 0) > 0)
+        .map((m) => ({ id: m.id, name: m.name, qty: qty[m.id]!, price: m.price }));
+      return sendOrder({
+        data: {
+          itineraryId: loop.id,
+          stopId: stop.id,
+          items,
+          note: note.trim() || undefined,
+        },
+      });
+    },
+    onSuccess: () => {
+      toast.success(`Pre-order sent — $${total.toFixed(2)}`, {
+        description: stop ? `Ready for you at ${stop.name}` : undefined,
+        position: "bottom-center",
+      });
+      queryClient.invalidateQueries({ queryKey: ["stop-orders", stop?.id] });
+      onClose();
+    },
+    onError: (err) => {
+      const msg = err instanceof Error ? err.message : "Couldn't place order";
+      toast.error(msg, { position: "bottom-center" });
+    },
+  });
 
   return (
     <div
@@ -667,55 +742,102 @@ function PreorderDrawer({
           </button>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 p-5 pt-0">
-          {menu.map((m) => {
-            const q = qty[m.id] || 0;
-            return (
-              <div
-                key={m.id}
-                className={`rounded-2xl border-2 bg-white p-4 transition ${
-                  q > 0 ? "border-coral" : "border-ink"
-                }`}
-              >
-                <div className="mb-1.5 text-2xl">{m.emoji}</div>
-                <div className="text-[13px] font-bold leading-tight">{m.name}</div>
-                <div className="mt-1 line-clamp-2 text-[10px] text-ink/55">{m.desc}</div>
-                <div className="mt-2 font-mono text-[12px] font-bold text-coral">${m.price}</div>
-                {q === 0 ? (
-                  <button
-                    type="button"
-                    onClick={() => setQty((p) => ({ ...p, [m.id]: 1 }))}
-                    className="mt-2 inline-flex items-center gap-1 rounded-full border-2 border-ink bg-white px-2.5 py-1 font-mono text-[8px] font-bold uppercase tracking-widest text-ink/70"
-                  >
-                    <Plus className="h-3 w-3" /> Add
-                  </button>
-                ) : (
-                  <div className="mt-2 flex items-center gap-2">
+        {existingOrders.length > 0 && (
+          <div className="mx-5 mb-3 rounded-2xl border-2 border-emerald-600/40 bg-emerald-50 px-3 py-2">
+            <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-emerald-700">
+              ✓ Order placed
+            </div>
+            <div className="mt-0.5 text-[11px] text-emerald-900">
+              {existingOrders.length} order{existingOrders.length === 1 ? "" : "s"} on file — total{" "}
+              ${(existingOrders.reduce((a, o) => a + (o.total_cents ?? 0), 0) / 100).toFixed(2)}
+            </div>
+          </div>
+        )}
+
+        {menuQuery.isLoading && (
+          <div className="flex items-center justify-center gap-2 py-12 text-ink/50">
+            <Loader2 className="h-4 w-4 animate-spin" />
+            <span className="font-mono text-[10px] uppercase tracking-widest">Building menu…</span>
+          </div>
+        )}
+
+        {!menuQuery.isLoading && menu.length === 0 && (
+          <div className="px-5 py-12 text-center text-[12px] text-ink/55">
+            Menu unavailable.{" "}
+            <button
+              type="button"
+              onClick={() => menuQuery.refetch()}
+              className="underline"
+            >
+              Retry
+            </button>
+          </div>
+        )}
+
+        {!menuQuery.isLoading && menu.length > 0 && (
+          <div className="grid grid-cols-2 gap-2 p-5 pt-0">
+            {menu.map((m) => {
+              const q = qty[m.id] || 0;
+              return (
+                <div
+                  key={m.id}
+                  className={`rounded-2xl border-2 bg-white p-4 transition ${
+                    q > 0 ? "border-coral" : "border-ink"
+                  }`}
+                >
+                  <div className="mb-1.5 text-2xl">{m.emoji}</div>
+                  <div className="text-[13px] font-bold leading-tight">{m.name}</div>
+                  <div className="mt-1 line-clamp-2 text-[10px] text-ink/55">{m.desc}</div>
+                  <div className="mt-2 font-mono text-[12px] font-bold text-coral">${m.price}</div>
+                  {q === 0 ? (
                     <button
                       type="button"
-                      onClick={() =>
-                        setQty((p) => ({ ...p, [m.id]: Math.max(0, (p[m.id] || 0) - 1) }))
-                      }
-                      className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-white"
-                      aria-label="Decrease"
+                      onClick={() => setQty((p) => ({ ...p, [m.id]: 1 }))}
+                      className="mt-2 inline-flex items-center gap-1 rounded-full border-2 border-ink bg-white px-2.5 py-1 font-mono text-[8px] font-bold uppercase tracking-widest text-ink/70"
                     >
-                      <Minus className="h-3 w-3" />
+                      <Plus className="h-3 w-3" /> Add
                     </button>
-                    <span className="font-mono text-sm font-bold">{q}</span>
-                    <button
-                      type="button"
-                      onClick={() => setQty((p) => ({ ...p, [m.id]: (p[m.id] || 0) + 1 }))}
-                      className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-white"
-                      aria-label="Increase"
-                    >
-                      <Plus className="h-3 w-3" />
-                    </button>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+                  ) : (
+                    <div className="mt-2 flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setQty((p) => ({ ...p, [m.id]: Math.max(0, (p[m.id] || 0) - 1) }))
+                        }
+                        className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-white"
+                        aria-label="Decrease"
+                      >
+                        <Minus className="h-3 w-3" />
+                      </button>
+                      <span className="font-mono text-sm font-bold">{q}</span>
+                      <button
+                        type="button"
+                        onClick={() => setQty((p) => ({ ...p, [m.id]: (p[m.id] || 0) + 1 }))}
+                        className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-white"
+                        aria-label="Increase"
+                      >
+                        <Plus className="h-3 w-3" />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {menu.length > 0 && (
+          <div className="px-5 pb-3">
+            <input
+              type="text"
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              maxLength={280}
+              placeholder="Allergies or notes (optional)"
+              className="w-full rounded-xl border-2 border-ink bg-white px-3 py-2 font-mono text-[11px] placeholder:text-ink/35"
+            />
+          </div>
+        )}
 
         <div className="sticky bottom-0 border-t-2 border-ink bg-cream px-5 pb-[max(16px,env(safe-area-inset-bottom))] pt-4">
           <div className="mb-2 flex items-center justify-between">
@@ -724,17 +846,30 @@ function PreorderDrawer({
             </span>
             <span className="font-display text-[20px] font-extrabold">${total.toFixed(2)}</span>
           </div>
+          {!persistable && count > 0 && (
+            <div className="mb-2 text-center font-mono text-[9px] uppercase tracking-widest text-ink/45">
+              Save this trip to send the order
+            </div>
+          )}
           <button
             type="button"
-            disabled={count === 0}
-            onClick={onClose}
+            disabled={count === 0 || placeMutation.isPending || !persistable}
+            onClick={() => placeMutation.mutate()}
             className={`w-full rounded-2xl border-2 px-3 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.15em] transition ${
-              count > 0
+              count > 0 && persistable
                 ? "border-ink bg-gradient-to-br from-coral to-pink-500 text-white"
                 : "cursor-not-allowed border-ink/15 bg-ink/5 text-ink/40"
             }`}
           >
-            {count > 0 ? `Send order · $${total.toFixed(2)}` : "Add items to pre-order"}
+            {placeMutation.isPending ? (
+              <span className="inline-flex items-center gap-2">
+                <Loader2 className="h-3.5 w-3.5 animate-spin" /> Sending…
+              </span>
+            ) : count > 0 ? (
+              `Send order · $${total.toFixed(2)}`
+            ) : (
+              "Add items to pre-order"
+            )}
           </button>
           <button
             type="button"

@@ -700,9 +700,24 @@ function PassportPage() {
                       Redeemed · {new Date(c.at).toLocaleDateString()}
                     </div>
                   </div>
-                  <code className="shrink-0 rounded-md border-2 border-dashed border-ink/40 bg-background px-2 py-1 font-mono text-[11px] font-bold tracking-widest text-ink">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigator.clipboard.writeText(c.code).then(() => {
+                        setCopiedCode(c.code);
+                        toast.success("Copied to clipboard");
+                        setTimeout(() => setCopiedCode((prev) => (prev === c.code ? null : prev)), 1500);
+                      });
+                    }}
+                    className="group inline-flex shrink-0 items-center gap-1.5 rounded-md border-2 border-dashed border-ink/40 bg-background px-2 py-1 font-mono text-[11px] font-bold tracking-widest text-ink hover:border-coral hover:text-coral"
+                  >
                     {c.code}
-                  </code>
+                    {copiedCode === c.code ? (
+                      <Check className="h-3.5 w-3.5 text-coral" />
+                    ) : (
+                      <Copy className="h-3.5 w-3.5 text-ink/50 group-hover:text-coral" />
+                    )}
+                  </button>
                 </li>
               ))}
             </ul>

@@ -388,7 +388,7 @@ function PassportPage() {
             </span>
           </div>
           <div className="mt-3 grid grid-cols-7 gap-1.5">
-            {STREAK_DAYS.map((on, i) => (
+            {streakDays.map((on, i) => (
               <div key={i} className="flex flex-col items-center gap-1">
                 <div
                   className={`grid h-9 w-full place-items-center rounded-lg border-2 text-[11px] font-bold transition-transform hover:-translate-y-0.5 ${

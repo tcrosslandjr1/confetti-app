@@ -1,17 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, Play, Share2, Check, Mail, Lock, Pencil, ImageDown, Loader2 } from "lucide-react";
+import { ArrowLeft, Share2, Check, Play, Mail, ImageDown, Loader2 } from "lucide-react";
 import { trackShareEvent } from "@/lib/share-analytics";
-import { ChangeMyNight } from "@/components/ChangeMyNight";
 import { toast } from "sonner";
-import {
-  BoardingPassV2,
-  sampleMothersDayData,
-  type BoardingPassData,
-  type BoardingStop,
-} from "@/components/BoardingPassV2";
+import { BoardingPassV3 } from "@/components/BoardingPassV3";
 import {
   getActiveLoop,
+  makeDemoLoop,
   subscribeActiveLoop,
   type ActiveLoop,
   type LoopStop,
@@ -22,132 +17,90 @@ export const Route = createFileRoute("/boarding-pass")({
   component: BoardingPassPage,
 });
 
-const VIBE_EMOJI: Record<string, string> = {
-  celebration: "🌸",
-  foodie: "🍽",
-  shopping: "🛍",
-  eco: "💚",
-  romantic: "💕",
-  chill: "🌿",
-  party: "🎉",
-  date: "💕",
-  family: "👨‍👩‍👧",
-  brunch: "🥂",
-  drinks: "🍸",
-  music: "🎶",
-  art: "🎨",
-  walk: "🚶",
-  outdoors: "🌳",
-};
-
-function vibeChip(label: string): { emoji: string; label: string } {
-  const key = label.toLowerCase().trim();
-  return { emoji: VIBE_EMOJI[key] ?? "✨", label: label[0].toUpperCase() + label.slice(1) };
-}
-
-function code3(s: string | undefined, fallback: string) {
-  if (!s) return fallback;
-  const letters = s.replace(/[^A-Za-z]/g, "");
-  return (letters.slice(0, 3) || fallback).toUpperCase();
-}
-
-function mapStop(s: LoopStop, i: number, total: number): BoardingStop {
-  const kind: BoardingStop["type"] =
-    s.kind ?? (i === 0 ? "departure" : i === total - 1 ? "destination" : "layover");
-  return {
-    type: kind,
-    time: s.time || "",
-    name: s.name,
-    detail: s.detail || [s.type, s.area].filter(Boolean).join(" · "),
-    emoji: s.emoji || "📍",
-    parkingInfo: s.parking,
-    sundayParking: s.sundayParking,
-    appleMapUrl: s.address
-      ? `maps://maps.apple.com/?daddr=${encodeURIComponent(s.address)}&dirflg=d`
-      : undefined,
-    googleMapUrl: s.address
-      ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(s.address)}`
-      : undefined,
-    tags: s.tags?.map((t) => t.label) ?? (s.type ? [s.type] : undefined),
-    evInfo: s.ev
-      ? { network: s.ev.brand, spec: s.ev.spec, time: s.ev.chargeTime, detail: s.ev.sub ?? "" }
-      : undefined,
-    driveTo: s.driveAfter
-      ? { minutes: s.driveAfter.minutes, toLabel: s.driveAfter.destination.toUpperCase() }
-      : undefined,
-  };
-}
-
-function mapLoop(loop: ActiveLoop): BoardingPassData {
-  const stops = loop.stops.map((s, i) => mapStop(s, i, loop.stops.length));
-  const first = loop.stops[0];
-  const last = loop.stops[loop.stops.length - 1];
-  const hoods = new Set(loop.stops.map((s) => s.area).filter(Boolean));
-  return {
-    flightCode: `CNFT-${code3(loop.occasion ?? loop.vibe, "TRP")}-${loop.id.slice(-4).toUpperCase()}`,
-    occasionEmoji: loop.occasionEmoji ?? "✨",
-    occasionLabel: loop.occasion ?? loop.vibe ?? "Your Confetti plan",
-    date: loop.date || "",
-    passengers: `${loop.groupSize} GUEST${loop.groupSize === 1 ? "" : "S"}`,
-    day: (loop.day ?? "").toUpperCase(),
-    origin: {
-      code: code3(loop.fromName ?? first?.area ?? loop.from, "ORG"),
-      name: loop.fromName ?? first?.area ?? loop.from ?? "Start",
+/**
+ * Built-in sample loop used when no active plan is in localStorage —
+ * keeps the page presentable for first-time visitors.
+ */
+const SAMPLE_LOOP: ActiveLoop = makeDemoLoop({
+  id: "SAMPLE-DC-NIGHT",
+  passenger: "Tyrone",
+  from: "HOME",
+  to: "NIGHT OUT",
+  fromName: "Adams Morgan",
+  toName: "Shaw",
+  gate: "ADMO",
+  boardingTime: "7:30 PM",
+  date: "Sat · May 17",
+  day: "Saturday",
+  groupSize: 4,
+  occasion: "Night Out",
+  occasionEmoji: "🌙",
+  vibes: ["Date night", "Cocktail-forward", "Late night"],
+  estimatedSpend: "~$180",
+  stops: [
+    {
+      id: "s1",
+      name: "Dauphine's",
+      type: "Southern · craft cocktails",
+      time: "7:30 PM",
+      area: "Adams Morgan",
+      address: "1100 15th St NW, Washington, DC",
+      tags: [{ label: "southern charm", variant: "vibe" }, { label: "craft cocktails", variant: "vibe" }],
+      parking: { primary: "Street meters free after 6:30p", secondary: "Garage on Belmont St ($12)" },
+      ev: { brand: "ChargePoint", spec: "L2", chargeTime: "30 min", sub: "0.2mi away" },
+      driveAfter: { minutes: 8, destination: "U Street" },
+      bookable: true,
     },
-    destination: {
-      code: code3(loop.toName ?? last?.area ?? loop.to, "DST"),
-      name: loop.toName ?? last?.area ?? loop.to ?? "End",
+    {
+      id: "s2",
+      name: "The Gibson",
+      type: "Speakeasy · intimate",
+      time: "9:15 PM",
+      area: "U Street Corridor",
+      address: "2009 14th St NW, Washington, DC",
+      tags: [{ label: "speakeasy", variant: "vibe" }, { label: "bespoke drinks", variant: "vibe" }],
+      parking: { primary: "Street on 14th St", secondary: "ParkWhiz lot on U ($8 evening)" },
+      ev: { brand: "Blink", spec: "L2", chargeTime: "45 min", sub: "0.1mi on 14th" },
+      driveAfter: { minutes: 6, destination: "Shaw" },
     },
-    vibes: (loop.vibes && loop.vibes.length ? loop.vibes : loop.vibe ? [loop.vibe] : []).map(
-      vibeChip,
-    ),
-    stops,
-    stats: {
-      stops: loop.stops.length,
-      hoods: hoods.size,
-      duration: `${Math.max(1, loop.stops.length * 1.5)}h`,
-      evReady: loop.stops.some((s) => !!s.ev),
+    {
+      id: "s3",
+      name: "Flash",
+      type: "Rooftop · house music",
+      time: "11:00 PM",
+      area: "Shaw",
+      address: "645 Florida Ave NW, Washington, DC",
+      tags: [{ label: "rooftop", variant: "vibe" }, { label: "late night", variant: "vibe" }],
+      parking: { primary: "Garage on 9th & P ($15 flat)", secondary: "Rideshare recommended" },
+      ev: { brand: "EVgo", spec: "DC", chargeTime: "20 min", sub: "0.3mi on 7th St" },
     },
-    reward: loop.confettiPoints ?? 100,
-    passengerName: loop.passenger,
-  };
-}
+  ] satisfies LoopStop[],
+});
 
 function BoardingPassPage() {
-  const [data, setData] = useState<BoardingPassData | null>(null);
+  const [loop, setLoop] = useState<ActiveLoop | null>(null);
   const [shared, setShared] = useState(false);
   const [imageBusy, setImageBusy] = useState(false);
   const passRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const sync = () => {
-      const loop = getActiveLoop();
-      setData(loop ? mapLoop(loop) : null);
-    };
+    const sync = () => setLoop(getActiveLoop());
     sync();
     return subscribeActiveLoop(sync);
   }, []);
 
-  // Fall back to the static demo only when no plan exists yet.
-  const passData = data ?? sampleMothersDayData;
+  const usingSample = !loop;
+  const activeLoop = loop ?? SAMPLE_LOOP;
 
   const buildShareContent = () => {
     const url = typeof window !== "undefined" ? window.location.href : "";
-    const subject = `${passData.occasionEmoji} ${passData.occasionLabel} — Confetti itinerary`;
-    const stopsText = passData.stops
-      .map((s, i) => {
-        const tags = s.tags?.length ? ` (${s.tags.slice(0, 2).join(", ")})` : "";
-        const detail = s.detail ? `\n   ${s.detail}` : "";
-        return `${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}${tags}${detail}`;
-      })
-      .join("\n\n");
-    const header = `${passData.occasionEmoji} ${passData.occasionLabel}${
-      passData.date ? ` · ${passData.date}` : ""
-    }`;
+    const occasion = activeLoop.occasion ?? "Confetti night";
+    const subject = `${activeLoop.occasionEmoji ?? "✨"} ${occasion} — Confetti itinerary`;
+    const stopsText = activeLoop.stops
+      .map((s, i) => `${i + 1}. ${s.time ? s.time + " — " : ""}${s.name}${s.area ? ` · ${s.area}` : ""}`)
+      .join("\n");
     const body =
-      `${header}\n${passData.origin.name} → ${passData.destination.name}\n` +
-      `${passData.passengers}\n\n` +
-      `Itinerary:\n${stopsText}\n\n` +
+      `${subject}\n${activeLoop.date ?? ""}\n\nItinerary:\n${stopsText}\n\n` +
       (url ? `View the full boarding pass:\n${url}\n\n` : "") +
       `Built with Confetti — confettiplan.lovable.app`;
     return { subject, body, url };
@@ -160,28 +113,17 @@ function BoardingPassPage() {
       if (nav && typeof nav.share === "function") {
         await nav.share({ title: subject, text: body, url });
         setShared(true);
-        toast.success("Shared!", {
-          description: "Your itinerary is on its way.",
-          duration: 3500,
-          position: "bottom-center",
-        });
+        toast.success("Shared!", { position: "bottom-center", duration: 3000 });
         setTimeout(() => setShared(false), 2200);
         return;
       }
       if (nav?.clipboard?.writeText) {
-        await nav.clipboard.writeText(`${body}`);
+        await nav.clipboard.writeText(body);
         setShared(true);
-        toast.success("Copied to clipboard", {
-          description: "Paste it into any chat or email.",
-          duration: 3500,
-          position: "bottom-center",
-        });
+        toast.success("Copied to clipboard", { position: "bottom-center", duration: 3000 });
         setTimeout(() => setShared(false), 2200);
         return;
       }
-      toast.message("Sharing isn't supported on this device", {
-        position: "bottom-center",
-      });
     } catch (err) {
       if ((err as { name?: string })?.name === "AbortError") return;
       toast.error("Couldn't share — try again", { position: "bottom-center" });
@@ -190,18 +132,10 @@ function BoardingPassPage() {
 
   const handleEmailShare = () => {
     const { subject, body } = buildShareContent();
-    const mailto = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     if (typeof window !== "undefined") {
-      window.location.href = mailto;
-      toast.success("Email draft opened", {
-        description: "Check your mail app to send it.",
-        duration: 3500,
-        position: "bottom-center",
-      });
+      window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
   };
-
-  const loopId = data ? "active" : "sample";
 
   const handleShareImage = async () => {
     if (!passRef.current) return;
@@ -211,50 +145,18 @@ function BoardingPassPage() {
       const dataUrl = await toPng(passRef.current, {
         cacheBust: true,
         pixelRatio: 3,
-        backgroundColor: "#fdf6ee",
+        backgroundColor: "#FBF5E5",
       });
-      const fileName = `confetti-${(passData.flightCode || "boarding-pass").toLowerCase()}.png`;
-
-      // Try native file share first (great on mobile)
-      let nativeShared = false;
-      try {
-        const blob = await (await fetch(dataUrl)).blob();
-        const file = new File([blob], fileName, { type: "image/png" });
-        const navAny = navigator as Navigator & {
-          canShare?: (d: { files: File[] }) => boolean;
-        };
-        if (navAny.canShare && navAny.canShare({ files: [file] })) {
-          await navigator.share({
-            title: `${passData.occasionEmoji} ${passData.occasionLabel}`,
-            text: `My Confetti vibe: ${passData.origin.name} → ${passData.destination.name}`,
-            files: [file],
-          });
-          nativeShared = true;
-        }
-      } catch {
-        /* best effort */
-      }
-
-      if (!nativeShared) {
-        const a = document.createElement("a");
-        a.href = dataUrl;
-        a.download = fileName;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      }
-
-      trackShareEvent("share_save_image", { loopId, meta: { nativeShared } });
-      toast.success(nativeShared ? "Shared!" : "Image saved", {
-        description: nativeShared
-          ? "Your boarding pass is on its way."
-          : "Check your downloads to share it anywhere.",
-        position: "bottom-center",
-        duration: 3500,
-      });
-    } catch (err) {
-      if ((err as { name?: string })?.name === "AbortError") return;
-      trackShareEvent("share_error", { loopId, meta: { source: "save_image" } });
+      const fileName = `confetti-${activeLoop.id.toLowerCase()}.png`;
+      const a = document.createElement("a");
+      a.href = dataUrl;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      trackShareEvent("share_save_image", { loopId: activeLoop.id });
+      toast.success("Image saved", { position: "bottom-center", duration: 3000 });
+    } catch {
       toast.error("Couldn't generate image — try again", { position: "bottom-center" });
     } finally {
       setImageBusy(false);
@@ -262,139 +164,69 @@ function BoardingPassPage() {
   };
 
   return (
-    <div className="min-h-screen pb-32" style={{ background: "#fdf6ee" }}>
-      <div className="mx-auto max-w-md px-4 pt-6">
-        <div className="flex items-center justify-between gap-3">
-          <Link
-            to="/portal"
-            className="inline-flex items-center gap-1 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 hover:text-ink"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" /> Back
-          </Link>
-          <button
-            type="button"
-            onClick={handleShare}
-            aria-label="Share itinerary with friends"
-            className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold"
-          >
-            {shared ? <Check className="h-3.5 w-3.5" /> : <Share2 className="h-3.5 w-3.5" />}
-            {shared ? "Copied" : "Share"}
-          </button>
-        </div>
-        <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight">
-          Review your plan
-        </h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Tap <span className="font-bold">Try a different vibe</span> to explore alternatives, or lock it in below.
+    <div className="min-h-screen pb-32" style={{ background: "#FBF5E5" }}>
+      <div className="mx-auto flex max-w-[400px] items-center justify-between gap-3 px-4 pt-4">
+        <Link
+          to="/portal"
+          className="inline-flex items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70 hover:text-ink"
+        >
+          <ArrowLeft className="h-3.5 w-3.5" /> Back
+        </Link>
+        <button
+          type="button"
+          onClick={handleShare}
+          className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-white px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink"
+        >
+          {shared ? <Check className="h-3.5 w-3.5" /> : <Share2 className="h-3.5 w-3.5" />}
+          {shared ? "Copied" : "Share"}
+        </button>
+      </div>
+
+      {usingSample && (
+        <p className="mx-auto max-w-[400px] px-4 pt-2 text-center font-mono text-[10px] uppercase tracking-widest text-ink/45">
+          Showing sample plan — build a night to see your own here.
         </p>
-        {!data && (
-          <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-ink/50">
-            Showing sample plan — build a night to see your own here.
-          </p>
-        )}
-      </div>
-      <div className="mt-6 px-4">
-        <div ref={passRef} className="bg-[#fdf6ee] p-2 rounded-3xl">
-          <BoardingPassV2 data={passData} />
-        </div>
+      )}
 
-        {/* Explore alternatives + edit before locking in */}
-        {data && (
-          <div className="mx-auto mt-5 max-w-md">
-            <ChangeMyNight />
-            <div className="mt-3 grid grid-cols-3 gap-2">
-              <button
-                type="button"
-                onClick={handleShare}
-                aria-label="Share this plan with friends"
-                className="inline-flex items-center justify-center gap-1.5 rounded-2xl border-2 border-ink bg-gold px-2 py-3 font-display text-xs font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5"
-              >
-                {shared ? <Check className="h-4 w-4" /> : <Share2 className="h-4 w-4" />}
-                {shared ? "Copied" : "Share"}
-              </button>
-              <Link
-                to="/create"
-                className="inline-flex items-center justify-center gap-1.5 rounded-2xl border-2 border-ink bg-cream px-2 py-3 font-display text-xs font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5"
-              >
-                <Pencil className="h-4 w-4" /> Edit
-              </Link>
-              <Link
-                to="/confirmation"
-                className="inline-flex items-center justify-center gap-1.5 rounded-2xl border-2 border-ink bg-gradient-vibe px-2 py-3 font-display text-xs font-bold uppercase tracking-wide text-cream shadow-brut transition-pop hover:-translate-y-0.5"
-              >
-                <Lock className="h-4 w-4" /> Lock in
-              </Link>
-            </div>
-            <button
-              type="button"
-              onClick={handleShareImage}
-              disabled={imageBusy}
-              aria-label="Generate and share a high-quality image of your boarding pass"
-              className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-3 py-3 font-display text-xs font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold disabled:opacity-60 disabled:hover:translate-y-0"
-            >
-              {imageBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImageDown className="h-4 w-4" />}
-              {imageBusy ? "Rendering…" : "Share as image"}
-            </button>
-            <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-ink/50">
-              Share a link, or save a high-res image of your vibe
-            </p>
-          </div>
-        )}
-        {/* Desktop / tablet inline actions */}
-        <div className="mx-auto mt-5 hidden max-w-md gap-3 sm:grid sm:grid-cols-[1fr_auto_auto]">
-          <Link
-            to="/active-loop"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-4 py-3 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut transition-pop hover:-translate-y-0.5"
-          >
-            <Play className="h-4 w-4" /> Start the Plan
-          </Link>
-          <button
-            type="button"
-            onClick={handleEmailShare}
-            aria-label="Share itinerary by email"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 font-display text-sm font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold sm:w-auto"
-          >
-            <Mail className="h-4 w-4" /> Email
-          </button>
-          <button
-            type="button"
-            onClick={handleShare}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-cream px-4 py-3 font-display text-sm font-bold uppercase tracking-wide text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:bg-gold sm:w-auto"
-          >
-            {shared ? <Check className="h-4 w-4" /> : <Share2 className="h-4 w-4" />}
-            {shared ? "Copied" : "Share"}
-          </button>
-        </div>
+      <div className="mt-2">
+        <BoardingPassV3 loop={activeLoop} containerRef={passRef} />
       </div>
 
-      {/* Mobile sticky bottom action bar — thumb-friendly, one-handed */}
+      {/* Sticky wallet footer */}
       <div
-        className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-ink bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/80 sm:hidden"
+        className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-ink bg-cream/95 backdrop-blur"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        <div className="mx-auto flex max-w-md items-stretch gap-2 px-3 py-3">
+        <div className="mx-auto flex max-w-[400px] items-stretch gap-2 px-4 py-3">
           <Link
             to="/active-loop"
-            aria-label="Start the plan"
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral px-3 py-3 font-display text-sm font-bold uppercase tracking-wide text-cream shadow-brut active:translate-y-0.5"
+            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-2xl border-2 border-ink bg-gradient-to-br from-coral to-pink-500 px-3 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-white"
           >
-            <Play className="h-4 w-4" /> Start
+            <Play className="h-3.5 w-3.5" /> Start
           </Link>
           <button
             type="button"
             onClick={handleEmailShare}
-            aria-label="Share itinerary by email"
-            className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-ink bg-cream shadow-brut active:translate-y-0.5"
+            aria-label="Email"
+            className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-ink bg-white"
           >
-            <Mail className="h-5 w-5" />
+            <Mail className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            onClick={handleShareImage}
+            disabled={imageBusy}
+            aria-label="Save image"
+            className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-2 border-ink bg-white disabled:opacity-50"
+          >
+            {imageBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImageDown className="h-4 w-4" />}
           </button>
           <button
             type="button"
             onClick={handleShare}
-            aria-label="Share itinerary"
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-gold px-3 py-3 font-display text-sm font-bold uppercase tracking-wide text-ink shadow-brut active:translate-y-0.5"
+            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-2xl border-2 border-ink bg-white px-3 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-ink"
           >
-            {shared ? <Check className="h-4 w-4" /> : <Share2 className="h-4 w-4" />}
+            {shared ? <Check className="h-3.5 w-3.5" /> : <Share2 className="h-3.5 w-3.5" />}
             {shared ? "Copied" : "Share"}
           </button>
         </div>

@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { getSampleVenue } from "@/lib/sample-venues";
 
 export const Route = createFileRoute("/venue/$id")({
   head: () => ({ meta: [{ title: "Reserve — Confetti" }] }),
@@ -80,6 +81,7 @@ function VenueBookingPage() {
   useEffect(() => {
     let cancelled = false;
     const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
+    const sample = getSampleVenue(id);
     (async () => {
       let v: any = null;
       let source: "venues" | "viral_venues" = "venues";
@@ -119,8 +121,23 @@ function VenueBookingPage() {
           source,
           city: (v as any).city ?? null,
         });
+      } else if (sample) {
+        setVenue({
+          id: sample.id,
+          name: sample.name,
+          category: sample.category,
+          neighborhood: sample.neighborhood,
+          address: sample.address,
+          image_url: null,
+          description: sample.description,
+          rating: sample.rating,
+          price_level: sample.price_level,
+          tags: sample.tags,
+          source: "venues",
+          city: sample.city,
+        });
       } else {
-        // Fallback so the flow remains usable even without a row.
+        // Final fallback so the flow remains usable even without a row.
         setVenue({
           id,
           name: "Le Petit Salon",

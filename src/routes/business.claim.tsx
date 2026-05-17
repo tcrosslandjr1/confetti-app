@@ -159,7 +159,7 @@ function ClaimPage() {
                     <div className="flex-1">
                       <p className="font-medium">{v.name}</p>
                       <p className="text-sm text-muted-foreground">
-                        {[v.neighborhood, v.city, v.address]
+                        {[v.neighborhood, v.city]
                           .filter(Boolean)
                           .join(" · ") || "—"}
                       </p>

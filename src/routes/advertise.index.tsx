@@ -386,6 +386,14 @@ function AdvertiseLanding() {
 
               {step === 2 && (
                 <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="sm:col-span-2">
+                    <Field
+                      label="Your name *"
+                      value={form.owner_name}
+                      onChange={(v) => setForm({ ...form, owner_name: v })}
+                      required
+                    />
+                  </div>
                   <Field
                     label="Contact email *"
                     type="email"

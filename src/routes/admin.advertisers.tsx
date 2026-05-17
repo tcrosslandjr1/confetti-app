@@ -680,8 +680,13 @@ function AdvertisersTab({
                     <StatusBadge status={a.status} />
                   </div>
                   <div className="mt-1 text-sm text-muted-foreground">
+                    {a.owner_name ? <span className="font-medium text-foreground">{a.owner_name} · </span> : null}
                     {a.contact_email}
                     {a.contact_phone ? ` · ${a.contact_phone}` : ""}
+                  </div>
+                  <div className="mt-1 text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
+                    Submitted {new Date(a.submitted_at ?? a.created_at).toLocaleString()}
+                    {a.package_selected ? ` · ${a.package_selected}` : ""}
                   </div>
                   <div className="mt-2 flex flex-wrap gap-2 text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
                     {a.category && <Chip>{a.category}</Chip>}

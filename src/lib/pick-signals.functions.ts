@@ -18,19 +18,38 @@ const SignalSchema = z.object({
   context: z.record(z.string(), z.unknown()).optional(),
 });
 
+// Pick signals are fire-and-forget telemetry. Anonymous users (no auth header)
+// are silently ignored — we never want this to surface as a 401 in the UI.
 export const recordPickSignal = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => SignalSchema.parse(input))
-  .handler(async ({ data, context }) => {
-    const { supabase, userId } = context;
-    const { error } = await supabase.from("pick_signals").insert({
-      user_id: userId,
-      kind: data.kind,
-      value: data.value,
-      context: (data.context ?? {}) as never,
-    });
-    if (error) throw new Error(error.message);
-    return { ok: true };
+  .handler(async ({ data }) => {
+    try {
+      const { getRequest } = await import("@tanstack/react-start/server");
+      const { createClient } = await import("@supabase/supabase-js");
+      const req = getRequest();
+      const authHeader = req?.headers.get("authorization");
+      if (!authHeader?.startsWith("Bearer ")) return { ok: true, skipped: true };
+      const token = authHeader.slice(7);
+      const SUPABASE_URL = process.env.SUPABASE_URL!;
+      const SUPABASE_PUBLISHABLE_KEY = process.env.SUPABASE_PUBLISHABLE_KEY!;
+      const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+        global: { headers: { Authorization: `Bearer ${token}` } },
+        auth: { persistSession: false, autoRefreshToken: false },
+      });
+      const { data: claims } = await supabase.auth.getClaims(token);
+      const userId = claims?.claims?.sub;
+      if (!userId) return { ok: true, skipped: true };
+      await supabase.from("pick_signals").insert({
+        user_id: userId,
+        kind: data.kind,
+        value: data.value,
+        context: (data.context ?? {}) as never,
+      });
+      return { ok: true };
+    } catch (err) {
+      console.error("[recordPickSignal] failed", err);
+      return { ok: false };
+    }
   });
 
 const RatingSchema = z.object({

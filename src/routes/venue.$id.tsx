@@ -294,7 +294,7 @@ function StepHeader({ step, onBack }: { step: number; onBack: () => void }) {
 
 // ---------------- Step 1: Venue Detail ----------------
 
-function StepVenue({ venue, onNext }: { venue: Venue; onNext: () => void }) {
+function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }) {
   const photo = venue.image_url || FALLBACK_PHOTO;
   const price = "$".repeat(Math.max(1, Math.min(4, venue.price_level || 3)));
 

@@ -142,6 +142,7 @@ import { Route as ApiPlansGenerateRouteImport } from './routes/api/plans/generat
 import { Route as AdvertiseStoriesSlugRouteImport } from './routes/advertise.stories.$slug'
 import { Route as ApiPublicWalletGoogleRouteImport } from './routes/api/public/wallet/google'
 import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public/tiktok.callback'
+import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
 import { Route as ApiPublicInstagramCallbackRouteImport } from './routes/api/public/instagram.callback'
 import { Route as ApiPublicHooksTiktokRefreshRouteImport } from './routes/api/public/hooks/tiktok-refresh'
 import { Route as ApiPublicHooksRefreshVenueMediaRouteImport } from './routes/api/public/hooks/refresh-venue-media'
@@ -816,6 +817,12 @@ const ApiPublicTiktokCallbackRoute = ApiPublicTiktokCallbackRouteImport.update({
   path: '/api/public/tiktok/callback',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicPaymentsWebhookRoute =
+  ApiPublicPaymentsWebhookRouteImport.update({
+    id: '/api/public/payments/webhook',
+    path: '/api/public/payments/webhook',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicInstagramCallbackRoute =
   ApiPublicInstagramCallbackRouteImport.update({
     id: '/api/public/instagram/callback',
@@ -1005,6 +1012,7 @@ export interface FileRoutesByFullPath {
   '/api/public/hooks/refresh-venue-media': typeof ApiPublicHooksRefreshVenueMediaRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
+  '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
 }
@@ -1140,6 +1148,7 @@ export interface FileRoutesByTo {
   '/api/public/hooks/refresh-venue-media': typeof ApiPublicHooksRefreshVenueMediaRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
+  '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
 }
@@ -1284,6 +1293,7 @@ export interface FileRoutesById {
   '/api/public/hooks/refresh-venue-media': typeof ApiPublicHooksRefreshVenueMediaRoute
   '/api/public/hooks/tiktok-refresh': typeof ApiPublicHooksTiktokRefreshRoute
   '/api/public/instagram/callback': typeof ApiPublicInstagramCallbackRoute
+  '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
 }
@@ -1429,6 +1439,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/refresh-venue-media'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
+    | '/api/public/payments/webhook'
     | '/api/public/tiktok/callback'
     | '/api/public/wallet/google'
   fileRoutesByTo: FileRoutesByTo
@@ -1564,6 +1575,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/refresh-venue-media'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
+    | '/api/public/payments/webhook'
     | '/api/public/tiktok/callback'
     | '/api/public/wallet/google'
   id:
@@ -1707,6 +1719,7 @@ export interface FileRouteTypes {
     | '/api/public/hooks/refresh-venue-media'
     | '/api/public/hooks/tiktok-refresh'
     | '/api/public/instagram/callback'
+    | '/api/public/payments/webhook'
     | '/api/public/tiktok/callback'
     | '/api/public/wallet/google'
   fileRoutesById: FileRoutesById
@@ -1787,6 +1800,7 @@ export interface RootRouteChildren {
   ApiPublicHooksRefreshVenueMediaRoute: typeof ApiPublicHooksRefreshVenueMediaRoute
   ApiPublicHooksTiktokRefreshRoute: typeof ApiPublicHooksTiktokRefreshRoute
   ApiPublicInstagramCallbackRoute: typeof ApiPublicInstagramCallbackRoute
+  ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
   ApiPublicTiktokCallbackRoute: typeof ApiPublicTiktokCallbackRoute
   ApiPublicWalletGoogleRoute: typeof ApiPublicWalletGoogleRoute
 }
@@ -2724,6 +2738,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicTiktokCallbackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/payments/webhook': {
+      id: '/api/public/payments/webhook'
+      path: '/api/public/payments/webhook'
+      fullPath: '/api/public/payments/webhook'
+      preLoaderRoute: typeof ApiPublicPaymentsWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/instagram/callback': {
       id: '/api/public/instagram/callback'
       path: '/api/public/instagram/callback'
@@ -3088,19 +3109,10 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicHooksRefreshVenueMediaRoute: ApiPublicHooksRefreshVenueMediaRoute,
   ApiPublicHooksTiktokRefreshRoute: ApiPublicHooksTiktokRefreshRoute,
   ApiPublicInstagramCallbackRoute: ApiPublicInstagramCallbackRoute,
+  ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
   ApiPublicTiktokCallbackRoute: ApiPublicTiktokCallbackRoute,
   ApiPublicWalletGoogleRoute: ApiPublicWalletGoogleRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

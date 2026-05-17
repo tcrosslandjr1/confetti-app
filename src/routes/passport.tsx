@@ -132,34 +132,42 @@ const STREAK_DAYS = [true, true, false, true, true, true, true];
 const STREAK_LABELS = ["M", "T", "W", "T", "F", "S", "S"];
 
 function PassportPage() {
-  const [confetti, setConfettiCount] = useState(0);
+  const passport = usePassportStats();
+  const [localConfetti, setLocalConfetti] = useState(0);
   const [claimed, setClaimed] = useState<ClaimedReward[]>([]);
   const [pending, setPending] = useState<(typeof REWARDS)[number] | null>(null);
   const [justClaimed, setJustClaimed] = useState<ClaimedReward | null>(null);
-  const [earnedStamps, setEarnedStamps] = useState<PassportStamp[]>([]);
+  const [localStamps, setLocalStamps] = useState<PassportStamp[]>([]);
   const [shareOpen, setShareOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    setConfettiCount(getConfetti());
+    setLocalConfetti(getConfetti());
     setClaimed(loadClaimed());
-    setEarnedStamps(getStamps());
-    const unsubC = subscribeConfetti(() => setConfettiCount(getConfetti()));
-    const unsubS = subscribeStamps(() => setEarnedStamps(getStamps()));
+    setLocalStamps(getStamps());
+    const unsubC = subscribeConfetti(() => setLocalConfetti(getConfetti()));
+    const unsubS = subscribeStamps(() => setLocalStamps(getStamps()));
     return () => {
       unsubC();
       unsubS();
     };
   }, []);
 
-  // Merge live earned stamps with seed examples; live stamps first, dedup by id.
-  const stamps: (PassportStamp & { earned: boolean })[] = [
-    ...earnedStamps.map((s) => ({ ...s, earned: true })),
-    ...SEED_STAMPS.filter((s) => !earnedStamps.some((e) => e.id === s.id)).map((s) => ({
-      ...s,
-      earned: false,
-    })),
-  ];
+  // Real account data wins; localStorage demo data is the fallback for guests.
+  const confetti = passport.signedIn ? passport.confetti : localConfetti;
+  const earnedStamps = passport.signedIn ? passport.stamps : localStamps;
+
+  // Merge earned stamps with seed examples only for guests; signed-in users see
+  // their real trips with locked "Plan next" tiles instead of demo cities.
+  const stamps: (PassportStamp & { earned: boolean })[] = passport.signedIn
+    ? earnedStamps.map((s) => ({ ...s, earned: true }))
+    : [
+        ...earnedStamps.map((s) => ({ ...s, earned: true })),
+        ...SEED_STAMPS.filter((s) => !earnedStamps.some((e) => e.id === s.id)).map((s) => ({
+          ...s,
+          earned: false,
+        })),
+      ];
 
   function handleConfirmRedeem() {
     if (!pending) return;
@@ -186,13 +194,28 @@ function PassportPage() {
   const level = Math.floor(confetti / 250) + 1;
   const nextLevelAt = level * 250;
   const progress = Math.min(100, ((confetti % 250) / 250) * 100);
-  const unlockedCount = BADGES.filter((b) => b.unlocked).length;
+
+  // Hydrate per-badge unlock state from the user's achievement rows. Fall back
+  // to the demo `fallbackUnlocked` flag when there's no signed-in account.
+  const badges = BADGES.map((b) => ({
+    ...b,
+    unlocked: passport.signedIn
+      ? !!b.code && passport.unlockedBadgeCodes.has(b.code)
+      : !!b.fallbackUnlocked,
+  }));
+  const unlockedCount = badges.filter((b) => b.unlocked).length;
+  const totalBadges = badges.length;
+
+  // Streak: real activity when signed in, otherwise an empty 7-day strip.
+  const streakDays = passport.signedIn ? passport.streakDays : EMPTY_STREAK;
+
   const currentTierIndex = Math.max(
     0,
     TIERS.findIndex((t, i) => confetti < (TIERS[i + 1]?.at ?? Infinity)),
   );
   const currentTier = TIERS[currentTierIndex];
   const nextTier = TIERS[currentTierIndex + 1];
+
 
   const shareData: PassportShareData = {
     name: "Guest Explorer",

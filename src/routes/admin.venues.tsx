@@ -8,10 +8,13 @@ import {
   MailCheck,
   MapPin,
   Plus,
+  RefreshCw,
   Search,
+  Sparkles,
   Store,
   Trash2,
 } from "lucide-react";
+import { refreshVenueMedia, triggerBulkRefresh } from "@/lib/venue-media.functions";
 import { resolveVenueNotificationEmail } from "@/lib/booking-notifications.functions";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -89,7 +92,43 @@ function AdminVenuesPage() {
   const [editing, setEditing] = useState<Venue | null>(null);
   const [adding, setAdding] = useState(false);
   const [testingId, setTestingId] = useState<string | null>(null);
+  const [refreshingId, setRefreshingId] = useState<string | null>(null);
+  const [bulkRefreshing, setBulkRefreshing] = useState(false);
   const resolveEmail = useServerFn(resolveVenueNotificationEmail);
+  const refreshMedia = useServerFn(refreshVenueMedia);
+  const runBulk = useServerFn(triggerBulkRefresh);
+
+  const onRefreshMedia = async (v: Venue) => {
+    setRefreshingId(v.id);
+    try {
+      const r = await refreshMedia({ data: { venueId: v.id } });
+      if (r.error) {
+        toast.error(`Refresh failed: ${r.error}`);
+      } else {
+        toast.success(
+          `Refreshed ${v.name} — ${r.photos_added} photo${r.photos_added === 1 ? "" : "s"}, ${r.socials_found} social${r.socials_found === 1 ? "" : "s"}`,
+        );
+      }
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Refresh failed");
+    } finally {
+      setRefreshingId(null);
+    }
+  };
+
+  const onBulkRefresh = async () => {
+    setBulkRefreshing(true);
+    try {
+      const r = await runBulk({ data: { limit: 25 } });
+      toast.success(
+        `Refreshed ${r.venues_processed} venues — ${r.photos_added} photos, ${r.socials_found} socials`,
+      );
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Bulk refresh failed");
+    } finally {
+      setBulkRefreshing(false);
+    }
+  };
 
   const onTestNotification = async (v: Venue) => {
     setTestingId(v.id);

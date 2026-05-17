@@ -422,6 +422,69 @@ export type Database = {
           },
         ]
       }
+      business_purchases: {
+        Row: {
+          activated_at: string
+          amount_cents: number
+          created_at: string
+          currency: string
+          environment: string
+          expires_at: string | null
+          id: string
+          metadata: Json
+          mode: string
+          sku: string
+          status: string
+          stripe_customer_id: string | null
+          stripe_session_id: string | null
+          stripe_subscription_id: string | null
+          target_id: string | null
+          target_type: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          activated_at?: string
+          amount_cents?: number
+          created_at?: string
+          currency?: string
+          environment?: string
+          expires_at?: string | null
+          id?: string
+          metadata?: Json
+          mode: string
+          sku: string
+          status?: string
+          stripe_customer_id?: string | null
+          stripe_session_id?: string | null
+          stripe_subscription_id?: string | null
+          target_id?: string | null
+          target_type?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          activated_at?: string
+          amount_cents?: number
+          created_at?: string
+          currency?: string
+          environment?: string
+          expires_at?: string | null
+          id?: string
+          metadata?: Json
+          mode?: string
+          sku?: string
+          status?: string
+          stripe_customer_id?: string | null
+          stripe_session_id?: string | null
+          stripe_subscription_id?: string | null
+          target_id?: string | null
+          target_type?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       confetti_grants: {
         Row: {
           advertiser_id: string | null
@@ -1034,6 +1097,9 @@ export type Database = {
       events: {
         Row: {
           address: string | null
+          boost_sku: string | null
+          boost_tier: string | null
+          boost_until: string | null
           boost_weight: number
           category: string | null
           city: string
@@ -1062,6 +1128,9 @@ export type Database = {
         }
         Insert: {
           address?: string | null
+          boost_sku?: string | null
+          boost_tier?: string | null
+          boost_until?: string | null
           boost_weight?: number
           category?: string | null
           city: string
@@ -1090,6 +1159,9 @@ export type Database = {
         }
         Update: {
           address?: string | null
+          boost_sku?: string | null
+          boost_tier?: string | null
+          boost_until?: string | null
           boost_weight?: number
           category?: string | null
           city?: string
@@ -2175,6 +2247,9 @@ export type Database = {
       reels: {
         Row: {
           author_id: string | null
+          boost_sku: string | null
+          boost_tier: string | null
+          boost_until: string | null
           caption: string | null
           city: string | null
           created_at: string
@@ -2198,6 +2273,9 @@ export type Database = {
         }
         Insert: {
           author_id?: string | null
+          boost_sku?: string | null
+          boost_tier?: string | null
+          boost_until?: string | null
           caption?: string | null
           city?: string | null
           created_at?: string
@@ -2221,6 +2299,9 @@ export type Database = {
         }
         Update: {
           author_id?: string | null
+          boost_sku?: string | null
+          boost_tier?: string | null
+          boost_until?: string | null
           caption?: string | null
           city?: string | null
           created_at?: string
@@ -3161,6 +3242,9 @@ export type Database = {
       venues: {
         Row: {
           advertiser_id: string | null
+          boost_sku: string | null
+          boost_tier: string | null
+          boost_until: string | null
           category: string
           city: string | null
           claim_status: string | null
@@ -3207,6 +3291,9 @@ export type Database = {
         }
         Insert: {
           advertiser_id?: string | null
+          boost_sku?: string | null
+          boost_tier?: string | null
+          boost_until?: string | null
           category: string
           city?: string | null
           claim_status?: string | null
@@ -3253,6 +3340,9 @@ export type Database = {
         }
         Update: {
           advertiser_id?: string | null
+          boost_sku?: string | null
+          boost_tier?: string | null
+          boost_until?: string | null
           category?: string
           city?: string | null
           claim_status?: string | null
@@ -3468,6 +3558,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      activate_boost: {
+        Args: {
+          _duration: string
+          _sku: string
+          _target_id: string
+          _target_type: string
+          _tier: string
+        }
+        Returns: undefined
+      }
       award_confetti_pts: {
         Args: { _amount: number; _reason: string; _ref?: string; _user: string }
         Returns: undefined

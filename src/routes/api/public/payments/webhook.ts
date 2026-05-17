@@ -105,6 +105,73 @@ async function sendReceipt(toEmail: string, subject: string, html: string) {
 }
 
 // ============================================================================
+// Promo activation — boosts, event promos, reel promos
+// ============================================================================
+async function activatePromo(args: {
+  userId: string;
+  priceId: string;
+  amountCents: number;
+  currency: string;
+  mode: 'one_time' | 'recurring';
+  env: StripeEnv;
+  targetType?: string;
+  targetId?: string;
+  stripeSessionId?: string;
+  stripeSubscriptionId?: string;
+  stripeCustomerId?: string;
+  metadata?: Record<string, unknown>;
+}): Promise<boolean> {
+  const spec = PROMO_SPEC[args.priceId];
+  if (!spec) return false;
+
+  const targetType = (args.targetType as 'venue' | 'event' | 'reel' | undefined) ?? spec.defaultTarget;
+  const sb = getSupabase();
+
+  const ledger: any = {
+    user_id: args.userId,
+    sku: args.priceId,
+    mode: args.mode,
+    amount_cents: args.amountCents,
+    currency: args.currency,
+    target_type: targetType ?? null,
+    target_id: args.targetId ?? null,
+    status: 'active',
+    stripe_session_id: args.stripeSessionId ?? null,
+    stripe_subscription_id: args.stripeSubscriptionId ?? null,
+    stripe_customer_id: args.stripeCustomerId ?? null,
+    environment: args.env,
+    metadata: args.metadata ?? {},
+    activated_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  };
+  if (args.stripeSessionId) {
+    await sb.from('business_purchases').upsert(ledger, { onConflict: 'stripe_session_id' });
+  } else {
+    await sb.from('business_purchases').insert(ledger);
+  }
+
+  if (targetType && args.targetId) {
+    await sb.rpc('activate_boost', {
+      _target_type: targetType,
+      _target_id: args.targetId,
+      _duration: spec.duration,
+      _tier: spec.tier,
+      _sku: args.priceId,
+    });
+  }
+
+  await notifyUser(
+    args.userId,
+    `Promo active 🚀`,
+    targetType
+      ? `Your ${args.priceId.replace(/_/g, ' ')} is live${args.targetId ? ` for the selected ${targetType}` : ''}.`
+      : `Your ${args.priceId.replace(/_/g, ' ')} purchase is active.`,
+    '/business/exposure',
+  );
+  return true;
+}
+
+// ============================================================================
 // Subscription side-effects
 // ============================================================================
 async function handleSubscriptionCreated(subscription: any, env: StripeEnv) {

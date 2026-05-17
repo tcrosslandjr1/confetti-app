@@ -88,6 +88,7 @@ function AdvertiseLanding() {
 
   const [form, setForm] = useState({
     business_name: "",
+    owner_name: "",
     contact_email: user?.email ?? "",
     website: "",
     contact_phone: "",

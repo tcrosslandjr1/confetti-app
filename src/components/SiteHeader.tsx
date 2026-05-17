@@ -73,12 +73,12 @@ export function SiteHeader() {
           <RotatingTagline />
         </Link>
 
-        <nav className="ml-4 hidden items-center gap-1 md:flex">
+        <nav className="ml-2 hidden items-center gap-0.5 md:flex lg:ml-4 lg:gap-1">
           {marketingLinks.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className="nav-underline rounded-full px-3 py-2 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink"
+              className="nav-underline whitespace-nowrap rounded-full px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink lg:px-3 lg:text-xs"
               activeProps={{ className: "text-ink" }}
             >
               {l.label}

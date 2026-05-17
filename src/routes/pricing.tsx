@@ -126,6 +126,7 @@ function PricingPage() {
       </section>
 
       <SiteFooter />
+      {checkoutElement}
     </div>
   );
 }

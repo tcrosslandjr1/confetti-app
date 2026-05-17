@@ -101,3 +101,172 @@ export const submitVenueClaim = createServerFn({ method: "POST" })
     if (error) throw new Error(error.message);
     return { claim: row };
   });
+
+/* ------------------------- ADMIN: LIST CLAIMS ------------------------- */
+
+export const adminListVenueClaims = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      status: z.enum(["pending", "approved", "rejected", "all"]).default("pending"),
+    }),
+  )
+  .handler(async ({ data, context }) => {
+    const supabase = adminClient();
+    const { data: roles } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", context.userId)
+      .eq("role", "admin")
+      .maybeSingle();
+    if (!roles) throw new Error("Admins only");
+
+    let query = supabase
+      .from("venue_claims")
+      .select("*")
+      .order("created_at", { ascending: false })
+      .limit(200);
+    if (data.status !== "all") query = query.eq("status", data.status);
+    const { data: claims, error } = await query;
+    if (error) throw new Error(error.message);
+
+    const venueIds = Array.from(
+      new Set((claims ?? []).map((c) => c.venue_id).filter(Boolean) as string[]),
+    );
+    const userIds = Array.from(
+      new Set((claims ?? []).map((c) => c.user_id).filter(Boolean) as string[]),
+    );
+
+    const [venuesRes, profilesRes] = await Promise.all([
+      venueIds.length
+        ? supabase
+            .from("venues")
+            .select("id, name, city, neighborhood, hero_image_url, image_url, claim_status, claimed_by, website")
+            .in("id", venueIds)
+        : Promise.resolve({ data: [], error: null } as const),
+      userIds.length
+        ? supabase.from("profiles").select("id, display_name").in("id", userIds)
+        : Promise.resolve({ data: [], error: null } as const),
+    ]);
+
+    const venueMap = new Map((venuesRes.data ?? []).map((v) => [v.id, v]));
+    const profileMap = new Map((profilesRes.data ?? []).map((p) => [p.id, p]));
+
+    return {
+      claims: (claims ?? []).map((c) => ({
+        ...c,
+        venue: c.venue_id ? venueMap.get(c.venue_id) ?? null : null,
+        claimant: c.user_id ? profileMap.get(c.user_id) ?? null : null,
+      })),
+    };
+  });
+
+/* ------------------------- ADMIN: APPROVE CLAIM ------------------------- */
+
+export const adminApproveVenueClaim = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      claimId: z.string().uuid(),
+      adminNote: z.string().max(2000).optional(),
+    }),
+  )
+  .handler(async ({ data, context }) => {
+    const supabase = adminClient();
+    const { data: adminRow } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", context.userId)
+      .eq("role", "admin")
+      .maybeSingle();
+    if (!adminRow) throw new Error("Admins only");
+
+    const { data: claim, error: cErr } = await supabase
+      .from("venue_claims")
+      .select("*")
+      .eq("id", data.claimId)
+      .single();
+    if (cErr || !claim) throw new Error(cErr?.message ?? "Claim not found");
+    if (claim.status === "approved") return { claim };
+
+    let venueId = claim.venue_id;
+    // For proposed (new) venues, create a stub venue row.
+    if (!venueId && claim.proposed_name) {
+      const { data: newVenue, error: vErr } = await supabase
+        .from("venues")
+        .insert({
+          name: claim.proposed_name,
+          category: "nightlife",
+          city: claim.proposed_city ?? null,
+          website: claim.proposed_website ?? null,
+          place_id: claim.proposed_place_id ?? null,
+          claimed_by: claim.user_id,
+          claim_status: "claimed",
+          verified: true,
+        })
+        .select("id")
+        .single();
+      if (vErr) throw new Error(vErr.message);
+      venueId = newVenue.id;
+    } else if (venueId && claim.user_id) {
+      const { error: vErr } = await supabase
+        .from("venues")
+        .update({
+          claimed_by: claim.user_id,
+          claim_status: "claimed",
+          verified: true,
+        })
+        .eq("id", venueId);
+      if (vErr) throw new Error(vErr.message);
+    }
+
+    const { data: updated, error: uErr } = await supabase
+      .from("venue_claims")
+      .update({
+        status: "approved",
+        admin_note: data.adminNote ?? null,
+        reviewed_by: context.userId,
+        reviewed_at: new Date().toISOString(),
+        venue_id: venueId,
+      })
+      .eq("id", data.claimId)
+      .select("*")
+      .single();
+    if (uErr) throw new Error(uErr.message);
+    return { claim: updated };
+  });
+
+/* ------------------------- ADMIN: REJECT CLAIM ------------------------- */
+
+export const adminRejectVenueClaim = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      claimId: z.string().uuid(),
+      adminNote: z.string().min(1).max(2000),
+    }),
+  )
+  .handler(async ({ data, context }) => {
+    const supabase = adminClient();
+    const { data: adminRow } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", context.userId)
+      .eq("role", "admin")
+      .maybeSingle();
+    if (!adminRow) throw new Error("Admins only");
+
+    const { data: updated, error } = await supabase
+      .from("venue_claims")
+      .update({
+        status: "rejected",
+        admin_note: data.adminNote,
+        reviewed_by: context.userId,
+        reviewed_at: new Date().toISOString(),
+      })
+      .eq("id", data.claimId)
+      .select("*")
+      .single();
+    if (error) throw new Error(error.message);
+    return { claim: updated };
+  });

@@ -606,6 +606,25 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
         </ul>
       </div>
 
+      <div className="flex flex-wrap items-center gap-2">
+        <FavoriteVenueButton
+          payload={{
+            venue_id: venue.id,
+            venue_name: venue.name,
+            image_url: venue.image_url,
+            category: venue.category,
+            neighborhood: venue.neighborhood,
+            city: venue.city,
+          }}
+        />
+        <Link
+          to="/favorites"
+          className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-white px-3 py-2 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+        >
+          View all favorites
+        </Link>
+      </div>
+
       <ShareVenue venue={venue} />
 
       <GradientCTA onClick={onReserve} label="Reserve a Spot" />

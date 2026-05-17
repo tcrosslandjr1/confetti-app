@@ -1306,6 +1306,332 @@ export type Database = {
         }
         Relationships: []
       }
+      promoter_jobs: {
+        Row: {
+          accepted_at: string | null
+          advertiser_id: string
+          amount_cents: number
+          boarding_pass_itinerary_id: string | null
+          brief: string
+          cancelled_at: string | null
+          created_at: string
+          currency: string
+          deliverables: Json
+          delivered_at: string | null
+          due_at: string | null
+          funded_at: string | null
+          id: string
+          paid_at: string | null
+          platform_fee_bps: number
+          promoter_id: string
+          status: Database["public"]["Enums"]["promoter_job_status"]
+          stripe_payment_intent_id: string | null
+          title: string
+          updated_at: string
+          venue_id: string | null
+          verified_at: string | null
+        }
+        Insert: {
+          accepted_at?: string | null
+          advertiser_id: string
+          amount_cents: number
+          boarding_pass_itinerary_id?: string | null
+          brief: string
+          cancelled_at?: string | null
+          created_at?: string
+          currency?: string
+          deliverables?: Json
+          delivered_at?: string | null
+          due_at?: string | null
+          funded_at?: string | null
+          id?: string
+          paid_at?: string | null
+          platform_fee_bps?: number
+          promoter_id: string
+          status?: Database["public"]["Enums"]["promoter_job_status"]
+          stripe_payment_intent_id?: string | null
+          title: string
+          updated_at?: string
+          venue_id?: string | null
+          verified_at?: string | null
+        }
+        Update: {
+          accepted_at?: string | null
+          advertiser_id?: string
+          amount_cents?: number
+          boarding_pass_itinerary_id?: string | null
+          brief?: string
+          cancelled_at?: string | null
+          created_at?: string
+          currency?: string
+          deliverables?: Json
+          delivered_at?: string | null
+          due_at?: string | null
+          funded_at?: string | null
+          id?: string
+          paid_at?: string | null
+          platform_fee_bps?: number
+          promoter_id?: string
+          status?: Database["public"]["Enums"]["promoter_job_status"]
+          stripe_payment_intent_id?: string | null
+          title?: string
+          updated_at?: string
+          venue_id?: string | null
+          verified_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "promoter_jobs_boarding_pass_itinerary_id_fkey"
+            columns: ["boarding_pass_itinerary_id"]
+            isOneToOne: false
+            referencedRelation: "itineraries"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "promoter_jobs_promoter_id_fkey"
+            columns: ["promoter_id"]
+            isOneToOne: false
+            referencedRelation: "promoters"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      promoter_metrics_daily: {
+        Row: {
+          bookings_attributed: number
+          clicks: number
+          created_at: string
+          date: string
+          engagement: number
+          id: string
+          job_id: string | null
+          promoter_id: string
+          updated_at: string
+          views: number
+        }
+        Insert: {
+          bookings_attributed?: number
+          clicks?: number
+          created_at?: string
+          date: string
+          engagement?: number
+          id?: string
+          job_id?: string | null
+          promoter_id: string
+          updated_at?: string
+          views?: number
+        }
+        Update: {
+          bookings_attributed?: number
+          clicks?: number
+          created_at?: string
+          date?: string
+          engagement?: number
+          id?: string
+          job_id?: string | null
+          promoter_id?: string
+          updated_at?: string
+          views?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "promoter_metrics_daily_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "promoter_jobs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "promoter_metrics_daily_promoter_id_fkey"
+            columns: ["promoter_id"]
+            isOneToOne: false
+            referencedRelation: "promoters"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      promoter_payouts: {
+        Row: {
+          amount_cents: number
+          created_at: string
+          currency: string
+          failure_reason: string | null
+          id: string
+          job_id: string | null
+          paid_at: string | null
+          promoter_id: string
+          status: Database["public"]["Enums"]["promoter_payout_status"]
+          stripe_transfer_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          amount_cents: number
+          created_at?: string
+          currency?: string
+          failure_reason?: string | null
+          id?: string
+          job_id?: string | null
+          paid_at?: string | null
+          promoter_id: string
+          status?: Database["public"]["Enums"]["promoter_payout_status"]
+          stripe_transfer_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          amount_cents?: number
+          created_at?: string
+          currency?: string
+          failure_reason?: string | null
+          id?: string
+          job_id?: string | null
+          paid_at?: string | null
+          promoter_id?: string
+          status?: Database["public"]["Enums"]["promoter_payout_status"]
+          stripe_transfer_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "promoter_payouts_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "promoter_jobs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "promoter_payouts_promoter_id_fkey"
+            columns: ["promoter_id"]
+            isOneToOne: false
+            referencedRelation: "promoters"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      promoter_submissions: {
+        Row: {
+          boarding_pass_visible: boolean
+          caption: string | null
+          content_url: string
+          created_at: string
+          id: string
+          job_id: string
+          metrics: Json
+          platform: string
+          posted_at: string | null
+          review_notes: string | null
+          reviewed_at: string | null
+          reviewer_id: string | null
+          updated_at: string
+          verification_status: Database["public"]["Enums"]["promoter_submission_status"]
+        }
+        Insert: {
+          boarding_pass_visible?: boolean
+          caption?: string | null
+          content_url: string
+          created_at?: string
+          id?: string
+          job_id: string
+          metrics?: Json
+          platform: string
+          posted_at?: string | null
+          review_notes?: string | null
+          reviewed_at?: string | null
+          reviewer_id?: string | null
+          updated_at?: string
+          verification_status?: Database["public"]["Enums"]["promoter_submission_status"]
+        }
+        Update: {
+          boarding_pass_visible?: boolean
+          caption?: string | null
+          content_url?: string
+          created_at?: string
+          id?: string
+          job_id?: string
+          metrics?: Json
+          platform?: string
+          posted_at?: string | null
+          review_notes?: string | null
+          reviewed_at?: string | null
+          reviewer_id?: string | null
+          updated_at?: string
+          verification_status?: Database["public"]["Enums"]["promoter_submission_status"]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "promoter_submissions_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "promoter_jobs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      promoters: {
+        Row: {
+          admin_notes: string | null
+          audience: Json
+          avatar_url: string | null
+          bio: string | null
+          cities: string[]
+          created_at: string
+          display_name: string
+          id: string
+          jobs_completed: number
+          niche: string[]
+          rate_card: Json
+          rating: number | null
+          sample_links: string[]
+          status: Database["public"]["Enums"]["promoter_status"]
+          stripe_account_id: string | null
+          stripe_payouts_enabled: boolean
+          updated_at: string
+          user_id: string
+          verified_at: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          audience?: Json
+          avatar_url?: string | null
+          bio?: string | null
+          cities?: string[]
+          created_at?: string
+          display_name: string
+          id?: string
+          jobs_completed?: number
+          niche?: string[]
+          rate_card?: Json
+          rating?: number | null
+          sample_links?: string[]
+          status?: Database["public"]["Enums"]["promoter_status"]
+          stripe_account_id?: string | null
+          stripe_payouts_enabled?: boolean
+          updated_at?: string
+          user_id: string
+          verified_at?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          audience?: Json
+          avatar_url?: string | null
+          bio?: string | null
+          cities?: string[]
+          created_at?: string
+          display_name?: string
+          id?: string
+          jobs_completed?: number
+          niche?: string[]
+          rate_card?: Json
+          rating?: number | null
+          sample_links?: string[]
+          status?: Database["public"]["Enums"]["promoter_status"]
+          stripe_account_id?: string | null
+          stripe_payouts_enabled?: boolean
+          updated_at?: string
+          user_id?: string
+          verified_at?: string | null
+        }
+        Relationships: []
+      }
       referral_codes: {
         Row: {
           code: string
@@ -2338,6 +2664,30 @@ export type Database = {
     Enums: {
       app_role: "admin" | "customer"
       oauth_submission_status: "pending" | "approved" | "rejected"
+      promoter_job_status:
+        | "draft"
+        | "offered"
+        | "accepted"
+        | "funded"
+        | "in_progress"
+        | "delivered"
+        | "verified"
+        | "paid"
+        | "cancelled"
+        | "refunded"
+        | "disputed"
+      promoter_payout_status:
+        | "pending"
+        | "processing"
+        | "paid"
+        | "failed"
+        | "reversed"
+      promoter_status: "pending" | "approved" | "suspended" | "rejected"
+      promoter_submission_status:
+        | "pending"
+        | "approved"
+        | "rejected"
+        | "needs_revision"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -2467,6 +2817,33 @@ export const Constants = {
     Enums: {
       app_role: ["admin", "customer"],
       oauth_submission_status: ["pending", "approved", "rejected"],
+      promoter_job_status: [
+        "draft",
+        "offered",
+        "accepted",
+        "funded",
+        "in_progress",
+        "delivered",
+        "verified",
+        "paid",
+        "cancelled",
+        "refunded",
+        "disputed",
+      ],
+      promoter_payout_status: [
+        "pending",
+        "processing",
+        "paid",
+        "failed",
+        "reversed",
+      ],
+      promoter_status: ["pending", "approved", "suspended", "rejected"],
+      promoter_submission_status: [
+        "pending",
+        "approved",
+        "rejected",
+        "needs_revision",
+      ],
     },
   },
 } as const

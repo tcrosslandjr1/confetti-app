@@ -163,11 +163,10 @@ function PortalActivityPage() {
     return subscribeActivity(load);
   }, [load]);
 
-  const handleRefresh = useCallback(async () => {
+  useRefreshable(async () => {
     load();
-    // Small delay so the spinner feels intentional.
     await new Promise((r) => setTimeout(r, 350));
-  }, [load]);
+  });
 
   const trips = useMemo(() => {
     const map = new Map<string, string>();

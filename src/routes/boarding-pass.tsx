@@ -145,10 +145,14 @@ function BoardingPassPage() {
         setTimeout(() => setShared(false), 2200);
         return;
       }
-      if (nav?.clipboard?.writeText) {
-        await nav.clipboard.writeText(body);
+      if (nav?.clipboard?.writeText && url) {
+        await nav.clipboard.writeText(url);
         setShared(true);
-        toast.success("Copied to clipboard", { position: "bottom-center", duration: 3000 });
+        toast.success("Link copied", {
+          description: url,
+          position: "bottom-center",
+          duration: 3000,
+        });
         setTimeout(() => setShared(false), 2200);
         return;
       }

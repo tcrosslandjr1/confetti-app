@@ -1,11 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { LayoutList, Map as MapIcon, MapPin, Star, Loader2, Search, X, Sparkles } from "lucide-react";
-import { Map, useMap } from "@vis.gl/react-google-maps";
 import { supabase } from "@/integrations/supabase/client";
-import { confettiMapStyle } from "@/components/maps/mapStyles";
-import { useGeocodedPoints } from "@/lib/geocode";
-import { GOOGLE_MAPS_API_KEY } from "@/lib/config";
 import { PullToRefresh } from "@/components/PullToRefresh";
 import { useCallback } from "react";
 
@@ -37,20 +33,22 @@ type VenueRow = {
   category?: Category;
   aiPick?: boolean;
   gradient?: string;
+  /** Approx position on the stylized DC map placeholder, as % of container (x=left, y=top). */
+  coords?: { x: number; y: number };
 };
 
 type Category = "Dining" | "Nightlife" | "Rooftops" | "Live Music" | "Cocktails";
 const CATEGORIES: Array<"All" | Category> = ["All", "Dining", "Nightlife", "Rooftops", "Live Music", "Cocktails"];
 
 const SAMPLE_VENUES: VenueRow[] = [
-  { id: "velvet-terrace", name: "Velvet Terrace", neighborhood: "Dupont Circle", address: null, photo: null, rating: 4.8, price: "$$", category: "Rooftops", tags: ["rooftop", "sunset"], aiPick: true, gradient: "from-rose-400 via-fuchsia-500 to-indigo-600" },
-  { id: "noir-lounge", name: "Noir Lounge", neighborhood: "Shaw", address: null, photo: null, rating: 4.6, price: "$$", category: "Cocktails", tags: ["speakeasy", "moody"], gradient: "from-slate-800 via-purple-900 to-zinc-900" },
-  { id: "ember-kitchen", name: "Ember Kitchen", neighborhood: "Logan Circle", address: null, photo: null, rating: 4.7, price: "$$", category: "Dining", tags: ["wood-fired", "seasonal"], aiPick: true, gradient: "from-amber-500 via-orange-600 to-rose-700" },
-  { id: "the-vinyl-room", name: "The Vinyl Room", neighborhood: "U Street", address: null, photo: null, rating: 4.5, price: "$", category: "Live Music", tags: ["jazz", "vinyl"], gradient: "from-emerald-600 via-teal-700 to-slate-900" },
-  { id: "skyline-social", name: "Skyline Social", neighborhood: "Navy Yard", address: null, photo: null, rating: 4.4, price: "$$", category: "Rooftops", tags: ["views", "social"], gradient: "from-sky-400 via-blue-600 to-indigo-800" },
-  { id: "sakura-garden", name: "Sakura Garden", neighborhood: "Penn Quarter", address: null, photo: null, rating: 4.9, price: "$$", category: "Dining", tags: ["omakase", "garden"], aiPick: true, gradient: "from-pink-300 via-rose-400 to-fuchsia-600" },
-  { id: "brass-and-bone", name: "Brass & Bone", neighborhood: "Adams Morgan", address: null, photo: null, rating: 4.3, price: "$$", category: "Nightlife", tags: ["dance", "late-night"], gradient: "from-yellow-500 via-amber-700 to-stone-900" },
-  { id: "luna-terrace", name: "Luna Terrace", neighborhood: "Georgetown", address: null, photo: null, rating: 4.7, price: "$$", category: "Cocktails", tags: ["lunar", "patio"], gradient: "from-indigo-400 via-violet-600 to-purple-900" },
+  { id: "velvet-terrace", name: "Velvet Terrace", neighborhood: "Dupont Circle", address: null, photo: null, rating: 4.8, price: "$$", category: "Rooftops", tags: ["rooftop", "sunset"], aiPick: true, gradient: "from-rose-400 via-fuchsia-500 to-indigo-600", coords: { x: 38, y: 42 } },
+  { id: "noir-lounge", name: "Noir Lounge", neighborhood: "Shaw", address: null, photo: null, rating: 4.6, price: "$$", category: "Cocktails", tags: ["speakeasy", "moody"], gradient: "from-slate-800 via-purple-900 to-zinc-900", coords: { x: 52, y: 46 } },
+  { id: "ember-kitchen", name: "Ember Kitchen", neighborhood: "Logan Circle", address: null, photo: null, rating: 4.7, price: "$$", category: "Dining", tags: ["wood-fired", "seasonal"], aiPick: true, gradient: "from-amber-500 via-orange-600 to-rose-700", coords: { x: 48, y: 40 } },
+  { id: "the-vinyl-room", name: "The Vinyl Room", neighborhood: "U Street", address: null, photo: null, rating: 4.5, price: "$", category: "Live Music", tags: ["jazz", "vinyl"], gradient: "from-emerald-600 via-teal-700 to-slate-900", coords: { x: 46, y: 34 } },
+  { id: "skyline-social", name: "Skyline Social", neighborhood: "Navy Yard", address: null, photo: null, rating: 4.4, price: "$$", category: "Rooftops", tags: ["views", "social"], gradient: "from-sky-400 via-blue-600 to-indigo-800", coords: { x: 64, y: 68 } },
+  { id: "sakura-garden", name: "Sakura Garden", neighborhood: "Penn Quarter", address: null, photo: null, rating: 4.9, price: "$$", category: "Dining", tags: ["omakase", "garden"], aiPick: true, gradient: "from-pink-300 via-rose-400 to-fuchsia-600", coords: { x: 54, y: 56 } },
+  { id: "brass-and-bone", name: "Brass & Bone", neighborhood: "Adams Morgan", address: null, photo: null, rating: 4.3, price: "$$", category: "Nightlife", tags: ["dance", "late-night"], gradient: "from-yellow-500 via-amber-700 to-stone-900", coords: { x: 40, y: 28 } },
+  { id: "luna-terrace", name: "Luna Terrace", neighborhood: "Georgetown", address: null, photo: null, rating: 4.7, price: "$$", category: "Cocktails", tags: ["lunar", "patio"], gradient: "from-indigo-400 via-violet-600 to-purple-900", coords: { x: 22, y: 50 } },
 ];
 
 function DiscoverPage() {
@@ -253,90 +251,107 @@ function DiscoverPage() {
 
 function DiscoverMap({ rows }: { rows: VenueRow[] }) {
   const [selected, setSelected] = useState<VenueRow | null>(null);
-  if (!GOOGLE_MAPS_API_KEY) {
-    return (
-      <div className="grid h-[60vh] place-items-center rounded-2xl border-2 border-ink bg-cream text-sm text-muted-foreground">
-        Map unavailable
-      </div>
-    );
-  }
+  // Spread out venues without coords on a soft grid so the map always has pins.
+  const pinned = useMemo(() => {
+    return rows.map((r, i) => {
+      if (r.coords) return { row: r, x: r.coords.x, y: r.coords.y };
+      const cols = 4;
+      const col = i % cols;
+      const rowIdx = Math.floor(i / cols);
+      return { row: r, x: 18 + col * 20, y: 22 + rowIdx * 18 };
+    });
+  }, [rows]);
+
   return (
-    <div className="relative h-[70vh] overflow-hidden rounded-3xl border-2 border-ink bg-cream shadow-brut">
-      <Map
-        defaultZoom={12}
-        defaultCenter={{ lat: 38.9072, lng: -77.0369 }}
-        gestureHandling="greedy"
-        disableDefaultUI={false}
-        mapTypeControl={false}
-        streetViewControl={false}
-        fullscreenControl={false}
-        styles={confettiMapStyle}
-        clickableIcons={false}
-        className="h-full w-full"
+    <div className="relative h-[70vh] overflow-hidden rounded-3xl border border-white/40 bg-gradient-to-br from-cream/90 via-white/60 to-coral/10 shadow-card backdrop-blur-xl">
+      {/* Stylized DC map placeholder */}
+      <svg
+        className="absolute inset-0 h-full w-full"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        aria-hidden
       >
-        <DiscoverMarkers rows={rows} onSelect={setSelected} />
-      </Map>
+        <defs>
+          <linearGradient id="river" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#9ec9e8" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#6fa8d6" stopOpacity="0.7" />
+          </linearGradient>
+          <pattern id="grid" width="6" height="6" patternUnits="userSpaceOnUse">
+            <path d="M6 0H0V6" fill="none" stroke="rgba(26,20,16,0.06)" strokeWidth="0.2" />
+          </pattern>
+        </defs>
+        <rect width="100" height="100" fill="url(#grid)" />
+        {/* Potomac river curve */}
+        <path d="M0 78 C 20 70, 30 60, 18 48 C 8 38, 12 22, 0 14 L 0 100 Z" fill="url(#river)" />
+        {/* Anacostia */}
+        <path d="M58 100 C 62 86, 78 78, 100 76 L 100 100 Z" fill="url(#river)" opacity="0.85" />
+        {/* Parks / green */}
+        <ellipse cx="46" cy="60" rx="6" ry="3.5" fill="#bcd6a5" opacity="0.55" />
+        <ellipse cx="70" cy="36" rx="9" ry="4" fill="#bcd6a5" opacity="0.45" />
+        {/* Avenues */}
+        <g stroke="rgba(26,20,16,0.18)" strokeWidth="0.35" fill="none">
+          <line x1="0" y1="50" x2="100" y2="50" />
+          <line x1="50" y1="0" x2="50" y2="100" />
+          <line x1="0" y1="0" x2="100" y2="100" />
+          <line x1="100" y1="0" x2="0" y2="100" />
+          <circle cx="50" cy="50" r="3" />
+        </g>
+      </svg>
+
+      {/* Aurora glow */}
+      <div className="pointer-events-none absolute -left-10 top-10 h-48 w-48 rounded-full bg-coral/25 blur-3xl" />
+      <div className="pointer-events-none absolute right-0 bottom-0 h-56 w-56 rounded-full bg-violet-400/25 blur-3xl" />
+
+      {/* Compass / legend */}
+      <div className="absolute left-3 top-3 z-20 rounded-full border border-white/50 bg-white/70 px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/70 shadow-card backdrop-blur">
+        Washington · DC
+      </div>
+      <div className="absolute right-3 top-3 z-20 grid h-9 w-9 place-items-center rounded-full border border-white/50 bg-white/70 font-mono text-[9px] font-bold text-ink shadow-card backdrop-blur">
+        N↑
+      </div>
+
+      {/* Pins */}
+      {pinned.map(({ row, x, y }) => {
+        const active = selected?.id === row.id;
+        return (
+          <button
+            key={row.id}
+            type="button"
+            onClick={() => setSelected(row)}
+            className="group absolute z-10 -translate-x-1/2 -translate-y-full focus:outline-none"
+            style={{ left: `${x}%`, top: `${y}%` }}
+            aria-label={`Show ${row.name}`}
+          >
+            <span className="relative block">
+              {(row.aiPick || active) && (
+                <span className="absolute inset-0 -m-1 animate-ping rounded-full bg-coral/40" />
+              )}
+              <span
+                className={`relative grid h-8 w-8 place-items-center rounded-full border-2 shadow-card transition ${
+                  active
+                    ? "scale-110 border-ink bg-ink text-cream"
+                    : row.aiPick
+                      ? "border-white bg-gradient-to-br from-coral to-rose-500 text-white"
+                      : "border-white bg-white/90 text-ink"
+                }`}
+              >
+                {row.aiPick ? (
+                  <Sparkles className="h-3.5 w-3.5" />
+                ) : (
+                  <MapPin className="h-3.5 w-3.5" />
+                )}
+              </span>
+              <span className="absolute left-1/2 top-full mt-1 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/60 bg-white/85 px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest text-ink/80 shadow-card backdrop-blur opacity-0 transition group-hover:opacity-100">
+                {row.name}
+              </span>
+            </span>
+          </button>
+        );
+      })}
+
       {selected ? <SelectedCard row={selected} onClose={() => setSelected(null)} /> : null}
     </div>
   );
-}
-
-function DiscoverMarkers({
-  rows,
-  onSelect,
-}: {
-  rows: VenueRow[];
-  onSelect: (row: VenueRow) => void;
-}) {
-  const map = useMap();
-  const markersRef = useRef<google.maps.Marker[]>([]);
-  const inputs = useMemo(
-    () =>
-      rows.map((r) => ({
-        id: r.id,
-        query: r.address || `${r.name}, ${r.neighborhood ?? "Washington, DC"}`,
-      })),
-    [rows]
-  );
-  const points = useGeocodedPoints(inputs);
-
-  useEffect(() => {
-    if (!map) return;
-    markersRef.current.forEach((m) => m.setMap(null));
-    markersRef.current = [];
-    if (points.length === 0) return;
-
-    rows.forEach((row) => {
-      const pt = points.find((p) => p.id === row.id);
-      if (!pt) return;
-      const marker = new google.maps.Marker({
-        position: { lat: pt.lat, lng: pt.lng },
-        map,
-        icon: {
-          path: google.maps.SymbolPath.CIRCLE,
-          scale: 9,
-          fillColor: "#F05537",
-          fillOpacity: 1,
-          strokeColor: "#1A1410",
-          strokeWeight: 2,
-        },
-        title: row.name,
-      });
-      marker.addListener("click", () => onSelect(row));
-      markersRef.current.push(marker);
-    });
-
-    const bounds = new google.maps.LatLngBounds();
-    points.forEach((p) => bounds.extend({ lat: p.lat, lng: p.lng }));
-    if (!bounds.isEmpty()) map.fitBounds(bounds, { top: 60, right: 40, bottom: 80, left: 40 });
-
-    return () => {
-      markersRef.current.forEach((m) => m.setMap(null));
-      markersRef.current = [];
-    };
-  }, [map, points, rows, onSelect]);
-
-  return null;
 }
 
 function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) {

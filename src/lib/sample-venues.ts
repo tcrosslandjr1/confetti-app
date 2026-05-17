@@ -25,8 +25,10 @@ export type SampleVenue = {
   tags: string[];
   description: string;
   aiPick?: boolean;
-  /** Tailwind gradient classes used for the placeholder hero. */
+  /** Tailwind gradient classes used as a fallback shimmer behind the image. */
   gradient: string;
+  /** Real photo background for cards and detail hero. */
+  imageUrl: string;
   /** Approx position on the /discover map placeholder, % of container. */
   coords: { x: number; y: number };
 };

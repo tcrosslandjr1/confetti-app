@@ -547,6 +547,22 @@ function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) 
       >
         Search on Instagram
       </a>
+      <a
+        href={`https://www.youtube.com/results?search_query=${encodeURIComponent(row.name)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-1 inline-flex items-center gap-1 text-xs text-coral underline underline-offset-2"
+      >
+        Search on YouTube
+      </a>
+      <a
+        href={`https://www.facebook.com/search/top?q=${encodeURIComponent(row.name)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-1 inline-flex items-center gap-1 text-xs text-coral underline underline-offset-2"
+      >
+        Search on Facebook
+      </a>
     </div>
   );
 }

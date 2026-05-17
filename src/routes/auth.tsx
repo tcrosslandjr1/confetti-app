@@ -558,7 +558,7 @@ function AuthPage() {
               value={refCode}
               onChange={(e) => setRefCode(e.target.value.toUpperCase())}
               placeholder="Referral code (optional) — get $25 off your first booking"
-              className="w-full rounded-2xl border border-border bg-card px-4 py-4 text-sm font-mono uppercase tracking-wider outline-none ring-ring/30 focus:ring-2"
+              className="w-full rounded-2xl border-2 border-ink/40 bg-cream/60 px-4 py-4 text-sm font-mono font-semibold uppercase tracking-wider text-ink placeholder:text-ink/40 outline-none focus:border-ink focus:bg-cream focus:ring-2 focus:ring-coral/40 transition"
             />
           )}
           {error && (

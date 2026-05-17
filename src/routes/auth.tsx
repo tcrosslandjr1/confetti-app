@@ -252,7 +252,7 @@ function AuthPage() {
 
           {/* Inner ticker strip */}
           <div className="absolute inset-x-6 top-6 -z-10 h-8 overflow-hidden rounded-t-[2.5rem] border-b-2 border-ink/30 bg-cream/90">
-            <div className="flex h-full animate-[marquee-x_22s_linear_infinite] items-center whitespace-nowrap font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-ink">
+            <div className="flex h-full animate-[marquee-x_22s_linear_infinite] items-center whitespace-nowrap px-12 font-mono text-[10px] font-bold uppercase leading-none tracking-[0.25em] text-ink">
               <span className="px-4">★ tonight, sorted</span>
               <span className="px-4 text-coral">//</span>
               <span className="px-4">40+ cities</span>

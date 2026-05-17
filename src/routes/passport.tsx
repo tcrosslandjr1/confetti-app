@@ -648,7 +648,7 @@ function PassportPage() {
                       return (
                         <button
                           type="button"
-                          disabled={!can || isClaimed}
+                          disabled={!can || isClaimed || !!pending}
                           onClick={() => setPending(r)}
                           className="shrink-0 rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-40 disabled:shadow-none"
                         >

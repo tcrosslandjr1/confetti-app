@@ -455,6 +455,33 @@ export type Database = {
         }
         Relationships: []
       }
+      confetti_ledger: {
+        Row: {
+          amount: number
+          created_at: string
+          id: string
+          reason: string
+          reference_id: string | null
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          id?: string
+          reason: string
+          reference_id?: string | null
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          id?: string
+          reason?: string
+          reference_id?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       confetti_purchases: {
         Row: {
           advertiser_id: string
@@ -952,6 +979,7 @@ export type Database = {
           event_id: string
           id: string
           metadata: Json
+          qr_token: string | null
           quantity: number
           status: string
           stripe_payment_intent_id: string | null
@@ -968,6 +996,7 @@ export type Database = {
           event_id: string
           id?: string
           metadata?: Json
+          qr_token?: string | null
           quantity?: number
           status?: string
           stripe_payment_intent_id?: string | null
@@ -984,6 +1013,7 @@ export type Database = {
           event_id?: string
           id?: string
           metadata?: Json
+          qr_token?: string | null
           quantity?: number
           status?: string
           stripe_payment_intent_id?: string | null
@@ -1747,30 +1777,36 @@ export type Database = {
       }
       profiles: {
         Row: {
+          confetti_pts: number
           created_at: string
           display_name: string | null
           id: string
           level: number
           onboarding_complete: boolean
           updated_at: string
+          vip_until: string | null
           xp: number
         }
         Insert: {
+          confetti_pts?: number
           created_at?: string
           display_name?: string | null
           id: string
           level?: number
           onboarding_complete?: boolean
           updated_at?: string
+          vip_until?: string | null
           xp?: number
         }
         Update: {
+          confetti_pts?: number
           created_at?: string
           display_name?: string | null
           id?: string
           level?: number
           onboarding_complete?: boolean
           updated_at?: string
+          vip_until?: string | null
           xp?: number
         }
         Relationships: []
@@ -2493,11 +2529,13 @@ export type Database = {
           current_period_start: string | null
           environment: string
           id: string
+          pending_price_id: string | null
           price_id: string
           product_id: string
           status: string
           stripe_customer_id: string
           stripe_subscription_id: string
+          tier: string | null
           updated_at: string | null
           user_id: string
         }
@@ -2509,11 +2547,13 @@ export type Database = {
           current_period_start?: string | null
           environment?: string
           id?: string
+          pending_price_id?: string | null
           price_id: string
           product_id: string
           status?: string
           stripe_customer_id: string
           stripe_subscription_id: string
+          tier?: string | null
           updated_at?: string | null
           user_id: string
         }
@@ -2525,11 +2565,13 @@ export type Database = {
           current_period_start?: string | null
           environment?: string
           id?: string
+          pending_price_id?: string | null
           price_id?: string
           product_id?: string
           status?: string
           stripe_customer_id?: string
           stripe_subscription_id?: string
+          tier?: string | null
           updated_at?: string | null
           user_id?: string
         }
@@ -3426,6 +3468,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      award_confetti_pts: {
+        Args: { _amount: number; _reason: string; _ref?: string; _user: string }
+        Returns: undefined
+      }
       blocked_place_ids_for_city: {
         Args: { _city: string }
         Returns: {

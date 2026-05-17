@@ -189,7 +189,16 @@ function DiscoverPage() {
 
         <div className="mt-4 inline-flex rounded-full border-2 border-ink bg-cream p-1 shadow-brut">
           <button
-            onClick={() => setView("list")}
+            onClick={() =>
+              navigate({
+                search: (prev: { view?: string; venueId?: string }) => ({
+                  ...prev,
+                  view: "list",
+                  venueId: undefined,
+                }),
+                replace: true,
+              })
+            }
             className={`inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition ${
               view === "list" ? "bg-ink text-cream" : "text-ink/70"
             }`}
@@ -197,7 +206,15 @@ function DiscoverPage() {
             <LayoutList className="h-3.5 w-3.5" /> List
           </button>
           <button
-            onClick={() => setView("map")}
+            onClick={() =>
+              navigate({
+                search: (prev: { view?: string; venueId?: string }) => ({
+                  ...prev,
+                  view: "map",
+                }),
+                replace: true,
+              })
+            }
             className={`inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition ${
               view === "map" ? "bg-ink text-cream" : "text-ink/70"
             }`}

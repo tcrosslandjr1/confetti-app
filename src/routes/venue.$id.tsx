@@ -193,7 +193,7 @@ function VenueBookingPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-cream">
       <AuroraBackground />
-      <StepHeader step={step} onBack={() => (step === 1 ? window.history.back() : go((step - 1) as 1 | 2 | 3))} />
+      <StepHeader step={step} onBack={() => (step === 1 ? backToDiscover() : go((step - 1) as 1 | 2 | 3))} />
 
       <div className="relative mx-auto max-w-2xl px-4 pb-32 pt-2 sm:px-6">
         <div key={step} className={dir === 1 ? "animate-[slide-in-right_.32s_ease-out]" : "animate-[fade-in_.32s_ease-out]"}>

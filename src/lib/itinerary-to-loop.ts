@@ -81,6 +81,7 @@ export function itineraryToActiveLoop(
     rationale: s.tips?.[0],
     done: !!s.completed_at,
     checkedInAt: s.completed_at ?? undefined,
+    category: s.category,
   }));
 
   return {

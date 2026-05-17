@@ -22,7 +22,9 @@ import {
   Wand2,
   Loader2,
   Sliders,
+  LayoutDashboard,
 } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import {
   getMyReferralStats,
@@ -307,86 +309,162 @@ function PortalDiscoverPage() {
         </div>
       </header>
 
-      {/* (Top stats moved to /portal/profile) */}
+      <Tabs defaultValue="dashboard" className="w-full">
+        <TabsList className="grid w-full grid-cols-3 rounded-2xl border-2 border-ink bg-cream p-1 shadow-brut sm:inline-grid sm:w-auto">
+          <TabsTrigger
+            value="dashboard"
+            className="gap-2 rounded-xl font-display font-bold uppercase tracking-wide data-[state=active]:bg-ink data-[state=active]:text-cream"
+          >
+            <LayoutDashboard className="h-4 w-4" /> Dashboard
+          </TabsTrigger>
+          <TabsTrigger
+            value="bookings"
+            className="gap-2 rounded-xl font-display font-bold uppercase tracking-wide data-[state=active]:bg-ink data-[state=active]:text-cream"
+          >
+            <CalendarCheck className="h-4 w-4" /> Bookings
+          </TabsTrigger>
+          <TabsTrigger
+            value="rewards"
+            className="gap-2 rounded-xl font-display font-bold uppercase tracking-wide data-[state=active]:bg-ink data-[state=active]:text-cream"
+          >
+            <Trophy className="h-4 w-4" /> Rewards
+          </TabsTrigger>
+        </TabsList>
 
-      {/* In-app widgets */}
-      {user && (
-        <section aria-labelledby="widgets-heading" className="space-y-3">
-          <div className="flex items-end justify-between gap-3">
-            <div>
-              <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                Your dashboard
-              </p>
-              <h2 id="widgets-heading" className="font-display text-2xl font-bold">
-                Widgets
-              </h2>
+        {/* ----- DASHBOARD TAB ----- */}
+        <TabsContent value="dashboard" className="mt-6 space-y-10">
+          {user && (
+            <section aria-labelledby="widgets-heading" className="space-y-3">
+              <div className="flex items-end justify-between gap-3">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                    Your dashboard
+                  </p>
+                  <h2 id="widgets-heading" className="font-display text-2xl font-bold">
+                    Widgets
+                  </h2>
+                </div>
+                <Link
+                  to="/portal/profile"
+                  className="font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground hover:text-foreground"
+                >
+                  Customize →
+                </Link>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                <TonightAtAGlance />
+                <NextBookingCountdown />
+                <ConciergeQuickAsk />
+                <SpendBudgetTracker />
+                <XpProgressWidget />
+                <SavedSpotsWidget />
+                <TrendingNearYouWidget />
+              </div>
+            </section>
+          )}
+
+          {user && (
+            <NextSteps
+              hasUpcoming={bookingTotals.upcoming > 0}
+              hasReferred={refStats.signedUp > 0}
+              unlocked={unlockedCount}
+              totalAch={achievements.length}
+            />
+          )}
+
+          {user && (
+            <div className="space-y-2">
+              <ActivityFeed title="Recent group activity" className="bg-cream" limit={8} />
+              <div className="flex justify-end">
+                <Link
+                  to="/portal/activity"
+                  className="inline-flex items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-widest text-coral hover:text-ink"
+                >
+                  View full log →
+                </Link>
+              </div>
             </div>
-            <Link
-              to="/portal/profile"
-              className="font-mono text-[10px] font-bold uppercase tracking-widest text-muted-foreground hover:text-foreground"
-            >
-              Customize →
-            </Link>
+          )}
+
+          <ViralNow city="Washington DC" />
+
+          <PromotedSlot placement="home_spotlight" surface="portal_home" variant="spotlight" />
+
+          <NearbyVenues />
+
+          <PromotedSlot
+            placement="featured_card"
+            surface="portal_promoted_rail"
+            variant="rail"
+            title="Promoted picks near you"
+          />
+
+          {featured.length > 0 && (
+            <section>
+              <h2 className="mb-4 font-display text-2xl font-bold">Editor's picks</h2>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {featured
+                  .filter((f) => f.venues)
+                  .map((f) => (
+                    <FeaturedCard
+                      key={f.id}
+                      venue={f.venues!}
+                      title={f.title}
+                      subtitle={f.subtitle}
+                    />
+                  ))}
+              </div>
+            </section>
+          )}
+
+          <section>
+            <div className="mb-4 flex items-baseline justify-between">
+              <h2 className="font-display text-2xl font-bold">Fresh on Concierge</h2>
+              <Link
+                to="/portal/bookings"
+                className="text-sm font-semibold text-primary hover:underline"
+              >
+                Book a spot →
+              </Link>
+            </div>
+            {venues.length === 0 ? (
+              <p className="rounded-2xl border border-dashed border-border bg-cream/50 p-8 text-center text-sm text-muted-foreground">
+                No venues yet. Check back soon.
+              </p>
+            ) : (
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {venues.map((v) => (
+                  <VenueCard key={v.id} v={v} />
+                ))}
+              </div>
+            )}
+          </section>
+        </TabsContent>
+
+        {/* ----- BOOKINGS TAB ----- */}
+        <TabsContent value="bookings" className="mt-6 space-y-6">
+          <div className="grid gap-3 sm:grid-cols-3">
+            <QuickAction
+              to="/portal/bookings"
+              icon={CalendarCheck}
+              label="All bookings"
+              hint="Upcoming & past"
+            />
+            <QuickAction
+              to="/concierge/chat"
+              icon={MessageCircle}
+              label="Ask Concierge"
+              hint="Plan a new night"
+            />
+            <QuickAction
+              to="/portal/saved"
+              icon={Bookmark}
+              label="Saved spots"
+              hint="Your wishlist"
+            />
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            <TonightAtAGlance />
-            <NextBookingCountdown />
-            <ConciergeQuickAsk />
-            <SpendBudgetTracker />
-            <XpProgressWidget />
-            <SavedSpotsWidget />
-            <TrendingNearYouWidget />
-          </div>
-        </section>
-      )}
 
-      {/* Personalized next-best-actions */}
-      {user && (
-        <NextSteps
-          hasUpcoming={bookingTotals.upcoming > 0}
-          hasReferred={refStats.signedUp > 0}
-          unlocked={unlockedCount}
-          totalAch={achievements.length}
-        />
-      )}
-
-      {user && (
-        <div className="space-y-2">
-          <ActivityFeed title="Recent group activity" className="bg-cream" limit={8} />
-          <div className="flex justify-end">
-            <Link
-              to="/portal/activity"
-              className="inline-flex items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-widest text-coral hover:text-ink"
-            >
-              View full log →
-            </Link>
-          </div>
-        </div>
-      )}
-
-      <ViralNow city="Washington DC" />
-
-      <div className="grid gap-3 sm:grid-cols-3">
-        <QuickAction
-          to="/concierge/chat"
-          icon={MessageCircle}
-          label="Ask Concierge"
-          hint="AI-powered planning"
-        />
-        <QuickAction
-          to="/portal/bookings"
-          icon={CalendarCheck}
-          label="My Bookings"
-          hint="Upcoming & past"
-        />
-        <QuickAction to="/portal/saved" icon={Bookmark} label="Saved Spots" hint="Your wishlist" />
-      </div>
-
-      {/* Dashboard grid + progress sidebar */}
-      {user && (
-        <div className="grid gap-6 lg:grid-cols-4 lg:items-start">
-          <section className="grid gap-6 sm:grid-cols-2 lg:col-span-3 lg:order-1">
-            {/* Bookings */}
+          {user && (
             <DashCard
               title="Upcoming bookings"
               actionLabel="See all"
@@ -422,99 +500,67 @@ function PortalDiscoverPage() {
                 </ul>
               )}
             </DashCard>
+          )}
+        </TabsContent>
 
-            {/* Referrals */}
-            <DashCard
-              title="Your referrals"
-              actionLabel="Invite & leaderboard"
-              actionTo="/portal/refer"
-              icon={Users}
-            >
-              <div className="grid grid-cols-3 gap-2 text-center">
-                <MiniStat label="Invited" value={refStats.invited} />
-                <MiniStat label="Joined" value={refStats.signedUp} />
-                <MiniStat label="Completed" value={refStats.completed} />
-              </div>
-              <div className="mt-3 rounded-xl border border-dashed border-border bg-background/40 p-3">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="min-w-0">
-                    <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
-                      Earned
-                    </div>
-                    <div className="font-display text-lg font-bold">
-                      ${(refStats.earnedCents / 100).toFixed(0)}
-                    </div>
-                  </div>
-                  <Gift className="h-5 w-5 text-primary" />
+        {/* ----- REWARDS TAB ----- */}
+        <TabsContent value="rewards" className="mt-6 space-y-6">
+          {user && (
+            <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
+              <DashCard
+                title="Your referrals"
+                actionLabel="Invite & leaderboard"
+                actionTo="/portal/refer"
+                icon={Users}
+              >
+                <div className="grid grid-cols-3 gap-2 text-center">
+                  <MiniStat label="Invited" value={refStats.invited} />
+                  <MiniStat label="Joined" value={refStats.signedUp} />
+                  <MiniStat label="Completed" value={refStats.completed} />
                 </div>
-                {referralLink && (
-                  <div
-                    className="mt-2 truncate font-mono text-[11px] text-muted-foreground"
-                    title={referralLink}
-                  >
-                    {referralCode ? `Code: ${referralCode}` : referralLink}
+                <div className="mt-3 rounded-xl border border-dashed border-border bg-background/40 p-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="min-w-0">
+                      <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+                        Earned
+                      </div>
+                      <div className="font-display text-lg font-bold">
+                        ${(refStats.earnedCents / 100).toFixed(0)}
+                      </div>
+                    </div>
+                    <Gift className="h-5 w-5 text-primary" />
                   </div>
-                )}
-              </div>
-            </DashCard>
-          </section>
+                  {referralLink && (
+                    <div
+                      className="mt-2 truncate font-mono text-[11px] text-muted-foreground"
+                      title={referralLink}
+                    >
+                      {referralCode ? `Code: ${referralCode}` : referralLink}
+                    </div>
+                  )}
+                </div>
+              </DashCard>
 
-          {/* Right sidebar: weekly challenge — stats moved to /portal/profile */}
-          <aside
-            aria-label="Your progress"
-            className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:order-2 lg:col-span-1 lg:grid-cols-1 lg:sticky lg:top-24 lg:self-start"
-          >
-            <WeeklyChallenge bookings={bookingTotals.upcoming} referrals={refStats.signedUp} />
-          </aside>
-        </div>
-      )}
+              <WeeklyChallenge bookings={bookingTotals.upcoming} referrals={refStats.signedUp} />
+            </div>
+          )}
 
-      <PromotedSlot placement="home_spotlight" surface="portal_home" variant="spotlight" />
-
-      <NearbyVenues />
-
-      <PromotedSlot
-        placement="featured_card"
-        surface="portal_promoted_rail"
-        variant="rail"
-        title="Promoted picks near you"
-      />
-
-      {featured.length > 0 && (
-        <section>
-          <h2 className="mb-4 font-display text-2xl font-bold">Editor's picks</h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {featured
-              .filter((f) => f.venues)
-              .map((f) => (
-                <FeaturedCard key={f.id} venue={f.venues!} title={f.title} subtitle={f.subtitle} />
-              ))}
+          <div className="grid gap-3 sm:grid-cols-2">
+            <QuickAction
+              to="/concierge/passport"
+              icon={Trophy}
+              label="Passport & badges"
+              hint={`${unlockedCount}/${achievements.length} unlocked`}
+            />
+            <QuickAction
+              to="/portal/refer"
+              icon={Gift}
+              label="Refer & earn"
+              hint="Invite friends, earn Confetti"
+            />
           </div>
-        </section>
-      )}
-
-      <section>
-        <div className="mb-4 flex items-baseline justify-between">
-          <h2 className="font-display text-2xl font-bold">Fresh on Concierge</h2>
-          <Link
-            to="/portal/bookings"
-            className="text-sm font-semibold text-primary hover:underline"
-          >
-            Book a spot →
-          </Link>
-        </div>
-        {venues.length === 0 ? (
-          <p className="rounded-2xl border border-dashed border-border bg-cream/50 p-8 text-center text-sm text-muted-foreground">
-            No venues yet. Check back soon.
-          </p>
-        ) : (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {venues.map((v) => (
-              <VenueCard key={v.id} v={v} />
-            ))}
-          </div>
-        )}
-      </section>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }

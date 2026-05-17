@@ -23,7 +23,7 @@ function RotatingTagline({ className = "" }: { className?: string }) {
     return () => window.clearInterval(id);
   }, []);
   return (
-    <span className={`ml-2 hidden h-7 items-center gap-2 border-2 border-ink bg-white px-2.5 shadow-brut sm:ml-3 sm:h-8 sm:px-3 lg:inline-flex ${className}`}>
+    <span className={`hidden h-8 shrink-0 items-center gap-2 border-2 border-ink bg-white px-3 shadow-brut min-[1600px]:inline-flex ${className}`}>
       <span className="relative inline-flex h-2 w-2">
         <span className="absolute inset-0 animate-ping rounded-full bg-coral/70" />
         <span className="relative inline-block h-2 w-2 rounded-full bg-coral" />
@@ -64,14 +64,14 @@ export function SiteHeader() {
       data-scrolled={scrolled || undefined}
       className="sticky top-0 z-40 border-b-2 border-ink bg-cream transition-shadow duration-200 data-[scrolled]:shadow-brut"
     >
-      <div className="mx-auto flex h-14 max-w-7xl items-center gap-3 px-3 sm:h-16 sm:gap-6 sm:px-6 lg:px-8">
-        <Link to="/" className="group flex items-center gap-[2px] min-w-0" aria-label="confetti — home">
+      <div className="mx-auto flex h-14 max-w-7xl items-center gap-3 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:gap-6 lg:px-8">
+        <Link to="/" className="group flex shrink-0 items-center gap-[2px]" aria-label="confetti — home">
           <span className="font-display text-xl font-extrabold leading-none tracking-tight text-ink sm:text-2xl">
             confetti
           </span>
           <span className="font-serif text-xl italic leading-none text-coral sm:text-2xl">.</span>
-          <RotatingTagline />
         </Link>
+        <RotatingTagline />
 
         <nav className="ml-2 hidden items-center gap-0.5 md:flex lg:ml-4 lg:gap-1">
           {marketingLinks.map((l) => (
@@ -109,7 +109,7 @@ export function SiteHeader() {
           {isVisitor ? (
             <Link
               to="/auth"
-              className="hidden h-10 items-center rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg sm:inline-flex"
+              className="hidden h-10 items-center whitespace-nowrap rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg sm:inline-flex"
             >
               Sign up free
             </Link>
@@ -118,7 +118,7 @@ export function SiteHeader() {
               <NotificationsBell />
               <button
                 onClick={() => void signOut()}
-                className="hidden h-10 items-center rounded-full px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink sm:flex"
+                className="hidden h-10 items-center whitespace-nowrap px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink sm:flex"
               >
                 Sign out
               </button>
@@ -126,7 +126,7 @@ export function SiteHeader() {
           )}
           <WizardButton
             ariaLabel="Build a night"
-            className="hidden h-10 items-center gap-1 rounded-full border-2 border-ink bg-ink px-4 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg sm:inline-flex"
+            className="hidden h-10 items-center gap-1 whitespace-nowrap rounded-full border-2 border-ink bg-ink px-4 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg sm:inline-flex"
           >
             Build a night ↗
           </WizardButton>

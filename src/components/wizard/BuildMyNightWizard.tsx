@@ -1397,19 +1397,22 @@ export function BuildMyNightWizard() {
     burst(e.clientX, e.clientY);
     const existing = getActiveLoop();
     const newStop = wizardStopToLoopStop(stop, existing?.stops.length ?? 0);
+    let nextStops = 1;
     if (existing) {
       const dup = existing.stops.some(
         (s) => (s.venueId && s.venueId === newStop.venueId) || s.name === newStop.name,
       );
       if (dup) {
-        toast.info(`${stop.venue} is already on your boarding pass.`);
+        toast.info(`${stop.venue} is already on your boarding pass — opening it.`);
+        setTimeout(() => {
+          closeWizard();
+          navigate({ to: "/boarding-pass" });
+        }, 200);
         return;
       }
       const next: ActiveLoop = { ...existing, stops: [...existing.stops, newStop] };
       setActiveLoop(next);
-      toast.success(`Added ${stop.venue} to boarding pass`, {
-        description: `${next.stops.length} stops total`,
-      });
+      nextStops = next.stops.length;
     } else {
       const loop = makeDemoLoop({
         passenger: user?.email?.split("@")[0]?.toUpperCase() ?? "GUEST",
@@ -1419,10 +1422,14 @@ export function BuildMyNightWizard() {
         stops: [newStop],
       });
       setActiveLoop(loop);
-      toast.success(`Added ${stop.venue} to boarding pass`, {
-        description: "New trip created",
-      });
     }
+    toast.success(`Added ${stop.venue}`, {
+      description: `${nextStops} stop${nextStops === 1 ? "" : "s"} · opening boarding pass…`,
+    });
+    setTimeout(() => {
+      closeWizard();
+      navigate({ to: "/boarding-pass" });
+    }, 350);
   }
 
 

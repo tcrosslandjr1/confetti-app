@@ -69,7 +69,7 @@ function TabItem({
 }) {
   if (prominent) {
     return (
-      <div className="relative -top-6">
+      <div className="relative -top-6 flex flex-col items-center">
         <Link
           to={to}
           aria-labelledby={labelId}
@@ -79,12 +79,12 @@ function TabItem({
           <motion.span
             whileTap={{ scale: 0.92, x: 2, y: 2 }}
             transition={{ type: "spring", stiffness: 500, damping: 22 }}
-            className={`grid h-16 w-16 place-items-center rounded-full border-2 border-ink bg-coral text-white shadow-[4px_4px_0px_0px_hsl(var(--ink))] transition-shadow duration-75 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none ${
+            className={`grid h-14 w-14 sm:h-16 sm:w-16 place-items-center rounded-full border-2 border-ink bg-coral text-white shadow-[4px_4px_0px_0px_hsl(var(--ink))] transition-shadow duration-75 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none ${
               active ? "ring-2 ring-coral ring-offset-2 ring-offset-cream" : ""
             }`}
           >
             <Icon
-              className="h-8 w-8"
+              className="h-7 w-7 sm:h-8 sm:w-8"
               strokeWidth={3}
               strokeLinecap="square"
               strokeLinejoin="miter"
@@ -94,7 +94,7 @@ function TabItem({
         </Link>
         <span
           id={labelId}
-          className={`pointer-events-none absolute -bottom-7 left-1/2 -translate-x-1/2 font-mono text-[10px] font-bold uppercase tracking-widest ${active ? "text-coral" : "text-ink"}`}
+          className={`mt-1 font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest whitespace-nowrap ${active ? "text-coral" : "text-ink"}`}
         >
           {label}
         </span>
@@ -106,7 +106,7 @@ function TabItem({
     <Link
       to={to}
       aria-current={active ? "page" : undefined}
-      className={`group flex flex-1 flex-col items-center justify-center gap-1 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream ${active ? "" : ""}`}
+      className="group flex flex-col items-center justify-center gap-0.5 rounded-lg py-1 min-h-[60px] min-w-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
     >
       <motion.span
         whileTap={{ scale: 0.88 }}
@@ -114,7 +114,7 @@ function TabItem({
         className={`p-1.5 transition-colors ${active ? "text-coral" : "text-ink"}`}
       >
         <Icon
-          className="h-6 w-6"
+          className="h-5 w-5 sm:h-6 sm:w-6"
           strokeWidth={2.5}
           strokeLinecap="square"
           strokeLinejoin="miter"
@@ -123,7 +123,7 @@ function TabItem({
       </motion.span>
       <span
         id={labelId}
-        className={`font-mono text-[10px] font-bold uppercase tracking-widest leading-none transition-colors ${active ? "text-coral" : "text-ink/60"}`}
+        className={`font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest leading-none whitespace-nowrap transition-colors ${active ? "text-coral" : "text-ink/60"}`}
       >
         {label}
       </span>
@@ -156,7 +156,7 @@ export function TabBar() {
             const active = match(pathname);
             const labelId = `${baseId}-tab-label-${i}`;
             return (
-              <div key={to} role="listitem" className="flex flex-1 justify-center">
+              <div key={to} role="listitem" className="flex flex-1 min-w-0 justify-center">
                 <TabItem
                   to={to}
                   label={label}

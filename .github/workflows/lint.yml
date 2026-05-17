@@ -10,24 +10,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+
       - run: bun install --frozen-lockfile
 
-      # ESLint — fails on duplicate imports, unused imports,
-      # restricted imports, and other style errors.
+      # Auto-fix formatting first, then check
+      - name: Prettier auto-fix
+        run: bun run format:write
+
+      - name: Check for formatting changes
+        id: prettier-changes
+        run: |
+          if [ -n "$(git diff --name-only)" ]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit formatting fixes
+        if: steps.prettier-changes.outputs.changes == 'true' && github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "style: auto-fix formatting with Prettier"
+          git push
+
+      # Now run ESLint after formatting is fixed
       - name: ESLint
         run: bun run lint
-
-      # Prettier — fails if any tracked file isn't formatted.
-      - name: Prettier
-        run: bun run format:check || bun run format:write
-
-      - name: Commit changes
-        run: |
-          git config user.name "GitHub Action"
-          git config user.email "action@github.com"
-          git add .
-          git commit -m "Auto-fix formatting issues using Prettier"
-          git push

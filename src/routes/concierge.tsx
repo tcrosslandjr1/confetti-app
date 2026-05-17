@@ -80,7 +80,9 @@ function ConciergeLayout() {
           </nav>
         </aside>
         <main className="min-w-0">
-          <Outlet />
+          <PullToRefresh onRefresh={triggerRefresh}>
+            <Outlet />
+          </PullToRefresh>
         </main>
       </div>
 

@@ -254,6 +254,22 @@ async function handleSubscriptionUpdated(subscription: any, env: StripeEnv) {
 
   await getSupabase().from('subscriptions').update(update)
     .eq('stripe_subscription_id', subscription.id).eq('environment', env);
+
+  // Recurring boost — extend target boost on each renewal (when status stays active)
+  const userId = subscription.metadata?.userId;
+  if (userId && PROMO_SPEC[priceId] && (subscription.status === 'active' || subscription.status === 'trialing')) {
+    const targetType = subscription.metadata?.targetType;
+    const targetId = subscription.metadata?.targetId;
+    if (targetType && targetId) {
+      await getSupabase().rpc('activate_boost', {
+        _target_type: targetType,
+        _target_id: targetId,
+        _duration: PROMO_SPEC[priceId].duration,
+        _tier: PROMO_SPEC[priceId].tier,
+        _sku: priceId,
+      });
+    }
+  }
 }
 
 async function handleSubscriptionDeleted(subscription: any, env: StripeEnv) {

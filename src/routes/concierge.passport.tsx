@@ -270,7 +270,7 @@ function Passport() {
           </div>
         </div>
         <div className="text-center">
-          <div className="font-display text-3xl font-extrabold text-coral">{totalXP}</div>
+          <div className="font-display text-3xl font-extrabold text-coral">{xp.toLocaleString()}</div>
           <div className="mt-1 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
             Total XP
           </div>

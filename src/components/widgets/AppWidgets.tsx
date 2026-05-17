@@ -528,7 +528,7 @@ export function ConciergeQuickAsk() {
           e.preventDefault();
           handoff(input);
         }}
-        className="flex items-center gap-2"
+        className="flex items-center gap-2 sm:gap-3"
       >
         <input
           value={input}
@@ -539,9 +539,12 @@ export function ConciergeQuickAsk() {
         <button
           type="submit"
           aria-label="Ask"
-          className="grid h-10 w-10 place-items-center rounded-full border-2 border-ink bg-ink text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut-lg"
+          className="flex h-10 shrink-0 items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-ink px-3 text-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut-lg sm:h-11 sm:px-4"
         >
           <Send className="h-4 w-4" />
+          <span className="hidden sm:inline font-mono text-[10px] font-bold uppercase tracking-widest">
+            Ask
+          </span>
         </button>
       </form>
       <div className="mt-3 flex flex-wrap gap-1.5">

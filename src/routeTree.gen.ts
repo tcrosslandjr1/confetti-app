@@ -92,6 +92,7 @@ import { Route as BusinessPricingRouteImport } from './routes/business.pricing'
 import { Route as BusinessLoginRouteImport } from './routes/business.login'
 import { Route as BusinessDashboardRouteImport } from './routes/business.dashboard'
 import { Route as BusinessClaimRouteImport } from './routes/business.claim'
+import { Route as ApiPlanRouteImport } from './routes/api/plan'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdvertisePortalRouteImport } from './routes/advertise.portal'
 import { Route as AdminWalletDebugRouteImport } from './routes/admin.wallet-debug'
@@ -547,6 +548,11 @@ const BusinessClaimRoute = BusinessClaimRouteImport.update({
   path: '/business/claim',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPlanRoute = ApiPlanRouteImport.update({
+  id: '/api/plan',
+  path: '/api/plan',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -818,6 +824,7 @@ export interface FileRoutesByFullPath {
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
+  '/api/plan': typeof ApiPlanRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
@@ -936,6 +943,7 @@ export interface FileRoutesByTo {
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
+  '/api/plan': typeof ApiPlanRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
@@ -1061,6 +1069,7 @@ export interface FileRoutesById {
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
+  '/api/plan': typeof ApiPlanRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
@@ -1187,6 +1196,7 @@ export interface FileRouteTypes {
     | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
+    | '/api/plan'
     | '/business/claim'
     | '/business/dashboard'
     | '/business/login'
@@ -1305,6 +1315,7 @@ export interface FileRouteTypes {
     | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
+    | '/api/plan'
     | '/business/claim'
     | '/business/dashboard'
     | '/business/login'
@@ -1429,6 +1440,7 @@ export interface FileRouteTypes {
     | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
+    | '/api/plan'
     | '/business/claim'
     | '/business/dashboard'
     | '/business/login'
@@ -1531,6 +1543,7 @@ export interface RootRouteChildren {
   ViralRoute: typeof ViralRoute
   WeatherRoute: typeof WeatherRoute
   ApiChatRoute: typeof ApiChatRoute
+  ApiPlanRoute: typeof ApiPlanRoute
   BusinessClaimRoute: typeof BusinessClaimRouteWithChildren
   BusinessDashboardRoute: typeof BusinessDashboardRoute
   BusinessLoginRoute: typeof BusinessLoginRoute
@@ -2144,6 +2157,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessClaimRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/plan': {
+      id: '/api/plan'
+      path: '/api/plan'
+      fullPath: '/api/plan'
+      preLoaderRoute: typeof ApiPlanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -2647,6 +2667,7 @@ const rootRouteChildren: RootRouteChildren = {
   ViralRoute: ViralRoute,
   WeatherRoute: WeatherRoute,
   ApiChatRoute: ApiChatRoute,
+  ApiPlanRoute: ApiPlanRoute,
   BusinessClaimRoute: BusinessClaimRouteWithChildren,
   BusinessDashboardRoute: BusinessDashboardRoute,
   BusinessLoginRoute: BusinessLoginRoute,

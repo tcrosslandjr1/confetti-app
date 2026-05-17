@@ -568,6 +568,86 @@ export type Database = {
           },
         ]
       }
+      corporate_companies: {
+        Row: {
+          billing_email: string | null
+          created_at: string
+          domain: string | null
+          id: string
+          logo_url: string | null
+          name: string
+          owner_id: string
+          plan_tier: string
+          settings: Json
+          slug: string | null
+          updated_at: string
+        }
+        Insert: {
+          billing_email?: string | null
+          created_at?: string
+          domain?: string | null
+          id?: string
+          logo_url?: string | null
+          name: string
+          owner_id: string
+          plan_tier?: string
+          settings?: Json
+          slug?: string | null
+          updated_at?: string
+        }
+        Update: {
+          billing_email?: string | null
+          created_at?: string
+          domain?: string | null
+          id?: string
+          logo_url?: string | null
+          name?: string
+          owner_id?: string
+          plan_tier?: string
+          settings?: Json
+          slug?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      corporate_company_members: {
+        Row: {
+          company_id: string
+          created_at: string
+          id: string
+          invited_email: string | null
+          joined_at: string
+          role: Database["public"]["Enums"]["corporate_member_role"]
+          user_id: string
+        }
+        Insert: {
+          company_id: string
+          created_at?: string
+          id?: string
+          invited_email?: string | null
+          joined_at?: string
+          role?: Database["public"]["Enums"]["corporate_member_role"]
+          user_id: string
+        }
+        Update: {
+          company_id?: string
+          created_at?: string
+          id?: string
+          invited_email?: string | null
+          joined_at?: string
+          role?: Database["public"]["Enums"]["corporate_member_role"]
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "corporate_company_members_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "corporate_companies"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       corporate_events: {
         Row: {
           budget_per_person_cents: number
@@ -618,6 +698,249 @@ export type Database = {
           updated_at?: string
         }
         Relationships: []
+      }
+      corporate_outings: {
+        Row: {
+          approved_at: string | null
+          approved_by: string | null
+          budget_per_person_cents: number
+          city: string | null
+          company_id: string
+          corporate_event_id: string | null
+          created_at: string
+          created_by: string
+          ends_at: string | null
+          headcount: number
+          id: string
+          itinerary_id: string | null
+          notes: string | null
+          policy_id: string | null
+          purpose: string
+          starts_at: string | null
+          status: Database["public"]["Enums"]["corporate_outing_status"]
+          team_id: string | null
+          title: string
+          total_budget_cents: number
+          updated_at: string
+        }
+        Insert: {
+          approved_at?: string | null
+          approved_by?: string | null
+          budget_per_person_cents?: number
+          city?: string | null
+          company_id: string
+          corporate_event_id?: string | null
+          created_at?: string
+          created_by: string
+          ends_at?: string | null
+          headcount?: number
+          id?: string
+          itinerary_id?: string | null
+          notes?: string | null
+          policy_id?: string | null
+          purpose?: string
+          starts_at?: string | null
+          status?: Database["public"]["Enums"]["corporate_outing_status"]
+          team_id?: string | null
+          title: string
+          total_budget_cents?: number
+          updated_at?: string
+        }
+        Update: {
+          approved_at?: string | null
+          approved_by?: string | null
+          budget_per_person_cents?: number
+          city?: string | null
+          company_id?: string
+          corporate_event_id?: string | null
+          created_at?: string
+          created_by?: string
+          ends_at?: string | null
+          headcount?: number
+          id?: string
+          itinerary_id?: string | null
+          notes?: string | null
+          policy_id?: string | null
+          purpose?: string
+          starts_at?: string | null
+          status?: Database["public"]["Enums"]["corporate_outing_status"]
+          team_id?: string | null
+          title?: string
+          total_budget_cents?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "corporate_outings_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "corporate_companies"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "corporate_outings_corporate_event_id_fkey"
+            columns: ["corporate_event_id"]
+            isOneToOne: false
+            referencedRelation: "corporate_events"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "corporate_outings_policy_id_fkey"
+            columns: ["policy_id"]
+            isOneToOne: false
+            referencedRelation: "corporate_policies"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "corporate_outings_team_id_fkey"
+            columns: ["team_id"]
+            isOneToOne: false
+            referencedRelation: "corporate_teams"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      corporate_policies: {
+        Row: {
+          alcohol_allowed: boolean
+          allowed_categories: string[]
+          allowed_cities: string[]
+          approval_threshold_cents: number
+          blocked_categories: string[]
+          company_id: string
+          created_at: string
+          created_by: string | null
+          id: string
+          is_default: boolean
+          max_headcount: number | null
+          name: string
+          per_person_budget_cents: number
+          team_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          alcohol_allowed?: boolean
+          allowed_categories?: string[]
+          allowed_cities?: string[]
+          approval_threshold_cents?: number
+          blocked_categories?: string[]
+          company_id: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          is_default?: boolean
+          max_headcount?: number | null
+          name: string
+          per_person_budget_cents?: number
+          team_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          alcohol_allowed?: boolean
+          allowed_categories?: string[]
+          allowed_cities?: string[]
+          approval_threshold_cents?: number
+          blocked_categories?: string[]
+          company_id?: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          is_default?: boolean
+          max_headcount?: number | null
+          name?: string
+          per_person_budget_cents?: number
+          team_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "corporate_policies_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "corporate_companies"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "corporate_policies_team_id_fkey"
+            columns: ["team_id"]
+            isOneToOne: false
+            referencedRelation: "corporate_teams"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      corporate_team_members: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["corporate_member_role"]
+          team_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["corporate_member_role"]
+          team_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["corporate_member_role"]
+          team_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "corporate_team_members_team_id_fkey"
+            columns: ["team_id"]
+            isOneToOne: false
+            referencedRelation: "corporate_teams"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      corporate_teams: {
+        Row: {
+          city: string | null
+          company_id: string
+          created_at: string
+          description: string | null
+          id: string
+          manager_id: string | null
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          city?: string | null
+          company_id: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          manager_id?: string | null
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          city?: string | null
+          company_id?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          manager_id?: string | null
+          name?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "corporate_teams_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "corporate_companies"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       events: {
         Row: {
@@ -2837,6 +3160,18 @@ export type Database = {
         }
         Returns: boolean
       }
+      is_corp_admin: {
+        Args: { _company: string; _user: string }
+        Returns: boolean
+      }
+      is_corp_member: {
+        Args: { _company: string; _user: string }
+        Returns: boolean
+      }
+      is_corp_team_manager: {
+        Args: { _team: string; _user: string }
+        Returns: boolean
+      }
       record_rsvp_by_token: {
         Args: { _dietary: string; _status: string; _token: string }
         Returns: boolean
@@ -2857,6 +3192,14 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "customer"
+      corporate_member_role: "owner" | "admin" | "manager" | "member"
+      corporate_outing_status:
+        | "draft"
+        | "pending_approval"
+        | "approved"
+        | "booked"
+        | "completed"
+        | "cancelled"
       oauth_submission_status: "pending" | "approved" | "rejected"
       promoter_job_status:
         | "draft"
@@ -3010,6 +3353,15 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "customer"],
+      corporate_member_role: ["owner", "admin", "manager", "member"],
+      corporate_outing_status: [
+        "draft",
+        "pending_approval",
+        "approved",
+        "booked",
+        "completed",
+        "cancelled",
+      ],
       oauth_submission_status: ["pending", "approved", "rejected"],
       promoter_job_status: [
         "draft",

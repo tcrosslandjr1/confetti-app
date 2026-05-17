@@ -21,8 +21,8 @@ export const searchVenuesForClaim = createServerFn({ method: "GET" })
     const q = data.q.trim();
     const { data: rows, error } = await supabase
       .from("venues")
-      .select("id, name, city, neighborhood, address, hero_image_url, image_url, claim_status, claimed_by, website")
-      .or(`name.ilike.%${q}%,address.ilike.%${q}%,city.ilike.%${q}%`)
+      .select("id, name, city, neighborhood, hero_image_url, image_url, claim_status, claimed_by, website")
+      .or(`name.ilike.%${q}%,city.ilike.%${q}%,neighborhood.ilike.%${q}%`)
       .order("name")
       .limit(20);
     if (error) throw new Error(error.message);

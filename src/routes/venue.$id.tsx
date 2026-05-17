@@ -626,6 +626,8 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
         </Link>
       </div>
 
+      <VenueEvents venue={venue} />
+
       <ShareVenue venue={venue} />
 
       <GradientCTA onClick={onReserve} label="Reserve a Spot" />

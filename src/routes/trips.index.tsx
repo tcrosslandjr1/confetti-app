@@ -131,6 +131,7 @@ function TripsList() {
           </div>
         )}
       </div>
+      </PullToRefresh>
     </div>
   );
 }

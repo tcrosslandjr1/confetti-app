@@ -371,7 +371,7 @@ function DiscoverMap({
         );
       })}
 
-      {selected ? <SelectedCard row={selected} onClose={() => setSelected(null)} /> : null}
+      {selected ? <SelectedCard row={selected} onClose={() => onSelect(null)} /> : null}
     </div>
   );
 }

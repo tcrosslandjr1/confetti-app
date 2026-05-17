@@ -1174,6 +1174,35 @@ function ReadyPage() {
           </Link>
         </div>
       </div>
+
+      {/* Sticky next-step bar — keeps Share + Earn one tap away as the page scrolls. */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+        <div className="mx-auto flex max-w-3xl items-center gap-2 px-4 py-3 sm:px-6">
+          <button
+            type="button"
+            onClick={() => {
+              trackCta("share_with_crew_sticky", { path: "/plan/ready" });
+              const url = typeof window !== "undefined" ? window.location.href : "";
+              if (typeof navigator !== "undefined" && navigator.share) {
+                navigator.share({ title: TRIP.title, text: TRIP.description, url }).catch(() => {});
+              } else {
+                navigator.clipboard?.writeText(url);
+                toast.success("Link copied — send it to the crew.");
+              }
+            }}
+            className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-full bg-ink text-sm font-bold text-cream shadow-pop transition-transform hover:-translate-y-0.5"
+          >
+            <Send className="h-4 w-4" /> Share
+          </button>
+          <Link
+            to="/passport"
+            onClick={() => trackCta("earn_confetti_sticky", { path: "/plan/ready" })}
+            className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-full border-2 border-ink bg-cream text-sm font-bold text-ink transition-transform hover:-translate-y-0.5 hover:bg-gold"
+          >
+            <Sparkles className="h-4 w-4" /> Earn Confetti
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

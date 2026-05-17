@@ -1962,7 +1962,7 @@ export function BuildMyNightWizard() {
               <ol className="mt-4 space-y-3">
                 {sortedStops.map(({ s, i: origIdx }, displayIdx) => {
                   const i = origIdx;
-                  const isOpen = openStop === i;
+                  const isOpen = !closedStops.has(i);
                   const mockBase = getDetails(s.venue, s.vibe);
                   const mock = personalizeDetails(mockBase, s.venue);
                   const live = placesData[s.venue];
@@ -1999,11 +1999,11 @@ export function BuildMyNightWizard() {
                       <div
                         role="button"
                         tabIndex={0}
-                        onClick={() => setOpenStop(isOpen ? null : i)}
+                        onClick={() => toggleStop(i)}
                         onKeyDown={(e) => {
                           if (e.key === "Enter" || e.key === " ") {
                             e.preventDefault();
-                            setOpenStop(isOpen ? null : i);
+                            toggleStop(i);
                           }
                         }}
                         aria-expanded={isOpen}

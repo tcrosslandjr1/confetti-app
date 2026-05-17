@@ -25,8 +25,42 @@ import { supabase } from "@/integrations/supabase/client";
 import { getSampleVenue } from "@/lib/sample-venues";
 import { X } from "lucide-react";
 
+const SITE_ORIGIN = "https://confettiplan.lovable.app";
+
 export const Route = createFileRoute("/venue/$id")({
-  head: () => ({ meta: [{ title: "Reserve — Confetti" }] }),
+  loader: ({ params }) => {
+    const sample = getSampleVenue(params.id);
+    return { sample };
+  },
+  head: ({ params, loaderData }) => {
+    const s = loaderData?.sample;
+    const title = s ? `${s.name} — Reserve on Confetti` : "Reserve — Confetti";
+    const description = s
+      ? `${s.description} Book your table on Confetti.`
+      : "Reserve a curated city experience on Confetti.";
+    const url = `${SITE_ORIGIN}/venue/${params.id}`;
+    const image = s?.imageUrl;
+    const meta: Array<Record<string, string>> = [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:url", content: url },
+      { property: "og:type", content: "place" },
+      { property: "og:site_name", content: "Confetti" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+    ];
+    if (image) {
+      meta.push({ property: "og:image", content: image });
+      meta.push({ name: "twitter:image", content: image });
+    }
+    return {
+      meta,
+      links: [{ rel: "canonical", href: url }],
+    };
+  },
   component: VenueBookingPage,
 });
 
@@ -312,6 +346,81 @@ function StepHeader({ step, onBack }: { step: number; onBack: () => void }) {
 
 // ---------------- Step 1: Venue Detail ----------------
 
+function ShareVenue({ venue }: { venue: Venue }) {
+  const shareUrl =
+    typeof window !== "undefined"
+      ? window.location.href
+      : `${SITE_ORIGIN}/venue/${venue.id}`;
+  const shareText = `${venue.name} on Confetti — ${venue.description ?? "Book a curated city experience."}`;
+
+  async function nativeShare() {
+    try {
+      if (typeof navigator !== "undefined" && navigator.share) {
+        await navigator.share({ title: venue.name, text: shareText, url: shareUrl });
+        return;
+      }
+    } catch {
+      return; // user cancelled
+    }
+    copyLink();
+  }
+
+  async function copyLink() {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      toast.success("Link copied");
+    } catch {
+      toast.error("Couldn't copy link");
+    }
+  }
+
+  const twitterHref = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+  const facebookHref = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+
+  return (
+    <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
+      <div className="flex items-center gap-2">
+        <Share2 className="h-4 w-4 text-coral" />
+        <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+          Share this spot
+        </p>
+      </div>
+      <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+        <button
+          type="button"
+          onClick={nativeShare}
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-coral px-3 py-2.5 text-xs font-bold text-white shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+        >
+          <Share2 className="h-3.5 w-3.5" /> Share
+        </button>
+        <button
+          type="button"
+          onClick={copyLink}
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+        >
+          Copy link
+        </button>
+        <a
+          href={twitterHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+        >
+          Twitter / X
+        </a>
+        <a
+          href={facebookHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border-2 border-ink bg-white px-3 py-2.5 text-xs font-bold text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+        >
+          Facebook
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }) {
   const photo = venue.image_url || FALLBACK_PHOTO;
   const price = "$".repeat(Math.max(1, Math.min(4, venue.price_level || 3)));
@@ -496,6 +605,8 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
           ))}
         </ul>
       </div>
+
+      <ShareVenue venue={venue} />
 
       <GradientCTA onClick={onReserve} label="Reserve a Spot" />
     </div>

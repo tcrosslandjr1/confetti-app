@@ -2389,6 +2389,87 @@ export type Database = {
           },
         ]
       }
+      stripe_webhook_events: {
+        Row: {
+          environment: string
+          error: string | null
+          event_type: string
+          id: string
+          payload: Json
+          processed_at: string | null
+          stripe_event_id: string
+        }
+        Insert: {
+          environment?: string
+          error?: string | null
+          event_type: string
+          id?: string
+          payload: Json
+          processed_at?: string | null
+          stripe_event_id: string
+        }
+        Update: {
+          environment?: string
+          error?: string | null
+          event_type?: string
+          id?: string
+          payload?: Json
+          processed_at?: string | null
+          stripe_event_id?: string
+        }
+        Relationships: []
+      }
+      subscriptions: {
+        Row: {
+          account_type: string
+          cancel_at_period_end: boolean | null
+          created_at: string | null
+          current_period_end: string | null
+          current_period_start: string | null
+          environment: string
+          id: string
+          price_id: string
+          product_id: string
+          status: string
+          stripe_customer_id: string
+          stripe_subscription_id: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          account_type?: string
+          cancel_at_period_end?: boolean | null
+          created_at?: string | null
+          current_period_end?: string | null
+          current_period_start?: string | null
+          environment?: string
+          id?: string
+          price_id: string
+          product_id: string
+          status?: string
+          stripe_customer_id: string
+          stripe_subscription_id: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          account_type?: string
+          cancel_at_period_end?: boolean | null
+          created_at?: string | null
+          current_period_end?: string | null
+          current_period_start?: string | null
+          environment?: string
+          id?: string
+          price_id?: string
+          product_id?: string
+          status?: string
+          stripe_customer_id?: string
+          stripe_subscription_id?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       testimonials: {
         Row: {
           active: boolean
@@ -2550,6 +2631,54 @@ export type Database = {
         }
         Relationships: []
       }
+      user_purchases: {
+        Row: {
+          amount_cents: number
+          created_at: string | null
+          currency: string
+          environment: string
+          id: string
+          metadata: Json | null
+          price_id: string | null
+          product_id: string
+          status: string
+          stripe_payment_intent_id: string | null
+          stripe_session_id: string | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          amount_cents: number
+          created_at?: string | null
+          currency?: string
+          environment?: string
+          id?: string
+          metadata?: Json | null
+          price_id?: string | null
+          product_id: string
+          status?: string
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          amount_cents?: number
+          created_at?: string | null
+          currency?: string
+          environment?: string
+          id?: string
+          metadata?: Json | null
+          price_id?: string | null
+          product_id?: string
+          status?: string
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -2570,6 +2699,108 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      vendor_accounts: {
+        Row: {
+          charges_enabled: boolean | null
+          created_at: string | null
+          details_submitted: boolean | null
+          environment: string
+          id: string
+          payout_schedule: string | null
+          payouts_enabled: boolean | null
+          stripe_account_id: string
+          updated_at: string | null
+          user_id: string
+          vendor_type: string
+        }
+        Insert: {
+          charges_enabled?: boolean | null
+          created_at?: string | null
+          details_submitted?: boolean | null
+          environment?: string
+          id?: string
+          payout_schedule?: string | null
+          payouts_enabled?: boolean | null
+          stripe_account_id: string
+          updated_at?: string | null
+          user_id: string
+          vendor_type: string
+        }
+        Update: {
+          charges_enabled?: boolean | null
+          created_at?: string | null
+          details_submitted?: boolean | null
+          environment?: string
+          id?: string
+          payout_schedule?: string | null
+          payouts_enabled?: boolean | null
+          stripe_account_id?: string
+          updated_at?: string | null
+          user_id?: string
+          vendor_type?: string
+        }
+        Relationships: []
+      }
+      vendor_payouts: {
+        Row: {
+          amount_cents: number
+          created_at: string | null
+          currency: string
+          environment: string
+          id: string
+          metadata: Json | null
+          related_purchase_id: string | null
+          status: string
+          stripe_payout_id: string | null
+          stripe_transfer_id: string | null
+          updated_at: string | null
+          vendor_account_id: string
+        }
+        Insert: {
+          amount_cents: number
+          created_at?: string | null
+          currency?: string
+          environment?: string
+          id?: string
+          metadata?: Json | null
+          related_purchase_id?: string | null
+          status?: string
+          stripe_payout_id?: string | null
+          stripe_transfer_id?: string | null
+          updated_at?: string | null
+          vendor_account_id: string
+        }
+        Update: {
+          amount_cents?: number
+          created_at?: string | null
+          currency?: string
+          environment?: string
+          id?: string
+          metadata?: Json | null
+          related_purchase_id?: string | null
+          status?: string
+          stripe_payout_id?: string | null
+          stripe_transfer_id?: string | null
+          updated_at?: string | null
+          vendor_account_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vendor_payouts_related_purchase_id_fkey"
+            columns: ["related_purchase_id"]
+            isOneToOne: false
+            referencedRelation: "user_purchases"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "vendor_payouts_vendor_account_id_fkey"
+            columns: ["vendor_account_id"]
+            isOneToOne: false
+            referencedRelation: "vendor_accounts"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       venue_claims: {
         Row: {
@@ -3152,6 +3383,10 @@ export type Database = {
           rsvp_status: string
           starts_at: string
         }[]
+      }
+      has_active_subscription: {
+        Args: { check_env?: string; user_uuid: string }
+        Returns: boolean
       }
       has_role: {
         Args: {

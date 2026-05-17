@@ -165,7 +165,14 @@ function AdminAdvertisersPage() {
                 </Badge>
               )}
             </TabsTrigger>
-            <TabsTrigger value="advertisers">Advertisers</TabsTrigger>
+            <TabsTrigger value="advertisers">
+              Advertisers
+              {advertisers.filter((a) => a.status === "pending_review" || a.status === "pending").length > 0 && (
+                <Badge variant="secondary" className="ml-2">
+                  {advertisers.filter((a) => a.status === "pending_review" || a.status === "pending").length}
+                </Badge>
+              )}
+            </TabsTrigger>
             <TabsTrigger value="venues">Verified profiles</TabsTrigger>
             <TabsTrigger value="claims">
               Claims

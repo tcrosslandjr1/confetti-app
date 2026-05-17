@@ -105,8 +105,22 @@ function BoardingPassPage() {
   const loading =
     (trip && tripQuery.isLoading) || (fallbackEnabled && recentQuery.isLoading);
 
+  // Resolve the canonical itinerary id for a shareable deep link
+  const shareTripId: string | null = useMemo(() => {
+    if (trip) return trip;
+    if (tripQuery.data?.itinerary?.id) return tripQuery.data.itinerary.id;
+    if (recentQuery.data?.itinerary?.id) return recentQuery.data.itinerary.id;
+    return null;
+  }, [trip, tripQuery.data, recentQuery.data]);
+
   const buildShareContent = (lp: ActiveLoop) => {
-    const url = typeof window !== "undefined" ? window.location.href : "";
+    let url = "";
+    if (typeof window !== "undefined") {
+      const origin = window.location.origin;
+      url = shareTripId
+        ? `${origin}/boarding-pass?trip=${shareTripId}`
+        : window.location.href;
+    }
     const occasion = lp.occasion ?? "Confetti night";
     const subject = `${lp.occasionEmoji ?? "✨"} ${occasion} — Confetti itinerary`;
     const stopsText = lp.stops

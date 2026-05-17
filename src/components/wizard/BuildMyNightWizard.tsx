@@ -19,6 +19,7 @@ import {
   Share2,
   Sparkles,
   Star,
+  Users,
   Utensils,
   Wine,
   X,
@@ -1396,19 +1397,22 @@ export function BuildMyNightWizard() {
     burst(e.clientX, e.clientY);
     const existing = getActiveLoop();
     const newStop = wizardStopToLoopStop(stop, existing?.stops.length ?? 0);
+    let nextStops = 1;
     if (existing) {
       const dup = existing.stops.some(
         (s) => (s.venueId && s.venueId === newStop.venueId) || s.name === newStop.name,
       );
       if (dup) {
-        toast.info(`${stop.venue} is already on your boarding pass.`);
+        toast.info(`${stop.venue} is already on your boarding pass — opening it.`);
+        setTimeout(() => {
+          closeWizard();
+          navigate({ to: "/boarding-pass" });
+        }, 200);
         return;
       }
       const next: ActiveLoop = { ...existing, stops: [...existing.stops, newStop] };
       setActiveLoop(next);
-      toast.success(`Added ${stop.venue} to boarding pass`, {
-        description: `${next.stops.length} stops total`,
-      });
+      nextStops = next.stops.length;
     } else {
       const loop = makeDemoLoop({
         passenger: user?.email?.split("@")[0]?.toUpperCase() ?? "GUEST",
@@ -1418,10 +1422,14 @@ export function BuildMyNightWizard() {
         stops: [newStop],
       });
       setActiveLoop(loop);
-      toast.success(`Added ${stop.venue} to boarding pass`, {
-        description: "New trip created",
-      });
     }
+    toast.success(`Added ${stop.venue}`, {
+      description: `${nextStops} stop${nextStops === 1 ? "" : "s"} · opening boarding pass…`,
+    });
+    setTimeout(() => {
+      closeWizard();
+      navigate({ to: "/boarding-pass" });
+    }, 350);
   }
 
 
@@ -1778,6 +1786,31 @@ export function BuildMyNightWizard() {
                       .filter(Boolean)
                       .join(" + ")} · ${CREW.find((c) => c.k === crew)?.label} · ${budget}`}
               </p>
+
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setStep(preset ? 0 : 4)}
+                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
+                  aria-label="Go back and change your answers"
+                >
+                  <ArrowLeft className="h-3.5 w-3.5" /> Back
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    closeWizard();
+                    navigate({ to: "/teams/new" });
+                  }}
+                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-gold px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
+                  aria-label="Build this night with friends"
+                >
+                  <Users className="h-3.5 w-3.5" /> Build with friends
+                </button>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                  Tap <span className="font-bold text-coral">+ Add</span> on a stop to lock it in
+                </span>
+              </div>
 
               {dynamicError && !preset && (
                 <div

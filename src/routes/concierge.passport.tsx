@@ -3,6 +3,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { rankName, levelFromXp, xpToNextLevel } from "@/lib/concierge-data";
+import { listUserGrants, listUserRedemptions, userBalance } from "@/lib/confetti-credits";
 import { BookMarked, MapPin, Plus, Sparkles, Trophy } from "lucide-react";
 
 
@@ -35,25 +36,33 @@ function Passport() {
   const [visits, setVisits] = useState<Visit[]>([]);
   const [achievements, setAchievements] = useState<Achievement[]>([]);
   const [unlocked, setUnlocked] = useState<Set<string>>(new Set());
+  const [walletBalance, setWalletBalance] = useState(0);
+  const [walletEarned, setWalletEarned] = useState(0);
   const [adding, setAdding] = useState(false);
   const [name, setName] = useState("");
 
   const reload = async () => {
     if (!user) return;
-    const [{ data: p }, { data: v }, { data: a }, { data: ua }] = await Promise.all([
-      supabase.from("profiles").select("xp,display_name").eq("id", user.id).maybeSingle(),
-      supabase
-        .from("visits")
-        .select("*")
-        .eq("user_id", user.id)
-        .order("visited_at", { ascending: false }),
-      supabase.from("achievements").select("*"),
-      supabase.from("user_achievements").select("achievement_id").eq("user_id", user.id),
-    ]);
+    const [{ data: p }, { data: v }, { data: a }, { data: ua }, grants, redemptions] =
+      await Promise.all([
+        supabase.from("profiles").select("xp,display_name").eq("id", user.id).maybeSingle(),
+        supabase
+          .from("visits")
+          .select("*")
+          .eq("user_id", user.id)
+          .order("visited_at", { ascending: false }),
+        supabase.from("achievements").select("*"),
+        supabase.from("user_achievements").select("achievement_id").eq("user_id", user.id),
+        listUserGrants(user.id),
+        listUserRedemptions(user.id),
+      ]);
     setProfile(p as any);
     setVisits((v ?? []) as Visit[]);
     setAchievements((a ?? []) as Achievement[]);
     setUnlocked(new Set((ua ?? []).map((x: any) => x.achievement_id)));
+    const earned = grants.reduce((s, g) => s + g.credits, 0);
+    setWalletEarned(earned);
+    setWalletBalance(userBalance(grants, redemptions));
   };
 
   useEffect(() => {
@@ -105,13 +114,15 @@ function Passport() {
   ];
   const totalAdventures = MOCK_STAMPS.length;
   const citiesVisited = new Set(MOCK_STAMPS.map((s) => s.city)).size;
-  const totalXP = MOCK_STAMPS.reduce((sum, s) => sum + s.xp, 0);
 
-  const xp = totalXP;
-  const level = 4;
-  const current = totalXP;
-  const needed = 1000;
-  const next = 1000;
+  // XP reflects actual wallet progress: Confetti earned (1:1 with XP) merged
+  // with any direct profile XP from referrals/achievements.
+  const xp = Math.max(profile?.xp ?? 0, walletEarned);
+  const progress = xpToNextLevel(xp);
+  const level = progress.level;
+  const current = progress.current;
+  const needed = progress.needed;
+  const next = progress.next;
   const pct = Math.min(100, Math.round((current / needed) * 100));
 
   return (
@@ -128,18 +139,24 @@ function Passport() {
           </div>
           <div className="text-right">
             <div className="text-xs uppercase tracking-wider opacity-80">XP</div>
-            <div className="font-display text-2xl font-bold">{xp}</div>
+            <div className="font-display text-2xl font-bold">{xp.toLocaleString()}</div>
+            <div className="mt-0.5 text-[10px] uppercase tracking-wider opacity-80">
+              {walletBalance.toLocaleString()} Confetti in wallet
+            </div>
           </div>
         </div>
         <div className="mt-4">
           <div className="h-2 overflow-hidden rounded-full bg-black/20">
-            <div className="h-full bg-white" style={{ width: `${pct}%` }} />
+            <div
+              className="h-full bg-white transition-all duration-500"
+              style={{ width: `${pct}%` }}
+            />
           </div>
           <div className="mt-2 flex justify-between text-[11px] opacity-90">
             <span>
               {current} / {needed} XP
             </span>
-            <span>Next: {next} XP</span>
+            <span>Next: Lvl {level + 1} · {next} XP</span>
           </div>
         </div>
       </div>
@@ -253,7 +270,7 @@ function Passport() {
           </div>
         </div>
         <div className="text-center">
-          <div className="font-display text-3xl font-extrabold text-coral">{totalXP}</div>
+          <div className="font-display text-3xl font-extrabold text-coral">{xp.toLocaleString()}</div>
           <div className="mt-1 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
             Total XP
           </div>

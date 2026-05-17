@@ -257,11 +257,13 @@ function StopCard({
   index,
   isCurrent,
   onPreorder,
+  verified,
 }: {
   stop: LoopStop;
   index: number;
   isCurrent: boolean;
   onPreorder: (stop: LoopStop) => void;
+  verified: boolean;
 }) {
   const [flipped, setFlipped] = useState(false);
   const navUrl = stop.address

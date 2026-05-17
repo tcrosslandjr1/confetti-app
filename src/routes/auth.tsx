@@ -316,14 +316,14 @@ function AuthPage() {
           <div className="relative my-6 hidden h-[220px] lg:block">
             <div className="auth-collage-card absolute left-[6%] top-2 w-[58%] -rotate-[5deg] rounded-2xl border-2 border-ink bg-cream p-4 text-ink shadow-brut-lg transition-transform hover:-translate-y-1 hover:-rotate-[3deg] motion-reduce:transform-none motion-reduce:transition-none">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink/60">tonight · 8:30pm</span>
+                <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink/60">tonight · {pickTime.toLowerCase()}</span>
                 <span className="inline-flex items-center gap-1 rounded-full bg-coral px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream">
                   <Sparkles className="h-2.5 w-2.5" /> pick
                 </span>
               </div>
-              <div className="mt-2 font-display text-lg font-extrabold leading-tight">Rooftop omakase</div>
+              <div className="mt-2 font-display text-lg font-extrabold leading-tight">{tonightsPick.title}</div>
               <div className="mt-0.5 flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-ink/70">
-                <MapPin className="h-3 w-3" /> brooklyn · 2 seats left
+                <MapPin className="h-3 w-3" /> {pickShortCity} · {pickSeats} seat{pickSeats === 1 ? "" : "s"} left
               </div>
               <div className="mt-3 flex items-center gap-1 text-coral">
                 {Array.from({ length: 5 }).map((_, i) => (

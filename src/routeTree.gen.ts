@@ -84,6 +84,7 @@ import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile
 import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
 import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
 import { Route as BusinessSignupRouteImport } from './routes/business.signup'
+import { Route as BusinessLoginRouteImport } from './routes/business.login'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdvertisePortalRouteImport } from './routes/advertise.portal'
 import { Route as AdminWalletDebugRouteImport } from './routes/admin.wallet-debug'
@@ -496,6 +497,11 @@ const BusinessSignupRoute = BusinessSignupRouteImport.update({
   path: '/business/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessLoginRoute = BusinessLoginRouteImport.update({
+  id: '/business/login',
+  path: '/business/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -749,6 +755,7 @@ export interface FileRoutesByFullPath {
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
+  '/business/login': typeof BusinessLoginRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -857,6 +864,7 @@ export interface FileRoutesByTo {
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
+  '/business/login': typeof BusinessLoginRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -971,6 +979,7 @@ export interface FileRoutesById {
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
+  '/business/login': typeof BusinessLoginRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -1086,6 +1095,7 @@ export interface FileRouteTypes {
     | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
+    | '/business/login'
     | '/business/signup'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1194,6 +1204,7 @@ export interface FileRouteTypes {
     | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
+    | '/business/login'
     | '/business/signup'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1307,6 +1318,7 @@ export interface FileRouteTypes {
     | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
+    | '/business/login'
     | '/business/signup'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1400,6 +1412,7 @@ export interface RootRouteChildren {
   ViralRoute: typeof ViralRoute
   WeatherRoute: typeof WeatherRoute
   ApiChatRoute: typeof ApiChatRoute
+  BusinessLoginRoute: typeof BusinessLoginRoute
   BusinessSignupRoute: typeof BusinessSignupRoute
   CollabTripIdRoute: typeof CollabTripIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
@@ -1952,6 +1965,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessSignupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/login': {
+      id: '/business/login'
+      path: '/business/login'
+      fullPath: '/business/login'
+      preLoaderRoute: typeof BusinessLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -2403,6 +2423,7 @@ const rootRouteChildren: RootRouteChildren = {
   ViralRoute: ViralRoute,
   WeatherRoute: WeatherRoute,
   ApiChatRoute: ApiChatRoute,
+  BusinessLoginRoute: BusinessLoginRoute,
   BusinessSignupRoute: BusinessSignupRoute,
   CollabTripIdRoute: CollabTripIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,

@@ -85,11 +85,12 @@ const REWARDS = [
   { id: "r3", label: "VIP rooftop entry", sub: "Skip the line", cost: 1000, icon: Crown },
 ];
 
-const STAMPS = [
-  { city: "DC", theme: "Harbor Heatwave", date: "May 10" },
-  { city: "DC", theme: "Moonlit Mischief", date: "Apr 28" },
-  { city: "NYC", theme: "Velvet & Vinyl", date: "Apr 15" },
-  { city: "MIA", theme: "Neon Nomads", date: "Mar 22" },
+// Seed stamps shown alongside ones earned from live check-ins.
+const SEED_STAMPS: PassportStamp[] = [
+  { id: "seed-dc-1", city: "DC", theme: "Harbor Heatwave", date: "May 10", earnedAt: "2025-05-10T00:00:00Z" },
+  { id: "seed-dc-2", city: "DC", theme: "Moonlit Mischief", date: "Apr 28", earnedAt: "2025-04-28T00:00:00Z" },
+  { id: "seed-nyc-1", city: "NYC", theme: "Velvet & Vinyl", date: "Apr 15", earnedAt: "2025-04-15T00:00:00Z" },
+  { id: "seed-mia-1", city: "MIA", theme: "Neon Nomads", date: "Mar 22", earnedAt: "2025-03-22T00:00:00Z" },
 ];
 
 const TIERS = [

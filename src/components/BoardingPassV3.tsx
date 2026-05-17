@@ -321,13 +321,16 @@ function StopCard({
             >
               <MapPin className="h-3 w-3" /> Navigate
             </a>
-            <button
-              type="button"
-              onClick={() => onPreorder(stop)}
-              className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-white px-3.5 py-2 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-ink transition hover:bg-cream"
-            >
-              <MenuIcon className="h-3 w-3" /> Menu
-            </button>
+            {verified && (
+              <button
+                type="button"
+                onClick={() => onPreorder(stop)}
+                className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-white px-3.5 py-2 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-ink transition hover:bg-cream"
+              >
+                <MenuIcon className="h-3 w-3" /> Menu
+                <span className="ml-1 rounded-full bg-emerald-100 px-1.5 py-0.5 text-[7px] text-emerald-700">✓ Verified</span>
+              </button>
+            )}
             <button
               type="button"
               onClick={() => setFlipped(true)}

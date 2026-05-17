@@ -48,31 +48,35 @@ function DiscoverPage() {
     );
   }, [rows, q]);
 
+  const load = useCallback(async () => {
+    const { data } = await supabase
+      .from("viral_venues")
+      .select("id,venue_name,neighborhood,address,photo_url,rating")
+      .eq("verified", true)
+      .order("trend_score", { ascending: false })
+      .limit(60);
+    setRows(
+      (data ?? []).map((r) => ({
+        id: r.id,
+        name: r.venue_name,
+        neighborhood: r.neighborhood,
+        address: r.address,
+        photo: r.photo_url,
+        rating: r.rating != null ? Number(r.rating) : null,
+      }))
+    );
+  }, []);
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const { data } = await supabase
-        .from("viral_venues")
-        .select("id,venue_name,neighborhood,address,photo_url,rating")
-        .eq("verified", true)
-        .order("trend_score", { ascending: false })
-        .limit(60);
+      await load();
       if (cancelled) return;
-      setRows(
-        (data ?? []).map((r) => ({
-          id: r.id,
-          name: r.venue_name,
-          neighborhood: r.neighborhood,
-          address: r.address,
-          photo: r.photo_url,
-          rating: r.rating != null ? Number(r.rating) : null,
-        }))
-      );
     })();
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [load]);
 
   return (
     <div className="min-h-screen bg-background pb-32">

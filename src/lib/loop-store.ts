@@ -162,6 +162,51 @@ export function subscribeConfetti(cb: () => void): () => void {
   };
 }
 
+/** Subscribe to stamp changes (same-tab + cross-tab). Returns unsubscribe. */
+export function subscribeStamps(cb: () => void): () => void {
+  if (!isClient()) return () => {};
+  const onStorage = (e: StorageEvent) => {
+    if (e.key === KEY_STAMPS) cb();
+  };
+  window.addEventListener(EVENT_STAMPS, cb);
+  window.addEventListener("storage", onStorage);
+  return () => {
+    window.removeEventListener(EVENT_STAMPS, cb);
+    window.removeEventListener("storage", onStorage);
+  };
+}
+
+export function getStamps(): PassportStamp[] {
+  if (!isClient()) return [];
+  try {
+    const raw = localStorage.getItem(KEY_STAMPS);
+    return raw ? (JSON.parse(raw) as PassportStamp[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveStamps(list: PassportStamp[]) {
+  if (!isClient()) return;
+  localStorage.setItem(KEY_STAMPS, JSON.stringify(list));
+  emit(EVENT_STAMPS);
+}
+
+/** Add a stamp if one with the same id doesn't already exist. Returns true if added. */
+export function addStamp(stamp: PassportStamp): boolean {
+  const list = getStamps();
+  if (list.some((s) => s.id === stamp.id)) return false;
+  saveStamps([stamp, ...list]);
+  return true;
+}
+
+export function clearStamps() {
+  if (!isClient()) return;
+  localStorage.removeItem(KEY_STAMPS);
+  emit(EVENT_STAMPS);
+}
+
+
 export function getActiveLoop(): ActiveLoop | null {
   if (!isClient()) return null;
   try {

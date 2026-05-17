@@ -119,6 +119,12 @@ function PortalBookingsPage() {
     getMyPendingFirstBookingDiscount().then((d) => setPendingDiscountCents(d?.amount_cents ?? 0));
   }, []);
 
+  useRefreshable(async () => {
+    load();
+    const d = await getMyPendingFirstBookingDiscount();
+    setPendingDiscountCents(d?.amount_cents ?? 0);
+  });
+
   const { upcoming, past } = useMemo(() => {
     const now = Date.now();
     const up: Booking[] = [];

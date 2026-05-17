@@ -98,10 +98,37 @@ const STREAK_LABELS = ["M", "T", "W", "T", "F", "S", "S"];
 
 function PassportPage() {
   const [confetti, setConfettiCount] = useState(0);
+  const [claimed, setClaimed] = useState<ClaimedReward[]>([]);
+  const [pending, setPending] = useState<(typeof REWARDS)[number] | null>(null);
+  const [justClaimed, setJustClaimed] = useState<ClaimedReward | null>(null);
   useEffect(() => {
     setConfettiCount(getConfetti());
+    setClaimed(loadClaimed());
     return subscribeConfetti(() => setConfettiCount(getConfetti()));
   }, []);
+
+  function handleConfirmRedeem() {
+    if (!pending) return;
+    if (getConfetti() < pending.cost) {
+      toast.error("Not enough Confetti");
+      setPending(null);
+      return;
+    }
+    addConfetti(-pending.cost);
+    const record: ClaimedReward = {
+      id: pending.id,
+      label: pending.label,
+      cost: pending.cost,
+      code: genCode(),
+      at: Date.now(),
+    };
+    const next = [record, ...claimed];
+    setClaimed(next);
+    saveClaimed(next);
+    setPending(null);
+    setJustClaimed(record);
+    toast.success(`Redeemed ${pending.label}`, { description: `Code ${record.code}` });
+  }
   const level = Math.floor(confetti / 250) + 1;
   const nextLevelAt = level * 250;
   const progress = Math.min(100, ((confetti % 250) / 250) * 100);

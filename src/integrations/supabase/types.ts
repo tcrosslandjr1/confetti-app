@@ -1737,47 +1737,77 @@ export type Database = {
       venue_claims: {
         Row: {
           admin_note: string | null
-          advertiser_id: string
+          advertiser_id: string | null
           contact_email: string | null
           created_at: string
+          evidence_domain: string | null
+          evidence_email: string | null
+          evidence_handle: string | null
+          evidence_url: string | null
           id: string
+          method: string | null
           notes: string | null
           proof_url: string | null
+          proposed_city: string | null
+          proposed_name: string | null
+          proposed_place_id: string | null
+          proposed_website: string | null
           reviewed_at: string | null
           reviewed_by: string | null
           status: string
           updated_at: string
-          venue_id: string
+          user_id: string | null
+          venue_id: string | null
           verification_tier: string
         }
         Insert: {
           admin_note?: string | null
-          advertiser_id: string
+          advertiser_id?: string | null
           contact_email?: string | null
           created_at?: string
+          evidence_domain?: string | null
+          evidence_email?: string | null
+          evidence_handle?: string | null
+          evidence_url?: string | null
           id?: string
+          method?: string | null
           notes?: string | null
           proof_url?: string | null
+          proposed_city?: string | null
+          proposed_name?: string | null
+          proposed_place_id?: string | null
+          proposed_website?: string | null
           reviewed_at?: string | null
           reviewed_by?: string | null
           status?: string
           updated_at?: string
-          venue_id: string
+          user_id?: string | null
+          venue_id?: string | null
           verification_tier?: string
         }
         Update: {
           admin_note?: string | null
-          advertiser_id?: string
+          advertiser_id?: string | null
           contact_email?: string | null
           created_at?: string
+          evidence_domain?: string | null
+          evidence_email?: string | null
+          evidence_handle?: string | null
+          evidence_url?: string | null
           id?: string
+          method?: string | null
           notes?: string | null
           proof_url?: string | null
+          proposed_city?: string | null
+          proposed_name?: string | null
+          proposed_place_id?: string | null
+          proposed_website?: string | null
           reviewed_at?: string | null
           reviewed_by?: string | null
           status?: string
           updated_at?: string
-          venue_id?: string
+          user_id?: string | null
+          venue_id?: string | null
           verification_tier?: string
         }
         Relationships: []

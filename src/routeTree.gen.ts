@@ -98,6 +98,7 @@ import { Route as CorporateApprovalsRouteImport } from './routes/corporate.appro
 import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile'
 import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
 import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
+import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
 import { Route as BusinessSignupRouteImport } from './routes/business.signup'
 import { Route as BusinessPromotersRouteImport } from './routes/business.promoters'
 import { Route as BusinessPricingRouteImport } from './routes/business.pricing'
@@ -598,6 +599,11 @@ const CollabTripIdRoute = CollabTripIdRouteImport.update({
   path: '/collab/$tripId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CheckoutReturnRoute = CheckoutReturnRouteImport.update({
+  id: '/checkout/return',
+  path: '/checkout/return',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessSignupRoute = BusinessSignupRouteImport.update({
   id: '/business/signup',
   path: '/business/signup',
@@ -960,6 +966,7 @@ export interface FileRoutesByFullPath {
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
+  '/checkout/return': typeof CheckoutReturnRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
@@ -1097,6 +1104,7 @@ export interface FileRoutesByTo {
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
+  '/checkout/return': typeof CheckoutReturnRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
@@ -1243,6 +1251,7 @@ export interface FileRoutesById {
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
+  '/checkout/return': typeof CheckoutReturnRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
@@ -1390,6 +1399,7 @@ export interface FileRouteTypes {
     | '/business/pricing'
     | '/business/promoters'
     | '/business/signup'
+    | '/checkout/return'
     | '/collab/$tripId'
     | '/concierge/passport'
     | '/concierge/profile'
@@ -1527,6 +1537,7 @@ export interface FileRouteTypes {
     | '/business/pricing'
     | '/business/promoters'
     | '/business/signup'
+    | '/checkout/return'
     | '/collab/$tripId'
     | '/concierge/passport'
     | '/concierge/profile'
@@ -1672,6 +1683,7 @@ export interface FileRouteTypes {
     | '/business/pricing'
     | '/business/promoters'
     | '/business/signup'
+    | '/checkout/return'
     | '/collab/$tripId'
     | '/concierge/passport'
     | '/concierge/profile'
@@ -1791,6 +1803,7 @@ export interface RootRouteChildren {
   BusinessPricingRoute: typeof BusinessPricingRoute
   BusinessPromotersRoute: typeof BusinessPromotersRoute
   BusinessSignupRoute: typeof BusinessSignupRoute
+  CheckoutReturnRoute: typeof CheckoutReturnRoute
   CollabTripIdRoute: typeof CollabTripIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   IdeasSlugRoute: typeof IdeasSlugRoute
@@ -2441,6 +2454,13 @@ declare module '@tanstack/react-router' {
       path: '/collab/$tripId'
       fullPath: '/collab/$tripId'
       preLoaderRoute: typeof CollabTripIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout/return': {
+      id: '/checkout/return'
+      path: '/checkout/return'
+      fullPath: '/checkout/return'
+      preLoaderRoute: typeof CheckoutReturnRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/business/signup': {
@@ -3107,6 +3127,7 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessPricingRoute: BusinessPricingRoute,
   BusinessPromotersRoute: BusinessPromotersRoute,
   BusinessSignupRoute: BusinessSignupRoute,
+  CheckoutReturnRoute: CheckoutReturnRoute,
   CollabTripIdRoute: CollabTripIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   IdeasSlugRoute: IdeasSlugRoute,

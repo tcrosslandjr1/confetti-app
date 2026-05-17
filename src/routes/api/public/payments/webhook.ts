@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { createClient } from '@supabase/supabase-js';
+import QRCode from 'qrcode';
 import { type StripeEnv, verifyWebhook } from '@/lib/stripe.server';
 
 let _supabase: any = null;
@@ -23,16 +24,78 @@ function tsToIso(s?: number | null): string | null {
   return s ? new Date(s * 1000).toISOString() : null;
 }
 
+// ---------- tier + rewards lookup ----------
+const PRICE_TO_TIER: Record<string, string> = {
+  plus_monthly: 'plus',
+  crew_monthly: 'crew',
+  business_featured_monthly: 'featured',
+  business_boosted_monthly: 'boosted',
+  business_premium_monthly: 'premium',
+  ad_featured_month: 'ad_featured',
+  ad_boosted_month: 'ad_boosted',
+  ad_premium_month: 'ad_premium',
+};
+const REWARD_PTS: Record<string, number> = {
+  // Subscriptions: bonus on first activation
+  plus_monthly: 100,
+  crew_monthly: 100,
+  business_featured_monthly: 250,
+  business_boosted_monthly: 500,
+  business_premium_monthly: 1000,
+  // One-time unlocks
+  unlock_premium_plan_once: 25,
+  unlock_vip_30d_once: 250,
+};
+
+async function awardPts(userId: string, priceId: string | null, ref: string) {
+  if (!userId || !priceId) return;
+  const pts = REWARD_PTS[priceId];
+  if (!pts) return;
+  await getSupabase().rpc('award_confetti_pts', {
+    _user: userId, _amount: pts, _reason: `purchase:${priceId}`, _ref: ref,
+  });
+}
+
+async function notifyUser(userId: string, title: string, body: string, link?: string) {
+  await getSupabase().from('notifications').insert({
+    user_id: userId, kind: 'purchase', title, body, link: link ?? null,
+  });
+}
+
+async function sendReceipt(toEmail: string, subject: string, html: string) {
+  const resendKey = process.env.RESEND_API_KEY;
+  const lovableKey = process.env.LOVABLE_API_KEY;
+  if (!resendKey || !lovableKey) return; // Stripe sends its own receipt; ours is bonus
+  try {
+    await fetch('https://connector-gateway.lovable.dev/resend/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${lovableKey}`,
+        'X-Connection-Api-Key': resendKey,
+      },
+      body: JSON.stringify({
+        from: 'Confetti <hello@confettiplan.lovable.app>',
+        to: [toEmail], subject, html,
+      }),
+    });
+  } catch (e) {
+    console.error('Receipt email failed', e);
+  }
+}
+
+// ============================================================================
+// Subscription side-effects
+// ============================================================================
 async function handleSubscriptionCreated(subscription: any, env: StripeEnv) {
   const userId = subscription.metadata?.userId;
-  if (!userId) {
-    console.error('No userId in subscription metadata', subscription.id);
-    return;
-  }
+  if (!userId) { console.error('No userId in subscription metadata', subscription.id); return; }
   const accountType = subscription.metadata?.accountType || 'user';
   const item = subscription.items?.data?.[0];
+  const priceId = resolvePriceId(item);
   const periodStart = item?.current_period_start ?? subscription.current_period_start;
   const periodEnd = item?.current_period_end ?? subscription.current_period_end;
+  const tier = PRICE_TO_TIER[priceId] ?? null;
 
   await getSupabase().from('subscriptions').upsert(
     {
@@ -41,7 +104,8 @@ async function handleSubscriptionCreated(subscription: any, env: StripeEnv) {
       stripe_subscription_id: subscription.id,
       stripe_customer_id: subscription.customer,
       product_id: item?.price?.product,
-      price_id: resolvePriceId(item),
+      price_id: priceId,
+      tier,
       status: subscription.status,
       current_period_start: tsToIso(periodStart),
       current_period_end: tsToIso(periodEnd),
@@ -51,44 +115,138 @@ async function handleSubscriptionCreated(subscription: any, env: StripeEnv) {
     },
     { onConflict: 'stripe_subscription_id' }
   );
+
+  if (subscription.status === 'active' || subscription.status === 'trialing') {
+    await awardPts(userId, priceId, subscription.id);
+    await notifyUser(
+      userId,
+      `Welcome to Confetti ${tier ?? 'Plus'} 🎉`,
+      `Your subscription is active. Enjoy your perks.`,
+      accountType === 'business' ? '/business/portal' : '/passport',
+    );
+  }
 }
 
 async function handleSubscriptionUpdated(subscription: any, env: StripeEnv) {
   const item = subscription.items?.data?.[0];
+  const priceId = resolvePriceId(item);
   const periodStart = item?.current_period_start ?? subscription.current_period_start;
   const periodEnd = item?.current_period_end ?? subscription.current_period_end;
+  const tier = PRICE_TO_TIER[priceId] ?? null;
 
-  await getSupabase()
-    .from('subscriptions')
-    .update({
-      status: subscription.status,
-      product_id: item?.price?.product,
-      price_id: resolvePriceId(item),
-      current_period_start: tsToIso(periodStart),
-      current_period_end: tsToIso(periodEnd),
-      cancel_at_period_end: subscription.cancel_at_period_end || false,
-      updated_at: new Date().toISOString(),
-    })
-    .eq('stripe_subscription_id', subscription.id)
-    .eq('environment', env);
+  // If pendingPriceId from metadata matches current priceId, the downgrade landed.
+  const pending = subscription.metadata?.pendingPriceId;
+  const update: any = {
+    status: subscription.status,
+    product_id: item?.price?.product,
+    price_id: priceId,
+    tier,
+    current_period_start: tsToIso(periodStart),
+    current_period_end: tsToIso(periodEnd),
+    cancel_at_period_end: subscription.cancel_at_period_end || false,
+    updated_at: new Date().toISOString(),
+  };
+  if (pending && pending === priceId) update.pending_price_id = null;
+
+  await getSupabase().from('subscriptions').update(update)
+    .eq('stripe_subscription_id', subscription.id).eq('environment', env);
 }
 
 async function handleSubscriptionDeleted(subscription: any, env: StripeEnv) {
-  await getSupabase()
-    .from('subscriptions')
-    .update({ status: 'canceled', updated_at: new Date().toISOString() })
-    .eq('stripe_subscription_id', subscription.id)
-    .eq('environment', env);
+  // Immediate revoke — flip status, expire access now, clear tier.
+  await getSupabase().from('subscriptions').update({
+    status: 'canceled',
+    tier: null,
+    current_period_end: new Date().toISOString(),
+    cancel_at_period_end: false,
+    updated_at: new Date().toISOString(),
+  }).eq('stripe_subscription_id', subscription.id).eq('environment', env);
+
+  const userId = subscription.metadata?.userId;
+  if (userId) {
+    await notifyUser(
+      userId,
+      'Subscription canceled',
+      'Your Confetti subscription has ended. You can re-subscribe anytime from /pricing.',
+      '/pricing',
+    );
+  }
+}
+
+// ============================================================================
+// One-time purchases (unlocks + tickets)
+// ============================================================================
+async function unlockVip(userId: string, days: number) {
+  const sb = getSupabase();
+  const { data: profile } = await sb.from('profiles').select('vip_until').eq('id', userId).maybeSingle();
+  const now = Date.now();
+  const base = profile?.vip_until ? Math.max(new Date(profile.vip_until).getTime(), now) : now;
+  const newUntil = new Date(base + days * 86400_000).toISOString();
+  await sb.from('profiles').update({ vip_until: newUntil, updated_at: new Date().toISOString() }).eq('id', userId);
+  return newUntil;
+}
+
+async function issueTicket(session: any, env: StripeEnv) {
+  const userId = session.metadata!.userId;
+  const eventId = session.metadata!.eventId;
+  const quantity = parseInt(session.metadata!.quantity || '1', 10);
+  const qrToken = `CFT-${session.id.slice(-12).toUpperCase()}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
+
+  await getSupabase().from('event_tickets').upsert({
+    event_id: eventId,
+    user_id: userId,
+    stripe_session_id: session.id,
+    stripe_payment_intent_id: session.payment_intent ?? null,
+    quantity,
+    amount_cents: session.amount_total ?? 0,
+    currency: session.currency || 'usd',
+    status: session.payment_status === 'paid' ? 'paid' : session.payment_status,
+    environment: env,
+    confetti_awarded: 50 * quantity,
+    qr_token: qrToken,
+    metadata: { eventTitle: session.metadata?.eventTitle },
+    updated_at: new Date().toISOString(),
+  }, { onConflict: 'stripe_session_id' });
+
+  await getSupabase().rpc('award_confetti_pts', {
+    _user: userId, _amount: 50 * quantity, _reason: 'ticket_purchase', _ref: session.id,
+  });
+  await notifyUser(
+    userId,
+    `🎟 Ticket confirmed — ${session.metadata?.eventTitle ?? 'event'}`,
+    `Your QR code is ready in your Passport.`,
+    '/passport',
+  );
+
+  if (session.customer_details?.email) {
+    const qrPng = await QRCode.toDataURL(qrToken, { width: 240 });
+    await sendReceipt(
+      session.customer_details.email,
+      `🎟 Your Confetti ticket — ${session.metadata?.eventTitle ?? ''}`,
+      `<div style="font-family:system-ui;color:#222;max-width:520px;margin:auto">
+         <h1 style="color:#ff6b35">You're on the list 🎉</h1>
+         <p>Show this QR at the door for <strong>${session.metadata?.eventTitle ?? 'your event'}</strong>.</p>
+         <p>Quantity: ${quantity}</p>
+         <img src="${qrPng}" alt="QR" style="margin:16px 0" />
+         <p style="font-family:monospace;background:#f7f5f1;padding:8px;border-radius:6px">${qrToken}</p>
+         <p style="color:#888;font-size:12px">Show this email or open Passport in the Confetti app.</p>
+       </div>`,
+    );
+  }
 }
 
 async function handleCheckoutCompleted(session: any, env: StripeEnv) {
-  // One-time purchases only — subscriptions are handled by subscription.* events.
   if (session.mode !== 'payment') return;
   const userId = session.metadata?.userId;
-  if (!userId) {
-    console.error('checkout.session.completed without userId metadata', session.id);
+  if (!userId) { console.error('checkout.session.completed without userId metadata', session.id); return; }
+
+  // Tickets follow a dedicated row in event_tickets.
+  if (session.metadata?.kind === 'ticket') {
+    await issueTicket(session, env);
     return;
   }
+
+  const priceId = session.metadata?.priceId || null;
 
   await getSupabase().from('user_purchases').upsert(
     {
@@ -96,7 +254,7 @@ async function handleCheckoutCompleted(session: any, env: StripeEnv) {
       stripe_session_id: session.id,
       stripe_payment_intent_id: session.payment_intent ?? null,
       product_id: session.metadata?.productId || 'unknown',
-      price_id: session.metadata?.priceId || null,
+      price_id: priceId,
       amount_cents: session.amount_total ?? 0,
       currency: session.currency || 'usd',
       status: session.payment_status === 'paid' ? 'completed' : session.payment_status,
@@ -106,136 +264,107 @@ async function handleCheckoutCompleted(session: any, env: StripeEnv) {
     },
     { onConflict: 'stripe_session_id' }
   );
+
+  // Apply unlock side-effect
+  if (priceId === 'unlock_vip_30d_once') {
+    const vipUntil = await unlockVip(userId, 30);
+    await notifyUser(userId, 'VIP Access unlocked 👑', `Your VIP perks are active until ${new Date(vipUntil).toLocaleDateString()}.`, '/passport');
+  } else if (priceId === 'unlock_premium_plan_once') {
+    await notifyUser(userId, 'Premium Plan unlocked ✨', `Open the planner and tap "Premium plan" to use it.`, '/plan');
+  }
+
+  await awardPts(userId, priceId, session.id);
+
+  if (session.customer_details?.email) {
+    await sendReceipt(
+      session.customer_details.email,
+      `Your Confetti receipt`,
+      `<div style="font-family:system-ui;color:#222;max-width:520px;margin:auto">
+         <h1 style="color:#ff6b35">Thanks for the purchase 🎉</h1>
+         <p>${session.metadata?.productId ?? 'Your unlock'} is active on your account.</p>
+         <p>Amount: $${((session.amount_total ?? 0) / 100).toFixed(2)} ${(session.currency || 'usd').toUpperCase()}</p>
+       </div>`,
+    );
+  }
 }
 
 async function handlePaymentFailed(intent: any, env: StripeEnv) {
   if (!intent?.id) return;
-  await getSupabase()
-    .from('user_purchases')
-    .update({ status: 'failed', updated_at: new Date().toISOString() })
-    .eq('stripe_payment_intent_id', intent.id)
-    .eq('environment', env);
+  await getSupabase().from('user_purchases').update({
+    status: 'failed', updated_at: new Date().toISOString(),
+  }).eq('stripe_payment_intent_id', intent.id).eq('environment', env);
 }
 
-// ---------- Stripe Connect (vendors) ----------
-
+// ---------- Stripe Connect (vendors) — unchanged ----------
 async function handleAccountUpdated(account: any, env: StripeEnv) {
-  await getSupabase()
-    .from('vendor_accounts')
-    .update({
-      charges_enabled: !!account.charges_enabled,
-      payouts_enabled: !!account.payouts_enabled,
-      details_submitted: !!account.details_submitted,
-      updated_at: new Date().toISOString(),
-    })
-    .eq('stripe_account_id', account.id)
-    .eq('environment', env);
+  await getSupabase().from('vendor_accounts').update({
+    charges_enabled: !!account.charges_enabled,
+    payouts_enabled: !!account.payouts_enabled,
+    details_submitted: !!account.details_submitted,
+    updated_at: new Date().toISOString(),
+  }).eq('stripe_account_id', account.id).eq('environment', env);
 }
 
 async function handleTransfer(transfer: any, env: StripeEnv) {
-  const { data: vendor } = await getSupabase()
-    .from('vendor_accounts')
-    .select('id')
-    .eq('stripe_account_id', transfer.destination)
-    .eq('environment', env)
-    .maybeSingle();
-  if (!vendor) {
-    console.warn('Transfer for unknown vendor account', transfer.destination);
-    return;
-  }
-  await getSupabase().from('vendor_payouts').upsert(
-    {
-      vendor_account_id: vendor.id,
-      stripe_transfer_id: transfer.id,
-      amount_cents: transfer.amount,
-      currency: transfer.currency,
-      status: 'transferred',
-      environment: env,
-      metadata: transfer.metadata || {},
-      updated_at: new Date().toISOString(),
-    },
-    { onConflict: 'stripe_transfer_id' }
-  );
+  const { data: vendor } = await getSupabase().from('vendor_accounts').select('id')
+    .eq('stripe_account_id', transfer.destination).eq('environment', env).maybeSingle();
+  if (!vendor) { console.warn('Transfer for unknown vendor account', transfer.destination); return; }
+  await getSupabase().from('vendor_payouts').upsert({
+    vendor_account_id: vendor.id, stripe_transfer_id: transfer.id,
+    amount_cents: transfer.amount, currency: transfer.currency,
+    status: 'transferred', environment: env, metadata: transfer.metadata || {},
+    updated_at: new Date().toISOString(),
+  }, { onConflict: 'stripe_transfer_id' });
 }
 
 async function handlePayout(payout: any, env: StripeEnv, status: 'pending' | 'paid' | 'failed') {
-  // Connect payout events arrive on connected accounts — record by stripe_payout_id.
-  await getSupabase().from('vendor_payouts').upsert(
-    {
-      // vendor_account_id may already exist on prior insert; on conflict we only update status.
-      vendor_account_id: payout.__vendorAccountId || null,
-      stripe_payout_id: payout.id,
-      amount_cents: payout.amount,
-      currency: payout.currency,
-      status,
-      environment: env,
-      metadata: payout.metadata || {},
-      updated_at: new Date().toISOString(),
-    } as any,
-    { onConflict: 'stripe_payout_id', ignoreDuplicates: false }
-  );
+  await getSupabase().from('vendor_payouts').upsert({
+    vendor_account_id: payout.__vendorAccountId || null,
+    stripe_payout_id: payout.id, amount_cents: payout.amount, currency: payout.currency,
+    status, environment: env, metadata: payout.metadata || {},
+    updated_at: new Date().toISOString(),
+  } as any, { onConflict: 'stripe_payout_id', ignoreDuplicates: false });
 }
 
 async function recordEvent(event: { id: string; type: string }, env: StripeEnv, payload: unknown, error?: string) {
-  await getSupabase().from('stripe_webhook_events').upsert(
-    {
-      stripe_event_id: event.id,
-      event_type: event.type,
-      environment: env,
-      payload: payload as any,
-      processed_at: new Date().toISOString(),
-      error: error ?? null,
-    },
-    { onConflict: 'stripe_event_id' }
-  );
+  await getSupabase().from('stripe_webhook_events').upsert({
+    stripe_event_id: event.id, event_type: event.type, environment: env,
+    payload: payload as any, processed_at: new Date().toISOString(), error: error ?? null,
+  }, { onConflict: 'stripe_event_id' });
 }
 
 async function alreadyProcessed(eventId: string): Promise<boolean> {
-  const { data } = await getSupabase()
-    .from('stripe_webhook_events')
-    .select('stripe_event_id')
-    .eq('stripe_event_id', eventId)
-    .maybeSingle();
+  const { data } = await getSupabase().from('stripe_webhook_events')
+    .select('stripe_event_id').eq('stripe_event_id', eventId).maybeSingle();
   return !!data;
 }
 
 async function handleWebhook(req: Request, env: StripeEnv) {
   const event = await verifyWebhook(req, env);
   if (await alreadyProcessed(event.id)) return;
-
   try {
     switch (event.type) {
       case 'customer.subscription.created':
-        await handleSubscriptionCreated(event.data.object, env);
-        break;
+        await handleSubscriptionCreated(event.data.object, env); break;
       case 'customer.subscription.updated':
-        await handleSubscriptionUpdated(event.data.object, env);
-        break;
+        await handleSubscriptionUpdated(event.data.object, env); break;
       case 'customer.subscription.deleted':
-        await handleSubscriptionDeleted(event.data.object, env);
-        break;
+        await handleSubscriptionDeleted(event.data.object, env); break;
       case 'checkout.session.completed':
-        await handleCheckoutCompleted(event.data.object, env);
-        break;
+        await handleCheckoutCompleted(event.data.object, env); break;
       case 'payment_intent.payment_failed':
-        await handlePaymentFailed(event.data.object, env);
-        break;
+        await handlePaymentFailed(event.data.object, env); break;
       case 'account.updated':
-        await handleAccountUpdated(event.data.object, env);
-        break;
+        await handleAccountUpdated(event.data.object, env); break;
       case 'transfer.created':
       case 'transfer.paid':
-        await handleTransfer(event.data.object, env);
-        break;
+        await handleTransfer(event.data.object, env); break;
       case 'payout.created':
-        await handlePayout(event.data.object, env, 'pending');
-        break;
+        await handlePayout(event.data.object, env, 'pending'); break;
       case 'payout.paid':
-        await handlePayout(event.data.object, env, 'paid');
-        break;
+        await handlePayout(event.data.object, env, 'paid'); break;
       case 'payout.failed':
-        await handlePayout(event.data.object, env, 'failed');
-        break;
+        await handlePayout(event.data.object, env, 'failed'); break;
       default:
         console.log('Unhandled Stripe event:', event.type);
     }

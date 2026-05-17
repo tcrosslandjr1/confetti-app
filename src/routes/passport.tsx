@@ -372,9 +372,9 @@ function PassportPage() {
 
         {/* Quick stats row */}
         <div className="mt-4 grid grid-cols-3 gap-2">
-          <StatTile icon={Flame} value="7" label="Streak" tint="coral" />
-          <StatTile icon={Award} value={`${unlockedCount}/${BADGES.length}`} label="Badges" tint="ink" />
-          <StatTile icon={TrendingUp} value="12" label="Check-ins" tint="coral" />
+          <StatTile icon={Flame} value={String(streakDays.filter(Boolean).length)} label="Streak" tint="coral" />
+          <StatTile icon={Award} value={`${unlockedCount}/${totalBadges}`} label="Badges" tint="ink" />
+          <StatTile icon={TrendingUp} value={String(earnedStamps.length)} label="Check-ins" tint="coral" />
         </div>
 
         {/* Streak strip */}

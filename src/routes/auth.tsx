@@ -328,34 +328,62 @@ function AuthPage() {
         </aside>
 
         {/* Form pane */}
-        <div className="flex flex-col px-6 py-10 sm:px-10 lg:py-14">
-          <div className="flex items-center justify-between gap-3 lg:hidden">
-            <div className="flex items-center gap-3">
-              <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-vibe shadow-pop">
-                <Sparkles className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <div>
-                <div className="font-display text-lg font-bold leading-none">
-                  <span className="text-gradient">Confetti</span>
+        <div className="flex flex-col px-5 py-8 sm:px-10 lg:py-14">
+          {/* Mobile immersive hero strip */}
+          <div className="lg:hidden">
+            <div className="relative overflow-hidden rounded-3xl border-2 border-ink bg-gradient-vibe p-5 text-primary-foreground shadow-brut">
+              <div aria-hidden className="absolute inset-0 bg-[radial-gradient(120%_80%_at_0%_0%,_oklch(1_0_0_/_0.22),_transparent_55%)]" />
+              <div className="relative flex items-center gap-3">
+                <div className="grid h-11 w-11 place-items-center rounded-2xl border-2 border-ink bg-cream text-ink shadow-brut">
+                  <Sparkles className="h-5 w-5" />
                 </div>
-                <div className="text-xs text-muted-foreground">Your city insider</div>
+                <div>
+                  <div className="font-display text-xl font-extrabold leading-none">
+                    Confetti<span className="font-serif italic text-cream/90">.</span>
+                  </div>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] opacity-90">
+                    your city insider
+                  </div>
+                </div>
+                <span className="ml-auto inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut">
+                  <span className="relative inline-flex h-1.5 w-1.5">
+                    <span className="absolute inset-0 animate-ping rounded-full bg-coral/70" />
+                    <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-coral" />
+                  </span>
+                  live
+                </span>
+              </div>
+              <h2 className="relative mt-4 font-display text-3xl font-extrabold leading-[0.95]">
+                Be the plan,
+                <br />
+                not an afterthought.
+              </h2>
+              <div className="relative mt-3 flex flex-wrap gap-1.5">
+                {["dining", "nightlife", "perks", "40+ cities"].map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border-2 border-ink bg-cream/95 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink"
+                  >
+                    {t}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
 
-        <div className="mt-10 lg:mt-4">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/60 px-3 py-1 text-[11px] font-medium text-muted-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+        <div className="mt-8 lg:mt-4">
+          <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut">
+            <span className="h-1.5 w-1.5 rounded-full bg-coral" />
             {mode === "signup" ? "Join the list" : "Welcome back"}
           </span>
-          <h1 className="mt-3 font-display text-4xl font-bold leading-[1.05] tracking-tight">
+          <h1 className="mt-3 font-display text-[2.25rem] font-extrabold leading-[1.02] tracking-tight sm:text-4xl">
             {mode === "signup" ? (
               <>Your personal <span className="text-gradient">guide</span> to every city.</>
             ) : (
               <>Good to see you <span className="text-gradient">again</span>.</>
             )}
           </h1>
-          <p className="mt-3 text-sm text-muted-foreground">
+          <p className="mt-3 text-sm text-ink/70">
             {mode === "signup"
               ? "Dining, nightlife, and curated experiences picked for your taste."
               : "Pick up where you left off — your saved spots are waiting."}

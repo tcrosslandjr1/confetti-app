@@ -5,20 +5,20 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { type StripeEnv, createStripeClient } from "@/lib/stripe.server";
 
 // --- Plan catalog (price IDs registered in Stripe) ---
-export const CONSUMER_PRICES = ["plus_monthly", "crew_monthly"] as const;
+export const CONSUMER_PRICES = ["consumer_plus_monthly", "consumer_crew_monthly"] as const;
 export const BUSINESS_PRICES = [
   "business_featured_monthly",
   "business_boosted_monthly",
   "business_premium_monthly",
 ] as const;
 export const AD_PRICES = [
-  "ad_featured_month",
-  "ad_boosted_month",
-  "ad_premium_month",
+  "ad_featured_monthly",
+  "ad_boosted_monthly",
+  "ad_premium_monthly",
 ] as const;
 export const ONE_TIME_PRICES = [
   "unlock_premium_plan_once",
-  "unlock_vip_30d_once",
+  "unlock_vip_access_once",
 ] as const;
 
 const ALL_PRICES = [

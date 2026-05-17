@@ -310,6 +310,7 @@ function AdminVenuesPage() {
             }}
           />
         </Dialog>
+        </div>
       </header>
 
       <div className="flex flex-wrap items-center gap-2">

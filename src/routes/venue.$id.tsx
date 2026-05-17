@@ -553,7 +553,8 @@ function ShareVenue({ venue }: { venue: Venue }) {
 }
 
 function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }) {
-  const photo = venue.image_url || FALLBACK_PHOTO;
+  const gallery = venue.gallery_urls ?? [];
+  const photo = gallery[0]?.url || venue.image_url || FALLBACK_PHOTO;
   const price = "$".repeat(Math.max(1, Math.min(4, venue.price_level || 3)));
 
   return (
@@ -634,49 +635,29 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
             >
               Search on Google <ExternalLink className="h-3 w-3" />
             </a>
-            <a
-              href={`https://www.tiktok.com/search?q=${encodeURIComponent(venue.name)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-1 inline-flex items-center gap-1 text-[11px] font-medium text-white/80 underline underline-offset-2 hover:text-white"
-            >
-              Search on TikTok <ExternalLink className="h-3 w-3" />
-            </a>
-            {venue.website && (
-              <a
-                href={venue.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-1 inline-flex items-center gap-1 text-[11px] font-medium text-white/80 underline underline-offset-2 hover:text-white"
-              >
-                Visit website <ExternalLink className="h-3 w-3" />
-              </a>
-            )}
-            <a
-              href={`https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(venue.name)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-1 inline-flex items-center gap-1 text-[11px] font-medium text-white/80 underline underline-offset-2 hover:text-white"
-            >
-              Search on Instagram <ExternalLink className="h-3 w-3" />
-            </a>
-            <a
-              href={`https://www.youtube.com/results?search_query=${encodeURIComponent(venue.name)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-1 inline-flex items-center gap-1 text-[11px] font-medium text-white/80 underline underline-offset-2 hover:text-white"
-            >
-              Search on YouTube <ExternalLink className="h-3 w-3" />
-            </a>
-            <a
-              href={`https://www.facebook.com/search/top?q=${encodeURIComponent(venue.name)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-1 inline-flex items-center gap-1 text-[11px] font-medium text-white/80 underline underline-offset-2 hover:text-white"
-            >
-              Search on Facebook <ExternalLink className="h-3 w-3" />
-            </a>
           </div>
+        </div>
+      </div>
+
+      {/* Photos · Social · Reels */}
+      <div className="space-y-3">
+        <VenueGallery items={gallery} />
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <VenueSocialButtons
+            website={venue.website}
+            address={venue.address}
+            city={venue.city}
+            name={venue.name}
+            tiktokUrl={venue.tiktok_url}
+            instagramUrl={venue.instagram_url}
+          />
+          <ReelsDrawer
+            venueName={venue.name}
+            tiktokUrl={venue.tiktok_url}
+            tiktokHandle={venue.tiktok_handle}
+            instagramUrl={venue.instagram_url}
+            instagramHandle={venue.instagram_handle}
+          />
         </div>
       </div>
 

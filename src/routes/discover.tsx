@@ -64,6 +64,11 @@ function DiscoverPage() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<(typeof CATEGORIES)[number]>("All");
   const [refreshNonce, setRefreshNonce] = useState(0);
+  const [mapSelected, setMapSelected] = useState<VenueRow | null>(null);
+
+  useEffect(() => {
+    setMapSelected(null);
+  }, [view, cat, q]);
 
   const filtered = useMemo(() => {
     if (!rows) return rows;
@@ -251,7 +256,7 @@ function DiscoverPage() {
             ))}
           </ul>
         ) : (
-          <DiscoverMap key={refreshNonce} rows={filtered} />
+          <DiscoverMap key={refreshNonce} rows={filtered} selected={mapSelected} onSelect={setMapSelected} />
         )}
       </div>
     </div>
@@ -259,8 +264,15 @@ function DiscoverPage() {
   );
 }
 
-function DiscoverMap({ rows }: { rows: VenueRow[] }) {
-  const [selected, setSelected] = useState<VenueRow | null>(null);
+function DiscoverMap({
+  rows,
+  selected,
+  onSelect,
+}: {
+  rows: VenueRow[];
+  selected: VenueRow | null;
+  onSelect: (row: VenueRow | null) => void;
+}) {
   // Spread out venues without coords on a soft grid so the map always has pins.
   const pinned = useMemo(() => {
     return rows.map((r, i) => {
@@ -327,7 +339,7 @@ function DiscoverMap({ rows }: { rows: VenueRow[] }) {
           <button
             key={row.id}
             type="button"
-            onClick={() => setSelected(row)}
+            onClick={() => onSelect(row)}
             className="group absolute z-10 -translate-x-1/2 -translate-y-full focus:outline-none"
             style={{ left: `${x}%`, top: `${y}%` }}
             aria-label={`Show ${row.name}`}
@@ -359,7 +371,7 @@ function DiscoverMap({ rows }: { rows: VenueRow[] }) {
         );
       })}
 
-      {selected ? <SelectedCard row={selected} onClose={() => setSelected(null)} /> : null}
+      {selected ? <SelectedCard row={selected} onClose={() => onSelect(null)} /> : null}
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Flame, MapPin, ExternalLink, Star, ArrowLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { ViralTagChip, ALL_VIRAL_TAGS, tagLabel, type ViralTag } from "@/components/ViralTagChip";
+import { PullToRefresh } from "@/components/PullToRefresh";
 
 export const Route = createFileRoute("/viral")({
   head: () => ({

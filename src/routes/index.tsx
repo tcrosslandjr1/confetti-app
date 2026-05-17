@@ -224,6 +224,18 @@ function Landing() {
 
   const [bookingOpen, setBookingOpen] = useState(false);
 
+  // Show the bottom sticky CTA once the hero is offscreen so the primary action
+  // is always one tap away while scrolling the long landing page.
+  const [showStickyCta, setShowStickyCta] = useState(false);
+  useEffect(() => {
+    function onScroll() {
+      setShowStickyCta(window.scrollY > 600);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   // Subtle hero parallax
   const heroBgRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {

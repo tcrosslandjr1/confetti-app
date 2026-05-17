@@ -80,18 +80,15 @@ function DiscoverPage() {
       .eq("verified", true)
       .order("trend_score", { ascending: false })
       .limit(60);
-    setRows(
-      (data ?? []).map((r) => ({
-        id: r.id,
-        name: r.venue_name,
-        neighborhood: r.neighborhood,
-        address: r.address,
-        photo: r.photo_url,
-        rating: r.rating != null ? Number(r.rating) : null,
-      }))
-    );
-    // Bump nonce so the map view re-mounts its markers and re-fits bounds,
-    // even when the underlying rows are byte-identical to the prior fetch.
+    const dbRows: VenueRow[] = (data ?? []).map((r) => ({
+      id: r.id,
+      name: r.venue_name,
+      neighborhood: r.neighborhood,
+      address: r.address,
+      photo: r.photo_url,
+      rating: r.rating != null ? Number(r.rating) : null,
+    }));
+    setRows([...SAMPLE_VENUES, ...dbRows]);
     setRefreshNonce((n) => n + 1);
   }, []);
 

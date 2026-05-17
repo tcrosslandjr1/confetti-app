@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { z } from "zod";
 import { zodValidator } from "@tanstack/zod-adapter";
 import { ArrowLeft, Share2, Check, Play, Mail, ImageDown, Loader2, Sparkles } from "lucide-react";
@@ -12,7 +12,11 @@ import {
   subscribeActiveLoop,
   type ActiveLoop,
 } from "@/lib/loop-store";
-import { getItinerary, listItineraries } from "@/lib/itineraries";
+import {
+  getItinerary,
+  listItineraries,
+  ITINERARY_CHANGED_EVENT,
+} from "@/lib/itineraries";
 import { itineraryToActiveLoop } from "@/lib/itinerary-to-loop";
 import { useAuth } from "@/lib/auth-context";
 

@@ -111,6 +111,7 @@ import { Route as AdminAdAnalyticsRouteImport } from './routes/admin.ad-analytic
 import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
 import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
+import { Route as BusinessClaimPendingRouteImport } from './routes/business.claim.pending'
 import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pick-events'
 import { Route as AdvertiseStoriesSlugRouteImport } from './routes/advertise.stories.$slug'
 import { Route as ApiPublicWalletGoogleRouteImport } from './routes/api/public/wallet/google'
@@ -633,6 +634,11 @@ const ConciergeChatThreadIdRoute = ConciergeChatThreadIdRouteImport.update({
   path: '/chat/$threadId',
   getParentRoute: () => ConciergeRoute,
 } as any)
+const BusinessClaimPendingRoute = BusinessClaimPendingRouteImport.update({
+  id: '/pending',
+  path: '/pending',
+  getParentRoute: () => BusinessClaimRoute,
+} as any)
 const ApiPublicPickEventsRoute = ApiPublicPickEventsRouteImport.update({
   id: '/api/public/pick-events',
   path: '/api/public/pick-events',
@@ -761,7 +767,7 @@ export interface FileRoutesByFullPath {
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
-  '/business/claim': typeof BusinessClaimRoute
+  '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/login': typeof BusinessLoginRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
@@ -798,6 +804,7 @@ export interface FileRoutesByFullPath {
   '/trips/': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
+  '/business/claim/pending': typeof BusinessClaimPendingRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
@@ -871,7 +878,7 @@ export interface FileRoutesByTo {
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
-  '/business/claim': typeof BusinessClaimRoute
+  '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/login': typeof BusinessLoginRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
@@ -908,6 +915,7 @@ export interface FileRoutesByTo {
   '/trips': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
+  '/business/claim/pending': typeof BusinessClaimPendingRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat': typeof ConciergeChatIndexRoute
@@ -987,7 +995,7 @@ export interface FileRoutesById {
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
-  '/business/claim': typeof BusinessClaimRoute
+  '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/login': typeof BusinessLoginRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
@@ -1024,6 +1032,7 @@ export interface FileRoutesById {
   '/trips/': typeof TripsIndexRoute
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
+  '/business/claim/pending': typeof BusinessClaimPendingRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
   '/concierge/chat/': typeof ConciergeChatIndexRoute
@@ -1141,6 +1150,7 @@ export interface FileRouteTypes {
     | '/trips/'
     | '/advertise/stories/$slug'
     | '/api/public/pick-events'
+    | '/business/claim/pending'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat/'
@@ -1251,6 +1261,7 @@ export interface FileRouteTypes {
     | '/trips'
     | '/advertise/stories/$slug'
     | '/api/public/pick-events'
+    | '/business/claim/pending'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat'
@@ -1366,6 +1377,7 @@ export interface FileRouteTypes {
     | '/trips/'
     | '/advertise/stories/$slug'
     | '/api/public/pick-events'
+    | '/business/claim/pending'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
     | '/concierge/chat/'
@@ -1424,7 +1436,7 @@ export interface RootRouteChildren {
   ViralRoute: typeof ViralRoute
   WeatherRoute: typeof WeatherRoute
   ApiChatRoute: typeof ApiChatRoute
-  BusinessClaimRoute: typeof BusinessClaimRoute
+  BusinessClaimRoute: typeof BusinessClaimRouteWithChildren
   BusinessLoginRoute: typeof BusinessLoginRoute
   BusinessSignupRoute: typeof BusinessSignupRoute
   CollabTripIdRoute: typeof CollabTripIdRoute
@@ -2167,6 +2179,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConciergeChatThreadIdRouteImport
       parentRoute: typeof ConciergeRoute
     }
+    '/business/claim/pending': {
+      id: '/business/claim/pending'
+      path: '/pending'
+      fullPath: '/business/claim/pending'
+      preLoaderRoute: typeof BusinessClaimPendingRouteImport
+      parentRoute: typeof BusinessClaimRoute
+    }
     '/api/public/pick-events': {
       id: '/api/public/pick-events'
       path: '/api/public/pick-events'
@@ -2388,6 +2407,18 @@ const TeamsRouteChildren: TeamsRouteChildren = {
 
 const TeamsRouteWithChildren = TeamsRoute._addFileChildren(TeamsRouteChildren)
 
+interface BusinessClaimRouteChildren {
+  BusinessClaimPendingRoute: typeof BusinessClaimPendingRoute
+}
+
+const BusinessClaimRouteChildren: BusinessClaimRouteChildren = {
+  BusinessClaimPendingRoute: BusinessClaimPendingRoute,
+}
+
+const BusinessClaimRouteWithChildren = BusinessClaimRoute._addFileChildren(
+  BusinessClaimRouteChildren,
+)
+
 interface TripsIdRouteChildren {
   TripsIdPassportRoute: typeof TripsIdPassportRoute
 }
@@ -2443,7 +2474,7 @@ const rootRouteChildren: RootRouteChildren = {
   ViralRoute: ViralRoute,
   WeatherRoute: WeatherRoute,
   ApiChatRoute: ApiChatRoute,
-  BusinessClaimRoute: BusinessClaimRoute,
+  BusinessClaimRoute: BusinessClaimRouteWithChildren,
   BusinessLoginRoute: BusinessLoginRoute,
   BusinessSignupRoute: BusinessSignupRoute,
   CollabTripIdRoute: CollabTripIdRoute,

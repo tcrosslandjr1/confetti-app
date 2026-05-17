@@ -74,9 +74,9 @@ function PendingPage() {
                   <p className="text-xs text-muted-foreground">
                     Submitted {new Date(c.created_at).toLocaleDateString()} · via {c.method ?? "—"}
                   </p>
-                  {c.admin_notes && (
+                  {c.admin_note && (
                     <p className="mt-1 text-xs text-muted-foreground">
-                      Note: {c.admin_notes}
+                      Note: {c.admin_note}
                     </p>
                   )}
                 </div>

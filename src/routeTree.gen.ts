@@ -75,6 +75,7 @@ import { Route as PortalActivityRouteImport } from './routes/portal.activity'
 import { Route as PortalAchievementsRouteImport } from './routes/portal.achievements'
 import { Route as PlanReadyRouteImport } from './routes/plan.ready'
 import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
+import { Route as PCodeRouteImport } from './routes/p.$code'
 import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile'
@@ -444,6 +445,11 @@ const PlanPreviewRoute = PlanPreviewRouteImport.update({
   path: '/preview',
   getParentRoute: () => PlanRoute,
 } as any)
+const PCodeRoute = PCodeRouteImport.update({
+  id: '/p/$code',
+  path: '/p/$code',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IdeasSlugRoute = IdeasSlugRouteImport.update({
   id: '/ideas/$slug',
   path: '/ideas/$slug',
@@ -708,6 +714,7 @@ export interface FileRoutesByFullPath {
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
+  '/p/$code': typeof PCodeRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
   '/portal/achievements': typeof PortalAchievementsRoute
@@ -809,6 +816,7 @@ export interface FileRoutesByTo {
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
+  '/p/$code': typeof PCodeRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
   '/portal/achievements': typeof PortalAchievementsRoute
@@ -916,6 +924,7 @@ export interface FileRoutesById {
   '/concierge/profile': typeof ConciergeProfileRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
+  '/p/$code': typeof PCodeRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
   '/portal/achievements': typeof PortalAchievementsRoute
@@ -1024,6 +1033,7 @@ export interface FileRouteTypes {
     | '/concierge/profile'
     | '/events/$eventId'
     | '/ideas/$slug'
+    | '/p/$code'
     | '/plan/preview'
     | '/plan/ready'
     | '/portal/achievements'
@@ -1125,6 +1135,7 @@ export interface FileRouteTypes {
     | '/concierge/profile'
     | '/events/$eventId'
     | '/ideas/$slug'
+    | '/p/$code'
     | '/plan/preview'
     | '/plan/ready'
     | '/portal/achievements'
@@ -1231,6 +1242,7 @@ export interface FileRouteTypes {
     | '/concierge/profile'
     | '/events/$eventId'
     | '/ideas/$slug'
+    | '/p/$code'
     | '/plan/preview'
     | '/plan/ready'
     | '/portal/achievements'
@@ -1317,6 +1329,7 @@ export interface RootRouteChildren {
   CollabTripIdRoute: typeof CollabTripIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   IdeasSlugRoute: typeof IdeasSlugRoute
+  PCodeRoute: typeof PCodeRoute
   RecapItineraryIdRoute: typeof RecapItineraryIdRoute
   RsvpTokenRoute: typeof RsvpTokenRoute
   RsvpTripIdRoute: typeof RsvpTripIdRoute
@@ -1799,6 +1812,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlanPreviewRouteImport
       parentRoute: typeof PlanRoute
     }
+    '/p/$code': {
+      id: '/p/$code'
+      path: '/p/$code'
+      fullPath: '/p/$code'
+      preLoaderRoute: typeof PCodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ideas/$slug': {
       id: '/ideas/$slug'
       path: '/ideas/$slug'
@@ -2262,6 +2282,7 @@ const rootRouteChildren: RootRouteChildren = {
   CollabTripIdRoute: CollabTripIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   IdeasSlugRoute: IdeasSlugRoute,
+  PCodeRoute: PCodeRoute,
   RecapItineraryIdRoute: RecapItineraryIdRoute,
   RsvpTokenRoute: RsvpTokenRoute,
   RsvpTripIdRoute: RsvpTripIdRoute,

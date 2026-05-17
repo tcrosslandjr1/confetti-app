@@ -25,6 +25,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { getSampleVenue } from "@/lib/sample-venues";
 import { X } from "lucide-react";
 import { FavoriteVenueButton } from "@/components/FavoriteVenueButton";
+import { VenueSocialButtons } from "@/components/venue/VenueSocialButtons";
+import { VenueGallery, type GalleryItem } from "@/components/venue/VenueGallery";
+import { ReelsDrawer } from "@/components/venue/ReelsDrawer";
 
 const SITE_ORIGIN = "https://confettiplan.lovable.app";
 
@@ -79,6 +82,12 @@ type Venue = {
   source: "venues" | "viral_venues";
   city: string | null;
   website: string | null;
+  address_full?: string | null;
+  gallery_urls?: GalleryItem[];
+  tiktok_url?: string | null;
+  tiktok_handle?: string | null;
+  instagram_url?: string | null;
+  instagram_handle?: string | null;
 };
 
 const FALLBACK_PHOTO =
@@ -163,6 +172,11 @@ function VenueBookingPage() {
           source,
           city: (v as any).city ?? null,
           website: (v as any).website ?? null,
+          gallery_urls: Array.isArray((v as any).gallery_urls) ? (v as any).gallery_urls : [],
+          tiktok_url: (v as any).tiktok_url ?? null,
+          tiktok_handle: (v as any).tiktok_handle ?? null,
+          instagram_url: (v as any).instagram_url ?? null,
+          instagram_handle: (v as any).instagram_handle ?? null,
         });
       } else if (sample) {
         setVenue({

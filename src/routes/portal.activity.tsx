@@ -24,6 +24,8 @@ import {
   type ActivityEntry,
   type ActivityKind,
 } from "@/lib/activity-log";
+import { PullToRefresh } from "@/components/PullToRefresh";
+import { useCallback } from "react";
 
 export const Route = createFileRoute("/portal/activity")({
   head: () => ({

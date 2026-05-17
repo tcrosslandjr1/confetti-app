@@ -81,12 +81,27 @@ function DiscoverPage() {
 
   const setMapSelected = useCallback(
     (row: VenueRow | null) => {
+      // Closing the card: pop history so prior Discover state (filters,
+      // search, list/map view) is restored without a refresh.
+      if (row === null) {
+        if (venueId && typeof window !== "undefined" && window.history.length > 1) {
+          window.history.back();
+          return;
+        }
+        navigate({
+          search: (prev: { venueId?: string }) => ({ ...prev, venueId: undefined }),
+          replace: true,
+        });
+        return;
+      }
+      // Opening / switching selection: replace when one is already open
+      // (avoid history bloat from pin-to-pin), push when opening fresh.
       navigate({
-        search: (prev: { venueId?: string }) => ({ ...prev, venueId: row?.id }),
-        replace: true,
+        search: (prev: { venueId?: string }) => ({ ...prev, venueId: row.id }),
+        replace: Boolean(venueId),
       });
     },
-    [navigate],
+    [navigate, venueId],
   );
 
   // Clear selection on filter/search changes (but preserve when toggling to map).

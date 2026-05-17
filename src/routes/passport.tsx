@@ -131,7 +131,7 @@ const TIERS = [
 ];
 
 // Streak: last 7 days, true = checked-in
-const STREAK_DAYS = [true, true, false, true, true, true, true];
+// (streak data is now provided by usePassportStats)
 const STREAK_LABELS = ["M", "T", "W", "T", "F", "S", "S"];
 
 function PassportPage() {

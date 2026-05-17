@@ -99,7 +99,7 @@ const TIERS: Tier[] = [
       "Full analytics (views, clicks, engagement)",
       "Unlimited photos & flyers",
     ],
-    cta: { label: "Boost My Venue", to: "/business/signup" },
+    cta: { label: "Boost My Venue", priceId: "business_boosted_monthly" },
     highlight: true,
     accent: "from-primary/30 to-primary/5",
   },

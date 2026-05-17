@@ -508,19 +508,13 @@ export function BuildMyNightWizard() {
   const [wishlist, setWishlist] = useState<string>("");
   const [loadingIdx, setLoadingIdx] = useState(0);
   const [variant, setVariant] = useState(0);
-  // Track explicitly-closed stops so all stops are expanded by default
-  // and only collapse when the user clicks a header.
+  // Track explicitly-opened stops so all stops are collapsed by default
+  // and only expand when the user clicks a header.
   const [openStops, setOpenStops] = useState<Set<number>>(() => new Set());
   const toggleStop = (i: number) =>
     setOpenStops((prev) => {
       const next = new Set(prev);
       if (next.has(i)) next.delete(i); else next.add(i);
-      return next;
-    });
-    setClosedStops((prev) => {
-      const next = new Set(prev);
-      if (next.has(i)) next.delete(i);
-      else next.add(i);
       return next;
     });
   const [sortBy, setSortBy] = useState<"order" | "rating" | "price" | "distance" | "availability">(

@@ -961,10 +961,19 @@ function ReservationModal({
     toast.success("Reservation confirmed!");
   };
 
+  if (!open) return null;
+
   return (
-    <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
-      <DialogContent className="max-h-[90vh] overflow-y-auto rounded-3xl border-2 border-ink bg-cream p-0 shadow-brut-lg sm:max-w-lg">
-        <DialogTitle className="sr-only">Reserve at {venue.name}</DialogTitle>
+    <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center">
+      {/* Backdrop */}
+      <div
+        className="absolute inset-0 bg-ink/60 backdrop-blur-sm"
+        onClick={onClose}
+        aria-hidden
+      />
+      {/* Modal panel */}
+      <div className="relative z-10 w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border-2 border-ink bg-cream shadow-brut-lg animate-[slide-in-up_.28s_ease-out]">
+        <h2 className="sr-only">Reserve at {venue.name}</h2>
         {!confirmed ? (
           <div className="space-y-5 p-5">
             {/* Header */}
@@ -1123,8 +1132,8 @@ function ReservationModal({
             </button>
           </div>
         )}
-      </DialogContent>
-    </Dialog>
+      </div>
+    </div>
   );
 }
 

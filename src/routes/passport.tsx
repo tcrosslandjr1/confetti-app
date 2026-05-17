@@ -818,6 +818,19 @@ function PassportPage() {
             <div className="mt-1 font-display text-2xl font-extrabold tracking-widest text-ink">
               {justClaimed?.code}
             </div>
+            <button
+              type="button"
+              onClick={() => {
+                if (!justClaimed?.code) return;
+                navigator.clipboard.writeText(justClaimed.code).then(() => {
+                  toast.success("Copied to clipboard");
+                });
+              }}
+              className="group mx-auto mt-3 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut hover:-translate-y-0.5 hover:bg-coral hover:text-cream"
+            >
+              <Copy className="h-3.5 w-3.5" />
+              Copy code
+            </button>
           </div>
           <AlertDialogFooter>
             <AlertDialogAction onClick={() => setJustClaimed(null)}>Done</AlertDialogAction>

@@ -219,14 +219,14 @@ export const createPortalSession = createServerFn({ method: "POST" })
 // changePlan — upgrade now (immediate, prorated) OR downgrade at period end
 // ============================================================================
 const PRICE_RANK: Record<string, number> = {
-  plus_monthly: 1,
-  crew_monthly: 2,
+  consumer_plus_monthly: 1,
+  consumer_crew_monthly: 2,
   business_featured_monthly: 1,
   business_boosted_monthly: 2,
   business_premium_monthly: 3,
-  ad_featured_month: 1,
-  ad_boosted_month: 2,
-  ad_premium_month: 3,
+  ad_featured_monthly: 1,
+  ad_boosted_monthly: 2,
+  ad_premium_monthly: 3,
 };
 
 export const changePlan = createServerFn({ method: "POST" })

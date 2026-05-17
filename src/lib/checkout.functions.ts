@@ -373,3 +373,59 @@ export const cancelSubscription = createServerFn({ method: "POST" })
     });
     return { ok: true };
   });
+
+// ============================================================================
+// getCheckoutSession — read a completed session for the post-checkout page
+// ============================================================================
+export const getCheckoutSession = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      sessionId: z.string().regex(/^cs_(test|live)_[a-zA-Z0-9]+$/),
+      environment: StripeEnvSchema,
+    }).parse,
+  )
+  .handler(async ({ data, context }) => {
+    const { userId } = context;
+    const stripe = createStripeClient(data.environment);
+
+    const session = await stripe.checkout.sessions.retrieve(data.sessionId, {
+      expand: ["line_items", "subscription", "payment_intent"],
+    });
+
+    // Ownership guard — only the buyer can read their session.
+    const sessionUserId = session.metadata?.userId;
+    if (sessionUserId && sessionUserId !== userId) {
+      throw new Error("Forbidden");
+    }
+
+    const line = (session as any).line_items?.data?.[0];
+    const sub = typeof session.subscription === "object" ? session.subscription : null;
+    const subItem = sub?.items?.data?.[0];
+    const periodEnd = subItem?.current_period_end ?? (sub as any)?.current_period_end;
+    const trialEnd = (sub as any)?.trial_end;
+
+    return {
+      id: session.id,
+      mode: session.mode, // "subscription" | "payment" | "setup"
+      status: session.status, // "open" | "complete" | "expired"
+      paymentStatus: session.payment_status, // "paid" | "unpaid" | "no_payment_required"
+      customerEmail: session.customer_details?.email ?? null,
+      amountTotal: session.amount_total ?? null, // minor units
+      currency: session.currency ?? null,
+      priceId: session.metadata?.priceId ?? null,
+      productName: line?.description ?? null,
+      quantity: line?.quantity ?? null,
+      accountType: session.metadata?.accountType ?? null,
+      kind: session.metadata?.kind ?? null,
+      subscription: sub
+        ? {
+            id: sub.id,
+            status: sub.status,
+            cancelAtPeriodEnd: sub.cancel_at_period_end ?? false,
+            currentPeriodEnd: periodEnd ? new Date(periodEnd * 1000).toISOString() : null,
+            trialEnd: trialEnd ? new Date(trialEnd * 1000).toISOString() : null,
+          }
+        : null,
+    };
+  });

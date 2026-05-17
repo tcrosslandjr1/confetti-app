@@ -15,10 +15,10 @@ const items = [
     match: (p: string) => p.startsWith("/concierge/chat"),
   },
   {
-    to: "/concierge/passport",
+    to: "/passport",
     label: "Passport",
     icon: BookMarked,
-    match: (p: string) => p.startsWith("/concierge/passport"),
+    match: (p: string) => p === "/passport" || p.startsWith("/concierge/passport"),
   },
   {
     to: "/concierge/profile",

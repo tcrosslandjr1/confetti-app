@@ -286,6 +286,47 @@ function AuthPage() {
             </div>
           </div>
 
+          {/* Floating preview collage — fills the middle breathing space */}
+          <div className="relative my-6 hidden h-[220px] xl:block">
+            <div className="absolute left-[6%] top-2 w-[58%] -rotate-[5deg] rounded-2xl border-2 border-ink bg-cream p-4 text-ink shadow-brut-lg transition-transform hover:-translate-y-1 hover:-rotate-[3deg]">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink/60">tonight · 8:30pm</span>
+                <span className="inline-flex items-center gap-1 rounded-full bg-coral px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-cream">
+                  <Sparkles className="h-2.5 w-2.5" /> pick
+                </span>
+              </div>
+              <div className="mt-2 font-display text-lg font-extrabold leading-tight">Rooftop omakase</div>
+              <div className="mt-0.5 flex items-center gap-1 font-mono text-[10px] uppercase tracking-widest text-ink/70">
+                <MapPin className="h-3 w-3" /> brooklyn · 2 seats left
+              </div>
+              <div className="mt-3 flex items-center gap-1 text-coral">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={`pick-${i}`} className="h-3 w-3 fill-current" />
+                ))}
+                <span className="ml-1 font-mono text-[9px] uppercase tracking-widest text-ink/60">4.9 · 312</span>
+              </div>
+            </div>
+
+            <div className="absolute right-[4%] top-[42%] w-[46%] rotate-[6deg] rounded-2xl border-2 border-ink bg-ink p-4 text-cream shadow-brut-lg transition-transform hover:-translate-y-1 hover:rotate-[3deg]">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] opacity-70">your reward</span>
+                <PartyPopper className="h-4 w-4 text-coral" />
+              </div>
+              <div className="mt-1 flex items-baseline gap-1">
+                <span className="font-display text-2xl font-extrabold leading-none">+250</span>
+                <span className="font-mono text-[10px] uppercase tracking-widest opacity-80">confetti</span>
+              </div>
+              <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-cream/15">
+                <div className="h-full w-[68%] rounded-full bg-coral" />
+              </div>
+              <div className="mt-1.5 font-mono text-[9px] uppercase tracking-widest opacity-70">320 to gold tier</div>
+            </div>
+
+            <div className="absolute left-[2%] bottom-0 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut">
+              <ShieldCheck className="h-3 w-3 text-coral" /> skip the line
+            </div>
+          </div>
+
           <div className="relative space-y-6 text-primary-foreground">
             <div className="flex flex-wrap items-center gap-2">
               <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut">

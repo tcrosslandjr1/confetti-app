@@ -519,6 +519,14 @@ function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) 
       >
         Search on Google
       </a>
+      <a
+        href={`https://www.tiktok.com/search?q=${encodeURIComponent(row.name)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-1 inline-flex items-center gap-1 text-xs text-coral underline underline-offset-2"
+      >
+        Search on TikTok
+      </a>
     </div>
   );
 }

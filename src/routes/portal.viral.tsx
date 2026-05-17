@@ -195,6 +195,8 @@ function PortalViralPage() {
   const [query, setQuery] = useState("");
   const [scoreInfoOpen, setScoreInfoOpen] = useState(false);
   const [discovering, setDiscovering] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
+  useRefreshable(() => setRefreshKey((k) => k + 1));
 
   const refetch = async () => {
     setRows(null);

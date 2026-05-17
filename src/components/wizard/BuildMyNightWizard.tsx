@@ -1787,6 +1787,31 @@ export function BuildMyNightWizard() {
                       .join(" + ")} · ${CREW.find((c) => c.k === crew)?.label} · ${budget}`}
               </p>
 
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setStep(preset ? 0 : 4)}
+                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
+                  aria-label="Go back and change your answers"
+                >
+                  <ArrowLeft className="h-3.5 w-3.5" /> Back
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    closeWizard();
+                    navigate({ to: "/teams/new" });
+                  }}
+                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-gold px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
+                  aria-label="Build this night with friends"
+                >
+                  <Users className="h-3.5 w-3.5" /> Build with friends
+                </button>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                  Tap <span className="font-bold text-coral">+ Add</span> on a stop to lock it in
+                </span>
+              </div>
+
               {dynamicError && !preset && (
                 <div
                   role="alert"

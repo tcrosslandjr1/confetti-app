@@ -350,6 +350,5 @@ function PortalActivityPage() {
         </div>
       )}
     </div>
-    </PullToRefresh>
   );
 }

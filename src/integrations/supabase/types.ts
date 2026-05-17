@@ -1723,6 +1723,42 @@ export type Database = {
         }
         Relationships: []
       }
+      venue_favorites: {
+        Row: {
+          category: string | null
+          city: string | null
+          created_at: string
+          id: string
+          image_url: string | null
+          neighborhood: string | null
+          user_id: string
+          venue_id: string
+          venue_name: string
+        }
+        Insert: {
+          category?: string | null
+          city?: string | null
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          neighborhood?: string | null
+          user_id: string
+          venue_id: string
+          venue_name: string
+        }
+        Update: {
+          category?: string | null
+          city?: string | null
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          neighborhood?: string | null
+          user_id?: string
+          venue_id?: string
+          venue_name?: string
+        }
+        Relationships: []
+      }
       venue_reports: {
         Row: {
           city: string | null

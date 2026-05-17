@@ -31,6 +31,7 @@ import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as ForBusinessRouteImport } from './routes/for-business'
 import { Route as FeaturesRouteImport } from './routes/features'
+import { Route as FavoritesRouteImport } from './routes/favorites'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as DataTermsRouteImport } from './routes/data-terms'
 import { Route as CreateRouteImport } from './routes/create'
@@ -221,6 +222,11 @@ const ForBusinessRoute = ForBusinessRouteImport.update({
 const FeaturesRoute = FeaturesRouteImport.update({
   id: '/features',
   path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FavoritesRoute = FavoritesRouteImport.update({
+  id: '/favorites',
+  path: '/favorites',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DiscoverRoute = DiscoverRouteImport.update({
@@ -654,6 +660,7 @@ export interface FileRoutesByFullPath {
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
+  '/favorites': typeof FavoritesRoute
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
   '/how-it-works': typeof HowItWorksRoute
@@ -756,6 +763,7 @@ export interface FileRoutesByTo {
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
+  '/favorites': typeof FavoritesRoute
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
   '/how-it-works': typeof HowItWorksRoute
@@ -860,6 +868,7 @@ export interface FileRoutesById {
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
+  '/favorites': typeof FavoritesRoute
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
   '/how-it-works': typeof HowItWorksRoute
@@ -967,6 +976,7 @@ export interface FileRouteTypes {
     | '/create'
     | '/data-terms'
     | '/discover'
+    | '/favorites'
     | '/features'
     | '/for-business'
     | '/how-it-works'
@@ -1069,6 +1079,7 @@ export interface FileRouteTypes {
     | '/create'
     | '/data-terms'
     | '/discover'
+    | '/favorites'
     | '/features'
     | '/for-business'
     | '/how-it-works'
@@ -1172,6 +1183,7 @@ export interface FileRouteTypes {
     | '/create'
     | '/data-terms'
     | '/discover'
+    | '/favorites'
     | '/features'
     | '/for-business'
     | '/how-it-works'
@@ -1278,6 +1290,7 @@ export interface RootRouteChildren {
   CreateRoute: typeof CreateRoute
   DataTermsRoute: typeof DataTermsRoute
   DiscoverRoute: typeof DiscoverRoute
+  FavoritesRoute: typeof FavoritesRoute
   FeaturesRoute: typeof FeaturesRoute
   ForBusinessRoute: typeof ForBusinessRoute
   HowItWorksRoute: typeof HowItWorksRoute
@@ -1476,6 +1489,13 @@ declare module '@tanstack/react-router' {
       path: '/features'
       fullPath: '/features'
       preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/favorites': {
+      id: '/favorites'
+      path: '/favorites'
+      fullPath: '/favorites'
+      preLoaderRoute: typeof FavoritesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/discover': {
@@ -2215,6 +2235,7 @@ const rootRouteChildren: RootRouteChildren = {
   CreateRoute: CreateRoute,
   DataTermsRoute: DataTermsRoute,
   DiscoverRoute: DiscoverRoute,
+  FavoritesRoute: FavoritesRoute,
   FeaturesRoute: FeaturesRoute,
   ForBusinessRoute: ForBusinessRoute,
   HowItWorksRoute: HowItWorksRoute,

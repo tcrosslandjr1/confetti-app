@@ -43,6 +43,29 @@ function AuthPage() {
   const [seedMsg, setSeedMsg] = useState<string | null>(null);
   const seedFn = useServerFn(seedDemoAccounts);
 
+  // "Tonight's pick" preview — derives from the EVENTS registry + selected city.
+  // We re-resolve the pick when the user changes city, and tick a live
+  // seats-remaining counter every 30s so the card feels alive.
+  const [pickCity, setPickCity] = useState<string | null>(() =>
+    typeof window === "undefined" ? null : getSelectedCity()?.name ?? null,
+  );
+  const [pickTick, setPickTick] = useState(0);
+  useEffect(() => {
+    setPickCity(getSelectedCity()?.name ?? null);
+    const unsub = subscribeSelectedCity(() => {
+      setPickCity(getSelectedCity()?.name ?? null);
+    });
+    const id = window.setInterval(() => setPickTick((t) => t + 1), 30_000);
+    return () => {
+      unsub();
+      window.clearInterval(id);
+    };
+  }, []);
+  const tonightsPick = getTonightsPick(pickCity);
+  const pickTime = formatEventDate(tonightsPick.date).time;
+  const pickSeats = liveSeatsRemaining(tonightsPick.id, new Date(Date.now() + pickTick * 0));
+  const pickShortCity = tonightsPick.city.split(",")[0].trim().toLowerCase();
+
   // Translate OAuth provider/Supabase errors into something a user can act on.
   function explainOAuthError(provider: "google" | "apple", raw: string): string {
     const msg = raw.toLowerCase();

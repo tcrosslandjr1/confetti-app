@@ -80,7 +80,7 @@ const TIERS: Tier[] = [
       "Weekly AI photo refresh",
       "Basic analytics dashboard",
     ],
-    cta: { label: "Upgrade to Featured", to: "/business/signup" },
+    cta: { label: "Upgrade to Featured", priceId: "business_featured_monthly" },
     accent: "from-sky-200/70 to-sky-50",
   },
   {

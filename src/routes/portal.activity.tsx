@@ -153,14 +153,21 @@ function PortalActivityPage() {
   const [tripFilter, setTripFilter] = useState<string>("all");
   const [kindFilter, setKindFilter] = useState<KindFilter>("all");
 
+  const load = useCallback(() => {
+    const real = readLog();
+    setEntries(real.length > 0 ? real : MOCK_ENTRIES);
+  }, []);
+
   useEffect(() => {
-    const load = () => {
-      const real = readLog();
-      setEntries(real.length > 0 ? real : MOCK_ENTRIES);
-    };
     load();
     return subscribeActivity(load);
-  }, []);
+  }, [load]);
+
+  const handleRefresh = useCallback(async () => {
+    load();
+    // Small delay so the spinner feels intentional.
+    await new Promise((r) => setTimeout(r, 350));
+  }, [load]);
 
   const trips = useMemo(() => {
     const map = new Map<string, string>();

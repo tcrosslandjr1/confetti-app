@@ -86,6 +86,7 @@ import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
 import { Route as BusinessSignupRouteImport } from './routes/business.signup'
 import { Route as BusinessPricingRouteImport } from './routes/business.pricing'
 import { Route as BusinessLoginRouteImport } from './routes/business.login'
+import { Route as BusinessDashboardRouteImport } from './routes/business.dashboard'
 import { Route as BusinessClaimRouteImport } from './routes/business.claim'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdvertisePortalRouteImport } from './routes/advertise.portal'
@@ -511,6 +512,11 @@ const BusinessLoginRoute = BusinessLoginRouteImport.update({
   path: '/business/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessDashboardRoute = BusinessDashboardRouteImport.update({
+  id: '/business/dashboard',
+  path: '/business/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessClaimRoute = BusinessClaimRouteImport.update({
   id: '/business/claim',
   path: '/business/claim',
@@ -781,6 +787,7 @@ export interface FileRoutesByFullPath {
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
+  '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/signup': typeof BusinessSignupRoute
@@ -894,6 +901,7 @@ export interface FileRoutesByTo {
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
+  '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/signup': typeof BusinessSignupRoute
@@ -1013,6 +1021,7 @@ export interface FileRoutesById {
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
+  '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/signup': typeof BusinessSignupRoute
@@ -1133,6 +1142,7 @@ export interface FileRouteTypes {
     | '/advertise/portal'
     | '/api/chat'
     | '/business/claim'
+    | '/business/dashboard'
     | '/business/login'
     | '/business/pricing'
     | '/business/signup'
@@ -1246,6 +1256,7 @@ export interface FileRouteTypes {
     | '/advertise/portal'
     | '/api/chat'
     | '/business/claim'
+    | '/business/dashboard'
     | '/business/login'
     | '/business/pricing'
     | '/business/signup'
@@ -1364,6 +1375,7 @@ export interface FileRouteTypes {
     | '/advertise/portal'
     | '/api/chat'
     | '/business/claim'
+    | '/business/dashboard'
     | '/business/login'
     | '/business/pricing'
     | '/business/signup'
@@ -1461,6 +1473,7 @@ export interface RootRouteChildren {
   WeatherRoute: typeof WeatherRoute
   ApiChatRoute: typeof ApiChatRoute
   BusinessClaimRoute: typeof BusinessClaimRouteWithChildren
+  BusinessDashboardRoute: typeof BusinessDashboardRoute
   BusinessLoginRoute: typeof BusinessLoginRoute
   BusinessPricingRoute: typeof BusinessPricingRoute
   BusinessSignupRoute: typeof BusinessSignupRoute
@@ -2029,6 +2042,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/dashboard': {
+      id: '/business/dashboard'
+      path: '/business/dashboard'
+      fullPath: '/business/dashboard'
+      preLoaderRoute: typeof BusinessDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business/claim': {
       id: '/business/claim'
       path: '/business/claim'
@@ -2516,6 +2536,7 @@ const rootRouteChildren: RootRouteChildren = {
   WeatherRoute: WeatherRoute,
   ApiChatRoute: ApiChatRoute,
   BusinessClaimRoute: BusinessClaimRouteWithChildren,
+  BusinessDashboardRoute: BusinessDashboardRoute,
   BusinessLoginRoute: BusinessLoginRoute,
   BusinessPricingRoute: BusinessPricingRoute,
   BusinessSignupRoute: BusinessSignupRoute,

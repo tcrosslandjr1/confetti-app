@@ -539,6 +539,14 @@ function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) 
           Visit website
         </a>
       )}
+      <a
+        href={`https://www.instagram.com/explore/search/keyword/?q=${encodeURIComponent(row.name)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-1 inline-flex items-center gap-1 text-xs text-coral underline underline-offset-2"
+      >
+        Search on Instagram
+      </a>
     </div>
   );
 }

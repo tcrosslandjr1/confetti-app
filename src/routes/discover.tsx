@@ -34,6 +34,7 @@ type VenueRow = {
   category?: Category;
   aiPick?: boolean;
   gradient?: string;
+  description?: string;
   /** Approx position on the stylized DC map placeholder, as % of container (x=left, y=top). */
   coords?: { x: number; y: number };
 };

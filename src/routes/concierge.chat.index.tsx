@@ -3,7 +3,20 @@ import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { firstNameOrFriend } from "@/lib/user-name";
-import { Check, MessageCircle, Pencil, Plus, Search, Trash2, X } from "lucide-react";
+import {
+  Check,
+  MessageCircle,
+  Pencil,
+  Plus,
+  Search,
+  Sparkles,
+  Trash2,
+  X,
+  Utensils,
+  PartyPopper,
+  Music,
+  Wine,
+} from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { toast } from "sonner";
 
@@ -132,21 +145,63 @@ function ChatList() {
     if (error) toast.error("Couldn't rename");
   };
 
+  const prompts = [
+    { icon: Wine, label: "Rooftop drinks tonight", tint: "from-coral/20 to-coral/5" },
+    { icon: Utensils, label: "Dinner for 4 nearby", tint: "from-gold/25 to-gold/5" },
+    { icon: PartyPopper, label: "Birthday plan", tint: "from-pink-400/20 to-pink-400/5" },
+    { icon: Music, label: "Live music this weekend", tint: "from-indigo-400/20 to-indigo-400/5" },
+  ];
+
+  const startFromPrompt = async (text: string) => {
+    if (!user) return;
+    const { data, error } = await supabase
+      .from("threads")
+      .insert({ user_id: user.id, title: text })
+      .select()
+      .single();
+    if (error) {
+      toast.error("Couldn't start a chat");
+      return;
+    }
+    if (data) navigate({ to: "/concierge/chat/$threadId", params: { threadId: data.id } });
+  };
+
   return (
-    <div className="px-5 pt-10">
-      <div className="flex items-center justify-between">
-        <div>
-          <div className="text-xs uppercase tracking-wider text-muted-foreground">
-            Hey {firstNameOrFriend(user, profile)} 👋
+    <div className="px-5 pt-8 pb-32">
+      <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-coral/15 via-cream to-gold/10 p-5 shadow-card">
+        <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-coral/20 blur-3xl" />
+        <div className="absolute -bottom-10 -left-6 h-28 w-28 rounded-full bg-gold/20 blur-3xl" />
+        <div className="relative flex items-start justify-between gap-3">
+          <div className="min-w-0">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-background/70 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-ink/70 backdrop-blur">
+              <Sparkles className="h-3 w-3 text-coral" />
+              Hey {firstNameOrFriend(user, profile)}
+            </div>
+            <h1 className="mt-2 font-display text-3xl font-black leading-tight">Concierge</h1>
+            <p className="mt-1 max-w-xs text-xs text-ink/60">
+              Ask anything — I'll curate the night, book the table, and rally the crew.
+            </p>
           </div>
-          <h1 className="mt-1 font-display text-3xl font-bold">Concierge</h1>
+          <button
+            onClick={newChat}
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-gradient-vibe px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-pop active:scale-95"
+          >
+            <Plus className="h-4 w-4" /> New
+          </button>
         </div>
-        <button
-          onClick={newChat}
-          className="inline-flex items-center gap-1.5 rounded-full bg-gradient-vibe px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-pop active:scale-95"
-        >
-          <Plus className="h-4 w-4" /> New
-        </button>
+
+        <div className="relative mt-4 flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {prompts.map((p) => (
+            <button
+              key={p.label}
+              onClick={() => void startFromPrompt(p.label)}
+              className={`group inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border/60 bg-gradient-to-br ${p.tint} px-3 py-1.5 text-xs font-semibold text-ink shadow-sm transition active:scale-95 hover:shadow-pop`}
+            >
+              <p.icon className="h-3.5 w-3.5" />
+              {p.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {threads.length > 0 && (

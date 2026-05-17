@@ -16,6 +16,7 @@ import { WizardProvider } from "@/components/wizard/wizard-context";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ReferralCapture } from "@/components/ReferralCapture";
 import { TabBar } from "@/components/loop/TabBar";
+import { PageTransition } from "@/components/PageTransition";
 import { FirstRunNudge } from "@/components/FirstRunNudge";
 import { MapProvider } from "@/components/maps/MapProvider";
 import { preloadFallbackImages } from "@/lib/venue-images";
@@ -238,7 +239,9 @@ function RootComponent() {
             <Suspense fallback={null}>
               <RoleSwitcher />
             </Suspense>
-            <Outlet />
+            <PageTransition>
+              <Outlet />
+            </PageTransition>
             {/* Spacer so fixed mobile TabBar doesn't cover page content */}
             <div aria-hidden className="h-24 lg:hidden" />
             <Suspense fallback={null}>

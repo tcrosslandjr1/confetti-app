@@ -84,6 +84,7 @@ import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile
 import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
 import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
 import { Route as BusinessSignupRouteImport } from './routes/business.signup'
+import { Route as BusinessPricingRouteImport } from './routes/business.pricing'
 import { Route as BusinessLoginRouteImport } from './routes/business.login'
 import { Route as BusinessClaimRouteImport } from './routes/business.claim'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
@@ -500,6 +501,11 @@ const BusinessSignupRoute = BusinessSignupRouteImport.update({
   path: '/business/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessPricingRoute = BusinessPricingRouteImport.update({
+  id: '/business/pricing',
+  path: '/business/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessLoginRoute = BusinessLoginRouteImport.update({
   id: '/business/login',
   path: '/business/login',
@@ -776,6 +782,7 @@ export interface FileRoutesByFullPath {
   '/api/chat': typeof ApiChatRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/login': typeof BusinessLoginRoute
+  '/business/pricing': typeof BusinessPricingRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -888,6 +895,7 @@ export interface FileRoutesByTo {
   '/api/chat': typeof ApiChatRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/login': typeof BusinessLoginRoute
+  '/business/pricing': typeof BusinessPricingRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -1006,6 +1014,7 @@ export interface FileRoutesById {
   '/api/chat': typeof ApiChatRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/login': typeof BusinessLoginRoute
+  '/business/pricing': typeof BusinessPricingRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -1125,6 +1134,7 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/business/claim'
     | '/business/login'
+    | '/business/pricing'
     | '/business/signup'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1237,6 +1247,7 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/business/claim'
     | '/business/login'
+    | '/business/pricing'
     | '/business/signup'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1354,6 +1365,7 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/business/claim'
     | '/business/login'
+    | '/business/pricing'
     | '/business/signup'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1450,6 +1462,7 @@ export interface RootRouteChildren {
   ApiChatRoute: typeof ApiChatRoute
   BusinessClaimRoute: typeof BusinessClaimRouteWithChildren
   BusinessLoginRoute: typeof BusinessLoginRoute
+  BusinessPricingRoute: typeof BusinessPricingRoute
   BusinessSignupRoute: typeof BusinessSignupRoute
   CollabTripIdRoute: typeof CollabTripIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
@@ -2002,6 +2015,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessSignupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/pricing': {
+      id: '/business/pricing'
+      path: '/business/pricing'
+      fullPath: '/business/pricing'
+      preLoaderRoute: typeof BusinessPricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business/login': {
       id: '/business/login'
       path: '/business/login'
@@ -2497,6 +2517,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiChatRoute: ApiChatRoute,
   BusinessClaimRoute: BusinessClaimRouteWithChildren,
   BusinessLoginRoute: BusinessLoginRoute,
+  BusinessPricingRoute: BusinessPricingRoute,
   BusinessSignupRoute: BusinessSignupRoute,
   CollabTripIdRoute: CollabTripIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,

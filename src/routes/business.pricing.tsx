@@ -41,7 +41,7 @@ type Tier = {
   tag: string;
   value: string;
   features: string[];
-  cta: { label: string; to: string };
+  cta: { label: string; to?: string; priceId?: string };
   highlight?: boolean;
   accent: string;
 };

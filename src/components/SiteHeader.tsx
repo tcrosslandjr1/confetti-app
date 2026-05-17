@@ -64,7 +64,7 @@ export function SiteHeader() {
       data-scrolled={scrolled || undefined}
       className="sticky top-0 z-40 border-b-2 border-ink bg-cream transition-shadow duration-200 data-[scrolled]:shadow-brut"
     >
-      <div className="mx-auto flex h-14 max-w-7xl items-center gap-3 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:gap-6 lg:px-8">
+      <div className="mx-auto flex h-14 w-full max-w-[1600px] items-center gap-3 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:gap-4 lg:px-8">
         <Link to="/" className="group flex shrink-0 items-center gap-[2px]" aria-label="confetti — home">
           <span className="font-display text-xl font-extrabold leading-none tracking-tight text-ink sm:text-2xl">
             confetti

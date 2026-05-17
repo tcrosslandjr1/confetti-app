@@ -34,6 +34,7 @@ type VenueRow = {
   category?: Category;
   aiPick?: boolean;
   gradient?: string;
+  description?: string;
   /** Approx position on the stylized DC map placeholder, as % of container (x=left, y=top). */
   coords?: { x: number; y: number };
 };
@@ -53,6 +54,7 @@ const SAMPLE_VENUES: VenueRow[] = SAMPLE_DATA.map((v) => ({
   category: v.category,
   aiPick: v.aiPick,
   gradient: v.gradient,
+  description: v.description,
   coords: v.coords,
 }));
 
@@ -224,6 +226,9 @@ function DiscoverPage() {
                       <div className="min-w-0">
                         <div className="truncate font-display text-base font-bold leading-tight text-ink">{v.name}</div>
                         <div className="truncate text-xs text-ink/60">{v.neighborhood ?? v.address ?? "Nearby"}</div>
+                        {v.description && (
+                          <div className="mt-0.5 truncate text-[11px] italic leading-snug text-ink/45">{v.description}</div>
+                        )}
                       </div>
                       {v.rating != null && (
                         <div className="inline-flex shrink-0 items-center gap-1 rounded-full bg-ink/5 px-2 py-0.5 text-xs font-semibold text-ink">

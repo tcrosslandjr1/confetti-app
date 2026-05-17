@@ -22,6 +22,7 @@ const DRAFT_KEY = "advertiser_onboarding_draft_v1";
 type Draft = {
   tier: PackageTier;
   business_name: string;
+  owner_name: string;
   contact_email: string;
   website: string;
   contact_phone: string;

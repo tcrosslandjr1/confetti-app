@@ -5,26 +5,51 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { type StripeEnv, createStripeClient } from "@/lib/stripe.server";
 
 // --- Plan catalog (price IDs registered in Stripe) ---
-export const CONSUMER_PRICES = ["consumer_plus_monthly", "consumer_crew_monthly"] as const;
+export const CONSUMER_PRICES = [
+  "consumer_plus_monthly",
+  "consumer_crew_monthly",
+  "user_unlimited_monthly",
+  "user_vip_monthly",
+] as const;
 export const BUSINESS_PRICES = [
+  "business_basic_monthly",
   "business_featured_monthly",
   "business_boosted_monthly",
   "business_premium_monthly",
+  "corporate_addon_monthly",
 ] as const;
 export const AD_PRICES = [
   "ad_featured_monthly",
   "ad_boosted_monthly",
   "ad_premium_monthly",
 ] as const;
+// Recurring boost SKUs (auto-renew each month until canceled)
+export const BOOST_RECURRING_PRICES = [
+  "boost_24h_monthly",
+  "boost_3d_monthly",
+  "boost_7d_monthly",
+] as const;
+// One-time SKUs (boosts, event promos, reel promos, user unlocks)
 export const ONE_TIME_PRICES = [
   "unlock_premium_plan_once",
   "unlock_vip_access_once",
+  "user_plan_single_once",
+  "boost_24h_once",
+  "boost_3d_once",
+  "boost_7d_once",
+  "event_single_once",
+  "event_weekend_once",
+  "event_monthly_once",
+  "reel_boost_once",
+  "reel_trending_pack_once",
+  "reel_viral_push_once",
 ] as const;
 
 const ALL_PRICES = [
   ...CONSUMER_PRICES,
   ...BUSINESS_PRICES,
   ...AD_PRICES,
+  ...BOOST_RECURRING_PRICES,
   ...ONE_TIME_PRICES,
 ] as const;
 

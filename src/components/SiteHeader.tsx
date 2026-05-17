@@ -109,7 +109,7 @@ export function SiteHeader() {
           {isVisitor ? (
             <Link
               to="/auth"
-              className="hidden h-10 items-center rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg sm:inline-flex"
+              className="hidden h-10 items-center whitespace-nowrap rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg sm:inline-flex"
             >
               Sign up free
             </Link>
@@ -118,7 +118,7 @@ export function SiteHeader() {
               <NotificationsBell />
               <button
                 onClick={() => void signOut()}
-                className="hidden h-10 items-center rounded-full px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink sm:flex"
+                className="hidden h-10 items-center whitespace-nowrap px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink/70 transition-colors hover:text-ink sm:flex"
               >
                 Sign out
               </button>
@@ -126,7 +126,7 @@ export function SiteHeader() {
           )}
           <WizardButton
             ariaLabel="Build a night"
-            className="hidden h-10 items-center gap-1 rounded-full border-2 border-ink bg-ink px-4 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg sm:inline-flex"
+            className="hidden h-10 items-center gap-1 whitespace-nowrap rounded-full border-2 border-ink bg-ink px-4 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg sm:inline-flex"
           >
             Build a night ↗
           </WizardButton>

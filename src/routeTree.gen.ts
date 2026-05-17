@@ -101,6 +101,7 @@ import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
 import { Route as BusinessSignupRouteImport } from './routes/business.signup'
 import { Route as BusinessPromotersRouteImport } from './routes/business.promoters'
 import { Route as BusinessPricingRouteImport } from './routes/business.pricing'
+import { Route as BusinessPayoutsRouteImport } from './routes/business.payouts'
 import { Route as BusinessLoginRouteImport } from './routes/business.login'
 import { Route as BusinessDashboardRouteImport } from './routes/business.dashboard'
 import { Route as BusinessClaimRouteImport } from './routes/business.claim'
@@ -612,6 +613,11 @@ const BusinessPricingRoute = BusinessPricingRouteImport.update({
   path: '/business/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessPayoutsRoute = BusinessPayoutsRouteImport.update({
+  id: '/business/payouts',
+  path: '/business/payouts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessLoginRoute = BusinessLoginRouteImport.update({
   id: '/business/login',
   path: '/business/login',
@@ -950,6 +956,7 @@ export interface FileRoutesByFullPath {
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
+  '/business/payouts': typeof BusinessPayoutsRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
@@ -1086,6 +1093,7 @@ export interface FileRoutesByTo {
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
+  '/business/payouts': typeof BusinessPayoutsRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
@@ -1231,6 +1239,7 @@ export interface FileRoutesById {
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/dashboard': typeof BusinessDashboardRoute
   '/business/login': typeof BusinessLoginRoute
+  '/business/payouts': typeof BusinessPayoutsRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
   '/business/signup': typeof BusinessSignupRoute
@@ -1377,6 +1386,7 @@ export interface FileRouteTypes {
     | '/business/claim'
     | '/business/dashboard'
     | '/business/login'
+    | '/business/payouts'
     | '/business/pricing'
     | '/business/promoters'
     | '/business/signup'
@@ -1513,6 +1523,7 @@ export interface FileRouteTypes {
     | '/business/claim'
     | '/business/dashboard'
     | '/business/login'
+    | '/business/payouts'
     | '/business/pricing'
     | '/business/promoters'
     | '/business/signup'
@@ -1657,6 +1668,7 @@ export interface FileRouteTypes {
     | '/business/claim'
     | '/business/dashboard'
     | '/business/login'
+    | '/business/payouts'
     | '/business/pricing'
     | '/business/promoters'
     | '/business/signup'
@@ -1775,6 +1787,7 @@ export interface RootRouteChildren {
   BusinessClaimRoute: typeof BusinessClaimRouteWithChildren
   BusinessDashboardRoute: typeof BusinessDashboardRoute
   BusinessLoginRoute: typeof BusinessLoginRoute
+  BusinessPayoutsRoute: typeof BusinessPayoutsRoute
   BusinessPricingRoute: typeof BusinessPricingRoute
   BusinessPromotersRoute: typeof BusinessPromotersRoute
   BusinessSignupRoute: typeof BusinessSignupRoute
@@ -2451,6 +2464,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessPricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/payouts': {
+      id: '/business/payouts'
+      path: '/business/payouts'
+      fullPath: '/business/payouts'
+      preLoaderRoute: typeof BusinessPayoutsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business/login': {
       id: '/business/login'
       path: '/business/login'
@@ -3083,6 +3103,7 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessClaimRoute: BusinessClaimRouteWithChildren,
   BusinessDashboardRoute: BusinessDashboardRoute,
   BusinessLoginRoute: BusinessLoginRoute,
+  BusinessPayoutsRoute: BusinessPayoutsRoute,
   BusinessPricingRoute: BusinessPricingRoute,
   BusinessPromotersRoute: BusinessPromotersRoute,
   BusinessSignupRoute: BusinessSignupRoute,

@@ -501,7 +501,16 @@ export function BuildMyNightWizard() {
   const [musts, setMusts] = useState<string[]>([]);
   const [loadingIdx, setLoadingIdx] = useState(0);
   const [variant, setVariant] = useState(0);
-  const [openStop, setOpenStop] = useState<number | null>(0);
+  // Track explicitly-closed stops so all stops are expanded by default
+  // and only collapse when the user clicks a header.
+  const [closedStops, setClosedStops] = useState<Set<number>>(() => new Set());
+  const toggleStop = (i: number) =>
+    setClosedStops((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
+      return next;
+    });
   const [sortBy, setSortBy] = useState<"order" | "rating" | "price" | "distance" | "availability">(
     "order",
   );
@@ -1953,7 +1962,7 @@ export function BuildMyNightWizard() {
               <ol className="mt-4 space-y-3">
                 {sortedStops.map(({ s, i: origIdx }, displayIdx) => {
                   const i = origIdx;
-                  const isOpen = openStop === i;
+                  const isOpen = !closedStops.has(i);
                   const mockBase = getDetails(s.venue, s.vibe);
                   const mock = personalizeDetails(mockBase, s.venue);
                   const live = placesData[s.venue];
@@ -1990,11 +1999,11 @@ export function BuildMyNightWizard() {
                       <div
                         role="button"
                         tabIndex={0}
-                        onClick={() => setOpenStop(isOpen ? null : i)}
+                        onClick={() => toggleStop(i)}
                         onKeyDown={(e) => {
                           if (e.key === "Enter" || e.key === " ") {
                             e.preventDefault();
-                            setOpenStop(isOpen ? null : i);
+                            toggleStop(i);
                           }
                         }}
                         aria-expanded={isOpen}

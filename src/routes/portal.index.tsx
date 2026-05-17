@@ -48,6 +48,7 @@ import {
   TrendingNearYouWidget,
 } from "@/components/widgets/AppWidgets";
 import { ActivityFeed } from "@/components/activity/ActivityFeed";
+import { useRefreshable } from "@/hooks/use-refresh-bus";
 
 export const Route = createFileRoute("/portal/")({
   head: () => ({

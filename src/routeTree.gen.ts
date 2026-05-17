@@ -37,6 +37,7 @@ import { Route as FavoritesRouteImport } from './routes/favorites'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as DataTermsRouteImport } from './routes/data-terms'
 import { Route as CreateRouteImport } from './routes/create'
+import { Route as CorporateRouteImport } from './routes/corporate'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ConfirmationRouteImport } from './routes/confirmation'
@@ -57,6 +58,7 @@ import { Route as TeamsIndexRouteImport } from './routes/teams.index'
 import { Route as PromoterIndexRouteImport } from './routes/promoter.index'
 import { Route as PortalIndexRouteImport } from './routes/portal.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
+import { Route as CorporateIndexRouteImport } from './routes/corporate.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
 import { Route as BusinessIndexRouteImport } from './routes/business.index'
 import { Route as AdvertiseIndexRouteImport } from './routes/advertise.index'
@@ -83,6 +85,14 @@ import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
 import { Route as PCodeRouteImport } from './routes/p.$code'
 import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
+import { Route as CorporateTeamsRouteImport } from './routes/corporate.teams'
+import { Route as CorporateSettingsRouteImport } from './routes/corporate.settings'
+import { Route as CorporateReportingRouteImport } from './routes/corporate.reporting'
+import { Route as CorporatePoliciesRouteImport } from './routes/corporate.policies'
+import { Route as CorporatePlannerRouteImport } from './routes/corporate.planner'
+import { Route as CorporateLoginRouteImport } from './routes/corporate.login'
+import { Route as CorporateBookingsRouteImport } from './routes/corporate.bookings'
+import { Route as CorporateApprovalsRouteImport } from './routes/corporate.approvals'
 import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile'
 import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
 import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
@@ -275,6 +285,11 @@ const CreateRoute = CreateRouteImport.update({
   path: '/create',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CorporateRoute = CorporateRouteImport.update({
+  id: '/corporate',
+  path: '/corporate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CookiesRoute = CookiesRouteImport.update({
   id: '/cookies',
   path: '/cookies',
@@ -374,6 +389,11 @@ const EventsIndexRoute = EventsIndexRouteImport.update({
   id: '/events/',
   path: '/events/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const CorporateIndexRoute = CorporateIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CorporateRoute,
 } as any)
 const ConciergeIndexRoute = ConciergeIndexRouteImport.update({
   id: '/',
@@ -504,6 +524,46 @@ const EventsEventIdRoute = EventsEventIdRouteImport.update({
   id: '/events/$eventId',
   path: '/events/$eventId',
   getParentRoute: () => rootRouteImport,
+} as any)
+const CorporateTeamsRoute = CorporateTeamsRouteImport.update({
+  id: '/teams',
+  path: '/teams',
+  getParentRoute: () => CorporateRoute,
+} as any)
+const CorporateSettingsRoute = CorporateSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => CorporateRoute,
+} as any)
+const CorporateReportingRoute = CorporateReportingRouteImport.update({
+  id: '/reporting',
+  path: '/reporting',
+  getParentRoute: () => CorporateRoute,
+} as any)
+const CorporatePoliciesRoute = CorporatePoliciesRouteImport.update({
+  id: '/policies',
+  path: '/policies',
+  getParentRoute: () => CorporateRoute,
+} as any)
+const CorporatePlannerRoute = CorporatePlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => CorporateRoute,
+} as any)
+const CorporateLoginRoute = CorporateLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => CorporateRoute,
+} as any)
+const CorporateBookingsRoute = CorporateBookingsRouteImport.update({
+  id: '/bookings',
+  path: '/bookings',
+  getParentRoute: () => CorporateRoute,
+} as any)
+const CorporateApprovalsRoute = CorporateApprovalsRouteImport.update({
+  id: '/approvals',
+  path: '/approvals',
+  getParentRoute: () => CorporateRoute,
 } as any)
 const ConciergeProfileRoute = ConciergeProfileRouteImport.update({
   id: '/profile',
@@ -785,6 +845,7 @@ export interface FileRoutesByFullPath {
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/corporate': typeof CorporateRouteWithChildren
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
@@ -847,6 +908,14 @@ export interface FileRoutesByFullPath {
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
+  '/corporate/approvals': typeof CorporateApprovalsRoute
+  '/corporate/bookings': typeof CorporateBookingsRoute
+  '/corporate/login': typeof CorporateLoginRoute
+  '/corporate/planner': typeof CorporatePlannerRoute
+  '/corporate/policies': typeof CorporatePoliciesRoute
+  '/corporate/reporting': typeof CorporateReportingRoute
+  '/corporate/settings': typeof CorporateSettingsRoute
+  '/corporate/teams': typeof CorporateTeamsRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
@@ -873,6 +942,7 @@ export interface FileRoutesByFullPath {
   '/advertise/': typeof AdvertiseIndexRoute
   '/business/': typeof BusinessIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
+  '/corporate/': typeof CorporateIndexRoute
   '/events/': typeof EventsIndexRoute
   '/portal/': typeof PortalIndexRoute
   '/promoter/': typeof PromoterIndexRoute
@@ -968,6 +1038,14 @@ export interface FileRoutesByTo {
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
+  '/corporate/approvals': typeof CorporateApprovalsRoute
+  '/corporate/bookings': typeof CorporateBookingsRoute
+  '/corporate/login': typeof CorporateLoginRoute
+  '/corporate/planner': typeof CorporatePlannerRoute
+  '/corporate/policies': typeof CorporatePoliciesRoute
+  '/corporate/reporting': typeof CorporateReportingRoute
+  '/corporate/settings': typeof CorporateSettingsRoute
+  '/corporate/teams': typeof CorporateTeamsRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
@@ -994,6 +1072,7 @@ export interface FileRoutesByTo {
   '/advertise': typeof AdvertiseIndexRoute
   '/business': typeof BusinessIndexRoute
   '/concierge': typeof ConciergeIndexRoute
+  '/corporate': typeof CorporateIndexRoute
   '/events': typeof EventsIndexRoute
   '/portal': typeof PortalIndexRoute
   '/promoter': typeof PromoterIndexRoute
@@ -1034,6 +1113,7 @@ export interface FileRoutesById {
   '/confirmation': typeof ConfirmationRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/corporate': typeof CorporateRouteWithChildren
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
@@ -1096,6 +1176,14 @@ export interface FileRoutesById {
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
   '/concierge/profile': typeof ConciergeProfileRoute
+  '/corporate/approvals': typeof CorporateApprovalsRoute
+  '/corporate/bookings': typeof CorporateBookingsRoute
+  '/corporate/login': typeof CorporateLoginRoute
+  '/corporate/planner': typeof CorporatePlannerRoute
+  '/corporate/policies': typeof CorporatePoliciesRoute
+  '/corporate/reporting': typeof CorporateReportingRoute
+  '/corporate/settings': typeof CorporateSettingsRoute
+  '/corporate/teams': typeof CorporateTeamsRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
@@ -1122,6 +1210,7 @@ export interface FileRoutesById {
   '/advertise/': typeof AdvertiseIndexRoute
   '/business/': typeof BusinessIndexRoute
   '/concierge/': typeof ConciergeIndexRoute
+  '/corporate/': typeof CorporateIndexRoute
   '/events/': typeof EventsIndexRoute
   '/portal/': typeof PortalIndexRoute
   '/promoter/': typeof PromoterIndexRoute
@@ -1163,6 +1252,7 @@ export interface FileRouteTypes {
     | '/confirmation'
     | '/contact'
     | '/cookies'
+    | '/corporate'
     | '/create'
     | '/data-terms'
     | '/discover'
@@ -1225,6 +1315,14 @@ export interface FileRouteTypes {
     | '/collab/$tripId'
     | '/concierge/passport'
     | '/concierge/profile'
+    | '/corporate/approvals'
+    | '/corporate/bookings'
+    | '/corporate/login'
+    | '/corporate/planner'
+    | '/corporate/policies'
+    | '/corporate/reporting'
+    | '/corporate/settings'
+    | '/corporate/teams'
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/p/$code'
@@ -1251,6 +1349,7 @@ export interface FileRouteTypes {
     | '/advertise/'
     | '/business/'
     | '/concierge/'
+    | '/corporate/'
     | '/events/'
     | '/portal/'
     | '/promoter/'
@@ -1346,6 +1445,14 @@ export interface FileRouteTypes {
     | '/collab/$tripId'
     | '/concierge/passport'
     | '/concierge/profile'
+    | '/corporate/approvals'
+    | '/corporate/bookings'
+    | '/corporate/login'
+    | '/corporate/planner'
+    | '/corporate/policies'
+    | '/corporate/reporting'
+    | '/corporate/settings'
+    | '/corporate/teams'
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/p/$code'
@@ -1372,6 +1479,7 @@ export interface FileRouteTypes {
     | '/advertise'
     | '/business'
     | '/concierge'
+    | '/corporate'
     | '/events'
     | '/portal'
     | '/promoter'
@@ -1411,6 +1519,7 @@ export interface FileRouteTypes {
     | '/confirmation'
     | '/contact'
     | '/cookies'
+    | '/corporate'
     | '/create'
     | '/data-terms'
     | '/discover'
@@ -1473,6 +1582,14 @@ export interface FileRouteTypes {
     | '/collab/$tripId'
     | '/concierge/passport'
     | '/concierge/profile'
+    | '/corporate/approvals'
+    | '/corporate/bookings'
+    | '/corporate/login'
+    | '/corporate/planner'
+    | '/corporate/policies'
+    | '/corporate/reporting'
+    | '/corporate/settings'
+    | '/corporate/teams'
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/p/$code'
@@ -1499,6 +1616,7 @@ export interface FileRouteTypes {
     | '/advertise/'
     | '/business/'
     | '/concierge/'
+    | '/corporate/'
     | '/events/'
     | '/portal/'
     | '/promoter/'
@@ -1539,6 +1657,7 @@ export interface RootRouteChildren {
   ConfirmationRoute: typeof ConfirmationRoute
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
+  CorporateRoute: typeof CorporateRouteWithChildren
   CreateRoute: typeof CreateRoute
   DataTermsRoute: typeof DataTermsRoute
   DiscoverRoute: typeof DiscoverRoute
@@ -1799,6 +1918,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CreateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/corporate': {
+      id: '/corporate'
+      path: '/corporate'
+      fullPath: '/corporate'
+      preLoaderRoute: typeof CorporateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cookies': {
       id: '/cookies'
       path: '/cookies'
@@ -1938,6 +2064,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/events/'
       preLoaderRoute: typeof EventsIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/corporate/': {
+      id: '/corporate/'
+      path: '/'
+      fullPath: '/corporate/'
+      preLoaderRoute: typeof CorporateIndexRouteImport
+      parentRoute: typeof CorporateRoute
     }
     '/concierge/': {
       id: '/concierge/'
@@ -2120,6 +2253,62 @@ declare module '@tanstack/react-router' {
       fullPath: '/events/$eventId'
       preLoaderRoute: typeof EventsEventIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/corporate/teams': {
+      id: '/corporate/teams'
+      path: '/teams'
+      fullPath: '/corporate/teams'
+      preLoaderRoute: typeof CorporateTeamsRouteImport
+      parentRoute: typeof CorporateRoute
+    }
+    '/corporate/settings': {
+      id: '/corporate/settings'
+      path: '/settings'
+      fullPath: '/corporate/settings'
+      preLoaderRoute: typeof CorporateSettingsRouteImport
+      parentRoute: typeof CorporateRoute
+    }
+    '/corporate/reporting': {
+      id: '/corporate/reporting'
+      path: '/reporting'
+      fullPath: '/corporate/reporting'
+      preLoaderRoute: typeof CorporateReportingRouteImport
+      parentRoute: typeof CorporateRoute
+    }
+    '/corporate/policies': {
+      id: '/corporate/policies'
+      path: '/policies'
+      fullPath: '/corporate/policies'
+      preLoaderRoute: typeof CorporatePoliciesRouteImport
+      parentRoute: typeof CorporateRoute
+    }
+    '/corporate/planner': {
+      id: '/corporate/planner'
+      path: '/planner'
+      fullPath: '/corporate/planner'
+      preLoaderRoute: typeof CorporatePlannerRouteImport
+      parentRoute: typeof CorporateRoute
+    }
+    '/corporate/login': {
+      id: '/corporate/login'
+      path: '/login'
+      fullPath: '/corporate/login'
+      preLoaderRoute: typeof CorporateLoginRouteImport
+      parentRoute: typeof CorporateRoute
+    }
+    '/corporate/bookings': {
+      id: '/corporate/bookings'
+      path: '/bookings'
+      fullPath: '/corporate/bookings'
+      preLoaderRoute: typeof CorporateBookingsRouteImport
+      parentRoute: typeof CorporateRoute
+    }
+    '/corporate/approvals': {
+      id: '/corporate/approvals'
+      path: '/approvals'
+      fullPath: '/corporate/approvals'
+      preLoaderRoute: typeof CorporateApprovalsRouteImport
+      parentRoute: typeof CorporateRoute
     }
     '/concierge/profile': {
       id: '/concierge/profile'
@@ -2571,6 +2760,34 @@ const ConciergeRouteWithChildren = ConciergeRoute._addFileChildren(
   ConciergeRouteChildren,
 )
 
+interface CorporateRouteChildren {
+  CorporateApprovalsRoute: typeof CorporateApprovalsRoute
+  CorporateBookingsRoute: typeof CorporateBookingsRoute
+  CorporateLoginRoute: typeof CorporateLoginRoute
+  CorporatePlannerRoute: typeof CorporatePlannerRoute
+  CorporatePoliciesRoute: typeof CorporatePoliciesRoute
+  CorporateReportingRoute: typeof CorporateReportingRoute
+  CorporateSettingsRoute: typeof CorporateSettingsRoute
+  CorporateTeamsRoute: typeof CorporateTeamsRoute
+  CorporateIndexRoute: typeof CorporateIndexRoute
+}
+
+const CorporateRouteChildren: CorporateRouteChildren = {
+  CorporateApprovalsRoute: CorporateApprovalsRoute,
+  CorporateBookingsRoute: CorporateBookingsRoute,
+  CorporateLoginRoute: CorporateLoginRoute,
+  CorporatePlannerRoute: CorporatePlannerRoute,
+  CorporatePoliciesRoute: CorporatePoliciesRoute,
+  CorporateReportingRoute: CorporateReportingRoute,
+  CorporateSettingsRoute: CorporateSettingsRoute,
+  CorporateTeamsRoute: CorporateTeamsRoute,
+  CorporateIndexRoute: CorporateIndexRoute,
+}
+
+const CorporateRouteWithChildren = CorporateRoute._addFileChildren(
+  CorporateRouteChildren,
+)
+
 interface PlanRouteChildren {
   PlanPreviewRoute: typeof PlanPreviewRoute
   PlanReadyRoute: typeof PlanReadyRoute
@@ -2679,6 +2896,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConfirmationRoute: ConfirmationRoute,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
+  CorporateRoute: CorporateRouteWithChildren,
   CreateRoute: CreateRoute,
   DataTermsRoute: DataTermsRoute,
   DiscoverRoute: DiscoverRoute,

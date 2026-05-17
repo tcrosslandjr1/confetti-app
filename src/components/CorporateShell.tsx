@@ -65,7 +65,7 @@ const NAV = [
   { to: "/corporate/approvals", label: "Approvals", icon: CheckCircle2 },
   { to: "/corporate/bookings", label: "Bookings", icon: CalendarDays },
   { to: "/corporate/reporting", label: "Reporting", icon: BarChart3 },
-] as const;
+];
 
 export function CorporateShell() {
   const location = useLocation();

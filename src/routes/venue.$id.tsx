@@ -127,6 +127,7 @@ function VenueBookingPage() {
           tags: Array.isArray((v as any).tags) ? (v as any).tags : [],
           source,
           city: (v as any).city ?? null,
+          website: (v as any).website ?? null,
         });
       } else if (sample) {
         setVenue({
@@ -142,6 +143,7 @@ function VenueBookingPage() {
           tags: sample.tags,
           source: "venues",
           city: sample.city,
+          website: (sample as any).website ?? null,
         });
       } else {
         // Final fallback so the flow remains usable even without a row.
@@ -158,6 +160,7 @@ function VenueBookingPage() {
           tags: ["date night", "cocktails", "intimate"],
           source: "venues",
           city: "New York",
+          website: null,
         });
       }
     })();

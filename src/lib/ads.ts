@@ -22,6 +22,14 @@ export type Advertiser = {
   city: string | null;
   status: AdvertiserStatus;
   notes: string | null;
+  package_selected: string | null;
+  onboarding_step: number;
+  source: string;
+  owner_name: string | null;
+  submitted_at: string;
+  review_note: string | null;
+  reviewed_at: string | null;
+  reviewed_by: string | null;
   created_at: string;
   updated_at: string;
 };

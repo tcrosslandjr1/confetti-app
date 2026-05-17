@@ -910,6 +910,7 @@ function StepDone({
 
       <Link
         to="/discover"
+        search={{ venueId: id }}
         className="block text-center font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-ink/60 underline-offset-4 hover:underline"
       >
         Browse more spots →

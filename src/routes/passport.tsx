@@ -23,7 +23,14 @@ import {
   ChevronRight,
   Star,
 } from "lucide-react";
-import { addConfetti, getConfetti, subscribeConfetti } from "@/lib/loop-store";
+import {
+  addConfetti,
+  getConfetti,
+  subscribeConfetti,
+  getStamps,
+  subscribeStamps,
+  type PassportStamp,
+} from "@/lib/loop-store";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -78,11 +85,12 @@ const REWARDS = [
   { id: "r3", label: "VIP rooftop entry", sub: "Skip the line", cost: 1000, icon: Crown },
 ];
 
-const STAMPS = [
-  { city: "DC", theme: "Harbor Heatwave", date: "May 10" },
-  { city: "DC", theme: "Moonlit Mischief", date: "Apr 28" },
-  { city: "NYC", theme: "Velvet & Vinyl", date: "Apr 15" },
-  { city: "MIA", theme: "Neon Nomads", date: "Mar 22" },
+// Seed stamps shown alongside ones earned from live check-ins.
+const SEED_STAMPS: PassportStamp[] = [
+  { id: "seed-dc-1", city: "DC", theme: "Harbor Heatwave", date: "May 10", earnedAt: "2025-05-10T00:00:00Z" },
+  { id: "seed-dc-2", city: "DC", theme: "Moonlit Mischief", date: "Apr 28", earnedAt: "2025-04-28T00:00:00Z" },
+  { id: "seed-nyc-1", city: "NYC", theme: "Velvet & Vinyl", date: "Apr 15", earnedAt: "2025-04-15T00:00:00Z" },
+  { id: "seed-mia-1", city: "MIA", theme: "Neon Nomads", date: "Mar 22", earnedAt: "2025-03-22T00:00:00Z" },
 ];
 
 const TIERS = [
@@ -101,11 +109,27 @@ function PassportPage() {
   const [claimed, setClaimed] = useState<ClaimedReward[]>([]);
   const [pending, setPending] = useState<(typeof REWARDS)[number] | null>(null);
   const [justClaimed, setJustClaimed] = useState<ClaimedReward | null>(null);
+  const [earnedStamps, setEarnedStamps] = useState<PassportStamp[]>([]);
   useEffect(() => {
     setConfettiCount(getConfetti());
     setClaimed(loadClaimed());
-    return subscribeConfetti(() => setConfettiCount(getConfetti()));
+    setEarnedStamps(getStamps());
+    const unsubC = subscribeConfetti(() => setConfettiCount(getConfetti()));
+    const unsubS = subscribeStamps(() => setEarnedStamps(getStamps()));
+    return () => {
+      unsubC();
+      unsubS();
+    };
   }, []);
+
+  // Merge live earned stamps with seed examples; live stamps first, dedup by id.
+  const stamps: (PassportStamp & { earned: boolean })[] = [
+    ...earnedStamps.map((s) => ({ ...s, earned: true })),
+    ...SEED_STAMPS.filter((s) => !earnedStamps.some((e) => e.id === s.id)).map((s) => ({
+      ...s,
+      earned: false,
+    })),
+  ];
 
   function handleConfirmRedeem() {
     if (!pending) return;
@@ -315,6 +339,9 @@ function PassportPage() {
           <div className="flex items-end justify-between">
             <h2 className="flex items-center gap-2 font-display text-lg font-bold">
               <Stamp className="h-4 w-4 text-coral" /> Stamps
+              <span className="ml-1 rounded-full bg-ink/10 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-ink/70">
+                {earnedStamps.length} earned
+              </span>
             </h2>
             <Link
               to="/portal/passport"
@@ -324,16 +351,38 @@ function PassportPage() {
             </Link>
           </div>
           <div className="mt-3 -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {STAMPS.map((s, i) => (
+            {stamps.map((s) => (
               <div
-                key={i}
-                className="relative snap-start shrink-0 overflow-hidden rounded-2xl border-2 border-ink bg-cream p-4 shadow-brut"
+                key={s.id}
+                className={`relative snap-start shrink-0 overflow-hidden rounded-2xl border-2 p-4 transition-all ${
+                  s.earned
+                    ? "border-ink bg-cream shadow-brut"
+                    : "border-ink/30 bg-card/40 opacity-60 grayscale"
+                }`}
                 style={{ width: 140 }}
               >
                 <div className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-coral/10 blur-xl" />
-                <div className="mx-auto grid h-20 w-20 -rotate-6 place-items-center rounded-full border-4 border-dashed border-coral bg-cream text-center">
+                {s.earned && (
+                  <span className="absolute right-2 top-2 rounded-full border border-ink bg-coral px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest text-cream">
+                    New
+                  </span>
+                )}
+                {!s.earned && (
+                  <span className="absolute right-2 top-2 grid h-5 w-5 place-items-center rounded-full border border-ink/40 bg-cream/80 text-ink/60">
+                    <Lock className="h-2.5 w-2.5" />
+                  </span>
+                )}
+                <div
+                  className={`mx-auto grid h-20 w-20 -rotate-6 place-items-center rounded-full border-4 border-dashed bg-cream text-center ${
+                    s.earned ? "border-coral" : "border-ink/30"
+                  }`}
+                >
                   <div>
-                    <div className="font-mono text-[8px] font-bold uppercase tracking-widest text-coral">
+                    <div
+                      className={`font-mono text-[8px] font-bold uppercase tracking-widest ${
+                        s.earned ? "text-coral" : "text-ink/40"
+                      }`}
+                    >
                       Confetti
                     </div>
                     <div className="mt-0.5 font-display text-[11px] font-extrabold leading-none text-ink">

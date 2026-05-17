@@ -108,9 +108,22 @@ const KEY_LOOP = "loop:active";
 const KEY_CONFETTI = "loop:confetti";
 const KEY_ONBOARDED = "loop:onboarded";
 const KEY_ONBOARDING = "loop:onboarding";
+const KEY_STAMPS = "loop:stamps";
 
 const EVENT_LOOP = "loop:active:changed";
 const EVENT_CONFETTI = "loop:confetti:changed";
+const EVENT_STAMPS = "loop:stamps:changed";
+
+export type PassportStamp = {
+  /** Unique key — usually the loop id so one loop earns one stamp. */
+  id: string;
+  city: string;
+  theme: string;
+  /** Short display date, e.g. "May 10". */
+  date: string;
+  /** ISO timestamp the stamp was earned. */
+  earnedAt: string;
+};
 
 export function isClient() {
   return typeof window !== "undefined";
@@ -148,6 +161,51 @@ export function subscribeConfetti(cb: () => void): () => void {
     window.removeEventListener("storage", onStorage);
   };
 }
+
+/** Subscribe to stamp changes (same-tab + cross-tab). Returns unsubscribe. */
+export function subscribeStamps(cb: () => void): () => void {
+  if (!isClient()) return () => {};
+  const onStorage = (e: StorageEvent) => {
+    if (e.key === KEY_STAMPS) cb();
+  };
+  window.addEventListener(EVENT_STAMPS, cb);
+  window.addEventListener("storage", onStorage);
+  return () => {
+    window.removeEventListener(EVENT_STAMPS, cb);
+    window.removeEventListener("storage", onStorage);
+  };
+}
+
+export function getStamps(): PassportStamp[] {
+  if (!isClient()) return [];
+  try {
+    const raw = localStorage.getItem(KEY_STAMPS);
+    return raw ? (JSON.parse(raw) as PassportStamp[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveStamps(list: PassportStamp[]) {
+  if (!isClient()) return;
+  localStorage.setItem(KEY_STAMPS, JSON.stringify(list));
+  emit(EVENT_STAMPS);
+}
+
+/** Add a stamp if one with the same id doesn't already exist. Returns true if added. */
+export function addStamp(stamp: PassportStamp): boolean {
+  const list = getStamps();
+  if (list.some((s) => s.id === stamp.id)) return false;
+  saveStamps([stamp, ...list]);
+  return true;
+}
+
+export function clearStamps() {
+  if (!isClient()) return;
+  localStorage.removeItem(KEY_STAMPS);
+  emit(EVENT_STAMPS);
+}
+
 
 export function getActiveLoop(): ActiveLoop | null {
   if (!isClient()) return null;
@@ -219,7 +277,48 @@ export function checkInStop(stopId: string): CheckInResult | null {
   setActiveLoop(updated);
   if (award > 0) addConfetti(award);
 
+  // Award a passport stamp on the first check-in for this loop.
+  if (!alreadyAwarded) {
+    const cityRaw = loop.city || loop.toName || loop.to || "Trip";
+    const city = cityAbbreviation(cityRaw);
+    const theme = loop.experienceName || loop.blueprint || loop.occasion || "Night Out";
+    const earnedAt = new Date(stamp);
+    const date = earnedAt.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    addStamp({ id: loop.id, city, theme, date, earnedAt: earnedAt.toISOString() });
+  }
+
   return { loop: updated, stop: updatedStop, awarded: award, alreadyAwarded };
+}
+
+/** Compress a city/destination string into a short 2-4 letter stamp code. */
+function cityAbbreviation(input: string): string {
+  const map: Record<string, string> = {
+    "washington dc": "DC",
+    washington: "DC",
+    "new york": "NYC",
+    "new york city": "NYC",
+    miami: "MIA",
+    "los angeles": "LA",
+    "san francisco": "SF",
+    chicago: "CHI",
+    boston: "BOS",
+    austin: "ATX",
+    nashville: "BNA",
+    seattle: "SEA",
+    denver: "DEN",
+    atlanta: "ATL",
+  };
+  const key = input.trim().toLowerCase();
+  if (map[key]) return map[key];
+  // Initials from words (max 3)
+  const initials = input
+    .replace(/[^a-zA-Z\s]/g, "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 3)
+    .map((w) => w[0].toUpperCase())
+    .join("");
+  return initials || input.slice(0, 3).toUpperCase();
 }
 
 export function getConfetti(): number {

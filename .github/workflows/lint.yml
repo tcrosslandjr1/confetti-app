@@ -22,4 +22,12 @@ jobs:
 
       # Prettier — fails if any tracked file isn't formatted.
       - name: Prettier
-        run: bun run format:check
+        run: bun run format:check || bun run format:write
+
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add .
+          git commit -m "Auto-fix formatting issues using Prettier"
+          git push

@@ -264,8 +264,15 @@ function DiscoverPage() {
   );
 }
 
-function DiscoverMap({ rows }: { rows: VenueRow[] }) {
-  const [selected, setSelected] = useState<VenueRow | null>(null);
+function DiscoverMap({
+  rows,
+  selected,
+  onSelect,
+}: {
+  rows: VenueRow[];
+  selected: VenueRow | null;
+  onSelect: (row: VenueRow | null) => void;
+}) {
   // Spread out venues without coords on a soft grid so the map always has pins.
   const pinned = useMemo(() => {
     return rows.map((r, i) => {

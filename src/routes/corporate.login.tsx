@@ -92,7 +92,7 @@ function CorporateLoginPage() {
           </Button>
         </form>
         <div className="mt-6 flex justify-between text-sm text-muted-foreground">
-          <Link to="/login" className="hover:text-foreground">
+          <Link to="/auth" className="hover:text-foreground">
             Personal account
           </Link>
           <Link to="/corporate" className="hover:text-foreground">

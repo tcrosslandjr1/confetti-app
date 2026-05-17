@@ -173,11 +173,13 @@ function PassportPage() {
         })),
       ];
 
-  function handleConfirmRedeem() {
-    if (!pending) return;
+  async function handleConfirmRedeem() {
+    if (!pending || redeeming) return;
+    setRedeeming(true);
     if (getConfetti() < pending.cost) {
       toast.error("Not enough Confetti");
       setPending(null);
+      setRedeeming(false);
       return;
     }
     addConfetti(-pending.cost);
@@ -192,6 +194,7 @@ function PassportPage() {
     setClaimed(next);
     saveClaimed(next);
     setPending(null);
+    setRedeeming(false);
     setJustClaimed(record);
     toast.success(`Redeemed ${pending.label}`, { description: `Code ${record.code}` });
   }

@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { zodValidator, fallback } from "@tanstack/zod-adapter";
 import { z } from "zod";
 import { LayoutList, Map as MapIcon, MapPin, Star, Loader2, Search, X, Sparkles, ArrowRight } from "lucide-react";
@@ -73,11 +73,41 @@ function DiscoverPage() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<(typeof CATEGORIES)[number]>("All");
   const [refreshNonce, setRefreshNonce] = useState(0);
+  // Monotonic counter so out-of-order load() responses can't overwrite newer data.
+  const loadSeqRef = useRef(0);
 
+  const filtered = useMemo(() => {
+    if (!rows) return rows;
+    const term = q.trim().toLowerCase();
+    let out = rows;
+    if (cat !== "All") out = out.filter((r) => r.category === cat);
+    if (term) {
+      out = out.filter((r) =>
+        [r.name, r.neighborhood, r.address].filter(Boolean).join(" ").toLowerCase().includes(term)
+      );
+    }
+    return out;
+  }, [rows, q, cat]);
+
+  // Resolve the selected venue against the *currently visible* set so pins
+  // and the card never render data the user has filtered or searched away.
   const mapSelected = useMemo(
-    () => (venueId ? rows?.find((r) => r.id === venueId) ?? null : null),
-    [venueId, rows],
+    () => (venueId ? filtered?.find((r) => r.id === venueId) ?? null : null),
+    [venueId, filtered],
   );
+
+  // Safeguard: if a venueId in the URL no longer maps to a visible row
+  // (filter change, search change, or data refresh), drop it from the URL
+  // so stale state can't linger across rapid filter changes.
+  useEffect(() => {
+    if (!venueId || !filtered) return;
+    if (!filtered.some((r) => r.id === venueId)) {
+      navigate({
+        search: (prev: { venueId?: string }) => ({ ...prev, venueId: undefined }),
+        replace: true,
+      });
+    }
+  }, [venueId, filtered, navigate]);
 
   const setMapSelected = useCallback(
     (row: VenueRow | null) => {
@@ -104,12 +134,6 @@ function DiscoverPage() {
     [navigate, venueId],
   );
 
-  // Clear selection on filter/search changes (but preserve when toggling to map).
-  useEffect(() => {
-    if (venueId) setMapSelected(null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cat, q]);
-
   // If a venueId is in the URL, ensure we're on the map view.
   useEffect(() => {
     if (venueId && view !== "map") setView("map");
@@ -122,26 +146,16 @@ function DiscoverPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view]);
 
-  const filtered = useMemo(() => {
-    if (!rows) return rows;
-    const term = q.trim().toLowerCase();
-    let out = rows;
-    if (cat !== "All") out = out.filter((r) => r.category === cat);
-    if (term) {
-      out = out.filter((r) =>
-        [r.name, r.neighborhood, r.address].filter(Boolean).join(" ").toLowerCase().includes(term)
-      );
-    }
-    return out;
-  }, [rows, q, cat]);
-
   const load = useCallback(async () => {
+    const seq = ++loadSeqRef.current;
     const { data } = await supabase
       .from("viral_venues")
       .select("id,venue_name,neighborhood,address,photo_url,rating")
       .eq("verified", true)
       .order("trend_score", { ascending: false })
       .limit(60);
+    // Drop stale responses: a newer load() has already started or completed.
+    if (seq !== loadSeqRef.current) return;
     const dbRows: VenueRow[] = (data ?? []).map((r) => ({
       id: r.id,
       name: r.venue_name,

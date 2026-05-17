@@ -123,9 +123,15 @@ function TabItem({
       </motion.span>
       <span
         id={labelId}
-        className={`font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest leading-none whitespace-nowrap transition-colors ${active ? "text-coral" : "text-ink/60"}`}
+        className={`relative font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest leading-none whitespace-nowrap transition-colors ${active ? "text-coral" : "text-ink/60"}`}
       >
         {label}
+        {active && (
+          <span
+            aria-hidden="true"
+            className="absolute -bottom-1.5 left-1/2 h-[3px] w-4 -translate-x-1/2 rounded-full bg-coral"
+          />
+        )}
       </span>
     </Link>
   );

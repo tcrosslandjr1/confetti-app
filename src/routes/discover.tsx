@@ -32,22 +32,46 @@ type VenueRow = {
   address: string | null;
   photo: string | null;
   rating: number | null;
+  price?: string;
+  tags?: string[];
+  category?: Category;
+  aiPick?: boolean;
+  gradient?: string;
 };
+
+type Category = "Dining" | "Nightlife" | "Rooftops" | "Live Music" | "Cocktails";
+const CATEGORIES: Array<"All" | Category> = ["All", "Dining", "Nightlife", "Rooftops", "Live Music", "Cocktails"];
+
+const SAMPLE_VENUES: VenueRow[] = [
+  { id: "velvet-terrace", name: "Velvet Terrace", neighborhood: "Dupont Circle", address: null, photo: null, rating: 4.8, price: "$$", category: "Rooftops", tags: ["rooftop", "sunset"], aiPick: true, gradient: "from-rose-400 via-fuchsia-500 to-indigo-600" },
+  { id: "noir-lounge", name: "Noir Lounge", neighborhood: "Shaw", address: null, photo: null, rating: 4.6, price: "$$", category: "Cocktails", tags: ["speakeasy", "moody"], gradient: "from-slate-800 via-purple-900 to-zinc-900" },
+  { id: "ember-kitchen", name: "Ember Kitchen", neighborhood: "Logan Circle", address: null, photo: null, rating: 4.7, price: "$$", category: "Dining", tags: ["wood-fired", "seasonal"], aiPick: true, gradient: "from-amber-500 via-orange-600 to-rose-700" },
+  { id: "the-vinyl-room", name: "The Vinyl Room", neighborhood: "U Street", address: null, photo: null, rating: 4.5, price: "$", category: "Live Music", tags: ["jazz", "vinyl"], gradient: "from-emerald-600 via-teal-700 to-slate-900" },
+  { id: "skyline-social", name: "Skyline Social", neighborhood: "Navy Yard", address: null, photo: null, rating: 4.4, price: "$$", category: "Rooftops", tags: ["views", "social"], gradient: "from-sky-400 via-blue-600 to-indigo-800" },
+  { id: "sakura-garden", name: "Sakura Garden", neighborhood: "Penn Quarter", address: null, photo: null, rating: 4.9, price: "$$", category: "Dining", tags: ["omakase", "garden"], aiPick: true, gradient: "from-pink-300 via-rose-400 to-fuchsia-600" },
+  { id: "brass-and-bone", name: "Brass & Bone", neighborhood: "Adams Morgan", address: null, photo: null, rating: 4.3, price: "$$", category: "Nightlife", tags: ["dance", "late-night"], gradient: "from-yellow-500 via-amber-700 to-stone-900" },
+  { id: "luna-terrace", name: "Luna Terrace", neighborhood: "Georgetown", address: null, photo: null, rating: 4.7, price: "$$", category: "Cocktails", tags: ["lunar", "patio"], gradient: "from-indigo-400 via-violet-600 to-purple-900" },
+];
 
 function DiscoverPage() {
   const [view, setView] = useState<"list" | "map">("list");
   const [rows, setRows] = useState<VenueRow[] | null>(null);
   const [q, setQ] = useState("");
+  const [cat, setCat] = useState<(typeof CATEGORIES)[number]>("All");
   const [refreshNonce, setRefreshNonce] = useState(0);
 
   const filtered = useMemo(() => {
     if (!rows) return rows;
     const term = q.trim().toLowerCase();
-    if (!term) return rows;
-    return rows.filter((r) =>
-      [r.name, r.neighborhood, r.address].filter(Boolean).join(" ").toLowerCase().includes(term)
-    );
-  }, [rows, q]);
+    let out = rows;
+    if (cat !== "All") out = out.filter((r) => r.category === cat);
+    if (term) {
+      out = out.filter((r) =>
+        [r.name, r.neighborhood, r.address].filter(Boolean).join(" ").toLowerCase().includes(term)
+      );
+    }
+    return out;
+  }, [rows, q, cat]);
 
   const load = useCallback(async () => {
     const { data } = await supabase

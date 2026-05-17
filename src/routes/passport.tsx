@@ -177,13 +177,15 @@ function PassportPage() {
   async function handleConfirmRedeem() {
     if (!pending || redeeming) return;
     setRedeeming(true);
-    if (getConfetti() < pending.cost) {
+    if (confetti < pending.cost) {
       toast.error("Not enough Confetti");
       setPending(null);
       setRedeeming(false);
       return;
     }
-    addConfetti(-pending.cost);
+    // Only deduct from the local demo balance for guests; signed-in users'
+    // balances are server-managed and updated via grants/redemptions.
+    if (!passport.signedIn) addConfetti(-pending.cost);
     const record: ClaimedReward = {
       id: pending.id,
       label: pending.label,
@@ -601,12 +603,12 @@ function PassportPage() {
               <p className="mt-1 text-xs leading-snug opacity-90">
                 Every check-in Fri–Sun earns 2× rewards. Stack with your streak bonus.
               </p>
-              <button
-                type="button"
+              <Link
+                to="/discover"
                 className="mt-3 inline-flex items-center gap-1 rounded-full border-2 border-cream/40 bg-cream/10 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-cream/20"
               >
                 See partners <ChevronRight className="h-3 w-3" />
-              </button>
+              </Link>
             </div>
           </div>
         </section>

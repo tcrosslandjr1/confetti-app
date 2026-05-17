@@ -942,6 +942,65 @@ export type Database = {
           },
         ]
       }
+      event_tickets: {
+        Row: {
+          amount_cents: number
+          confetti_awarded: number
+          created_at: string
+          currency: string
+          environment: string
+          event_id: string
+          id: string
+          metadata: Json
+          quantity: number
+          status: string
+          stripe_payment_intent_id: string | null
+          stripe_session_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          amount_cents: number
+          confetti_awarded?: number
+          created_at?: string
+          currency?: string
+          environment?: string
+          event_id: string
+          id?: string
+          metadata?: Json
+          quantity?: number
+          status?: string
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          amount_cents?: number
+          confetti_awarded?: number
+          created_at?: string
+          currency?: string
+          environment?: string
+          event_id?: string
+          id?: string
+          metadata?: Json
+          quantity?: number
+          status?: string
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "event_tickets_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       events: {
         Row: {
           address: string | null
@@ -950,6 +1009,7 @@ export type Database = {
           city: string
           created_at: string
           created_by: string | null
+          currency: string
           description: string | null
           ends_at: string | null
           id: string
@@ -964,6 +1024,7 @@ export type Database = {
           status: string
           tags: string[]
           ticket_url: string | null
+          tickets_enabled: boolean
           title: string
           updated_at: string
           venue_id: string | null
@@ -976,6 +1037,7 @@ export type Database = {
           city: string
           created_at?: string
           created_by?: string | null
+          currency?: string
           description?: string | null
           ends_at?: string | null
           id?: string
@@ -990,6 +1052,7 @@ export type Database = {
           status?: string
           tags?: string[]
           ticket_url?: string | null
+          tickets_enabled?: boolean
           title: string
           updated_at?: string
           venue_id?: string | null
@@ -1002,6 +1065,7 @@ export type Database = {
           city?: string
           created_at?: string
           created_by?: string | null
+          currency?: string
           description?: string | null
           ends_at?: string | null
           id?: string
@@ -1016,6 +1080,7 @@ export type Database = {
           status?: string
           tags?: string[]
           ticket_url?: string | null
+          tickets_enabled?: boolean
           title?: string
           updated_at?: string
           venue_id?: string | null

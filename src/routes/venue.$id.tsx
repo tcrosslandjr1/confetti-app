@@ -920,6 +920,219 @@ function StepDone({
   );
 }
 
+// ---------------- Reservation Modal ----------------
+
+function ReservationModal({
+  open,
+  onClose,
+  venue,
+  dateIdx,
+  setDateIdx,
+  time,
+  setTime,
+  party,
+  setParty,
+  notes,
+  setNotes,
+  code,
+}: {
+  open: boolean;
+  onClose: () => void;
+  venue: Venue;
+  dateIdx: number;
+  setDateIdx: (n: number) => void;
+  time: string | null;
+  setTime: (t: string) => void;
+  party: number;
+  setParty: (n: number) => void;
+  notes: string;
+  setNotes: (s: string) => void;
+  code: string;
+}) {
+  const [confirmed, setConfirmed] = useState(false);
+  const dates = useMemo(() => buildDates(14), []);
+  const scrollerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (open) setConfirmed(false);
+  }, [open]);
+
+  const handleConfirm = () => {
+    if (!time) {
+      toast.error("Pick a time first");
+      return;
+    }
+    setConfirmed(true);
+    toast.success("Reservation confirmed!");
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
+      <DialogContent className="max-h-[90vh] overflow-y-auto rounded-3xl border-2 border-ink bg-cream p-0 shadow-brut-lg sm:max-w-lg">
+        <DialogTitle className="sr-only">Reserve at {venue.name}</DialogTitle>
+        {!confirmed ? (
+          <div className="space-y-5 p-5">
+            {/* Header */}
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink/60">
+                  Reserve a table
+                </p>
+                <h2 className="mt-1 font-display text-2xl font-extrabold tracking-tight">
+                  {venue.name}
+                </h2>
+              </div>
+              <button
+                onClick={onClose}
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink bg-white font-bold shadow-brut transition-pop"
+                aria-label="Close"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            </div>
+
+            {/* Date chips */}
+            <div>
+              <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+                <CalendarIcon className="mr-1 inline h-3 w-3" /> Choose a date
+              </p>
+              <div
+                ref={scrollerRef}
+                className="flex snap-x snap-mandatory gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              >
+                {dates.map((d, i) => {
+                  const selected = i === dateIdx;
+                  return (
+                    <button
+                      key={d.iso}
+                      onClick={() => setDateIdx(i)}
+                      className={`flex min-w-[68px] shrink-0 snap-start flex-col items-center gap-0.5 rounded-2xl border-2 border-ink px-3 py-3 shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none ${
+                        selected ? "bg-coral text-white" : "bg-white text-ink"
+                      }`}
+                    >
+                      <span className={`font-mono text-[10px] font-bold uppercase tracking-widest ${selected ? "text-white/85" : "text-ink/60"}`}>
+                        {d.dow}
+                      </span>
+                      <span className="font-display text-xl font-extrabold leading-none">{d.day}</span>
+                      <span className={`font-mono text-[10px] uppercase ${selected ? "text-white/85" : "text-ink/50"}`}>
+                        {d.mon}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Time grid */}
+            <div>
+              <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+                <Clock className="mr-1 inline h-3 w-3" /> Available times
+              </p>
+              <div className="grid grid-cols-3 gap-2">
+                {TIMES.map((t) => {
+                  const unavail = UNAVAILABLE.has(t);
+                  const selected = t === time;
+                  return (
+                    <button
+                      key={t}
+                      disabled={unavail}
+                      onClick={() => setTime(t)}
+                      className={`rounded-xl border-2 px-2 py-3 text-sm font-bold transition-pop ${
+                        unavail
+                          ? "cursor-not-allowed border-ink/20 bg-ink/5 text-ink/30 line-through"
+                          : selected
+                            ? "border-ink bg-teal text-white shadow-brut"
+                            : "border-ink bg-white text-ink hover:-translate-y-0.5 hover:shadow-brut"
+                      }`}
+                    >
+                      {t}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Party size */}
+            <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Users className="h-4 w-4 text-coral" />
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+                    Party size
+                  </span>
+                </div>
+                <div className="inline-flex items-center gap-2">
+                  <button
+                    onClick={() => setParty(Math.max(1, party - 1))}
+                    className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream font-bold shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+                    aria-label="Decrease"
+                  >
+                    <Minus className="h-3.5 w-3.5" />
+                  </button>
+                  <span className="w-6 text-center font-display text-lg font-extrabold">{party}</span>
+                  <button
+                    onClick={() => setParty(Math.min(20, party + 1))}
+                    className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-cream font-bold shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+                    aria-label="Increase"
+                  >
+                    <Plus className="h-3.5 w-3.5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Notes */}
+            <div>
+              <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+                Special requests (optional)
+              </p>
+              <textarea
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                placeholder="Allergies, seating preference, celebration…"
+                className="min-h-[80px] w-full rounded-2xl border-2 border-ink bg-white p-3 text-sm text-ink placeholder:text-ink/40 shadow-brut focus:outline-none focus:ring-2 focus:ring-coral"
+              />
+            </div>
+
+            {/* Confirm CTA */}
+            <GradientCTA
+              onClick={handleConfirm}
+              label="Confirm Reservation"
+              disabled={!time}
+              leading={<ShieldCheck className="h-4 w-4" />}
+            />
+          </div>
+        ) : (
+          <div className="space-y-5 p-5 text-center">
+            <ConfettiRain />
+            <div className="relative z-10 mx-auto grid h-16 w-16 place-items-center rounded-full border-2 border-ink bg-gradient-to-br from-coral to-violet-500 text-white shadow-brut">
+              <Check className="h-7 w-7" />
+            </div>
+            <div>
+              <h3 className="font-display text-2xl font-extrabold tracking-tight">You're in!</h3>
+              <p className="mt-1 text-sm text-ink/70">
+                {venue.name} · {dates[dateIdx]?.dow} {dates[dateIdx]?.day} {dates[dateIdx]?.mon} at {time}
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
+              <div className="flex items-center justify-between">
+                <PassMini label="Confirmation" value={code} />
+                <PassMini label="Party of" value={String(party)} />
+              </div>
+            </div>
+            <button
+              onClick={onClose}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-white py-3.5 font-mono text-xs font-bold uppercase tracking-[0.18em] text-ink shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut active:translate-y-0 active:shadow-none"
+            >
+              Done
+            </button>
+          </div>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 function PassMini({ label, value }: { label: string; value: string }) {
   return (
     <div>

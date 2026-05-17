@@ -108,9 +108,22 @@ const KEY_LOOP = "loop:active";
 const KEY_CONFETTI = "loop:confetti";
 const KEY_ONBOARDED = "loop:onboarded";
 const KEY_ONBOARDING = "loop:onboarding";
+const KEY_STAMPS = "loop:stamps";
 
 const EVENT_LOOP = "loop:active:changed";
 const EVENT_CONFETTI = "loop:confetti:changed";
+const EVENT_STAMPS = "loop:stamps:changed";
+
+export type PassportStamp = {
+  /** Unique key — usually the loop id so one loop earns one stamp. */
+  id: string;
+  city: string;
+  theme: string;
+  /** Short display date, e.g. "May 10". */
+  date: string;
+  /** ISO timestamp the stamp was earned. */
+  earnedAt: string;
+};
 
 export function isClient() {
   return typeof window !== "undefined";

@@ -105,7 +105,7 @@ function DiscoverPage() {
     if (!venueId || !filtered) return;
     if (!filtered.some((r) => r.id === venueId)) {
       navigate({
-                search: (prev) => ({ ...prev, venueId: undefined }),
+                search: (prev: z.infer<typeof discoverSearchSchema>) => ({ ...prev, venueId: undefined }),
         replace: true,
       });
     }
@@ -121,7 +121,7 @@ function DiscoverPage() {
           return;
         }
         navigate({
-          search: (prev) => ({ ...prev, venueId: undefined }),
+          search: (prev: z.infer<typeof discoverSearchSchema>) => ({ ...prev, venueId: undefined }),
           replace: true,
         });
         return;
@@ -129,7 +129,7 @@ function DiscoverPage() {
       // Opening / switching selection: replace when one is already open
       // (avoid history bloat from pin-to-pin), push when opening fresh.
       navigate({
-        search: (prev) => ({ ...prev, venueId: row.id }),
+        search: (prev: z.infer<typeof discoverSearchSchema>) => ({ ...prev, venueId: row.id }),
         replace: Boolean(venueId),
       });
     },
@@ -140,7 +140,7 @@ function DiscoverPage() {
   useEffect(() => {
     if (venueId && viewParam !== "map") {
       navigate({
-                search: (prev) => ({ ...prev, view: "map" }),
+                search: (prev: z.infer<typeof discoverSearchSchema>) => ({ ...prev, view: "map" }),
         replace: true,
       });
     }

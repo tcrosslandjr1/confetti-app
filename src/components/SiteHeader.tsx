@@ -23,7 +23,7 @@ function RotatingTagline({ className = "" }: { className?: string }) {
     return () => window.clearInterval(id);
   }, []);
   return (
-    <span className={`ml-2 hidden h-7 items-center gap-2 border-2 border-ink bg-white px-2.5 shadow-brut sm:ml-3 sm:h-8 sm:px-3 min-[1440px]:inline-flex ${className}`}>
+    <span className={`hidden h-8 shrink-0 items-center gap-2 border-2 border-ink bg-white px-3 shadow-brut min-[1440px]:inline-flex ${className}`}>
       <span className="relative inline-flex h-2 w-2">
         <span className="absolute inset-0 animate-ping rounded-full bg-coral/70" />
         <span className="relative inline-block h-2 w-2 rounded-full bg-coral" />

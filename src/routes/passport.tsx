@@ -756,6 +756,55 @@ function PassportPage() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
+      {/* Share passport modal */}
+      <Dialog open={shareOpen} onOpenChange={setShareOpen}>
+        <DialogContent className="max-w-md border-2 border-ink bg-card p-0 shadow-brut-lg">
+          <DialogHeader className="px-6 pt-6">
+            <DialogTitle className="font-display text-2xl font-extrabold">
+              Share your Passport
+            </DialogTitle>
+            <DialogDescription className="font-serif italic text-ink/70">
+              A snapshot of your tier, Confetti, and a QR code to your profile.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="flex justify-center px-6 pt-2">
+            <PassportShareCard ref={cardRef} data={shareData} shareUrl={shareUrl} />
+          </div>
+
+          <div className="px-6 pb-6 pt-4">
+            <div className="flex items-center gap-2 rounded-xl border-2 border-ink bg-cream/60 px-3 py-2">
+              <code className="flex-1 truncate font-mono text-[11px] text-ink">{shareUrl}</code>
+              <button
+                type="button"
+                onClick={handleCopyLink}
+                className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut hover:-translate-y-0.5 transition-transform"
+              >
+                {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                {copied ? "Copied" : "Copy"}
+              </button>
+            </div>
+
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={handleDownloadImage}
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-ink shadow-brut hover:-translate-y-0.5 transition-transform"
+              >
+                <Download className="h-3.5 w-3.5" /> Download
+              </button>
+              <button
+                type="button"
+                onClick={handleNativeShare}
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-ink bg-coral px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-widest text-cream shadow-brut hover:-translate-y-0.5 transition-transform"
+              >
+                <Share2 className="h-3.5 w-3.5" /> Share
+              </button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

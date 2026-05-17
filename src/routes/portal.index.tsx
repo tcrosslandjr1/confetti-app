@@ -252,7 +252,7 @@ function PortalDiscoverPage() {
     return () => {
       cancelled = true;
     };
-  }, [user]);
+  }, [user, refreshKey]);
 
   const greeting = profile?.display_name ? `Hey, ${profile.display_name.split(" ")[0]}` : "Hey";
   const unlockedCount = achievements.filter((a) => a.unlocked).length;

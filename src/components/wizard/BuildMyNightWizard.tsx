@@ -97,8 +97,14 @@ const BUDGETS: Budget[] = [
 
 const MUSTS: MustHave[] = [
   { k: "live", label: "Live music" },
+  { k: "dancing", label: "Dancing" },
   { k: "outdoor", label: "Outdoor seating" },
+  { k: "rooftop", label: "Rooftop" },
   { k: "late", label: "Late-night" },
+  { k: "latebites", label: "Late-night bites" },
+  { k: "karaoke", label: "Karaoke" },
+  { k: "sports", label: "Watch sports" },
+  { k: "speakeasy", label: "Speakeasy" },
   { k: "kids", label: "Kid-friendly" },
   { k: "walk", label: "Walkable" },
   { k: "ig", label: "Instagram-worthy" },
@@ -499,6 +505,7 @@ export function BuildMyNightWizard() {
   const [pickedDate, setPickedDate] = useState<string>("");
   const [budget, setBudget] = useState<string | null>(null);
   const [musts, setMusts] = useState<string[]>([]);
+  const [wishlist, setWishlist] = useState<string>("");
   const [loadingIdx, setLoadingIdx] = useState(0);
   const [variant, setVariant] = useState(0);
   // Track explicitly-closed stops so all stops are expanded by default
@@ -1595,6 +1602,21 @@ export function BuildMyNightWizard() {
                     </button>
                   );
                 })}
+              </div>
+              <div className="mt-6">
+                <label className="mb-2 block font-mono text-[11px] font-bold uppercase tracking-widest">
+                  Anything specific you want to do?
+                </label>
+                <textarea
+                  value={wishlist}
+                  onChange={(e) => setWishlist(e.target.value.slice(0, 280))}
+                  rows={3}
+                  placeholder="e.g. see live jazz, try ramen, find a quiet patio for two…"
+                  className="w-full resize-none rounded-xl border-2 border-ink bg-cream px-4 py-3 font-display text-base shadow-brut outline-none placeholder:text-ink/40 focus:-translate-y-0.5 focus:shadow-brut-lg"
+                />
+                <div className="mt-1 text-right font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                  {wishlist.length}/280
+                </div>
               </div>
             </StepShell>
           )}

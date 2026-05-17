@@ -265,7 +265,21 @@ function PricingTiers() {
   );
 }
 
-function PricingCard({ tier, index }: { tier: Tier; index: number }) {
+type CtaHandler = (priceId: string | undefined, name: string, fallback?: string) => void;
+
+function PricingTiers({ onCta }: { onCta: CtaHandler }) {
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-20">
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        {TIERS.map((tier, i) => (
+          <PricingCard key={tier.id} tier={tier} index={i} onCta={onCta} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function PricingCard({ tier, index, onCta }: { tier: Tier; index: number; onCta: CtaHandler }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

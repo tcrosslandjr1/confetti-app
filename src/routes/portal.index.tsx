@@ -547,7 +547,7 @@ function PortalDiscoverPage() {
 
           <div className="grid gap-3 sm:grid-cols-2">
             <QuickAction
-              to="/concierge/passport"
+              to="/passport"
               icon={Trophy}
               label="Passport & badges"
               hint={`${unlockedCount}/${achievements.length} unlocked`}

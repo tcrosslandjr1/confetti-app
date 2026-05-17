@@ -80,7 +80,7 @@ export const ROUTE_REGISTRY: RouteEntry[] = [
   { path: "/teams/$id", purpose: "social", oneJob: "Show a single team workspace." },
   { path: "/trips", purpose: "social", oneJob: "List trips the user is part of." },
   { path: "/trips/$id", purpose: "social", oneJob: "Show a single trip detail." },
-  { path: "/trips/$id/passport", purpose: "social", oneJob: "Show passport scoped to one trip.", flags: ["split-portal"], notes: "Duplicates /passport semantics." },
+  { path: "/trips/$id/passport", purpose: "social", oneJob: "Review & rate a single completed trip (stops + overall)." },
   { path: "/recap/$itineraryId", purpose: "social", oneJob: "Shareable recap of a completed trip." },
   { path: "/favorites", purpose: "retention", oneJob: "Saved venues/events for the member.", flags: ["split-portal"], notes: "Overlaps /portal/saved." },
 
@@ -88,14 +88,14 @@ export const ROUTE_REGISTRY: RouteEntry[] = [
   { path: "/concierge", purpose: "concierge", oneJob: "Entry to AI/human concierge." },
   { path: "/concierge/chat", purpose: "concierge", oneJob: "Open a new concierge chat." },
   { path: "/concierge/chat/$threadId", purpose: "concierge", oneJob: "Continue a concierge thread." },
-  { path: "/concierge/passport", purpose: "concierge", oneJob: "Passport view inside concierge.", flags: ["split-portal"] },
+  { path: "/concierge/passport", purpose: "concierge", oneJob: "Redirect → /passport (consolidated).", flags: ["deprecated"], notes: "Legacy redirect; canonical lives at /passport." },
   { path: "/concierge/profile", purpose: "concierge", oneJob: "Profile inside concierge.", flags: ["split-portal"] },
   { path: "/chat", purpose: "concierge", oneJob: "Generic chat entry.", flags: ["duplicate"], notes: "Overlaps /concierge/chat." },
   { path: "/taste-tuner", purpose: "concierge", oneJob: "Tune taste preferences for recs." },
 
   // ── Member Portal ───────────────────────────────────────────────────────
   { path: "/portal", purpose: "portal", oneJob: "Logged-in home for members." },
-  { path: "/portal/passport", purpose: "portal", oneJob: "Passport inside portal.", flags: ["split-portal"], notes: "Duplicates /passport." },
+  { path: "/portal/passport", purpose: "portal", oneJob: "Redirect → /passport (consolidated).", flags: ["deprecated"], notes: "Legacy redirect; canonical lives at /passport." },
   { path: "/portal/wallet", purpose: "portal", oneJob: "Manage wallet passes." },
   { path: "/portal/bookings", purpose: "portal", oneJob: "List user bookings." },
   { path: "/portal/saved", purpose: "portal", oneJob: "Saved items.", flags: ["split-portal"], notes: "Overlaps /favorites." },

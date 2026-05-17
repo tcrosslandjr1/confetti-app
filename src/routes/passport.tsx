@@ -471,10 +471,10 @@ function PassportPage() {
               </span>
             </h2>
             <Link
-              to="/portal/passport"
+              to="/portal/activity"
               className="inline-flex items-center gap-0.5 font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-ink"
             >
-              View all <ChevronRight className="h-3 w-3" />
+              Activity <ChevronRight className="h-3 w-3" />
             </Link>
           </div>
           <div className="mt-3 -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">

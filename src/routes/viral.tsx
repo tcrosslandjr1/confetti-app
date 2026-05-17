@@ -48,6 +48,7 @@ function ViralPage() {
   const [rows, setRows] = useState<Row[] | null>(null);
   const [activeTags, setActiveTags] = useState<ViralTag[]>([]);
   const [sortBy, setSortBy] = useState<"score" | "recent">("score");
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     let cancelled = false;

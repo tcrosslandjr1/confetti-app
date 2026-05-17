@@ -65,6 +65,9 @@ const DETAILS = [
 
 function VenueBookingPage() {
   const { id } = Route.useParams();
+  const navigate = useNavigate();
+  const backToDiscover = () =>
+    navigate({ to: "/discover", search: { venueId: id } });
   const [venue, setVenue] = useState<Venue | null | undefined>(undefined);
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [dir, setDir] = useState<1 | -1>(1);

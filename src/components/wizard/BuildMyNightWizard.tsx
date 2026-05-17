@@ -510,8 +510,13 @@ export function BuildMyNightWizard() {
   const [variant, setVariant] = useState(0);
   // Track explicitly-closed stops so all stops are expanded by default
   // and only collapse when the user clicks a header.
-  const [closedStops, setClosedStops] = useState<Set<number>>(() => new Set());
+  const [openStops, setOpenStops] = useState<Set<number>>(() => new Set());
   const toggleStop = (i: number) =>
+    setOpenStops((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i); else next.add(i);
+      return next;
+    });
     setClosedStops((prev) => {
       const next = new Set(prev);
       if (next.has(i)) next.delete(i);

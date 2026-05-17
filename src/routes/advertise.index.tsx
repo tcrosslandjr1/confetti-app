@@ -104,6 +104,7 @@ function AdvertiseLanding() {
     if (!d) return;
     setForm((f) => ({
       business_name: d.business_name ?? f.business_name,
+      owner_name: d.owner_name ?? f.owner_name,
       contact_email: d.contact_email ?? f.contact_email,
       website: d.website ?? f.website,
       contact_phone: d.contact_phone ?? f.contact_phone,

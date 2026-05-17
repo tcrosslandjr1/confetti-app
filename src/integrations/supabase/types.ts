@@ -1430,6 +1430,89 @@ export type Database = {
           },
         ]
       }
+      stop_menus: {
+        Row: {
+          generated_at: string
+          items: Json
+          source: string
+          stop_id: string
+        }
+        Insert: {
+          generated_at?: string
+          items?: Json
+          source?: string
+          stop_id: string
+        }
+        Update: {
+          generated_at?: string
+          items?: Json
+          source?: string
+          stop_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "stop_menus_stop_id_fkey"
+            columns: ["stop_id"]
+            isOneToOne: true
+            referencedRelation: "itinerary_stops"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      stop_orders: {
+        Row: {
+          created_at: string
+          id: string
+          items: Json
+          itinerary_id: string
+          note: string | null
+          status: string
+          stop_id: string
+          total_cents: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          items?: Json
+          itinerary_id: string
+          note?: string | null
+          status?: string
+          stop_id: string
+          total_cents?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          items?: Json
+          itinerary_id?: string
+          note?: string | null
+          status?: string
+          stop_id?: string
+          total_cents?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "stop_orders_itinerary_id_fkey"
+            columns: ["itinerary_id"]
+            isOneToOne: false
+            referencedRelation: "itineraries"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "stop_orders_stop_id_fkey"
+            columns: ["stop_id"]
+            isOneToOne: false
+            referencedRelation: "itinerary_stops"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       testimonials: {
         Row: {
           active: boolean

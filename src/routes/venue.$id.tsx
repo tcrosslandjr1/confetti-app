@@ -43,6 +43,7 @@ type Venue = {
   tags: string[];
   source: "venues" | "viral_venues";
   city: string | null;
+  website: string | null;
 };
 
 const FALLBACK_PHOTO =
@@ -126,6 +127,7 @@ function VenueBookingPage() {
           tags: Array.isArray((v as any).tags) ? (v as any).tags : [],
           source,
           city: (v as any).city ?? null,
+          website: (v as any).website ?? null,
         });
       } else if (sample) {
         setVenue({
@@ -141,6 +143,7 @@ function VenueBookingPage() {
           tags: sample.tags,
           source: "venues",
           city: sample.city,
+          website: (sample as any).website ?? null,
         });
       } else {
         // Final fallback so the flow remains usable even without a row.
@@ -157,6 +160,7 @@ function VenueBookingPage() {
           tags: ["date night", "cocktails", "intimate"],
           source: "venues",
           city: "New York",
+          website: null,
         });
       }
     })();
@@ -398,6 +402,16 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
             >
               Search on TikTok <ExternalLink className="h-3 w-3" />
             </a>
+            {venue.website && (
+              <a
+                href={venue.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-flex items-center gap-1 text-[11px] font-medium text-white/80 underline underline-offset-2 hover:text-white"
+              >
+                Visit website <ExternalLink className="h-3 w-3" />
+              </a>
+            )}
           </div>
         </div>
       </div>

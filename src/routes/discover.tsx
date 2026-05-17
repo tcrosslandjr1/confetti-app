@@ -43,6 +43,7 @@ type VenueRow = {
   aiPick?: boolean;
   gradient?: string;
   description?: string;
+  website?: string | null;
   /** Approx position on the stylized DC map placeholder, as % of container (x=left, y=top). */
   coords?: { x: number; y: number };
 };
@@ -149,7 +150,7 @@ function DiscoverPage() {
     const seq = ++loadSeqRef.current;
     const { data } = await supabase
       .from("viral_venues")
-      .select("id,venue_name,neighborhood,address,photo_url,rating")
+      .select("id,venue_name,neighborhood,address,photo_url,rating,website")
       .eq("verified", true)
       .order("trend_score", { ascending: false })
       .limit(60);
@@ -162,6 +163,7 @@ function DiscoverPage() {
       address: r.address,
       photo: r.photo_url,
       rating: r.rating != null ? Number(r.rating) : null,
+      website: r.website,
     }));
     setRows([...SAMPLE_VENUES, ...dbRows]);
     setRefreshNonce((n) => n + 1);
@@ -527,6 +529,16 @@ function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) 
       >
         Search on TikTok
       </a>
+      {row.website && (
+        <a
+          href={row.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-1 inline-flex items-center gap-1 text-xs text-coral underline underline-offset-2"
+        >
+          Visit website
+        </a>
+      )}
     </div>
   );
 }

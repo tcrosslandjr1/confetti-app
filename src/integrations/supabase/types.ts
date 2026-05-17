@@ -1775,6 +1775,7 @@ export type Database = {
           price_level: number
           staff_email: string | null
           verified: boolean
+          website: string | null
         }
         Insert: {
           advertiser_id?: string | null
@@ -1791,6 +1792,7 @@ export type Database = {
           price_level?: number
           staff_email?: string | null
           verified?: boolean
+          website?: string | null
         }
         Update: {
           advertiser_id?: string | null
@@ -1807,6 +1809,7 @@ export type Database = {
           price_level?: number
           staff_email?: string | null
           verified?: boolean
+          website?: string | null
         }
         Relationships: [
           {
@@ -1876,6 +1879,7 @@ export type Database = {
           trend_score: number
           venue_name: string
           verified: boolean
+          website: string | null
         }
         Insert: {
           address?: string | null
@@ -1898,6 +1902,7 @@ export type Database = {
           trend_score?: number
           venue_name: string
           verified?: boolean
+          website?: string | null
         }
         Update: {
           address?: string | null
@@ -1920,6 +1925,7 @@ export type Database = {
           trend_score?: number
           venue_name?: string
           verified?: boolean
+          website?: string | null
         }
         Relationships: []
       }

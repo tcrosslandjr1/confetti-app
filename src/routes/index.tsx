@@ -346,18 +346,18 @@ function Landing() {
               <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />Earn Confetti rewards every time you go out</li>
             </ul>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+            <div className="mt-7 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <WizardButton
                 ariaLabel="Plan my night"
                 className="inline-flex h-14 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-7 text-base font-bold text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg sm:w-auto"
               >
-                Plan my night <ArrowUpRight className="h-5 w-5" />
+                Plan my night — 60 sec <ArrowUpRight className="h-5 w-5" />
               </WizardButton>
               <a
                 href="#sample-plan"
-                className="inline-flex h-12 min-h-11 items-center justify-center rounded-full border-2 border-ink bg-cream px-6 text-sm font-bold transition-pop hover:-translate-y-0.5 hover:bg-gold sm:w-auto"
+                className="text-sm font-bold text-ink/70 underline-offset-4 hover:text-ink hover:underline"
               >
-                See a sample plan ↓
+                or peek at a sample plan ↓
               </a>
             </div>
           </div>

@@ -2948,6 +2948,92 @@ export type Database = {
           },
         ]
       }
+      vendor_profiles: {
+        Row: {
+          accent_color: string | null
+          address: Json | null
+          banner_url: string | null
+          brand_color: string | null
+          business_name: string
+          category: string | null
+          created_at: string
+          description: string | null
+          display_name: string | null
+          id: string
+          is_published: boolean
+          legal_name: string | null
+          logo_url: string | null
+          settings: Json
+          social_links: Json
+          support_email: string | null
+          support_phone: string | null
+          tagline: string | null
+          tags: string[] | null
+          updated_at: string
+          user_id: string
+          vendor_id: string | null
+          website_url: string | null
+        }
+        Insert: {
+          accent_color?: string | null
+          address?: Json | null
+          banner_url?: string | null
+          brand_color?: string | null
+          business_name: string
+          category?: string | null
+          created_at?: string
+          description?: string | null
+          display_name?: string | null
+          id?: string
+          is_published?: boolean
+          legal_name?: string | null
+          logo_url?: string | null
+          settings?: Json
+          social_links?: Json
+          support_email?: string | null
+          support_phone?: string | null
+          tagline?: string | null
+          tags?: string[] | null
+          updated_at?: string
+          user_id: string
+          vendor_id?: string | null
+          website_url?: string | null
+        }
+        Update: {
+          accent_color?: string | null
+          address?: Json | null
+          banner_url?: string | null
+          brand_color?: string | null
+          business_name?: string
+          category?: string | null
+          created_at?: string
+          description?: string | null
+          display_name?: string | null
+          id?: string
+          is_published?: boolean
+          legal_name?: string | null
+          logo_url?: string | null
+          settings?: Json
+          social_links?: Json
+          support_email?: string | null
+          support_phone?: string | null
+          tagline?: string | null
+          tags?: string[] | null
+          updated_at?: string
+          user_id?: string
+          vendor_id?: string | null
+          website_url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vendor_profiles_vendor_id_fkey"
+            columns: ["vendor_id"]
+            isOneToOne: false
+            referencedRelation: "vendors"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       vendors: {
         Row: {
           charges_enabled: boolean | null

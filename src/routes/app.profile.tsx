@@ -29,7 +29,7 @@ function ProfilePage() {
     queryFn: async () => {
       const { data } = await supabase
         .from("profiles")
-        .select("display_name,avatar_url,level,xp")
+        .select("display_name,level,xp")
         .eq("id", userId!)
         .maybeSingle();
       return data;

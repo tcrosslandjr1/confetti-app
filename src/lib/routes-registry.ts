@@ -80,7 +80,7 @@ export const ROUTE_REGISTRY: RouteEntry[] = [
   { path: "/teams/$id", purpose: "social", oneJob: "Show a single team workspace." },
   { path: "/trips", purpose: "social", oneJob: "List trips the user is part of." },
   { path: "/trips/$id", purpose: "social", oneJob: "Show a single trip detail." },
-  { path: "/trips/$id/passport", purpose: "social", oneJob: "Show passport scoped to one trip.", flags: ["split-portal"], notes: "Duplicates /passport semantics." },
+  { path: "/trips/$id/passport", purpose: "social", oneJob: "Review & rate a single completed trip (stops + overall)." },
   { path: "/recap/$itineraryId", purpose: "social", oneJob: "Shareable recap of a completed trip." },
   { path: "/favorites", purpose: "retention", oneJob: "Saved venues/events for the member.", flags: ["split-portal"], notes: "Overlaps /portal/saved." },
 

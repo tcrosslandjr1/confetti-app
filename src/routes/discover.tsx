@@ -73,6 +73,8 @@ function DiscoverPage() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<(typeof CATEGORIES)[number]>("All");
   const [refreshNonce, setRefreshNonce] = useState(0);
+  // Monotonic counter so out-of-order load() responses can't overwrite newer data.
+  const loadSeqRef = useRef(0);
 
   const mapSelected = useMemo(
     () => (venueId ? rows?.find((r) => r.id === venueId) ?? null : null),

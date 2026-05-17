@@ -223,19 +223,15 @@ export const promoterJobAction = createServerFn({ method: "POST" })
       .maybeSingle();
     if (!job || (job as any).promoters.user_id !== context.userId) throw new Error("Not authorized");
 
-    const updates: Record<string, unknown> = {};
-    if (data.action === "accept") {
-      updates.status = "accepted";
-      updates.accepted_at = new Date().toISOString();
-    } else if (data.action === "decline") {
-      updates.status = "cancelled";
-      updates.cancelled_at = new Date().toISOString();
-    } else if (data.action === "mark_in_progress") {
-      updates.status = "in_progress";
-    } else if (data.action === "cancel") {
-      updates.status = "cancelled";
-      updates.cancelled_at = new Date().toISOString();
-    }
+    const nowIso = new Date().toISOString();
+    const updates =
+      data.action === "accept"
+        ? { status: "accepted" as const, accepted_at: nowIso }
+        : data.action === "decline"
+        ? { status: "cancelled" as const, cancelled_at: nowIso }
+        : data.action === "mark_in_progress"
+        ? { status: "in_progress" as const }
+        : { status: "cancelled" as const, cancelled_at: nowIso };
 
     const { data: updated, error } = await supabase
       .from("promoter_jobs")

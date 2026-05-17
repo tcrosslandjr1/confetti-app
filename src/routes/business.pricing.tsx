@@ -253,17 +253,6 @@ function PricingHero() {
   );
 }
 
-function PricingTiers() {
-  return (
-    <section className="mx-auto max-w-7xl px-6 py-20">
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        {TIERS.map((tier, i) => (
-          <PricingCard key={tier.id} tier={tier} index={i} />
-        ))}
-      </div>
-    </section>
-  );
-}
 
 type CtaHandler = (priceId: string | undefined, name: string, fallback?: string) => void;
 

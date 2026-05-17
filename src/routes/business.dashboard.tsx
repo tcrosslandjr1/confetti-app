@@ -87,6 +87,7 @@ function BusinessDashboardPage() {
           <PromotionPanel unlocked={promotionUnlocked} />
         </div>
         <AnalyticsPreview />
+        <BusinessUpgradePanel />
         <AIRefreshStatus />
         <DashboardFooter />
       </div>

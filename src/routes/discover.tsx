@@ -10,6 +10,7 @@ import { SAMPLE_VENUES as SAMPLE_DATA, type SampleCategory } from "@/lib/sample-
 
 const discoverSearchSchema = z.object({
   venueId: fallback(z.string().optional(), undefined),
+  view: fallback(z.enum(["list", "map"]).optional(), undefined),
 });
 
 export const Route = createFileRoute("/discover")({

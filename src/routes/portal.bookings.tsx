@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { getMyPendingFirstBookingDiscount } from "@/lib/referrals";
+import { useRefreshable } from "@/hooks/use-refresh-bus";
 
 export const Route = createFileRoute("/portal/bookings")({
   component: PortalBookingsPage,

@@ -279,12 +279,26 @@ function AdminVenuesPage() {
             Add, edit, and delete venues that appear in the customer experience.
           </p>
         </div>
-        <Dialog open={adding} onOpenChange={setAdding}>
-          <DialogTrigger asChild>
-            <Button>
-              <Plus className="mr-1 h-4 w-4" /> Add venue
-            </Button>
-          </DialogTrigger>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            variant="outline"
+            disabled={bulkRefreshing}
+            onClick={() => void onBulkRefresh()}
+            title="Refresh photos + socials for up to 25 stale venues"
+          >
+            {bulkRefreshing ? (
+              <Loader2 className="mr-1 h-4 w-4 animate-spin" />
+            ) : (
+              <Sparkles className="mr-1 h-4 w-4" />
+            )}
+            Run media refresh
+          </Button>
+          <Dialog open={adding} onOpenChange={setAdding}>
+            <DialogTrigger asChild>
+              <Button>
+                <Plus className="mr-1 h-4 w-4" /> Add venue
+              </Button>
+            </DialogTrigger>
           <VenueDialog
             title="Add venue"
             description="Create a new venue. Customers will see it in search and the wizard."

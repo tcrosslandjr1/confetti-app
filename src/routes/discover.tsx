@@ -1,12 +1,19 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import { zodValidator, fallback } from "@tanstack/zod-adapter";
+import { z } from "zod";
 import { LayoutList, Map as MapIcon, MapPin, Star, Loader2, Search, X, Sparkles, ArrowRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { PullToRefresh } from "@/components/PullToRefresh";
 import { useCallback } from "react";
 import { SAMPLE_VENUES as SAMPLE_DATA, type SampleCategory } from "@/lib/sample-venues";
 
+const discoverSearchSchema = z.object({
+  venueId: fallback(z.string().optional(), undefined),
+});
+
 export const Route = createFileRoute("/discover")({
+  validateSearch: zodValidator(discoverSearchSchema),
   head: () => ({
     meta: [
       { title: "Discover Nearby — Confetti" },
@@ -59,16 +66,46 @@ const SAMPLE_VENUES: VenueRow[] = SAMPLE_DATA.map((v) => ({
 }));
 
 function DiscoverPage() {
-  const [view, setView] = useState<"list" | "map">("list");
+  const { venueId } = Route.useSearch();
+  const navigate = useNavigate({ from: Route.fullPath });
+  const [view, setView] = useState<"list" | "map">(venueId ? "map" : "list");
   const [rows, setRows] = useState<VenueRow[] | null>(null);
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<(typeof CATEGORIES)[number]>("All");
   const [refreshNonce, setRefreshNonce] = useState(0);
-  const [mapSelected, setMapSelected] = useState<VenueRow | null>(null);
 
+  const mapSelected = useMemo(
+    () => (venueId ? rows?.find((r) => r.id === venueId) ?? null : null),
+    [venueId, rows],
+  );
+
+  const setMapSelected = useCallback(
+    (row: VenueRow | null) => {
+      navigate({
+        search: (prev: { venueId?: string }) => ({ ...prev, venueId: row?.id }),
+        replace: true,
+      });
+    },
+    [navigate],
+  );
+
+  // Clear selection on filter/search changes (but preserve when toggling to map).
   useEffect(() => {
-    setMapSelected(null);
-  }, [view, cat, q]);
+    if (venueId) setMapSelected(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cat, q]);
+
+  // If a venueId is in the URL, ensure we're on the map view.
+  useEffect(() => {
+    if (venueId && view !== "map") setView("map");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [venueId]);
+
+  // Clear selection when user switches view manually.
+  useEffect(() => {
+    if (view === "list" && venueId) setMapSelected(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view]);
 
   const filtered = useMemo(() => {
     if (!rows) return rows;

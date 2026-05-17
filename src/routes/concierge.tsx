@@ -14,6 +14,8 @@ import {
 import { useAuth } from "@/lib/auth-context";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { PullToRefresh } from "@/components/PullToRefresh";
+import { triggerRefresh } from "@/hooks/use-refresh-bus";
 
 export const Route = createFileRoute("/concierge")({
   component: ConciergeLayout,

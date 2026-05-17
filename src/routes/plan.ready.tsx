@@ -540,9 +540,33 @@ function ReadyPage() {
             You're <span className="text-gradient">ready to roll.</span>
           </h1>
           <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-            Your date-night day is locked in. Share it with your crew, drop it in your calendar, and
-            just show up.
+            Your day is locked in. Share it with the crew, drop it in your calendar, then just show up.
           </p>
+
+          {/* Primary next-step row */}
+          <div className="mx-auto mt-6 flex max-w-md flex-wrap items-center justify-center gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                const url = typeof window !== "undefined" ? window.location.href : "";
+                if (typeof navigator !== "undefined" && navigator.share) {
+                  navigator.share({ title: TRIP.title, text: TRIP.description, url }).catch(() => {});
+                } else {
+                  navigator.clipboard?.writeText(url);
+                  toast.success("Link copied — send it to the crew.");
+                }
+              }}
+              className="inline-flex h-11 items-center gap-2 rounded-full bg-ink px-5 text-sm font-bold text-cream shadow-pop transition-transform hover:-translate-y-0.5"
+            >
+              <Send className="h-4 w-4" /> Share with the crew
+            </button>
+            <Link
+              to="/passport"
+              className="inline-flex h-11 items-center gap-2 rounded-full border-2 border-ink bg-cream px-5 text-sm font-bold text-ink transition-transform hover:-translate-y-0.5 hover:bg-gold"
+            >
+              <Sparkles className="h-4 w-4" /> Earn Confetti
+            </Link>
+          </div>
         </div>
 
         {/* Running late / reschedule */}

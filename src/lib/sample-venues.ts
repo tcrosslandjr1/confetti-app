@@ -36,6 +36,7 @@ export type SampleVenue = {
 export const SAMPLE_VENUES: SampleVenue[] = [
   {
     id: "1",
+    imageUrl: "https://images.unsplash.com/photo-1519214605650-76a613ee3245?w=1200&auto=format&fit=crop",
     slug: "velvet-terrace",
     name: "Velvet Terrace",
     neighborhood: "Dupont Circle",
@@ -54,6 +55,7 @@ export const SAMPLE_VENUES: SampleVenue[] = [
   },
   {
     id: "2",
+    imageUrl: "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=1200&auto=format&fit=crop",
     slug: "noir-lounge",
     name: "Noir Lounge",
     neighborhood: "Shaw",
@@ -71,6 +73,7 @@ export const SAMPLE_VENUES: SampleVenue[] = [
   },
   {
     id: "3",
+    imageUrl: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&auto=format&fit=crop",
     slug: "ember-kitchen",
     name: "Ember Kitchen",
     neighborhood: "Logan Circle",
@@ -89,6 +92,7 @@ export const SAMPLE_VENUES: SampleVenue[] = [
   },
   {
     id: "4",
+    imageUrl: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&auto=format&fit=crop",
     slug: "the-vinyl-room",
     name: "The Vinyl Room",
     neighborhood: "U Street",
@@ -106,6 +110,7 @@ export const SAMPLE_VENUES: SampleVenue[] = [
   },
   {
     id: "5",
+    imageUrl: "https://images.unsplash.com/photo-1567784177951-6fa58317e16b?w=1200&auto=format&fit=crop",
     slug: "skyline-social",
     name: "Skyline Social",
     neighborhood: "Navy Yard",
@@ -123,6 +128,7 @@ export const SAMPLE_VENUES: SampleVenue[] = [
   },
   {
     id: "6",
+    imageUrl: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1200&auto=format&fit=crop",
     slug: "sakura-garden",
     name: "Sakura Garden",
     neighborhood: "Penn Quarter",
@@ -141,6 +147,7 @@ export const SAMPLE_VENUES: SampleVenue[] = [
   },
   {
     id: "7",
+    imageUrl: "https://images.unsplash.com/photo-1571266028243-d220bc7e9bd1?w=1200&auto=format&fit=crop",
     slug: "brass-and-bone",
     name: "Brass & Bone",
     neighborhood: "Adams Morgan",
@@ -158,6 +165,7 @@ export const SAMPLE_VENUES: SampleVenue[] = [
   },
   {
     id: "8",
+    imageUrl: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1200&auto=format&fit=crop",
     slug: "luna-terrace",
     name: "Luna Terrace",
     neighborhood: "Georgetown",

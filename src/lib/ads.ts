@@ -1,6 +1,12 @@
 import { supabase } from "@/integrations/supabase/client";
 
-export type AdvertiserStatus = "pending" | "approved" | "suspended";
+export type AdvertiserStatus =
+  | "pending"
+  | "pending_review"
+  | "approved"
+  | "active"
+  | "rejected"
+  | "suspended";
 export type CampaignStatus = "draft" | "pending" | "approved" | "rejected" | "paused";
 export type Placement = "featured_card" | "itinerary_boost" | "home_spotlight";
 export type PackageTier = "starter" | "featured" | "spotlight";

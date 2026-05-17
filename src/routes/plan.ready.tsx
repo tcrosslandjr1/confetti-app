@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { toast } from "sonner";
+import { usePageview, useScrollDepth, useTimeToInteraction, trackCta } from "@/lib/analytics";
 
 export const Route = createFileRoute("/plan/ready")({
   head: () => ({

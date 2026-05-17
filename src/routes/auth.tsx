@@ -277,7 +277,7 @@ function AuthPage() {
           <span aria-hidden className="pointer-events-none absolute left-[20%] bottom-[28%] h-2 w-2 rounded-full bg-ink animate-[float_9s_ease-in-out_infinite]" />
 
           <div className="relative mt-10 flex items-center gap-3 text-primary-foreground">
-            <div className="grid h-12 w-12 place-items-center rounded-2xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform hover:-translate-y-0.5 hover:rotate-3">
+            <div className="grid h-12 w-12 place-items-center rounded-2xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform hover:-translate-y-0.5 hover:rotate-3 motion-reduce:transform-none motion-reduce:transition-none">
               <Sparkles className="h-6 w-6" />
             </div>
             <div>

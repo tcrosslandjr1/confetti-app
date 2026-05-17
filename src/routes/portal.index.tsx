@@ -125,6 +125,8 @@ function PortalDiscoverPage() {
 
   const nav = useNavigate();
   const [quickBusy, setQuickBusy] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
+  useRefreshable(() => setRefreshKey((k) => k + 1));
 
   const quickGenerate = async () => {
     if (!user) {

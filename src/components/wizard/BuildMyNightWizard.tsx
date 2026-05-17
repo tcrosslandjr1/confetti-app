@@ -2088,83 +2088,102 @@ export function BuildMyNightWizard() {
                             )}
                           </div>
                         </div>
-                        <div className="flex flex-col items-center justify-between self-stretch gap-1">
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              toggleFavorite(s);
-                            }}
-                            aria-pressed={isFav}
-                            aria-label={
-                              isFav
-                                ? `Remove ${s.venue} from favorites`
-                                : `Save ${s.venue} to favorites`
-                            }
-                            title={isFav ? "Remove from favorites" : "Save to favorites"}
-                            className={`grid h-7 w-7 place-items-center rounded-full border-2 border-ink transition-pop hover:-translate-y-0.5 ${isFav ? "bg-coral text-cream" : "bg-cream text-ink hover:bg-coral/10"}`}
-                          >
-                            <Heart className={`h-3.5 w-3.5 ${isFav ? "fill-cream" : ""}`} />
-                          </button>
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              shareStopCard({
-                                venue: s.venue,
-                                vibe: s.vibe,
-                                time: s.time,
-                                address: s.address,
-                                neighborhood: s.neighborhood,
-                                rating: d.rating,
-                                priceLevel: d.priceLevel,
-                                knownFor: d.knownFor,
-                                popularAvailability: d.popularAvailability,
-                                peakTime: d.peakTime,
-                                dishes: d.dishes,
-                                vibeProfile: d.vibeProfile,
-                                dietary: d.dietary,
-                                isUsual: d.isUsual,
-                              });
-                            }}
-                            disabled={sharing === s.venue}
-                            aria-label={`Share ${s.venue} stop card`}
-                            title="Share stop card"
-                            className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-cream text-ink transition-pop hover:-translate-y-0.5 hover:bg-gold/30 disabled:opacity-50"
-                          >
-                            {sharing === s.venue ? (
-                              <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                            ) : (
-                              <Share2 className="h-3.5 w-3.5" />
-                            )}
-                          </button>
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              openSwapForStop(i, s);
-                            }}
-                            aria-label={`Swap ${s.venue} for another venue`}
-                            title="Swap this stop"
-                            className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-cream text-ink transition-pop hover:-translate-y-0.5 hover:bg-mint/40"
-                          >
-                            <RefreshCw className="h-3.5 w-3.5" />
-                          </button>
+                        <div className="flex w-[68px] shrink-0 flex-col items-stretch justify-between gap-1.5 self-stretch border-l-2 border-dashed border-ink/20 pl-2">
+                          <div className="flex items-center justify-between gap-1">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleFavorite(s);
+                              }}
+                              aria-pressed={isFav}
+                              aria-label={
+                                isFav
+                                  ? `Remove ${s.venue} from favorites`
+                                  : `Save ${s.venue} to favorites`
+                              }
+                              title={isFav ? "Remove from favorites" : "Save to favorites"}
+                              className={`grid h-7 w-7 place-items-center rounded-full border-2 border-ink transition-pop hover:-translate-y-0.5 ${isFav ? "bg-coral text-cream" : "bg-cream text-ink hover:bg-coral/10"}`}
+                            >
+                              <Heart className={`h-3.5 w-3.5 ${isFav ? "fill-cream" : ""}`} />
+                            </button>
+                            <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold" title={`Stop ${displayIdx + 1}`} aria-label={`Stop ${displayIdx + 1}`}>
+                              #{displayIdx + 1}
+                            </span>
+                          </div>
+
                           <button
                             type="button"
                             onClick={(e) => addStopToBoardingPass(s, e)}
-                            aria-label={`Add ${s.venue} to boarding pass`}
-                            title="Add to boarding pass"
-                            className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-coral text-cream transition-pop hover:-translate-y-0.5 hover:bg-ink"
+                            aria-label={`Add ${s.venue} to your night`}
+                            title="Add this stop to your night"
+                            className="flex h-9 items-center justify-center gap-1 rounded-full border-2 border-ink bg-coral px-2 font-mono text-[10px] font-extrabold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-ink hover:shadow-brut-lg"
                           >
-                            <Plus className="h-3.5 w-3.5" />
+                            <Plus className="h-3.5 w-3.5" /> Add
                           </button>
-                          <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-gold font-mono text-[11px] font-bold">
-                            {displayIdx + 1}
-                          </span>
-                          <ChevronDown
-                            className={`h-4 w-4 text-ink/60 transition-transform ${isOpen ? "rotate-180" : ""}`}
-                          />
+
+                          <div className="grid grid-cols-2 gap-1">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                openSwapForStop(i, s);
+                              }}
+                              aria-label={`Swap ${s.venue} for another venue`}
+                              title="Swap this stop"
+                              className="flex h-7 flex-col items-center justify-center rounded-md border-2 border-ink bg-cream text-ink transition-pop hover:-translate-y-0.5 hover:bg-mint/40"
+                            >
+                              <RefreshCw className="h-3 w-3" />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                shareStopCard({
+                                  venue: s.venue,
+                                  vibe: s.vibe,
+                                  time: s.time,
+                                  address: s.address,
+                                  neighborhood: s.neighborhood,
+                                  rating: d.rating,
+                                  priceLevel: d.priceLevel,
+                                  knownFor: d.knownFor,
+                                  popularAvailability: d.popularAvailability,
+                                  peakTime: d.peakTime,
+                                  dishes: d.dishes,
+                                  vibeProfile: d.vibeProfile,
+                                  dietary: d.dietary,
+                                  isUsual: d.isUsual,
+                                });
+                              }}
+                              disabled={sharing === s.venue}
+                              aria-label={`Share ${s.venue} stop card`}
+                              title="Share stop card"
+                              className="flex h-7 flex-col items-center justify-center rounded-md border-2 border-ink bg-cream text-ink transition-pop hover:-translate-y-0.5 hover:bg-gold/30 disabled:opacity-50"
+                            >
+                              {sharing === s.venue ? (
+                                <Loader2 className="h-3 w-3 animate-spin" />
+                              ) : (
+                                <Share2 className="h-3 w-3" />
+                              )}
+                            </button>
+                          </div>
+
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleStop(i);
+                            }}
+                            aria-label={isOpen ? "Hide details" : "Show details"}
+                            title={isOpen ? "Hide details" : "Show details"}
+                            className="flex h-6 items-center justify-center gap-1 rounded-full border border-ink/30 bg-cream font-mono text-[9px] font-bold uppercase tracking-widest text-ink/70 transition-colors hover:bg-ink/5 hover:text-ink"
+                          >
+                            {isOpen ? "Less" : "More"}
+                            <ChevronDown
+                              className={`h-3 w-3 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                            />
+                          </button>
                         </div>
                       </div>
 

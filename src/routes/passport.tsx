@@ -533,7 +533,7 @@ function PassportPage() {
           <div className="flex items-end justify-between">
             <h2 className="font-display text-lg font-bold">Badges</h2>
             <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
-              {unlockedCount} of {BADGES.length}
+              {unlockedCount} of {totalBadges}
             </span>
           </div>
           <div className="mt-3 grid grid-cols-3 gap-3">

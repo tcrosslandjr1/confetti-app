@@ -185,6 +185,25 @@ export const placeStopOrder = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => PlaceOrderSchema.parse(input))
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
+
+    // Gate: only verified business venues may accept pre-orders.
+    const { data: stopRow } = await supabase
+      .from("itinerary_stops")
+      .select("name")
+      .eq("id", data.stopId)
+      .maybeSingle();
+    if (!stopRow?.name) throw new Error("Stop not found");
+    const { data: verifiedMatch } = await supabase
+      .from("venues")
+      .select("id")
+      .eq("verified", true)
+      .ilike("name", stopRow.name)
+      .limit(1)
+      .maybeSingle();
+    if (!verifiedMatch) {
+      throw new Error("This venue isn't verified with Confetti — pre-orders unavailable.");
+    }
+
     const totalCents = Math.round(
       data.items.reduce((acc, it) => acc + it.price * it.qty, 0) * 100,
     );

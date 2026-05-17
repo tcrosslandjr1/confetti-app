@@ -34,12 +34,12 @@ const tiers = [
   {
     name: "Plus", price: "$8", suffix: "/mo", blurb: "For people who actually go out.",
     features: ["Unlimited itineraries", "Multi-stop routing & transit", "Saved reservations vault", "Full taste profile + social learning", "Priority AI"],
-    cta: "Try Plus", priceId: "plus_monthly", highlight: true,
+    cta: "Try Plus", priceId: "consumer_plus_monthly", highlight: true,
   },
   {
     name: "Crew", price: "$18", suffix: "/mo", blurb: "Plan with friends and family.",
     features: ["Everything in Plus", "Shared trips & voting", "Up to 6 members", "Group reservations", "Concierge chat"],
-    cta: "Get Crew", priceId: "crew_monthly", highlight: false,
+    cta: "Get Crew", priceId: "consumer_crew_monthly", highlight: false,
   },
 ];
 

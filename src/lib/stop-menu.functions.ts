@@ -261,11 +261,12 @@ export const listVerifiedStopNames = createServerFn({ method: "POST" })
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const uniq = Array.from(new Set(data.names.map((n) => n.trim()).filter(Boolean)));
     if (!uniq.length) return { verified: [] as string[] };
+    const orExpr = uniq.map((n) => `name.ilike.${n.replace(/[(),]/g, " ")}`).join(",");
     const { data: rows, error } = await supabaseAdmin
       .from("venues")
       .select("name")
       .eq("verified", true)
-      .in("name", uniq);
+      .or(orExpr);
     if (error) return { verified: [] as string[] };
     const set = new Set((rows ?? []).map((r) => (r.name ?? "").toLowerCase()));
     return { verified: uniq.filter((n) => set.has(n.toLowerCase())) };

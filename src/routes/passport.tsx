@@ -281,6 +281,7 @@ function PassportPage() {
             </div>
             <button
               type="button"
+              onClick={() => setShareOpen(true)}
               className="inline-flex items-center gap-1 rounded-full border border-cream/40 bg-cream/10 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest backdrop-blur hover:bg-cream/20"
             >
               <Share2 className="h-3 w-3" /> Share

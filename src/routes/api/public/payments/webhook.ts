@@ -205,12 +205,29 @@ async function handleSubscriptionCreated(subscription: any, env: StripeEnv) {
 
   if (subscription.status === 'active' || subscription.status === 'trialing') {
     await awardPts(userId, priceId, subscription.id);
-    await notifyUser(
-      userId,
-      `Welcome to Confetti ${tier ?? 'Plus'} 🎉`,
-      `Your subscription is active. Enjoy your perks.`,
-      accountType === 'business' ? '/business/portal' : '/passport',
-    );
+    // Recurring promo (boost_*_monthly) — activate target boost too
+    if (PROMO_SPEC[priceId]) {
+      await activatePromo({
+        userId,
+        priceId,
+        amountCents: item?.price?.unit_amount ?? 0,
+        currency: item?.price?.currency ?? 'usd',
+        mode: 'recurring',
+        env,
+        targetType: subscription.metadata?.targetType,
+        targetId: subscription.metadata?.targetId,
+        stripeSubscriptionId: subscription.id,
+        stripeCustomerId: typeof subscription.customer === 'string' ? subscription.customer : subscription.customer?.id,
+        metadata: subscription.metadata || {},
+      });
+    } else {
+      await notifyUser(
+        userId,
+        `Welcome to Confetti ${tier ?? 'Plus'} 🎉`,
+        `Your subscription is active. Enjoy your perks.`,
+        accountType === 'business' ? '/business/portal' : '/passport',
+      );
+    }
   }
 }
 

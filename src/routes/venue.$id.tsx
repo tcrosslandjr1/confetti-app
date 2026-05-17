@@ -24,6 +24,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { getSampleVenue } from "@/lib/sample-venues";
 import { X } from "lucide-react";
+import { FavoriteVenueButton } from "@/components/FavoriteVenueButton";
 
 const SITE_ORIGIN = "https://confettiplan.lovable.app";
 

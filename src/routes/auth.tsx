@@ -564,14 +564,14 @@ function AuthPage() {
           {error && (
             <div
               role="alert"
-              className="flex items-start gap-2 rounded-xl border border-destructive/30 bg-destructive/5 p-3 text-xs text-destructive"
+              className="flex items-start gap-2 rounded-xl border-2 border-coral/60 bg-coral/10 p-3 text-xs text-ink"
             >
-              <span aria-hidden className="mt-0.5">
+              <span aria-hidden className="mt-0.5 text-coral">
                 ⚠️
               </span>
               <div className="space-y-1">
-                <p className="font-semibold">Something went wrong</p>
-                <p className="opacity-90">{error}</p>
+                <p className="font-bold">Something went wrong</p>
+                <p className="opacity-80">{error}</p>
               </div>
             </div>
           )}

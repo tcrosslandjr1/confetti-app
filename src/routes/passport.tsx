@@ -23,7 +23,14 @@ import {
   ChevronRight,
   Star,
 } from "lucide-react";
-import { addConfetti, getConfetti, subscribeConfetti } from "@/lib/loop-store";
+import {
+  addConfetti,
+  getConfetti,
+  subscribeConfetti,
+  getStamps,
+  subscribeStamps,
+  type PassportStamp,
+} from "@/lib/loop-store";
 import {
   AlertDialog,
   AlertDialogAction,

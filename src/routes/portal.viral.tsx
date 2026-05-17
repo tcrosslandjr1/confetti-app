@@ -278,7 +278,7 @@ function PortalViralPage() {
     return () => {
       cancelled = true;
     };
-  }, [city, sortBy]);
+  }, [city, sortBy, refreshKey]);
 
   const filtered = useMemo(() => {
     if (!rows) return null;

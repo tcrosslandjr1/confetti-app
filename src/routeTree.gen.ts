@@ -85,6 +85,7 @@ import { Route as ConciergePassportRouteImport } from './routes/concierge.passpo
 import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
 import { Route as BusinessSignupRouteImport } from './routes/business.signup'
 import { Route as BusinessLoginRouteImport } from './routes/business.login'
+import { Route as BusinessClaimRouteImport } from './routes/business.claim'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AdvertisePortalRouteImport } from './routes/advertise.portal'
 import { Route as AdminWalletDebugRouteImport } from './routes/admin.wallet-debug'
@@ -502,6 +503,11 @@ const BusinessLoginRoute = BusinessLoginRouteImport.update({
   path: '/business/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessClaimRoute = BusinessClaimRouteImport.update({
+  id: '/business/claim',
+  path: '/business/claim',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -755,6 +761,7 @@ export interface FileRoutesByFullPath {
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
+  '/business/claim': typeof BusinessClaimRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
@@ -864,6 +871,7 @@ export interface FileRoutesByTo {
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
+  '/business/claim': typeof BusinessClaimRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
@@ -979,6 +987,7 @@ export interface FileRoutesById {
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
   '/api/chat': typeof ApiChatRoute
+  '/business/claim': typeof BusinessClaimRoute
   '/business/login': typeof BusinessLoginRoute
   '/business/signup': typeof BusinessSignupRoute
   '/collab/$tripId': typeof CollabTripIdRoute
@@ -1095,6 +1104,7 @@ export interface FileRouteTypes {
     | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
+    | '/business/claim'
     | '/business/login'
     | '/business/signup'
     | '/collab/$tripId'
@@ -1204,6 +1214,7 @@ export interface FileRouteTypes {
     | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
+    | '/business/claim'
     | '/business/login'
     | '/business/signup'
     | '/collab/$tripId'
@@ -1318,6 +1329,7 @@ export interface FileRouteTypes {
     | '/admin/wallet-debug'
     | '/advertise/portal'
     | '/api/chat'
+    | '/business/claim'
     | '/business/login'
     | '/business/signup'
     | '/collab/$tripId'
@@ -1412,6 +1424,7 @@ export interface RootRouteChildren {
   ViralRoute: typeof ViralRoute
   WeatherRoute: typeof WeatherRoute
   ApiChatRoute: typeof ApiChatRoute
+  BusinessClaimRoute: typeof BusinessClaimRoute
   BusinessLoginRoute: typeof BusinessLoginRoute
   BusinessSignupRoute: typeof BusinessSignupRoute
   CollabTripIdRoute: typeof CollabTripIdRoute
@@ -1972,6 +1985,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/claim': {
+      id: '/business/claim'
+      path: '/business/claim'
+      fullPath: '/business/claim'
+      preLoaderRoute: typeof BusinessClaimRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -2423,6 +2443,7 @@ const rootRouteChildren: RootRouteChildren = {
   ViralRoute: ViralRoute,
   WeatherRoute: WeatherRoute,
   ApiChatRoute: ApiChatRoute,
+  BusinessClaimRoute: BusinessClaimRoute,
   BusinessLoginRoute: BusinessLoginRoute,
   BusinessSignupRoute: BusinessSignupRoute,
   CollabTripIdRoute: CollabTripIdRoute,

@@ -150,6 +150,34 @@ function DiscoverPage() {
             </button>
           )}
         </div>
+
+        <div className="mt-3 -mx-4 overflow-x-auto px-4">
+          <div className="flex gap-2 pb-1">
+            {CATEGORIES.map((c) => {
+              const active = cat === c;
+              return (
+                <button
+                  key={c}
+                  onClick={() => setCat(c)}
+                  className={`shrink-0 rounded-full border-2 px-3.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition ${
+                    active
+                      ? "border-ink bg-ink text-cream shadow-brut"
+                      : "border-ink/30 bg-cream/60 text-ink/70 hover:border-ink hover:bg-cream"
+                  }`}
+                >
+                  {c}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Aurora background */}
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute -top-32 -left-20 h-72 w-72 rounded-full bg-coral/20 blur-3xl" />
+        <div className="absolute top-1/3 -right-24 h-80 w-80 rounded-full bg-violet-400/20 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-amber-300/20 blur-3xl" />
       </div>
 
       <div className="mx-auto mt-5 max-w-2xl px-4">
@@ -159,35 +187,54 @@ function DiscoverPage() {
           </div>
         ) : filtered.length === 0 ? (
           <div className="rounded-2xl border border-border bg-card p-6 text-center text-sm text-muted-foreground">
-            {q ? `No venues match "${q}".` : "No trending venues yet. Check back soon."}
+            {q ? `No venues match "${q}".` : "No venues in this category yet."}
           </div>
         ) : view === "list" ? (
-          <ul className="space-y-3">
+          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {filtered.map((v) => (
               <li
                 key={v.id}
-                className="overflow-hidden rounded-2xl border border-border bg-card shadow-card"
+                className="group relative overflow-hidden rounded-3xl border border-white/40 bg-white/60 shadow-card backdrop-blur-xl transition hover:-translate-y-0.5 hover:shadow-brut"
               >
-                <Link to="/venue/$id" params={{ id: v.id }} className="flex gap-3">
-                  {v.photo ? (
-                    <img
-                      src={v.photo}
-                      alt={v.name}
-                      className="h-24 w-24 shrink-0 object-cover"
-                    />
-                  ) : (
-                    <div className="grid h-24 w-24 shrink-0 place-items-center bg-muted text-muted-foreground">
-                      <MapPin className="h-5 w-5" />
+                <Link to="/venue/$id" params={{ id: v.id }} className="block">
+                  <div className="relative h-32 w-full overflow-hidden">
+                    {v.photo ? (
+                      <img src={v.photo} alt={v.name} className="h-full w-full object-cover" />
+                    ) : (
+                      <div className={`h-full w-full bg-gradient-to-br ${v.gradient ?? "from-slate-500 via-slate-700 to-slate-900"}`}>
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_55%)]" />
+                      </div>
+                    )}
+                    {v.aiPick && (
+                      <span className="absolute left-2 top-2 inline-flex items-center gap-1 rounded-full border border-white/40 bg-black/50 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-amber-200 backdrop-blur">
+                        <Sparkles className="h-2.5 w-2.5" /> AI Pick
+                      </span>
+                    )}
+                    {v.price && (
+                      <span className="absolute right-2 top-2 rounded-full border border-white/40 bg-black/40 px-2 py-0.5 font-mono text-[10px] font-bold text-emerald-200 backdrop-blur">
+                        {v.price}
+                      </span>
+                    )}
+                  </div>
+                  <div className="p-3">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="min-w-0">
+                        <div className="truncate font-display text-base font-bold leading-tight text-ink">{v.name}</div>
+                        <div className="truncate text-xs text-ink/60">{v.neighborhood ?? v.address ?? "Nearby"}</div>
+                      </div>
+                      {v.rating != null && (
+                        <div className="inline-flex shrink-0 items-center gap-1 rounded-full bg-ink/5 px-2 py-0.5 text-xs font-semibold text-ink">
+                          <Star className="h-3 w-3 fill-gold text-gold" /> {v.rating.toFixed(1)}
+                        </div>
+                      )}
                     </div>
-                  )}
-                  <div className="flex min-w-0 flex-1 flex-col justify-center pr-3">
-                    <div className="font-display text-base font-bold leading-tight">{v.name}</div>
-                    <div className="text-xs text-muted-foreground">
-                      {v.neighborhood ?? v.address ?? "Nearby"}
-                    </div>
-                    {v.rating != null && (
-                      <div className="mt-1 inline-flex items-center gap-1 text-xs">
-                        <Star className="h-3 w-3 fill-gold text-gold" /> {v.rating.toFixed(1)}
+                    {v.tags && v.tags.length > 0 && (
+                      <div className="mt-2 flex flex-wrap gap-1">
+                        {v.tags.slice(0, 3).map((t) => (
+                          <span key={t} className="rounded-full border border-ink/15 bg-cream/70 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-ink/70">
+                            #{t}
+                          </span>
+                        ))}
                       </div>
                     )}
                   </div>

@@ -308,11 +308,11 @@ function PricingCard({ tier, index, onCta }: { tier: Tier; index: number; onCta:
       </ul>
 
       <Button
-        asChild
         className="mt-8 w-full"
         variant={tier.highlight ? "default" : "outline"}
+        onClick={() => onCta(tier.cta.priceId, tier.name, tier.cta.to)}
       >
-        <Link to={tier.cta.to}>{tier.cta.label}</Link>
+        {tier.cta.label}
       </Button>
     </motion.div>
   );

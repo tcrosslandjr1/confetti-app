@@ -1,0 +1,2 @@
+REVOKE EXECUTE ON FUNCTION public.activate_boost(text, uuid, interval, text, text) FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.activate_boost(text, uuid, interval, text, text) TO service_role;

@@ -18,6 +18,7 @@ import { isAdDebugEnabled, recordAdDebug } from "@/lib/ad-debug";
 import { useViewportImpression } from "@/hooks/useViewportImpression";
 import { getAdImpressionConfig } from "@/lib/ad-impression-config";
 import type { TapToGoStop } from "@/components/TapToGoBookingModal";
+import { usePageview, useScrollDepth, useTimeToInteraction, trackCta } from "@/lib/analytics";
 
 // Below-the-fold / on-demand chunks — keep the initial bundle small so the hero paints fast.
 const StepsShowcase = lazy(() =>

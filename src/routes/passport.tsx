@@ -507,6 +507,38 @@ function PassportPage() {
           </ul>
         </section>
 
+        {/* Claimed rewards */}
+        {claimed.length > 0 && (
+          <section className="mt-6">
+            <div className="flex items-end justify-between">
+              <h2 className="flex items-center gap-2 font-display text-lg font-bold">
+                <Ticket className="h-4 w-4 text-coral" /> Your rewards
+              </h2>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                {claimed.length} claimed
+              </span>
+            </div>
+            <ul className="mt-3 space-y-2">
+              {claimed.map((c) => (
+                <li
+                  key={c.code}
+                  className="flex items-center justify-between gap-3 rounded-xl border-2 border-ink bg-card p-3 shadow-brut"
+                >
+                  <div className="min-w-0">
+                    <div className="font-display text-sm font-bold leading-tight">{c.label}</div>
+                    <div className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                      Redeemed · {new Date(c.at).toLocaleDateString()}
+                    </div>
+                  </div>
+                  <code className="shrink-0 rounded-md border-2 border-dashed border-ink/40 bg-background px-2 py-1 font-mono text-[11px] font-bold tracking-widest text-ink">
+                    {c.code}
+                  </code>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {/* Activity */}
         <section className="mt-6">
           <h2 className="font-display text-lg font-bold">Recent activity</h2>

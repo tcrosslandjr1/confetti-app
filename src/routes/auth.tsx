@@ -208,62 +208,122 @@ function AuthPage() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-background">
-      {/* Decorative background */}
+    <div className="relative min-h-screen overflow-hidden bg-cream text-ink">
+      {/* Immersive background: animated orbs + ticker tape + grain */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-gradient-vibe opacity-25 blur-3xl" />
-        <div className="absolute top-1/3 -right-40 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,_oklch(0.78_0.18_60_/_0.5),_transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-[radial-gradient(circle,_oklch(0.72_0.21_355_/_0.35),_transparent_70%)] blur-3xl" />
+        <div className="absolute -top-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-gradient-vibe opacity-30 blur-3xl animate-[pulse_8s_ease-in-out_infinite]" />
+        <div className="absolute top-1/3 -right-40 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,_oklch(0.78_0.18_60_/_0.55),_transparent_70%)] blur-3xl animate-[pulse_11s_ease-in-out_infinite]" />
+        <div className="absolute bottom-0 left-1/4 h-80 w-80 rounded-full bg-[radial-gradient(circle,_oklch(0.72_0.21_355_/_0.4),_transparent_70%)] blur-3xl animate-[pulse_9s_ease-in-out_infinite]" />
+        {/* Faint dotted grid */}
+        <div
+          className="absolute inset-0 opacity-[0.12]"
+          style={{
+            backgroundImage:
+              "radial-gradient(currentColor 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+            color: "oklch(0.2 0 0)",
+          }}
+        />
+        {/* Confetti specks */}
+        <span className="absolute left-[12%] top-[18%] h-2 w-2 rotate-12 bg-coral shadow-brut" />
+        <span className="absolute right-[18%] top-[8%] h-2.5 w-2.5 -rotate-12 rounded-full bg-ink" />
+        <span className="absolute left-[42%] top-[6%] h-1.5 w-6 -rotate-6 bg-coral/70" />
+        <span className="absolute bottom-[14%] right-[10%] h-3 w-3 rotate-45 bg-ink/80" />
+        <span className="absolute bottom-[28%] left-[8%] h-2 w-2 rounded-full bg-coral" />
       </div>
 
       <div className="mx-auto grid min-h-screen w-full max-w-6xl grid-cols-1 lg:grid-cols-[1.05fr_1fr]">
-        {/* Brand / marketing pane */}
+        {/* Brand / marketing pane (desktop) */}
         <aside className="relative isolate hidden flex-col justify-between overflow-hidden p-10 lg:flex">
-          <div className="absolute inset-6 -z-10 rounded-[2.5rem] bg-gradient-vibe shadow-pop" />
-          <div className="absolute inset-6 -z-10 rounded-[2.5rem] bg-[radial-gradient(120%_80%_at_0%_0%,_oklch(1_0_0_/_0.18),_transparent_55%)]" />
-          <div className="relative flex items-center gap-3 text-primary-foreground">
-            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-background/20 backdrop-blur ring-1 ring-background/30">
+          <div className="absolute inset-6 -z-10 rounded-[2.5rem] border-2 border-ink bg-gradient-vibe shadow-brut-lg" />
+          <div className="absolute inset-6 -z-10 rounded-[2.5rem] bg-[radial-gradient(120%_80%_at_0%_0%,_oklch(1_0_0_/_0.22),_transparent_55%)]" />
+          {/* Inner ticker strip */}
+          <div className="absolute inset-x-6 top-6 -z-10 h-8 overflow-hidden rounded-t-[2.5rem] border-b-2 border-ink/30 bg-cream/90">
+            <div className="flex h-full animate-[marquee-x_22s_linear_infinite] items-center whitespace-nowrap font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-ink">
+              <span className="px-4">★ tonight, sorted</span>
+              <span className="px-4 text-coral">//</span>
+              <span className="px-4">40+ cities</span>
+              <span className="px-4 text-coral">//</span>
+              <span className="px-4">earn confetti on every booking</span>
+              <span className="px-4 text-coral">//</span>
+              <span className="px-4">skip-the-line perks</span>
+              <span className="px-4 text-coral">//</span>
+              <span className="px-4">★ tonight, sorted</span>
+              <span className="px-4 text-coral">//</span>
+              <span className="px-4">40+ cities</span>
+              <span className="px-4 text-coral">//</span>
+              <span className="px-4">earn confetti on every booking</span>
+              <span className="px-4 text-coral">//</span>
+            </div>
+          </div>
+
+          <div className="relative mt-10 flex items-center gap-3 text-primary-foreground">
+            <div className="grid h-12 w-12 place-items-center rounded-2xl border-2 border-ink bg-cream text-ink shadow-brut">
               <Sparkles className="h-6 w-6" />
             </div>
             <div>
-              <div className="font-display text-xl font-bold leading-none">Confetti</div>
-              <div className="text-xs opacity-80">Your city insider</div>
+              <div className="font-display text-xl font-bold leading-none">Confetti<span className="font-serif italic text-cream/90">.</span></div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.25em] opacity-90">your city insider</div>
             </div>
           </div>
 
           <div className="relative space-y-6 text-primary-foreground">
-            <h2 className="font-display text-4xl font-bold leading-[1.05]">
-              Be the plan,<br />not an afterthought.
+            <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut">
+              <span className="relative inline-flex h-2 w-2">
+                <span className="absolute inset-0 animate-ping rounded-full bg-coral/70" />
+                <span className="relative inline-block h-2 w-2 rounded-full bg-coral" />
+              </span>
+              live in 40+ cities
+            </div>
+            <h2 className="font-display text-5xl font-extrabold leading-[0.95] tracking-tight">
+              Be the plan,
+              <br />
+              <span className="relative inline-block">
+                <span className="relative z-10">not an</span>
+                <span className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-cream/80" />
+              </span>{" "}
+              afterthought.
             </h2>
-            <p className="max-w-sm text-sm/relaxed opacity-90">
+            <p className="max-w-sm text-[15px] leading-relaxed opacity-95">
               Curated dining, nightlife and events — picked for your taste, your city, your night.
             </p>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-3">
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-background/20 backdrop-blur"><PartyPopper className="h-4 w-4" /></span>
-                Earn Confetti on every booking
+              <li className="group flex items-center gap-3">
+                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5">
+                  <PartyPopper className="h-4 w-4" />
+                </span>
+                Earn <span className="font-bold">Confetti</span> on every booking
               </li>
-              <li className="flex items-center gap-3">
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-background/20 backdrop-blur"><MapPin className="h-4 w-4" /></span>
+              <li className="group flex items-center gap-3">
+                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5">
+                  <MapPin className="h-4 w-4" />
+                </span>
                 Hand-picked spots in 40+ cities
               </li>
-              <li className="flex items-center gap-3">
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-background/20 backdrop-blur"><ShieldCheck className="h-4 w-4" /></span>
+              <li className="group flex items-center gap-3">
+                <span className="grid h-9 w-9 place-items-center rounded-xl border-2 border-ink bg-cream text-ink shadow-brut transition-transform group-hover:-translate-y-0.5">
+                  <ShieldCheck className="h-4 w-4" />
+                </span>
                 Skip-the-line perks at partner venues
               </li>
             </ul>
           </div>
 
-          <div className="relative rounded-2xl bg-background/15 p-4 text-primary-foreground backdrop-blur ring-1 ring-background/25">
-            <div className="flex items-center gap-1 text-amber-200">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-3.5 w-3.5 fill-current" />
-              ))}
+          <div className="relative rounded-2xl border-2 border-ink bg-cream p-4 text-ink shadow-brut">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-1 text-coral">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="h-3.5 w-3.5 fill-current" />
+                ))}
+              </div>
+              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+                verified
+              </span>
             </div>
-            <p className="mt-2 text-sm leading-relaxed">
+            <p className="mt-2 font-display text-base leading-snug">
               "Booked an impossible reservation in 30 seconds. Felt like I had a friend on the inside."
             </p>
-            <p className="mt-2 text-xs opacity-80">— Maya R., Brooklyn</p>
+            <p className="mt-2 font-mono text-[11px] uppercase tracking-widest text-ink/60">— Maya R., Brooklyn</p>
           </div>
         </aside>
 

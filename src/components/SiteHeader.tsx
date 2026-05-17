@@ -62,12 +62,12 @@ export function SiteHeader() {
       data-scrolled={scrolled || undefined}
       className="sticky top-0 z-40 border-b-2 border-ink bg-cream transition-shadow duration-200 data-[scrolled]:shadow-brut"
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-14 max-w-7xl items-center gap-6 px-4 sm:h-16 sm:px-6 lg:px-8">
         <Link to="/" className="group flex items-center gap-[2px]" aria-label="confetti — home">
-          <span className="font-display text-2xl font-extrabold leading-none tracking-tight text-ink">
+          <span className="font-display text-xl font-extrabold leading-none tracking-tight text-ink sm:text-2xl">
             confetti
           </span>
-          <span className="font-serif text-2xl italic leading-none text-coral">.</span>
+          <span className="font-serif text-xl italic leading-none text-coral sm:text-2xl">.</span>
           <RotatingTagline />
         </Link>
 
@@ -124,7 +124,7 @@ export function SiteHeader() {
           )}
           <WizardButton
             ariaLabel="Build a night"
-            className="animate-wiggle-attention inline-flex h-10 items-center gap-1 rounded-full border-2 border-ink bg-ink px-4 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
+            className="hidden h-10 items-center gap-1 rounded-full border-2 border-ink bg-ink px-4 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg sm:inline-flex"
           >
             Build a night ↗
           </WizardButton>

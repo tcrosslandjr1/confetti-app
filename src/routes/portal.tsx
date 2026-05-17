@@ -89,7 +89,7 @@ function PortalLayout() {
   }, [user, loading, viewAs, nav, pathname, isDemoPage]);
 
   if (!isDemoPage && (loading || !user || viewAs !== "customer")) {
-    const message = loading ? "Loading your portal..." : "Switching view…";
+    const message = "Loading your portal…";
     return (
       <div
         role="status"

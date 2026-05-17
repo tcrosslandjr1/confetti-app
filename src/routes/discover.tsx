@@ -175,7 +175,7 @@ function DiscoverPage() {
             ))}
           </ul>
         ) : (
-          <DiscoverMap rows={filtered} />
+          <DiscoverMap key={refreshNonce} rows={filtered} />
         )}
       </div>
     </div>

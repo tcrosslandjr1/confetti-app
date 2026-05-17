@@ -1972,6 +1972,8 @@ export type Database = {
           id: string
           image_url: string | null
           instagram_handle: string | null
+          instagram_hashtags: string[]
+          instagram_location_tag: string | null
           instagram_url: string | null
           is_sponsored: boolean
           name: string
@@ -1979,11 +1981,15 @@ export type Database = {
           place_id: string | null
           price_band: string | null
           price_level: number
+          promotion_approved: boolean
           rating: number | null
           socials_refreshed_at: string | null
+          sponsored_boost_level: number
           staff_email: string | null
           tags: string[]
           tiktok_handle: string | null
+          tiktok_hashtags: string[]
+          tiktok_location_tag: string | null
           tiktok_url: string | null
           verified: boolean
           website: string | null
@@ -2006,6 +2012,8 @@ export type Database = {
           id?: string
           image_url?: string | null
           instagram_handle?: string | null
+          instagram_hashtags?: string[]
+          instagram_location_tag?: string | null
           instagram_url?: string | null
           is_sponsored?: boolean
           name: string
@@ -2013,11 +2021,15 @@ export type Database = {
           place_id?: string | null
           price_band?: string | null
           price_level?: number
+          promotion_approved?: boolean
           rating?: number | null
           socials_refreshed_at?: string | null
+          sponsored_boost_level?: number
           staff_email?: string | null
           tags?: string[]
           tiktok_handle?: string | null
+          tiktok_hashtags?: string[]
+          tiktok_location_tag?: string | null
           tiktok_url?: string | null
           verified?: boolean
           website?: string | null
@@ -2040,6 +2052,8 @@ export type Database = {
           id?: string
           image_url?: string | null
           instagram_handle?: string | null
+          instagram_hashtags?: string[]
+          instagram_location_tag?: string | null
           instagram_url?: string | null
           is_sponsored?: boolean
           name?: string
@@ -2047,11 +2061,15 @@ export type Database = {
           place_id?: string | null
           price_band?: string | null
           price_level?: number
+          promotion_approved?: boolean
           rating?: number | null
           socials_refreshed_at?: string | null
+          sponsored_boost_level?: number
           staff_email?: string | null
           tags?: string[]
           tiktok_handle?: string | null
+          tiktok_hashtags?: string[]
+          tiktok_location_tag?: string | null
           tiktok_url?: string | null
           verified?: boolean
           website?: string | null

@@ -119,7 +119,7 @@ const TIERS: Tier[] = [
       "Dedicated account manager",
       "Priority support",
     ],
-    cta: { label: "Go Premium", to: "/business/signup" },
+    cta: { label: "Go Premium", priceId: "business_premium_monthly" },
     accent: "from-orange-200/70 to-orange-50",
   },
 ];

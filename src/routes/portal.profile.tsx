@@ -489,7 +489,7 @@ function ProfilePage() {
                       <span className="font-semibold">Preferences & taste</span>
                     </Link>
                     <Link
-                      to="/concierge/passport"
+                      to="/passport"
                       className="flex items-center gap-3 rounded-2xl border-2 border-ink p-3 hover:bg-muted"
                     >
                       <Sparkles className="h-4 w-4" />{" "}

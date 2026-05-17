@@ -52,6 +52,7 @@ const NAV: NavItem[] = [
   { to: "/admin/bookings", label: "Bookings", icon: CalendarCheck },
   { to: "/admin/notifications", label: "Notifications", icon: Bell },
   { to: "/admin/advertisers", label: "Advertisers", icon: Megaphone },
+  { to: "/admin/business-claims", label: "Venue claims", icon: ShieldCheck },
   { to: "/admin/outreach", label: "Weekly outreach", icon: Sparkles },
   { to: "/admin/marquee", label: "Sponsored marquee", icon: Megaphone },
   { to: "/admin/integrations", label: "Integrations", icon: Sparkles },

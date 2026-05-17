@@ -103,6 +103,7 @@ import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminLaunchRouteImport } from './routes/admin.launch'
 import { Route as AdminIntegrationsRouteImport } from './routes/admin.integrations'
 import { Route as AdminEventAnalyticsRouteImport } from './routes/admin.event-analytics'
+import { Route as AdminBusinessClaimsRouteImport } from './routes/admin.business-claims'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as AdminAuditRouteImport } from './routes/admin.audit'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
@@ -594,6 +595,11 @@ const AdminEventAnalyticsRoute = AdminEventAnalyticsRouteImport.update({
   path: '/event-analytics',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminBusinessClaimsRoute = AdminBusinessClaimsRouteImport.update({
+  id: '/business-claims',
+  path: '/business-claims',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminBookingsRoute = AdminBookingsRouteImport.update({
   id: '/bookings',
   path: '/bookings',
@@ -750,6 +756,7 @@ export interface FileRoutesByFullPath {
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/business-claims': typeof AdminBusinessClaimsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
@@ -861,6 +868,7 @@ export interface FileRoutesByTo {
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/business-claims': typeof AdminBusinessClaimsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
@@ -978,6 +986,7 @@ export interface FileRoutesById {
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/business-claims': typeof AdminBusinessClaimsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
@@ -1096,6 +1105,7 @@ export interface FileRouteTypes {
     | '/admin/analytics'
     | '/admin/audit'
     | '/admin/bookings'
+    | '/admin/business-claims'
     | '/admin/event-analytics'
     | '/admin/integrations'
     | '/admin/launch'
@@ -1207,6 +1217,7 @@ export interface FileRouteTypes {
     | '/admin/analytics'
     | '/admin/audit'
     | '/admin/bookings'
+    | '/admin/business-claims'
     | '/admin/event-analytics'
     | '/admin/integrations'
     | '/admin/launch'
@@ -1323,6 +1334,7 @@ export interface FileRouteTypes {
     | '/admin/analytics'
     | '/admin/audit'
     | '/admin/bookings'
+    | '/admin/business-claims'
     | '/admin/event-analytics'
     | '/admin/integrations'
     | '/admin/launch'
@@ -2123,6 +2135,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminEventAnalyticsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/business-claims': {
+      id: '/admin/business-claims'
+      path: '/business-claims'
+      fullPath: '/admin/business-claims'
+      preLoaderRoute: typeof AdminBusinessClaimsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/bookings': {
       id: '/admin/bookings'
       path: '/bookings'
@@ -2272,6 +2291,7 @@ interface AdminRouteChildren {
   AdminAnalyticsRoute: typeof AdminAnalyticsRoute
   AdminAuditRoute: typeof AdminAuditRoute
   AdminBookingsRoute: typeof AdminBookingsRoute
+  AdminBusinessClaimsRoute: typeof AdminBusinessClaimsRoute
   AdminEventAnalyticsRoute: typeof AdminEventAnalyticsRoute
   AdminIntegrationsRoute: typeof AdminIntegrationsRoute
   AdminLaunchRoute: typeof AdminLaunchRoute
@@ -2296,6 +2316,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminAnalyticsRoute: AdminAnalyticsRoute,
   AdminAuditRoute: AdminAuditRoute,
   AdminBookingsRoute: AdminBookingsRoute,
+  AdminBusinessClaimsRoute: AdminBusinessClaimsRoute,
   AdminEventAnalyticsRoute: AdminEventAnalyticsRoute,
   AdminIntegrationsRoute: AdminIntegrationsRoute,
   AdminLaunchRoute: AdminLaunchRoute,
@@ -2503,13 +2524,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

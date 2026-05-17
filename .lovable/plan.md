@@ -1,68 +1,71 @@
-## Goal
 
-A new visitor on iPhone or Android lands on `/`, instantly understands "Confetti builds your night out in under a minute", and has exactly one obvious next tap. App-store-grade first impression.
+# Monthly Venue Media Refresh + Social Buttons + Reels Drawer
 
-## What's wrong today
+## What ships
 
-- Hero says "Plans with a pulse" — vibey, not explanatory. No first-time visitor understands what tapping "Build my night" will actually do.
-- Two side-by-side CTAs ("Build my night" / "How it works") split attention. Caption "no signup to try" floats awkwardly.
-- Receipt mock-card looks like a real plan but isn't interactive — confusing on mobile.
-- Marquee + multiple long sections push the actual product below the fold.
-- Bottom tab bar shows 5 destinations (Home, Discover, Create, Passport, Profile) but the home screen never explains them.
-- No "what happens when I tap this" preview, no progress affordance, no recovery if the wizard errors out.
+A single cohesive feature: every venue gets fresh photos and TikTok/Instagram links, refreshed monthly by a background job. The venue detail page shows a hero, a tappable photo gallery, a row of social buttons (Website · Maps · TikTok · Instagram), and a Reels bottom-sheet drawer that previews social posts and deep-links to the native apps.
 
-## Plan (mobile-first, desktop unchanged)
+## Database (one migration)
 
-### 1. Rewrite the hero for clarity, not vibe (`src/routes/index.tsx`)
+Add columns to `public.venues`:
+- `place_id text` — Google Places ID (for Place Photos endpoint)
+- `gallery_urls jsonb default '[]'` — array of `{ url, source, attribution? }`
+- `tiktok_url text`, `tiktok_handle text`
+- `instagram_url text`, `instagram_handle text`
+- `socials_refreshed_at timestamptz`
+- `gallery_refreshed_at timestamptz`
 
-- Eyebrow: `TONIGHT IN [CITY] · LIVE` (uses existing city context)
-- H1: short and literal — `Your night out, planned in 60 seconds.`
-- Sub: one sentence — `Pick a vibe. Get real venues, real times, and tap-to-book reservations. Free, no signup.`
-- One primary CTA full-width on mobile: `Plan my night → 60 sec` (opens wizard)
-- Secondary text link below: `See a sample plan` (scrolls to receipt card)
-- Remove the inline "no signup to try" caption (fold into sub-copy)
+New table `public.venue_media_refresh_runs` for audit:
+- `started_at`, `finished_at`, `venues_processed int`, `photos_added int`, `socials_found int`, `errors jsonb`, `trigger text` ('cron' | 'manual')
 
-### 2. Add a "How it works in 3 steps" strip directly under the hero
+RLS: admins only for `venue_media_refresh_runs`; public read of the new venue columns inherits the existing `venues public read` policy.
 
-Three numbered cards, horizontally scrollable on mobile, grid on desktop:
-1. Tell us the vibe (rooftop, dive bar, date night…)
-2. We build the route — venues, times, walking + Lyft
-3. Tap to book. Show up. We handle the rest.
+## Server
 
-Each card has an icon and one line. This is the missing "what does this app do" answer.
+- `src/lib/venue-media.server.ts` — pure helpers (server-only):
+  - `fetchPlacePhotos(placeId, maxN=8)` — calls Google Place Details + Place Photos URLs using existing `GOOGLE_PLACES_API_KEY`. No CSE needed.
+  - `findPlaceId(name, city)` — Find Place From Text fallback when `place_id` is null.
+  - `discoverSocials(name, city, website)` — uses Firecrawl SDK `search()` for `site:tiktok.com {name} {city}` and `site:instagram.com {name} {city}`, picks the top profile URL, extracts the handle.
+- `src/lib/venue-media.functions.ts`:
+  - `refreshVenueMedia({ venueId })` server fn (admin-only via middleware) — refreshes one venue.
+  - `triggerBulkRefresh()` admin server fn — kicks off a run synchronously for ~50 venues at a time.
+- `src/routes/api/public/hooks/refresh-venue-media.ts` — POST hook for pg_cron (validates `apikey` header against `SUPABASE_ANON_KEY`). Processes up to N venues whose `gallery_refreshed_at < now() - 30 days` or `null`, logs to `venue_media_refresh_runs`.
+- Install `@mendable/firecrawl-js` and link the existing `OneFrame Fire Wall` Firecrawl connection to the project.
 
-### 3. Make the receipt card obviously a sample, and make it tappable
+## Cron
 
-- Add a `SAMPLE PLAN` ribbon to the receipt mock
-- Wrap it in a button that opens the wizard pre-loaded with that vibe ("cute, walkable, ends with a slow drink")
-- Add a single `Try this plan` CTA inside the card on mobile
+Single monthly job via `pg_cron` + `pg_net`, scheduled `0 3 1 * *` (1st of each month, 3am UTC), calls the public hook with `apikey` header.
 
-### 4. Persistent first-run nudge above the bottom nav
+## Frontend
 
-A dismissible 1-line bar (mobile only): `New here? Start with Build my night →` that opens the wizard. Stored in `localStorage` so it disappears after dismiss or after the wizard is opened once.
+- `src/components/venue/VenueSocialButtons.tsx` — pill row with 4 circular icon buttons (Globe / MapPin / TikTok logo / Instagram logo). Hidden when both socials are missing. Each button uses `trackCta()`. TikTok/IG buttons try `tiktok://` / `instagram://` deep links and fall back to `https://` after 250ms.
+- `src/components/venue/VenueGallery.tsx` — horizontal snap-scroll thumbnails; tap opens a full-screen lightbox (Dialog) with swipe. Falls back to existing `<GooglePhotos>` when gallery is empty.
+- `src/components/venue/ReelsDrawer.tsx` — `shadcn/ui` Drawer that opens from the bottom showing TikTok + Instagram profile cards (live thumbnail via oEmbed if available, otherwise a brand-tinted placeholder card). Each card opens the native app/site.
+- Integrate all three into `src/routes/venue.$id.tsx` Step 1 (hero now sources from `gallery_urls[0] || image_url || GooglePhotos`).
 
-### 5. Wizard hardening (one small fix, not a redesign)
+## Admin
 
-- First step of `BuildMyNightWizard` shows a one-line preview: `Step 1 of 6 · Pick a vibe · ~45 sec total`
-- If a step's network call fails (the `pick-signals` 401 we already saw), show a toast and let the user continue — never dead-end
-- "Continue" button stays sticky at the bottom of the modal so it's always reachable on small screens
+Add a "Refresh media" button to `/admin/venues` row actions calling `refreshVenueMedia({ venueId })`, plus a "Run monthly refresh now" button at the top calling `triggerBulkRefresh()`. Surface `venue_media_refresh_runs` in a small history table below.
 
-### 6. Tighten visible polish on `/`
+## Out of scope (explicit)
 
-- Reduce marquee height on mobile (`py-3` instead of `py-4`) and lower contrast so it stops competing with the hero
-- Add `font-display: swap` preload hint for the display font (already imported) to fix FOUT on first paint
-- Ensure every interactive element on `/` has min 44×44 tap target
+- No user-submitted photos (mentioned as "future" by the user).
+- No TikTok/IG Graph API integration — public profile discovery only, via Firecrawl.
+- No per-user OAuth into the user's personal TikTok/IG.
 
-## Out of scope (call out, don't do now)
+## Order of work
 
-- Discover, Venue, Passport, Profile, Auth screens
-- Performance work beyond font preload + image lazy-loading on `/`
-- Real PWA / install prompt
-- Onboarding tour beyond the single first-run nudge
+1. Migration (one batch).
+2. Link Firecrawl connection + `bun add @mendable/firecrawl-js`.
+3. `venue-media.server.ts` + `.functions.ts` + cron hook.
+4. Schedule pg_cron job.
+5. Frontend components + integration into `venue.$id.tsx`.
+6. Admin controls.
+7. Smoke-test one venue end-to-end via the admin "Refresh media" button.
 
-## Files touched
+## Technical notes
 
-- `src/routes/index.tsx` — hero, 3-step strip, sample-plan card, first-run nudge
-- `src/components/wizard/BuildMyNightWizard.tsx` — sticky footer, step header copy, error toast
-- `src/components/wizard/wizard-context.tsx` — accept a `vibeKey` preset from the sample card (already supported)
-- maybe `src/styles.css` — small font-preload hint
+- TikTok deep link: `snssdk1233://user/profile/{handle}` is unreliable; we use `https://www.tiktok.com/@{handle}` which the TikTok app intercepts on mobile.
+- Instagram: `https://www.instagram.com/{handle}/` likewise intercepted.
+- Google Place Photos URL pattern: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photo_reference={ref}&key={key}` — we resolve to the redirect URL and store that (Google rotates the underlying CDN URL but the photo_reference URL keeps working until refreshed).
+- Firecrawl `search` is the right primitive (not `scrape`) — one credit per query, returns top results without scraping each profile page.

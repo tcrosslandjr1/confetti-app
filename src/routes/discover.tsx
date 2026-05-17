@@ -339,7 +339,7 @@ function DiscoverMap({
           <button
             key={row.id}
             type="button"
-            onClick={() => setSelected(row)}
+            onClick={() => onSelect(row)}
             className="group absolute z-10 -translate-x-1/2 -translate-y-full focus:outline-none"
             style={{ left: `${x}%`, top: `${y}%` }}
             aria-label={`Show ${row.name}`}

@@ -56,7 +56,9 @@ vi.mock("@/components/wizard/WizardButton", () => ({
 vi.mock("@/components/ui/sheet", () => ({
   Sheet: ({ children }: any) => <>{children}</>,
   SheetTrigger: ({ children }: any) => <>{children}</>,
-  SheetContent: ({ children }: any) => <div data-testid="sheet-content">{children}</div>,
+  // Don't render SheetContent children — they belong to the closed mobile
+  // menu and would duplicate buttons that we want to assert on uniquely.
+  SheetContent: () => null,
 }));
 
 import { SiteHeader } from "@/components/SiteHeader";

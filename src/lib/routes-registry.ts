@@ -95,7 +95,7 @@ export const ROUTE_REGISTRY: RouteEntry[] = [
 
   // ── Member Portal ───────────────────────────────────────────────────────
   { path: "/portal", purpose: "portal", oneJob: "Logged-in home for members." },
-  { path: "/portal/passport", purpose: "portal", oneJob: "Passport inside portal.", flags: ["split-portal"], notes: "Duplicates /passport." },
+  { path: "/portal/passport", purpose: "portal", oneJob: "Redirect → /passport (consolidated).", flags: ["deprecated"], notes: "Legacy redirect; canonical lives at /passport." },
   { path: "/portal/wallet", purpose: "portal", oneJob: "Manage wallet passes." },
   { path: "/portal/bookings", purpose: "portal", oneJob: "List user bookings." },
   { path: "/portal/saved", purpose: "portal", oneJob: "Saved items.", flags: ["split-portal"], notes: "Overlaps /favorites." },

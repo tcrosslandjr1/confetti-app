@@ -204,7 +204,6 @@ function PortalActivityPage() {
   const kindOptions: KindFilter[] = ["all", ...kindsPresent];
 
   return (
-    <PullToRefresh onRefresh={handleRefresh}>
     <div className="mx-auto max-w-3xl px-4 pt-6 pb-32">
       <div className="flex items-center justify-between gap-3">
         <div className="min-w-0">

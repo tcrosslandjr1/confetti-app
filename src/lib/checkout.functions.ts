@@ -144,6 +144,7 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
       ...(isRecurring && data.userId && {
         subscription_data: { metadata: baseMetadata },
       }),
+      allow_promotion_codes: true,
       managed_payments: { enabled: true },
     } as any);
 

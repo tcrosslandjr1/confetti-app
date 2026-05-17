@@ -23,7 +23,40 @@ import {
   ChevronRight,
   Star,
 } from "lucide-react";
-import { getConfetti, subscribeConfetti } from "@/lib/loop-store";
+import { addConfetti, getConfetti, subscribeConfetti } from "@/lib/loop-store";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import { toast } from "sonner";
+
+type ClaimedReward = { id: string; label: string; cost: number; code: string; at: number };
+const CLAIMED_KEY = "passport:claimed-rewards";
+
+function loadClaimed(): ClaimedReward[] {
+  if (typeof window === "undefined") return [];
+  try {
+    return JSON.parse(localStorage.getItem(CLAIMED_KEY) || "[]") as ClaimedReward[];
+  } catch {
+    return [];
+  }
+}
+function saveClaimed(list: ClaimedReward[]) {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(CLAIMED_KEY, JSON.stringify(list));
+}
+function genCode() {
+  const a = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+  let s = "CF-";
+  for (let i = 0; i < 6; i++) s += a[Math.floor(Math.random() * a.length)];
+  return s;
+}
 
 export const Route = createFileRoute("/passport")({
   head: () => ({ meta: [{ title: "Passport — Confetti" }] }),
@@ -65,10 +98,37 @@ const STREAK_LABELS = ["M", "T", "W", "T", "F", "S", "S"];
 
 function PassportPage() {
   const [confetti, setConfettiCount] = useState(0);
+  const [claimed, setClaimed] = useState<ClaimedReward[]>([]);
+  const [pending, setPending] = useState<(typeof REWARDS)[number] | null>(null);
+  const [justClaimed, setJustClaimed] = useState<ClaimedReward | null>(null);
   useEffect(() => {
     setConfettiCount(getConfetti());
+    setClaimed(loadClaimed());
     return subscribeConfetti(() => setConfettiCount(getConfetti()));
   }, []);
+
+  function handleConfirmRedeem() {
+    if (!pending) return;
+    if (getConfetti() < pending.cost) {
+      toast.error("Not enough Confetti");
+      setPending(null);
+      return;
+    }
+    addConfetti(-pending.cost);
+    const record: ClaimedReward = {
+      id: pending.id,
+      label: pending.label,
+      cost: pending.cost,
+      code: genCode(),
+      at: Date.now(),
+    };
+    const next = [record, ...claimed];
+    setClaimed(next);
+    saveClaimed(next);
+    setPending(null);
+    setJustClaimed(record);
+    toast.success(`Redeemed ${pending.label}`, { description: `Code ${record.code}` });
+  }
   const level = Math.floor(confetti / 250) + 1;
   const nextLevelAt = level * 250;
   const progress = Math.min(100, ((confetti % 250) / 250) * 100);
@@ -414,12 +474,19 @@ function PassportPage() {
                         </div>
                       </div>
                     </div>
-                    <button
-                      disabled={!can}
-                      className="shrink-0 rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-40 disabled:shadow-none"
-                    >
-                      {can ? "Redeem" : "Locked"}
-                    </button>
+                    {(() => {
+                      const isClaimed = claimed.some((c) => c.id === r.id);
+                      return (
+                        <button
+                          type="button"
+                          disabled={!can || isClaimed}
+                          onClick={() => setPending(r)}
+                          className="shrink-0 rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-40 disabled:shadow-none"
+                        >
+                          {isClaimed ? "Claimed" : can ? "Redeem" : "Locked"}
+                        </button>
+                      );
+                    })()}
                   </div>
                   {!can && (
                     <div className="mt-2.5">
@@ -439,6 +506,38 @@ function PassportPage() {
             })}
           </ul>
         </section>
+
+        {/* Claimed rewards */}
+        {claimed.length > 0 && (
+          <section className="mt-6">
+            <div className="flex items-end justify-between">
+              <h2 className="flex items-center gap-2 font-display text-lg font-bold">
+                <Ticket className="h-4 w-4 text-coral" /> Your rewards
+              </h2>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                {claimed.length} claimed
+              </span>
+            </div>
+            <ul className="mt-3 space-y-2">
+              {claimed.map((c) => (
+                <li
+                  key={c.code}
+                  className="flex items-center justify-between gap-3 rounded-xl border-2 border-ink bg-card p-3 shadow-brut"
+                >
+                  <div className="min-w-0">
+                    <div className="font-display text-sm font-bold leading-tight">{c.label}</div>
+                    <div className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+                      Redeemed · {new Date(c.at).toLocaleDateString()}
+                    </div>
+                  </div>
+                  <code className="shrink-0 rounded-md border-2 border-dashed border-ink/40 bg-background px-2 py-1 font-mono text-[11px] font-bold tracking-widest text-ink">
+                    {c.code}
+                  </code>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {/* Activity */}
         <section className="mt-6">
@@ -490,6 +589,47 @@ function PassportPage() {
           </Link>
         </div>
       </div>
+
+      <AlertDialog open={!!pending} onOpenChange={(o) => !o && setPending(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Redeem {pending?.label}?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This will deduct <strong>{pending?.cost.toLocaleString()} Confetti</strong> from your
+              balance and generate a one-time redemption code. New balance:{" "}
+              <strong>{Math.max(0, confetti - (pending?.cost ?? 0)).toLocaleString()}</strong>.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleConfirmRedeem}>Confirm redeem</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <AlertDialog open={!!justClaimed} onOpenChange={(o) => !o && setJustClaimed(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-coral" /> Reward unlocked
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              Show this code at the venue to claim <strong>{justClaimed?.label}</strong>.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <div className="rounded-xl border-2 border-dashed border-ink/40 bg-cream/60 p-4 text-center">
+            <div className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+              Redemption code
+            </div>
+            <div className="mt-1 font-display text-2xl font-extrabold tracking-widest text-ink">
+              {justClaimed?.code}
+            </div>
+          </div>
+          <AlertDialogFooter>
+            <AlertDialogAction onClick={() => setJustClaimed(null)}>Done</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

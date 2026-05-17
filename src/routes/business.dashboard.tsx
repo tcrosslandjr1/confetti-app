@@ -30,6 +30,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { BusinessUpgradePanel } from "@/components/business/BusinessUpgradePanel";
+import { PromoStorefront } from "@/components/business/PromoStorefront";
 
 export const Route = createFileRoute("/business/dashboard")({
   beforeLoad: async () => {
@@ -88,6 +89,11 @@ function BusinessDashboardPage() {
         </div>
         <AnalyticsPreview />
         <BusinessUpgradePanel />
+        <section className="space-y-3">
+          <h2 className="text-2xl font-bold">Promo Marketplace</h2>
+          <p className="text-muted-foreground text-sm">Pay once or auto-renew monthly. Boosts apply to your default venue — open a venue page to target a specific one.</p>
+          <PromoStorefront />
+        </section>
         <AIRefreshStatus />
         <DashboardFooter />
       </div>

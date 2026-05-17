@@ -88,7 +88,7 @@ export const ROUTE_REGISTRY: RouteEntry[] = [
   { path: "/concierge", purpose: "concierge", oneJob: "Entry to AI/human concierge." },
   { path: "/concierge/chat", purpose: "concierge", oneJob: "Open a new concierge chat." },
   { path: "/concierge/chat/$threadId", purpose: "concierge", oneJob: "Continue a concierge thread." },
-  { path: "/concierge/passport", purpose: "concierge", oneJob: "Passport view inside concierge.", flags: ["split-portal"] },
+  { path: "/concierge/passport", purpose: "concierge", oneJob: "Redirect → /passport (consolidated).", flags: ["deprecated"], notes: "Legacy redirect; canonical lives at /passport." },
   { path: "/concierge/profile", purpose: "concierge", oneJob: "Profile inside concierge.", flags: ["split-portal"] },
   { path: "/chat", purpose: "concierge", oneJob: "Generic chat entry.", flags: ["duplicate"], notes: "Overlaps /concierge/chat." },
   { path: "/taste-tuner", purpose: "concierge", oneJob: "Tune taste preferences for recs." },

@@ -99,6 +99,9 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
       customerEmail: z.string().email().optional(),
       userId: z.string().regex(/^[a-zA-Z0-9_-]+$/).optional(),
       accountType: z.enum(["user", "business", "corporate"]).optional(),
+      // Promo target — for boost/event/reel SKUs only
+      targetType: z.enum(["venue", "event", "reel", "vendor"]).optional(),
+      targetId: z.string().uuid().optional(),
       returnUrl: z.string().url(),
       environment: StripeEnvSchema,
     }).parse,
@@ -120,24 +123,26 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
 
     const accountType = data.accountType ?? "user";
 
+    const baseMetadata: Record<string, string> = {
+      priceId: data.priceId,
+      productId: typeof stripePrice.product === "string"
+        ? stripePrice.product
+        : stripePrice.product.id,
+      accountType,
+      ...(data.userId && { userId: data.userId }),
+      ...(data.targetType && { targetType: data.targetType }),
+      ...(data.targetId && { targetId: data.targetId }),
+    };
+
     const session = await stripe.checkout.sessions.create({
       line_items: [{ price: stripePrice.id, quantity: data.quantity || 1 }],
       mode: isRecurring ? "subscription" : "payment",
       ui_mode: "embedded_page",
       return_url: data.returnUrl,
       ...(customerId && { customer: customerId }),
-      metadata: {
-        ...(data.userId && { userId: data.userId }),
-        priceId: data.priceId,
-        productId: typeof stripePrice.product === "string"
-          ? stripePrice.product
-          : stripePrice.product.id,
-        accountType,
-      },
+      metadata: baseMetadata,
       ...(isRecurring && data.userId && {
-        subscription_data: {
-          metadata: { userId: data.userId, priceId: data.priceId, accountType },
-        },
+        subscription_data: { metadata: baseMetadata },
       }),
       managed_payments: { enabled: true },
     } as any);

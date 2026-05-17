@@ -474,12 +474,19 @@ function PassportPage() {
                         </div>
                       </div>
                     </div>
-                    <button
-                      disabled={!can}
-                      className="shrink-0 rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-40 disabled:shadow-none"
-                    >
-                      {can ? "Redeem" : "Locked"}
-                    </button>
+                    {(() => {
+                      const isClaimed = claimed.some((c) => c.id === r.id);
+                      return (
+                        <button
+                          type="button"
+                          disabled={!can || isClaimed}
+                          onClick={() => setPending(r)}
+                          className="shrink-0 rounded-full border-2 border-ink bg-coral px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-cream shadow-brut transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-40 disabled:shadow-none"
+                        >
+                          {isClaimed ? "Claimed" : can ? "Redeem" : "Locked"}
+                        </button>
+                      );
+                    })()}
                   </div>
                   {!can && (
                     <div className="mt-2.5">

@@ -78,17 +78,19 @@ function HeroChips({ venue }: { venue: VenueCard }) {
 }
 
 function SocialActionRow({ venue }: { venue: VenueCard }) {
-  const links: Array<{ label: string; icon: ReactNode; href: string } | false> = [
+  const links: Array<{ label: string; icon: ReactNode; href: string } | null | undefined | false | ""> = [
     {
       label: "Google",
       icon: <Search className="h-3.5 w-3.5" />,
       href: venue.googleMapsUrl ?? `https://www.google.com/search?q=${encodeURIComponent(venue.name)}`,
     },
-    venue.websiteUrl && {
-      label: "Website",
-      icon: <ExternalLink className="h-3.5 w-3.5" />,
-      href: venue.websiteUrl,
-    },
+    venue.websiteUrl
+      ? {
+          label: "Website",
+          icon: <ExternalLink className="h-3.5 w-3.5" />,
+          href: venue.websiteUrl,
+        }
+      : null,
     {
       label: "TikTok",
       icon: <TikTokIcon />,

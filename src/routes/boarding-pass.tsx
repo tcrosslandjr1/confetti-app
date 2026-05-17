@@ -49,6 +49,18 @@ function BoardingPassPage() {
     return subscribeActiveLoop(sync);
   }, []);
 
+  // Invalidate Supabase-sourced loops when any itinerary stop changes
+  const queryClient = useQueryClient();
+  useEffect(() => {
+    const onChange = () => {
+      queryClient.invalidateQueries({ queryKey: ["boarding-pass", "trip"] });
+      queryClient.invalidateQueries({ queryKey: ["boarding-pass", "recent"] });
+    };
+    if (typeof window === "undefined") return;
+    window.addEventListener(ITINERARY_CHANGED_EVENT, onChange);
+    return () => window.removeEventListener(ITINERARY_CHANGED_EVENT, onChange);
+  }, [queryClient]);
+
   // 1. Explicit ?trip=<uuid>
   const tripQuery = useQuery({
     queryKey: ["boarding-pass", "trip", trip],

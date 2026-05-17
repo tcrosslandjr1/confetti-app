@@ -177,13 +177,15 @@ function PassportPage() {
   async function handleConfirmRedeem() {
     if (!pending || redeeming) return;
     setRedeeming(true);
-    if (getConfetti() < pending.cost) {
+    if (confetti < pending.cost) {
       toast.error("Not enough Confetti");
       setPending(null);
       setRedeeming(false);
       return;
     }
-    addConfetti(-pending.cost);
+    // Only deduct from the local demo balance for guests; signed-in users'
+    // balances are server-managed and updated via grants/redemptions.
+    if (!passport.signedIn) addConfetti(-pending.cost);
     const record: ClaimedReward = {
       id: pending.id,
       label: pending.label,

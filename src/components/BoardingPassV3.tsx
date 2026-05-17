@@ -34,6 +34,7 @@ import {
   Crown,
   Plus,
   Minus,
+  Check,
 } from "lucide-react";
 import type { ActiveLoop, LoopStop } from "@/lib/loop-store";
 
@@ -289,17 +290,25 @@ function StopCard({
       <div className="relative" style={flipStyle}>
         {/* Front */}
         <div
-          className="overflow-hidden rounded-3xl border-2 border-ink bg-white p-5"
+          className={`overflow-hidden rounded-3xl border-2 border-ink bg-white p-5 transition-opacity ${stop.done ? "opacity-70" : ""}`}
           style={faceStyle}
         >
           <div className="mb-3 flex items-start justify-between">
             <div className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-ink/40">
               Stop {String(index + 1).padStart(2, "0")}
-              {isCurrent && <span className="ml-2 text-coral">· Now</span>}
+              {stop.done ? (
+                <span className="ml-2 inline-flex items-center gap-1 text-emerald-600">
+                  <Check className="h-3 w-3" /> Done
+                </span>
+              ) : isCurrent ? (
+                <span className="ml-2 text-coral">· Now</span>
+              ) : null}
             </div>
             <div className="font-mono text-[13px] font-semibold">{stop.time || "—"}</div>
           </div>
-          <h3 className="font-display text-[22px] font-extrabold leading-tight tracking-tight">
+          <h3
+            className={`font-display text-[22px] font-extrabold leading-tight tracking-tight ${stop.done ? "line-through decoration-ink/30" : ""}`}
+          >
             {stop.name}
           </h3>
           {stop.area && (

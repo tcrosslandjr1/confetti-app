@@ -79,6 +79,8 @@ export function itineraryToActiveLoop(
     bookable: !!s.booking_url,
     bookingType: s.booking_url ? "reservation" : undefined,
     rationale: s.tips?.[0],
+    done: !!s.completed_at,
+    checkedInAt: s.completed_at ?? undefined,
   }));
 
   return {

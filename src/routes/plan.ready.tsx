@@ -532,7 +532,7 @@ function ReadyPage() {
         </div>
       )}
 
-      <div className="relative z-10 mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-3xl px-4 py-12 pb-28 sm:px-6 lg:px-8">
         <div className="text-center">
           <div className="mx-auto mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary to-coral text-primary-foreground shadow-pop">
             <CheckCircle2 className="h-8 w-8" strokeWidth={2.5} />

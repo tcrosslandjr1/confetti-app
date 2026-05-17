@@ -1757,7 +1757,7 @@ export type Database = {
           status: string
           updated_at: string
           user_id: string | null
-          venue_id: string
+          venue_id: string | null
           verification_tier: string
         }
         Insert: {
@@ -1782,7 +1782,7 @@ export type Database = {
           status?: string
           updated_at?: string
           user_id?: string | null
-          venue_id: string
+          venue_id?: string | null
           verification_tier?: string
         }
         Update: {
@@ -1807,7 +1807,7 @@ export type Database = {
           status?: string
           updated_at?: string
           user_id?: string | null
-          venue_id?: string
+          venue_id?: string | null
           verification_tier?: string
         }
         Relationships: []

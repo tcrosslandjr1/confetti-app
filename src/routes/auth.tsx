@@ -458,6 +458,35 @@ function AuthPage() {
                   </span>
                 ))}
               </div>
+
+              {/* Mobile collage preview */}
+              <div className="relative mt-4 flex gap-2.5">
+                <div className="flex-1 rounded-xl border-2 border-ink bg-cream p-3 text-ink shadow-brut motion-reduce:transform-none motion-reduce:transition-none">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[8px] font-bold uppercase tracking-[0.2em] text-ink/60">tonight</span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-coral px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-widest text-cream">
+                      <Sparkles className="h-2 w-2" /> pick
+                    </span>
+                  </div>
+                  <div className="mt-1 font-display text-sm font-extrabold leading-tight">Rooftop omakase</div>
+                  <div className="mt-0.5 flex items-center gap-1 font-mono text-[9px] uppercase tracking-widest text-ink/70">
+                    <MapPin className="h-2.5 w-2.5" /> brooklyn
+                  </div>
+                </div>
+                <div className="flex-1 rounded-xl border-2 border-ink bg-ink p-3 text-cream shadow-brut motion-reduce:transform-none motion-reduce:transition-none">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[8px] font-bold uppercase tracking-[0.2em] opacity-70">reward</span>
+                    <PartyPopper className="h-3 w-3 text-coral" />
+                  </div>
+                  <div className="mt-1 flex items-baseline gap-1">
+                    <span className="font-display text-lg font-extrabold leading-none">+250</span>
+                    <span className="font-mono text-[9px] uppercase tracking-widest opacity-80">confetti</span>
+                  </div>
+                  <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-cream/15">
+                    <div className="h-full w-[68%] rounded-full bg-coral" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

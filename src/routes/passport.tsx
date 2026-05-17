@@ -227,6 +227,9 @@ function PassportPage() {
   const currentTier = TIERS[currentTierIndex];
   const nextTier = TIERS[currentTierIndex + 1];
 
+        <div className="mt-6">
+          <ManageSubscriptionPanel />
+        </div>
 
   const shareData: PassportShareData = {
     name: passport.displayName || "Guest Explorer",

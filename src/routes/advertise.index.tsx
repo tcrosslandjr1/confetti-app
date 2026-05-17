@@ -130,16 +130,19 @@ function AdvertiseLanding() {
       await createAdvertiser({
         owner_id: user.id,
         business_name: form.business_name,
+        owner_name: form.owner_name || undefined,
         contact_email: form.contact_email,
         website: form.website || undefined,
         contact_phone: form.contact_phone || undefined,
         category: form.category || undefined,
         city: form.city || undefined,
-        notes: `Tier interest: ${tier}\n${form.notes}`.trim(),
+        package_selected: tier,
+        source: "self-serve",
+        notes: form.notes || undefined,
       });
       clearDraft();
-      toast.success("You're in — welcome aboard");
-      nav({ to: "/advertise/portal" });
+      toast.success("Submitted — we're reviewing your business");
+      nav({ to: "/business/pending" });
       return true;
     } catch (err) {
       toast.error((err as Error).message ?? "Could not submit");

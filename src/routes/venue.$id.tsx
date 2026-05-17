@@ -347,6 +347,122 @@ function StepHeader({ step, onBack }: { step: number; onBack: () => void }) {
 
 // ---------------- Step 1: Venue Detail ----------------
 
+type VenueEvent = {
+  title: string;
+  description: string;
+  daysAhead: number;
+  startHour: number; // 24h
+  durationHours: number;
+};
+
+const EVENTS_BY_CATEGORY: Record<string, VenueEvent[]> = {
+  Rooftops: [
+    { title: "Golden Hour Sessions", description: "Live DJ set on the terrace as the sun drops. Signature spritzes on rotation.", daysAhead: 3, startHour: 18, durationHours: 3 },
+    { title: "Sunset Yoga + Brunch", description: "60-min vinyasa flow followed by a bottomless brunch table under the cabanas.", daysAhead: 10, startHour: 9, durationHours: 3 },
+    { title: "Rooftop Film Night", description: "Open-air screening of a modern classic. Loungers, blankets, and popcorn included.", daysAhead: 17, startHour: 20, durationHours: 3 },
+  ],
+  Cocktails: [
+    { title: "Bartender's Table", description: "Five-course tasting led by the head bartender. Each pour paired with a small bite.", daysAhead: 5, startHour: 19, durationHours: 2 },
+    { title: "Mezcal & Agave Masterclass", description: "Guided flight through small-batch mezcals with the distiller in the room.", daysAhead: 12, startHour: 19, durationHours: 2 },
+    { title: "New Menu Launch Party", description: "Preview of the seasonal cocktail menu with the team behind it.", daysAhead: 22, startHour: 20, durationHours: 3 },
+  ],
+  Dining: [
+    { title: "Chef's Counter Tasting", description: "Eight courses cooked in front of you at the counter, with optional wine pairing.", daysAhead: 4, startHour: 18, durationHours: 3 },
+    { title: "Farmers Market Brunch", description: "Saturday brunch built entirely from that morning's market haul.", daysAhead: 9, startHour: 10, durationHours: 3 },
+    { title: "Winemaker Dinner", description: "Five-course collaboration dinner with a visiting natural-wine producer.", daysAhead: 19, startHour: 19, durationHours: 3 },
+  ],
+  "Live Music": [
+    { title: "Late Night Jazz Trio", description: "Resident trio with a rotating guest soloist. Two sets, no cover with reservation.", daysAhead: 2, startHour: 21, durationHours: 3 },
+    { title: "Vinyl Listening Session", description: "Themed first-press LP playback on the main system. BYO requests.", daysAhead: 8, startHour: 20, durationHours: 2 },
+    { title: "Singer-Songwriter Showcase", description: "Three local acts, intimate stage, full sound, table service throughout.", daysAhead: 16, startHour: 19, durationHours: 3 },
+  ],
+  Nightlife: [
+    { title: "Resident DJ Night", description: "Disco-edit residents go back-to-back until close. Coat check open all night.", daysAhead: 1, startHour: 22, durationHours: 4 },
+    { title: "Guest Set: International DJ", description: "Special booking from a touring DJ. Limited capacity — reserve a table early.", daysAhead: 11, startHour: 22, durationHours: 4 },
+    { title: "Throwback Saturday", description: "All-vinyl funk, soul, and 90s house set. Dress code: bring the energy.", daysAhead: 15, startHour: 22, durationHours: 4 },
+  ],
+};
+
+const DEFAULT_EVENTS: VenueEvent[] = [
+  { title: "Members' Mixer", description: "Casual evening hosted by the team. Welcome drink and tasting bites included.", daysAhead: 4, startHour: 19, durationHours: 2 },
+  { title: "Seasonal Tasting", description: "Walk through the new seasonal menu with the kitchen and bar leads.", daysAhead: 11, startHour: 19, durationHours: 2 },
+  { title: "Late Night Hang", description: "Extended hours with a guest host and a one-off menu for the night.", daysAhead: 18, startHour: 21, durationHours: 3 },
+];
+
+function getEventsForVenue(venue: Venue): VenueEvent[] {
+  if (venue.category && EVENTS_BY_CATEGORY[venue.category]) {
+    return EVENTS_BY_CATEGORY[venue.category];
+  }
+  return DEFAULT_EVENTS;
+}
+
+function formatEventDate(date: Date): { day: string; date: string; time: string } {
+  return {
+    day: date.toLocaleDateString(undefined, { weekday: "short" }).toUpperCase(),
+    date: date.toLocaleDateString(undefined, { month: "short", day: "numeric" }),
+    time: date.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }),
+  };
+}
+
+function VenueEvents({ venue }: { venue: Venue }) {
+  const events = useMemo(() => {
+    const base = getEventsForVenue(venue);
+    const now = new Date();
+    return base.map((e) => {
+      const start = new Date(now);
+      start.setDate(start.getDate() + e.daysAhead);
+      start.setHours(e.startHour, 0, 0, 0);
+      const rsvpQuery = encodeURIComponent(`${e.title} ${venue.name} ${venue.city ?? ""}`.trim());
+      const rsvpHref = `https://www.eventbrite.com/d/online/${rsvpQuery}/`;
+      return { ...e, start, rsvpHref };
+    });
+  }, [venue]);
+
+  return (
+    <div className="rounded-2xl border-2 border-ink bg-white p-4 shadow-brut">
+      <div className="flex items-center gap-2">
+        <CalendarIcon className="h-4 w-4 text-coral" />
+        <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/60">
+          Upcoming events
+        </p>
+      </div>
+      <ul className="mt-3 space-y-2.5">
+        {events.map((e) => {
+          const f = formatEventDate(e.start);
+          return (
+            <li
+              key={e.title}
+              className="flex gap-3 rounded-xl border-2 border-ink/10 bg-cream/40 p-3"
+            >
+              <div className="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-lg border-2 border-ink bg-white text-center">
+                <span className="font-mono text-[9px] font-bold text-coral">{f.day}</span>
+                <span className="font-mono text-xs font-bold leading-tight text-ink">
+                  {f.date}
+                </span>
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-baseline gap-x-2">
+                  <p className="font-semibold text-ink">{e.title}</p>
+                  <span className="font-mono text-[10px] text-ink/60">{f.time}</span>
+                </div>
+                <p className="mt-0.5 text-sm leading-snug text-ink/70">{e.description}</p>
+                <a
+                  href={e.rsvpHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-coral hover:underline"
+                >
+                  RSVP <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
 function ShareVenue({ venue }: { venue: Venue }) {
   const shareUrl =
     typeof window !== "undefined"

@@ -124,7 +124,7 @@ export function SiteHeader() {
           )}
           <WizardButton
             ariaLabel="Build a night"
-            className="animate-wiggle-attention inline-flex h-10 items-center gap-1 rounded-full border-2 border-ink bg-ink px-4 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg"
+            className="hidden h-10 items-center gap-1 rounded-full border-2 border-ink bg-ink px-4 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg sm:inline-flex"
           >
             Build a night ↗
           </WizardButton>

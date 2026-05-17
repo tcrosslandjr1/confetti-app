@@ -198,7 +198,7 @@ function PortalDiscoverPage() {
       .order("created_at", { ascending: false })
       .limit(12)
       .then(({ data }) => setVenues((data as Venue[]) ?? []));
-  }, []);
+  }, [refreshKey]);
 
   useEffect(() => {
     if (!user) return;

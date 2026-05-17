@@ -82,7 +82,7 @@ function DiscoverPage() {
   const setMapSelected = useCallback(
     (row: VenueRow | null) => {
       navigate({
-        search: (prev) => ({ ...prev, venueId: row?.id }),
+        search: (prev: { venueId?: string }) => ({ ...prev, venueId: row?.id }),
         replace: true,
       });
     },

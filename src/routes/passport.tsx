@@ -537,7 +537,7 @@ function PassportPage() {
             </span>
           </div>
           <div className="mt-3 grid grid-cols-3 gap-3">
-            {BADGES.map((b) => (
+            {badges.map((b) => (
               <div
                 key={b.id}
                 className={`group relative flex flex-col items-center gap-2 rounded-2xl border-2 p-3 text-center transition-all ${

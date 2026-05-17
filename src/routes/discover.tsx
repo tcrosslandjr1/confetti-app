@@ -10,6 +10,7 @@ import { SAMPLE_VENUES as SAMPLE_DATA, type SampleCategory } from "@/lib/sample-
 
 const discoverSearchSchema = z.object({
   venueId: fallback(z.string().optional(), undefined),
+  view: fallback(z.enum(["list", "map"]).optional(), undefined),
 });
 
 export const Route = createFileRoute("/discover")({
@@ -66,9 +67,9 @@ const SAMPLE_VENUES: VenueRow[] = SAMPLE_DATA.map((v) => ({
 }));
 
 function DiscoverPage() {
-  const { venueId } = Route.useSearch();
+  const { venueId, view: viewParam } = Route.useSearch();
   const navigate = useNavigate({ from: Route.fullPath });
-  const [view, setView] = useState<"list" | "map">(venueId ? "map" : "list");
+  const view = venueId ? "map" : (viewParam ?? "list");
   const [rows, setRows] = useState<VenueRow[] | null>(null);
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<(typeof CATEGORIES)[number]>("All");
@@ -103,7 +104,7 @@ function DiscoverPage() {
     if (!venueId || !filtered) return;
     if (!filtered.some((r) => r.id === venueId)) {
       navigate({
-        search: (prev: { venueId?: string }) => ({ ...prev, venueId: undefined }),
+        search: (prev: { venueId?: string; view?: string }) => ({ ...prev, venueId: undefined }),
         replace: true,
       });
     }
@@ -119,7 +120,7 @@ function DiscoverPage() {
           return;
         }
         navigate({
-          search: (prev: { venueId?: string }) => ({ ...prev, venueId: undefined }),
+          search: (prev: { venueId?: string; view?: string }) => ({ ...prev, venueId: undefined }),
           replace: true,
         });
         return;
@@ -127,24 +128,22 @@ function DiscoverPage() {
       // Opening / switching selection: replace when one is already open
       // (avoid history bloat from pin-to-pin), push when opening fresh.
       navigate({
-        search: (prev: { venueId?: string }) => ({ ...prev, venueId: row.id }),
+        search: (prev: { venueId?: string; view?: string }) => ({ ...prev, venueId: row.id }),
         replace: Boolean(venueId),
       });
     },
     [navigate, venueId],
   );
 
-  // If a venueId is in the URL, ensure we're on the map view.
+  // If a venueId is in the URL but the view param isn't "map", sync it.
   useEffect(() => {
-    if (venueId && view !== "map") setView("map");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [venueId]);
-
-  // Clear selection when user switches view manually.
-  useEffect(() => {
-    if (view === "list" && venueId) setMapSelected(null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [view]);
+    if (venueId && viewParam !== "map") {
+      navigate({
+        search: (prev: { venueId?: string; view?: string }) => ({ ...prev, view: "map" }),
+        replace: true,
+      });
+    }
+  }, [venueId, viewParam]);
 
   const load = useCallback(async () => {
     const seq = ++loadSeqRef.current;
@@ -190,7 +189,16 @@ function DiscoverPage() {
 
         <div className="mt-4 inline-flex rounded-full border-2 border-ink bg-cream p-1 shadow-brut">
           <button
-            onClick={() => setView("list")}
+            onClick={() =>
+              navigate({
+                search: (prev: { view?: string; venueId?: string }) => ({
+                  ...prev,
+                  view: "list",
+                  venueId: undefined,
+                }),
+                replace: true,
+              })
+            }
             className={`inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition ${
               view === "list" ? "bg-ink text-cream" : "text-ink/70"
             }`}
@@ -198,7 +206,15 @@ function DiscoverPage() {
             <LayoutList className="h-3.5 w-3.5" /> List
           </button>
           <button
-            onClick={() => setView("map")}
+            onClick={() =>
+              navigate({
+                search: (prev: { view?: string; venueId?: string }) => ({
+                  ...prev,
+                  view: "map",
+                }),
+                replace: true,
+              })
+            }
             className={`inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest transition ${
               view === "map" ? "bg-ink text-cream" : "text-ink/70"
             }`}

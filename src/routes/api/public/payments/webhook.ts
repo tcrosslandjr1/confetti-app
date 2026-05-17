@@ -335,6 +335,24 @@ async function handleCheckoutCompleted(session: any, env: StripeEnv) {
 
   const priceId = session.metadata?.priceId || null;
 
+  // Promo SKUs (boost/event/reel) bypass user_purchases — they live in business_purchases.
+  if (priceId && PROMO_SPEC[priceId]) {
+    await activatePromo({
+      userId,
+      priceId,
+      amountCents: session.amount_total ?? 0,
+      currency: session.currency || 'usd',
+      mode: 'one_time',
+      env,
+      targetType: session.metadata?.targetType,
+      targetId: session.metadata?.targetId,
+      stripeSessionId: session.id,
+      stripeCustomerId: typeof session.customer === 'string' ? session.customer : session.customer?.id,
+      metadata: session.metadata || {},
+    });
+    return;
+  }
+
   await getSupabase().from('user_purchases').upsert(
     {
       user_id: userId,

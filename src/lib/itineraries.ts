@@ -206,19 +206,29 @@ export async function getItinerary(id: string): Promise<{ itinerary: Itinerary; 
   return { itinerary: it as Itinerary, stops: (stops ?? []) as Stop[] };
 }
 
+export const ITINERARY_CHANGED_EVENT = "itinerary:changed";
+
+function emitItineraryChanged() {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new CustomEvent(ITINERARY_CHANGED_EVENT));
+}
+
 export async function updateStop(stopId: string, patch: Partial<Stop>): Promise<void> {
   const { error } = await supabase.from("itinerary_stops").update(patch).eq("id", stopId);
   if (error) throw new Error(error.message);
+  emitItineraryChanged();
 }
 
 export async function deleteItinerary(id: string): Promise<void> {
   const { error } = await supabase.from("itineraries").delete().eq("id", id);
   if (error) throw new Error(error.message);
+  emitItineraryChanged();
 }
 
 export async function updateItinerary(id: string, patch: Partial<Itinerary>): Promise<void> {
   const { error } = await supabase.from("itineraries").update(patch).eq("id", id);
   if (error) throw new Error(error.message);
+  emitItineraryChanged();
 }
 
 export async function completeItinerary(id: string): Promise<void> {

@@ -186,6 +186,7 @@ function ViralPage() {
         </div>
       )}
     </div>
+    </PullToRefresh>
   );
 }
 

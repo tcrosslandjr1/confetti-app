@@ -224,6 +224,18 @@ function Landing() {
 
   const [bookingOpen, setBookingOpen] = useState(false);
 
+  // Show the bottom sticky CTA once the hero is offscreen so the primary action
+  // is always one tap away while scrolling the long landing page.
+  const [showStickyCta, setShowStickyCta] = useState(false);
+  useEffect(() => {
+    function onScroll() {
+      setShowStickyCta(window.scrollY > 600);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   // Subtle hero parallax
   const heroBgRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
@@ -1333,6 +1345,31 @@ function Landing() {
           />
         </Suspense>
       )}
+
+      {/* Scroll-triggered sticky CTA — appears after the hero is offscreen */}
+      <div
+        className={`fixed inset-x-0 bottom-0 z-40 border-t-2 border-ink bg-cream/95 backdrop-blur transition-transform duration-300 ${
+          showStickyCta ? "translate-y-0" : "translate-y-full"
+        }`}
+        aria-hidden={!showStickyCta}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+          <div className="min-w-0">
+            <p className="truncate font-display text-sm font-extrabold leading-tight">
+              Your whole night, planned in 60 sec.
+            </p>
+            <p className="truncate text-[11px] text-ink/60">Free · No signup to try</p>
+          </div>
+          <span onClick={() => trackCta("plan_my_night_sticky", { location: "sticky_bar" })}>
+            <WizardButton
+              ariaLabel="Plan my night"
+              className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-full border-2 border-ink bg-ink px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
+            >
+              Plan my night <ArrowUpRight className="h-4 w-4" />
+            </WizardButton>
+          </span>
+        </div>
+      </div>
     </div>
   );
 }

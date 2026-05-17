@@ -588,7 +588,37 @@ function CreatePage() {
 
       {/* Sticky CTA */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-        <div className="mx-auto max-w-md px-4 py-3 sm:max-w-xl lg:max-w-2xl lg:px-6">
+        <div className="mx-auto max-w-md px-4 pt-2.5 pb-3 sm:max-w-xl lg:max-w-2xl lg:px-6">
+          {/* Mini step rail above the button — keeps "where am I" visible at the tap point */}
+          <div className="mb-2 flex items-center justify-between gap-2">
+            <div className="flex items-center gap-1.5">
+              {STEP_LABELS.map((label, i) => {
+                const done = i < step;
+                const current = i === step;
+                return (
+                  <button
+                    key={label}
+                    onClick={() => i <= step && setStep(i)}
+                    disabled={i > step}
+                    className={`font-mono text-[9px] font-bold uppercase tracking-widest transition ${
+                      done
+                        ? "text-coral hover:underline"
+                        : current
+                        ? "text-ink"
+                        : "text-ink/30"
+                    }`}
+                  >
+                    {i + 1}·{label}
+                    {i < STEP_LABELS.length - 1 && <span className="ml-1.5 text-ink/20">›</span>}
+                  </button>
+                );
+              })}
+            </div>
+            <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-ink/50">
+              ~{Math.max(15, (totalSteps - step) * 15)}s left
+            </span>
+          </div>
+
           <button
             disabled={!canNext || generating}
             onClick={() => (step < totalSteps - 1 ? setStep(step + 1) : finish())}
@@ -605,6 +635,8 @@ function CreatePage() {
           <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
             {!canNext && step !== 2
               ? `Pick a ${STEP_LABELS[step].toLowerCase()} to continue`
+              : step < totalSteps - 1
+              ? `Next: ${STEP_TITLES[step + 1]}`
               : "Free · No signup · ~60 sec total"}
           </p>
         </div>

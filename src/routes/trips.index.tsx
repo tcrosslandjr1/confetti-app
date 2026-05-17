@@ -1,9 +1,10 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { CalendarPlus, MapPin, Sparkles } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { useAuth } from "@/lib/auth-context";
 import { listItineraries, type Itinerary } from "@/lib/itineraries";
+import { PullToRefresh } from "@/components/PullToRefresh";
 
 export const Route = createFileRoute("/trips/")({
   head: () => ({

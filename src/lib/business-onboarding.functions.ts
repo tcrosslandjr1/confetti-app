@@ -270,3 +270,83 @@ export const adminRejectVenueClaim = createServerFn({ method: "POST" })
     if (error) throw new Error(error.message);
     return { claim: updated };
   });
+
+/* ------------------------- BUSINESS OWNER ROLE ------------------------- */
+
+export const grantBusinessOwnerRoleFn = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const supabase = adminClient();
+    const { error } = await supabase
+      .from("user_roles")
+      .insert({ user_id: context.userId, role: "business_owner" as never })
+      .select("id");
+    // Ignore unique violation (role already granted)
+    if (error && !/duplicate|unique/i.test(error.message)) {
+      throw new Error(error.message);
+    }
+    return { ok: true };
+  });
+
+export async function grantBusinessOwnerRole() {
+  return grantBusinessOwnerRoleFn();
+}
+
+/* ------------------------- ADMIN: DECIDE ADVERTISER ------------------------- */
+
+export const decideAdvertiserFn = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      advertiserId: z.string().uuid(),
+      decision: z.enum(["approve", "reject"]),
+      note: z.string().max(2000).optional(),
+    }),
+  )
+  .handler(async ({ data, context }) => {
+    const supabase = adminClient();
+    const { data: adminRow } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", context.userId)
+      .eq("role", "admin")
+      .maybeSingle();
+    if (!adminRow) throw new Error("Admins only");
+
+    const newStatus = data.decision === "approve" ? "active" : "rejected";
+    const { data: adv, error } = await supabase
+      .from("advertisers")
+      .update({
+        status: newStatus,
+        review_note: data.note ?? null,
+        reviewed_at: new Date().toISOString(),
+        reviewed_by: context.userId,
+      } as never)
+      .eq("id", data.advertiserId)
+      .select("id, owner_id, business_name, contact_email")
+      .single();
+    if (error) throw new Error(error.message);
+
+    // In-app notification for the owner
+    try {
+      const title =
+        data.decision === "approve"
+          ? "Your business is approved 🎉"
+          : "Your business application was not approved";
+      const body =
+        data.decision === "approve"
+          ? `Welcome to Confetti — open your portal to launch your first campaign.`
+          : (data.note ?? "We couldn't approve your application at this time.");
+      await supabase.from("notifications").insert({
+        user_id: adv.owner_id,
+        kind: data.decision === "approve" ? "business_approved" : "business_rejected",
+        title,
+        body,
+        link: data.decision === "approve" ? "/advertise/portal" : "/advertise#signup",
+      } as never);
+    } catch {
+      /* non-fatal */
+    }
+
+    return { advertiser: adv };
+  });

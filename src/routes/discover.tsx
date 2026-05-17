@@ -273,6 +273,7 @@ function DiscoverMap({
   selected: VenueRow | null;
   onSelect: (row: VenueRow | null) => void;
 }) {
+  const navigate = useNavigate();
   // Spread out venues without coords on a soft grid so the map always has pins.
   const pinned = useMemo(() => {
     return rows.map((r, i) => {

@@ -180,7 +180,7 @@ export const createTicketCheckout = createServerFn({ method: "POST" })
         eventTitle: ev.title,
         quantity: String(data.quantity),
       },
-    });
+    } as any);
     return session.client_secret;
   });
 

@@ -225,20 +225,47 @@ function ChatList() {
         </div>
       )}
 
+      <div className="mt-4 grid grid-cols-3 gap-2">
+        {[
+          { k: "Chats", v: threads.length },
+          { k: "Today", v: grouped.Today?.length ?? 0 },
+          { k: "This week", v: (grouped.Today?.length ?? 0) + (grouped["This week"]?.length ?? 0) },
+        ].map((s) => (
+          <div
+            key={s.k}
+            className="rounded-2xl border border-border bg-card px-3 py-2 text-center shadow-card"
+          >
+            <div className="font-display text-xl font-black text-ink">{s.v}</div>
+            <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+              {s.k}
+            </div>
+          </div>
+        ))}
+      </div>
+
       <div className="mt-5 space-y-5">
         {loading ? (
-          <div className="text-sm text-muted-foreground">Loading...</div>
+          <div className="space-y-2">
+            {[0, 1, 2].map((i) => (
+              <div
+                key={i}
+                className="h-16 animate-pulse rounded-2xl border border-border bg-card/60"
+              />
+            ))}
+          </div>
         ) : filtered.length === 0 ? (
           threads.length === 0 ? (
-            <div className="rounded-3xl border border-dashed border-border bg-card/50 p-8 text-center">
-              <MessageCircle className="mx-auto h-8 w-8 text-muted-foreground" />
-              <div className="mt-3 font-semibold">No chats yet</div>
-              <div className="mt-1 text-xs text-muted-foreground">
-                Start one to plan your night.
+            <div className="relative overflow-hidden rounded-3xl border border-dashed border-coral/40 bg-gradient-to-br from-coral/10 via-cream to-gold/10 p-8 text-center">
+              <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-gradient-vibe text-primary-foreground shadow-pop">
+                <Sparkles className="h-6 w-6" />
+              </div>
+              <div className="mt-4 font-display text-lg font-bold">Your concierge is ready</div>
+              <div className="mt-1 text-xs text-ink/60">
+                Start a chat — or tap a quick prompt above.
               </div>
               <button
                 onClick={newChat}
-                className="mt-4 inline-flex rounded-full bg-gradient-vibe px-4 py-2 text-sm font-semibold text-primary-foreground"
+                className="mt-5 inline-flex rounded-full bg-gradient-vibe px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-pop active:scale-95"
               >
                 Start chatting
               </button>
@@ -252,102 +279,128 @@ function ChatList() {
           (["Today", "This week", "Earlier"] as const).map((label) =>
             grouped[label].length > 0 ? (
               <section key={label}>
-                <div className="mb-2 px-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                  {label}
+                <div className="mb-2 flex items-center gap-2 px-1">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    {label}
+                  </span>
+                  <span className="rounded-full bg-muted px-1.5 text-[10px] font-bold text-ink/60">
+                    {grouped[label].length}
+                  </span>
+                  <div className="h-px flex-1 bg-border" />
                 </div>
                 <div className="space-y-2">
-                  {grouped[label].map((t) => (
-                    <div
-                      key={t.id}
-                      className="group flex items-center gap-2 rounded-2xl border border-border bg-card p-3 shadow-card"
-                    >
-                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-cool text-primary-foreground">
-                        <MessageCircle className="h-4 w-4" />
-                      </span>
-                      {editingId === t.id ? (
-                        <div className="flex flex-1 items-center gap-2">
-                          <input
-                            autoFocus
-                            value={editValue}
-                            onChange={(e) => setEditValue(e.target.value)}
-                            onKeyDown={(e) => {
-                              if (e.key === "Enter") void saveEdit();
-                              if (e.key === "Escape") setEditingId(null);
-                            }}
-                            className="min-w-0 flex-1 rounded-lg border border-border bg-background px-2 py-1 text-sm outline-none focus:border-primary"
-                          />
-                          <button
-                            onClick={saveEdit}
-                            className="rounded-lg p-1.5 text-primary hover:bg-muted"
-                            aria-label="Save"
-                          >
-                            <Check className="h-4 w-4" />
-                          </button>
-                          <button
-                            onClick={() => setEditingId(null)}
-                            className="rounded-lg p-1.5 text-muted-foreground hover:bg-muted"
-                            aria-label="Cancel"
-                          >
-                            <X className="h-4 w-4" />
-                          </button>
-                        </div>
-                      ) : (
-                        <>
-                          <Link
-                            to="/concierge/chat/$threadId"
-                            params={{ threadId: t.id }}
-                            className="min-w-0 flex-1"
-                          >
-                            <div className="truncate text-sm font-semibold">
-                              {t.title || "Untitled"}
-                            </div>
-                            {MOCK_PREVIEWS[t.id] && (
-                              <div className="truncate text-xs text-muted-foreground">
-                                {MOCK_PREVIEWS[t.id]}
-                              </div>
-                            )}
-                            <div className="text-[11px] text-muted-foreground">
-                              {formatDistanceToNow(new Date(t.last_message_at), {
-                                addSuffix: true,
-                              })}
-                            </div>
-                          </Link>
-                          <button
-                            onClick={() => startEdit(t)}
-                            className="rounded-lg p-2 text-muted-foreground hover:bg-muted hover:text-foreground"
-                            aria-label="Rename"
-                          >
-                            <Pencil className="h-3.5 w-3.5" />
-                          </button>
-                          {confirmId === t.id ? (
-                            <div className="flex items-center gap-1">
-                              <button
-                                onClick={() => void remove(t.id)}
-                                className="rounded-lg bg-destructive px-2 py-1 text-[11px] font-semibold text-destructive-foreground"
-                              >
-                                Delete
-                              </button>
-                              <button
-                                onClick={() => setConfirmId(null)}
-                                className="rounded-lg p-1.5 text-muted-foreground hover:bg-muted"
-                                aria-label="Cancel"
-                              >
-                                <X className="h-4 w-4" />
-                              </button>
-                            </div>
-                          ) : (
-                            <button
-                              onClick={() => setConfirmId(t.id)}
-                              className="rounded-lg p-2 text-muted-foreground hover:bg-muted hover:text-destructive"
-                              aria-label="Delete"
-                            >
-                              <Trash2 className="h-4 w-4" />
-                            </button>
+                  {grouped[label].map((t, idx) => {
+                    const tints = [
+                      "from-coral to-pink-500",
+                      "from-indigo-500 to-purple-500",
+                      "from-gold to-amber-500",
+                      "from-emerald-500 to-teal-500",
+                      "from-sky-500 to-blue-600",
+                    ];
+                    const tint = tints[(t.id.charCodeAt(0) + idx) % tints.length];
+                    const isToday = label === "Today";
+                    return (
+                      <div
+                        key={t.id}
+                        className="group relative flex items-center gap-3 rounded-2xl border border-border bg-card p-3 shadow-card transition hover:-translate-y-0.5 hover:shadow-pop"
+                      >
+                        <span
+                          className={`relative grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br ${tint} text-white shadow-sm`}
+                        >
+                          <MessageCircle className="h-4 w-4" />
+                          {isToday && (
+                            <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-coral ring-2 ring-card" />
                           )}
-                        </>
-                      )}
-                    </div>
-                  ))}
+                        </span>
+                        {editingId === t.id ? (
+                          <div className="flex flex-1 items-center gap-2">
+                            <input
+                              autoFocus
+                              value={editValue}
+                              onChange={(e) => setEditValue(e.target.value)}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter") void saveEdit();
+                                if (e.key === "Escape") setEditingId(null);
+                              }}
+                              className="min-w-0 flex-1 rounded-lg border border-border bg-background px-2 py-1 text-sm outline-none focus:border-primary"
+                            />
+                            <button
+                              onClick={saveEdit}
+                              className="rounded-lg p-1.5 text-primary hover:bg-muted"
+                              aria-label="Save"
+                            >
+                              <Check className="h-4 w-4" />
+                            </button>
+                            <button
+                              onClick={() => setEditingId(null)}
+                              className="rounded-lg p-1.5 text-muted-foreground hover:bg-muted"
+                              aria-label="Cancel"
+                            >
+                              <X className="h-4 w-4" />
+                            </button>
+                          </div>
+                        ) : (
+                          <>
+                            <Link
+                              to="/concierge/chat/$threadId"
+                              params={{ threadId: t.id }}
+                              className="min-w-0 flex-1"
+                            >
+                              <div className="flex items-center gap-2">
+                                <div className="truncate text-sm font-bold text-ink">
+                                  {t.title || "Untitled"}
+                                </div>
+                                <div className="ml-auto shrink-0 text-[10px] font-medium text-muted-foreground">
+                                  {formatDistanceToNow(new Date(t.last_message_at), {
+                                    addSuffix: false,
+                                  })}
+                                </div>
+                              </div>
+                              {MOCK_PREVIEWS[t.id] && (
+                                <div className="mt-0.5 truncate text-xs text-ink/60">
+                                  {MOCK_PREVIEWS[t.id]}
+                                </div>
+                              )}
+                            </Link>
+                            <div className="flex items-center opacity-0 transition group-hover:opacity-100">
+                              <button
+                                onClick={() => startEdit(t)}
+                                className="rounded-lg p-2 text-muted-foreground hover:bg-muted hover:text-foreground"
+                                aria-label="Rename"
+                              >
+                                <Pencil className="h-3.5 w-3.5" />
+                              </button>
+                              {confirmId === t.id ? (
+                                <div className="flex items-center gap-1">
+                                  <button
+                                    onClick={() => void remove(t.id)}
+                                    className="rounded-lg bg-destructive px-2 py-1 text-[11px] font-semibold text-destructive-foreground"
+                                  >
+                                    Delete
+                                  </button>
+                                  <button
+                                    onClick={() => setConfirmId(null)}
+                                    className="rounded-lg p-1.5 text-muted-foreground hover:bg-muted"
+                                    aria-label="Cancel"
+                                  >
+                                    <X className="h-4 w-4" />
+                                  </button>
+                                </div>
+                              ) : (
+                                <button
+                                  onClick={() => setConfirmId(t.id)}
+                                  className="rounded-lg p-2 text-muted-foreground hover:bg-muted hover:text-destructive"
+                                  aria-label="Delete"
+                                >
+                                  <Trash2 className="h-4 w-4" />
+                                </button>
+                              )}
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </section>
             ) : null,

@@ -235,6 +235,21 @@ function VenueBookingPage() {
           )}
         </div>
       </div>
+
+      <ReservationModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        venue={venue}
+        dateIdx={dateIdx}
+        setDateIdx={setDateIdx}
+        time={time}
+        setTime={setTime}
+        party={party}
+        setParty={setParty}
+        notes={notes}
+        setNotes={setNotes}
+        code={confirmationCode}
+      />
     </div>
   );
 }

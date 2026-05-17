@@ -9,8 +9,8 @@ import { useCallback } from "react";
 import { SAMPLE_VENUES as SAMPLE_DATA, type SampleCategory } from "@/lib/sample-venues";
 
 const discoverSearchSchema = z.object({
-  venueId: fallback(z.string().optional(), undefined),
-  view: fallback(z.enum(["list", "map"]).optional(), undefined),
+  venueId: z.string().optional().catch(undefined),
+  view: z.enum(["list", "map"]).optional().catch(undefined),
 });
 
 export const Route = createFileRoute("/discover")({

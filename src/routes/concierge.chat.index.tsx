@@ -3,7 +3,20 @@ import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { firstNameOrFriend } from "@/lib/user-name";
-import { Check, MessageCircle, Pencil, Plus, Search, Trash2, X } from "lucide-react";
+import {
+  Check,
+  MessageCircle,
+  Pencil,
+  Plus,
+  Search,
+  Sparkles,
+  Trash2,
+  X,
+  Utensils,
+  PartyPopper,
+  Music,
+  Wine,
+} from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { toast } from "sonner";
 

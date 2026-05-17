@@ -22,7 +22,9 @@ import {
   Wand2,
   Loader2,
   Sliders,
+  LayoutDashboard,
 } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import {
   getMyReferralStats,

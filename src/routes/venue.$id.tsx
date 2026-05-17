@@ -199,7 +199,7 @@ function VenueBookingPage() {
 
       <div className="relative mx-auto max-w-2xl px-4 pb-32 pt-2 sm:px-6">
         <div key={step} className={dir === 1 ? "animate-[slide-in-right_.32s_ease-out]" : "animate-[fade-in_.32s_ease-out]"}>
-          {step === 1 && <StepVenue venue={venue} onNext={() => go(2)} />}
+          {step === 1 && <StepVenue venue={venue} onReserve={() => setModalOpen(true)} />}
           {step === 2 && (
             <StepTime
               venue={venue}

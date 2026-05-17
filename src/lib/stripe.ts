@@ -1,10 +1,25 @@
-import type { StripeEnv } from './stripe.server';
+import { loadStripe, type Stripe } from "@stripe/stripe-js";
+import type { StripeEnv } from "./stripe.server";
+
+const clientToken = import.meta.env.VITE_PAYMENTS_CLIENT_TOKEN as string | undefined;
+
+let stripePromise: Promise<Stripe | null> | null = null;
+
+export function getStripe(): Promise<Stripe | null> {
+  if (!stripePromise) {
+    if (!clientToken) {
+      throw new Error("VITE_PAYMENTS_CLIENT_TOKEN is not set");
+    }
+    stripePromise = loadStripe(clientToken);
+  }
+  return stripePromise;
+}
 
 /** Returns the active Stripe environment for client-side reads. */
 export function getStripeEnvironment(): StripeEnv {
-  if (typeof window === 'undefined') return 'sandbox';
+  if (clientToken?.startsWith("pk_live_")) return "live";
+  if (clientToken?.startsWith("pk_test_")) return "sandbox";
+  if (typeof window === "undefined") return "sandbox";
   const host = window.location.hostname;
-  // Treat the published custom/Lovable domain as live; everything else (preview, localhost) as sandbox.
-  const isLive = host === 'confettiplan.lovable.app';
-  return isLive ? 'live' : 'sandbox';
+  return host === "confettiplan.lovable.app" ? "live" : "sandbox";
 }

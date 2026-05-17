@@ -4,6 +4,7 @@ import { LayoutList, Map as MapIcon, MapPin, Star, Loader2, Search, X, Sparkles 
 import { supabase } from "@/integrations/supabase/client";
 import { PullToRefresh } from "@/components/PullToRefresh";
 import { useCallback } from "react";
+import { SAMPLE_VENUES as SAMPLE_DATA, type SampleCategory } from "@/lib/sample-venues";
 
 export const Route = createFileRoute("/discover")({
   head: () => ({

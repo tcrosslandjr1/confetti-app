@@ -21,7 +21,7 @@ jobs:
 
       # Auto-fix formatting first, then check
       - name: Prettier auto-fix
-        run: bun run format:write
+        run: bun run format
 
       - name: Check for formatting changes
         id: prettier-changes

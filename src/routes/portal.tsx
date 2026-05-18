@@ -46,7 +46,7 @@ const NAV: NavItem[] = [
 ];
 
 function PortalLayout() {
-  const { user, loading, viewAs } = useAuth();
+  const { user, loading, viewAs, isPreview } = useAuth();
   const nav = useNavigate();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
@@ -56,6 +56,9 @@ function PortalLayout() {
   useEffect(() => {
     if (loading) return;
     if (isDemoPage) return;
+    // Preview mode (role switcher picked "customer" without a real session) —
+    // render the shell so the role can be tested.
+    if (isPreview && viewAs === "customer") return;
     if (!user) {
       logAccessDenial({
         source: "route-guard",
@@ -85,9 +88,10 @@ function PortalLayout() {
     } else if (viewAs === "business") {
       nav({ to: "/advertise/portal" });
     }
-  }, [user, loading, viewAs, nav, pathname, isDemoPage]);
+  }, [user, loading, viewAs, isPreview, nav, pathname, isDemoPage]);
 
-  if (!isDemoPage && (loading || !user || viewAs !== "customer")) {
+  const allowPreview = isPreview && viewAs === "customer";
+  if (!isDemoPage && !allowPreview && (loading || !user || viewAs !== "customer")) {
     const message = "Loading your portal…";
     return (
       <div

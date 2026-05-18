@@ -746,7 +746,6 @@ function CreatePage() {
             </div>
           )}
 
-
           {step === 1 && (
             <div className="space-y-2.5">
               {OCCASIONS.map((o) => {

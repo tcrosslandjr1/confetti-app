@@ -6,6 +6,7 @@ import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { findCity } from "./agents/city-context";
 import { findTemplate } from "./agents/templates";
 import { impromptuPoolPrompt } from "./agents/impromptu";
+import { buildWaterfrontPrompt, buildGirlsNightPresetsPrompt } from "./agents/waterfront";
 import { fetchForecastForCityDate, weatherGuidance } from "./weather.server";
 import type { GeneratedPlan } from "./agents/types";
 

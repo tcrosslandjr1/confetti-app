@@ -178,8 +178,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // so the role can be tested; RLS continues to enforce real permissions.
     const preview =
       viewAsState !== null &&
-      ((!session?.user && viewAsState !== "visitor") ||
-        (viewAsState === "admin" && !isAdmin));
+      ((!session?.user && viewAsState !== "visitor") || (viewAsState === "admin" && !isAdmin));
 
     return {
       user: session?.user ?? null,

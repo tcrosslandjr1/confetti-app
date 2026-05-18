@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { zodValidator } from "@tanstack/zod-adapter";
 import { z } from "zod";
 import {
@@ -15,11 +15,9 @@ import {
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { PullToRefresh } from "@/components/PullToRefresh";
-import { useCallback } from "react";
 import { SAMPLE_VENUES as SAMPLE_DATA, type SampleCategory } from "@/lib/sample-venues";
 
 const discoverSearchSchema = z.object({
-  venueId: z.string().optional().catch(undefined),
   view: z.enum(["list", "map"]).optional().catch(undefined),
 });
 

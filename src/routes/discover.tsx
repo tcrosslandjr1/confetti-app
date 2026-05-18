@@ -311,7 +311,17 @@ function DiscoverPage() {
                   <Link to="/venue/$id" params={{ id: v.id }} className="block">
                     <div className="relative h-32 w-full overflow-hidden">
                       {v.photo ? (
-                        <img src={v.photo} alt={v.name} className="h-full w-full object-cover" />
+                        <img
+                          src={v.photo}
+                          alt={v.name}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          onError={(e) => {
+                            const img = e.currentTarget;
+                            const fb = unsplashFor(v.category ?? null, v.name);
+                            if (img.src !== fb) img.src = fb;
+                          }}
+                        />
                       ) : (
                         <div
                           className={`h-full w-full bg-gradient-to-br ${v.gradient ?? "from-slate-500 via-slate-700 to-slate-900"}`}

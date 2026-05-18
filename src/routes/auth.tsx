@@ -1024,6 +1024,30 @@ function AuthPage() {
                 →
               </span>
             </button>
+
+            {/* Social proof — avatar stack + live counter */}
+            <div className="mt-3 flex items-center justify-center gap-2.5">
+              <div className="flex -space-x-2">
+                {[
+                  { i: "MR", c: "bg-coral text-cream" },
+                  { i: "JT", c: "bg-ink text-cream" },
+                  { i: "AS", c: "bg-gold text-ink" },
+                  { i: "LK", c: "bg-purple text-cream" },
+                ].map((a) => (
+                  <span
+                    key={a.i}
+                    className={`grid h-7 w-7 place-items-center rounded-full border-2 border-cream font-display text-[10px] font-extrabold shadow-brut ${a.c}`}
+                  >
+                    {a.i}
+                  </span>
+                ))}
+              </div>
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/60">
+                <span className="font-bold text-ink">12,438</span> joined ·{" "}
+                <span className="text-coral">214 tonight</span>
+              </span>
+            </div>
+
             {mode === "signup" && (
               <p className="text-center text-[11px] leading-relaxed text-ink/60">
                 By creating an account you accept our{" "}
@@ -1041,13 +1065,17 @@ function AuthPage() {
           <button
             type="button"
             onClick={() => setMode((m) => (m === "signin" ? "signup" : "signin"))}
-            className="mt-6 text-center text-sm text-muted-foreground"
+            className="group mt-6 inline-flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-dashed border-ink/30 bg-cream/60 px-4 py-3 text-left transition-all hover:border-ink hover:bg-cream hover:shadow-brut"
           >
-            {mode === "signin" ? "Don't have an account? " : "Already have one? "}
-            <span className="font-semibold text-foreground">
-              {mode === "signin" ? "Sign up" : "Sign in"}
+            <span className="text-sm text-ink/70">
+              {mode === "signin" ? "Don't have an account? " : "Already have one? "}
+              <span className="font-display font-extrabold text-ink">
+                {mode === "signin" ? "Sign up" : "Sign in"}
+              </span>
             </span>
+            <ArrowRight className="h-4 w-4 text-ink/40 transition-transform group-hover:translate-x-1 group-hover:text-coral" />
           </button>
+
 
           {import.meta.env.DEV && (
             <div className="mt-8 rounded-2xl border border-dashed border-border bg-card/50 p-4">

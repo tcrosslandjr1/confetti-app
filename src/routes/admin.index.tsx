@@ -111,6 +111,24 @@ function AdminDashboard() {
   const { data: kpis, isLoading } = useOverviewKpis();
   const { data: feed } = useActivityFeed();
   const audit = useAuditLog();
+  const [filters, setFilters] = useState<LogFilterState>(EMPTY_FILTERS);
+
+  const filteredFeed = useMemo(
+    () =>
+      applyLogFilters(feed ?? [], filters, {
+        getDate: (n) => n.created_at,
+        getText: (n) => `${n.title} ${n.body ?? ""} ${n.kind}`,
+      }),
+    [feed, filters],
+  );
+  const filteredAudit = useMemo(
+    () =>
+      applyLogFilters(audit, filters, {
+        getDate: (a) => a.at,
+        getText: (a) => `${a.summary} ${a.admin} ${a.action} ${a.entity} ${a.targetId}`,
+      }).slice(0, 3),
+    [audit, filters],
+  );
 
   const k = kpis ?? {
     pendingAdvertisers: 0,

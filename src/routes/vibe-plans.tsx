@@ -10,11 +10,21 @@ import { Badge } from "@/components/ui/badge";
 import { MobileHeader } from "@/components/AppShell";
 import { cn } from "@/lib/utils";
 import { generatePlan } from "@/lib/generate-plan.functions";
+import { classifyOuting } from "@/lib/classify-outing.functions";
 import type { GeneratedPlan } from "@/lib/agents/types";
 import { CITIES, findCityLoose, type CityContext } from "@/lib/agents/city-context";
 import { matchState, isKnownCity } from "@/lib/agents/states";
 import { detectWaterfront } from "@/lib/agents/waterfront";
 import { setActiveLoop, makeDemoLoop, type ActiveLoop } from "@/lib/loop-store";
+import {
+  CATEGORY_GROUPS,
+  OUTING_CATEGORIES,
+  CATEGORIES_BY_ID,
+  categoriesByGroup,
+  resolveCategories,
+  buildCategoryDirective,
+  type CategoryGroupId,
+} from "@/lib/agents/outing-categories";
 
 export const Route = createFileRoute("/vibe-plans")({
   component: VibePlansPage,

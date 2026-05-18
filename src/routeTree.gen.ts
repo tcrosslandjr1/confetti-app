@@ -98,6 +98,7 @@ import { Route as PartnerOrderSettingsRouteImport } from './routes/partner.order
 import { Route as PartnerMenuRouteImport } from './routes/partner.menu'
 import { Route as PartnerCalendarRouteImport } from './routes/partner.calendar'
 import { Route as PartnerBookingSettingsRouteImport } from './routes/partner.booking-settings'
+import { Route as PartnerAnalyticsRouteImport } from './routes/partner.analytics'
 import { Route as PCodeRouteImport } from './routes/p.$code'
 import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
@@ -622,6 +623,11 @@ const PartnerBookingSettingsRoute = PartnerBookingSettingsRouteImport.update({
   path: '/booking-settings',
   getParentRoute: () => PartnerRoute,
 } as any)
+const PartnerAnalyticsRoute = PartnerAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => PartnerRoute,
+} as any)
 const PCodeRoute = PCodeRouteImport.update({
   id: '/p/$code',
   path: '/p/$code',
@@ -1131,6 +1137,7 @@ export interface FileRoutesByFullPath {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
+  '/partner/analytics': typeof PartnerAnalyticsRoute
   '/partner/booking-settings': typeof PartnerBookingSettingsRoute
   '/partner/calendar': typeof PartnerCalendarRoute
   '/partner/menu': typeof PartnerMenuRoute
@@ -1291,6 +1298,7 @@ export interface FileRoutesByTo {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
+  '/partner/analytics': typeof PartnerAnalyticsRoute
   '/partner/booking-settings': typeof PartnerBookingSettingsRoute
   '/partner/calendar': typeof PartnerCalendarRoute
   '/partner/menu': typeof PartnerMenuRoute
@@ -1461,6 +1469,7 @@ export interface FileRoutesById {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
+  '/partner/analytics': typeof PartnerAnalyticsRoute
   '/partner/booking-settings': typeof PartnerBookingSettingsRoute
   '/partner/calendar': typeof PartnerCalendarRoute
   '/partner/menu': typeof PartnerMenuRoute
@@ -1632,6 +1641,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/p/$code'
+    | '/partner/analytics'
     | '/partner/booking-settings'
     | '/partner/calendar'
     | '/partner/menu'
@@ -1792,6 +1802,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/p/$code'
+    | '/partner/analytics'
     | '/partner/booking-settings'
     | '/partner/calendar'
     | '/partner/menu'
@@ -1961,6 +1972,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/p/$code'
+    | '/partner/analytics'
     | '/partner/booking-settings'
     | '/partner/calendar'
     | '/partner/menu'
@@ -2743,6 +2755,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PartnerBookingSettingsRouteImport
       parentRoute: typeof PartnerRoute
     }
+    '/partner/analytics': {
+      id: '/partner/analytics'
+      path: '/analytics'
+      fullPath: '/partner/analytics'
+      preLoaderRoute: typeof PartnerAnalyticsRouteImport
+      parentRoute: typeof PartnerRoute
+    }
     '/p/$code': {
       id: '/p/$code'
       path: '/p/$code'
@@ -3431,6 +3450,7 @@ const CorporateRouteWithChildren = CorporateRoute._addFileChildren(
 )
 
 interface PartnerRouteChildren {
+  PartnerAnalyticsRoute: typeof PartnerAnalyticsRoute
   PartnerBookingSettingsRoute: typeof PartnerBookingSettingsRoute
   PartnerCalendarRoute: typeof PartnerCalendarRoute
   PartnerMenuRoute: typeof PartnerMenuRoute
@@ -3442,6 +3462,7 @@ interface PartnerRouteChildren {
 }
 
 const PartnerRouteChildren: PartnerRouteChildren = {
+  PartnerAnalyticsRoute: PartnerAnalyticsRoute,
   PartnerBookingSettingsRoute: PartnerBookingSettingsRoute,
   PartnerCalendarRoute: PartnerCalendarRoute,
   PartnerMenuRoute: PartnerMenuRoute,

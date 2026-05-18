@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import {
   Sparkles,
@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   Eye,
   EyeOff,
+  Check,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 
@@ -76,6 +77,37 @@ function AuthPage() {
   void pickTick; // re-render dependency for the live counter
   const pickSeats = liveSeatsRemaining(tonightsPick.id, new Date());
   const pickShortCity = tonightsPick.city.split(",")[0].trim().toLowerCase();
+
+  // Mouse-driven parallax for the ambient background orbs. Values are
+  // normalized to roughly -1..1 around the viewport center and consumed via
+  // the `.parallax-soft` / `.parallax-strong` utilities in styles.css.
+  const parallaxRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onMove = (e: MouseEvent) => {
+      const el = parallaxRef.current;
+      if (!el) return;
+      const mx = (e.clientX / window.innerWidth) * 2 - 1;
+      const my = (e.clientY / window.innerHeight) * 2 - 1;
+      el.style.setProperty("--mx", mx.toFixed(3));
+      el.style.setProperty("--my", my.toFixed(3));
+    };
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
+
+  // Lightweight password strength heuristic (length + variety). 0..4.
+  const pwStrength = useMemo(() => {
+    let s = 0;
+    if (password.length >= 8) s++;
+    if (password.length >= 12) s++;
+    if (/[A-Z]/.test(password) && /[a-z]/.test(password)) s++;
+    if (/\d/.test(password) && /[^A-Za-z0-9]/.test(password)) s++;
+    return Math.min(s, 4);
+  }, [password]);
+  const pwLabel = ["too short", "weak", "ok", "strong", "excellent"][pwStrength];
+  const emailLooksValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
 
   // Translate OAuth provider/Supabase errors into something a user can act on.
   function explainOAuthError(provider: "google" | "apple", raw: string): string {
@@ -247,12 +279,16 @@ function AuthPage() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-cream text-ink">
+    <div
+      ref={parallaxRef}
+      className="relative min-h-screen overflow-hidden bg-cream text-ink"
+      style={{ ["--mx" as never]: 0, ["--my" as never]: 0 } as CSSProperties}
+    >
       {/* Immersive background: animated orbs + ticker tape + grain */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-gradient-vibe opacity-30 blur-3xl animate-[pulse_8s_ease-in-out_infinite]" />
-        <div className="absolute top-1/3 -right-40 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,_oklch(0.78_0.18_60_/_0.55),_transparent_70%)] blur-3xl animate-[pulse_11s_ease-in-out_infinite]" />
-        <div className="absolute bottom-0 left-1/4 h-80 w-80 rounded-full bg-[radial-gradient(circle,_oklch(0.72_0.21_355_/_0.4),_transparent_70%)] blur-3xl animate-[pulse_9s_ease-in-out_infinite]" />
+        <div className="parallax-strong absolute -top-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-gradient-vibe opacity-30 blur-3xl animate-[pulse_8s_ease-in-out_infinite]" />
+        <div className="parallax-soft absolute top-1/3 -right-40 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,_oklch(0.78_0.18_60_/_0.55),_transparent_70%)] blur-3xl animate-[pulse_11s_ease-in-out_infinite]" />
+        <div className="parallax-strong absolute bottom-0 left-1/4 h-80 w-80 rounded-full bg-[radial-gradient(circle,_oklch(0.72_0.21_355_/_0.4),_transparent_70%)] blur-3xl animate-[pulse_9s_ease-in-out_infinite]" />
         {/* Faint dotted grid */}
         <div
           className="absolute inset-0 opacity-[0.12]"
@@ -573,11 +609,44 @@ function AuthPage() {
           </div>
 
           <div className="mt-8 lg:mt-4">
-            <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut">
+            {/* Segmented mode toggle */}
+            <div
+              className="rise-in mb-5 inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream p-1 shadow-brut"
+              style={{ ["--d" as never]: "0ms" } as CSSProperties}
+              role="tablist"
+              aria-label="Sign in or sign up"
+            >
+              {(["signup", "signin"] as const).map((m) => {
+                const active = mode === m;
+                return (
+                  <button
+                    key={m}
+                    type="button"
+                    role="tab"
+                    aria-selected={active}
+                    onClick={() => setMode(m)}
+                    className={`relative rounded-full px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${
+                      active
+                        ? "bg-ink text-cream shadow-brut"
+                        : "text-ink/60 hover:text-ink"
+                    }`}
+                  >
+                    {m === "signup" ? "Sign up" : "Sign in"}
+                  </button>
+                );
+              })}
+            </div>
+            <span
+              className="rise-in inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut"
+              style={{ ["--d" as never]: "80ms" } as CSSProperties}
+            >
               <span className="h-1.5 w-1.5 rounded-full bg-coral" />
               {mode === "signup" ? "Join the list" : "Welcome back"}
             </span>
-            <h1 className="mt-3 font-display text-[2.25rem] font-extrabold leading-[1.02] tracking-tight sm:text-4xl">
+            <h1
+              className="rise-in mt-3 font-display text-[2.25rem] font-extrabold leading-[1.02] tracking-tight sm:text-4xl"
+              style={{ ["--d" as never]: "160ms" } as CSSProperties}
+            >
               {mode === "signup" ? (
                 <>
                   Your personal <span className="text-gradient">guide</span> to every city.
@@ -588,14 +657,17 @@ function AuthPage() {
                 </>
               )}
             </h1>
-            <p className="mt-3 text-sm text-ink/70">
+            <p
+              className="rise-in mt-3 text-sm text-ink/70"
+              style={{ ["--d" as never]: "240ms" } as CSSProperties}
+            >
               {mode === "signup"
                 ? "Dining, nightlife, and curated experiences picked for your taste."
                 : "Pick up where you left off — your saved spots are waiting."}
             </p>
           </div>
 
-          <div className="mt-8">
+          <div className="rise-in mt-8" style={{ ["--d" as never]: "320ms" } as CSSProperties}>
             <div className="mb-3 flex items-center gap-3">
               <span className="h-px flex-1 bg-ink/20" />
               <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink/60">
@@ -761,14 +833,26 @@ function AuthPage() {
                 className="w-full rounded-2xl border-2 border-ink bg-cream px-4 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
               />
             )}
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-              className="w-full rounded-2xl border-2 border-ink bg-cream px-4 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
-            />
+            <div className="relative">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                className={`w-full rounded-2xl border-2 bg-cream px-4 py-4 pr-12 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none transition focus:ring-2 focus:ring-coral/40 ${
+                  emailLooksValid ? "border-ink" : "border-ink"
+                }`}
+              />
+              {emailLooksValid && (
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-y-0 right-4 my-auto grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-coral text-cream animate-[reveal-scale_0.35s_cubic-bezier(0.22,1,0.36,1)_forwards]"
+                >
+                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                </span>
+              )}
+            </div>
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
@@ -788,6 +872,30 @@ function AuthPage() {
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
             </div>
+            {/* Password strength meter — signup only, appears once user types. */}
+            {mode === "signup" && password.length > 0 && (
+              <div className="flex items-center gap-2 px-1 animate-[reveal-up_0.35s_cubic-bezier(0.22,1,0.36,1)_forwards]">
+                <div className="flex flex-1 gap-1">
+                  {[0, 1, 2, 3].map((i) => (
+                    <span
+                      key={i}
+                      className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
+                        i < pwStrength
+                          ? pwStrength >= 3
+                            ? "bg-coral"
+                            : pwStrength === 2
+                              ? "bg-amber-500"
+                              : "bg-ink/60"
+                          : "bg-ink/10"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink/60">
+                  {pwLabel}
+                </span>
+              </div>
+            )}
             {mode === "signup" && (
               <input
                 value={refCode}
@@ -826,10 +934,11 @@ function AuthPage() {
             )}
             <button
               disabled={loading}
-              className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-coral py-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-0 active:translate-y-0 active:shadow-none disabled:opacity-60"
+              className="shine-sweep group relative mt-2 inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border-2 border-ink bg-coral py-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg hover:scale-[1.01] active:translate-x-0 active:translate-y-0 active:shadow-none disabled:opacity-60"
             >
               {loading && <Loader2 className="h-4 w-4 animate-spin" />}
-              {mode === "signup" ? "Create account" : "Sign in"}
+              <span className="relative z-10">{mode === "signup" ? "Create account" : "Sign in"}</span>
+              <span aria-hidden className="relative z-10 transition-transform group-hover:translate-x-1">→</span>
             </button>
             {mode === "signup" && (
               <p className="text-center text-[11px] leading-relaxed text-ink/60">

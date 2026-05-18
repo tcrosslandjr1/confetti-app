@@ -488,6 +488,42 @@
   .reveal-scale.in {
     animation: reveal-scale 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
+  /* Auto-rising entrance — bind --d on the element for stagger. */
+  .rise-in {
+    opacity: 0;
+    animation: reveal-up 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--d, 0ms);
+  }
+  /* Diagonal shine sweep — pair with `position: relative; overflow: hidden`. */
+  .shine-sweep::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      transparent 30%,
+      oklch(1 0 0 / 0.35) 50%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+    animation: shine-sweep 3s ease-in-out infinite;
+    animation-delay: 1.2s;
+  }
+  @keyframes shine-sweep {
+    0% { transform: translateX(-120%); }
+    60% { transform: translateX(120%); }
+    100% { transform: translateX(120%); }
+  }
+  /* Mouse-parallax helper: bind --mx / --my (range -1..1) on a parent. */
+  .parallax-soft {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translate3d(calc(var(--mx, 0) * 18px), calc(var(--my, 0) * 18px), 0);
+  }
+  .parallax-strong {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translate3d(calc(var(--mx, 0) * 36px), calc(var(--my, 0) * 28px), 0);
+  }
   .nav-underline {
     position: relative;
   }
@@ -547,9 +583,15 @@
     .animate-bounce,
     .animate-spin,
     .hero-gradient,
-    .typing-caret::after {
+    .typing-caret::after,
+    .rise-in,
+    .shine-sweep::after,
+    .parallax-soft,
+    .parallax-strong {
       animation: none !important;
+      transform: none !important;
     }
+    .rise-in { opacity: 1 !important; }
     .hero-gradient {
       background-size: 100% 100% !important;
     }

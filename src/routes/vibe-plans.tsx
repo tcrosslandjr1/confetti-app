@@ -61,7 +61,13 @@ const VIBES: Vibe[] = [
   { id: "yacht", label: "Yacht Party", occasionId: "birthday", mood: "hyped", emoji: "🛥️" },
   { id: "casino", label: "Casino", occasionId: "friends", mood: "hyped", emoji: "🎰" },
   { id: "grown_man", label: "Grown Man", occasionId: "friends", mood: "easy", emoji: "🥃" },
-  { id: "cigar_whiskey", label: "Cigar & Whiskey", occasionId: "friends", mood: "easy", emoji: "🚬" },
+  {
+    id: "cigar_whiskey",
+    label: "Cigar & Whiskey",
+    occasionId: "friends",
+    mood: "easy",
+    emoji: "🚬",
+  },
   { id: "wild", label: "Wild", occasionId: "birthday", mood: "wild", emoji: "🎉" },
   { id: "late_night", label: "Late Night", occasionId: "friends", mood: "hyped", emoji: "🌃" },
   { id: "surprise", label: "Surprise Me", occasionId: "friends", mood: "social", emoji: "✨" },
@@ -158,8 +164,7 @@ function VibePlansPage() {
 
       const budgetTier: 1 | 2 | 3 | 4 = budget < 40 ? 1 : budget < 100 ? 2 : budget < 200 ? 3 : 4;
 
-      const adultOk =
-        includeAdult && ageConfirmed && vibe ? ADULT_TRIGGER_IDS.has(vibe.id) : false;
+      const adultOk = includeAdult && ageConfirmed && vibe ? ADULT_TRIGGER_IDS.has(vibe.id) : false;
 
       const result = await generate({
         data: {
@@ -425,7 +430,9 @@ function VibePlansPage() {
             <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Optional add-ons
             </div>
-            <Badge variant="outline" className="text-[10px]">21+</Badge>
+            <Badge variant="outline" className="text-[10px]">
+              21+
+            </Badge>
           </div>
 
           {waterfront?.hasWaterfront ? (
@@ -477,8 +484,8 @@ function VibePlansPage() {
                     className="mt-0.5 h-3.5 w-3.5"
                   />
                   <span>
-                    I confirm everyone in my group is 21+ and consents to adult-entertainment
-                    stops. Off by default.
+                    I confirm everyone in my group is 21+ and consents to adult-entertainment stops.
+                    Off by default.
                   </span>
                 </label>
               ) : null}

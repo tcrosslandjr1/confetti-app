@@ -291,7 +291,16 @@ export const CITIES: CityContext[] = [
     city: "Miami",
     slug: "miami",
     label: "Miami",
-    tags: ["beach clubs", "waterfront", "Latin music", "rooftops", "art deco", "yacht", "casino-capable", "Miami River"],
+    tags: [
+      "beach clubs",
+      "waterfront",
+      "Latin music",
+      "rooftops",
+      "art deco",
+      "yacht",
+      "casino-capable",
+      "Miami River",
+    ],
     neighborhoods: [
       { name: "South Beach", vibe: "beach clubs, art deco, late-night" },
       { name: "Wynwood", vibe: "art walls, breweries, rooftop bars" },

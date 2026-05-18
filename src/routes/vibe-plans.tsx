@@ -105,6 +105,14 @@ function VibePlansPage() {
   const [includeAdult, setIncludeAdult] = useState(false);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
 
+  // Outing categories
+  const [activeGroup, setActiveGroup] = useState<CategoryGroupId>("social");
+  const [selectedCats, setSelectedCats] = useState<string[]>([]);
+  const [catSearch, setCatSearch] = useState("");
+  const [freeText, setFreeText] = useState("");
+  const [classifying, setClassifying] = useState(false);
+  const classify = useServerFn(classifyOuting);
+
   const [loading, setLoading] = useState(false);
   const [plan, setPlan] = useState<GeneratedPlan | null>(null);
   const [error, setError] = useState<string | null>(null);

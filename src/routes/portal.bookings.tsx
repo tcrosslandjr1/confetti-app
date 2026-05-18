@@ -443,6 +443,11 @@ function PreorderDialog({ booking, onSaved }: { booking: Booking; onSaved?: () =
   const removeRow = (i: number) => setDrinks((d) => d.filter((_, idx) => idx !== i));
 
   const save = async () => {
+    if (isMockBookingId(booking.id)) {
+      toast.info("This is a sample booking — book a real venue to send preferences.");
+      setOpen(false);
+      return;
+    }
     setSaving(true);
     const cleaned = drinks
       .map((d) => ({

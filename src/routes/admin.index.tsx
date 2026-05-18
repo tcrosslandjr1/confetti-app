@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
+import { useMemo, useState } from "react";
 import {
   Activity,
   AlertTriangle,
@@ -23,6 +24,12 @@ import {
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuditLog } from "@/lib/audit-log";
+import {
+  applyLogFilters,
+  EMPTY_FILTERS,
+  LogFilterBar,
+  type LogFilterState,
+} from "@/components/admin/LogFilterBar";
 
 export const Route = createFileRoute("/admin/")({
   component: AdminDashboard,

@@ -26,12 +26,7 @@ type Props = {
   className?: string;
 };
 
-export function LogFilterBar({
-  value,
-  onChange,
-  placeholder = "Search…",
-  className = "",
-}: Props) {
+export function LogFilterBar({ value, onChange, placeholder = "Search…", className = "" }: Props) {
   const dirty =
     value.query.trim() !== "" ||
     value.sort !== "newest" ||

@@ -125,7 +125,8 @@ function ApiErrorsPanel({ filters }: { filters: LogFilterState }) {
 
   const filtered = applyLogFilters(data ?? [], filters, {
     getDate: (r) => r.created_at,
-    getText: (r) => `${r.subject ?? ""} ${r.error ?? ""} ${r.recipient_email ?? ""} ${r.source ?? ""} ${r.status}`,
+    getText: (r) =>
+      `${r.subject ?? ""} ${r.error ?? ""} ${r.recipient_email ?? ""} ${r.source ?? ""} ${r.status}`,
   });
 
   return (
@@ -135,11 +136,15 @@ function ApiErrorsPanel({ filters }: { filters: LogFilterState }) {
       columns={["When", "Status", "Subject", "Recipient", "Source", "Error"]}
       rows={filtered.map((r) => [
         timeAgo(r.created_at),
-        <StatusPill key="s" tone="bad">{r.status}</StatusPill>,
+        <StatusPill key="s" tone="bad">
+          {r.status}
+        </StatusPill>,
         r.subject ?? "—",
         r.recipient_email ?? "—",
         r.source ?? "—",
-        <code key="e" className="text-[11px] text-muted-foreground line-clamp-1">{r.error ?? "—"}</code>,
+        <code key="e" className="text-[11px] text-muted-foreground line-clamp-1">
+          {r.error ?? "—"}
+        </code>,
       ])}
     />
   );
@@ -180,10 +185,16 @@ function AiJobsPanel({ filters }: { filters: LogFilterState }) {
       columns={["When", "Kind", "Target", "Status", "Error"]}
       rows={filtered.map((r) => [
         timeAgo(r.created_at),
-        <span key="k" className="font-mono text-[11px] uppercase tracking-wider">{r.kind}</span>,
+        <span key="k" className="font-mono text-[11px] uppercase tracking-wider">
+          {r.kind}
+        </span>,
         r.target ?? "—",
-        <StatusPill key="s" tone="bad">{r.status}</StatusPill>,
-        <code key="e" className="text-[11px] text-muted-foreground line-clamp-1">{r.error ?? "—"}</code>,
+        <StatusPill key="s" tone="bad">
+          {r.status}
+        </StatusPill>,
+        <code key="e" className="text-[11px] text-muted-foreground line-clamp-1">
+          {r.error ?? "—"}
+        </code>,
       ])}
     />
   );
@@ -224,10 +235,14 @@ function UploadsPanel({ filters }: { filters: LogFilterState }) {
       columns={["When", "Venue", "Kind", "Source", "Status"]}
       rows={filtered.map((r) => [
         timeAgo(r.created_at),
-        <code key="v" className="text-[11px]">{r.venue_id?.slice(0, 8) ?? "—"}</code>,
+        <code key="v" className="text-[11px]">
+          {r.venue_id?.slice(0, 8) ?? "—"}
+        </code>,
         r.kind,
         r.source ?? "—",
-        <StatusPill key="s" tone="bad">{r.status}</StatusPill>,
+        <StatusPill key="s" tone="bad">
+          {r.status}
+        </StatusPill>,
       ])}
     />
   );
@@ -248,9 +263,13 @@ function AdminActionsPanel({ filters }: { filters: LogFilterState }) {
       rows={filtered.map((e) => [
         timeAgo(e.at),
         e.admin,
-        <span key="a" className="font-mono text-[11px] uppercase tracking-wider">{e.action}</span>,
+        <span key="a" className="font-mono text-[11px] uppercase tracking-wider">
+          {e.action}
+        </span>,
         e.entity,
-        <code key="t" className="text-[11px]">{e.targetId}</code>,
+        <code key="t" className="text-[11px]">
+          {e.targetId}
+        </code>,
         e.summary,
       ])}
     />
@@ -288,15 +307,20 @@ function SecurityPanel({ filters }: { filters: LogFilterState }) {
       loading={isLoading}
       empty={
         <span className="inline-flex items-center gap-2">
-          <CheckCircle2 className="h-4 w-4 text-emerald-600" /> No security events match these filters.
+          <CheckCircle2 className="h-4 w-4 text-emerald-600" /> No security events match these
+          filters.
         </span>
       }
       columns={["When", "Kind", "Title", "Detail"]}
       rows={filtered.map((r) => [
         timeAgo(r.created_at),
-        <span key="k" className="font-mono text-[11px] uppercase tracking-wider">{r.kind}</span>,
+        <span key="k" className="font-mono text-[11px] uppercase tracking-wider">
+          {r.kind}
+        </span>,
         r.title,
-        <span key="b" className="text-xs text-muted-foreground line-clamp-1">{r.body ?? "—"}</span>,
+        <span key="b" className="text-xs text-muted-foreground line-clamp-1">
+          {r.body ?? "—"}
+        </span>,
       ])}
     />
   );
@@ -387,8 +411,6 @@ function StatusPill({ tone, children }: { tone: "ok" | "bad" | "warn"; children:
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
-
-
 
 function timeAgo(iso: string): string {
   const diff = Date.now() - new Date(iso).getTime();

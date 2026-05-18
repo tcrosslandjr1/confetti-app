@@ -1,87 +1,113 @@
-## Goal
 
-When a business completes the `/advertise` 3‑step form (Business → Contact → Launch), automatically create a **pending business account**, an **owner user account**, and an **admin review queue item**. Admin can Approve/Reject from `/admin/advertisers`. The owner is routed based on status.
+# Confetti v7–v10 Implementation Plan
 
-## What already exists (reuse, don't rebuild)
+This is a large, multi-system upgrade. I'll ship it in 4 sequenced phases, each independently usable. All v6 engines stay intact — v10 wraps them in an orchestrator.
 
-- `/advertise` route with the exact 3‑step form in the screenshot.
-- `advertisers` table with `status` ('pending' default), `owner_id` (FK to auth user), RLS allowing owner + admin.
-- `createAdvertiser`, `updateAdvertiserStatus`, `listAdminAdvertisers` in `src/lib/ads.ts`.
-- `/admin/advertisers` page with an "Advertisers" tab.
-- Auth + role system (`has_role`, `app_role`).
+---
 
-## What to add
+## Phase v7 — Personalization Engine
 
-### 1. Schema additions to `advertisers`
+**Data layer (migration)**
+- `user_preferences` (user_id PK, learned profile JSON: preferred_vibes, categories, price_tier, time_slots, neighborhoods, business_types, disliked_business_types, risk_tolerance, nightlife_intensity, comfort_level, promo_sensitivity, personalized_name_style, updated_at)
+- `user_signals` (id, user_id, signal_type, payload JSONB, city, created_at) — append-only event log of cities_used, categories_used, vibes_chosen, names_selected, steps_swapped, venues_liked/disliked, budget/time/group patterns, promo_interactions
+- RLS: users read/write their own rows only
 
-- `package_selected text` — the tier picked in the pricing card (`featured` / `boosted` / `premium`).
-- `onboarding_step smallint default 1` — last step the user completed (1/2/3).
-- `source text default 'self-serve'` — channel.
-- `owner_name text`, `submitted_at timestamptz` (set on first insert; `created_at` already exists but stays as DB insert time).
-- `review_note text` — admin-visible reason on reject.
-- `reviewed_at timestamptz`, `reviewed_by uuid` — audit.
-- New status values used by code: `'pending_review' | 'active' | 'rejected'` (existing 'pending' rows migrate to 'pending_review').
+**Code**
+- `src/lib/agents/personalization.ts` — `recordSignal()`, `learnProfile(userId)` (aggregates signals → profile), `getDefaults(userId)` (returns default vibe/budget/time/personality/name-style)
+- `src/lib/personalization.functions.ts` — server fns: `getMyProfile`, `resetMyProfile`, `updateMyProfile`, `recordPlanSignals`
+- Hook into `generatePlan`: load profile → seed defaults; after plan locked, write signals
+- Hook into swap actions in `vibe-plans.tsx` to log `steps_swapped`
 
-### 2. Step‑by‑step persistence
+**UI**
+- `/profile/preferences` route: view learned profile, edit toggles (preferred vibes/categories/budget, comfort level, promo sensitivity), Reset button
+- First-time users → broad chooser (current flow). Returning users → defaults pre-filled with subtle "based on your style" note
 
-```text
-Step 1 Continue  → upsert advertiser row (status='pending_review', onboarding_step=1, package_selected=tier)
-Step 2 Continue  → update row with owner_name/contact_email/contact_phone, onboarding_step=2
-Step 3 Launch    → onboarding_step=3, redirect to /business/pending
-```
+**Privacy**
+- Never personalize toward adult/risky categories unless explicit toggle on
+- Profile editable + resettable
+- No sensitive inferred traits in UI
 
-Reuse the existing `sessionStorage` draft + auth round‑trip. If user isn't signed in by step 3, we still bounce them to `/auth` as today.
+---
 
-### 3. Owner user account
+## Phase v8 — Trip Engine (Multi-Day)
 
-- The submitter is already a Supabase auth user by the time step 3 fires (today's flow forces signup before insert). We add a `'business_owner'` role row in `user_roles` on the first `advertiser` insert.
-- No extra "user account" table needed — `auth.users` + `user_roles` covers it.
+**Data layer (migration)**
+- `trips` (id, user_id, destination_city, trip_name, trip_length_days, group_size, group_type, energy_curve, budget_total, arrival_time, departure_time, status, created_at)
+- `trip_days` (id, trip_id, day_index, day_theme, day_name, itinerary_id FK→plans, estimated_cost)
+- RLS: owner-only
 
-### 4. Routing after submit
+**Code**
+- `src/lib/agents/trip-engine.ts` — `generateTrip(input)`: loops `generatePlan` per day with energy curve, tracks used venues, balances neighborhoods, inserts rest blocks, applies per-day budget, weather fallback per day
+- Energy curve presets: chill→turn-up→chill, steady-chill, steady-turn-up, soft-life, family-safe, bachelor(ette), adventure-heavy, food-and-culture
+- `src/lib/trip.functions.ts` — `generateTrip`, `getTrip`, `listMyTrips`, `renameTrip`
+- Name agent extended: generates trip-level names + per-day names
 
-- `/business/pending` — new minimal route shown for `pending_review` advertisers ("We're reviewing your business. You'll be activated within 1 business day.").
-- On `active` → redirect to existing `/advertise/portal` (or `/business/dashboard` if already approved).
-- On `rejected` → show reason from `review_note` with "Edit and resubmit" CTA back to `/advertise#signup`.
+**UI**
+- `/trips` list, `/trips/$tripId` view: day tabs/accordion, swap day, regenerate day, total budget meter, transport notes
+- New trip wizard: city, days, group, budget, energy curve, must-do/avoid categories
 
-A small server fn `getMyAdvertiserStatus` reads the row for the signed‑in user and the `/advertise/portal` + `/business/pending` routes use it to gate.
+---
 
-### 5. Admin Approvals queue
+## Phase v9 — Organic Promo Engine
 
-- New "Pending approvals" tab (or filter inside the existing Advertisers tab) at the top of `/admin/advertisers` with a badge count.
-- Columns: Business Name · Category · City · Package · Owner Name · Owner Email · Submitted At · Approve / Reject.
-- Approve → `status='active'`, set `reviewed_at`, `reviewed_by=auth.uid()`, send welcome notification, return portal link.
-- Reject → prompt for reason → `status='rejected'`, store `review_note`, send rejection notification.
-- Notifications go through the existing in‑app `notifications` table; email is best‑effort via the existing Resend connector if available.
+**Data layer (migration)**
+- `partner_deals` (id, venue_id FK, deal_type [save/upgrade/time_limited], title, description, valid_from, valid_until, vibe_tags, category_tags, group_size_min/max, adult_only, active)
+- RLS: public read of active deals; admin write
 
-### 6. Server functions (new in `src/lib/business-onboarding.functions.ts`)
+**Code**
+- `src/lib/agents/promo-agent.ts` — `selectPromos(plan, userProfile, filters)`:
+  - max 2 promos/itinerary
+  - must match vibe + category + budget + group
+  - never override safety/vibe/budget
+  - respect promo_sensitivity from profile
+  - block adult-only unless adult toggle
+  - block all in family/in-laws/coworker mode unless fully appropriate
+  - returns `{ promo_steps, swap_options, disclosures, fit_score, non_promo_alternative }`
+- Hook into `generatePlan` after itinerary draft, before name agent
+- Update `GeneratedPlan` type with promo metadata
 
-- `upsertOnboardingStep1({ businessName, category, city, packageSelected })`
-- `upsertOnboardingStep2({ ownerName, contactEmail, contactPhone })`
-- `finalizeOnboardingStep3({ website?, notes? })`
-- `getMyAdvertiserStatus()` → `{ status, reviewNote, portalUrl }`
-- `adminDecideAdvertiser({ advertiserId, decision: 'approve' | 'reject', note? })` — guarded by `requireAdmin` middleware.
+**UI (in `vibe-plans.tsx`)**
+- Steps with deals get a small "Includes partner deal" tag (allowed copy: optional / upgrade / deal / save / available offer — NEVER sponsored/promoted/ad/boosted)
+- Each promo step has a non-promo swap button
+- Disclosure line shown beneath promo steps
 
-All write paths run under RLS as the user; the admin decide path runs through a server fn that checks `has_role(auth.uid(),'admin')` before update.
+---
 
-## Out of scope
+## Phase v10 — Multi-Agent Orchestration
 
-- Stripe billing for the package (kept "billing handled by our team" copy).
-- Separate `businesses` table — `advertisers` already serves this role and is referenced by `venues` / `ad_campaigns`.
+**Code**
+- `src/lib/agents/orchestrator.ts` — `runOrchestrator({ rawRequest, userId, city, sessionContext })`:
+  1. intent_agent (LLM extracts goal/category/vibe/budget/group/timing from raw text)
+  2. city_agent (resolves/clarifies)
+  3. personalization_agent (load profile, apply defaults to missing fields)
+  4. category/vibe agents (map to canonical)
+  5. budget/group/weather/time/safety/local_flavor agents (run v6 engines)
+  6. itinerary_agent OR trip_agent (single-day vs multi-day branch)
+  7. promo_agent
+  8. name_agent + rating_agent
+  9. swap_agent (precompute alternatives)
+  10. assemble final response { itinerary, names, swaps, fallbacks, budget_options, disclosures, reasoning_metadata (internal) }
+- `src/lib/orchestrator.functions.ts` — `orchestratePlan` server fn
 
-## Technical notes
+**UI**
+- `/ask` route: single freeform input ("3 days in Miami with the boys", "girls brunch tomorrow")
+- Streams orchestrator result → renders as plan or trip
+- Behind the scenes shows one Confetti voice; reasoning metadata kept internal (debug-only)
 
-- Migration adds columns + a backfill `UPDATE advertisers SET status='pending_review' WHERE status='pending'`.
-- All new columns are nullable / defaulted so existing rows keep working.
-- RLS unchanged: owner reads/writes own row, admin reads/writes all.
-- The `business_owner` role is additive — admins keep their `admin` role.
+---
 
-```text
-Form submit → upsert advertisers row → user_roles += business_owner
-                                    ↓
-                       Admin advertisers page
-                       Pending tab → Approve/Reject
-                                    ↓
-                       advertisers.status updated
-                                    ↓
-                       Owner redirected on next visit
-```
+## Technical Details
+
+- All AI calls via Lovable AI Gateway (`google/gemini-3-flash-preview` default; `gemini-2.5-pro` for orchestrator/intent)
+- All server fns use `requireSupabaseAuth` (also fixes one of the open security findings on AI endpoints)
+- All new tables: RLS on, scoped to `auth.uid()`
+- Types extended in `src/lib/agents/types.ts` (PersonalizationProfile, Trip, TripDay, PromoStep, OrchestratorResult)
+- v6 engines remain the building blocks — v10 calls them, doesn't replace them
+
+## Sequencing
+
+I'll implement v7 → v8 → v9 → v10 in order, each phase committing migrations + code together. Phase v7 unlocks defaults for v8/v10; v9 plugs into both single plans and trip days; v10 is the unifying layer.
+
+## Out of scope (call out)
+
+- I won't fix the unrelated security findings in your current view (referral_codes RLS, realtime channel policies, invite-videos bucket, seedDemoAccounts, pick-events spoofing, trending hook auth) in this plan — happy to do those as a separate pass. The AI-endpoint auth finding gets partially addressed because new orchestrator/trip fns will be auth-gated.

@@ -1,6 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
-import { Search, Users, MoreHorizontal, Shield, UserCheck, UserX, Crown } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import {
+  Search,
+  Users,
+  MoreHorizontal,
+  Shield,
+  UserCheck,
+  UserX,
+  Crown,
+  Loader2,
+  KeyRound,
+  Trash2,
+} from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -20,158 +32,59 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { toast } from "sonner";
-import { logAudit } from "@/lib/audit-log";
 import { useAuth } from "@/lib/auth-context";
+import {
+  listAdminUsersFn,
+  setUserRoleFn,
+  setUserSuspendedFn,
+  sendPasswordResetFn,
+  deleteUserFn,
+  type AdminUserRow,
+  type AppRole,
+} from "@/lib/admin-users.functions";
 
 export const Route = createFileRoute("/admin/users")({
   component: AdminUsersPage,
 });
 
-type Role = "admin" | "moderator" | "customer";
-type Status = "active" | "suspended" | "invited";
-type User = {
-  id: string;
-  name: string;
-  email: string;
-  role: Role;
-  status: Status;
-  city: string;
-  bookings: number;
-  joined: string;
-  lastActive: string;
-};
+const ROLES: AppRole[] = ["admin", "business_owner", "customer"];
 
-const SEED: User[] = [
-  {
-    id: "U-1042",
-    name: "Sarah Klein",
-    email: "sarah@k.co",
-    role: "customer",
-    status: "active",
-    city: "Washington DC",
-    bookings: 14,
-    joined: "2024-08-12",
-    lastActive: "2m ago",
-  },
-  {
-    id: "U-1041",
-    name: "Marcus Tate",
-    email: "m.tate@mail.com",
-    role: "customer",
-    status: "active",
-    city: "Arlington VA",
-    bookings: 8,
-    joined: "2024-11-03",
-    lastActive: "1h ago",
-  },
-  {
-    id: "U-1040",
-    name: "Priya Rao",
-    email: "priya@r.io",
-    role: "moderator",
-    status: "active",
-    city: "Bethesda MD",
-    bookings: 22,
-    joined: "2024-02-19",
-    lastActive: "12m ago",
-  },
-  {
-    id: "U-1039",
-    name: "Jordan Liu",
-    email: "jliu@mail.com",
-    role: "customer",
-    status: "suspended",
-    city: "Washington DC",
-    bookings: 3,
-    joined: "2025-01-22",
-    lastActive: "3d ago",
-  },
-  {
-    id: "U-1038",
-    name: "Ana Ferreira",
-    email: "ana.f@mail.com",
-    role: "customer",
-    status: "active",
-    city: "Alexandria VA",
-    bookings: 19,
-    joined: "2023-09-08",
-    lastActive: "5m ago",
-  },
-  {
-    id: "U-1037",
-    name: "Devon Hale",
-    email: "devon@h.dev",
-    role: "admin",
-    status: "active",
-    city: "Washington DC",
-    bookings: 41,
-    joined: "2023-04-01",
-    lastActive: "just now",
-  },
-  {
-    id: "U-1036",
-    name: "Mia Chen",
-    email: "mia@c.co",
-    role: "customer",
-    status: "invited",
-    city: "Silver Spring MD",
-    bookings: 0,
-    joined: "2026-05-06",
-    lastActive: "—",
-  },
-  {
-    id: "U-1035",
-    name: "Tomas Reid",
-    email: "tomas@r.dev",
-    role: "customer",
-    status: "active",
-    city: "Washington DC",
-    bookings: 6,
-    joined: "2025-06-14",
-    lastActive: "2h ago",
-  },
-  {
-    id: "U-1034",
-    name: "Lena Park",
-    email: "lena@p.co",
-    role: "moderator",
-    status: "active",
-    city: "Arlington VA",
-    bookings: 11,
-    joined: "2024-10-30",
-    lastActive: "30m ago",
-  },
-];
-
-const ROLE_TONE: Record<Role, string> = {
+const ROLE_TONE: Record<AppRole, string> = {
   admin: "bg-coral/20 text-foreground",
-  moderator: "bg-purple/20 text-foreground",
+  business_owner: "bg-purple/20 text-foreground",
   customer: "bg-muted text-muted-foreground",
 };
 
-function StatusBadge({ status }: { status: Status }) {
-  if (status === "active")
-    return (
-      <Badge className="bg-emerald-500/15 text-emerald-700 hover:bg-emerald-500/20">
-        <UserCheck className="mr-1 h-3 w-3" />
-        Active
-      </Badge>
-    );
-  if (status === "suspended")
+function StatusBadge({ banned }: { banned: boolean }) {
+  if (banned)
     return (
       <Badge className="bg-destructive/15 text-destructive hover:bg-destructive/20">
-        <UserX className="mr-1 h-3 w-3" />
-        Suspended
+        <UserX className="mr-1 h-3 w-3" /> Suspended
       </Badge>
     );
-  return <Badge className="bg-gold/20 text-foreground hover:bg-gold/30">Invited</Badge>;
+  return (
+    <Badge className="bg-emerald-500/15 text-emerald-700 hover:bg-emerald-500/20">
+      <UserCheck className="mr-1 h-3 w-3" /> Active
+    </Badge>
+  );
 }
 
 function Avatar({ name }: { name: string }) {
-  const initials = name
-    .split(" ")
+  const initials = (name || "?")
+    .split(/\s+|@/)
     .map((p) => p[0])
+    .filter(Boolean)
     .slice(0, 2)
     .join("")
     .toUpperCase();
@@ -182,35 +95,71 @@ function Avatar({ name }: { name: string }) {
   );
 }
 
+function fmtDate(iso: string | null) {
+  if (!iso) return "—";
+  const d = new Date(iso);
+  return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+}
+
+function isBanned(u: AdminUserRow) {
+  return !!u.banned_until && new Date(u.banned_until) > new Date();
+}
+
 function AdminUsersPage() {
   const { user: me } = useAuth();
-  const adminEmail = me?.email ?? "admin";
-  const [users, setUsers] = useState<User[]>(SEED);
+  const fetchUsers = useServerFn(listAdminUsersFn);
+  const setRoleSrv = useServerFn(setUserRoleFn);
+  const setSuspendedSrv = useServerFn(setUserSuspendedFn);
+  const sendResetSrv = useServerFn(sendPasswordResetFn);
+  const deleteSrv = useServerFn(deleteUserFn);
+
+  const [users, setUsers] = useState<AdminUserRow[]>([]);
+  const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
-  const [roleFilter, setRoleFilter] = useState<"all" | Role>("all");
-  const [statusFilter, setStatusFilter] = useState<"all" | Status>("all");
+  const [roleFilter, setRoleFilter] = useState<"all" | AppRole>("all");
+  const [statusFilter, setStatusFilter] = useState<"all" | "active" | "suspended">("all");
+  const [pending, setPending] = useState<string | null>(null);
+  const [confirmDelete, setConfirmDelete] = useState<AdminUserRow | null>(null);
+
+  const load = async () => {
+    setLoading(true);
+    try {
+      const res = await fetchUsers({ data: { page: 1, perPage: 200 } });
+      setUsers(res.users);
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Failed to load users");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    void load();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const counts = useMemo(
     () => ({
       total: users.length,
-      active: users.filter((u) => u.status === "active").length,
-      suspended: users.filter((u) => u.status === "suspended").length,
-      admins: users.filter((u) => u.role === "admin").length,
+      active: users.filter((u) => !isBanned(u)).length,
+      suspended: users.filter((u) => isBanned(u)).length,
+      admins: users.filter((u) => u.roles.includes("admin")).length,
     }),
     [users],
   );
 
   const filtered = useMemo(() => {
     return users.filter((u) => {
-      if (roleFilter !== "all" && u.role !== roleFilter) return false;
-      if (statusFilter !== "all" && u.status !== statusFilter) return false;
+      const banned = isBanned(u);
+      if (roleFilter !== "all" && !u.roles.includes(roleFilter)) return false;
+      if (statusFilter === "active" && banned) return false;
+      if (statusFilter === "suspended" && !banned) return false;
       if (query) {
         const q = query.toLowerCase();
         if (
-          !u.name.toLowerCase().includes(q) &&
           !u.email.toLowerCase().includes(q) &&
-          !u.id.toLowerCase().includes(q) &&
-          !u.city.toLowerCase().includes(q)
+          !(u.display_name ?? "").toLowerCase().includes(q) &&
+          !u.id.toLowerCase().includes(q)
         )
           return false;
       }
@@ -218,36 +167,75 @@ function AdminUsersPage() {
     });
   }, [users, query, roleFilter, statusFilter]);
 
-  const setRole = (id: string, role: Role) => {
-    const u = users.find((x) => x.id === id);
-    setUsers((prev) => prev.map((x) => (x.id === id ? { ...x, role } : x)));
-    toast.success(`Role updated to ${role}`);
-    logAudit({
-      admin: adminEmail,
-      action: "role",
-      entity: "user",
-      targetId: id,
-      summary: `Set role to ${role}${u ? ` for ${u.name}` : ""}`,
-    });
+  const toggleRole = async (u: AdminUserRow, role: AppRole) => {
+    const grant = !u.roles.includes(role);
+    setPending(u.id);
+    try {
+      await setRoleSrv({ data: { userId: u.id, role, grant } });
+      setUsers((prev) =>
+        prev.map((x) =>
+          x.id === u.id
+            ? {
+                ...x,
+                roles: grant ? [...x.roles, role] : x.roles.filter((r) => r !== role),
+              }
+            : x,
+        ),
+      );
+      toast.success(grant ? `Granted ${role}` : `Revoked ${role}`);
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Failed to update role");
+    } finally {
+      setPending(null);
+    }
   };
 
-  const setStatus = (id: string, status: Status) => {
-    const u = users.find((x) => x.id === id);
-    setUsers((prev) => prev.map((x) => (x.id === id ? { ...x, status } : x)));
-    toast.success(
-      status === "active"
-        ? "Account reactivated"
-        : status === "suspended"
-          ? "Account suspended"
-          : "Invite re-sent",
-    );
-    logAudit({
-      admin: adminEmail,
-      action: "status",
-      entity: "user",
-      targetId: id,
-      summary: `${status === "active" ? "Activated" : status === "suspended" ? "Suspended" : "Re-invited"}${u ? ` ${u.name}` : ""}`,
-    });
+  const toggleSuspend = async (u: AdminUserRow) => {
+    const suspend = !isBanned(u);
+    setPending(u.id);
+    try {
+      await setSuspendedSrv({ data: { userId: u.id, suspend } });
+      setUsers((prev) =>
+        prev.map((x) =>
+          x.id === u.id
+            ? {
+                ...x,
+                banned_until: suspend ? new Date(Date.now() + 100 * 365 * 86400_000).toISOString() : null,
+              }
+            : x,
+        ),
+      );
+      toast.success(suspend ? "Account suspended" : "Account reactivated");
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Failed to update status");
+    } finally {
+      setPending(null);
+    }
+  };
+
+  const sendReset = async (u: AdminUserRow) => {
+    if (!u.email) return;
+    try {
+      await sendResetSrv({ data: { email: u.email } });
+      toast.success(`Password reset link generated for ${u.email}`);
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Failed to send reset");
+    }
+  };
+
+  const doDelete = async () => {
+    if (!confirmDelete) return;
+    setPending(confirmDelete.id);
+    try {
+      await deleteSrv({ data: { userId: confirmDelete.id } });
+      setUsers((prev) => prev.filter((u) => u.id !== confirmDelete.id));
+      toast.success("Account deleted");
+      setConfirmDelete(null);
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Failed to delete");
+    } finally {
+      setPending(null);
+    }
   };
 
   return (
@@ -259,7 +247,7 @@ function AdminUsersPage() {
             <Users className="h-7 w-7" /> Users
           </h1>
           <p className="text-sm text-muted-foreground">
-            Search the user base and manage roles or account status.
+            Manage roles, suspend accounts, and trigger password resets.
           </p>
         </div>
         <div className="grid grid-cols-4 gap-2 text-center">
@@ -288,30 +276,34 @@ function AdminUsersPage() {
           <Input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search by name, email, ID, or city…"
+            placeholder="Search by name, email, or ID…"
             className="pl-9"
           />
         </div>
         <select
           value={roleFilter}
-          onChange={(e) => setRoleFilter(e.target.value as "all" | Role)}
+          onChange={(e) => setRoleFilter(e.target.value as "all" | AppRole)}
           className="rounded-md border border-border bg-background px-3 py-2 text-sm"
         >
           <option value="all">All roles</option>
-          <option value="admin">Admins</option>
-          <option value="moderator">Moderators</option>
-          <option value="customer">Customers</option>
+          {ROLES.map((r) => (
+            <option key={r} value={r}>
+              {r}
+            </option>
+          ))}
         </select>
         <select
           value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value as "all" | Status)}
+          onChange={(e) => setStatusFilter(e.target.value as "all" | "active" | "suspended")}
           className="rounded-md border border-border bg-background px-3 py-2 text-sm"
         >
           <option value="all">All statuses</option>
           <option value="active">Active</option>
           <option value="suspended">Suspended</option>
-          <option value="invited">Invited</option>
         </select>
+        <Button variant="outline" size="sm" onClick={() => void load()} disabled={loading}>
+          {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Refresh"}
+        </Button>
       </div>
 
       <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
@@ -319,108 +311,174 @@ function AdminUsersPage() {
           <TableHeader>
             <TableRow>
               <TableHead>User</TableHead>
-              <TableHead>Role</TableHead>
+              <TableHead>Roles</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead>City</TableHead>
-              <TableHead className="text-right">Bookings</TableHead>
+              <TableHead className="text-right">Pts</TableHead>
               <TableHead>Joined</TableHead>
-              <TableHead>Last active</TableHead>
+              <TableHead>Last sign-in</TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {filtered.length === 0 ? (
+            {loading ? (
               <TableRow>
-                <TableCell colSpan={8} className="py-12 text-center text-sm text-muted-foreground">
+                <TableCell colSpan={7} className="py-16 text-center text-sm text-muted-foreground">
+                  <Loader2 className="mx-auto h-5 w-5 animate-spin" />
+                </TableCell>
+              </TableRow>
+            ) : filtered.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={7} className="py-12 text-center text-sm text-muted-foreground">
                   No users match your filters.
                 </TableCell>
               </TableRow>
             ) : (
-              filtered.map((u) => (
-                <TableRow key={u.id}>
-                  <TableCell>
-                    <div className="flex items-center gap-3">
-                      <Avatar name={u.name} />
-                      <div className="min-w-0">
-                        <div className="font-semibold leading-tight flex items-center gap-1.5">
-                          {u.name}
-                          {u.role === "admin" && <Crown className="h-3.5 w-3.5 text-gold" />}
+              filtered.map((u) => {
+                const banned = isBanned(u);
+                const isMe = me?.id === u.id;
+                const busy = pending === u.id;
+                return (
+                  <TableRow key={u.id} className={busy ? "opacity-60" : ""}>
+                    <TableCell>
+                      <div className="flex items-center gap-3">
+                        <Avatar name={u.display_name ?? u.email} />
+                        <div className="min-w-0">
+                          <div className="font-semibold leading-tight flex items-center gap-1.5">
+                            {u.display_name ?? u.email.split("@")[0]}
+                            {u.roles.includes("admin") && (
+                              <Crown className="h-3.5 w-3.5 text-gold" />
+                            )}
+                            {isMe && (
+                              <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-mono uppercase">
+                                you
+                              </span>
+                            )}
+                          </div>
+                          <div className="text-xs text-muted-foreground truncate">{u.email}</div>
                         </div>
-                        <div className="text-xs text-muted-foreground truncate">{u.email}</div>
                       </div>
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <button
-                          className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold capitalize transition hover:opacity-80 ${ROLE_TONE[u.role]}`}
-                        >
-                          <Shield className="h-3 w-3" /> {u.role}
-                        </button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="start">
-                        <DropdownMenuLabel>Set role</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        {(["admin", "moderator", "customer"] as Role[]).map((r) => (
+                    </TableCell>
+                    <TableCell>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild disabled={busy}>
+                          <button className="inline-flex flex-wrap items-center gap-1">
+                            {u.roles.length === 0 ? (
+                              <span className="rounded-full bg-muted px-2.5 py-1 text-xs font-semibold text-muted-foreground">
+                                none
+                              </span>
+                            ) : (
+                              u.roles.map((r) => (
+                                <span
+                                  key={r}
+                                  className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold capitalize ${ROLE_TONE[r]}`}
+                                >
+                                  <Shield className="h-3 w-3" /> {r.replace("_", " ")}
+                                </span>
+                              ))
+                            )}
+                          </button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="start">
+                          <DropdownMenuLabel>Toggle role</DropdownMenuLabel>
+                          <DropdownMenuSeparator />
+                          {ROLES.map((r) => {
+                            const has = u.roles.includes(r);
+                            return (
+                              <DropdownMenuItem
+                                key={r}
+                                onClick={() => void toggleRole(u, r)}
+                                className="capitalize"
+                              >
+                                {has ? "Revoke " : "Grant "}
+                                {r.replace("_", " ")}
+                              </DropdownMenuItem>
+                            );
+                          })}
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </TableCell>
+                    <TableCell>
+                      <StatusBadge banned={banned} />
+                    </TableCell>
+                    <TableCell className="text-right font-mono text-sm">
+                      {u.confetti_pts}
+                    </TableCell>
+                    <TableCell className="text-xs text-muted-foreground">
+                      {fmtDate(u.created_at)}
+                    </TableCell>
+                    <TableCell className="text-xs text-muted-foreground">
+                      {fmtDate(u.last_sign_in_at)}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild disabled={busy}>
+                          <Button size="icon" variant="ghost" className="h-8 w-8">
+                            {busy ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                              <MoreHorizontal className="h-4 w-4" />
+                            )}
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuLabel>Account</DropdownMenuLabel>
+                          <DropdownMenuSeparator />
+                          <DropdownMenuItem onClick={() => void sendReset(u)}>
+                            <KeyRound className="mr-2 h-4 w-4" /> Send password reset
+                          </DropdownMenuItem>
                           <DropdownMenuItem
-                            key={r}
-                            disabled={u.role === r}
-                            onClick={() => setRole(u.id, r)}
-                            className="capitalize"
+                            disabled={isMe}
+                            onClick={() => void toggleSuspend(u)}
+                            className={banned ? "" : "text-destructive focus:text-destructive"}
                           >
-                            {r}
+                            {banned ? (
+                              <>
+                                <UserCheck className="mr-2 h-4 w-4" /> Reactivate
+                              </>
+                            ) : (
+                              <>
+                                <UserX className="mr-2 h-4 w-4" /> Suspend
+                              </>
+                            )}
                           </DropdownMenuItem>
-                        ))}
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </TableCell>
-                  <TableCell>
-                    <StatusBadge status={u.status} />
-                  </TableCell>
-                  <TableCell className="text-sm">{u.city}</TableCell>
-                  <TableCell className="text-right font-mono text-sm">{u.bookings}</TableCell>
-                  <TableCell className="text-xs text-muted-foreground">{u.joined}</TableCell>
-                  <TableCell className="text-xs text-muted-foreground">{u.lastActive}</TableCell>
-                  <TableCell className="text-right">
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button size="icon" variant="ghost" className="h-8 w-8">
-                          <MoreHorizontal className="h-4 w-4" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Account</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        {u.status !== "active" && (
-                          <DropdownMenuItem onClick={() => setStatus(u.id, "active")}>
-                            <UserCheck className="mr-2 h-4 w-4" /> Activate
-                          </DropdownMenuItem>
-                        )}
-                        {u.status !== "suspended" && (
+                          <DropdownMenuSeparator />
                           <DropdownMenuItem
-                            onClick={() => setStatus(u.id, "suspended")}
+                            disabled={isMe}
+                            onClick={() => setConfirmDelete(u)}
                             className="text-destructive focus:text-destructive"
                           >
-                            <UserX className="mr-2 h-4 w-4" /> Suspend
+                            <Trash2 className="mr-2 h-4 w-4" /> Delete account
                           </DropdownMenuItem>
-                        )}
-                        {u.status === "invited" && (
-                          <DropdownMenuItem
-                            onClick={() => toast.success(`Invite re-sent to ${u.email}`)}
-                          >
-                            Resend invite
-                          </DropdownMenuItem>
-                        )}
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </TableCell>
-                </TableRow>
-              ))
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </TableCell>
+                  </TableRow>
+                );
+              })
             )}
           </TableBody>
         </Table>
       </div>
+
+      <AlertDialog open={!!confirmDelete} onOpenChange={(o) => !o && setConfirmDelete(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete this account?</AlertDialogTitle>
+            <AlertDialogDescription>
+              {confirmDelete?.email} will be permanently removed. This cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => void doDelete()}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

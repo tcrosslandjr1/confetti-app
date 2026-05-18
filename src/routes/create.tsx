@@ -577,7 +577,7 @@ function CreatePage() {
                       </span>
 
                       <span className="min-w-0 flex-1">
-                        <span className="flex items-center gap-2">
+                        <span className="flex flex-wrap items-center gap-1.5">
                           <span className="font-display text-base font-bold leading-tight">
                             {g.label}
                           </span>
@@ -588,6 +588,13 @@ function CreatePage() {
                           >
                             Table for {g.size}
                             {g.size === 6 ? "+" : ""}
+                          </span>
+                          <span
+                            className={`rounded-full px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest ${
+                              active ? "bg-cream/25 text-cream" : "bg-gold/15 text-ink/70"
+                            }`}
+                          >
+                            {g.spendHint}
                           </span>
                         </span>
                         <span
@@ -615,7 +622,37 @@ function CreatePage() {
                               +
                             </span>
                           )}
+                          <span
+                            className={`ml-2 font-mono text-[9px] font-bold uppercase tracking-widest ${
+                              active ? "text-cream/80" : "text-ink/55"
+                            }`}
+                          >
+                            {g.tableHint}
+                          </span>
                         </span>
+
+                        {active && (
+                          <span className="mt-3 block space-y-1.5 rounded-xl bg-cream/15 p-2.5 text-[11px] leading-snug text-cream/95">
+                            <span className="block">
+                              <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-cream/70">
+                                Best for ·
+                              </span>{" "}
+                              {g.bestFor}
+                            </span>
+                            <span className="block">
+                              <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-cream/70">
+                                We optimize for ·
+                              </span>{" "}
+                              {g.optimizesFor}
+                            </span>
+                            <span className="block">
+                              <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-cream/70">
+                                We avoid ·
+                              </span>{" "}
+                              {g.avoids}
+                            </span>
+                          </span>
+                        )}
                       </span>
 
                       {active && (
@@ -627,8 +664,88 @@ function CreatePage() {
                   );
                 })}
               </div>
+
+              {/* Exact party size — only for groups where it matters */}
+              {group && (group.id === "small" || group.id === "squad") && (
+                <div className="rounded-2xl border-2 border-ink/15 bg-card p-4">
+                  <div className="flex items-baseline justify-between gap-2">
+                    <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70">
+                      Exact headcount
+                    </div>
+                    <span className="font-mono text-[9px] uppercase tracking-widest text-ink/40">
+                      helps us hold the right table
+                    </span>
+                  </div>
+                  <div className="mt-2 flex items-center gap-3">
+                    <button
+                      onClick={() =>
+                        setExactSize((n) => Math.max(group.size, (n ?? group.size) - 1))
+                      }
+                      className="grid h-10 w-10 place-items-center rounded-xl border-2 border-ink bg-card font-display text-lg font-bold hover:bg-ink hover:text-cream"
+                      aria-label="Decrease headcount"
+                    >
+                      −
+                    </button>
+                    <div className="flex-1 text-center">
+                      <div className="font-display text-3xl font-extrabold leading-none">
+                        {exactSize ?? group.size}
+                      </div>
+                      <div className="mt-0.5 font-mono text-[9px] uppercase tracking-widest text-ink/50">
+                        people
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => setExactSize((n) => Math.min(40, (n ?? group.size) + 1))}
+                      className="grid h-10 w-10 place-items-center rounded-xl border-2 border-ink bg-card font-display text-lg font-bold hover:bg-ink hover:text-cream"
+                      aria-label="Increase headcount"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Anything we should know? — sharpens picks without blocking */}
+              <div className="rounded-2xl border-2 border-dashed border-ink/20 bg-gradient-to-br from-purple/5 via-card/60 to-coral/5 p-4">
+                <div className="flex items-baseline justify-between gap-2">
+                  <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-ink/70">
+                    Anything we should know?
+                  </div>
+                  <span className="font-mono text-[9px] uppercase tracking-widest text-ink/40">
+                    optional · filters venues
+                  </span>
+                </div>
+                <p className="mt-0.5 text-xs text-muted-foreground leading-snug">
+                  Tap whatever applies — we'll only suggest spots that match.
+                </p>
+                <div className="mt-2.5 flex flex-wrap gap-1.5">
+                  {GROUP_EXTRAS.map((x) => {
+                    const active = extras.has(x.id);
+                    return (
+                      <button
+                        key={x.id}
+                        onClick={() => toggleExtra(x.id)}
+                        className={`inline-flex items-center gap-1.5 rounded-full border-2 px-3 py-1.5 text-xs font-bold transition-pop ${
+                          active
+                            ? "border-ink bg-ink text-cream shadow-brut -translate-y-0.5"
+                            : "border-ink/15 bg-card hover:border-ink hover:-translate-y-0.5"
+                        }`}
+                      >
+                        <span className="text-sm">{x.emoji}</span> {x.label}
+                      </button>
+                    );
+                  })}
+                </div>
+                {extras.size > 0 && (
+                  <p className="mt-2.5 font-mono text-[10px] uppercase tracking-widest text-coral">
+                    {extras.size} filter{extras.size === 1 ? "" : "s"} active · we'll respect these
+                    on every stop
+                  </p>
+                )}
+              </div>
             </div>
           )}
+
 
           {step === 1 && (
             <div className="space-y-2.5">

@@ -2,8 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { createClient } from "@supabase/supabase-js";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-import { type StripeEnv, createStripeClient } from "@/lib/stripe.server";
-
+import { createStripeClient } from "@/lib/stripe.server";
 // --- Plan catalog (price IDs registered in Stripe) ---
 export const CONSUMER_PRICES = [
   "consumer_plus_monthly",

@@ -30,9 +30,7 @@ const SiteFooter = lazy(() =>
 const AdDebugPanel = lazy(() =>
   import("@/components/AdDebugPanel").then((m) => ({ default: m.AdDebugPanel })),
 );
-const TapToGoBookingModal = lazy(() =>
-  import("@/components/TapToGoBookingModal").then((m) => ({ default: m.TapToGoBookingModal })),
-);
+import { TapToGoBookingModal } from "@/components/TapToGoBookingModal";
 
 const SAMPLE_ITINERARY_STOPS: TapToGoStop[] = [
   {
@@ -1406,20 +1404,16 @@ function Landing() {
         <AdDebugPanel />
       </Suspense>
 
-      {bookingOpen && (
-        <Suspense fallback={null}>
-          <TapToGoBookingModal
-            open={bookingOpen}
-            onClose={() => setBookingOpen(false)}
-            title="cute, walkable, ends with a slow drink"
-            subtitle="San Francisco · Mission → Hayes Valley → Nob Hill"
-            date="Sat, 6:00p"
-            guests={2}
-            stops={SAMPLE_ITINERARY_STOPS}
-            summary={SAMPLE_ITINERARY_SUMMARY}
-          />
-        </Suspense>
-      )}
+      <TapToGoBookingModal
+        open={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+        title="cute, walkable, ends with a slow drink"
+        subtitle="San Francisco · Mission → Hayes Valley → Nob Hill"
+        date="Sat, 6:00p"
+        guests={2}
+        stops={SAMPLE_ITINERARY_STOPS}
+        summary={SAMPLE_ITINERARY_SUMMARY}
+      />
 
       {/* Scroll-triggered sticky CTA — appears after the hero is offscreen */}
       <div

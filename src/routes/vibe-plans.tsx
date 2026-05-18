@@ -147,6 +147,14 @@ function VibePlansPage() {
   const [includeAdult, setIncludeAdult] = useState(false);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
 
+  // Filter toggles
+  const [familyFriendly, setFamilyFriendly] = useState(false);
+  const [conversationFriendly, setConversationFriendly] = useState(false);
+  const [avoidAlcohol, setAvoidAlcohol] = useState(false);
+  const [indoorOnly, setIndoorOnly] = useState(false);
+  const [budgetFriendly, setBudgetFriendly] = useState(false);
+  const [postBrunchDayParty, setPostBrunchDayParty] = useState(false);
+
   // Outing categories
   const [activeGroup, setActiveGroup] = useState<CategoryGroupId>("social");
   const [selectedCats, setSelectedCats] = useState<string[]>([]);

@@ -112,10 +112,14 @@ function partOfDay(d: Date) {
   return "late night";
 }
 
+import { getAuthedUserId, unauthorizedResponse } from "@/lib/require-auth.server";
+
 export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
       POST: async ({ request }: { request: Request }) => {
+        const userId = await getAuthedUserId(request);
+        if (!userId) return unauthorizedResponse();
         const body = (await request.json()) as ChatBody;
         const key = process.env.LOVABLE_API_KEY;
         if (!key) return new Response("Missing LOVABLE_API_KEY", { status: 500 });

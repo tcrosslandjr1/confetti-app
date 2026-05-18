@@ -257,10 +257,15 @@ function ChatThread() {
     abortRef.current = ac;
 
     try {
+      const { data: sess } = await supabase.auth.getSession();
+      const token = sess.session?.access_token;
       const res = await fetch("/api/chat", {
         method: "POST",
         signal: ac.signal,
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
         body: JSON.stringify({
           messages: history.map(({ role, content }) => ({ role, content })),
           preferences: prefsRes.data ?? null,

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { generatePlan } from "@/lib/generate-plan.functions";
+import { getAuthedUserId, unauthorizedResponse } from "@/lib/require-auth.server";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -12,6 +13,8 @@ export const Route = createFileRoute("/api/plans/generate")({
     handlers: {
       OPTIONS: async () => new Response(null, { status: 204, headers: corsHeaders }),
       POST: async ({ request }) => {
+        const userId = await getAuthedUserId(request);
+        if (!userId) return unauthorizedResponse(corsHeaders);
         let body: unknown;
         try {
           body = await request.json();

@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 
+import { getAuthedUserId } from "@/lib/require-auth.server";
+
 const EventSchema = z.object({
   name: z.enum(["pick_impression", "pick_click", "pick_feedback_up", "pick_feedback_down"]),
   pickId: z.string().min(1).max(255),
@@ -10,7 +12,7 @@ const EventSchema = z.object({
   meta: z.record(z.string().max(64), z.any()).optional(),
   clientAt: z.string().datetime().optional(),
   sessionId: z.string().max(128).optional(),
-  userId: z.string().uuid().optional(),
+  // user_id is derived server-side from the Bearer token — never trusted from the client.
 });
 
 const BodySchema = z.object({
@@ -20,7 +22,7 @@ const BodySchema = z.object({
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
 export const Route = createFileRoute("/api/public/pick-events")({
@@ -28,6 +30,10 @@ export const Route = createFileRoute("/api/public/pick-events")({
     handlers: {
       OPTIONS: async () => new Response(null, { status: 204, headers: corsHeaders }),
       POST: async ({ request }) => {
+        // Optional auth: anonymous analytics are allowed, but if a Bearer token
+        // is present we use it as the source of truth for user_id. Clients can
+        // no longer spoof another user's id by passing it in the body.
+        const userId = await getAuthedUserId(request);
         let payload: unknown;
         try {
           payload = await request.json();
@@ -52,7 +58,7 @@ export const Route = createFileRoute("/api/public/pick-events")({
           meta: e.meta ?? {},
           client_at: e.clientAt ?? null,
           session_id: e.sessionId ?? null,
-          user_id: e.userId ?? null,
+          user_id: userId,
         }));
         const { error } = await supabaseAdmin.from("pick_events").insert(rows);
         if (error) {

@@ -137,7 +137,7 @@ export const setUserRoleFn = createServerFn({ method: "POST" })
 
     await supabase.from("admin_audit_log").insert({
       reviewer_id: context.userId,
-      action: data.grant ? "role_grant" : "role_revoke",
+      action: data.grant ? "role_grant" : "role_revoke", entity_type: "user",
       entity_id: data.userId,
       entity_label: data.role,
       note: null,
@@ -169,7 +169,7 @@ export const setUserSuspendedFn = createServerFn({ method: "POST" })
 
     await supabase.from("admin_audit_log").insert({
       reviewer_id: context.userId,
-      action: data.suspend ? "user_suspend" : "user_reactivate",
+      action: data.suspend ? "user_suspend" : "user_reactivate", entity_type: "user",
       entity_id: data.userId,
       entity_label: null,
       note: null,
@@ -210,7 +210,7 @@ export const deleteUserFn = createServerFn({ method: "POST" })
 
     await supabase.from("admin_audit_log").insert({
       reviewer_id: context.userId,
-      action: "user_delete",
+      action: "user_delete", entity_type: "user",
       entity_id: data.userId,
       entity_label: null,
       note: null,

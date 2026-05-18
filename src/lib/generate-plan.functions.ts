@@ -330,6 +330,10 @@ ${candidateBlock}
 # Bonus-move pool (Impromptu Ideas Agent — pick one or null)
 ${impromptuPoolPrompt(cityCtx.slug, req.occasionId)}
 
+${buildWaterfrontPrompt(cityCtx)}
+
+${req.occasionId === "girls" ? buildGirlsNightPresetsPrompt(budget, detectWaterfront(cityCtx).hasWaterfront) : ""}
+
 # Your task
 Run all seven agents and return the structured plan.
 Each stop's rationale must tie the pick to the occasion, vibe, city, OR taste graph in one sentence.

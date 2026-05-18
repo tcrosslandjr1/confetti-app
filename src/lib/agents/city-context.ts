@@ -23,6 +23,19 @@ export type TravelIntel = {
   };
 };
 
+export type WaterType = "ocean" | "river" | "lake" | "bay" | "harbor";
+
+export type WaterfrontProfile = {
+  hasWaterfront: boolean;
+  waterType?: WaterType;
+  /** marina, pier, riverwalk, beach, boardwalk, harbor, lakefront, embarcadero */
+  features: string[];
+  /** cruises, yacht rentals, paddle boats, waterfront dining, on-the-water rooftops */
+  activities: string[];
+  /** Named waterfront areas the model should bias toward */
+  signatureSpots?: string[];
+};
+
 export type CityContext = {
   /** Canonical city name as stored in viral_venues.city */
   city: string;
@@ -48,6 +61,8 @@ export type CityContext = {
   transport: { maxTravelMinutes: number; avoidCrossCity: boolean };
   /** Travel-mode intelligence (rideshare, walkability, transit, EV). Optional, defaulted by slug. */
   travel?: TravelIntel;
+  /** Waterfront knowledge pack — drives dynamic swaps (yacht, pier, riverwalk). */
+  waterfront?: WaterfrontProfile;
   /** Convenience: flat list of neighborhood names */
   signatureNeighborhoods?: string[];
 };

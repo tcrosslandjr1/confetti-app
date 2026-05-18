@@ -198,10 +198,15 @@ function VibePlansPage() {
   const [freeText, setFreeText] = useState("");
   const [classifying, setClassifying] = useState(false);
   const classify = useServerFn(classifyOuting);
+  const regenNames = useServerFn(generateRankedOutingNames);
 
   const [loading, setLoading] = useState(false);
   const [plan, setPlan] = useState<GeneratedPlan | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [selectedName, setSelectedName] = useState<string | null>(null);
+  const [renaming, setRenaming] = useState(false);
+  const [renameValue, setRenameValue] = useState("");
+  const [swappingName, setSwappingName] = useState(false);
 
   const waterfront = city ? detectWaterfront(city) : null;
 

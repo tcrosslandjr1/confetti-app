@@ -34,6 +34,7 @@ import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MeRouteImport } from './routes/me'
 import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as HealthRouteImport } from './routes/health'
 import { Route as GroupOutingRouteImport } from './routes/group-outing'
 import { Route as ForBusinessRouteImport } from './routes/for-business'
 import { Route as FeaturesRouteImport } from './routes/features'
@@ -314,6 +315,11 @@ const InvestorsRoute = InvestorsRouteImport.update({
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HealthRoute = HealthRouteImport.update({
+  id: '/health',
+  path: '/health',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GroupOutingRoute = GroupOutingRouteImport.update({
@@ -1139,6 +1145,7 @@ export interface FileRoutesByFullPath {
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
   '/group-outing': typeof GroupOutingRoute
+  '/health': typeof HealthRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
@@ -1317,6 +1324,7 @@ export interface FileRoutesByTo {
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
   '/group-outing': typeof GroupOutingRoute
+  '/health': typeof HealthRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
@@ -1497,6 +1505,7 @@ export interface FileRoutesById {
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
   '/group-outing': typeof GroupOutingRoute
+  '/health': typeof HealthRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
@@ -1682,6 +1691,7 @@ export interface FileRouteTypes {
     | '/features'
     | '/for-business'
     | '/group-outing'
+    | '/health'
     | '/how-it-works'
     | '/investors'
     | '/me'
@@ -1860,6 +1870,7 @@ export interface FileRouteTypes {
     | '/features'
     | '/for-business'
     | '/group-outing'
+    | '/health'
     | '/how-it-works'
     | '/investors'
     | '/me'
@@ -2039,6 +2050,7 @@ export interface FileRouteTypes {
     | '/features'
     | '/for-business'
     | '/group-outing'
+    | '/health'
     | '/how-it-works'
     | '/investors'
     | '/me'
@@ -2223,6 +2235,7 @@ export interface RootRouteChildren {
   FeaturesRoute: typeof FeaturesRoute
   ForBusinessRoute: typeof ForBusinessRoute
   GroupOutingRoute: typeof GroupOutingRoute
+  HealthRoute: typeof HealthRoute
   HowItWorksRoute: typeof HowItWorksRoute
   InvestorsRoute: typeof InvestorsRoute
   MeRoute: typeof MeRoute
@@ -2476,6 +2489,13 @@ declare module '@tanstack/react-router' {
       path: '/how-it-works'
       fullPath: '/how-it-works'
       preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/health': {
+      id: '/health'
+      path: '/health'
+      fullPath: '/health'
+      preLoaderRoute: typeof HealthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/group-outing': {
@@ -3875,6 +3895,7 @@ const rootRouteChildren: RootRouteChildren = {
   FeaturesRoute: FeaturesRoute,
   ForBusinessRoute: ForBusinessRoute,
   GroupOutingRoute: GroupOutingRoute,
+  HealthRoute: HealthRoute,
   HowItWorksRoute: HowItWorksRoute,
   InvestorsRoute: InvestorsRoute,
   MeRoute: MeRoute,

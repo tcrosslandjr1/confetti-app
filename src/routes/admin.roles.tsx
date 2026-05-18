@@ -33,10 +33,7 @@ import {
 
 export const Route = createFileRoute("/admin/roles")({
   head: () => ({
-    meta: [
-      { title: "Admin roles — Confetti" },
-      { name: "robots", content: "noindex, nofollow" },
-    ],
+    meta: [{ title: "Admin roles — Confetti" }, { name: "robots", content: "noindex, nofollow" }],
   }),
   component: AdminRolesPage,
 });
@@ -116,9 +113,7 @@ function AdminRolesPage() {
     <div className="space-y-6">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-            Access
-          </p>
+          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Access</p>
           <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
             <Crown className="h-7 w-7 text-primary" /> Admin roles
           </h1>

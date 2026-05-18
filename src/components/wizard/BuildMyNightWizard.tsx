@@ -574,9 +574,7 @@ export function BuildMyNightWizard() {
     }
     return set;
   }, [activeLoopState]);
-  const isStopAdded = (s: Stop) =>
-    addedStopKeys.has(`name:${s.venue.toLowerCase()}`) ||
-    (!!s.venueId && addedStopKeys.has(`id:${s.venueId}`));
+  const isStopAdded = (s: Stop) => addedStopKeys.has(`name:${s.venue.toLowerCase()}`);
   const [openDish, setOpenDish] = useState<{ name: string; venue: string } | null>(null);
   type Personalize = {
     preferredHour: number | null;

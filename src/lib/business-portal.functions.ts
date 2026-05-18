@@ -270,3 +270,97 @@ export const requestVenueRefresh = createServerFn({ method: "POST" })
     const { refreshOneVenue } = await import("./venue-media.functions");
     return refreshOneVenue(data.venueId);
   });
+
+/* ----------------------------- EVENTS ----------------------------- */
+
+export const listMyVenueEvents = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const supabase = adminClient();
+    const admin = await isAdmin(supabase, context.userId);
+    let vq = supabase.from("venues").select("id, name");
+    if (!admin) vq = vq.eq("claimed_by", context.userId);
+    const { data: venues, error: vErr } = await vq;
+    if (vErr) throw new Error(vErr.message);
+    const ids = (venues ?? []).map((v) => v.id);
+    if (ids.length === 0) return { events: [] };
+    const { data, error } = await supabase
+      .from("events")
+      .select("id, title, starts_at, ends_at, status, image_url, ticket_url, price_cents, venue_id, venue_name")
+      .in("venue_id", ids)
+      .order("starts_at", { ascending: false });
+    if (error) throw new Error(error.message);
+    return { events: data ?? [] };
+  });
+
+export const deleteVenueEvent = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(z.object({ eventId: z.string().uuid() }))
+  .handler(async ({ data, context }) => {
+    const supabase = adminClient();
+    const { data: ev } = await supabase.from("events").select("venue_id").eq("id", data.eventId).single();
+    if (!ev?.venue_id) throw new Error("Event not found");
+    await assertCanManageVenue(supabase, context.userId, ev.venue_id);
+    const { error } = await supabase.from("events").delete().eq("id", data.eventId);
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
+
+/* ----------------------------- SETTINGS ----------------------------- */
+
+const SettingsInput = z.object({
+  venueId: z.string().uuid(),
+  name: z.string().min(1).max(200).optional(),
+  description: z.string().max(4000).optional(),
+  city: z.string().max(120).optional(),
+  neighborhood: z.string().max(120).optional(),
+  website: z.string().url().or(z.literal("")).optional(),
+  price_band: z.string().max(20).optional(),
+  category: z.string().max(80).optional(),
+  staff_email: z.string().email().or(z.literal("")).optional(),
+});
+
+export const updateVenueSettings = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(SettingsInput)
+  .handler(async ({ data, context }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, data.venueId);
+    const { venueId, ...rest } = data;
+    const update: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(rest)) {
+      if (v === undefined) continue;
+      update[k] = v === "" ? null : v;
+    }
+    if (Object.keys(update).length === 0) return { ok: true };
+    const { error } = await supabase
+      .from("venues")
+      .update(update as never)
+      .eq("id", venueId);
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
+
+/* ----------------------------- BILLING ----------------------------- */
+
+export const getMyBusinessSubscription = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const supabase = adminClient();
+    const { data, error } = await supabase
+      .from("subscriptions")
+      .select(
+        "id, status, tier, current_period_start, current_period_end, cancel_at_period_end, price_id, product_id, account_type, environment, updated_at",
+      )
+      .eq("user_id", context.userId)
+      .order("updated_at", { ascending: false })
+      .limit(5);
+    if (error) throw new Error(error.message);
+    const active =
+      (data ?? []).find(
+        (s) =>
+          (s.status === "active" || s.status === "trialing") &&
+          (!s.current_period_end || new Date(s.current_period_end).getTime() > Date.now()),
+      ) ?? null;
+    return { subscription: active, history: data ?? [] };
+  });

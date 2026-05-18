@@ -354,3 +354,81 @@ export const decideAdvertiserFn = createServerFn({ method: "POST" })
 
     return { advertiser: adv };
   });
+
+/* ------------------------- OWNER: RESUBMIT ADVERTISER ------------------------- */
+
+const ResubmitInput = z.object({
+  business_name: z.string().min(2).max(160),
+  website: z.string().url().max(300).optional().or(z.literal("")),
+  contact_email: z.string().email().max(255),
+  contact_phone: z.string().max(40).optional().or(z.literal("")),
+  category: z.string().max(80).optional().or(z.literal("")),
+  city: z.string().max(120).optional().or(z.literal("")),
+  owner_name: z.string().max(160).optional().or(z.literal("")),
+  notes: z.string().max(2000).optional().or(z.literal("")),
+  package_selected: z.string().max(40).optional().or(z.literal("")),
+});
+
+export const resubmitAdvertiserFn = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input) => ResubmitInput.parse(input))
+  .handler(async ({ data, context }) => {
+    const supabase = adminClient();
+
+    const { data: existing, error: findErr } = await supabase
+      .from("advertisers")
+      .select("id, owner_id, status")
+      .eq("owner_id", context.userId)
+      .maybeSingle();
+    if (findErr) throw new Error(findErr.message);
+    if (!existing) throw new Error("No application found to resubmit");
+    if (existing.status !== "rejected") {
+      throw new Error("Only rejected applications can be resubmitted");
+    }
+
+    const patch = {
+      business_name: data.business_name,
+      website: data.website || null,
+      contact_email: data.contact_email,
+      contact_phone: data.contact_phone || null,
+      category: data.category || null,
+      city: data.city || null,
+      owner_name: data.owner_name || null,
+      notes: data.notes || null,
+      package_selected: data.package_selected || null,
+      status: "pending_review",
+      review_note: null,
+      reviewed_at: null,
+      reviewed_by: null,
+      submitted_at: new Date().toISOString(),
+    } as never;
+
+    const { data: updated, error } = await supabase
+      .from("advertisers")
+      .update(patch)
+      .eq("id", existing.id)
+      .select("*")
+      .single();
+    if (error) throw new Error(error.message);
+
+    // Notify all admins about the resubmission
+    try {
+      const { data: admins } = await supabase
+        .from("user_roles")
+        .select("user_id")
+        .eq("role", "admin");
+      const rows = (admins ?? []).map((a: { user_id: string }) => ({
+        user_id: a.user_id,
+        kind: "business_resubmitted",
+        title: "Business application resubmitted",
+        body: `${data.business_name} updated their application and is awaiting review.`,
+        link: "/admin/advertisers",
+      }));
+      if (rows.length) await supabase.from("notifications").insert(rows as never);
+    } catch {
+      /* non-fatal */
+    }
+
+    return { advertiser: updated };
+  });
+

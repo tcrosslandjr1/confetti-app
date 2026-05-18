@@ -15,17 +15,6 @@ import { CITIES, findCityLoose, type CityContext } from "@/lib/agents/city-conte
 import { matchState, isKnownCity } from "@/lib/agents/states";
 import { detectWaterfront } from "@/lib/agents/waterfront";
 import { setActiveLoop, makeDemoLoop, type ActiveLoop } from "@/lib/loop-store";
-import {
-  OUTING_CATEGORIES,
-  CATEGORY_GROUPS,
-  CATEGORIES_BY_ID,
-  categoriesInGroup,
-  resolveCategories,
-  buildCategoryDirective,
-  type CategoryGroupId,
-} from "@/lib/agents/outing-categories";
-import { classifyOuting } from "@/lib/classify-outing.functions";
-import { toast } from "sonner";
 
 export const Route = createFileRoute("/vibe-plans")({
   component: VibePlansPage,

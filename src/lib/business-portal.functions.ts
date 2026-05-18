@@ -312,6 +312,62 @@ export const deleteVenueEvent = createServerFn({ method: "POST" })
     return { ok: true };
   });
 
+const CreateEventInput = z.object({
+  venueId: z.string().uuid(),
+  title: z.string().min(1).max(200),
+  starts_at: z.string().min(1),
+  ends_at: z.string().optional().nullable(),
+  description: z.string().max(4000).optional().nullable(),
+  city: z.string().min(1).max(120),
+  address: z.string().max(400).optional().nullable(),
+  neighborhood: z.string().max(120).optional().nullable(),
+  lat: z.number().optional().nullable(),
+  lng: z.number().optional().nullable(),
+  venue_name: z.string().max(200).optional().nullable(),
+  image_url: z.string().url().or(z.literal("")).optional().nullable(),
+  ticket_url: z.string().url().or(z.literal("")).optional().nullable(),
+  price_cents: z.number().int().nonnegative().optional().nullable(),
+});
+
+export const createVenueEvent = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(CreateEventInput)
+  .handler(async ({ data, context }) => {
+    const supabase = adminClient();
+    await assertCanManageVenue(supabase, context.userId, data.venueId);
+    const { data: venue } = await supabase
+      .from("venues")
+      .select("name, city, neighborhood")
+      .eq("id", data.venueId)
+      .single();
+    const insert = {
+      venue_id: data.venueId,
+      venue_name: data.venue_name || venue?.name || null,
+      title: data.title,
+      starts_at: data.starts_at,
+      ends_at: data.ends_at || null,
+      description: data.description || null,
+      city: data.city || venue?.city || "",
+      address: data.address || null,
+      neighborhood: data.neighborhood || venue?.neighborhood || null,
+      lat: data.lat ?? null,
+      lng: data.lng ?? null,
+      image_url: data.image_url || null,
+      ticket_url: data.ticket_url || null,
+      price_cents: data.price_cents ?? null,
+      source: "business_portal",
+      created_by: context.userId,
+      status: "published",
+    };
+    const { data: row, error } = await supabase
+      .from("events")
+      .insert(insert)
+      .select("id")
+      .single();
+    if (error) throw new Error(error.message);
+    return { ok: true, eventId: row.id };
+  });
+
 /* ----------------------------- SETTINGS ----------------------------- */
 
 const SettingsInput = z.object({

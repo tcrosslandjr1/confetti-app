@@ -20,7 +20,14 @@ import {
   Mail,
   CalendarPlus,
 } from "lucide-react";
-import { checkInStop, setActiveLoop, PLAN_PRESETS, type ActiveLoop, type LoopStop, type StopKind } from "@/lib/loop-store";
+import {
+  checkInStop,
+  setActiveLoop,
+  PLAN_PRESETS,
+  type ActiveLoop,
+  type LoopStop,
+  type StopKind,
+} from "@/lib/loop-store";
 import { appendNotifications } from "@/lib/trip-status";
 import { logActivity } from "@/lib/activity-log";
 import { ConfettiMap } from "@/components/maps/ConfettiMap";

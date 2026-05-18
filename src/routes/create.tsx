@@ -189,6 +189,18 @@ function CreatePage() {
     from: string;
     to: string;
   }>(null);
+  const [extras, setExtras] = useState<Set<string>>(new Set());
+  const [exactSize, setExactSize] = useState<number | null>(null);
+
+  function toggleExtra(id: string) {
+    setExtras((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      logSignal("mood", `extra:${id}`, { step: STEP_LABELS[step] });
+      return next;
+    });
+  }
 
   // Fire-and-forget signal logger; ignore failure (e.g. anon user).
   function logSignal(

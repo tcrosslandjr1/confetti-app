@@ -12,6 +12,20 @@ import { cn } from "@/lib/utils";
 import { generatePlan } from "@/lib/generate-plan.functions";
 import { classifyOuting } from "@/lib/classify-outing.functions";
 import { generateRankedOutingNames } from "@/lib/name-generator.functions";
+import {
+  PERSONALITY_OPTIONS,
+  BUDGET_MODE_OPTIONS,
+  GROUP_TYPE_OPTIONS,
+  TIME_OF_DAY_OPTIONS,
+  SAFETY_MODE_OPTIONS,
+  LOCAL_FLAVOR_LEVELS,
+  type PersonalityId,
+  type BudgetMode,
+  type GroupType,
+  type TimeOfDay,
+  type SafetyMode,
+  type LocalFlavorLevel,
+} from "@/lib/agents/v6-engines";
 import type { GeneratedPlan } from "@/lib/agents/types";
 import { CITIES, findCityLoose, type CityContext } from "@/lib/agents/city-context";
 import { matchState, isKnownCity } from "@/lib/agents/states";

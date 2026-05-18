@@ -91,6 +91,7 @@ import { Route as PortalActivityRouteImport } from './routes/portal.activity'
 import { Route as PortalAchievementsRouteImport } from './routes/portal.achievements'
 import { Route as PlanReadyRouteImport } from './routes/plan.ready'
 import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
+import { Route as PartnerSupportRouteImport } from './routes/partner.support'
 import { Route as PartnerReservationsRouteImport } from './routes/partner.reservations'
 import { Route as PartnerPromotionsRouteImport } from './routes/partner.promotions'
 import { Route as PartnerProfileRouteImport } from './routes/partner.profile'
@@ -589,6 +590,11 @@ const PlanPreviewRoute = PlanPreviewRouteImport.update({
   id: '/preview',
   path: '/preview',
   getParentRoute: () => PlanRoute,
+} as any)
+const PartnerSupportRoute = PartnerSupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => PartnerRoute,
 } as any)
 const PartnerReservationsRoute = PartnerReservationsRouteImport.update({
   id: '/reservations',
@@ -1159,6 +1165,7 @@ export interface FileRoutesByFullPath {
   '/partner/profile': typeof PartnerProfileRoute
   '/partner/promotions': typeof PartnerPromotionsRoute
   '/partner/reservations': typeof PartnerReservationsRoute
+  '/partner/support': typeof PartnerSupportRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
   '/portal/achievements': typeof PortalAchievementsRoute
@@ -1322,6 +1329,7 @@ export interface FileRoutesByTo {
   '/partner/profile': typeof PartnerProfileRoute
   '/partner/promotions': typeof PartnerPromotionsRoute
   '/partner/reservations': typeof PartnerReservationsRoute
+  '/partner/support': typeof PartnerSupportRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
   '/portal/achievements': typeof PortalAchievementsRoute
@@ -1495,6 +1503,7 @@ export interface FileRoutesById {
   '/partner/profile': typeof PartnerProfileRoute
   '/partner/promotions': typeof PartnerPromotionsRoute
   '/partner/reservations': typeof PartnerReservationsRoute
+  '/partner/support': typeof PartnerSupportRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
   '/portal/achievements': typeof PortalAchievementsRoute
@@ -1669,6 +1678,7 @@ export interface FileRouteTypes {
     | '/partner/profile'
     | '/partner/promotions'
     | '/partner/reservations'
+    | '/partner/support'
     | '/plan/preview'
     | '/plan/ready'
     | '/portal/achievements'
@@ -1832,6 +1842,7 @@ export interface FileRouteTypes {
     | '/partner/profile'
     | '/partner/promotions'
     | '/partner/reservations'
+    | '/partner/support'
     | '/plan/preview'
     | '/plan/ready'
     | '/portal/achievements'
@@ -2004,6 +2015,7 @@ export interface FileRouteTypes {
     | '/partner/profile'
     | '/partner/promotions'
     | '/partner/reservations'
+    | '/partner/support'
     | '/plan/preview'
     | '/plan/ready'
     | '/portal/achievements'
@@ -2729,6 +2741,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/plan/preview'
       preLoaderRoute: typeof PlanPreviewRouteImport
       parentRoute: typeof PlanRoute
+    }
+    '/partner/support': {
+      id: '/partner/support'
+      path: '/support'
+      fullPath: '/partner/support'
+      preLoaderRoute: typeof PartnerSupportRouteImport
+      parentRoute: typeof PartnerRoute
     }
     '/partner/reservations': {
       id: '/partner/reservations'
@@ -3498,6 +3517,7 @@ interface PartnerRouteChildren {
   PartnerProfileRoute: typeof PartnerProfileRoute
   PartnerPromotionsRoute: typeof PartnerPromotionsRoute
   PartnerReservationsRoute: typeof PartnerReservationsRoute
+  PartnerSupportRoute: typeof PartnerSupportRoute
   PartnerIndexRoute: typeof PartnerIndexRoute
 }
 
@@ -3512,6 +3532,7 @@ const PartnerRouteChildren: PartnerRouteChildren = {
   PartnerProfileRoute: PartnerProfileRoute,
   PartnerPromotionsRoute: PartnerPromotionsRoute,
   PartnerReservationsRoute: PartnerReservationsRoute,
+  PartnerSupportRoute: PartnerSupportRoute,
   PartnerIndexRoute: PartnerIndexRoute,
 }
 

@@ -169,6 +169,7 @@ import { Route as ApiQaRunRouteImport } from './routes/api.qa.run'
 import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pick-events'
 import { Route as ApiPlansGenerateRouteImport } from './routes/api/plans/generate'
 import { Route as AdvertiseStoriesSlugRouteImport } from './routes/advertise.stories.$slug'
+import { Route as ApiPublicWebhooksPartnerRouteImport } from './routes/api/public/webhooks/partner'
 import { Route as ApiPublicWalletGoogleRouteImport } from './routes/api/public/wallet/google'
 import { Route as ApiPublicTiktokCallbackRouteImport } from './routes/api/public/tiktok.callback'
 import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
@@ -987,6 +988,12 @@ const AdvertiseStoriesSlugRoute = AdvertiseStoriesSlugRouteImport.update({
   path: '/stories/$slug',
   getParentRoute: () => AdvertiseRoute,
 } as any)
+const ApiPublicWebhooksPartnerRoute =
+  ApiPublicWebhooksPartnerRouteImport.update({
+    id: '/api/public/webhooks/partner',
+    path: '/api/public/webhooks/partner',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicWalletGoogleRoute = ApiPublicWalletGoogleRouteImport.update({
   id: '/api/public/wallet/google',
   path: '/api/public/wallet/google',
@@ -1259,6 +1266,7 @@ export interface FileRoutesByFullPath {
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
+  '/api/public/webhooks/partner': typeof ApiPublicWebhooksPartnerRoute
   '/api/public/partner/v1/availability': typeof ApiPublicPartnerV1AvailabilityRoute
   '/api/public/partner/v1/menu': typeof ApiPublicPartnerV1MenuRoute
   '/api/public/partner/v1/orders/$id': typeof ApiPublicPartnerV1OrdersIdRoute
@@ -1429,6 +1437,7 @@ export interface FileRoutesByTo {
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
+  '/api/public/webhooks/partner': typeof ApiPublicWebhooksPartnerRoute
   '/api/public/partner/v1/availability': typeof ApiPublicPartnerV1AvailabilityRoute
   '/api/public/partner/v1/menu': typeof ApiPublicPartnerV1MenuRoute
   '/api/public/partner/v1/orders/$id': typeof ApiPublicPartnerV1OrdersIdRoute
@@ -1609,6 +1618,7 @@ export interface FileRoutesById {
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
+  '/api/public/webhooks/partner': typeof ApiPublicWebhooksPartnerRoute
   '/api/public/partner/v1/availability': typeof ApiPublicPartnerV1AvailabilityRoute
   '/api/public/partner/v1/menu': typeof ApiPublicPartnerV1MenuRoute
   '/api/public/partner/v1/orders/$id': typeof ApiPublicPartnerV1OrdersIdRoute
@@ -1790,6 +1800,7 @@ export interface FileRouteTypes {
     | '/api/public/payments/webhook'
     | '/api/public/tiktok/callback'
     | '/api/public/wallet/google'
+    | '/api/public/webhooks/partner'
     | '/api/public/partner/v1/availability'
     | '/api/public/partner/v1/menu'
     | '/api/public/partner/v1/orders/$id'
@@ -1960,6 +1971,7 @@ export interface FileRouteTypes {
     | '/api/public/payments/webhook'
     | '/api/public/tiktok/callback'
     | '/api/public/wallet/google'
+    | '/api/public/webhooks/partner'
     | '/api/public/partner/v1/availability'
     | '/api/public/partner/v1/menu'
     | '/api/public/partner/v1/orders/$id'
@@ -2139,6 +2151,7 @@ export interface FileRouteTypes {
     | '/api/public/payments/webhook'
     | '/api/public/tiktok/callback'
     | '/api/public/wallet/google'
+    | '/api/public/webhooks/partner'
     | '/api/public/partner/v1/availability'
     | '/api/public/partner/v1/menu'
     | '/api/public/partner/v1/orders/$id'
@@ -2241,6 +2254,7 @@ export interface RootRouteChildren {
   ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
   ApiPublicTiktokCallbackRoute: typeof ApiPublicTiktokCallbackRoute
   ApiPublicWalletGoogleRoute: typeof ApiPublicWalletGoogleRoute
+  ApiPublicWebhooksPartnerRoute: typeof ApiPublicWebhooksPartnerRoute
   ApiPublicPartnerV1AvailabilityRoute: typeof ApiPublicPartnerV1AvailabilityRoute
   ApiPublicPartnerV1MenuRoute: typeof ApiPublicPartnerV1MenuRoute
   ApiPublicPartnerV1OrdersIdRoute: typeof ApiPublicPartnerV1OrdersIdRoute
@@ -3371,6 +3385,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdvertiseStoriesSlugRouteImport
       parentRoute: typeof AdvertiseRoute
     }
+    '/api/public/webhooks/partner': {
+      id: '/api/public/webhooks/partner'
+      path: '/api/public/webhooks/partner'
+      fullPath: '/api/public/webhooks/partner'
+      preLoaderRoute: typeof ApiPublicWebhooksPartnerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/wallet/google': {
       id: '/api/public/wallet/google'
       path: '/api/public/wallet/google'
@@ -3861,6 +3882,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
   ApiPublicTiktokCallbackRoute: ApiPublicTiktokCallbackRoute,
   ApiPublicWalletGoogleRoute: ApiPublicWalletGoogleRoute,
+  ApiPublicWebhooksPartnerRoute: ApiPublicWebhooksPartnerRoute,
   ApiPublicPartnerV1AvailabilityRoute: ApiPublicPartnerV1AvailabilityRoute,
   ApiPublicPartnerV1MenuRoute: ApiPublicPartnerV1MenuRoute,
   ApiPublicPartnerV1OrdersIdRoute: ApiPublicPartnerV1OrdersIdRoute,

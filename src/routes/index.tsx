@@ -1260,32 +1260,104 @@ function Landing() {
 
       {/* ============================ BIG CTA ============================ */}
       <section className="relative overflow-hidden border-b-2 border-ink bg-coral text-cream">
+        {/* Animated background blobs */}
         <div className="absolute -right-20 -top-20 h-72 w-72 animate-blob bg-purple/40" />
         <div
           className="absolute -bottom-16 -left-16 h-64 w-64 animate-blob bg-gold/60"
           style={{ animationDelay: "-4s" }}
         />
-        <div className="relative mx-auto max-w-5xl px-4 py-28 text-center sm:px-6">
+        <div
+          className="absolute right-1/4 bottom-10 h-40 w-40 animate-blob bg-cream/15 blur-2xl"
+          style={{ animationDelay: "-2s" }}
+        />
+
+        {/* Dot grid texture */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage:
+              "radial-gradient(currentColor 1.2px, transparent 1.2px)",
+            backgroundSize: "22px 22px",
+          }}
+        />
+
+        {/* Floating confetti chips */}
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="absolute left-[8%] top-[18%] h-3 w-3 rotate-12 bg-gold animate-float-slow" />
+          <div className="absolute left-[14%] bottom-[22%] h-2 w-6 -rotate-6 bg-purple animate-float-slower" />
+          <div className="absolute right-[12%] top-[26%] h-4 w-4 rotate-45 border-2 border-cream animate-float-slower" />
+          <div className="absolute right-[20%] bottom-[18%] h-2.5 w-2.5 rounded-full bg-cream animate-float-slow" />
+          <div className="absolute left-[42%] top-[10%] h-2 w-8 rotate-12 bg-cream/70 animate-float-slow" />
+        </div>
+
+        <div className="relative mx-auto max-w-6xl px-4 py-32 text-center sm:px-6">
           <Reveal>
-            <Sparkles className="mx-auto h-10 w-10" />
+            {/* Eyebrow pill */}
+            <div className="mx-auto inline-flex items-center gap-2 rounded-full border-2 border-cream/80 bg-ink/20 px-4 py-1.5 backdrop-blur-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
+              </span>
+              <span className="font-mono text-xs font-bold uppercase tracking-[0.2em]">
+                Tonight in your city
+              </span>
+            </div>
+
+            <Sparkles className="mx-auto mt-6 h-10 w-10 animate-pulse" />
+
             <h2 className="mt-6 font-display text-7xl font-extrabold leading-[0.85] tracking-tight sm:text-[140px]">
-              Stop scrolling.
+              <span className="relative inline-block">
+                Stop scrolling.
+                <span
+                  aria-hidden
+                  className="absolute -bottom-2 left-0 right-0 h-2 bg-gold/80"
+                  style={{ clipPath: "polygon(0 0,100% 0,98% 100%,2% 100%)" }}
+                />
+              </span>
               <br />
-              <span className="font-serif italic font-normal">Start showing up.</span>
+              <span className="font-serif italic font-normal text-gold drop-shadow-[3px_3px_0_var(--color-ink)]">
+                Start showing up.
+              </span>
             </h2>
-            <div className="mt-12 flex flex-wrap justify-center gap-4">
+
+            <p className="mx-auto mt-8 max-w-2xl text-lg font-medium text-cream/90 sm:text-xl">
+              One tap. A full night planned — vibes, venues, route, and reservations.
+              No group chat chaos. No FOMO.
+            </p>
+
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <WizardButton
                 ariaLabel="Build my night"
-                className="inline-flex h-14 items-center gap-2 rounded-full border-2 border-cream bg-cream px-8 font-bold text-ink shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
+                className="group inline-flex h-16 items-center gap-2 rounded-full border-2 border-ink bg-cream px-10 font-bold text-ink shadow-brut-lg transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:bg-gold hover:shadow-brut-xl"
               >
-                Build my night <ArrowUpRight className="h-5 w-5" />
+                Build my night
+                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:rotate-45" />
               </WizardButton>
               <Link
                 to="/features"
-                className="inline-flex h-14 items-center rounded-full border-2 border-cream px-8 font-bold transition-pop hover:-translate-y-0.5 hover:bg-cream hover:text-ink"
+                className="inline-flex h-16 items-center rounded-full border-2 border-cream px-10 font-bold transition-pop hover:-translate-y-0.5 hover:bg-cream hover:text-ink"
               >
                 Tour the features
               </Link>
+            </div>
+
+            {/* Trust strip */}
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-xs font-bold uppercase tracking-widest text-cream/80">
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                Free to start
+              </span>
+              <span className="hidden sm:inline opacity-40">•</span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                No card required
+              </span>
+              <span className="hidden sm:inline opacity-40">•</span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                Plans in 8 seconds
+              </span>
             </div>
           </Reveal>
         </div>

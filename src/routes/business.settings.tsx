@@ -50,7 +50,11 @@ function BusinessSettingsPage() {
 
         <Card className="p-5">
           <SectionTitle>Vibe</SectionTitle>
-          <Field label="Description" textarea defaultValue="Open-air rooftop with cocktails, small plates, and weekly Afrobeats nights." />
+          <Field
+            label="Description"
+            textarea
+            defaultValue="Open-air rooftop with cocktails, small plates, and weekly Afrobeats nights."
+          />
           <Field label="Music types" defaultValue="Afrobeats, Amapiano, House" />
           <Field label="Dress code" defaultValue="Stylish casual" />
         </Card>
@@ -77,9 +81,7 @@ function BusinessSettingsPage() {
 }
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="mb-3 font-display text-lg font-bold">{children}</div>
-  );
+  return <div className="mb-3 font-display text-lg font-bold">{children}</div>;
 }
 
 function Field({

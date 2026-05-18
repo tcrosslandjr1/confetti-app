@@ -18,11 +18,46 @@ export const Route = createFileRoute("/business/events")({
 
 type Status = "upcoming" | "past" | "drafts";
 
-const EVENTS: Array<{ id: string; title: string; date: string; status: Status; flyer: string; published: boolean }> = [
-  { id: "e1", title: "Afrobeats Friday", date: "Fri · 10:00 PM", status: "upcoming", flyer: "from-orange-300 to-pink-300", published: true },
-  { id: "e2", title: "Rooftop Sessions", date: "Sat · 9:00 PM", status: "upcoming", flyer: "from-primary/50 to-orange-200", published: true },
-  { id: "e3", title: "Sunday Brunch DJ", date: "Sun · 12:00 PM", status: "drafts", flyer: "from-amber-200 to-yellow-200", published: false },
-  { id: "e4", title: "New Year's Eve Gala", date: "Dec 31 · 10:00 PM", status: "past", flyer: "from-purple/50 to-pink-200", published: true },
+const EVENTS: Array<{
+  id: string;
+  title: string;
+  date: string;
+  status: Status;
+  flyer: string;
+  published: boolean;
+}> = [
+  {
+    id: "e1",
+    title: "Afrobeats Friday",
+    date: "Fri · 10:00 PM",
+    status: "upcoming",
+    flyer: "from-orange-300 to-pink-300",
+    published: true,
+  },
+  {
+    id: "e2",
+    title: "Rooftop Sessions",
+    date: "Sat · 9:00 PM",
+    status: "upcoming",
+    flyer: "from-primary/50 to-orange-200",
+    published: true,
+  },
+  {
+    id: "e3",
+    title: "Sunday Brunch DJ",
+    date: "Sun · 12:00 PM",
+    status: "drafts",
+    flyer: "from-amber-200 to-yellow-200",
+    published: false,
+  },
+  {
+    id: "e4",
+    title: "New Year's Eve Gala",
+    date: "Dec 31 · 10:00 PM",
+    status: "past",
+    flyer: "from-purple/50 to-pink-200",
+    published: true,
+  },
 ];
 
 function BusinessEventsPage() {

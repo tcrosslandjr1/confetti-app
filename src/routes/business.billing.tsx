@@ -41,20 +41,23 @@ function BusinessBillingPage() {
               </div>
               <div className="mt-1 font-display text-2xl font-bold">Boost — Tier 2</div>
               <div className="mt-1 text-sm text-muted-foreground">
-                Renews on <span className="font-semibold text-foreground">Jun 1, 2026</span> · $199 / mo
+                Renews on <span className="font-semibold text-foreground">Jun 1, 2026</span> · $199
+                / mo
               </div>
             </div>
             <CheckCircle2 className="h-8 w-8 text-emerald-500" />
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
-            {["Featured badge", "Boosted reels", "Priority search", "Hot Spots rotation"].map((f) => (
-              <span
-                key={f}
-                className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
-              >
-                {f}
-              </span>
-            ))}
+            {["Featured badge", "Boosted reels", "Priority search", "Hot Spots rotation"].map(
+              (f) => (
+                <span
+                  key={f}
+                  className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >
+                  {f}
+                </span>
+              ),
+            )}
           </div>
         </Card>
 

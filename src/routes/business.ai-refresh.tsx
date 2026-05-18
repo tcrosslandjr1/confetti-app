@@ -65,7 +65,10 @@ function BusinessAIRefreshPage() {
             "2 menu price refreshes",
             "Operating hours verified",
           ].map((item) => (
-            <li key={item} className="flex items-center gap-2 rounded-lg border bg-background/50 px-3 py-2">
+            <li
+              key={item}
+              className="flex items-center gap-2 rounded-lg border bg-background/50 px-3 py-2"
+            >
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
               {item}
             </li>

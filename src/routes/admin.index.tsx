@@ -277,15 +277,16 @@ function AdminDashboard() {
           </div>
           <ul className="space-y-3">
             {(feed ?? []).map((n) => (
-              <li key={n.id} className="flex gap-3 rounded-xl border border-border/60 bg-muted/30 p-3">
+              <li
+                key={n.id}
+                className="flex gap-3 rounded-xl border border-border/60 bg-muted/30 p-3"
+              >
                 <div className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-coral/15 text-coral">
                   <Bell className="h-3 w-3" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-semibold">{n.title}</p>
-                  {n.body && (
-                    <p className="line-clamp-1 text-xs text-muted-foreground">{n.body}</p>
-                  )}
+                  {n.body && <p className="line-clamp-1 text-xs text-muted-foreground">{n.body}</p>}
                   <p className="mt-0.5 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
                     {n.kind.replace(/_/g, " ")} · {formatRelative(n.created_at)}
                   </p>
@@ -351,8 +352,8 @@ function AdminDashboard() {
               <span className="inline-flex items-center gap-0.5 font-bold text-emerald-600">
                 <TrendingUp className="h-3 w-3" /> faster
               </span>{" "}
-              than last week. Keep the queue under{" "}
-              <span className="font-bold">10</span> for best owner satisfaction.
+              than last week. Keep the queue under <span className="font-bold">10</span> for best
+              owner satisfaction.
             </p>
           </div>
         </aside>

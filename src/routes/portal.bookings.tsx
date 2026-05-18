@@ -112,7 +112,7 @@ function PortalBookingsPage() {
       .order("starts_at", { ascending: false })
       .then(({ data }) => {
         const real = (data as Booking[]) ?? [];
-        setBookings(real.length > 0 ? real : MOCK_BOOKINGS);
+        setBookings(real.length > 0 ? real : buildMockBookings());
         setLoading(false);
       });
   };

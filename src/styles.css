@@ -440,8 +440,13 @@
     box-shadow: var(--shadow-brut-xl);
   }
   @keyframes float-slow {
-    0%, 100% { transform: translateY(0) rotate(var(--tw-rotate, 0deg)); }
-    50% { transform: translateY(-14px) rotate(var(--tw-rotate, 0deg)); }
+    0%,
+    100% {
+      transform: translateY(0) rotate(var(--tw-rotate, 0deg));
+    }
+    50% {
+      transform: translateY(-14px) rotate(var(--tw-rotate, 0deg));
+    }
   }
   .animate-float-slow {
     animation: float-slow 5s ease-in-out infinite;

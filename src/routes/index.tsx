@@ -1276,8 +1276,7 @@ function Landing() {
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.08]"
           style={{
-            backgroundImage:
-              "radial-gradient(currentColor 1.2px, transparent 1.2px)",
+            backgroundImage: "radial-gradient(currentColor 1.2px, transparent 1.2px)",
             backgroundSize: "22px 22px",
           }}
         />
@@ -1322,8 +1321,8 @@ function Landing() {
             </h2>
 
             <p className="mx-auto mt-8 max-w-2xl text-lg font-medium text-cream/90 sm:text-xl">
-              One tap. A full night planned — vibes, venues, route, and reservations.
-              No group chat chaos. No FOMO.
+              One tap. A full night planned — vibes, venues, route, and reservations. No group chat
+              chaos. No FOMO.
             </p>
 
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">

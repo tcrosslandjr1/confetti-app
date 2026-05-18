@@ -1915,9 +1915,12 @@ export type Database = {
           confetti_pts: number
           created_at: string
           display_name: string | null
+          ev_owner: boolean
           id: string
           level: number
           onboarding_complete: boolean
+          preferred_ride: string
+          preferred_vehicle: string | null
           updated_at: string
           vip_until: string | null
           xp: number
@@ -1926,9 +1929,12 @@ export type Database = {
           confetti_pts?: number
           created_at?: string
           display_name?: string | null
+          ev_owner?: boolean
           id: string
           level?: number
           onboarding_complete?: boolean
+          preferred_ride?: string
+          preferred_vehicle?: string | null
           updated_at?: string
           vip_until?: string | null
           xp?: number
@@ -1937,9 +1943,12 @@ export type Database = {
           confetti_pts?: number
           created_at?: string
           display_name?: string | null
+          ev_owner?: boolean
           id?: string
           level?: number
           onboarding_complete?: boolean
+          preferred_ride?: string
+          preferred_vehicle?: string | null
           updated_at?: string
           vip_until?: string | null
           xp?: number

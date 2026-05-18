@@ -112,7 +112,10 @@ function SavedPage() {
   };
 
   const add = async (vid: string) => {
-    if (!user) return;
+    if (!user) {
+      toast.error("Sign in to save venues.");
+      return;
+    }
     const { error } = await supabase
       .from("saved_venues")
       .insert({ user_id: user.id, venue_id: vid });
@@ -179,36 +182,44 @@ function SavedPage() {
         </Dialog>
       </header>
 
-      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {MOCK_SAVED.map((m) => (
-          <li
-            key={m.id}
-            className="overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut"
-          >
-            <GooglePhotos venue={m.name} neighborhood={m.neighborhood} variant="hero" />
-            <div className="p-4">
-              <div className="flex items-start justify-between gap-2">
-                <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
-                  {m.cuisine}
+      {loading ? (
+        <p className="text-sm text-muted-foreground">Loading…</p>
+      ) : (
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {items.length === 0 &&
+            MOCK_SAVED.map((m) => (
+              <li
+                key={m.id}
+                className="overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut"
+              >
+                <GooglePhotos venue={m.name} neighborhood={m.neighborhood} variant="hero" />
+                <div className="p-4">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                      {m.cuisine}
+                    </div>
+                    <Heart className="h-4 w-4 fill-destructive text-destructive" />
+                  </div>
+                  <h3 className="mt-1 font-display text-lg font-bold">{m.name}</h3>
+                  <div className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-amber-600">
+                    <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
+                    {m.rating.toFixed(1)}
+                  </div>
+                  <p className="mt-1.5 line-clamp-2 text-xs text-muted-foreground">
+                    {m.description}
+                  </p>
+                  <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground">
+                    <span className="inline-flex items-center gap-1">
+                      <MapPin className="h-3 w-3" />
+                      {m.neighborhood}
+                    </span>
+                    <span className="font-mono text-[10px] uppercase tracking-wider">
+                      {m.savedAgo}
+                    </span>
+                  </div>
                 </div>
-                <Heart className="h-4 w-4 fill-destructive text-destructive" />
-              </div>
-              <h3 className="mt-1 font-display text-lg font-bold">{m.name}</h3>
-              <div className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-amber-600">
-                <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
-                {m.rating.toFixed(1)}
-              </div>
-              <p className="mt-1.5 line-clamp-2 text-xs text-muted-foreground">{m.description}</p>
-              <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground">
-                <span className="inline-flex items-center gap-1">
-                  <MapPin className="h-3 w-3" />
-                  {m.neighborhood}
-                </span>
-                <span className="font-mono text-[10px] uppercase tracking-wider">{m.savedAgo}</span>
-              </div>
-            </div>
-          </li>
-        ))}
+              </li>
+            ))}
         {items
           .filter((i) => i.venues)
           .map((i) => (
@@ -263,7 +274,8 @@ function SavedPage() {
               </div>
             </li>
           ))}
-      </ul>
+        </ul>
+      )}
     </div>
   );
 }

@@ -10,7 +10,7 @@ import {
   Repeat,
   Briefcase,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { logSecurityTrace } from "@/lib/security-trace";
 
 type Option = {
@@ -72,6 +72,10 @@ export function RoleSwitcher() {
   const { isAdmin, viewAs, setViewAs, isImpersonating, exitImpersonation, user } = useAuth();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  // Avoid SSR hydration mismatch: viewAs is hydrated from sessionStorage on
+  // the client, so render nothing until after mount.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   // UI-only switcher — visible in every view so you can preview each role.
   // Real permissions are still enforced server-side by RLS.
@@ -113,6 +117,7 @@ export function RoleSwitcher() {
     navigate({ to: "/admin" });
   };
 
+  if (!mounted) return null;
   const current = OPTIONS.find((o) => o.value === viewAs)!;
 
   return (

@@ -83,8 +83,8 @@ function CalendarPage() {
               <div key={d} className="text-xs font-medium text-center text-muted-foreground py-1">{d}</div>
             ))}
             {HOURS.map((h, hi) => (
-              <>
-                <div key={`h-${hi}`} className="text-xs text-muted-foreground text-right pr-2 py-2">{h}</div>
+              <Fragment key={hi}>
+                <div className="text-xs text-muted-foreground text-right pr-2 py-2">{h}</div>
                 {DAYS.map((_, di) => {
                   const s = statusFor(di, hi);
                   return (
@@ -95,7 +95,7 @@ function CalendarPage() {
                     />
                   );
                 })}
-              </>
+              </Fragment>
             ))}
           </div>
         </div>

@@ -53,6 +53,7 @@ import { useNavigate } from "@tanstack/react-router";
 import {
   getActiveLoop,
   setActiveLoop,
+  subscribeActiveLoop,
   makeDemoLoop,
   type ActiveLoop,
   type LoopStop,

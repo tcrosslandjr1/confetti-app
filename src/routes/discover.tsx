@@ -74,7 +74,7 @@ const SAMPLE_VENUES: VenueRow[] = SAMPLE_DATA.map((v) => ({
   name: v.name,
   neighborhood: v.neighborhood,
   address: v.address,
-  photo: v.imageUrl,
+  photo: v.imageUrl || unsplashFor(v.category, v.name),
   rating: v.rating,
   price: v.price,
   tags: v.tags,

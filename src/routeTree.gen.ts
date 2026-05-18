@@ -93,6 +93,7 @@ import { Route as PlanReadyRouteImport } from './routes/plan.ready'
 import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
 import { Route as PartnerReservationsRouteImport } from './routes/partner.reservations'
 import { Route as PartnerProfileRouteImport } from './routes/partner.profile'
+import { Route as PartnerOrdersRouteImport } from './routes/partner.orders'
 import { Route as PartnerOrderSettingsRouteImport } from './routes/partner.order-settings'
 import { Route as PartnerCalendarRouteImport } from './routes/partner.calendar'
 import { Route as PartnerBookingSettingsRouteImport } from './routes/partner.booking-settings'
@@ -593,6 +594,11 @@ const PartnerReservationsRoute = PartnerReservationsRouteImport.update({
 const PartnerProfileRoute = PartnerProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
+  getParentRoute: () => PartnerRoute,
+} as any)
+const PartnerOrdersRoute = PartnerOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
   getParentRoute: () => PartnerRoute,
 } as any)
 const PartnerOrderSettingsRoute = PartnerOrderSettingsRouteImport.update({
@@ -1122,6 +1128,7 @@ export interface FileRoutesByFullPath {
   '/partner/booking-settings': typeof PartnerBookingSettingsRoute
   '/partner/calendar': typeof PartnerCalendarRoute
   '/partner/order-settings': typeof PartnerOrderSettingsRoute
+  '/partner/orders': typeof PartnerOrdersRoute
   '/partner/profile': typeof PartnerProfileRoute
   '/partner/reservations': typeof PartnerReservationsRoute
   '/plan/preview': typeof PlanPreviewRoute
@@ -1280,6 +1287,7 @@ export interface FileRoutesByTo {
   '/partner/booking-settings': typeof PartnerBookingSettingsRoute
   '/partner/calendar': typeof PartnerCalendarRoute
   '/partner/order-settings': typeof PartnerOrderSettingsRoute
+  '/partner/orders': typeof PartnerOrdersRoute
   '/partner/profile': typeof PartnerProfileRoute
   '/partner/reservations': typeof PartnerReservationsRoute
   '/plan/preview': typeof PlanPreviewRoute
@@ -1448,6 +1456,7 @@ export interface FileRoutesById {
   '/partner/booking-settings': typeof PartnerBookingSettingsRoute
   '/partner/calendar': typeof PartnerCalendarRoute
   '/partner/order-settings': typeof PartnerOrderSettingsRoute
+  '/partner/orders': typeof PartnerOrdersRoute
   '/partner/profile': typeof PartnerProfileRoute
   '/partner/reservations': typeof PartnerReservationsRoute
   '/plan/preview': typeof PlanPreviewRoute
@@ -1617,6 +1626,7 @@ export interface FileRouteTypes {
     | '/partner/booking-settings'
     | '/partner/calendar'
     | '/partner/order-settings'
+    | '/partner/orders'
     | '/partner/profile'
     | '/partner/reservations'
     | '/plan/preview'
@@ -1775,6 +1785,7 @@ export interface FileRouteTypes {
     | '/partner/booking-settings'
     | '/partner/calendar'
     | '/partner/order-settings'
+    | '/partner/orders'
     | '/partner/profile'
     | '/partner/reservations'
     | '/plan/preview'
@@ -1942,6 +1953,7 @@ export interface FileRouteTypes {
     | '/partner/booking-settings'
     | '/partner/calendar'
     | '/partner/order-settings'
+    | '/partner/orders'
     | '/partner/profile'
     | '/partner/reservations'
     | '/plan/preview'
@@ -2684,6 +2696,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PartnerProfileRouteImport
       parentRoute: typeof PartnerRoute
     }
+    '/partner/orders': {
+      id: '/partner/orders'
+      path: '/orders'
+      fullPath: '/partner/orders'
+      preLoaderRoute: typeof PartnerOrdersRouteImport
+      parentRoute: typeof PartnerRoute
+    }
     '/partner/order-settings': {
       id: '/partner/order-settings'
       path: '/order-settings'
@@ -3396,6 +3415,7 @@ interface PartnerRouteChildren {
   PartnerBookingSettingsRoute: typeof PartnerBookingSettingsRoute
   PartnerCalendarRoute: typeof PartnerCalendarRoute
   PartnerOrderSettingsRoute: typeof PartnerOrderSettingsRoute
+  PartnerOrdersRoute: typeof PartnerOrdersRoute
   PartnerProfileRoute: typeof PartnerProfileRoute
   PartnerReservationsRoute: typeof PartnerReservationsRoute
   PartnerIndexRoute: typeof PartnerIndexRoute
@@ -3405,6 +3425,7 @@ const PartnerRouteChildren: PartnerRouteChildren = {
   PartnerBookingSettingsRoute: PartnerBookingSettingsRoute,
   PartnerCalendarRoute: PartnerCalendarRoute,
   PartnerOrderSettingsRoute: PartnerOrderSettingsRoute,
+  PartnerOrdersRoute: PartnerOrdersRoute,
   PartnerProfileRoute: PartnerProfileRoute,
   PartnerReservationsRoute: PartnerReservationsRoute,
   PartnerIndexRoute: PartnerIndexRoute,

@@ -559,6 +559,24 @@ export function BuildMyNightWizard() {
   const [showFavorites, setShowFavorites] = useState(false);
   const [reservingKey, setReservingKey] = useState<string | null>(null);
   const [bookedSlots, setBookedSlots] = useState<Record<string, string>>({});
+  const [activeLoopState, setActiveLoopState] = useState<ActiveLoop | null>(() =>
+    getActiveLoop(),
+  );
+  useEffect(() => {
+    setActiveLoopState(getActiveLoop());
+    return subscribeActiveLoop(() => setActiveLoopState(getActiveLoop()));
+  }, []);
+  const addedStopKeys = useMemo(() => {
+    const set = new Set<string>();
+    for (const ls of activeLoopState?.stops ?? []) {
+      if (ls.venueId) set.add(`id:${ls.venueId}`);
+      if (ls.name) set.add(`name:${ls.name.toLowerCase()}`);
+    }
+    return set;
+  }, [activeLoopState]);
+  const isStopAdded = (s: Stop) =>
+    addedStopKeys.has(`name:${s.venue.toLowerCase()}`) ||
+    (!!s.venueId && addedStopKeys.has(`id:${s.venueId}`));
   const [openDish, setOpenDish] = useState<{ name: string; venue: string } | null>(null);
   type Personalize = {
     preferredHour: number | null;

@@ -35,8 +35,7 @@ const AUDIENCE_GUIDANCE: Record<AudienceType, string> = {
     "Best: hiking day trip, service + cookout, sports tournament, escape room + dinner, road trip tailgate. Priorities: bonding, low planning overhead, affordable, team challenges, alumni-friendly. Avoid unsafe drinking-centered plans, unclear transportation, no safety leads.",
   sorority:
     "Lean toward elegance, service, sisterhood, mentorship, reflection. Best: community service + tea social, cultural museum + panel, wellness day, philanthropy fundraiser, sisterhood retreat.",
-  aka:
-    "Best: community service + tea social, cultural museum tour + panel, wellness day, philanthropy fundraiser, sisterhood retreat. Priorities: service, sisterhood, elegance, mentorship, reflection, community impact. Tone refined, intentional.",
+  aka: "Best: community service + tea social, cultural museum tour + panel, wellness day, philanthropy fundraiser, sisterhood retreat. Priorities: service, sisterhood, elegance, mentorship, reflection, community impact. Tone refined, intentional.",
   "line-sisters":
     "Best: progressive brunch + skills workshop, scavenger hunt with memory tasks, DIY craft night, volunteer tutoring clinic, sunset photoshoot + picnic. Priorities: intimate bonding, mentorship, memories, conversation, low-pressure connection.",
   "church-friends":

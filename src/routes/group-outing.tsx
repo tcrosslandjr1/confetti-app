@@ -151,9 +151,7 @@ function GroupOutingPage() {
             <Users className="h-6 w-6 text-primary" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">
-              Group & Organization Outings
-            </h1>
+            <h1 className="text-3xl font-bold tracking-tight">Group & Organization Outings</h1>
             <p className="text-muted-foreground">
               Ready-to-run plans for Greek orgs, churches, corporate teams, alumni, and more.
             </p>
@@ -289,7 +287,9 @@ function PlanView({ plan }: { plan: GroupOutingPlan }) {
               <h3 className="mb-2 font-semibold">Checklist</h3>
               <ul className="grid gap-1 md:grid-cols-2">
                 {plan.checklist.map((c, i) => (
-                  <li key={i} className="text-sm">☐ {c}</li>
+                  <li key={i} className="text-sm">
+                    ☐ {c}
+                  </li>
                 ))}
               </ul>
             </section>
@@ -386,7 +386,10 @@ function PlanView({ plan }: { plan: GroupOutingPlan }) {
             </p>
             <ul className="space-y-1">
               {plan.signup_fields.map((f, i) => (
-                <li key={i} className="flex items-center justify-between rounded border px-3 py-2 text-sm">
+                <li
+                  key={i}
+                  className="flex items-center justify-between rounded border px-3 py-2 text-sm"
+                >
                   <span>{f.field_name}</span>
                   <span className="flex items-center gap-2 text-xs text-muted-foreground">
                     <Badge variant="outline">{f.field_type}</Badge>

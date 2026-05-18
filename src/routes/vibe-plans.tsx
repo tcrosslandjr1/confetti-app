@@ -217,6 +217,15 @@ function VibePlansPage() {
   const [loading, setLoading] = useState(false);
   const [plan, setPlan] = useState<GeneratedPlan | null>(null);
   const [error, setError] = useState<string | null>(null);
+  // v6 engine inputs
+  const [personality, setPersonality] = useState<PersonalityId | null>(null);
+  const [budgetMode, setBudgetMode] = useState<BudgetMode>("balanced");
+  const [groupType, setGroupType] = useState<GroupType | null>(null);
+  const [timeOfDay, setTimeOfDay] = useState<TimeOfDay | null>(null);
+  const [safetyModes, setSafetyModes] = useState<SafetyMode[]>([]);
+  const [localFlavorLevel, setLocalFlavorLevel] = useState<LocalFlavorLevel>("medium");
+  const [weatherAware, setWeatherAware] = useState(true);
+
   const [selectedName, setSelectedName] = useState<string | null>(null);
   const [renaming, setRenaming] = useState(false);
   const [renameValue, setRenameValue] = useState("");

@@ -45,18 +45,20 @@ async function flush() {
   const batch = pending;
   pending = [];
   try {
-    let userId: string | undefined;
+    let token: string | undefined;
     try {
       const { data } = await supabase.auth.getSession();
-      userId = data.session?.user?.id;
+      token = data.session?.access_token;
     } catch {
       /* anon */
     }
-    const events = batch.map((e) => ({ ...e, userId }));
     await fetch(ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ events }),
+      headers: {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+      body: JSON.stringify({ events: batch }),
       keepalive: true,
     });
   } catch (err) {

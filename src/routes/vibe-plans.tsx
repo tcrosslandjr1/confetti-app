@@ -490,6 +490,8 @@ function VibePlansPage() {
             </p>
           )}
         </Card>
+
+        {error ? (
           <Card className="border-destructive/40 bg-destructive/5 p-3 text-sm text-destructive">
             {error}
           </Card>

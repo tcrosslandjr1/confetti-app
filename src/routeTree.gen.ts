@@ -62,6 +62,7 @@ import { Route as TripsIndexRouteImport } from './routes/trips.index'
 import { Route as TeamsIndexRouteImport } from './routes/teams.index'
 import { Route as PromoterIndexRouteImport } from './routes/promoter.index'
 import { Route as PortalIndexRouteImport } from './routes/portal.index'
+import { Route as PartnerIndexRouteImport } from './routes/partner.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as CorporateIndexRouteImport } from './routes/corporate.index'
 import { Route as ConciergeIndexRouteImport } from './routes/concierge.index'
@@ -433,6 +434,11 @@ const PortalIndexRoute = PortalIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => PortalRoute,
+} as any)
+const PartnerIndexRoute = PartnerIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PartnerRoute,
 } as any)
 const EventsIndexRoute = EventsIndexRouteImport.update({
   id: '/events/',
@@ -1003,7 +1009,7 @@ export interface FileRoutesByFullPath {
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
-  '/partner': typeof PartnerRoute
+  '/partner': typeof PartnerRouteWithChildren
   '/partners': typeof PartnersRoute
   '/passport': typeof PassportRoute
   '/plan': typeof PlanRouteWithChildren
@@ -1111,6 +1117,7 @@ export interface FileRoutesByFullPath {
   '/concierge/': typeof ConciergeIndexRoute
   '/corporate/': typeof CorporateIndexRoute
   '/events/': typeof EventsIndexRoute
+  '/partner/': typeof PartnerIndexRoute
   '/portal/': typeof PortalIndexRoute
   '/promoter/': typeof PromoterIndexRoute
   '/teams/': typeof TeamsIndexRoute
@@ -1159,7 +1166,6 @@ export interface FileRoutesByTo {
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
-  '/partner': typeof PartnerRoute
   '/partners': typeof PartnersRoute
   '/passport': typeof PassportRoute
   '/plan': typeof PlanRouteWithChildren
@@ -1264,6 +1270,7 @@ export interface FileRoutesByTo {
   '/concierge': typeof ConciergeIndexRoute
   '/corporate': typeof CorporateIndexRoute
   '/events': typeof EventsIndexRoute
+  '/partner': typeof PartnerIndexRoute
   '/portal': typeof PortalIndexRoute
   '/promoter': typeof PromoterIndexRoute
   '/teams': typeof TeamsIndexRoute
@@ -1318,7 +1325,7 @@ export interface FileRoutesById {
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
-  '/partner': typeof PartnerRoute
+  '/partner': typeof PartnerRouteWithChildren
   '/partners': typeof PartnersRoute
   '/passport': typeof PassportRoute
   '/plan': typeof PlanRouteWithChildren
@@ -1426,6 +1433,7 @@ export interface FileRoutesById {
   '/concierge/': typeof ConciergeIndexRoute
   '/corporate/': typeof CorporateIndexRoute
   '/events/': typeof EventsIndexRoute
+  '/partner/': typeof PartnerIndexRoute
   '/portal/': typeof PortalIndexRoute
   '/promoter/': typeof PromoterIndexRoute
   '/teams/': typeof TeamsIndexRoute
@@ -1589,6 +1597,7 @@ export interface FileRouteTypes {
     | '/concierge/'
     | '/corporate/'
     | '/events/'
+    | '/partner/'
     | '/portal/'
     | '/promoter/'
     | '/teams/'
@@ -1637,7 +1646,6 @@ export interface FileRouteTypes {
     | '/investors'
     | '/me'
     | '/onboarding'
-    | '/partner'
     | '/partners'
     | '/passport'
     | '/plan'
@@ -1742,6 +1750,7 @@ export interface FileRouteTypes {
     | '/concierge'
     | '/corporate'
     | '/events'
+    | '/partner'
     | '/portal'
     | '/promoter'
     | '/teams'
@@ -1903,6 +1912,7 @@ export interface FileRouteTypes {
     | '/concierge/'
     | '/corporate/'
     | '/events/'
+    | '/partner/'
     | '/portal/'
     | '/promoter/'
     | '/teams/'
@@ -1957,7 +1967,7 @@ export interface RootRouteChildren {
   InvestorsRoute: typeof InvestorsRoute
   MeRoute: typeof MeRoute
   OnboardingRoute: typeof OnboardingRoute
-  PartnerRoute: typeof PartnerRoute
+  PartnerRoute: typeof PartnerRouteWithChildren
   PartnersRoute: typeof PartnersRoute
   PassportRoute: typeof PassportRoute
   PlanRoute: typeof PlanRouteWithChildren
@@ -2396,6 +2406,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/portal/'
       preLoaderRoute: typeof PortalIndexRouteImport
       parentRoute: typeof PortalRoute
+    }
+    '/partner/': {
+      id: '/partner/'
+      path: '/'
+      fullPath: '/partner/'
+      preLoaderRoute: typeof PartnerIndexRouteImport
+      parentRoute: typeof PartnerRoute
     }
     '/events/': {
       id: '/events/'
@@ -3280,6 +3297,17 @@ const CorporateRouteWithChildren = CorporateRoute._addFileChildren(
   CorporateRouteChildren,
 )
 
+interface PartnerRouteChildren {
+  PartnerIndexRoute: typeof PartnerIndexRoute
+}
+
+const PartnerRouteChildren: PartnerRouteChildren = {
+  PartnerIndexRoute: PartnerIndexRoute,
+}
+
+const PartnerRouteWithChildren =
+  PartnerRoute._addFileChildren(PartnerRouteChildren)
+
 interface PlanRouteChildren {
   PlanPreviewRoute: typeof PlanPreviewRoute
   PlanReadyRoute: typeof PlanReadyRoute
@@ -3411,7 +3439,7 @@ const rootRouteChildren: RootRouteChildren = {
   InvestorsRoute: InvestorsRoute,
   MeRoute: MeRoute,
   OnboardingRoute: OnboardingRoute,
-  PartnerRoute: PartnerRoute,
+  PartnerRoute: PartnerRouteWithChildren,
   PartnersRoute: PartnersRoute,
   PassportRoute: PassportRoute,
   PlanRoute: PlanRouteWithChildren,

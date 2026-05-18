@@ -1316,7 +1316,7 @@ function Landing() {
                 />
               </span>
               <br />
-              <span className="font-serif italic font-normal text-gold drop-shadow-[3px_3px_0_var(--color-ink)]">
+              <span className="font-serif italic font-normal text-gold drop-shadow-[3px_3px_0_var(--ink)]">
                 Start showing up.
               </span>
             </h2>

@@ -583,9 +583,15 @@
     .animate-bounce,
     .animate-spin,
     .hero-gradient,
-    .typing-caret::after {
+    .typing-caret::after,
+    .rise-in,
+    .shine-sweep::after,
+    .parallax-soft,
+    .parallax-strong {
       animation: none !important;
+      transform: none !important;
     }
+    .rise-in { opacity: 1 !important; }
     .hero-gradient {
       background-size: 100% 100% !important;
     }

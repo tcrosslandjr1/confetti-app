@@ -615,40 +615,42 @@ function AuthPage() {
           </div>
 
           <div className="mt-8 lg:mt-4">
-            {/* Segmented mode toggle */}
+            {/* Header row: segmented toggle + status chip */}
             <div
-              className="rise-in mb-5 inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream p-1 shadow-brut"
+              className="rise-in mb-5 flex flex-wrap items-center justify-between gap-3"
               style={{ ["--d" as never]: "0ms" } as CSSProperties}
-              role="tablist"
-              aria-label="Sign in or sign up"
             >
-              {(["signup", "signin"] as const).map((m) => {
-                const active = mode === m;
-                return (
-                  <button
-                    key={m}
-                    type="button"
-                    role="tab"
-                    aria-selected={active}
-                    onClick={() => setMode(m)}
-                    className={`relative rounded-full px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${
-                      active ? "bg-ink text-cream shadow-brut" : "text-ink/60 hover:text-ink"
-                    }`}
-                  >
-                    {m === "signup" ? "Sign up" : "Sign in"}
-                  </button>
-                );
-              })}
+              <div
+                className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream p-1 shadow-brut"
+                role="tablist"
+                aria-label="Sign in or sign up"
+              >
+                {(["signup", "signin"] as const).map((m) => {
+                  const active = mode === m;
+                  return (
+                    <button
+                      key={m}
+                      type="button"
+                      role="tab"
+                      aria-selected={active}
+                      onClick={() => setMode(m)}
+                      className={`relative rounded-full px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${
+                        active ? "bg-ink text-cream shadow-brut" : "text-ink/60 hover:text-ink"
+                      }`}
+                    >
+                      {m === "signup" ? "Sign up" : "Sign in"}
+                    </button>
+                  );
+                })}
+              </div>
+              <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral" />
+                {mode === "signup" ? "Join the list" : "Welcome back"}
+              </span>
             </div>
-            <span
-              className="rise-in inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut"
-              style={{ ["--d" as never]: "80ms" } as CSSProperties}
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-coral" />
-              {mode === "signup" ? "Join the list" : "Welcome back"}
-            </span>
+
             <h1
-              className="rise-in mt-3 font-display text-[2.25rem] font-extrabold leading-[1.02] tracking-tight sm:text-4xl"
+              className="rise-in font-display text-[2.25rem] font-extrabold leading-[1.02] tracking-tight sm:text-[2.5rem]"
               style={{ ["--d" as never]: "160ms" } as CSSProperties}
             >
               {mode === "signup" ? (
@@ -662,7 +664,7 @@ function AuthPage() {
               )}
             </h1>
             <p
-              className="rise-in mt-3 text-sm text-ink/70"
+              className="rise-in mt-3 max-w-md text-sm leading-relaxed text-ink/70"
               style={{ ["--d" as never]: "240ms" } as CSSProperties}
             >
               {mode === "signup"
@@ -672,62 +674,81 @@ function AuthPage() {
 
             {/* What's next — 3-step micro-rail (signup only) */}
             {mode === "signup" && (
-              <ol
-                className="rise-in mt-5 grid grid-cols-3 gap-2"
+              <div
+                className="rise-in relative mt-6"
                 style={{ ["--d" as never]: "300ms" } as CSSProperties}
-                aria-label="What happens next"
               >
-                {[
-                  { n: "01", t: "Account", d: "~60 sec", Icon: UserIcon },
-                  { n: "02", t: "Taste quiz", d: "5 taps", Icon: Sparkles },
-                  { n: "03", t: "Boarding pass", d: "tonight", Icon: Ticket },
-                ].map((s, i) => (
-                  <li
-                    key={s.n}
-                    className={`relative rounded-2xl border-2 p-2.5 ${
-                      i === 0
-                        ? "border-ink bg-cream shadow-brut"
-                        : "border-dashed border-ink/25 bg-cream/50"
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span
-                        className={`font-mono text-[9px] font-bold uppercase tracking-[0.2em] ${
-                          i === 0 ? "text-coral" : "text-ink/40"
-                        }`}
-                      >
-                        {s.n}
-                      </span>
-                      <s.Icon className={`h-3.5 w-3.5 ${i === 0 ? "text-ink" : "text-ink/40"}`} />
-                    </div>
-                    <div className="mt-1 font-display text-sm font-extrabold leading-tight text-ink">
-                      {s.t}
-                    </div>
-                    <div className="font-mono text-[9px] uppercase tracking-widest text-ink/50">
-                      {s.d}
-                    </div>
-                  </li>
-                ))}
-              </ol>
+                {/* Connector line behind the cards */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute left-[16%] right-[16%] top-1/2 -z-0 h-0.5 -translate-y-1/2 bg-[repeating-linear-gradient(90deg,_oklch(0.2_0_0_/_0.25)_0_6px,_transparent_6px_12px)]"
+                />
+                <ol
+                  className="relative z-10 grid grid-cols-3 gap-2.5"
+                  aria-label="What happens next"
+                >
+                  {[
+                    { n: "01", t: "Account", d: "~60 sec", Icon: UserIcon },
+                    { n: "02", t: "Taste quiz", d: "5 taps", Icon: Sparkles },
+                    { n: "03", t: "Boarding pass", d: "tonight", Icon: Ticket },
+                  ].map((s, i) => (
+                    <li
+                      key={s.n}
+                      className={`relative rounded-2xl border-2 p-3 transition-transform hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none ${
+                        i === 0
+                          ? "border-ink bg-cream shadow-brut"
+                          : "border-dashed border-ink/30 bg-cream/70"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span
+                          className={`font-mono text-[9px] font-bold uppercase tracking-[0.2em] ${
+                            i === 0 ? "text-coral" : "text-ink/40"
+                          }`}
+                        >
+                          {s.n}
+                        </span>
+                        <span
+                          className={`grid h-6 w-6 place-items-center rounded-lg border ${
+                            i === 0
+                              ? "border-ink bg-coral/15 text-ink"
+                              : "border-ink/20 bg-cream/60 text-ink/40"
+                          }`}
+                        >
+                          <s.Icon className="h-3.5 w-3.5" />
+                        </span>
+                      </div>
+                      <div className="mt-1.5 font-display text-sm font-extrabold leading-tight text-ink">
+                        {s.t}
+                      </div>
+                      <div className="font-mono text-[9px] uppercase tracking-widest text-ink/55">
+                        {s.d}
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             )}
 
             {/* Trust micro-row */}
-            <div
-              className="rise-in mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] text-ink/65"
+            <ul
+              className="rise-in mt-5 flex flex-wrap items-center gap-1.5 text-[11px] text-ink/70"
               style={{ ["--d" as never]: "360ms" } as CSSProperties}
             >
-              <span className="inline-flex items-center gap-1">
-                <ShieldCheck className="h-3 w-3 text-coral" /> No spam, ever
-              </span>
-              <span className="opacity-30">·</span>
-              <span className="inline-flex items-center gap-1">
-                <Zap className="h-3 w-3 text-coral" /> 60-sec signup
-              </span>
-              <span className="opacity-30">·</span>
-              <span className="inline-flex items-center gap-1">
-                <Gift className="h-3 w-3 text-coral" /> 250 Confetti welcome bonus
-              </span>
-            </div>
+              {[
+                { Icon: ShieldCheck, label: "No spam, ever" },
+                { Icon: Zap, label: "60-sec signup" },
+                { Icon: Gift, label: "250 Confetti bonus" },
+              ].map(({ Icon, label }) => (
+                <li
+                  key={label}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-ink/15 bg-cream/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-ink/75"
+                >
+                  <Icon className="h-3 w-3 text-coral" />
+                  {label}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="rise-in mt-8" style={{ ["--d" as never]: "320ms" } as CSSProperties}>

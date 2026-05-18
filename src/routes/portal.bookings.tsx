@@ -58,35 +58,45 @@ type Booking = {
 };
 
 // Hardcoded sample bookings shown when the user has no real bookings yet, so
-// the page always looks complete for App Store review.
-const MOCK_BOOKINGS: Booking[] = [
-  {
-    id: "mock-cf-8821",
-    venue_id: null,
-    venue_name: "Le Diplomate",
-    starts_at: "2026-05-17T19:30:00",
-    party_size: 4,
-    status: "confirmed",
-    notes: "14th Street NW · French bistro",
-    cancelled_at: null,
-    pre_order_drinks: null,
-    seating_preference: null,
-    confirmation_code: "CF-8821",
-  },
-  {
-    id: "mock-cf-7703",
-    venue_id: null,
-    venue_name: "Rasika",
-    starts_at: "2026-04-28T20:00:00",
-    party_size: 2,
-    status: "completed",
-    notes: "Penn Quarter · Modern Indian",
-    cancelled_at: null,
-    pre_order_drinks: null,
-    seating_preference: null,
-    confirmation_code: "CF-7703",
-  },
-];
+// the page always looks complete for App Store review. Dates are computed
+// relative to today so the "upcoming" tab always has at least one entry.
+const buildMockBookings = (): Booking[] => {
+  const upcoming = new Date();
+  upcoming.setDate(upcoming.getDate() + 6);
+  upcoming.setHours(19, 30, 0, 0);
+  const past = new Date();
+  past.setDate(past.getDate() - 20);
+  past.setHours(20, 0, 0, 0);
+  return [
+    {
+      id: "mock-cf-8821",
+      venue_id: null,
+      venue_name: "Le Diplomate",
+      starts_at: upcoming.toISOString(),
+      party_size: 4,
+      status: "confirmed",
+      notes: "14th Street NW · French bistro",
+      cancelled_at: null,
+      pre_order_drinks: null,
+      seating_preference: null,
+      confirmation_code: "CF-8821",
+    },
+    {
+      id: "mock-cf-7703",
+      venue_id: null,
+      venue_name: "Rasika",
+      starts_at: past.toISOString(),
+      party_size: 2,
+      status: "completed",
+      notes: "Penn Quarter · Modern Indian",
+      cancelled_at: null,
+      pre_order_drinks: null,
+      seating_preference: null,
+      confirmation_code: "CF-7703",
+    },
+  ];
+};
+const isMockBookingId = (id: string) => id.startsWith("mock-");
 
 function PortalBookingsPage() {
   const { user } = useAuth();
@@ -102,7 +112,7 @@ function PortalBookingsPage() {
       .order("starts_at", { ascending: false })
       .then(({ data }) => {
         const real = (data as Booking[]) ?? [];
-        setBookings(real.length > 0 ? real : MOCK_BOOKINGS);
+        setBookings(real.length > 0 ? real : buildMockBookings());
         setLoading(false);
       });
   };
@@ -138,6 +148,13 @@ function PortalBookingsPage() {
   }, [bookings]);
 
   const cancel = async (id: string) => {
+    if (isMockBookingId(id)) {
+      toast.info("This is a sample booking — book a real venue to manage it here.");
+      return;
+    }
+    if (typeof window !== "undefined" && !window.confirm("Cancel this booking? This can't be undone.")) {
+      return;
+    }
     const { error } = await supabase
       .from("bookings")
       .update({ status: "cancelled", cancelled_at: new Date().toISOString() })
@@ -260,36 +277,6 @@ function BookingsTabs({
   );
 }
 
-function Group({
-  title,
-  rows,
-  onCancel,
-  onUpdated,
-  muted,
-}: {
-  title: string;
-  rows: Booking[];
-  onCancel?: (id: string) => void;
-  onUpdated?: () => void;
-  muted?: boolean;
-}) {
-  if (rows.length === 0) return null;
-  return (
-    <section>
-      <h2 className="mb-3 font-display text-2xl font-bold">
-        {title}{" "}
-        <span className="rounded-full bg-muted px-2 py-0.5 text-sm font-semibold text-muted-foreground">
-          {rows.length}
-        </span>
-      </h2>
-      <ul className={`grid gap-3 sm:grid-cols-2 ${muted ? "opacity-80" : ""}`}>
-        {rows.map((b) => (
-          <BookingCard key={b.id} b={b} onCancel={onCancel} onUpdated={onUpdated} />
-        ))}
-      </ul>
-    </section>
-  );
-}
 
 function BookingCard({
   b,
@@ -426,6 +413,11 @@ function PreorderDialog({ booking, onSaved }: { booking: Booking; onSaved?: () =
   const removeRow = (i: number) => setDrinks((d) => d.filter((_, idx) => idx !== i));
 
   const save = async () => {
+    if (isMockBookingId(booking.id)) {
+      toast.info("This is a sample booking — book a real venue to send preferences.");
+      setOpen(false);
+      return;
+    }
     setSaving(true);
     const cleaned = drinks
       .map((d) => ({
@@ -542,7 +534,10 @@ function BookDialog({
   const [submitting, setSubmitting] = useState(false);
 
   const submit = async () => {
-    if (!userId) return;
+    if (!userId) {
+      toast.error("Sign in to book a venue.");
+      return;
+    }
     const venue = venues.find((v) => v.id === venueId);
     if (!venue || !date || !time) {
       toast.error("Please pick a venue, date, and time");
@@ -602,7 +597,12 @@ function BookDialog({
           <div className="grid grid-cols-2 gap-3">
             <div>
               <Label>Date</Label>
-              <Input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+              <Input
+                type="date"
+                value={date}
+                min={new Date().toISOString().slice(0, 10)}
+                onChange={(e) => setDate(e.target.value)}
+              />
             </div>
             <div>
               <Label>Time</Label>

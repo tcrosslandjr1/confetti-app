@@ -148,6 +148,7 @@ import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as AdminRoutesMapRouteImport } from './routes/admin.routes-map'
+import { Route as AdminRolesRouteImport } from './routes/admin.roles'
 import { Route as AdminPromotersRouteImport } from './routes/admin.promoters'
 import { Route as AdminPickAnalyticsRouteImport } from './routes/admin.pick-analytics'
 import { Route as AdminOutreachRouteImport } from './routes/admin.outreach'
@@ -888,6 +889,11 @@ const AdminRoutesMapRoute = AdminRoutesMapRouteImport.update({
   path: '/routes-map',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminRolesRoute = AdminRolesRouteImport.update({
+  id: '/roles',
+  path: '/roles',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminPromotersRoute = AdminPromotersRouteImport.update({
   id: '/promoters',
   path: '/promoters',
@@ -1195,6 +1201,7 @@ export interface FileRoutesByFullPath {
   '/admin/outreach': typeof AdminOutreachRoute
   '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
   '/admin/promoters': typeof AdminPromotersRoute
+  '/admin/roles': typeof AdminRolesRoute
   '/admin/routes-map': typeof AdminRoutesMapRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
@@ -1371,6 +1378,7 @@ export interface FileRoutesByTo {
   '/admin/outreach': typeof AdminOutreachRoute
   '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
   '/admin/promoters': typeof AdminPromotersRoute
+  '/admin/roles': typeof AdminRolesRoute
   '/admin/routes-map': typeof AdminRoutesMapRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
@@ -1557,6 +1565,7 @@ export interface FileRoutesById {
   '/admin/outreach': typeof AdminOutreachRoute
   '/admin/pick-analytics': typeof AdminPickAnalyticsRoute
   '/admin/promoters': typeof AdminPromotersRoute
+  '/admin/roles': typeof AdminRolesRoute
   '/admin/routes-map': typeof AdminRoutesMapRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
@@ -1744,6 +1753,7 @@ export interface FileRouteTypes {
     | '/admin/outreach'
     | '/admin/pick-analytics'
     | '/admin/promoters'
+    | '/admin/roles'
     | '/admin/routes-map'
     | '/admin/settings'
     | '/admin/testimonials'
@@ -1920,6 +1930,7 @@ export interface FileRouteTypes {
     | '/admin/outreach'
     | '/admin/pick-analytics'
     | '/admin/promoters'
+    | '/admin/roles'
     | '/admin/routes-map'
     | '/admin/settings'
     | '/admin/testimonials'
@@ -2105,6 +2116,7 @@ export interface FileRouteTypes {
     | '/admin/outreach'
     | '/admin/pick-analytics'
     | '/admin/promoters'
+    | '/admin/roles'
     | '/admin/routes-map'
     | '/admin/settings'
     | '/admin/testimonials'
@@ -3301,6 +3313,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRoutesMapRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/roles': {
+      id: '/admin/roles'
+      path: '/roles'
+      fullPath: '/admin/roles'
+      preLoaderRoute: typeof AdminRolesRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/promoters': {
       id: '/admin/promoters'
       path: '/promoters'
@@ -3631,6 +3650,7 @@ interface AdminRouteChildren {
   AdminOutreachRoute: typeof AdminOutreachRoute
   AdminPickAnalyticsRoute: typeof AdminPickAnalyticsRoute
   AdminPromotersRoute: typeof AdminPromotersRoute
+  AdminRolesRoute: typeof AdminRolesRoute
   AdminRoutesMapRoute: typeof AdminRoutesMapRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminTestimonialsRoute: typeof AdminTestimonialsRoute
@@ -3659,6 +3679,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminOutreachRoute: AdminOutreachRoute,
   AdminPickAnalyticsRoute: AdminPickAnalyticsRoute,
   AdminPromotersRoute: AdminPromotersRoute,
+  AdminRolesRoute: AdminRolesRoute,
   AdminRoutesMapRoute: AdminRoutesMapRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AdminTestimonialsRoute: AdminTestimonialsRoute,

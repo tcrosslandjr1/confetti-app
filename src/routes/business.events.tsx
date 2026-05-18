@@ -10,10 +10,27 @@ import {
   VenueSwitcher,
   useManagedVenues,
 } from "@/components/business/useManagedVenue";
-import { listMyVenueEvents, deleteVenueEvent } from "@/lib/business-portal.functions";
+import {
+  listMyVenueEvents,
+  deleteVenueEvent,
+  createVenueEvent,
+} from "@/lib/business-portal.functions";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { PlacesAutocomplete, type PlaceDetails } from "@/components/PlacesAutocomplete";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/business/events")({

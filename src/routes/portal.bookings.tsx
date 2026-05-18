@@ -564,7 +564,10 @@ function BookDialog({
   const [submitting, setSubmitting] = useState(false);
 
   const submit = async () => {
-    if (!userId) return;
+    if (!userId) {
+      toast.error("Sign in to book a venue.");
+      return;
+    }
     const venue = venues.find((v) => v.id === venueId);
     if (!venue || !date || !time) {
       toast.error("Please pick a venue, date, and time");

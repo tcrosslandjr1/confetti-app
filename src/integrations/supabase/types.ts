@@ -1790,6 +1790,75 @@ export type Database = {
         }
         Relationships: []
       }
+      partner_deals: {
+        Row: {
+          active: boolean
+          adult_only: boolean
+          budget_tier_max: number | null
+          budget_tier_min: number | null
+          category_tags: string[]
+          city: string | null
+          created_at: string
+          deal_type: string
+          description: string | null
+          family_safe: boolean
+          group_size_max: number | null
+          group_size_min: number | null
+          id: string
+          title: string
+          updated_at: string
+          valid_from: string | null
+          valid_until: string | null
+          venue_id: string | null
+          venue_name: string | null
+          vibe_tags: string[]
+        }
+        Insert: {
+          active?: boolean
+          adult_only?: boolean
+          budget_tier_max?: number | null
+          budget_tier_min?: number | null
+          category_tags?: string[]
+          city?: string | null
+          created_at?: string
+          deal_type?: string
+          description?: string | null
+          family_safe?: boolean
+          group_size_max?: number | null
+          group_size_min?: number | null
+          id?: string
+          title: string
+          updated_at?: string
+          valid_from?: string | null
+          valid_until?: string | null
+          venue_id?: string | null
+          venue_name?: string | null
+          vibe_tags?: string[]
+        }
+        Update: {
+          active?: boolean
+          adult_only?: boolean
+          budget_tier_max?: number | null
+          budget_tier_min?: number | null
+          category_tags?: string[]
+          city?: string | null
+          created_at?: string
+          deal_type?: string
+          description?: string | null
+          family_safe?: boolean
+          group_size_max?: number | null
+          group_size_min?: number | null
+          id?: string
+          title?: string
+          updated_at?: string
+          valid_from?: string | null
+          valid_until?: string | null
+          venue_id?: string | null
+          venue_name?: string | null
+          vibe_tags?: string[]
+        }
+        Relationships: []
+      }
       pick_events: {
         Row: {
           client_at: string | null
@@ -2835,6 +2904,125 @@ export type Database = {
         }
         Relationships: []
       }
+      trip_days: {
+        Row: {
+          created_at: string
+          day_index: number
+          day_name: string | null
+          day_theme: string | null
+          estimated_cost: number | null
+          id: string
+          itinerary: Json | null
+          rest_blocks: Json
+          transportation_notes: string | null
+          trip_id: string
+          weather_fallback: string | null
+        }
+        Insert: {
+          created_at?: string
+          day_index: number
+          day_name?: string | null
+          day_theme?: string | null
+          estimated_cost?: number | null
+          id?: string
+          itinerary?: Json | null
+          rest_blocks?: Json
+          transportation_notes?: string | null
+          trip_id: string
+          weather_fallback?: string | null
+        }
+        Update: {
+          created_at?: string
+          day_index?: number
+          day_name?: string | null
+          day_theme?: string | null
+          estimated_cost?: number | null
+          id?: string
+          itinerary?: Json | null
+          rest_blocks?: Json
+          transportation_notes?: string | null
+          trip_id?: string
+          weather_fallback?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "trip_days_trip_id_fkey"
+            columns: ["trip_id"]
+            isOneToOne: false
+            referencedRelation: "trips"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      trips: {
+        Row: {
+          arrival_time: string | null
+          avoid_categories: string[]
+          budget_per_day: number | null
+          budget_total: number | null
+          created_at: string
+          departure_time: string | null
+          destination_city: string
+          energy_curve: string
+          group_size: number
+          group_type: string | null
+          home_base_area: string | null
+          id: string
+          must_do_categories: string[]
+          status: string
+          transportation_mode: string | null
+          trip_length_days: number
+          trip_name: string
+          trip_name_options: Json
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          arrival_time?: string | null
+          avoid_categories?: string[]
+          budget_per_day?: number | null
+          budget_total?: number | null
+          created_at?: string
+          departure_time?: string | null
+          destination_city: string
+          energy_curve?: string
+          group_size?: number
+          group_type?: string | null
+          home_base_area?: string | null
+          id?: string
+          must_do_categories?: string[]
+          status?: string
+          transportation_mode?: string | null
+          trip_length_days: number
+          trip_name: string
+          trip_name_options?: Json
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          arrival_time?: string | null
+          avoid_categories?: string[]
+          budget_per_day?: number | null
+          budget_total?: number | null
+          created_at?: string
+          departure_time?: string | null
+          destination_city?: string
+          energy_curve?: string
+          group_size?: number
+          group_type?: string | null
+          home_base_area?: string | null
+          id?: string
+          must_do_categories?: string[]
+          status?: string
+          transportation_mode?: string | null
+          trip_length_days?: number
+          trip_name?: string
+          trip_name_options?: Json
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       user_achievements: {
         Row: {
           achievement_id: string
@@ -2868,9 +3056,25 @@ export type Database = {
         Row: {
           about_me: string | null
           activities: string[]
+          adult_opt_in: boolean
           budget_max: number
           budget_min: number
+          comfort_level: string
           cuisines: string[]
+          disliked_business_types: string[]
+          disliked_categories: string[]
+          favorite_city_features: string[]
+          manual_overrides: Json
+          nightlife_intensity: string
+          personalized_name_style: string
+          preferred_business_types: string[]
+          preferred_categories: string[]
+          preferred_neighborhoods: string[]
+          preferred_price_tier: number | null
+          preferred_time_slots: string[]
+          preferred_vibes: string[]
+          promo_sensitivity: string
+          risk_tolerance: string
           social_handles: Json
           social_signals: string | null
           taste_profile: Json
@@ -2880,9 +3084,25 @@ export type Database = {
         Insert: {
           about_me?: string | null
           activities?: string[]
+          adult_opt_in?: boolean
           budget_max?: number
           budget_min?: number
+          comfort_level?: string
           cuisines?: string[]
+          disliked_business_types?: string[]
+          disliked_categories?: string[]
+          favorite_city_features?: string[]
+          manual_overrides?: Json
+          nightlife_intensity?: string
+          personalized_name_style?: string
+          preferred_business_types?: string[]
+          preferred_categories?: string[]
+          preferred_neighborhoods?: string[]
+          preferred_price_tier?: number | null
+          preferred_time_slots?: string[]
+          preferred_vibes?: string[]
+          promo_sensitivity?: string
+          risk_tolerance?: string
           social_handles?: Json
           social_signals?: string | null
           taste_profile?: Json
@@ -2892,9 +3112,25 @@ export type Database = {
         Update: {
           about_me?: string | null
           activities?: string[]
+          adult_opt_in?: boolean
           budget_max?: number
           budget_min?: number
+          comfort_level?: string
           cuisines?: string[]
+          disliked_business_types?: string[]
+          disliked_categories?: string[]
+          favorite_city_features?: string[]
+          manual_overrides?: Json
+          nightlife_intensity?: string
+          personalized_name_style?: string
+          preferred_business_types?: string[]
+          preferred_categories?: string[]
+          preferred_neighborhoods?: string[]
+          preferred_price_tier?: number | null
+          preferred_time_slots?: string[]
+          preferred_vibes?: string[]
+          promo_sensitivity?: string
+          risk_tolerance?: string
           social_handles?: Json
           social_signals?: string | null
           taste_profile?: Json
@@ -2968,6 +3204,33 @@ export type Database = {
           created_at?: string
           id?: string
           role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_signals: {
+        Row: {
+          city: string | null
+          created_at: string
+          id: string
+          payload: Json
+          signal_type: string
+          user_id: string
+        }
+        Insert: {
+          city?: string | null
+          created_at?: string
+          id?: string
+          payload?: Json
+          signal_type: string
+          user_id: string
+        }
+        Update: {
+          city?: string | null
+          created_at?: string
+          id?: string
+          payload?: Json
+          signal_type?: string
           user_id?: string
         }
         Relationships: []

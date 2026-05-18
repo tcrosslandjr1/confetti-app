@@ -1407,10 +1407,14 @@ export function BuildMyNightWizard() {
 
   function savePlan(e: React.MouseEvent) {
     burst(e.clientX, e.clientY);
-    const loop = buildLoopFromWizard();
+    const existing = getActiveLoop();
+    // Prefer the user-curated stops they tapped "+ Add" on; otherwise lock in
+    // everything currently shown in the wizard.
+    const loop =
+      existing && existing.stops.length > 0 ? existing : buildLoopFromWizard();
     setActiveLoop(loop);
-    toast.success("Added to boarding pass", {
-      description: `${loop.stops.length} stops · ${loop.boardingTime}`,
+    toast.success("Locked in", {
+      description: `${loop.stops.length} stop${loop.stops.length === 1 ? "" : "s"} · opening boarding pass…`,
     });
     setTimeout(() => {
       closeWizard();

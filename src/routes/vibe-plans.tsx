@@ -79,6 +79,7 @@ const ADULT_TRIGGER_IDS = new Set(["bachelor", "wild", "turn_up", "late_night"])
 
 function VibePlansPage() {
   const generate = useServerFn(generatePlan);
+  const navigate = useNavigate();
 
   const [cityQuery, setCityQuery] = useState("");
   const [pendingState, setPendingState] = useState<ReturnType<typeof matchState>>(null);

@@ -77,7 +77,7 @@ const suiteOnboarding: TestSuite = {
       ok(
         "S1.1",
         "First-time profile is empty",
-        profile.totalPlans === 0 && Object.keys(profile.vibeCounts).length === 0,
+        profile.preferred_vibes.length === 0 && profile.preferred_categories.length === 0,
         "DEFAULT_PROFILE has no learned preferences.",
         {
           preconditions: "Brand new user",

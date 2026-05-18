@@ -1841,7 +1841,7 @@ export function BuildMyNightWizard() {
                 </span>
               </div>
 
-              {dynamicError && !preset && (
+              {dynamicError && !preset && (!stops || stops.length === 0) && (
                 <div
                   role="alert"
                   className="mt-4 rounded-2xl border-2 border-ink bg-coral/15 p-4 shadow-brut"

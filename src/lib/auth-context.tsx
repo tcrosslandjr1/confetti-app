@@ -173,6 +173,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // from the real role (so the amber banner only shows when it should).
     const effective: ViewAs = viewAsState ?? realRole;
     const impersonating = effective !== realRole;
+    // Preview = an explicit pick that the real session can't satisfy (no user,
+    // or non-admin asking for an admin-only view). The UI shell still renders
+    // so the role can be tested; RLS continues to enforce real permissions.
+    const preview =
+      viewAsState !== null &&
+      ((!session?.user && viewAsState !== "visitor") ||
+        (viewAsState === "admin" && !isAdmin));
 
     return {
       user: session?.user ?? null,
@@ -184,6 +191,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       isAdmin,
       viewAs: effective,
       isImpersonating: impersonating,
+      isPreview: preview,
       effectiveRole: effective,
       setViewAs,
       exitImpersonation,

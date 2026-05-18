@@ -314,7 +314,9 @@ Start time: ${startTime}
 Duration: ${req.duration ?? "3 hr"}
 Budget ceiling: ${"$".repeat(budget)}
 
-${moodBlock}${weatherBlock}${tasteBlock}# Template (Occasion Template Agent)
+${moodBlock}${weatherBlock}${tasteBlock}${buildWaterfrontPrompt(cityCtx)}
+
+${req.occasionId === "girls" ? buildGirlsNightPresetsPrompt(cityCtx, budget) + "\n\n" : ""}# Template (Occasion Template Agent)
 Blueprint: ${template.blueprintName}
 Tone: ${template.tone}
 Constraints: noise<=${template.constraints.maxNoise}, chaos=${template.constraints.chaos}, accessibility=${template.constraints.accessibility ?? "any"}${template.constraints.avoidCategories?.length ? `, AVOID=[${template.constraints.avoidCategories.join(", ")}]` : ""}

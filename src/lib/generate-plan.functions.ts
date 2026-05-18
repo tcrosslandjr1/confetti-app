@@ -47,6 +47,69 @@ const PlanRequestSchema = z.object({
   includeCasino: z.boolean().optional(),
   /** Opt-in: include optional adult-entertainment stop (gated on vibe + 21+ assumption). */
   includeAdultEntertainment: z.boolean().optional(),
+
+  // ── Confetti v6 — engine inputs ────────────────────────────────
+  personality: z
+    .enum([
+      "classy",
+      "chaotic",
+      "soft_life",
+      "bougie",
+      "adventurous",
+      "romantic",
+      "corporate",
+      "family_friendly",
+      "genz_playful",
+      "luxury_concierge",
+      "calm",
+      "local_friend",
+    ])
+    .optional(),
+  budgetMode: z.enum(["save", "balanced", "upgrade"]).optional(),
+  perPersonBudgetUsd: z.number().min(0).max(2000).optional(),
+  groupType: z
+    .enum([
+      "friends",
+      "couples",
+      "in_laws",
+      "coworkers",
+      "bachelor",
+      "bachelorette",
+      "family",
+      "solo",
+    ])
+    .optional(),
+  timeOfDay: z
+    .enum([
+      "sunrise",
+      "morning",
+      "brunch",
+      "afternoon",
+      "after_work",
+      "evening",
+      "late_night",
+      "all_day",
+      "weekend",
+    ])
+    .optional(),
+  safetyModes: z
+    .array(
+      z.enum([
+        "in_laws",
+        "family",
+        "meet_parents",
+        "coworker",
+        "solo",
+        "solo_women",
+        "first_date",
+        "older_group",
+        "conservative",
+      ]),
+    )
+    .max(9)
+    .optional(),
+  localFlavorLevel: z.enum(["light", "medium", "heavy"]).optional(),
+  weatherAware: z.boolean().optional(),
 });
 
 type CandidateVenue = {

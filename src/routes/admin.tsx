@@ -74,15 +74,20 @@ function AdminLayout() {
   const { loading, isAdmin, user, viewAs } = useAuth();
   const navigate = useNavigate();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isLoginRoute = pathname === "/admin/login";
 
   useEffect(() => {
-    if (loading) return;
+    if (loading || isLoginRoute) return;
     if (!user) navigate({ to: "/admin/login" });
     else if (!isAdmin) navigate({ to: "/" });
     else if (viewAs === "customer") navigate({ to: "/portal" });
     else if (viewAs === "business") navigate({ to: "/advertise/portal" });
     else if (viewAs === "visitor") navigate({ to: "/" });
-  }, [loading, user, isAdmin, viewAs, navigate]);
+  }, [loading, user, isAdmin, viewAs, navigate, isLoginRoute]);
+
+  if (isLoginRoute) {
+    return <Outlet />;
+  }
 
   if (loading || !isAdmin || viewAs !== "admin") {
     return (
@@ -91,6 +96,7 @@ function AdminLayout() {
       </div>
     );
   }
+
 
   return (
     <SidebarProvider>

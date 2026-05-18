@@ -645,7 +645,7 @@ function VibePlansPage() {
             </div>
           </Card>
 
-          {(plan.cheaperSwaps?.length || plan.luxuryUpgrades?.length) ? (
+          {plan.cheaperSwaps?.length || plan.luxuryUpgrades?.length ? (
             <Card className="p-4">
               <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Swap options

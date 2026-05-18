@@ -63,86 +63,92 @@ export type LocalFlavorLevel = "light" | "medium" | "heavy";
 
 // ── Engine 1: Personality ─────────────────────────────────────────
 
-const PERSONALITY_TONE: Record<PersonalityId, { label: string; tone: string; directive: string }> = {
-  classy: {
-    label: "Classy",
-    tone: "Polished, refined, calmer pacing.",
-    directive:
-      "Voice: refined, low-key sophisticated. Prefer quieter, well-reviewed venues; avoid chaotic clubs.",
-  },
-  chaotic: {
-    label: "Chaotic",
-    tone: "High-energy, spontaneous, loud and fun.",
-    directive:
-      "Voice: high-energy, playful, a little unhinged. Prefer loud, social, late-running venues; favor unpredictability.",
-  },
-  soft_life: {
-    label: "Soft Life",
-    tone: "Spa, rooftops, champagne, easy transitions.",
-    directive:
-      "Voice: dreamy, indulgent, low-stress. Prefer rooftops, spa, waterfront, champagne, aesthetic plates. Smooth pacing.",
-  },
-  bougie: {
-    label: "Bougie",
-    tone: "Upscale, reservations preferred.",
-    directive:
-      "Voice: upscale, status-aware. Pick higher-rated, reservation-friendly venues. Mark reservation_recommended=true.",
-  },
-  adventurous: {
-    label: "Adventurous",
-    tone: "Movement, activities, unique local experiences.",
-    directive:
-      "Voice: bold and curious. Include at least one activity-driven or unusual local experience.",
-  },
-  romantic: {
-    label: "Romantic",
-    tone: "Intimate seating, scenic stops, dessert.",
-    directive:
-      "Voice: warm and intimate. Prefer low-noise venues, candlelight, scenic views, dessert moments.",
-  },
-  corporate: {
-    label: "Corporate",
-    tone: "Professional, low-risk, conversation-friendly.",
-    directive:
-      "Voice: professional and safe. Conversation-friendly noise levels, group seating, no risque content.",
-  },
-  family_friendly: {
-    label: "Family-Friendly",
-    tone: "Safe, daytime, accessible, no adult venues.",
-    directive:
-      "Voice: warm and inclusive. All ages welcome. NO clubs, strip clubs, heavy drinking. Daytime-leaning.",
-  },
-  genz_playful: {
-    label: "Gen-Z Playful",
-    tone: "Catchy, photo moments, cute copy.",
-    directive:
-      "Voice: bubbly, internet-fluent. Prioritize photo moments, viral spots, aesthetic plates.",
-  },
-  luxury_concierge: {
-    label: "Luxury Concierge",
-    tone: "Premium venues, elevated pacing.",
-    directive:
-      "Voice: white-glove. Pick premium venues only. Suggest private transport. Reservations required.",
-  },
-  calm: {
-    label: "Calm",
-    tone: "Fewer steps, easy logistics, quiet venues.",
-    directive:
-      "Voice: gentle, unhurried. Keep to 2–3 stops max. Quiet venues. Short distances between stops.",
-  },
-  local_friend: {
-    label: "Local Friend",
-    tone: "Casual, warm, city-aware.",
-    directive:
-      "Voice: like a friend who lives there. Lead with hidden gems, neighborhood favorites, local slang.",
-  },
-};
+const PERSONALITY_TONE: Record<PersonalityId, { label: string; tone: string; directive: string }> =
+  {
+    classy: {
+      label: "Classy",
+      tone: "Polished, refined, calmer pacing.",
+      directive:
+        "Voice: refined, low-key sophisticated. Prefer quieter, well-reviewed venues; avoid chaotic clubs.",
+    },
+    chaotic: {
+      label: "Chaotic",
+      tone: "High-energy, spontaneous, loud and fun.",
+      directive:
+        "Voice: high-energy, playful, a little unhinged. Prefer loud, social, late-running venues; favor unpredictability.",
+    },
+    soft_life: {
+      label: "Soft Life",
+      tone: "Spa, rooftops, champagne, easy transitions.",
+      directive:
+        "Voice: dreamy, indulgent, low-stress. Prefer rooftops, spa, waterfront, champagne, aesthetic plates. Smooth pacing.",
+    },
+    bougie: {
+      label: "Bougie",
+      tone: "Upscale, reservations preferred.",
+      directive:
+        "Voice: upscale, status-aware. Pick higher-rated, reservation-friendly venues. Mark reservation_recommended=true.",
+    },
+    adventurous: {
+      label: "Adventurous",
+      tone: "Movement, activities, unique local experiences.",
+      directive:
+        "Voice: bold and curious. Include at least one activity-driven or unusual local experience.",
+    },
+    romantic: {
+      label: "Romantic",
+      tone: "Intimate seating, scenic stops, dessert.",
+      directive:
+        "Voice: warm and intimate. Prefer low-noise venues, candlelight, scenic views, dessert moments.",
+    },
+    corporate: {
+      label: "Corporate",
+      tone: "Professional, low-risk, conversation-friendly.",
+      directive:
+        "Voice: professional and safe. Conversation-friendly noise levels, group seating, no risque content.",
+    },
+    family_friendly: {
+      label: "Family-Friendly",
+      tone: "Safe, daytime, accessible, no adult venues.",
+      directive:
+        "Voice: warm and inclusive. All ages welcome. NO clubs, strip clubs, heavy drinking. Daytime-leaning.",
+    },
+    genz_playful: {
+      label: "Gen-Z Playful",
+      tone: "Catchy, photo moments, cute copy.",
+      directive:
+        "Voice: bubbly, internet-fluent. Prioritize photo moments, viral spots, aesthetic plates.",
+    },
+    luxury_concierge: {
+      label: "Luxury Concierge",
+      tone: "Premium venues, elevated pacing.",
+      directive:
+        "Voice: white-glove. Pick premium venues only. Suggest private transport. Reservations required.",
+    },
+    calm: {
+      label: "Calm",
+      tone: "Fewer steps, easy logistics, quiet venues.",
+      directive:
+        "Voice: gentle, unhurried. Keep to 2–3 stops max. Quiet venues. Short distances between stops.",
+    },
+    local_friend: {
+      label: "Local Friend",
+      tone: "Casual, warm, city-aware.",
+      directive:
+        "Voice: like a friend who lives there. Lead with hidden gems, neighborhood favorites, local slang.",
+    },
+  };
 
 export function personalityEngine(p?: PersonalityId | null) {
   if (!p) return null;
   const def = PERSONALITY_TONE[p];
   if (!def) return null;
-  return { id: p, label: def.label, tone: def.tone, directive: `Personality (${def.label}): ${def.directive}` };
+  return {
+    id: p,
+    label: def.label,
+    tone: def.tone,
+    directive: `Personality (${def.label}): ${def.directive}`,
+  };
 }
 
 // ── Engine 2: Budget-Smart ────────────────────────────────────────
@@ -232,7 +238,8 @@ export function groupDynamicsEngine(size: number, type?: GroupType | null) {
     in_laws: "calm, classy, conversation-friendly. NO clubs, strip clubs, dive bars.",
     coworkers: "professional, low-risk, not too intimate. Conversation-friendly noise.",
     bachelor: "high-energy. Adult-only stops allowed ONLY if explicitly toggled.",
-    bachelorette: "high-energy, photo moments. Adult-only stops allowed ONLY if explicitly toggled.",
+    bachelorette:
+      "high-energy, photo moments. Adult-only stops allowed ONLY if explicitly toggled.",
     family: "accessible, family-safe, daytime-friendly. NO adult venues.",
     solo: "solo-safe, easy parking, walkable, low-pressure.",
   };
@@ -318,7 +325,16 @@ export function timeOfDayEngine(t?: TimeOfDay | null) {
 export function safetyComfortEngine(modes: SafetyMode[]) {
   if (!modes.length) return null;
   const sensitive = modes.some((m) =>
-    ["in_laws", "family", "meet_parents", "coworker", "first_date", "solo_women", "older_group", "conservative"].includes(m),
+    [
+      "in_laws",
+      "family",
+      "meet_parents",
+      "coworker",
+      "first_date",
+      "solo_women",
+      "older_group",
+      "conservative",
+    ].includes(m),
   );
   const notes: string[] = [];
   if (modes.includes("in_laws") || modes.includes("meet_parents"))
@@ -364,7 +380,9 @@ export function localFlavorEngine(cityCtx: CityContext, level: LocalFlavorLevel 
     directive: [
       `Local flavor engine (${level}) — ${intensity}`,
       `Signature neighborhoods: ${neighborhoods.join(", ")}.`,
-      sigExperiences.length ? `Signature experiences: ${sigExperiences.slice(0, 4).join(" · ")}.` : "",
+      sigExperiences.length
+        ? `Signature experiences: ${sigExperiences.slice(0, 4).join(" · ")}.`
+        : "",
     ]
       .filter(Boolean)
       .join(" "),

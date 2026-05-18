@@ -2,8 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { createStripeClient, type StripeEnv } from "@/lib/stripe.server";
-
+import { createStripeClient } from "@/lib/stripe.server";
 const VendorType = z.enum(["venue", "promoter", "partner", "corporate_host"]);
 const Env = z.enum(["sandbox", "live"]);
 

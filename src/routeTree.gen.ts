@@ -99,14 +99,20 @@ import { Route as ConciergeProfileRouteImport } from './routes/concierge.profile
 import { Route as ConciergePassportRouteImport } from './routes/concierge.passport'
 import { Route as CollabTripIdRouteImport } from './routes/collab.$tripId'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
+import { Route as BusinessSocialRouteImport } from './routes/business.social'
 import { Route as BusinessSignupRouteImport } from './routes/business.signup'
+import { Route as BusinessSettingsRouteImport } from './routes/business.settings'
 import { Route as BusinessPromotersRouteImport } from './routes/business.promoters'
 import { Route as BusinessPricingRouteImport } from './routes/business.pricing'
 import { Route as BusinessPendingRouteImport } from './routes/business.pending'
 import { Route as BusinessPayoutsRouteImport } from './routes/business.payouts'
+import { Route as BusinessMediaRouteImport } from './routes/business.media'
 import { Route as BusinessLoginRouteImport } from './routes/business.login'
+import { Route as BusinessEventsRouteImport } from './routes/business.events'
 import { Route as BusinessDashboardRouteImport } from './routes/business.dashboard'
 import { Route as BusinessClaimRouteImport } from './routes/business.claim'
+import { Route as BusinessBillingRouteImport } from './routes/business.billing'
+import { Route as BusinessAiRefreshRouteImport } from './routes/business.ai-refresh'
 import { Route as AppReelsRouteImport } from './routes/app.reels'
 import { Route as AppProfileRouteImport } from './routes/app.profile'
 import { Route as AppPlanRouteImport } from './routes/app.plan'
@@ -126,6 +132,7 @@ import { Route as AdminOutreachRouteImport } from './routes/admin.outreach'
 import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
 import { Route as AdminModerationRouteImport } from './routes/admin.moderation'
 import { Route as AdminMarqueeRouteImport } from './routes/admin.marquee'
+import { Route as AdminLogsRouteImport } from './routes/admin.logs'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminLaunchRouteImport } from './routes/admin.launch'
 import { Route as AdminIntegrationsRouteImport } from './routes/admin.integrations'
@@ -605,9 +612,19 @@ const CheckoutReturnRoute = CheckoutReturnRouteImport.update({
   path: '/checkout/return',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessSocialRoute = BusinessSocialRouteImport.update({
+  id: '/business/social',
+  path: '/business/social',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessSignupRoute = BusinessSignupRouteImport.update({
   id: '/business/signup',
   path: '/business/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessSettingsRoute = BusinessSettingsRouteImport.update({
+  id: '/business/settings',
+  path: '/business/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BusinessPromotersRoute = BusinessPromotersRouteImport.update({
@@ -630,9 +647,19 @@ const BusinessPayoutsRoute = BusinessPayoutsRouteImport.update({
   path: '/business/payouts',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessMediaRoute = BusinessMediaRouteImport.update({
+  id: '/business/media',
+  path: '/business/media',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessLoginRoute = BusinessLoginRouteImport.update({
   id: '/business/login',
   path: '/business/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessEventsRoute = BusinessEventsRouteImport.update({
+  id: '/business/events',
+  path: '/business/events',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BusinessDashboardRoute = BusinessDashboardRouteImport.update({
@@ -643,6 +670,16 @@ const BusinessDashboardRoute = BusinessDashboardRouteImport.update({
 const BusinessClaimRoute = BusinessClaimRouteImport.update({
   id: '/business/claim',
   path: '/business/claim',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessBillingRoute = BusinessBillingRouteImport.update({
+  id: '/business/billing',
+  path: '/business/billing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessAiRefreshRoute = BusinessAiRefreshRouteImport.update({
+  id: '/business/ai-refresh',
+  path: '/business/ai-refresh',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppReelsRoute = AppReelsRouteImport.update({
@@ -738,6 +775,11 @@ const AdminModerationRoute = AdminModerationRouteImport.update({
 const AdminMarqueeRoute = AdminMarqueeRouteImport.update({
   id: '/marquee',
   path: '/marquee',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLogsRoute = AdminLogsRouteImport.update({
+  id: '/logs',
+  path: '/logs',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
@@ -946,6 +988,7 @@ export interface FileRoutesByFullPath {
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/logs': typeof AdminLogsRoute
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/notifications': typeof AdminNotificationsRoute
@@ -965,14 +1008,20 @@ export interface FileRoutesByFullPath {
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
+  '/business/ai-refresh': typeof BusinessAiRefreshRoute
+  '/business/billing': typeof BusinessBillingRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/dashboard': typeof BusinessDashboardRoute
+  '/business/events': typeof BusinessEventsRoute
   '/business/login': typeof BusinessLoginRoute
+  '/business/media': typeof BusinessMediaRoute
   '/business/payouts': typeof BusinessPayoutsRoute
   '/business/pending': typeof BusinessPendingRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
+  '/business/settings': typeof BusinessSettingsRoute
   '/business/signup': typeof BusinessSignupRoute
+  '/business/social': typeof BusinessSocialRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -1085,6 +1134,7 @@ export interface FileRoutesByTo {
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/logs': typeof AdminLogsRoute
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/notifications': typeof AdminNotificationsRoute
@@ -1104,14 +1154,20 @@ export interface FileRoutesByTo {
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
+  '/business/ai-refresh': typeof BusinessAiRefreshRoute
+  '/business/billing': typeof BusinessBillingRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/dashboard': typeof BusinessDashboardRoute
+  '/business/events': typeof BusinessEventsRoute
   '/business/login': typeof BusinessLoginRoute
+  '/business/media': typeof BusinessMediaRoute
   '/business/payouts': typeof BusinessPayoutsRoute
   '/business/pending': typeof BusinessPendingRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
+  '/business/settings': typeof BusinessSettingsRoute
   '/business/signup': typeof BusinessSignupRoute
+  '/business/social': typeof BusinessSocialRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -1233,6 +1289,7 @@ export interface FileRoutesById {
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/logs': typeof AdminLogsRoute
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/notifications': typeof AdminNotificationsRoute
@@ -1252,14 +1309,20 @@ export interface FileRoutesById {
   '/app/plan': typeof AppPlanRoute
   '/app/profile': typeof AppProfileRoute
   '/app/reels': typeof AppReelsRoute
+  '/business/ai-refresh': typeof BusinessAiRefreshRoute
+  '/business/billing': typeof BusinessBillingRoute
   '/business/claim': typeof BusinessClaimRouteWithChildren
   '/business/dashboard': typeof BusinessDashboardRoute
+  '/business/events': typeof BusinessEventsRoute
   '/business/login': typeof BusinessLoginRoute
+  '/business/media': typeof BusinessMediaRoute
   '/business/payouts': typeof BusinessPayoutsRoute
   '/business/pending': typeof BusinessPendingRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
+  '/business/settings': typeof BusinessSettingsRoute
   '/business/signup': typeof BusinessSignupRoute
+  '/business/social': typeof BusinessSocialRoute
   '/checkout/return': typeof CheckoutReturnRoute
   '/collab/$tripId': typeof CollabTripIdRoute
   '/concierge/passport': typeof ConciergePassportRoute
@@ -1382,6 +1445,7 @@ export interface FileRouteTypes {
     | '/admin/integrations'
     | '/admin/launch'
     | '/admin/login'
+    | '/admin/logs'
     | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/notifications'
@@ -1401,14 +1465,20 @@ export interface FileRouteTypes {
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
+    | '/business/ai-refresh'
+    | '/business/billing'
     | '/business/claim'
     | '/business/dashboard'
+    | '/business/events'
     | '/business/login'
+    | '/business/media'
     | '/business/payouts'
     | '/business/pending'
     | '/business/pricing'
     | '/business/promoters'
+    | '/business/settings'
     | '/business/signup'
+    | '/business/social'
     | '/checkout/return'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1521,6 +1591,7 @@ export interface FileRouteTypes {
     | '/admin/integrations'
     | '/admin/launch'
     | '/admin/login'
+    | '/admin/logs'
     | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/notifications'
@@ -1540,14 +1611,20 @@ export interface FileRouteTypes {
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
+    | '/business/ai-refresh'
+    | '/business/billing'
     | '/business/claim'
     | '/business/dashboard'
+    | '/business/events'
     | '/business/login'
+    | '/business/media'
     | '/business/payouts'
     | '/business/pending'
     | '/business/pricing'
     | '/business/promoters'
+    | '/business/settings'
     | '/business/signup'
+    | '/business/social'
     | '/checkout/return'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1668,6 +1745,7 @@ export interface FileRouteTypes {
     | '/admin/integrations'
     | '/admin/launch'
     | '/admin/login'
+    | '/admin/logs'
     | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/notifications'
@@ -1687,14 +1765,20 @@ export interface FileRouteTypes {
     | '/app/plan'
     | '/app/profile'
     | '/app/reels'
+    | '/business/ai-refresh'
+    | '/business/billing'
     | '/business/claim'
     | '/business/dashboard'
+    | '/business/events'
     | '/business/login'
+    | '/business/media'
     | '/business/payouts'
     | '/business/pending'
     | '/business/pricing'
     | '/business/promoters'
+    | '/business/settings'
     | '/business/signup'
+    | '/business/social'
     | '/checkout/return'
     | '/collab/$tripId'
     | '/concierge/passport'
@@ -1808,14 +1892,20 @@ export interface RootRouteChildren {
   WeatherRoute: typeof WeatherRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiPlanRoute: typeof ApiPlanRoute
+  BusinessAiRefreshRoute: typeof BusinessAiRefreshRoute
+  BusinessBillingRoute: typeof BusinessBillingRoute
   BusinessClaimRoute: typeof BusinessClaimRouteWithChildren
   BusinessDashboardRoute: typeof BusinessDashboardRoute
+  BusinessEventsRoute: typeof BusinessEventsRoute
   BusinessLoginRoute: typeof BusinessLoginRoute
+  BusinessMediaRoute: typeof BusinessMediaRoute
   BusinessPayoutsRoute: typeof BusinessPayoutsRoute
   BusinessPendingRoute: typeof BusinessPendingRoute
   BusinessPricingRoute: typeof BusinessPricingRoute
   BusinessPromotersRoute: typeof BusinessPromotersRoute
+  BusinessSettingsRoute: typeof BusinessSettingsRoute
   BusinessSignupRoute: typeof BusinessSignupRoute
+  BusinessSocialRoute: typeof BusinessSocialRoute
   CheckoutReturnRoute: typeof CheckoutReturnRoute
   CollabTripIdRoute: typeof CollabTripIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
@@ -2476,11 +2566,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutReturnRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/social': {
+      id: '/business/social'
+      path: '/business/social'
+      fullPath: '/business/social'
+      preLoaderRoute: typeof BusinessSocialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business/signup': {
       id: '/business/signup'
       path: '/business/signup'
       fullPath: '/business/signup'
       preLoaderRoute: typeof BusinessSignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business/settings': {
+      id: '/business/settings'
+      path: '/business/settings'
+      fullPath: '/business/settings'
+      preLoaderRoute: typeof BusinessSettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/business/promoters': {
@@ -2511,11 +2615,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessPayoutsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/media': {
+      id: '/business/media'
+      path: '/business/media'
+      fullPath: '/business/media'
+      preLoaderRoute: typeof BusinessMediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business/login': {
       id: '/business/login'
       path: '/business/login'
       fullPath: '/business/login'
       preLoaderRoute: typeof BusinessLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business/events': {
+      id: '/business/events'
+      path: '/business/events'
+      fullPath: '/business/events'
+      preLoaderRoute: typeof BusinessEventsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/business/dashboard': {
@@ -2530,6 +2648,20 @@ declare module '@tanstack/react-router' {
       path: '/business/claim'
       fullPath: '/business/claim'
       preLoaderRoute: typeof BusinessClaimRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business/billing': {
+      id: '/business/billing'
+      path: '/business/billing'
+      fullPath: '/business/billing'
+      preLoaderRoute: typeof BusinessBillingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business/ai-refresh': {
+      id: '/business/ai-refresh'
+      path: '/business/ai-refresh'
+      fullPath: '/business/ai-refresh'
+      preLoaderRoute: typeof BusinessAiRefreshRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/app/reels': {
@@ -2663,6 +2795,13 @@ declare module '@tanstack/react-router' {
       path: '/marquee'
       fullPath: '/admin/marquee'
       preLoaderRoute: typeof AdminMarqueeRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/logs': {
+      id: '/admin/logs'
+      path: '/logs'
+      fullPath: '/admin/logs'
+      preLoaderRoute: typeof AdminLogsRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/login': {
@@ -2875,6 +3014,7 @@ interface AdminRouteChildren {
   AdminIntegrationsRoute: typeof AdminIntegrationsRoute
   AdminLaunchRoute: typeof AdminLaunchRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  AdminLogsRoute: typeof AdminLogsRoute
   AdminMarqueeRoute: typeof AdminMarqueeRoute
   AdminModerationRoute: typeof AdminModerationRoute
   AdminNotificationsRoute: typeof AdminNotificationsRoute
@@ -2901,6 +3041,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminIntegrationsRoute: AdminIntegrationsRoute,
   AdminLaunchRoute: AdminLaunchRoute,
   AdminLoginRoute: AdminLoginRoute,
+  AdminLogsRoute: AdminLogsRoute,
   AdminMarqueeRoute: AdminMarqueeRoute,
   AdminModerationRoute: AdminModerationRoute,
   AdminNotificationsRoute: AdminNotificationsRoute,
@@ -3140,14 +3281,20 @@ const rootRouteChildren: RootRouteChildren = {
   WeatherRoute: WeatherRoute,
   ApiChatRoute: ApiChatRoute,
   ApiPlanRoute: ApiPlanRoute,
+  BusinessAiRefreshRoute: BusinessAiRefreshRoute,
+  BusinessBillingRoute: BusinessBillingRoute,
   BusinessClaimRoute: BusinessClaimRouteWithChildren,
   BusinessDashboardRoute: BusinessDashboardRoute,
+  BusinessEventsRoute: BusinessEventsRoute,
   BusinessLoginRoute: BusinessLoginRoute,
+  BusinessMediaRoute: BusinessMediaRoute,
   BusinessPayoutsRoute: BusinessPayoutsRoute,
   BusinessPendingRoute: BusinessPendingRoute,
   BusinessPricingRoute: BusinessPricingRoute,
   BusinessPromotersRoute: BusinessPromotersRoute,
+  BusinessSettingsRoute: BusinessSettingsRoute,
   BusinessSignupRoute: BusinessSignupRoute,
+  BusinessSocialRoute: BusinessSocialRoute,
   CheckoutReturnRoute: CheckoutReturnRoute,
   CollabTripIdRoute: CollabTripIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,

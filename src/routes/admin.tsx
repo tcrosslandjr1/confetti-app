@@ -64,6 +64,7 @@ const NAV: NavItem[] = [
   { to: "/admin/pick-analytics", label: "Pick analytics", icon: BarChart3 },
   { to: "/admin/ad-analytics", label: "Ad analytics", icon: BarChart3 },
   { to: "/admin/audit", label: "Audit log", icon: ScrollText },
+  { to: "/admin/logs", label: "System logs", icon: ScrollText },
   { to: "/admin/wallet-debug", label: "Wallet JWT debug", icon: ShieldCheck },
   { to: "/admin/launch", label: "Launch checklist", icon: ScrollText },
   { to: "/admin/routes-map", label: "Routes map", icon: ScrollText },

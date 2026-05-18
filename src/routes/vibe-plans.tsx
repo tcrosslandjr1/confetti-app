@@ -158,6 +158,9 @@ function VibePlansPage() {
 
       const budgetTier: 1 | 2 | 3 | 4 = budget < 40 ? 1 : budget < 100 ? 2 : budget < 200 ? 3 : 4;
 
+      const adultOk =
+        includeAdult && ageConfirmed && vibe ? ADULT_TRIGGER_IDS.has(vibe.id) : false;
+
       const result = await generate({
         data: {
           city: city.city,
@@ -169,6 +172,9 @@ function VibePlansPage() {
           groupSize,
           budget: budgetTier,
           tweakDirective: tweaks.join("; "),
+          includeYacht: includeYacht && (waterfront?.hasWaterfront ?? false),
+          includeCasino,
+          includeAdultEntertainment: adultOk,
         },
       });
       setPlan(result);

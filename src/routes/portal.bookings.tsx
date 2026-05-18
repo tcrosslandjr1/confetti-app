@@ -58,35 +58,45 @@ type Booking = {
 };
 
 // Hardcoded sample bookings shown when the user has no real bookings yet, so
-// the page always looks complete for App Store review.
-const MOCK_BOOKINGS: Booking[] = [
-  {
-    id: "mock-cf-8821",
-    venue_id: null,
-    venue_name: "Le Diplomate",
-    starts_at: "2026-05-17T19:30:00",
-    party_size: 4,
-    status: "confirmed",
-    notes: "14th Street NW · French bistro",
-    cancelled_at: null,
-    pre_order_drinks: null,
-    seating_preference: null,
-    confirmation_code: "CF-8821",
-  },
-  {
-    id: "mock-cf-7703",
-    venue_id: null,
-    venue_name: "Rasika",
-    starts_at: "2026-04-28T20:00:00",
-    party_size: 2,
-    status: "completed",
-    notes: "Penn Quarter · Modern Indian",
-    cancelled_at: null,
-    pre_order_drinks: null,
-    seating_preference: null,
-    confirmation_code: "CF-7703",
-  },
-];
+// the page always looks complete for App Store review. Dates are computed
+// relative to today so the "upcoming" tab always has at least one entry.
+const buildMockBookings = (): Booking[] => {
+  const upcoming = new Date();
+  upcoming.setDate(upcoming.getDate() + 6);
+  upcoming.setHours(19, 30, 0, 0);
+  const past = new Date();
+  past.setDate(past.getDate() - 20);
+  past.setHours(20, 0, 0, 0);
+  return [
+    {
+      id: "mock-cf-8821",
+      venue_id: null,
+      venue_name: "Le Diplomate",
+      starts_at: upcoming.toISOString(),
+      party_size: 4,
+      status: "confirmed",
+      notes: "14th Street NW · French bistro",
+      cancelled_at: null,
+      pre_order_drinks: null,
+      seating_preference: null,
+      confirmation_code: "CF-8821",
+    },
+    {
+      id: "mock-cf-7703",
+      venue_id: null,
+      venue_name: "Rasika",
+      starts_at: past.toISOString(),
+      party_size: 2,
+      status: "completed",
+      notes: "Penn Quarter · Modern Indian",
+      cancelled_at: null,
+      pre_order_drinks: null,
+      seating_preference: null,
+      confirmation_code: "CF-7703",
+    },
+  ];
+};
+const isMockBookingId = (id: string) => id.startsWith("mock-");
 
 function PortalBookingsPage() {
   const { user } = useAuth();

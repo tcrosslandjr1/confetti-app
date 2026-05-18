@@ -1,14 +1,12 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from "@tanstack/react-start/config";
 import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 
 export default defineConfig({
-  plugins: [
-    TanStackRouterVite({ autoCodeSplitting: true }),
-    react(),
-    tailwindcss(),
-    tsconfigPaths(),
-  ],
+    server: {
+          preset: "vercel",
+    },
+    vite: {
+          plugins: [tailwindcss(), tsconfigPaths()],
+    },
 });

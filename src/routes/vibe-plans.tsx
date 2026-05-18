@@ -182,6 +182,10 @@ function VibePlansPage() {
       tweaks.push(`energy: ${energyLabel}`);
       if (customVibe.trim()) tweaks.push(`custom vibe: ${customVibe.trim()}`);
 
+      const resolved = resolveCategories(selectedCats);
+      if (resolved) tweaks.push(buildCategoryDirective(resolved, freeText));
+      else if (freeText.trim()) tweaks.push(`user said: "${freeText.trim().slice(0, 200)}"`);
+
       const budgetTier: 1 | 2 | 3 | 4 = budget < 40 ? 1 : budget < 100 ? 2 : budget < 200 ? 3 : 4;
 
       const adultOk = includeAdult && ageConfirmed && vibe ? ADULT_TRIGGER_IDS.has(vibe.id) : false;

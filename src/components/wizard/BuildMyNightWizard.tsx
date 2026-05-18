@@ -2173,15 +2173,39 @@ export function BuildMyNightWizard() {
                             </span>
                           </div>
 
-                          <button
-                            type="button"
-                            onClick={(e) => addStopToBoardingPass(s, e)}
-                            aria-label={`Add ${s.venue} to your night`}
-                            title="Add this stop to your night"
-                            className="flex h-9 items-center justify-center gap-1 rounded-full border-2 border-ink bg-coral px-2 font-mono text-[10px] font-extrabold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-ink hover:shadow-brut-lg"
-                          >
-                            <Plus className="h-3.5 w-3.5" /> Add
-                          </button>
+                          {(() => {
+                            const added = isStopAdded(s);
+                            return (
+                              <button
+                                type="button"
+                                onClick={(e) => addStopToBoardingPass(s, e)}
+                                disabled={added}
+                                aria-label={
+                                  added
+                                    ? `${s.venue} already added`
+                                    : `Add ${s.venue} to your night`
+                                }
+                                title={
+                                  added ? "Already on your boarding pass" : "Add this stop to your night"
+                                }
+                                className={`flex h-9 items-center justify-center gap-1 rounded-full border-2 border-ink px-2 font-mono text-[10px] font-extrabold uppercase tracking-widest shadow-brut transition-pop ${
+                                  added
+                                    ? "bg-mint text-ink cursor-default"
+                                    : "bg-coral text-cream hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-ink hover:shadow-brut-lg"
+                                }`}
+                              >
+                                {added ? (
+                                  <>
+                                    <Check className="h-3.5 w-3.5" /> Added
+                                  </>
+                                ) : (
+                                  <>
+                                    <Plus className="h-3.5 w-3.5" /> Add
+                                  </>
+                                )}
+                              </button>
+                            );
+                          })()}
 
                           <div className="grid grid-cols-2 gap-1">
                             <button

@@ -697,6 +697,44 @@ function VibePlansPage() {
           ) : null}
         </Card>
 
+        {/* Filters */}
+        <Card className="space-y-2 p-4">
+          <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Filters
+          </div>
+          {[
+            { id: "family", label: "👨‍👩‍👧 Keep it family-friendly", state: familyFriendly, set: setFamilyFriendly },
+            { id: "convo", label: "💬 Conversation-friendly", state: conversationFriendly, set: setConversationFriendly },
+            { id: "dry", label: "🚫 Avoid alcohol", state: avoidAlcohol, set: setAvoidAlcohol },
+            { id: "indoor", label: "🏠 Indoor only", state: indoorOnly, set: setIndoorOnly },
+            { id: "budget", label: "💸 Budget-friendly", state: budgetFriendly, set: setBudgetFriendly },
+          ].map((f) => (
+            <label key={f.id} className="flex items-center justify-between gap-3 text-sm">
+              <span>{f.label}</span>
+              <input
+                type="checkbox"
+                checked={f.state}
+                onChange={(e) => f.set(e.target.checked)}
+                className="h-4 w-4"
+              />
+            </label>
+          ))}
+          {/* Brunch Baddies-only toggle */}
+          {(selectedCats.includes("brunch_baddies") ||
+            (vibe &&
+              ["brunch_baddies", "mimosas", "cute_fits", "pink_aesthetic", "photo_walls", "shopping_after"].includes(vibe.id))) ? (
+            <label className="flex items-center justify-between gap-3 border-t pt-2 text-sm">
+              <span>🪩 Add post-brunch day party</span>
+              <input
+                type="checkbox"
+                checked={postBrunchDayParty}
+                onChange={(e) => setPostBrunchDayParty(e.target.checked)}
+                className="h-4 w-4"
+              />
+            </label>
+          ) : null}
+        </Card>
+
         {/* Optional add-ons: yacht / casino / adult — gated by city + vibe */}
         <Card className="space-y-3 p-4">
           <div className="flex items-center justify-between">

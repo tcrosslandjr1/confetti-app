@@ -12,6 +12,13 @@ import {
   Eye,
   EyeOff,
   Check,
+  Mail,
+  Lock,
+  User as UserIcon,
+  Ticket,
+  ArrowRight,
+  Zap,
+  Gift,
 } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 

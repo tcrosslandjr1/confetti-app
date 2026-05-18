@@ -430,29 +430,38 @@ const suitePersonalization: TestSuite = {
   id: "S16",
   name: "Personalization Engine",
   run: () => {
-    let profile = DEFAULT_PROFILE;
-    for (let i = 0; i < 5; i++) {
-      profile = learnProfileFromSignals(profile, {
-        vibe: "soft_life",
-        occasionId: "brunch-baddies",
-        budgetTier: 2,
-        rating: 5,
-      });
-    }
-    const learned = (profile.vibeCounts?.["soft_life"] ?? 0) >= 5;
+    const signals = Array.from({ length: 5 }, () => ({
+      signal_type: "vibe_chosen",
+      payload: { vibe: "soft_life" },
+      city: "miami",
+    })).concat(
+      Array.from({ length: 3 }, () => ({
+        signal_type: "category_chosen",
+        payload: { vibe: "soft_life", category: "brunch-baddies" },
+        city: "miami",
+      })),
+      [{ signal_type: "budget", payload: { vibe: "soft_life", tier: 2 }, city: "miami" }],
+    );
+    const profile = learnProfileFromSignals(signals, DEFAULT_PROFILE);
     const defaults = getDefaultsFromProfile(profile);
     return [
       ok(
         "S16.1",
-        "Repeated soft_life signals accumulate",
-        learned,
-        `count=${profile.vibeCounts?.["soft_life"] ?? 0}`,
+        "Top vibe learned from repeated signals",
+        profile.preferred_vibes[0] === "soft_life",
+        `preferred=${profile.preferred_vibes.join(",")}`,
       ),
       ok(
         "S16.2",
-        "Defaults reflect learned vibe",
-        !!defaults && JSON.stringify(defaults).toLowerCase().includes("soft"),
+        "Defaults reflect learned vibe + category",
+        defaults.defaultVibe === "soft_life" && defaults.defaultCategory === "brunch-baddies",
         JSON.stringify(defaults),
+      ),
+      ok(
+        "S16.3",
+        "Budget tier learned",
+        profile.preferred_price_tier === 2,
+        `tier=${profile.preferred_price_tier}`,
       ),
     ];
   },

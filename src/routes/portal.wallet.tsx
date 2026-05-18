@@ -288,34 +288,38 @@ function WalletPage() {
 
       {/* Earnings history */}
       <div className="mt-6">
-        <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-          How you earned it
-        </div>
-        {grants.length === 0 ? (
-          <div className="mt-2 rounded-2xl border border-dashed border-border p-6 text-center">
-            <Gift className="mx-auto h-6 w-6 text-muted-foreground" />
-            <div className="mt-2 text-sm font-semibold">No Confetti yet</div>
-            <p className="mt-1 text-xs text-muted-foreground">Book a venue to start earning.</p>
+        <div className="flex items-baseline justify-between">
+          <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+            How you earned it
           </div>
-        ) : (
-          <ul className="mt-2 space-y-1.5">
-            {grants.slice(0, 12).map((g) => (
-              <li
-                key={g.id}
-                className="flex items-center justify-between rounded-2xl border border-border bg-card px-4 py-3 shadow-card"
-              >
-                <div>
-                  <div className="text-sm font-semibold">{g.venue_name ?? "Booking reward"}</div>
-                  <div className="text-[11px] text-muted-foreground capitalize">
-                    {g.reason} · {formatDistanceToNow(new Date(g.created_at), { addSuffix: true })}
-                  </div>
+          {usingMockGrants && (
+            <div className="text-[10px] uppercase tracking-wider text-muted-foreground/70">
+              Sample
+            </div>
+          )}
+        </div>
+        <ul className="mt-2 space-y-1.5">
+          {displayGrants.slice(0, 12).map((g) => (
+            <li
+              key={g.id}
+              className="flex items-center justify-between rounded-2xl border border-border bg-card px-4 py-3 shadow-card"
+            >
+              <div>
+                <div className="text-sm font-semibold">{g.venue_name ?? "Booking reward"}</div>
+                <div className="text-[11px] text-muted-foreground capitalize">
+                  {g.reason} · {formatDistanceToNow(new Date(g.created_at), { addSuffix: true })}
                 </div>
-                <div className="inline-flex items-center gap-1 text-sm font-bold text-primary">
-                  <Sparkles className="h-3.5 w-3.5" />+{g.credits}
-                </div>
-              </li>
-            ))}
-          </ul>
+              </div>
+              <div className="inline-flex items-center gap-1 text-sm font-bold text-primary">
+                <Sparkles className="h-3.5 w-3.5" />+{g.credits}
+              </div>
+            </li>
+          ))}
+        </ul>
+        {usingMockGrants && (
+          <p className="mt-2 text-center text-[11px] text-muted-foreground">
+            Book a venue or check in to start earning real Confetti.
+          </p>
         )}
       </div>
     </div>

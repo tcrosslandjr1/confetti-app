@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { Sparkles, MapPin, Loader2, ArrowLeft, Waves, Mountain } from "lucide-react";
@@ -14,6 +14,7 @@ import type { GeneratedPlan } from "@/lib/agents/types";
 import { CITIES, findCityLoose, type CityContext } from "@/lib/agents/city-context";
 import { matchState, isKnownCity } from "@/lib/agents/states";
 import { detectWaterfront } from "@/lib/agents/waterfront";
+import { setActiveLoop, makeDemoLoop, type ActiveLoop } from "@/lib/loop-store";
 
 export const Route = createFileRoute("/vibe-plans")({
   component: VibePlansPage,

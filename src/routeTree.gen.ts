@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeatherRouteImport } from './routes/weather'
 import { Route as ViralRouteImport } from './routes/viral'
+import { Route as VibePlansRouteImport } from './routes/vibe-plans'
 import { Route as TranslateRouteImport } from './routes/translate'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsRouteImport } from './routes/terms'
@@ -170,6 +171,11 @@ const WeatherRoute = WeatherRouteImport.update({
 const ViralRoute = ViralRouteImport.update({
   id: '/viral',
   path: '/viral',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VibePlansRoute = VibePlansRouteImport.update({
+  id: '/vibe-plans',
+  path: '/vibe-plans',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TranslateRoute = TranslateRouteImport.update({
@@ -976,6 +982,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/translate': typeof TranslateRoute
+  '/vibe-plans': typeof VibePlansRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
@@ -1122,6 +1129,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/translate': typeof TranslateRoute
+  '/vibe-plans': typeof VibePlansRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
@@ -1277,6 +1285,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/translate': typeof TranslateRoute
+  '/vibe-plans': typeof VibePlansRoute
   '/viral': typeof ViralRoute
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
@@ -1433,6 +1442,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/testimonials'
     | '/translate'
+    | '/vibe-plans'
     | '/viral'
     | '/weather'
     | '/admin/ad-analytics'
@@ -1579,6 +1589,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/testimonials'
     | '/translate'
+    | '/vibe-plans'
     | '/viral'
     | '/weather'
     | '/admin/ad-analytics'
@@ -1733,6 +1744,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/testimonials'
     | '/translate'
+    | '/vibe-plans'
     | '/viral'
     | '/weather'
     | '/admin/ad-analytics'
@@ -1888,6 +1900,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   TestimonialsRoute: typeof TestimonialsRoute
   TranslateRoute: typeof TranslateRoute
+  VibePlansRoute: typeof VibePlansRoute
   ViralRoute: typeof ViralRoute
   WeatherRoute: typeof WeatherRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -1948,6 +1961,13 @@ declare module '@tanstack/react-router' {
       path: '/viral'
       fullPath: '/viral'
       preLoaderRoute: typeof ViralRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vibe-plans': {
+      id: '/vibe-plans'
+      path: '/vibe-plans'
+      fullPath: '/vibe-plans'
+      preLoaderRoute: typeof VibePlansRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/translate': {
@@ -3277,6 +3297,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   TestimonialsRoute: TestimonialsRoute,
   TranslateRoute: TranslateRoute,
+  VibePlansRoute: VibePlansRoute,
   ViralRoute: ViralRoute,
   WeatherRoute: WeatherRoute,
   ApiChatRoute: ApiChatRoute,

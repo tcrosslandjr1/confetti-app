@@ -74,7 +74,7 @@ const SAMPLE_VENUES: VenueRow[] = SAMPLE_DATA.map((v) => ({
   name: v.name,
   neighborhood: v.neighborhood,
   address: v.address,
-  photo: v.imageUrl,
+  photo: v.imageUrl || unsplashFor(v.category, v.name),
   rating: v.rating,
   price: v.price,
   tags: v.tags,
@@ -179,7 +179,7 @@ function DiscoverPage() {
       name: r.venue_name,
       neighborhood: r.neighborhood,
       address: r.address,
-      photo: r.photo_url,
+      photo: r.photo_url || unsplashFor(null, r.venue_name),
       rating: r.rating != null ? Number(r.rating) : null,
       website: r.website,
     }));
@@ -311,7 +311,17 @@ function DiscoverPage() {
                   <Link to="/venue/$id" params={{ id: v.id }} className="block">
                     <div className="relative h-32 w-full overflow-hidden">
                       {v.photo ? (
-                        <img src={v.photo} alt={v.name} className="h-full w-full object-cover" />
+                        <img
+                          src={v.photo}
+                          alt={v.name}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          onError={(e) => {
+                            const img = e.currentTarget;
+                            const fb = unsplashFor(v.category ?? null, v.name);
+                            if (img.src !== fb) img.src = fb;
+                          }}
+                        />
                       ) : (
                         <div
                           className={`h-full w-full bg-gradient-to-br ${v.gradient ?? "from-slate-500 via-slate-700 to-slate-900"}`}
@@ -520,7 +530,13 @@ function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) 
           <img
             src={row.photo}
             alt={row.name}
+            loading="lazy"
             className="h-16 w-16 shrink-0 rounded-xl border-2 border-ink object-cover"
+            onError={(e) => {
+              const img = e.currentTarget;
+              const fb = unsplashFor(row.category ?? null, row.name);
+              if (img.src !== fb) img.src = fb;
+            }}
           />
         ) : (
           <div

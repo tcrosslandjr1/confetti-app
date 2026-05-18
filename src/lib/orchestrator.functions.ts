@@ -123,8 +123,17 @@ export const orchestratePlan = createServerFn({ method: "POST" })
           city,
         },
       ]);
-      const r = result as { tripId: string; tripName: string; nameOptions: { name: string; score: number }[] };
-      return { mode: "trip" as const, tripId: r.tripId, tripName: r.tripName, nameOptions: r.nameOptions };
+      const r = result as {
+        tripId: string;
+        tripName: string;
+        nameOptions: { name: string; score: number }[];
+      };
+      return {
+        mode: "trip" as const,
+        tripId: r.tripId,
+        tripName: r.tripName,
+        nameOptions: r.nameOptions,
+      };
     }
 
     const safeInput = applySafetyGuards({ vibeLabel: vibe, occasionLabel: category }, profile);

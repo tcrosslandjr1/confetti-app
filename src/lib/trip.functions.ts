@@ -128,9 +128,7 @@ export const generateTrip = createServerFn({ method: "POST" })
       .single();
     if (error || !trip) throw new Error(error?.message ?? "Failed to save trip");
 
-    await supabase
-      .from("trip_days")
-      .insert(days.map((d) => ({ trip_id: trip.id, ...d })) as never);
+    await supabase.from("trip_days").insert(days.map((d) => ({ trip_id: trip.id, ...d })) as never);
 
     return { tripId: trip.id, tripName, nameOptions, dayCount: days.length };
   });

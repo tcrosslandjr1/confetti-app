@@ -91,6 +91,7 @@ import { Route as PortalActivityRouteImport } from './routes/portal.activity'
 import { Route as PortalAchievementsRouteImport } from './routes/portal.achievements'
 import { Route as PlanReadyRouteImport } from './routes/plan.ready'
 import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
+import { Route as PartnerReservationsRouteImport } from './routes/partner.reservations'
 import { Route as PartnerProfileRouteImport } from './routes/partner.profile'
 import { Route as PartnerOrderSettingsRouteImport } from './routes/partner.order-settings'
 import { Route as PartnerCalendarRouteImport } from './routes/partner.calendar'
@@ -583,6 +584,11 @@ const PlanPreviewRoute = PlanPreviewRouteImport.update({
   id: '/preview',
   path: '/preview',
   getParentRoute: () => PlanRoute,
+} as any)
+const PartnerReservationsRoute = PartnerReservationsRouteImport.update({
+  id: '/reservations',
+  path: '/reservations',
+  getParentRoute: () => PartnerRoute,
 } as any)
 const PartnerProfileRoute = PartnerProfileRouteImport.update({
   id: '/profile',
@@ -1117,6 +1123,7 @@ export interface FileRoutesByFullPath {
   '/partner/calendar': typeof PartnerCalendarRoute
   '/partner/order-settings': typeof PartnerOrderSettingsRoute
   '/partner/profile': typeof PartnerProfileRoute
+  '/partner/reservations': typeof PartnerReservationsRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
   '/portal/achievements': typeof PortalAchievementsRoute
@@ -1274,6 +1281,7 @@ export interface FileRoutesByTo {
   '/partner/calendar': typeof PartnerCalendarRoute
   '/partner/order-settings': typeof PartnerOrderSettingsRoute
   '/partner/profile': typeof PartnerProfileRoute
+  '/partner/reservations': typeof PartnerReservationsRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
   '/portal/achievements': typeof PortalAchievementsRoute
@@ -1441,6 +1449,7 @@ export interface FileRoutesById {
   '/partner/calendar': typeof PartnerCalendarRoute
   '/partner/order-settings': typeof PartnerOrderSettingsRoute
   '/partner/profile': typeof PartnerProfileRoute
+  '/partner/reservations': typeof PartnerReservationsRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
   '/portal/achievements': typeof PortalAchievementsRoute
@@ -1609,6 +1618,7 @@ export interface FileRouteTypes {
     | '/partner/calendar'
     | '/partner/order-settings'
     | '/partner/profile'
+    | '/partner/reservations'
     | '/plan/preview'
     | '/plan/ready'
     | '/portal/achievements'
@@ -1766,6 +1776,7 @@ export interface FileRouteTypes {
     | '/partner/calendar'
     | '/partner/order-settings'
     | '/partner/profile'
+    | '/partner/reservations'
     | '/plan/preview'
     | '/plan/ready'
     | '/portal/achievements'
@@ -1932,6 +1943,7 @@ export interface FileRouteTypes {
     | '/partner/calendar'
     | '/partner/order-settings'
     | '/partner/profile'
+    | '/partner/reservations'
     | '/plan/preview'
     | '/plan/ready'
     | '/portal/achievements'
@@ -2658,6 +2670,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlanPreviewRouteImport
       parentRoute: typeof PlanRoute
     }
+    '/partner/reservations': {
+      id: '/partner/reservations'
+      path: '/reservations'
+      fullPath: '/partner/reservations'
+      preLoaderRoute: typeof PartnerReservationsRouteImport
+      parentRoute: typeof PartnerRoute
+    }
     '/partner/profile': {
       id: '/partner/profile'
       path: '/profile'
@@ -3378,6 +3397,7 @@ interface PartnerRouteChildren {
   PartnerCalendarRoute: typeof PartnerCalendarRoute
   PartnerOrderSettingsRoute: typeof PartnerOrderSettingsRoute
   PartnerProfileRoute: typeof PartnerProfileRoute
+  PartnerReservationsRoute: typeof PartnerReservationsRoute
   PartnerIndexRoute: typeof PartnerIndexRoute
 }
 
@@ -3386,6 +3406,7 @@ const PartnerRouteChildren: PartnerRouteChildren = {
   PartnerCalendarRoute: PartnerCalendarRoute,
   PartnerOrderSettingsRoute: PartnerOrderSettingsRoute,
   PartnerProfileRoute: PartnerProfileRoute,
+  PartnerReservationsRoute: PartnerReservationsRoute,
   PartnerIndexRoute: PartnerIndexRoute,
 }
 

@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { MapPin } from "lucide-react";
 import {
   CheckCircle2,
   ScrollText,
@@ -17,6 +16,7 @@ import {
   Download,
   Eraser,
   ShieldAlert,
+    MapPin,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";

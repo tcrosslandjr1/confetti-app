@@ -890,24 +890,32 @@ function AuthPage() {
 
           <form onSubmit={onSubmit} className="space-y-3">
             {mode === "signup" && (
-              <input
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Your name"
-                required
-                className="w-full rounded-2xl border-2 border-ink bg-cream px-4 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
-              />
+              <div className="relative">
+                <UserIcon
+                  className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-ink/40"
+                  aria-hidden
+                />
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Your name"
+                  required
+                  className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-4 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
+                />
+              </div>
             )}
             <div className="relative">
+              <Mail
+                className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-ink/40"
+                aria-hidden
+              />
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
-                className={`w-full rounded-2xl border-2 bg-cream px-4 py-4 pr-12 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none transition focus:ring-2 focus:ring-coral/40 ${
-                  emailLooksValid ? "border-ink" : "border-ink"
-                }`}
+                className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-12 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none transition focus:ring-2 focus:ring-coral/40"
               />
               {emailLooksValid && (
                 <span
@@ -919,6 +927,10 @@ function AuthPage() {
               )}
             </div>
             <div className="relative">
+              <Lock
+                className="pointer-events-none absolute inset-y-0 left-4 my-auto h-4 w-4 text-ink/40"
+                aria-hidden
+              />
               <input
                 type={showPassword ? "text" : "password"}
                 required
@@ -926,7 +938,7 @@ function AuthPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
-                className="w-full rounded-2xl border-2 border-ink bg-cream px-4 py-4 pr-12 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
+                className="w-full rounded-2xl border-2 border-ink bg-cream pl-11 pr-12 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
               />
               <button
                 type="button"

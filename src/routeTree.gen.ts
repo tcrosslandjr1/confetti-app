@@ -21,6 +21,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ScanRouteImport } from './routes/scan'
 import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as QuickGenerateRouteImport } from './routes/quick-generate'
+import { Route as QaRouteImport } from './routes/qa'
 import { Route as PromoterRouteImport } from './routes/promoter'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -223,6 +224,11 @@ const ReservationsRoute = ReservationsRouteImport.update({
 const QuickGenerateRoute = QuickGenerateRouteImport.update({
   id: '/quick-generate',
   path: '/quick-generate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QaRoute = QaRouteImport.update({
+  id: '/qa',
+  path: '/qa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PromoterRoute = PromoterRouteImport.update({
@@ -986,6 +992,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/promoter': typeof PromoterRouteWithChildren
+  '/qa': typeof QaRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
@@ -1136,6 +1143,7 @@ export interface FileRoutesByTo {
   '/plan': typeof PlanRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
+  '/qa': typeof QaRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
@@ -1293,6 +1301,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/promoter': typeof PromoterRouteWithChildren
+  '/qa': typeof QaRoute
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
@@ -1452,6 +1461,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/promoter'
+    | '/qa'
     | '/quick-generate'
     | '/reservations'
     | '/scan'
@@ -1602,6 +1612,7 @@ export interface FileRouteTypes {
     | '/plan'
     | '/pricing'
     | '/privacy'
+    | '/qa'
     | '/quick-generate'
     | '/reservations'
     | '/scan'
@@ -1758,6 +1769,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy'
     | '/promoter'
+    | '/qa'
     | '/quick-generate'
     | '/reservations'
     | '/scan'
@@ -1916,6 +1928,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   PromoterRoute: typeof PromoterRouteWithChildren
+  QaRoute: typeof QaRoute
   QuickGenerateRoute: typeof QuickGenerateRoute
   ReservationsRoute: typeof ReservationsRoute
   ScanRoute: typeof ScanRoute
@@ -2057,6 +2070,13 @@ declare module '@tanstack/react-router' {
       path: '/quick-generate'
       fullPath: '/quick-generate'
       preLoaderRoute: typeof QuickGenerateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/qa': {
+      id: '/qa'
+      path: '/qa'
+      fullPath: '/qa'
+      preLoaderRoute: typeof QaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/promoter': {
@@ -3329,6 +3349,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   PromoterRoute: PromoterRouteWithChildren,
+  QaRoute: QaRoute,
   QuickGenerateRoute: QuickGenerateRoute,
   ReservationsRoute: ReservationsRoute,
   ScanRoute: ScanRoute,

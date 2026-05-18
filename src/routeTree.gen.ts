@@ -91,6 +91,7 @@ import { Route as PortalActivityRouteImport } from './routes/portal.activity'
 import { Route as PortalAchievementsRouteImport } from './routes/portal.achievements'
 import { Route as PlanReadyRouteImport } from './routes/plan.ready'
 import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
+import { Route as PartnerProfileRouteImport } from './routes/partner.profile'
 import { Route as PCodeRouteImport } from './routes/p.$code'
 import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
@@ -579,6 +580,11 @@ const PlanPreviewRoute = PlanPreviewRouteImport.update({
   id: '/preview',
   path: '/preview',
   getParentRoute: () => PlanRoute,
+} as any)
+const PartnerProfileRoute = PartnerProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => PartnerRoute,
 } as any)
 const PCodeRoute = PCodeRouteImport.update({
   id: '/p/$code',
@@ -1089,6 +1095,7 @@ export interface FileRoutesByFullPath {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
+  '/partner/profile': typeof PartnerProfileRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
   '/portal/achievements': typeof PortalAchievementsRoute
@@ -1242,6 +1249,7 @@ export interface FileRoutesByTo {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
+  '/partner/profile': typeof PartnerProfileRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
   '/portal/achievements': typeof PortalAchievementsRoute
@@ -1405,6 +1413,7 @@ export interface FileRoutesById {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
+  '/partner/profile': typeof PartnerProfileRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
   '/portal/achievements': typeof PortalAchievementsRoute
@@ -1569,6 +1578,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/p/$code'
+    | '/partner/profile'
     | '/plan/preview'
     | '/plan/ready'
     | '/portal/achievements'
@@ -1722,6 +1732,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/p/$code'
+    | '/partner/profile'
     | '/plan/preview'
     | '/plan/ready'
     | '/portal/achievements'
@@ -1884,6 +1895,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/p/$code'
+    | '/partner/profile'
     | '/plan/preview'
     | '/plan/ready'
     | '/portal/achievements'
@@ -2610,6 +2622,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlanPreviewRouteImport
       parentRoute: typeof PlanRoute
     }
+    '/partner/profile': {
+      id: '/partner/profile'
+      path: '/profile'
+      fullPath: '/partner/profile'
+      preLoaderRoute: typeof PartnerProfileRouteImport
+      parentRoute: typeof PartnerRoute
+    }
     '/p/$code': {
       id: '/p/$code'
       path: '/p/$code'
@@ -3298,10 +3317,12 @@ const CorporateRouteWithChildren = CorporateRoute._addFileChildren(
 )
 
 interface PartnerRouteChildren {
+  PartnerProfileRoute: typeof PartnerProfileRoute
   PartnerIndexRoute: typeof PartnerIndexRoute
 }
 
 const PartnerRouteChildren: PartnerRouteChildren = {
+  PartnerProfileRoute: PartnerProfileRoute,
   PartnerIndexRoute: PartnerIndexRoute,
 }
 

@@ -758,10 +758,7 @@ function Landing() {
 
                 <button
                   type="button"
-                  onClick={() => {
-                    console.log("[TapToGo] button clicked, opening modal");
-                    setBookingOpen(true);
-                  }}
+                  onClick={() => setBookingOpen(true)}
                   className="mt-5 inline-flex h-12 w-full min-h-11 items-center justify-center gap-2 rounded-full border-2 border-ink bg-coral px-5 text-sm font-bold text-cream shadow-brut transition-pop hover:-translate-y-0.5"
                 >
                   Tap to go — book this plan <ArrowUpRight className="h-4 w-4" />

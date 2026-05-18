@@ -108,7 +108,6 @@ function AuthPage() {
   const pwLabel = ["too short", "weak", "ok", "strong", "excellent"][pwStrength];
   const emailLooksValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-
   // Translate OAuth provider/Supabase errors into something a user can act on.
   function explainOAuthError(provider: "google" | "apple", raw: string): string {
     const msg = raw.toLowerCase();
@@ -626,9 +625,7 @@ function AuthPage() {
                     aria-selected={active}
                     onClick={() => setMode(m)}
                     className={`relative rounded-full px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${
-                      active
-                        ? "bg-ink text-cream shadow-brut"
-                        : "text-ink/60 hover:text-ink"
+                      active ? "bg-ink text-cream shadow-brut" : "text-ink/60 hover:text-ink"
                     }`}
                   >
                     {m === "signup" ? "Sign up" : "Sign in"}
@@ -937,8 +934,15 @@ function AuthPage() {
               className="shine-sweep group relative mt-2 inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border-2 border-ink bg-coral py-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg hover:scale-[1.01] active:translate-x-0 active:translate-y-0 active:shadow-none disabled:opacity-60"
             >
               {loading && <Loader2 className="h-4 w-4 animate-spin" />}
-              <span className="relative z-10">{mode === "signup" ? "Create account" : "Sign in"}</span>
-              <span aria-hidden className="relative z-10 transition-transform group-hover:translate-x-1">→</span>
+              <span className="relative z-10">
+                {mode === "signup" ? "Create account" : "Sign in"}
+              </span>
+              <span
+                aria-hidden
+                className="relative z-10 transition-transform group-hover:translate-x-1"
+              >
+                →
+              </span>
             </button>
             {mode === "signup" && (
               <p className="text-center text-[11px] leading-relaxed text-ink/60">

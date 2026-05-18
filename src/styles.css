@@ -500,20 +500,21 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(
-      115deg,
-      transparent 30%,
-      oklch(1 0 0 / 0.35) 50%,
-      transparent 70%
-    );
+    background: linear-gradient(115deg, transparent 30%, oklch(1 0 0 / 0.35) 50%, transparent 70%);
     transform: translateX(-120%);
     animation: shine-sweep 3s ease-in-out infinite;
     animation-delay: 1.2s;
   }
   @keyframes shine-sweep {
-    0% { transform: translateX(-120%); }
-    60% { transform: translateX(120%); }
-    100% { transform: translateX(120%); }
+    0% {
+      transform: translateX(-120%);
+    }
+    60% {
+      transform: translateX(120%);
+    }
+    100% {
+      transform: translateX(120%);
+    }
   }
   /* Mouse-parallax helper: bind --mx / --my (range -1..1) on a parent. */
   .parallax-soft {
@@ -591,7 +592,9 @@
       animation: none !important;
       transform: none !important;
     }
-    .rise-in { opacity: 1 !important; }
+    .rise-in {
+      opacity: 1 !important;
+    }
     .hero-gradient {
       background-size: 100% 100% !important;
     }

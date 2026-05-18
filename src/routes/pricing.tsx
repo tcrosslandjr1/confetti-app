@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Check } from "lucide-react";
@@ -6,7 +6,7 @@ import { useStripeCheckout } from "@/hooks/useStripeCheckout";
 import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { useAuth } from "@/lib/auth-context";
 
-export const Route = createFileRoute("/pricing")({
+export const Route  createFileRoute("/pricing")({
   head: () => ({
     meta: [
       { title: "Pricing — Confetti" },

@@ -180,6 +180,7 @@ import { Route as ApiPublicHooksRefreshOutreachCsvRouteImport } from './routes/a
 import { Route as ApiPublicHooksDiscoverViralRouteImport } from './routes/api/public/hooks/discover-viral'
 import { Route as ApiAdminWalletGoogleDebugRouteImport } from './routes/api/admin/wallet/google-debug'
 import { Route as ApiAdminWalletGoogleClassRouteImport } from './routes/api/admin/wallet/google-class'
+import { Route as ApiPublicPartnerV1ReservationsIndexRouteImport } from './routes/api/public/partner/v1/reservations/index'
 
 const WeatherRoute = WeatherRouteImport.update({
   id: '/weather',
@@ -1045,6 +1046,12 @@ const ApiAdminWalletGoogleClassRoute =
     path: '/api/admin/wallet/google-class',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicPartnerV1ReservationsIndexRoute =
+  ApiPublicPartnerV1ReservationsIndexRouteImport.update({
+    id: '/api/public/partner/v1/reservations/',
+    path: '/api/public/partner/v1/reservations/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -1218,6 +1225,7 @@ export interface FileRoutesByFullPath {
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
+  '/api/public/partner/v1/reservations/': typeof ApiPublicPartnerV1ReservationsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -1382,6 +1390,7 @@ export interface FileRoutesByTo {
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
+  '/api/public/partner/v1/reservations': typeof ApiPublicPartnerV1ReservationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -1556,6 +1565,7 @@ export interface FileRoutesById {
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
+  '/api/public/partner/v1/reservations/': typeof ApiPublicPartnerV1ReservationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -1731,6 +1741,7 @@ export interface FileRouteTypes {
     | '/api/public/payments/webhook'
     | '/api/public/tiktok/callback'
     | '/api/public/wallet/google'
+    | '/api/public/partner/v1/reservations/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -1895,6 +1906,7 @@ export interface FileRouteTypes {
     | '/api/public/payments/webhook'
     | '/api/public/tiktok/callback'
     | '/api/public/wallet/google'
+    | '/api/public/partner/v1/reservations'
   id:
     | '__root__'
     | '/'
@@ -2068,6 +2080,7 @@ export interface FileRouteTypes {
     | '/api/public/payments/webhook'
     | '/api/public/tiktok/callback'
     | '/api/public/wallet/google'
+    | '/api/public/partner/v1/reservations/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -2164,6 +2177,7 @@ export interface RootRouteChildren {
   ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
   ApiPublicTiktokCallbackRoute: typeof ApiPublicTiktokCallbackRoute
   ApiPublicWalletGoogleRoute: typeof ApiPublicWalletGoogleRoute
+  ApiPublicPartnerV1ReservationsIndexRoute: typeof ApiPublicPartnerV1ReservationsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -3365,6 +3379,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAdminWalletGoogleClassRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/partner/v1/reservations/': {
+      id: '/api/public/partner/v1/reservations/'
+      path: '/api/public/partner/v1/reservations'
+      fullPath: '/api/public/partner/v1/reservations/'
+      preLoaderRoute: typeof ApiPublicPartnerV1ReservationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -3736,6 +3757,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
   ApiPublicTiktokCallbackRoute: ApiPublicTiktokCallbackRoute,
   ApiPublicWalletGoogleRoute: ApiPublicWalletGoogleRoute,
+  ApiPublicPartnerV1ReservationsIndexRoute:
+    ApiPublicPartnerV1ReservationsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

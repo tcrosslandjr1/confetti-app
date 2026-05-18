@@ -652,14 +652,13 @@ const suiteE2E: TestSuite = {
       localFlavorLevel: "medium",
       weatherAware: true,
       forecast: {
+        date: "2026-05-18",
         precipProb: 10,
         tMaxF: 82,
         tMinF: 70,
         label: "Sunny",
         emoji: "☀️",
-        summary: "Sunny",
-        source: "qa",
-      } as never,
+      },
       cityCtx,
     });
     const checks: Array<[string, boolean, string]> = [

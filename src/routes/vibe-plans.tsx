@@ -82,6 +82,10 @@ function VibePlansPage() {
   const [groupSize, setGroupSize] = useState(4);
   const [energy, setEnergy] = useState(3);
   const [waterfrontPref, setWaterfrontPref] = useState<"auto" | "yes" | "no">("auto");
+  const [includeYacht, setIncludeYacht] = useState(false);
+  const [includeCasino, setIncludeCasino] = useState(false);
+  const [includeAdult, setIncludeAdult] = useState(false);
+  const [ageConfirmed, setAgeConfirmed] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [plan, setPlan] = useState<GeneratedPlan | null>(null);

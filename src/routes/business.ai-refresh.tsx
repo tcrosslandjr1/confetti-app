@@ -9,10 +9,7 @@ import {
   VenueSwitcher,
   useManagedVenues,
 } from "@/components/business/useManagedVenue";
-import {
-  getManagedVenue,
-  requestVenueRefresh,
-} from "@/lib/business-portal.functions";
+import { getManagedVenue, requestVenueRefresh } from "@/lib/business-portal.functions";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";

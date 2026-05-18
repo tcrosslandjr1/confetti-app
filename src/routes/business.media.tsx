@@ -111,7 +111,7 @@ function BusinessMediaPage() {
     ig.forEach((url) => media.push({ url, source: "Instagram" }));
   }
 
-  const hidden = new Set<string>(((venue?.hidden_media_urls as string[] | null) ?? []));
+  const hidden = new Set<string>((venue?.hidden_media_urls as string[] | null) ?? []);
   const heroUrl = venue?.hero_image_url ?? null;
 
   return (

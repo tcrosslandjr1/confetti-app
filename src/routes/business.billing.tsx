@@ -55,7 +55,7 @@ function BusinessBillingPage() {
                     Current plan
                   </div>
                   <div className="mt-1 font-display text-2xl font-bold">
-                    {sub ? sub.tier ?? sub.product_id ?? "Active subscription" : "Free"}
+                    {sub ? (sub.tier ?? sub.product_id ?? "Active subscription") : "Free"}
                   </div>
                   <div className="mt-1 text-sm text-muted-foreground">
                     {sub ? (
@@ -129,9 +129,7 @@ function BusinessBillingPage() {
                   <tbody>
                     {history.map((row) => (
                       <tr key={row.id} className="border-t border-border/60">
-                        <td className="py-2 font-semibold">
-                          {row.tier ?? row.product_id ?? "—"}
-                        </td>
+                        <td className="py-2 font-semibold">{row.tier ?? row.product_id ?? "—"}</td>
                         <td>
                           <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
                             {row.status}

@@ -286,7 +286,9 @@ export const listMyVenueEvents = createServerFn({ method: "GET" })
     if (ids.length === 0) return { events: [] };
     const { data, error } = await supabase
       .from("events")
-      .select("id, title, starts_at, ends_at, status, image_url, ticket_url, price_cents, venue_id, venue_name")
+      .select(
+        "id, title, starts_at, ends_at, status, image_url, ticket_url, price_cents, venue_id, venue_name",
+      )
       .in("venue_id", ids)
       .order("starts_at", { ascending: false });
     if (error) throw new Error(error.message);
@@ -298,7 +300,11 @@ export const deleteVenueEvent = createServerFn({ method: "POST" })
   .inputValidator(z.object({ eventId: z.string().uuid() }))
   .handler(async ({ data, context }) => {
     const supabase = adminClient();
-    const { data: ev } = await supabase.from("events").select("venue_id").eq("id", data.eventId).single();
+    const { data: ev } = await supabase
+      .from("events")
+      .select("venue_id")
+      .eq("id", data.eventId)
+      .single();
     if (!ev?.venue_id) throw new Error("Event not found");
     await assertCanManageVenue(supabase, context.userId, ev.venue_id);
     const { error } = await supabase.from("events").delete().eq("id", data.eventId);

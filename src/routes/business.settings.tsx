@@ -121,11 +121,7 @@ function BusinessSettingsPage() {
             <Field label="Venue name" value={form.name} onChange={set("name")} />
             <Field label="Category" value={form.category} onChange={set("category")} />
             <Field label="City" value={form.city} onChange={set("city")} />
-            <Field
-              label="Neighborhood"
-              value={form.neighborhood}
-              onChange={set("neighborhood")}
-            />
+            <Field label="Neighborhood" value={form.neighborhood} onChange={set("neighborhood")} />
           </Card>
 
           <Card className="p-5">

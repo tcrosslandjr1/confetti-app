@@ -90,10 +90,14 @@ function BusinessEventsPage() {
                     : "border-border bg-card hover:border-ink"
                 }`}
               >
-                {s} ({all.filter((e) => {
-                  const t = e.starts_at ? new Date(e.starts_at).getTime() : 0;
-                  return s === "upcoming" ? t >= now : t < now;
-                }).length})
+                {s} (
+                {
+                  all.filter((e) => {
+                    const t = e.starts_at ? new Date(e.starts_at).getTime() : 0;
+                    return s === "upcoming" ? t >= now : t < now;
+                  }).length
+                }
+                )
               </button>
             ))}
           </div>
@@ -107,11 +111,7 @@ function BusinessEventsPage() {
                 return (
                   <Card key={e.id} className="overflow-hidden transition hover:shadow-md">
                     {e.image_url ? (
-                      <img
-                        src={e.image_url}
-                        alt={e.title}
-                        className="h-32 w-full object-cover"
-                      />
+                      <img src={e.image_url} alt={e.title} className="h-32 w-full object-cover" />
                     ) : (
                       <div className="h-32 bg-gradient-to-br from-primary/30 to-orange-200" />
                     )}

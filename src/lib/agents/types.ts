@@ -62,4 +62,20 @@ export type GeneratedPlan = {
   guardrailNote?: string;
   /** AI-generated alternate name options (best first), produced by the Name Generator + Rater. */
   nameOptions?: { name: string; score: number }[];
+
+  // ── Confetti v6 — engine outputs ─────────────────────────────────
+  personalityTone?: string;
+  budgetSummary?: string;
+  perPersonEstimate?: string;
+  groupTotalEstimate?: string;
+  weatherNotes?: string;
+  safetyNotes?: string;
+  localFlavorNotes?: string;
+  localFlavorTags?: string[];
+  reservationRecommended?: boolean;
+  transportationNote?: string;
+  pacingStyle?: string;
+  cheaperSwaps?: { slot: string; name: string; reason: string }[];
+  luxuryUpgrades?: { slot: string; name: string; reason: string }[];
+  budgetWarning?: string;
 };

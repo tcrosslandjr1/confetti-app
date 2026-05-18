@@ -11,6 +11,15 @@ import { buildGirlsNightPresetsPrompt } from "./agents/girls-night-presets";
 import { buildMiamiGuysNightPrompt, isMiamiGuysNight } from "./agents/guys-night-presets";
 import { fetchForecastForCityDate, weatherGuidance } from "./weather.server";
 import { generateAndRankNames } from "./name-generator.functions";
+import {
+  runV6Engines,
+  type PersonalityId,
+  type BudgetMode,
+  type GroupType,
+  type TimeOfDay,
+  type SafetyMode,
+  type LocalFlavorLevel,
+} from "./agents/v6-engines";
 import type { GeneratedPlan } from "./agents/types";
 
 const PlanRequestSchema = z.object({
@@ -38,6 +47,69 @@ const PlanRequestSchema = z.object({
   includeCasino: z.boolean().optional(),
   /** Opt-in: include optional adult-entertainment stop (gated on vibe + 21+ assumption). */
   includeAdultEntertainment: z.boolean().optional(),
+
+  // ── Confetti v6 — engine inputs ────────────────────────────────
+  personality: z
+    .enum([
+      "classy",
+      "chaotic",
+      "soft_life",
+      "bougie",
+      "adventurous",
+      "romantic",
+      "corporate",
+      "family_friendly",
+      "genz_playful",
+      "luxury_concierge",
+      "calm",
+      "local_friend",
+    ])
+    .optional(),
+  budgetMode: z.enum(["save", "balanced", "upgrade"]).optional(),
+  perPersonBudgetUsd: z.number().min(0).max(2000).optional(),
+  groupType: z
+    .enum([
+      "friends",
+      "couples",
+      "in_laws",
+      "coworkers",
+      "bachelor",
+      "bachelorette",
+      "family",
+      "solo",
+    ])
+    .optional(),
+  timeOfDay: z
+    .enum([
+      "sunrise",
+      "morning",
+      "brunch",
+      "afternoon",
+      "after_work",
+      "evening",
+      "late_night",
+      "all_day",
+      "weekend",
+    ])
+    .optional(),
+  safetyModes: z
+    .array(
+      z.enum([
+        "in_laws",
+        "family",
+        "meet_parents",
+        "coworker",
+        "solo",
+        "solo_women",
+        "first_date",
+        "older_group",
+        "conservative",
+      ]),
+    )
+    .max(9)
+    .optional(),
+  localFlavorLevel: z.enum(["light", "medium", "heavy"]).optional(),
+  weatherAware: z.boolean().optional(),
 });
 
 type CandidateVenue = {
@@ -191,6 +263,33 @@ const PlanOutputSchema = z.object({
   estimatedSpend: z.string().describe("Per-person range, e.g. '$60–$90'"),
   fitScore: z.number().min(0).max(1),
   guardrailNote: z.string().max(160).nullable(),
+  cheaperSwaps: z
+    .array(
+      z.object({
+        slot: z.string().min(1).max(40),
+        name: z.string().min(2).max(60),
+        reason: z.string().min(8).max(140),
+      }),
+    )
+    .max(4)
+    .nullable()
+    .describe("Same-vibe cheaper alternatives the user can tap to swap a stop down a price tier."),
+  luxuryUpgrades: z
+    .array(
+      z.object({
+        slot: z.string().min(1).max(40),
+        name: z.string().min(2).max(60),
+        reason: z.string().min(8).max(140),
+      }),
+    )
+    .max(4)
+    .nullable()
+    .describe("Same-vibe luxury upgrades the user can tap to elevate a stop."),
+  budgetWarning: z
+    .string()
+    .max(160)
+    .nullable()
+    .describe("Set when total estimate would exceed the user's budget ceiling."),
 });
 
 export const generatePlan = createServerFn({ method: "POST" })
@@ -285,12 +384,30 @@ export const generatePlan = createServerFn({ method: "POST" })
 
     // Fetch real weather for date+city and add as guidance to the prompt.
     let weatherBlock = "";
+    let forecast: Awaited<ReturnType<typeof fetchForecastForCityDate>> | null = null;
     if (req.date && cityCtx.city) {
-      const f = await fetchForecastForCityDate(cityCtx.city, req.date);
-      if (f) {
-        weatherBlock = `# Weather Context (real forecast — Quality Guardrail must respect this)\n${f.emoji} ${f.label} · ${f.tMinF}–${f.tMaxF}°F · ${f.precipProb}% precip\n${weatherGuidance(f)}\n\n`;
+      forecast = await fetchForecastForCityDate(cityCtx.city, req.date);
+      if (forecast) {
+        weatherBlock = `# Weather Context (real forecast — Quality Guardrail must respect this)\n${forecast.emoji} ${forecast.label} · ${forecast.tMinF}–${forecast.tMaxF}°F · ${forecast.precipProb}% precip\n${weatherGuidance(forecast)}\n\n`;
       }
     }
+
+    // ── Confetti v6: run the 7 missing engines ──────────────────
+    const v6 = runV6Engines({
+      personality: req.personality as PersonalityId | undefined,
+      budgetMode: req.budgetMode as BudgetMode | undefined,
+      perPersonBudgetUsd: req.perPersonBudgetUsd,
+      budgetTier: budget,
+      groupSize,
+      groupType: req.groupType as GroupType | undefined,
+      timeOfDay: req.timeOfDay as TimeOfDay | undefined,
+      safetyModes: (req.safetyModes ?? []) as SafetyMode[],
+      localFlavorLevel: (req.localFlavorLevel as LocalFlavorLevel | undefined) ?? "medium",
+      weatherAware: req.weatherAware ?? true,
+      forecast,
+      cityCtx,
+    });
+    const v6Block = `${v6.directive}\n\n`;
 
     const neighborhoodBlock = cityCtx.neighborhoods
       .map((n) => `  • ${n.name} — ${n.vibe}`)
@@ -323,7 +440,7 @@ Start time: ${startTime}
 Duration: ${req.duration ?? "3 hr"}
 Budget ceiling: ${"$".repeat(budget)}
 
-${moodBlock}${weatherBlock}${tasteBlock}# Template (Occasion Template Agent)
+${moodBlock}${weatherBlock}${v6Block}${tasteBlock}# Template (Occasion Template Agent)
 Blueprint: ${template.blueprintName}
 Tone: ${template.tone}
 Constraints: noise<=${template.constraints.maxNoise}, chaos=${template.constraints.chaos}, accessibility=${template.constraints.accessibility ?? "any"}${template.constraints.avoidCategories?.length ? `, AVOID=[${template.constraints.avoidCategories.join(", ")}]` : ""}
@@ -432,5 +549,20 @@ Name pattern hints: ${template.namePatterns.join(" | ")}.`;
       fitScore: output.fitScore,
       guardrailNote: output.guardrailNote ?? undefined,
       nameOptions,
+      // ── v6 engine outputs ───────────────────────────────────
+      personalityTone: v6.personalityTone,
+      budgetSummary: v6.budgetSummary,
+      perPersonEstimate: v6.perPersonEstimate,
+      groupTotalEstimate: v6.groupTotalEstimate,
+      weatherNotes: v6.weatherNotes,
+      safetyNotes: v6.safetyNotes,
+      localFlavorNotes: v6.localFlavorNotes,
+      localFlavorTags: v6.localFlavorTags,
+      reservationRecommended: v6.reservationRecommended,
+      transportationNote: v6.transportationNote,
+      pacingStyle: v6.pacingStyle,
+      cheaperSwaps: output.cheaperSwaps ?? undefined,
+      luxuryUpgrades: output.luxuryUpgrades ?? undefined,
+      budgetWarning: output.budgetWarning ?? undefined,
     };
   });

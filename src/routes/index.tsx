@@ -1237,7 +1237,11 @@ function Landing() {
           </div>
           <div className="space-y-3 lg:col-span-8">
             {FAQS.map((f, i) => (
-              <Reveal key={f.q} delay={i * 70}>
+              <div
+                key={f.q}
+                className="rise-in"
+                style={{ ["--d" as string]: `${i * 70}ms` }}
+              >
                 <details className="faq-item group rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut transition-pop open:bg-gold open:-translate-y-0.5 open:shadow-brut-lg [&_summary::-webkit-details-marker]:hidden">
                   <summary className="flex cursor-pointer items-center justify-between gap-4 font-display text-xl font-extrabold">
                     {f.q}
@@ -1252,7 +1256,7 @@ function Landing() {
                     {f.a}
                   </p>
                 </details>
-              </Reveal>
+              </div>
             ))}
           </div>
         </div>

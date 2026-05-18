@@ -5,14 +5,28 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Upload, Image as ImageIcon, Video, X } from "lucide-react";
 
 export const Route = createFileRoute("/partner/profile")({
   component: ProfilePage,
 });
 
-const VIBES = ["Lit & Loud", "Chill & Classy", "Date Night", "Group Friendly", "Hidden Gem", "Rooftop Vibes", "Late Night"];
+const VIBES = [
+  "Lit & Loud",
+  "Chill & Classy",
+  "Date Night",
+  "Group Friendly",
+  "Hidden Gem",
+  "Rooftop Vibes",
+  "Late Night",
+];
 const SELECTED = ["Rooftop Vibes", "Date Night", "Chill & Classy"];
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -40,7 +54,9 @@ function ProfilePage() {
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl md:text-3xl font-semibold">Venue profile</h1>
-          <p className="text-muted-foreground text-sm mt-1">How your venue appears across Confetti.</p>
+          <p className="text-muted-foreground text-sm mt-1">
+            How your venue appears across Confetti.
+          </p>
         </div>
         <div className="flex gap-2">
           <Button variant="outline">Cancel</Button>
@@ -50,35 +66,53 @@ function ProfilePage() {
 
       <div className="grid lg:grid-cols-2 gap-6">
         <Section title="Basics">
-          <Field label="Venue name"><Input defaultValue="Sundae Rooftop" /></Field>
-          <Field label="Address"><Input defaultValue="245 Bleecker St, New York, NY 10014" /></Field>
+          <Field label="Venue name">
+            <Input defaultValue="Sundae Rooftop" />
+          </Field>
+          <Field label="Address">
+            <Input defaultValue="245 Bleecker St, New York, NY 10014" />
+          </Field>
           <div className="grid grid-cols-2 gap-4">
-            <Field label="Phone"><Input defaultValue="(212) 555-0149" /></Field>
-            <Field label="Website"><Input defaultValue="sundaerooftop.com" /></Field>
+            <Field label="Phone">
+              <Input defaultValue="(212) 555-0149" />
+            </Field>
+            <Field label="Website">
+              <Input defaultValue="sundaerooftop.com" />
+            </Field>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <Field label="Venue type">
               <Select defaultValue="rooftop">
-                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
                 <SelectContent>
                   {["restaurant", "bar", "lounge", "club", "cafe", "rooftop"].map((t) => (
-                    <SelectItem key={t} value={t}>{t}</SelectItem>
+                    <SelectItem key={t} value={t}>
+                      {t}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </Field>
             <Field label="Price range">
               <Select defaultValue="$$$">
-                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
                 <SelectContent>
                   {["$", "$$", "$$$", "$$$$"].map((t) => (
-                    <SelectItem key={t} value={t}>{t}</SelectItem>
+                    <SelectItem key={t} value={t}>
+                      {t}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </Field>
           </div>
-          <Field label="Cuisine types"><Input defaultValue="American, Mediterranean, Cocktails" /></Field>
+          <Field label="Cuisine types">
+            <Input defaultValue="American, Mediterranean, Cocktails" />
+          </Field>
           <Field label="Vibe tags">
             <div className="flex flex-wrap gap-2">
               {VIBES.map((v) => {
@@ -103,7 +137,10 @@ function ProfilePage() {
             />
           </Field>
           <Field label="Long description">
-            <Textarea rows={4} defaultValue="Sundae Rooftop is a 5-story open-air lounge in the West Village..." />
+            <Textarea
+              rows={4}
+              defaultValue="Sundae Rooftop is a 5-story open-air lounge in the West Village..."
+            />
           </Field>
         </Section>
 
@@ -113,7 +150,9 @@ function ProfilePage() {
               <div key={d} className="flex items-center gap-3">
                 <div className="w-12 text-sm font-medium">{d}</div>
                 <Input className="flex-1" defaultValue="5:00 PM – 1:00 AM" />
-                <Button variant="ghost" size="sm">+ Split</Button>
+                <Button variant="ghost" size="sm">
+                  + Split
+                </Button>
               </div>
             ))}
           </div>
@@ -131,7 +170,10 @@ function ProfilePage() {
           <Field label="Gallery (up to 10)">
             <div className="grid grid-cols-4 gap-2">
               {[...Array(7)].map((_, i) => (
-                <div key={i} className="aspect-square rounded-md bg-gradient-to-br from-orange-200 to-pink-200" />
+                <div
+                  key={i}
+                  className="aspect-square rounded-md bg-gradient-to-br from-orange-200 to-pink-200"
+                />
               ))}
               <button className="aspect-square rounded-md border-2 border-dashed border-border grid place-items-center text-muted-foreground hover:bg-accent/30">
                 <Upload className="h-5 w-5" />
@@ -139,16 +181,29 @@ function ProfilePage() {
             </div>
           </Field>
           <Field label="Vibe video (15–30s loop)">
-            <Button variant="outline" className="w-full justify-start"><Video className="h-4 w-4 mr-2" />Upload vibe video</Button>
+            <Button variant="outline" className="w-full justify-start">
+              <Video className="h-4 w-4 mr-2" />
+              Upload vibe video
+            </Button>
           </Field>
         </Section>
 
         <Section title="Location & access">
-          <Field label="Neighborhood"><Input defaultValue="West Village" /></Field>
-          <Field label="Cross streets"><Input defaultValue="Bleecker & Cornelia" /></Field>
-          <Field label="Parking notes"><Textarea rows={2} defaultValue="Street parking; nearest garage on 6th Ave." /></Field>
-          <Field label="Transit notes"><Textarea rows={2} defaultValue="2 min walk from West 4th St (A/C/E/B/D/F/M)." /></Field>
-          <Field label="Accessibility"><Textarea rows={2} defaultValue="Elevator to rooftop; ADA-compliant restrooms." /></Field>
+          <Field label="Neighborhood">
+            <Input defaultValue="West Village" />
+          </Field>
+          <Field label="Cross streets">
+            <Input defaultValue="Bleecker & Cornelia" />
+          </Field>
+          <Field label="Parking notes">
+            <Textarea rows={2} defaultValue="Street parking; nearest garage on 6th Ave." />
+          </Field>
+          <Field label="Transit notes">
+            <Textarea rows={2} defaultValue="2 min walk from West 4th St (A/C/E/B/D/F/M)." />
+          </Field>
+          <Field label="Accessibility">
+            <Textarea rows={2} defaultValue="Elevator to rooftop; ADA-compliant restrooms." />
+          </Field>
         </Section>
       </div>
     </div>

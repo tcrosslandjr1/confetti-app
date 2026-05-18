@@ -3,10 +3,22 @@ import { Fragment } from "react";
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
 
 export const Route = createFileRoute("/partner/calendar")({
@@ -41,7 +53,9 @@ function CalendarPage() {
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl md:text-3xl font-semibold">Calendar & availability</h1>
-          <p className="text-muted-foreground text-sm mt-1">Click any slot to block, unblock, or add a note.</p>
+          <p className="text-muted-foreground text-sm mt-1">
+            Click any slot to block, unblock, or add a note.
+          </p>
         </div>
         <div className="flex items-center gap-2">
           <div className="flex rounded-md border bg-card overflow-hidden">
@@ -62,9 +76,13 @@ function CalendarPage() {
       <Card className="p-4">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon"><ChevronLeft className="h-4 w-4" /></Button>
+            <Button variant="ghost" size="icon">
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
             <div className="font-medium">May 19 — May 25, 2026</div>
-            <Button variant="ghost" size="icon"><ChevronRight className="h-4 w-4" /></Button>
+            <Button variant="ghost" size="icon">
+              <ChevronRight className="h-4 w-4" />
+            </Button>
           </div>
           <div className="flex items-center gap-3 text-xs">
             {(["open", "limited", "full", "closed"] as Status[]).map((s) => (
@@ -80,7 +98,9 @@ function CalendarPage() {
           <div className="min-w-[700px] grid grid-cols-[60px_repeat(7,1fr)] gap-1">
             <div />
             {DAYS.map((d) => (
-              <div key={d} className="text-xs font-medium text-center text-muted-foreground py-1">{d}</div>
+              <div key={d} className="text-xs font-medium text-center text-muted-foreground py-1">
+                {d}
+              </div>
             ))}
             {HOURS.map((h, hi) => (
               <Fragment key={hi}>
@@ -108,15 +128,22 @@ function BlockDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button><Plus className="h-4 w-4 mr-1.5" />Block time</Button>
+        <Button>
+          <Plus className="h-4 w-4 mr-1.5" />
+          Block time
+        </Button>
       </DialogTrigger>
       <DialogContent>
-        <DialogHeader><DialogTitle>Block a time slot</DialogTitle></DialogHeader>
+        <DialogHeader>
+          <DialogTitle>Block a time slot</DialogTitle>
+        </DialogHeader>
         <div className="space-y-3">
           <div className="space-y-1.5">
             <Label>Block type</Label>
             <Select defaultValue="private">
-              <SelectTrigger><SelectValue /></SelectTrigger>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
               <SelectContent>
                 <SelectItem value="private">Private event</SelectItem>
                 <SelectItem value="maint">Maintenance / closed</SelectItem>
@@ -126,13 +153,21 @@ function BlockDialog() {
             </Select>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            <div className="space-y-1.5"><Label>From</Label><Input type="datetime-local" /></div>
-            <div className="space-y-1.5"><Label>To</Label><Input type="datetime-local" /></div>
+            <div className="space-y-1.5">
+              <Label>From</Label>
+              <Input type="datetime-local" />
+            </div>
+            <div className="space-y-1.5">
+              <Label>To</Label>
+              <Input type="datetime-local" />
+            </div>
           </div>
           <div className="space-y-1.5">
             <Label>Recurring</Label>
             <Select defaultValue="once">
-              <SelectTrigger><SelectValue /></SelectTrigger>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
               <SelectContent>
                 <SelectItem value="once">One-time</SelectItem>
                 <SelectItem value="weekly">Weekly</SelectItem>
@@ -143,7 +178,9 @@ function BlockDialog() {
           <div className="space-y-1.5">
             <Label>Affected areas</Label>
             <Select defaultValue="all">
-              <SelectTrigger><SelectValue /></SelectTrigger>
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All</SelectItem>
                 <SelectItem value="indoor">Indoor</SelectItem>

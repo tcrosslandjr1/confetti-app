@@ -10,9 +10,36 @@ export const Route = createFileRoute("/partner/promotions")({
 });
 
 const PROMOS = [
-  { name: "Happy Hour Double Points", type: "2× Confetti Points", icon: Zap, range: "Mon–Fri 4–6 PM", impressions: 2840, bookings: 218, revenue: "$4,210", active: true },
-  { name: "First-time visitor: free dessert", type: "Free item", icon: Gift, range: "Until Jul 1", impressions: 1420, bookings: 96, revenue: "$1,884", active: true },
-  { name: "Boosted placement — Rooftop Vibes", type: "Priority placement", icon: TrendingUp, range: "May 18–25", impressions: 8920, bookings: 412, revenue: "$11,240", active: false },
+  {
+    name: "Happy Hour Double Points",
+    type: "2× Confetti Points",
+    icon: Zap,
+    range: "Mon–Fri 4–6 PM",
+    impressions: 2840,
+    bookings: 218,
+    revenue: "$4,210",
+    active: true,
+  },
+  {
+    name: "First-time visitor: free dessert",
+    type: "Free item",
+    icon: Gift,
+    range: "Until Jul 1",
+    impressions: 1420,
+    bookings: 96,
+    revenue: "$1,884",
+    active: true,
+  },
+  {
+    name: "Boosted placement — Rooftop Vibes",
+    type: "Priority placement",
+    icon: TrendingUp,
+    range: "May 18–25",
+    impressions: 8920,
+    bookings: 412,
+    revenue: "$11,240",
+    active: false,
+  },
 ];
 
 function PromotionsPage() {
@@ -21,9 +48,14 @@ function PromotionsPage() {
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl md:text-3xl font-semibold">Promotions & specials</h1>
-          <p className="text-muted-foreground text-sm mt-1">Run Confetti-powered promos that drive bookings.</p>
+          <p className="text-muted-foreground text-sm mt-1">
+            Run Confetti-powered promos that drive bookings.
+          </p>
         </div>
-        <Button><Plus className="h-4 w-4 mr-1.5" />New promotion</Button>
+        <Button>
+          <Plus className="h-4 w-4 mr-1.5" />
+          New promotion
+        </Button>
       </div>
 
       <div className="space-y-3">
@@ -40,7 +72,9 @@ function PromotionsPage() {
                     <div className="font-semibold">{p.name}</div>
                     <Badge variant="outline">{p.type}</Badge>
                     {p.active ? (
-                      <Badge className="bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/30">Active</Badge>
+                      <Badge className="bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/30">
+                        Active
+                      </Badge>
                     ) : (
                       <Badge variant="secondary">Scheduled</Badge>
                     )}
@@ -50,7 +84,9 @@ function PromotionsPage() {
                 <div className="flex gap-6 text-sm">
                   <div>
                     <div className="text-xs text-muted-foreground">Impressions</div>
-                    <div className="font-semibold tabular-nums">{p.impressions.toLocaleString()}</div>
+                    <div className="font-semibold tabular-nums">
+                      {p.impressions.toLocaleString()}
+                    </div>
                   </div>
                   <div>
                     <div className="text-xs text-muted-foreground">Bookings</div>
@@ -63,7 +99,9 @@ function PromotionsPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Switch defaultChecked={p.active} />
-                  <Button variant="ghost" size="sm">Edit</Button>
+                  <Button variant="ghost" size="sm">
+                    Edit
+                  </Button>
                 </div>
               </div>
             </Card>
@@ -79,8 +117,8 @@ function PromotionsPage() {
           <div className="flex-1">
             <div className="font-semibold">Confetti Moments</div>
             <p className="text-sm text-muted-foreground mt-1 max-w-xl">
-              Opt-in surprises for Confetti users on check-in — a free dessert, champagne toast, or DJ shoutout.
-              You absorb the cost; Confetti boosts your Score and visibility.
+              Opt-in surprises for Confetti users on check-in — a free dessert, champagne toast, or
+              DJ shoutout. You absorb the cost; Confetti boosts your Score and visibility.
             </p>
             <div className="mt-3 flex items-center gap-3">
               <Button>Set up a Moment</Button>

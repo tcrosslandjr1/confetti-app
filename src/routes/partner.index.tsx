@@ -21,10 +21,28 @@ export const Route = createFileRoute("/partner/")({
 });
 
 const STATS = [
-  { label: "Today's Reservations", value: 18, icon: CalendarCheck, hint: "6 upcoming • 12 confirmed", tone: "primary" },
-  { label: "Pending Confirmations", value: 4, icon: Clock, hint: "Tier 2 — needs review", tone: "amber" },
+  {
+    label: "Today's Reservations",
+    value: 18,
+    icon: CalendarCheck,
+    hint: "6 upcoming • 12 confirmed",
+    tone: "primary",
+  },
+  {
+    label: "Pending Confirmations",
+    value: 4,
+    icon: Clock,
+    hint: "Tier 2 — needs review",
+    tone: "amber",
+  },
   { label: "Active Orders", value: 7, icon: ShoppingBag, hint: "3 in kitchen", tone: "blue" },
-  { label: "Today's Revenue", value: "$1,284", icon: DollarSign, hint: "Deposits + orders", tone: "green" },
+  {
+    label: "Today's Revenue",
+    value: "$1,284",
+    icon: DollarSign,
+    hint: "Deposits + orders",
+    tone: "green",
+  },
 ];
 
 const TIMELINE = [
@@ -40,8 +58,12 @@ function PartnerHome() {
     <div className="space-y-6">
       <div className="flex items-start justify-between flex-wrap gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">Tonight at Sundae Rooftop</h1>
-          <p className="text-muted-foreground mt-1 text-sm">Friday, May 22 — clear skies, peak vibe window 8–11 PM.</p>
+          <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">
+            Tonight at Sundae Rooftop
+          </h1>
+          <p className="text-muted-foreground mt-1 text-sm">
+            Friday, May 22 — clear skies, peak vibe window 8–11 PM.
+          </p>
         </div>
         <div className="flex items-center gap-2">
           <Badge className="bg-gradient-to-r from-primary to-orange-400 text-primary-foreground border-0 gap-1">
@@ -63,7 +85,9 @@ function PartnerHome() {
           return (
             <Card key={s.label} className="p-5 hover:shadow-md transition-shadow">
               <div className="flex items-center justify-between">
-                <div className="text-xs uppercase tracking-wide text-muted-foreground">{s.label}</div>
+                <div className="text-xs uppercase tracking-wide text-muted-foreground">
+                  {s.label}
+                </div>
                 <Icon className="h-4 w-4 text-primary" />
               </div>
               <div className="mt-2 text-3xl font-semibold">{s.value}</div>
@@ -90,12 +114,18 @@ function PartnerHome() {
               >
                 <div className="w-16 text-sm font-medium tabular-nums">{r.time}</div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-sm font-medium">{r.name} · party of {r.party}</div>
+                  <div className="text-sm font-medium">
+                    {r.name} · party of {r.party}
+                  </div>
                   <div className="text-xs text-muted-foreground">via {r.source}</div>
                 </div>
                 <Badge
                   variant={r.status === "Confirmed" ? "secondary" : "outline"}
-                  className={r.status === "Pending" ? "border-amber-500/40 text-amber-700 dark:text-amber-400" : ""}
+                  className={
+                    r.status === "Pending"
+                      ? "border-amber-500/40 text-amber-700 dark:text-amber-400"
+                      : ""
+                  }
                 >
                   {r.status}
                 </Badge>
@@ -129,7 +159,9 @@ function PartnerHome() {
               <TrendingUp className="h-3.5 w-3.5" />
               Weekly trend
             </div>
-            <div className="text-sm">Reservations up <span className="font-semibold text-primary">+22%</span> vs last week.</div>
+            <div className="text-sm">
+              Reservations up <span className="font-semibold text-primary">+22%</span> vs last week.
+            </div>
           </div>
         </Card>
       </div>

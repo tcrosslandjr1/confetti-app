@@ -3,7 +3,13 @@ import { Fragment } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { TrendingUp, TrendingDown, Download } from "lucide-react";
 
 export const Route = createFileRoute("/partner/analytics")({
@@ -51,18 +57,25 @@ function AnalyticsPage() {
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl md:text-3xl font-semibold">Analytics</h1>
-          <p className="text-muted-foreground text-sm mt-1">Performance across reservations, orders, and discovery.</p>
+          <p className="text-muted-foreground text-sm mt-1">
+            Performance across reservations, orders, and discovery.
+          </p>
         </div>
         <div className="flex gap-2">
           <Select defaultValue="month">
-            <SelectTrigger className="w-36"><SelectValue /></SelectTrigger>
+            <SelectTrigger className="w-36">
+              <SelectValue />
+            </SelectTrigger>
             <SelectContent>
               <SelectItem value="week">This week</SelectItem>
               <SelectItem value="month">This month</SelectItem>
               <SelectItem value="quarter">This quarter</SelectItem>
             </SelectContent>
           </Select>
-          <Button variant="outline"><Download className="h-4 w-4 mr-1.5" />Export</Button>
+          <Button variant="outline">
+            <Download className="h-4 w-4 mr-1.5" />
+            Export
+          </Button>
         </div>
       </div>
 
@@ -71,7 +84,9 @@ function AnalyticsPage() {
           <Card key={m.label} className="p-4">
             <div className="text-xs uppercase tracking-wide text-muted-foreground">{m.label}</div>
             <div className="mt-2 text-2xl font-semibold">{m.value}</div>
-            <div className={`mt-1 text-xs flex items-center gap-1 ${m.up ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"}`}>
+            <div
+              className={`mt-1 text-xs flex items-center gap-1 ${m.up ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"}`}
+            >
               {m.up ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
               {m.delta} vs last period
             </div>
@@ -85,7 +100,11 @@ function AnalyticsPage() {
           <div className="overflow-x-auto">
             <div className="min-w-[420px] grid grid-cols-[60px_repeat(7,1fr)] gap-1">
               <div />
-              {DAYS.map((d) => (<div key={d} className="text-xs text-center text-muted-foreground">{d}</div>))}
+              {DAYS.map((d) => (
+                <div key={d} className="text-xs text-center text-muted-foreground">
+                  {d}
+                </div>
+              ))}
               {HOURS.map((h, hi) => (
                 <Fragment key={hi}>
                   <div className="text-xs text-muted-foreground text-right pr-2 py-1.5">{h}</div>
@@ -95,7 +114,9 @@ function AnalyticsPage() {
                       <div
                         key={`${di}-${hi}`}
                         className="h-7 rounded"
-                        style={{ background: `hsl(var(--primary) / ${(s / 100 * 0.85 + 0.05).toFixed(2)})` }}
+                        style={{
+                          background: `hsl(var(--primary) / ${((s / 100) * 0.85 + 0.05).toFixed(2)})`,
+                        }}
                         title={`${DAYS[di]} ${h} — ${s}`}
                       />
                     );
@@ -116,7 +137,10 @@ function AnalyticsPage() {
                   <span className="font-medium tabular-nums">{v.pct}%</span>
                 </div>
                 <div className="h-2 rounded-full bg-muted overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-primary to-orange-400" style={{ width: `${v.pct}%` }} />
+                  <div
+                    className="h-full bg-gradient-to-r from-primary to-orange-400"
+                    style={{ width: `${v.pct}%` }}
+                  />
                 </div>
               </div>
             ))}

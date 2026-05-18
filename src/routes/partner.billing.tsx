@@ -3,7 +3,14 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Check, Copy, ExternalLink, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/partner/billing")({
@@ -12,9 +19,21 @@ export const Route = createFileRoute("/partner/billing")({
 
 const TIERS = [
   { n: 0, name: "Listed", features: ["Profile in Confetti", "Photos & vibe tags"] },
-  { n: 1, name: "External link", features: ["Everything in Listed", "External reservation link", "Confetti Score"] },
-  { n: 2, name: "Manual booking", features: ["Everything in Tier 1", "In-app reservations", "Order-ahead", "Deposits"] },
-  { n: 3, name: "Instant book", features: ["Everything in Tier 2", "Instant confirm", "POS sync", "Promotions engine"] },
+  {
+    n: 1,
+    name: "External link",
+    features: ["Everything in Listed", "External reservation link", "Confetti Score"],
+  },
+  {
+    n: 2,
+    name: "Manual booking",
+    features: ["Everything in Tier 1", "In-app reservations", "Order-ahead", "Deposits"],
+  },
+  {
+    n: 3,
+    name: "Instant book",
+    features: ["Everything in Tier 2", "Instant confirm", "POS sync", "Promotions engine"],
+  },
 ];
 
 const PAYOUTS = [
@@ -31,7 +50,9 @@ function BillingPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl md:text-3xl font-semibold">Tier & billing</h1>
-        <p className="text-muted-foreground text-sm mt-1">Your current plan, payouts, and integration credentials.</p>
+        <p className="text-muted-foreground text-sm mt-1">
+          Your current plan, payouts, and integration credentials.
+        </p>
       </div>
 
       <Card className="p-6 bg-gradient-to-br from-primary/10 via-orange-400/5 to-transparent border-primary/20">
@@ -42,7 +63,9 @@ function BillingPage() {
               Current tier
             </div>
             <div className="text-3xl font-semibold mt-1">Tier {current} — Instant Book</div>
-            <div className="text-sm text-muted-foreground mt-1">Full Confetti suite, including POS sync.</div>
+            <div className="text-sm text-muted-foreground mt-1">
+              Full Confetti suite, including POS sync.
+            </div>
           </div>
           <div className="text-right">
             <div className="text-xs text-muted-foreground">Commission</div>
@@ -63,7 +86,9 @@ function BillingPage() {
               </div>
               <div className="text-xs text-muted-foreground">{t.name}</div>
               <ul className="mt-3 space-y-1 text-xs text-muted-foreground">
-                {t.features.map((f) => (<li key={f}>· {f}</li>))}
+                {t.features.map((f) => (
+                  <li key={f}>· {f}</li>
+                ))}
               </ul>
             </div>
           ))}
@@ -74,23 +99,50 @@ function BillingPage() {
         <Card className="p-6">
           <h2 className="font-semibold mb-4">Billing</h2>
           <div className="space-y-3 text-sm">
-            <div className="flex justify-between"><span className="text-muted-foreground">Monthly platform fee</span><span className="font-medium">$0</span></div>
-            <div className="flex justify-between"><span className="text-muted-foreground">Payment schedule</span><span className="font-medium">Weekly</span></div>
-            <div className="flex justify-between"><span className="text-muted-foreground">Bank account</span><span className="font-medium">Chase ****1234</span></div>
-            <div className="flex justify-between"><span className="text-muted-foreground">Next payout</span><span className="font-medium">May 24</span></div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Monthly platform fee</span>
+              <span className="font-medium">$0</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Payment schedule</span>
+              <span className="font-medium">Weekly</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Bank account</span>
+              <span className="font-medium">Chase ****1234</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Next payout</span>
+              <span className="font-medium">May 24</span>
+            </div>
           </div>
-          <Button variant="outline" className="mt-4">Update bank account</Button>
+          <Button variant="outline" className="mt-4">
+            Update bank account
+          </Button>
 
           <h3 className="font-medium mt-6 mb-2 text-sm">Payout history</h3>
           <Table>
-            <TableHeader><TableRow><TableHead>Date</TableHead><TableHead>Amount</TableHead><TableHead>Status</TableHead><TableHead></TableHead></TableRow></TableHeader>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Date</TableHead>
+                <TableHead>Amount</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead></TableHead>
+              </TableRow>
+            </TableHeader>
             <TableBody>
               {PAYOUTS.map((p) => (
                 <TableRow key={p.date}>
                   <TableCell>{p.date}</TableCell>
                   <TableCell className="font-medium">{p.amount}</TableCell>
-                  <TableCell><Badge variant="secondary">{p.status}</Badge></TableCell>
-                  <TableCell className="text-right"><Button variant="ghost" size="sm">PDF</Button></TableCell>
+                  <TableCell>
+                    <Badge variant="secondary">{p.status}</Badge>
+                  </TableCell>
+                  <TableCell className="text-right">
+                    <Button variant="ghost" size="sm">
+                      PDF
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -103,8 +155,14 @@ function BillingPage() {
             <div>
               <div className="text-xs text-muted-foreground mb-1">API key</div>
               <div className="flex gap-2">
-                <Input readOnly value="cf_live_••••••••••••••••3a72" className="font-mono text-xs" />
-                <Button variant="outline" size="icon"><Copy className="h-4 w-4" /></Button>
+                <Input
+                  readOnly
+                  value="cf_live_••••••••••••••••3a72"
+                  className="font-mono text-xs"
+                />
+                <Button variant="outline" size="icon">
+                  <Copy className="h-4 w-4" />
+                </Button>
               </div>
             </div>
             <div>
@@ -116,7 +174,10 @@ function BillingPage() {
                 <div className="text-sm font-medium">POS: Toast</div>
                 <div className="text-xs text-muted-foreground">Connected · last sync 2m ago</div>
               </div>
-              <Button variant="outline" size="sm"><ExternalLink className="h-3.5 w-3.5 mr-1.5" />Manage</Button>
+              <Button variant="outline" size="sm">
+                <ExternalLink className="h-3.5 w-3.5 mr-1.5" />
+                Manage
+              </Button>
             </div>
             <div className="text-xs text-muted-foreground flex justify-between">
               <span>API usage this month</span>

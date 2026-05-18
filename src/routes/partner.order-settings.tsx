@@ -4,14 +4,28 @@ import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 
 export const Route = createFileRoute("/partner/order-settings")({
   component: OrderSettings,
 });
 
-function Row({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
+function Row({
+  label,
+  hint,
+  children,
+}: {
+  label: string;
+  hint?: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="flex items-center justify-between py-3 border-b border-border/60 last:border-0 gap-4">
       <div className="min-w-0">
@@ -37,22 +51,38 @@ function OrderSettings() {
       <div className="grid lg:grid-cols-2 gap-6">
         <Card className="p-6">
           <h2 className="font-semibold mb-2">Order ahead</h2>
-          <Row label="Accept order-ahead"><Switch defaultChecked /></Row>
+          <Row label="Accept order-ahead">
+            <Switch defaultChecked />
+          </Row>
           <Row label="Order mode">
             <Select defaultValue="inapp">
-              <SelectTrigger className="w-48"><SelectValue /></SelectTrigger>
+              <SelectTrigger className="w-48">
+                <SelectValue />
+              </SelectTrigger>
               <SelectContent>
                 <SelectItem value="inapp">In-app (Tier 2/3)</SelectItem>
                 <SelectItem value="external">External link only (Tier 1)</SelectItem>
               </SelectContent>
             </Select>
           </Row>
-          <Row label="Dine-in pre-order" hint="Linked to reservation"><Switch defaultChecked /></Row>
-          <Row label="Pickup"><Switch defaultChecked /></Row>
-          <Row label="Lead time"><Input defaultValue="20 min" className="w-32" /></Row>
-          <Row label="Max order value"><Input defaultValue="$500" className="w-32" /></Row>
-          <Row label="Kitchen cutoff"><Input defaultValue="30 min before close" className="w-48" /></Row>
-          <Row label="Auto-confirm orders" hint="Tier 3 only"><Switch defaultChecked /></Row>
+          <Row label="Dine-in pre-order" hint="Linked to reservation">
+            <Switch defaultChecked />
+          </Row>
+          <Row label="Pickup">
+            <Switch defaultChecked />
+          </Row>
+          <Row label="Lead time">
+            <Input defaultValue="20 min" className="w-32" />
+          </Row>
+          <Row label="Max order value">
+            <Input defaultValue="$500" className="w-32" />
+          </Row>
+          <Row label="Kitchen cutoff">
+            <Input defaultValue="30 min before close" className="w-48" />
+          </Row>
+          <Row label="Auto-confirm orders" hint="Tier 3 only">
+            <Switch defaultChecked />
+          </Row>
         </Card>
 
         <Card className="p-6">
@@ -64,7 +94,9 @@ function OrderSettings() {
           </div>
           <Row label="Sync method">
             <Select defaultValue="toast">
-              <SelectTrigger className="w-48"><SelectValue /></SelectTrigger>
+              <SelectTrigger className="w-48">
+                <SelectValue />
+              </SelectTrigger>
               <SelectContent>
                 <SelectItem value="manual">Manual CSV / JSON</SelectItem>
                 <SelectItem value="api">API push</SelectItem>
@@ -75,13 +107,24 @@ function OrderSettings() {
               </SelectContent>
             </Select>
           </Row>
-          <Row label="Last updated"><span className="text-sm text-muted-foreground">2h ago</span></Row>
-          <Row label="Per-item availability (86)" hint="Manage in Menu Editor"><Button variant="outline" size="sm">Open</Button></Row>
-          <Row label="Confetti price override"><Switch /></Row>
+          <Row label="Last updated">
+            <span className="text-sm text-muted-foreground">2h ago</span>
+          </Row>
+          <Row label="Per-item availability (86)" hint="Manage in Menu Editor">
+            <Button variant="outline" size="sm">
+              Open
+            </Button>
+          </Row>
+          <Row label="Confetti price override">
+            <Switch />
+          </Row>
 
           <div className="mt-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 flex gap-2 text-sm">
             <AlertCircle className="h-4 w-4 text-amber-600 mt-0.5 shrink-0" />
-            <div>3 items have price mismatches between Toast and Confetti. <button className="underline">Review</button></div>
+            <div>
+              3 items have price mismatches between Toast and Confetti.{" "}
+              <button className="underline">Review</button>
+            </div>
           </div>
         </Card>
       </div>

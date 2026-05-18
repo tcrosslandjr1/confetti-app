@@ -29,7 +29,10 @@ export const Route = createFileRoute("/partner")({
   head: () => ({
     meta: [
       { title: "Partner Dashboard — Confetti" },
-      { name: "description", content: "Manage reservations, orders, menu, and analytics for your venue on Confetti." },
+      {
+        name: "description",
+        content: "Manage reservations, orders, menu, and analytics for your venue on Confetti.",
+      },
     ],
   }),
   component: PartnerLayout,
@@ -65,7 +68,9 @@ function PartnerLayout() {
       <aside className="hidden md:flex w-64 flex-col border-r border-border/60 bg-card/40 backdrop-blur sticky top-0 h-screen">
         <div className="px-5 py-5 border-b border-border/60">
           <Link to="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-primary text-primary-foreground grid place-items-center font-bold">C</div>
+            <div className="h-8 w-8 rounded-lg bg-primary text-primary-foreground grid place-items-center font-bold">
+              C
+            </div>
             <div>
               <div className="text-sm font-semibold leading-none">Confetti</div>
               <div className="text-[11px] text-muted-foreground mt-0.5">Partner Portal</div>

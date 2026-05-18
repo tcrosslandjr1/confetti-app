@@ -97,7 +97,6 @@ function AdminLayout() {
     );
   }
 
-
   return (
     <SidebarProvider>
       <AdminShell user={user} pathname={pathname} />

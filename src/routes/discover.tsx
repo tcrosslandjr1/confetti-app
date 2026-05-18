@@ -530,7 +530,13 @@ function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) 
           <img
             src={row.photo}
             alt={row.name}
+            loading="lazy"
             className="h-16 w-16 shrink-0 rounded-xl border-2 border-ink object-cover"
+            onError={(e) => {
+              const img = e.currentTarget;
+              const fb = unsplashFor(row.category ?? null, row.name);
+              if (img.src !== fb) img.src = fb;
+            }}
           />
         ) : (
           <div

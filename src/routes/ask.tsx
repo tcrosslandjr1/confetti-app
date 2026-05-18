@@ -105,7 +105,7 @@ function AskPage() {
             <h2 className="text-2xl font-bold text-foreground">{result.plan.experienceName}</h2>
             <p className="mt-1 text-muted-foreground">{result.plan.experienceTagline}</p>
             <ol className="mt-4 space-y-3">
-              {result.plan.stops.map((s) => (
+              {result.plan.stops.map((s: { id: string; slot: string; time: string; name: string; rationale: string }) => (
                 <li key={s.id} className="rounded-xl bg-background p-3">
                   <div className="text-xs uppercase tracking-wide text-muted-foreground">
                     {s.slot} · {s.time}

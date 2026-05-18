@@ -55,13 +55,13 @@ export const generateTrip = createServerFn({ method: "POST" })
 
     // Generate a plan per day, dedup across days.
     const usedVenues = new Set<string>();
-    const days = [] as Array<{
+    const days: Array<{
       day_index: number;
       day_theme: string;
       day_name: string;
-      itinerary: unknown;
+      itinerary: Record<string, unknown>;
       estimated_cost: number | null;
-    }>;
+    }> = [];
 
     for (const seed of seeds) {
       const plan = await generatePlan({
@@ -81,7 +81,7 @@ export const generateTrip = createServerFn({ method: "POST" })
         day_index: seed.dayIndex,
         day_theme: seed.dayTheme,
         day_name: plan.experienceName,
-        itinerary: plan,
+        itinerary: plan as unknown as Record<string, unknown>,
         estimated_cost: null,
       });
     }
@@ -128,9 +128,11 @@ export const generateTrip = createServerFn({ method: "POST" })
       .single();
     if (error || !trip) throw new Error(error?.message ?? "Failed to save trip");
 
-    await supabase.from("trip_days").insert(days.map((d) => ({ trip_id: trip.id, ...d })));
+    await supabase
+      .from("trip_days")
+      .insert(days.map((d) => ({ trip_id: trip.id, ...d })) as never);
 
-    return { tripId: trip.id, tripName, nameOptions, days };
+    return { tripId: trip.id, tripName, nameOptions, dayCount: days.length };
   });
 
 export const listMyTrips = createServerFn({ method: "GET" })

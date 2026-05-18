@@ -20,7 +20,7 @@ import {
   CATEGORY_GROUPS,
   OUTING_CATEGORIES,
   CATEGORIES_BY_ID,
-  categoriesByGroup,
+  categoriesInGroup,
   resolveCategories,
   buildCategoryDirective,
   type CategoryGroupId,

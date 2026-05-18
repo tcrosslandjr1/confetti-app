@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   Activity,
   CheckCircle2,
@@ -24,11 +24,10 @@ import {
   type ActivityEntry,
   type ActivityKind,
 } from "@/lib/activity-log";
-import { useCallback } from "react";
+
 import { useRefreshable } from "@/hooks/use-refresh-bus";
 
 export const Route = createFileRoute("/portal/activity")({
-  head: () => ({
     meta: [
       { title: "Group Activity — Confetti" },
       {

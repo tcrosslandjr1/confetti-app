@@ -5,7 +5,6 @@ import {
   AlertTriangle,
   CheckCircle2,
   Cpu,
-  Filter,
   RefreshCw,
   ScrollText,
   ShieldAlert,
@@ -14,6 +13,12 @@ import {
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuditLog, type AuditEntry } from "@/lib/audit-log";
+import {
+  applyLogFilters,
+  EMPTY_FILTERS,
+  LogFilterBar,
+  type LogFilterState,
+} from "@/components/admin/LogFilterBar";
 
 export const Route = createFileRoute("/admin/logs")({
   head: () => ({ meta: [{ title: "System & Error Logs — Admin" }] }),
@@ -36,7 +41,7 @@ const TABS: Array<{ id: Tab; label: string; icon: typeof ScrollText; tone: strin
 
 function AdminLogsPage() {
   const [tab, setTab] = useState<Tab>("api");
-  const [query, setQuery] = useState("");
+  const [filters, setFilters] = useState<LogFilterState>(EMPTY_FILTERS);
 
   return (
     <div className="space-y-6">
@@ -77,24 +82,16 @@ function AdminLogsPage() {
             </button>
           );
         })}
-
-        <div className="ml-auto inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs">
-          <Filter className="h-3 w-3 text-muted-foreground" />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Filter…"
-            className="w-40 bg-transparent text-xs outline-none placeholder:text-muted-foreground"
-          />
-        </div>
       </div>
 
+      <LogFilterBar value={filters} onChange={setFilters} placeholder="Search logs…" />
+
       {/* Panels */}
-      {tab === "api" && <ApiErrorsPanel query={query} />}
-      {tab === "ai" && <AiJobsPanel query={query} />}
-      {tab === "uploads" && <UploadsPanel query={query} />}
-      {tab === "admin" && <AdminActionsPanel query={query} />}
-      {tab === "security" && <SecurityPanel query={query} />}
+      {tab === "api" && <ApiErrorsPanel filters={filters} />}
+      {tab === "ai" && <AiJobsPanel filters={filters} />}
+      {tab === "uploads" && <UploadsPanel filters={filters} />}
+      {tab === "admin" && <AdminActionsPanel filters={filters} />}
+      {tab === "security" && <SecurityPanel filters={filters} />}
     </div>
   );
 }
@@ -103,8 +100,7 @@ function AdminLogsPage() {
 /*  Panels                                                             */
 /* ------------------------------------------------------------------ */
 
-function ApiErrorsPanel({ query }: { query: string }) {
-  // Pull recent booking notification delivery failures as a proxy for API errors.
+function ApiErrorsPanel({ filters }: { filters: LogFilterState }) {
   const { data, isLoading } = useQuery({
     queryKey: ["logs", "api-errors"],
     queryFn: async () => {
@@ -127,35 +123,29 @@ function ApiErrorsPanel({ query }: { query: string }) {
     staleTime: 15_000,
   });
 
-  const filtered = filterRows(
-    data ?? [],
-    query,
-    (r) => `${r.subject} ${r.error} ${r.recipient_email}`,
-  );
+  const filtered = applyLogFilters(data ?? [], filters, {
+    getDate: (r) => r.created_at,
+    getText: (r) => `${r.subject ?? ""} ${r.error ?? ""} ${r.recipient_email ?? ""} ${r.source ?? ""} ${r.status}`,
+  });
 
   return (
     <LogTable
       loading={isLoading}
-      empty="No API/delivery errors in the last 50 events."
+      empty="No API/delivery errors match these filters."
       columns={["When", "Status", "Subject", "Recipient", "Source", "Error"]}
       rows={filtered.map((r) => [
         timeAgo(r.created_at),
-        <StatusPill key="s" tone="bad">
-          {r.status}
-        </StatusPill>,
+        <StatusPill key="s" tone="bad">{r.status}</StatusPill>,
         r.subject ?? "—",
         r.recipient_email ?? "—",
         r.source ?? "—",
-        <code key="e" className="text-[11px] text-muted-foreground line-clamp-1">
-          {r.error ?? "—"}
-        </code>,
+        <code key="e" className="text-[11px] text-muted-foreground line-clamp-1">{r.error ?? "—"}</code>,
       ])}
     />
   );
 }
 
-function AiJobsPanel({ query }: { query: string }) {
-  // Use vendor_connect_jobs (or analogous) — fall back to empty.
+function AiJobsPanel({ filters }: { filters: LogFilterState }) {
   const { data, isLoading } = useQuery({
     queryKey: ["logs", "ai-jobs"],
     queryFn: async () => {
@@ -178,32 +168,28 @@ function AiJobsPanel({ query }: { query: string }) {
     retry: false,
   });
 
-  const filtered = filterRows(data ?? [], query, (r) => `${r.kind} ${r.target} ${r.error}`);
+  const filtered = applyLogFilters(data ?? [], filters, {
+    getDate: (r) => r.created_at,
+    getText: (r) => `${r.kind} ${r.target ?? ""} ${r.error ?? ""} ${r.status}`,
+  });
 
   return (
     <LogTable
       loading={isLoading}
-      empty="No failed AI jobs. Ranking, refresh, and explainer pipelines are healthy."
+      empty="No failed AI jobs match these filters."
       columns={["When", "Kind", "Target", "Status", "Error"]}
       rows={filtered.map((r) => [
         timeAgo(r.created_at),
-        <span key="k" className="font-mono text-[11px] uppercase tracking-wider">
-          {r.kind}
-        </span>,
+        <span key="k" className="font-mono text-[11px] uppercase tracking-wider">{r.kind}</span>,
         r.target ?? "—",
-        <StatusPill key="s" tone="bad">
-          {r.status}
-        </StatusPill>,
-        <code key="e" className="text-[11px] text-muted-foreground line-clamp-1">
-          {r.error ?? "—"}
-        </code>,
+        <StatusPill key="s" tone="bad">{r.status}</StatusPill>,
+        <code key="e" className="text-[11px] text-muted-foreground line-clamp-1">{r.error ?? "—"}</code>,
       ])}
     />
   );
 }
 
-function UploadsPanel({ query }: { query: string }) {
-  // Pull failed venue_media rows (if a status column exists).
+function UploadsPanel({ filters }: { filters: LogFilterState }) {
   const { data, isLoading } = useQuery({
     queryKey: ["logs", "uploads"],
     queryFn: async () => {
@@ -226,59 +212,52 @@ function UploadsPanel({ query }: { query: string }) {
     retry: false,
   });
 
-  const filtered = filterRows(data ?? [], query, (r) => `${r.kind} ${r.source} ${r.venue_id}`);
+  const filtered = applyLogFilters(data ?? [], filters, {
+    getDate: (r) => r.created_at,
+    getText: (r) => `${r.kind} ${r.source ?? ""} ${r.venue_id ?? ""} ${r.status}`,
+  });
 
   return (
     <LogTable
       loading={isLoading}
-      empty="No failed uploads in the last 50 events."
+      empty="No failed uploads match these filters."
       columns={["When", "Venue", "Kind", "Source", "Status"]}
       rows={filtered.map((r) => [
         timeAgo(r.created_at),
-        <code key="v" className="text-[11px]">
-          {r.venue_id?.slice(0, 8) ?? "—"}
-        </code>,
+        <code key="v" className="text-[11px]">{r.venue_id?.slice(0, 8) ?? "—"}</code>,
         r.kind,
         r.source ?? "—",
-        <StatusPill key="s" tone="bad">
-          {r.status}
-        </StatusPill>,
+        <StatusPill key="s" tone="bad">{r.status}</StatusPill>,
       ])}
     />
   );
 }
 
-function AdminActionsPanel({ query }: { query: string }) {
+function AdminActionsPanel({ filters }: { filters: LogFilterState }) {
   const entries = useAuditLog();
-  const filtered = filterRows(
-    entries,
-    query,
-    (e: AuditEntry) => `${e.summary} ${e.admin} ${e.entity} ${e.targetId}`,
-  );
+  const filtered = applyLogFilters(entries, filters, {
+    getDate: (e: AuditEntry) => e.at,
+    getText: (e: AuditEntry) => `${e.summary} ${e.admin} ${e.entity} ${e.targetId} ${e.action}`,
+  });
 
   return (
     <LogTable
       loading={false}
-      empty="No admin actions recorded yet this session."
+      empty="No admin actions match these filters."
       columns={["When", "Admin", "Action", "Entity", "Target", "Summary"]}
       rows={filtered.map((e) => [
         timeAgo(e.at),
         e.admin,
-        <span key="a" className="font-mono text-[11px] uppercase tracking-wider">
-          {e.action}
-        </span>,
+        <span key="a" className="font-mono text-[11px] uppercase tracking-wider">{e.action}</span>,
         e.entity,
-        <code key="t" className="text-[11px]">
-          {e.targetId}
-        </code>,
+        <code key="t" className="text-[11px]">{e.targetId}</code>,
         e.summary,
       ])}
     />
   );
 }
 
-function SecurityPanel({ query }: { query: string }) {
-  // Surface failed-login signals from notifications kind=security_event when present.
+function SecurityPanel({ filters }: { filters: LogFilterState }) {
   const { data, isLoading } = useQuery({
     queryKey: ["logs", "security"],
     queryFn: async () => {
@@ -299,26 +278,25 @@ function SecurityPanel({ query }: { query: string }) {
     staleTime: 15_000,
   });
 
-  const filtered = filterRows(data ?? [], query, (r) => `${r.title} ${r.body} ${r.kind}`);
+  const filtered = applyLogFilters(data ?? [], filters, {
+    getDate: (r) => r.created_at,
+    getText: (r) => `${r.title} ${r.body ?? ""} ${r.kind}`,
+  });
 
   return (
     <LogTable
       loading={isLoading}
       empty={
         <span className="inline-flex items-center gap-2">
-          <CheckCircle2 className="h-4 w-4 text-emerald-600" /> No security events. All clear.
+          <CheckCircle2 className="h-4 w-4 text-emerald-600" /> No security events match these filters.
         </span>
       }
       columns={["When", "Kind", "Title", "Detail"]}
       rows={filtered.map((r) => [
         timeAgo(r.created_at),
-        <span key="k" className="font-mono text-[11px] uppercase tracking-wider">
-          {r.kind}
-        </span>,
+        <span key="k" className="font-mono text-[11px] uppercase tracking-wider">{r.kind}</span>,
         r.title,
-        <span key="b" className="text-xs text-muted-foreground line-clamp-1">
-          {r.body ?? "—"}
-        </span>,
+        <span key="b" className="text-xs text-muted-foreground line-clamp-1">{r.body ?? "—"}</span>,
       ])}
     />
   );
@@ -410,11 +388,7 @@ function StatusPill({ tone, children }: { tone: "ok" | "bad" | "warn"; children:
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-function filterRows<T>(rows: T[], query: string, extract: (r: T) => string): T[] {
-  if (!query.trim()) return rows;
-  const q = query.toLowerCase();
-  return rows.filter((r) => extract(r).toLowerCase().includes(q));
-}
+
 
 function timeAgo(iso: string): string {
   const diff = Date.now() - new Date(iso).getTime();

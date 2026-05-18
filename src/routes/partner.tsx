@@ -51,7 +51,9 @@ const NAV = [
   { to: "/partner/analytics", label: "Analytics", icon: BarChart3 },
   { to: "/partner/billing", label: "Tier & Billing", icon: CreditCard },
   { to: "/partner/promotions", label: "Promotions", icon: Megaphone },
+  { to: "/partner/api", label: "Partner API", icon: Code2 },
   { to: "/partner/support", label: "Support", icon: LifeBuoy },
+
 ];
 
 const VENUES = [

@@ -83,7 +83,7 @@ function useActivityFeed() {
         .select("id, kind, title, body, created_at, link")
         .order("created_at", { ascending: false })
         .limit(8);
-      return (data ?? []) as Array<{
+      return (data ?? []) as unknown as Array<{
         id: string;
         kind: string;
         title: string;

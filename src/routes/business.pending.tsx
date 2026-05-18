@@ -133,13 +133,7 @@ function BusinessPendingPage() {
   );
 }
 
-function ResubmitForm({
-  adv,
-  onSuccess,
-}: {
-  adv: Advertiser;
-  onSuccess: (a: Advertiser) => void;
-}) {
+function ResubmitForm({ adv, onSuccess }: { adv: Advertiser; onSuccess: (a: Advertiser) => void }) {
   const resubmit = useServerFn(resubmitAdvertiserFn);
   const [form, setForm] = useState({
     business_name: adv.business_name ?? "",
@@ -154,8 +148,9 @@ function ResubmitForm({
   });
   const [submitting, setSubmitting] = useState(false);
 
-  const update = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-    setForm((f) => ({ ...f, [k]: e.target.value }));
+  const update =
+    (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -180,7 +175,12 @@ function ResubmitForm({
 
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Contact email" required>
-          <Input type="email" value={form.contact_email} onChange={update("contact_email")} required />
+          <Input
+            type="email"
+            value={form.contact_email}
+            onChange={update("contact_email")}
+            required
+          />
         </Field>
         <Field label="Contact phone">
           <Input value={form.contact_phone} onChange={update("contact_phone")} />

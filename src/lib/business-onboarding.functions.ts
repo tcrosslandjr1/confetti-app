@@ -431,4 +431,3 @@ export const resubmitAdvertiserFn = createServerFn({ method: "POST" })
 
     return { advertiser: updated };
   });
-

@@ -364,6 +364,7 @@ function VibePlansPage() {
         },
       });
       setPlan(result);
+      setSelectedName(result.nameOptions?.[0]?.name ?? result.experienceName);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Could not generate a plan. Try again.");
     } finally {

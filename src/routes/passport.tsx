@@ -22,6 +22,9 @@ import {
   Calendar,
   ChevronRight,
   Star,
+    Copy,
+    Download,
+    Check,
 } from "lucide-react";
 import {
   addConfetti,
@@ -54,11 +57,9 @@ import {
   type PassportShareData,
 } from "@/components/passport/PassportShareCard";
 import { toPng } from "html-to-image";
-import { Copy, Download, Check } from "lucide-react";
 import { toast } from "sonner";
 import { usePassportStats } from "@/hooks/usePassportStats";
 import { ManageSubscriptionPanel } from "@/components/ManageSubscriptionPanel";
-
 const EMPTY_STREAK: boolean[] = [false, false, false, false, false, false, false];
 
 type ClaimedReward = { id: string; label: string; cost: number; code: string; at: number };

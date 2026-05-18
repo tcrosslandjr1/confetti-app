@@ -386,6 +386,134 @@ function VibePlansPage() {
           ) : null}
         </Card>
 
+        {/* Occasion / Categories */}
+        <Card className="space-y-3 p-4">
+          <div className="flex items-center justify-between">
+            <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              Occasion / Category
+            </label>
+            {selectedCats.length ? (
+              <button
+                onClick={() => setSelectedCats([])}
+                className="text-[11px] text-muted-foreground underline"
+              >
+                Clear ({selectedCats.length})
+              </button>
+            ) : null}
+          </div>
+
+          {/* Free-text classifier */}
+          <div className="flex gap-2">
+            <Input
+              placeholder='Tell Confetti what you’re trying to do — e.g. "spa day + brunch"'
+              value={freeText}
+              onChange={(e) => setFreeText(e.target.value)}
+            />
+            <Button
+              size="sm"
+              variant="outline"
+              disabled={!freeText.trim() || classifying}
+              onClick={async () => {
+                setClassifying(true);
+                try {
+                  const res = await classify({
+                    data: { text: freeText.trim(), city: city?.label },
+                  });
+                  setSelectedCats((prev) =>
+                    Array.from(new Set([...prev, ...res.categoryIds])),
+                  );
+                  const firstGroup = CATEGORIES_BY_ID[res.categoryIds[0]]?.group;
+                  if (firstGroup) setActiveGroup(firstGroup);
+                } catch {
+                  /* swallow — categories optional */
+                } finally {
+                  setClassifying(false);
+                }
+              }}
+            >
+              {classifying ? <Loader2 className="h-4 w-4 animate-spin" /> : "Match"}
+            </Button>
+          </div>
+
+          {/* Selected chips */}
+          {selectedCats.length ? (
+            <div className="flex flex-wrap gap-1.5">
+              {selectedCats.map((id) => {
+                const c = CATEGORIES_BY_ID[id];
+                if (!c) return null;
+                return (
+                  <button
+                    key={id}
+                    onClick={() =>
+                      setSelectedCats((p) => p.filter((x) => x !== id))
+                    }
+                    className="rounded-full bg-primary px-2.5 py-1 text-[11px] text-primary-foreground"
+                  >
+                    {c.name} ✕
+                  </button>
+                );
+              })}
+            </div>
+          ) : null}
+
+          {/* Group tabs */}
+          <div className="-mx-1 flex gap-1 overflow-x-auto pb-1">
+            {CATEGORY_GROUPS.map((g) => (
+              <button
+                key={g.id}
+                onClick={() => setActiveGroup(g.id)}
+                className={cn(
+                  "shrink-0 rounded-full border px-3 py-1 text-[11px]",
+                  activeGroup === g.id
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "bg-card hover:bg-accent",
+                )}
+              >
+                <span className="mr-1">{g.emoji}</span>
+                {g.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Search */}
+          <Input
+            placeholder="Search categories…"
+            value={catSearch}
+            onChange={(e) => setCatSearch(e.target.value)}
+          />
+
+          {/* Category grid */}
+          <div className="flex flex-wrap gap-1.5">
+            {(catSearch.trim()
+              ? OUTING_CATEGORIES.filter((c) =>
+                  c.name.toLowerCase().includes(catSearch.trim().toLowerCase()),
+                )
+              : categoriesInGroup(activeGroup)
+            ).map((c) => {
+              const on = selectedCats.includes(c.id);
+              return (
+                <button
+                  key={c.id}
+                  onClick={() =>
+                    setSelectedCats((p) =>
+                      on ? p.filter((x) => x !== c.id) : [...p, c.id],
+                    )
+                  }
+                  className={cn(
+                    "rounded-full border px-2.5 py-1 text-[11px] transition",
+                    on
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "bg-card hover:bg-accent",
+                  )}
+                  title={c.description}
+                >
+                  {c.name}
+                </button>
+              );
+            })}
+          </div>
+        </Card>
+
         {/* Vibe */}
         <Card className="p-4">
           <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">

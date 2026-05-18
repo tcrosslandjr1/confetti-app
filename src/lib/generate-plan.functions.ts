@@ -10,6 +10,7 @@ import { buildWaterfrontPrompt, detectWaterfront } from "./agents/waterfront";
 import { buildGirlsNightPresetsPrompt } from "./agents/girls-night-presets";
 import { buildMiamiGuysNightPrompt, isMiamiGuysNight } from "./agents/guys-night-presets";
 import { fetchForecastForCityDate, weatherGuidance } from "./weather.server";
+import { generateAndRankNames } from "./name-generator.functions";
 import type { GeneratedPlan } from "./agents/types";
 
 const PlanRequestSchema = z.object({

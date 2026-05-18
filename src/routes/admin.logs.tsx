@@ -388,11 +388,7 @@ function StatusPill({ tone, children }: { tone: "ok" | "bad" | "warn"; children:
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-function filterRows<T>(rows: T[], query: string, extract: (r: T) => string): T[] {
-  if (!query.trim()) return rows;
-  const q = query.toLowerCase();
-  return rows.filter((r) => extract(r).toLowerCase().includes(q));
-}
+
 
 function timeAgo(iso: string): string {
   const diff = Date.now() - new Date(iso).getTime();

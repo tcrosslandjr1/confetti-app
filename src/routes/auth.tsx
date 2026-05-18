@@ -279,12 +279,16 @@ function AuthPage() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-cream text-ink">
+    <div
+      ref={parallaxRef}
+      className="relative min-h-screen overflow-hidden bg-cream text-ink"
+      style={{ ["--mx" as never]: 0, ["--my" as never]: 0 } as CSSProperties}
+    >
       {/* Immersive background: animated orbs + ticker tape + grain */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-gradient-vibe opacity-30 blur-3xl animate-[pulse_8s_ease-in-out_infinite]" />
-        <div className="absolute top-1/3 -right-40 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,_oklch(0.78_0.18_60_/_0.55),_transparent_70%)] blur-3xl animate-[pulse_11s_ease-in-out_infinite]" />
-        <div className="absolute bottom-0 left-1/4 h-80 w-80 rounded-full bg-[radial-gradient(circle,_oklch(0.72_0.21_355_/_0.4),_transparent_70%)] blur-3xl animate-[pulse_9s_ease-in-out_infinite]" />
+        <div className="parallax-strong absolute -top-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-gradient-vibe opacity-30 blur-3xl animate-[pulse_8s_ease-in-out_infinite]" />
+        <div className="parallax-soft absolute top-1/3 -right-40 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,_oklch(0.78_0.18_60_/_0.55),_transparent_70%)] blur-3xl animate-[pulse_11s_ease-in-out_infinite]" />
+        <div className="parallax-strong absolute bottom-0 left-1/4 h-80 w-80 rounded-full bg-[radial-gradient(circle,_oklch(0.72_0.21_355_/_0.4),_transparent_70%)] blur-3xl animate-[pulse_9s_ease-in-out_infinite]" />
         {/* Faint dotted grid */}
         <div
           className="absolute inset-0 opacity-[0.12]"

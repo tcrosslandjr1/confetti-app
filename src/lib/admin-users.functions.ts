@@ -61,7 +61,9 @@ export const listAdminUsersFn = createServerFn({ method: "GET" })
     const [{ data: profiles }, { data: roles }] = await Promise.all([
       ids.length
         ? supabase.from("profiles").select("id, display_name, confetti_pts").in("id", ids)
-        : Promise.resolve({ data: [] as { id: string; display_name: string | null; confetti_pts: number }[] }),
+        : Promise.resolve({
+            data: [] as { id: string; display_name: string | null; confetti_pts: number }[],
+          }),
       ids.length
         ? supabase.from("user_roles").select("user_id, role").in("user_id", ids)
         : Promise.resolve({ data: [] as { user_id: string; role: AppRole }[] }),
@@ -137,7 +139,8 @@ export const setUserRoleFn = createServerFn({ method: "POST" })
 
     await supabase.from("admin_audit_log").insert({
       reviewer_id: context.userId,
-      action: data.grant ? "role_grant" : "role_revoke", entity_type: "user",
+      action: data.grant ? "role_grant" : "role_revoke",
+      entity_type: "user",
       entity_id: data.userId,
       entity_label: data.role,
       note: null,
@@ -169,7 +172,8 @@ export const setUserSuspendedFn = createServerFn({ method: "POST" })
 
     await supabase.from("admin_audit_log").insert({
       reviewer_id: context.userId,
-      action: data.suspend ? "user_suspend" : "user_reactivate", entity_type: "user",
+      action: data.suspend ? "user_suspend" : "user_reactivate",
+      entity_type: "user",
       entity_id: data.userId,
       entity_label: null,
       note: null,
@@ -210,7 +214,8 @@ export const deleteUserFn = createServerFn({ method: "POST" })
 
     await supabase.from("admin_audit_log").insert({
       reviewer_id: context.userId,
-      action: "user_delete", entity_type: "user",
+      action: "user_delete",
+      entity_type: "user",
       entity_id: data.userId,
       entity_label: null,
       note: null,

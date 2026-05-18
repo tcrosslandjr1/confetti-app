@@ -200,7 +200,9 @@ function AdminUsersPage() {
           x.id === u.id
             ? {
                 ...x,
-                banned_until: suspend ? new Date(Date.now() + 100 * 365 * 86400_000).toISOString() : null,
+                banned_until: suspend
+                  ? new Date(Date.now() + 100 * 365 * 86400_000).toISOString()
+                  : null,
               }
             : x,
         ),
@@ -400,9 +402,7 @@ function AdminUsersPage() {
                     <TableCell>
                       <StatusBadge banned={banned} />
                     </TableCell>
-                    <TableCell className="text-right font-mono text-sm">
-                      {u.confetti_pts}
-                    </TableCell>
+                    <TableCell className="text-right font-mono text-sm">{u.confetti_pts}</TableCell>
                     <TableCell className="text-xs text-muted-foreground">
                       {fmtDate(u.created_at)}
                     </TableCell>

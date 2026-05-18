@@ -290,6 +290,7 @@ const PlanOutputSchema = z.object({
     .max(160)
     .nullable()
     .describe("Set when total estimate would exceed the user's budget ceiling."),
+});
 
 export const generatePlan = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => PlanRequestSchema.parse(input))

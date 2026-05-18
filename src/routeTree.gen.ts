@@ -38,6 +38,7 @@ import { Route as GroupOutingRouteImport } from './routes/group-outing'
 import { Route as ForBusinessRouteImport } from './routes/for-business'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as FavoritesRouteImport } from './routes/favorites'
+import { Route as EventPackRouteImport } from './routes/event-pack'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as DataTermsRouteImport } from './routes/data-terms'
 import { Route as CreateRouteImport } from './routes/create'
@@ -333,6 +334,11 @@ const FeaturesRoute = FeaturesRouteImport.update({
 const FavoritesRoute = FavoritesRouteImport.update({
   id: '/favorites',
   path: '/favorites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventPackRoute = EventPackRouteImport.update({
+  id: '/event-pack',
+  path: '/event-pack',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DiscoverRoute = DiscoverRouteImport.update({
@@ -1128,6 +1134,7 @@ export interface FileRoutesByFullPath {
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
+  '/event-pack': typeof EventPackRoute
   '/favorites': typeof FavoritesRoute
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
@@ -1305,6 +1312,7 @@ export interface FileRoutesByTo {
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
+  '/event-pack': typeof EventPackRoute
   '/favorites': typeof FavoritesRoute
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
@@ -1484,6 +1492,7 @@ export interface FileRoutesById {
   '/create': typeof CreateRoute
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
+  '/event-pack': typeof EventPackRoute
   '/favorites': typeof FavoritesRoute
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
@@ -1668,6 +1677,7 @@ export interface FileRouteTypes {
     | '/create'
     | '/data-terms'
     | '/discover'
+    | '/event-pack'
     | '/favorites'
     | '/features'
     | '/for-business'
@@ -1845,6 +1855,7 @@ export interface FileRouteTypes {
     | '/create'
     | '/data-terms'
     | '/discover'
+    | '/event-pack'
     | '/favorites'
     | '/features'
     | '/for-business'
@@ -2023,6 +2034,7 @@ export interface FileRouteTypes {
     | '/create'
     | '/data-terms'
     | '/discover'
+    | '/event-pack'
     | '/favorites'
     | '/features'
     | '/for-business'
@@ -2206,6 +2218,7 @@ export interface RootRouteChildren {
   CreateRoute: typeof CreateRoute
   DataTermsRoute: typeof DataTermsRoute
   DiscoverRoute: typeof DiscoverRoute
+  EventPackRoute: typeof EventPackRoute
   FavoritesRoute: typeof FavoritesRoute
   FeaturesRoute: typeof FeaturesRoute
   ForBusinessRoute: typeof ForBusinessRoute
@@ -2491,6 +2504,13 @@ declare module '@tanstack/react-router' {
       path: '/favorites'
       fullPath: '/favorites'
       preLoaderRoute: typeof FavoritesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/event-pack': {
+      id: '/event-pack'
+      path: '/event-pack'
+      fullPath: '/event-pack'
+      preLoaderRoute: typeof EventPackRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/discover': {
@@ -3850,6 +3870,7 @@ const rootRouteChildren: RootRouteChildren = {
   CreateRoute: CreateRoute,
   DataTermsRoute: DataTermsRoute,
   DiscoverRoute: DiscoverRoute,
+  EventPackRoute: EventPackRoute,
   FavoritesRoute: FavoritesRoute,
   FeaturesRoute: FeaturesRoute,
   ForBusinessRoute: ForBusinessRoute,

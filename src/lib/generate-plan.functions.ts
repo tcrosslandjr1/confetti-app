@@ -341,6 +341,17 @@ ${buildWaterfrontPrompt(cityCtx)}
 
 ${req.occasionId === "girls" ? buildGirlsNightPresetsPrompt(budget, detectWaterfront(cityCtx).hasWaterfront) : ""}
 
+${
+  isMiamiGuysNight(cityCtx.city, req.occasionId, req.vibeLabel)
+    ? buildMiamiGuysNightPrompt({
+        yacht: req.includeYacht,
+        casino: req.includeCasino,
+        adultEntertainment: req.includeAdultEntertainment,
+        vibe: req.vibeLabel,
+      })
+    : ""
+}
+
 # Your task
 Run all seven agents and return the structured plan.
 Each stop's rationale must tie the pick to the occasion, vibe, city, OR taste graph in one sentence.

@@ -3,10 +3,7 @@ import { Activity, Server, Database, Globe, Hash, Clock, Shield } from "lucide-r
 
 export const Route = createFileRoute("/health")({
   head: () => ({
-    meta: [
-      { title: "Health Check — Confetti" },
-      { name: "robots", content: "noindex, nofollow" },
-    ],
+    meta: [{ title: "Health Check — Confetti" }, { name: "robots", content: "noindex, nofollow" }],
   }),
   component: HealthPage,
 });

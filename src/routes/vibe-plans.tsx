@@ -232,9 +232,34 @@ function VibePlansPage() {
       tweaks.push(`energy: ${energyLabel}`);
       if (customVibe.trim()) tweaks.push(`custom vibe: ${customVibe.trim()}`);
 
-      const resolved = resolveCategories(selectedCats);
+      // Auto-suggest categories from vibe if none selected
+      let catIds = selectedCats;
+      if (!catIds.length && vibe && VIBE_CATEGORY_HINTS[vibe.id]) {
+        catIds = VIBE_CATEGORY_HINTS[vibe.id].filter((id) => CATEGORIES_BY_ID[id]);
+      }
+      const resolved = resolveCategories(catIds);
       if (resolved) tweaks.push(buildCategoryDirective(resolved, freeText));
       else if (freeText.trim()) tweaks.push(`user said: "${freeText.trim().slice(0, 200)}"`);
+
+      // Filter toggles
+      if (familyFriendly)
+        tweaks.push("must be family-friendly (no clubs, strip clubs, heavy drinking, adult entertainment)");
+      if (conversationFriendly)
+        tweaks.push("must be conversation-friendly (avoid loud clubs and dive bars)");
+      if (avoidAlcohol) tweaks.push("avoid alcohol-centric venues; prefer dry or low-ABV options");
+      if (indoorOnly) tweaks.push("indoor stops only — no outdoor venues");
+      if (budgetFriendly) tweaks.push("budget-friendly: prioritize affordable picks under $25/person/stop");
+
+      // Brunch Baddies-aware add-ons
+      const isBrunchBaddies =
+        catIds.includes("brunch_baddies") ||
+        (vibe && ["brunch_baddies", "mimosas", "cute_fits", "pink_aesthetic", "photo_walls", "shopping_after"].includes(vibe.id));
+      if (isBrunchBaddies) {
+        tweaks.push(
+          "Brunch Baddies daytime-first plan: cute fits, mimosas, rooftop or waterfront brunch, aesthetic plates, photo/flower walls, daytime music. No clubs or late-night venues.",
+        );
+        if (postBrunchDayParty) tweaks.push("add an optional post-brunch day party stop");
+      }
 
       const budgetTier: 1 | 2 | 3 | 4 = budget < 40 ? 1 : budget < 100 ? 2 : budget < 200 ? 3 : 4;
 

@@ -165,8 +165,8 @@ const suiteCategories: TestSuite = {
       ok(
         "S3.R",
         "resolveCategories produces constraints",
-        !!resolved && Array.isArray(resolved.categories),
-        `resolved ${resolved?.categories.length ?? 0} categories`,
+        !!resolved && Array.isArray(resolved.categoryIds),
+        `resolved ${resolved?.categoryIds.length ?? 0} categories`,
       ),
     );
     return results;

@@ -179,7 +179,7 @@ function DiscoverPage() {
       name: r.venue_name,
       neighborhood: r.neighborhood,
       address: r.address,
-      photo: r.photo_url,
+      photo: r.photo_url || unsplashFor(null, r.venue_name),
       rating: r.rating != null ? Number(r.rating) : null,
       website: r.website,
     }));

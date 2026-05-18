@@ -274,7 +274,8 @@ function SavedPage() {
               </div>
             </li>
           ))}
-      </ul>
+        </ul>
+      )}
     </div>
   );
 }

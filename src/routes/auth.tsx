@@ -667,7 +667,7 @@ function AuthPage() {
             </p>
           </div>
 
-          <div className="mt-8">
+          <div className="rise-in mt-8" style={{ ["--d" as never]: "320ms" } as CSSProperties}>
             <div className="mb-3 flex items-center gap-3">
               <span className="h-px flex-1 bg-ink/20" />
               <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink/60">

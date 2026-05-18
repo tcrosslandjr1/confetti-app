@@ -117,6 +117,7 @@ export function RoleSwitcher() {
     navigate({ to: "/admin" });
   };
 
+  if (!mounted) return null;
   const current = OPTIONS.find((o) => o.value === viewAs)!;
 
   return (

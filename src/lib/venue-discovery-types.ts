@@ -48,4 +48,23 @@ export type VenueCard = {
   sponsoredCta?: SponsoredCta;
   /** Community reels grid (TikTok + Instagram). */
   reels?: SocialReel[];
+  /** Trust & safety signals shown on the card. */
+  trust?: TrustSignals;
+};
+
+export type TrustSignals = {
+  /** Confetti-verified venue (manual review passed). */
+  verified?: boolean;
+  /** Owner has claimed & maintains the listing. */
+  claimed?: boolean;
+  /** Live crowd level right now. */
+  crowdLevel?: "quiet" | "buzzing" | "packed";
+  /** Optional wait estimate, e.g. "~15 min". */
+  waitTime?: string;
+  /** Avg price per person, e.g. "€28/person". */
+  avgSpend?: string;
+  /** Whether the venue honors Confetti pricing/no surprise fees. */
+  transparentPricing?: boolean;
+  /** Safety signals (e.g. well-lit, staff-trained, accessible). */
+  safetyBadges?: Array<"well-lit" | "staff-trained" | "accessible" | "late-night-safe">;
 };

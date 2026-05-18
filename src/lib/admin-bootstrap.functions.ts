@@ -11,9 +11,7 @@ import { supabaseAdmin } from "@/integrations/supabase/client.server";
  * { ok: false, reason: "already_bootstrapped" }.
  */
 export const bootstrapAdmin = createServerFn({ method: "POST" })
-  .inputValidator((input) =>
-    z.object({ email: z.string().email().max(255) }).parse(input),
-  )
+  .inputValidator((input) => z.object({ email: z.string().email().max(255) }).parse(input))
   .handler(async ({ data }) => {
     // Guard: refuse if any admin already exists.
     const { count, error: countErr } = await supabaseAdmin

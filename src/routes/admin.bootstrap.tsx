@@ -68,8 +68,8 @@ function BootstrapPage() {
           Promote the first admin.
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Enter the email of an account that has already signed up. Once an admin exists, this
-          page no longer grants access — subsequent calls are refused.
+          Enter the email of an account that has already signed up. Once an admin exists, this page
+          no longer grants access — subsequent calls are refused.
         </p>
 
         <form onSubmit={onSubmit} className="mt-8 space-y-3">

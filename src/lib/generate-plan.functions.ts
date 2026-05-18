@@ -405,7 +405,7 @@ Name pattern hints: ${template.namePatterns.join(" | ")}.`;
         city: cityCtx.label,
         category: occasion,
         vibe,
-        audience: template.audience ?? "friends",
+        audience: req.occasionLabel ?? req.occasionId ?? "friends",
         energyLevel,
         setting: cityCtx.signatureNeighborhoods?.[0],
         count: 10,

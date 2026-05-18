@@ -384,12 +384,30 @@ export const generatePlan = createServerFn({ method: "POST" })
 
     // Fetch real weather for date+city and add as guidance to the prompt.
     let weatherBlock = "";
+    let forecast: Awaited<ReturnType<typeof fetchForecastForCityDate>> | null = null;
     if (req.date && cityCtx.city) {
-      const f = await fetchForecastForCityDate(cityCtx.city, req.date);
-      if (f) {
-        weatherBlock = `# Weather Context (real forecast — Quality Guardrail must respect this)\n${f.emoji} ${f.label} · ${f.tMinF}–${f.tMaxF}°F · ${f.precipProb}% precip\n${weatherGuidance(f)}\n\n`;
+      forecast = await fetchForecastForCityDate(cityCtx.city, req.date);
+      if (forecast) {
+        weatherBlock = `# Weather Context (real forecast — Quality Guardrail must respect this)\n${forecast.emoji} ${forecast.label} · ${forecast.tMinF}–${forecast.tMaxF}°F · ${forecast.precipProb}% precip\n${weatherGuidance(forecast)}\n\n`;
       }
     }
+
+    // ── Confetti v6: run the 7 missing engines ──────────────────
+    const v6 = runV6Engines({
+      personality: req.personality as PersonalityId | undefined,
+      budgetMode: req.budgetMode as BudgetMode | undefined,
+      perPersonBudgetUsd: req.perPersonBudgetUsd,
+      budgetTier: budget,
+      groupSize,
+      groupType: req.groupType as GroupType | undefined,
+      timeOfDay: req.timeOfDay as TimeOfDay | undefined,
+      safetyModes: (req.safetyModes ?? []) as SafetyMode[],
+      localFlavorLevel: (req.localFlavorLevel as LocalFlavorLevel | undefined) ?? "medium",
+      weatherAware: req.weatherAware ?? true,
+      forecast,
+      cityCtx,
+    });
+    const v6Block = `${v6.directive}\n\n`;
 
     const neighborhoodBlock = cityCtx.neighborhoods
       .map((n) => `  • ${n.name} — ${n.vibe}`)

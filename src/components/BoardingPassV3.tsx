@@ -20,7 +20,22 @@ import { type CSSProperties, useEffect, useMemo, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
-import { Camera, Car, Check, Info, Loader2, MapPin, Menu as MenuIcon, MessageCircle, Minus, Music, Phone, Plus, Wifi, X } from "lucide-react";
+import {
+  Camera,
+  Car,
+  Check,
+  Info,
+  Loader2,
+  MapPin,
+  Menu as MenuIcon,
+  MessageCircle,
+  Minus,
+  Music,
+  Phone,
+  Plus,
+  Wifi,
+  X,
+} from "lucide-react";
 import {
   getStopMenu,
   placeStopOrder,

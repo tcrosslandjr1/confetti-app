@@ -58,7 +58,12 @@ const ok = (
   notes,
   ...meta,
 });
-const skip = (id: string, name: string, why: string, meta: Partial<TestResult> = {}): TestResult => ({
+const skip = (
+  id: string,
+  name: string,
+  why: string,
+  meta: Partial<TestResult> = {},
+): TestResult => ({
   id,
   name,
   status: "skip",
@@ -207,11 +212,12 @@ const suiteItinerary: TestSuite = {
   id: "S5",
   name: "Itinerary Generation",
   run: () => {
-    const cases: Array<{ days: number; curve: Parameters<typeof planTripDays>[0]["energyCurve"] }> = [
-      { days: 1, curve: "chill-turnup-chill" },
-      { days: 1, curve: "soft-life" },
-      { days: 1, curve: "adventure-heavy" },
-    ];
+    const cases: Array<{ days: number; curve: Parameters<typeof planTripDays>[0]["energyCurve"] }> =
+      [
+        { days: 1, curve: "chill-turnup-chill" },
+        { days: 1, curve: "soft-life" },
+        { days: 1, curve: "adventure-heavy" },
+      ];
     const results = cases.map((c, i) => {
       const seeds = planTripDays({
         destinationCity: "Miami",
@@ -376,14 +382,7 @@ const suiteSafety: TestSuite = {
 };
 
 // ── 12. Time Engine ─────────────────────────────────────────────
-const TIMES: TimeOfDay[] = [
-  "sunrise",
-  "morning",
-  "brunch",
-  "afternoon",
-  "evening",
-  "late_night",
-];
+const TIMES: TimeOfDay[] = ["sunrise", "morning", "brunch", "afternoon", "evening", "late_night"];
 const suiteTime: TestSuite = {
   id: "S12",
   name: "Time-of-Day Engine",
@@ -412,7 +411,11 @@ const suiteSaveShare: TestSuite = {
   id: "S14",
   name: "Save & Share",
   run: () => [
-    skip("S14.1", "Save/share roundtrip", "Persists to trips/itineraries tables; needs auth session."),
+    skip(
+      "S14.1",
+      "Save/share roundtrip",
+      "Persists to trips/itineraries tables; needs auth session.",
+    ),
   ],
 };
 
@@ -432,16 +435,22 @@ const suitePersonalization: TestSuite = {
   run: () => {
     type Sig = { signal_type: string; payload: Record<string, unknown>; city: string | null };
     const signals: Sig[] = [
-      ...Array.from({ length: 5 }, (): Sig => ({
-        signal_type: "vibe_chosen",
-        payload: { vibe: "soft_life" },
-        city: "miami",
-      })),
-      ...Array.from({ length: 3 }, (): Sig => ({
-        signal_type: "category_chosen",
-        payload: { category: "brunch-baddies" },
-        city: "miami",
-      })),
+      ...Array.from(
+        { length: 5 },
+        (): Sig => ({
+          signal_type: "vibe_chosen",
+          payload: { vibe: "soft_life" },
+          city: "miami",
+        }),
+      ),
+      ...Array.from(
+        { length: 3 },
+        (): Sig => ({
+          signal_type: "category_chosen",
+          payload: { category: "brunch-baddies" },
+          city: "miami",
+        }),
+      ),
       { signal_type: "budget", payload: { tier: 2 }, city: "miami" },
     ];
     const profile = learnProfileFromSignals(signals, DEFAULT_PROFILE);
@@ -492,11 +501,23 @@ const suiteMultiDay: TestSuite = {
       );
     });
     const deduped = dedupeAcrossDays([
-      { stops: [{ venueId: "v1", type: "brunch" }, { venueId: "v2", type: "club" }] },
-      { stops: [{ venueId: "v1", type: "brunch" }, { venueId: "v3", type: "club" }] },
+      {
+        stops: [
+          { venueId: "v1", type: "brunch" },
+          { venueId: "v2", type: "club" },
+        ],
+      },
+      {
+        stops: [
+          { venueId: "v1", type: "brunch" },
+          { venueId: "v3", type: "club" },
+        ],
+      },
     ]);
     const totalAfter = deduped.reduce((n, d) => n + d.stops.length, 0);
-    results.push(ok("S17.D", "dedupeAcrossDays removes repeats", totalAfter < 4, `kept ${totalAfter}/4`));
+    results.push(
+      ok("S17.D", "dedupeAcrossDays removes repeats", totalAfter < 4, `kept ${totalAfter}/4`),
+    );
     return results;
   },
 };
@@ -572,11 +593,7 @@ const suitePromo: TestSuite = {
         ),
         "labels constrained to ALLOWED_LABELS",
       ),
-      ok(
-        "S18.4",
-        "Low promo_sensitivity suppresses all promos",
-        lowSens.promoSteps.length === 0,
-      ),
+      ok("S18.4", "Low promo_sensitivity suppresses all promos", lowSens.promoSteps.length === 0),
       ok(
         "S18.5",
         "Max 2 promos per itinerary",
@@ -667,7 +684,11 @@ const suiteE2E: TestSuite = {
       ["Budget applied", v6.perPersonEstimate.includes("$"), v6.perPersonEstimate],
       ["Group dynamics", /Group size 4/.test(v6.directive), v6.pacingStyle],
       ["Time-of-day brunch", /Brunch/.test(v6.directive), "brunch directive"],
-      ["Safety solo_women", /solo_women|Solo-safe/.test(v6.directive + v6.safetyNotes), v6.safetyNotes ?? ""],
+      [
+        "Safety solo_women",
+        /solo_women|Solo-safe/.test(v6.directive + v6.safetyNotes),
+        v6.safetyNotes ?? "",
+      ],
       ["Local flavor Miami", v6.localFlavorTags.length > 0, v6.localFlavorTags.join(" ")],
       ["Promo-safe rule injected", /Promo-safe/.test(v6.directive), "promo guard present"],
     ];

@@ -2585,7 +2585,10 @@ export function BuildMyNightWizard() {
                   onClick={savePlan}
                   className="inline-flex h-12 items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
                 >
-                  <Save className="h-4 w-4" /> Save plan
+                  <Sparkles className="h-4 w-4" />
+                  {addedStopKeys.size > 0
+                    ? `Lock it in (${activeLoopState?.stops.length ?? 0} stop${(activeLoopState?.stops.length ?? 0) === 1 ? "" : "s"})`
+                    : "Lock it in — full plan"}
                 </button>
               </div>
             </div>

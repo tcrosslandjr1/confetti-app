@@ -75,6 +75,7 @@ import { Route as TeamsIdRouteImport } from './routes/teams.$id'
 import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
 import { Route as RsvpTokenRouteImport } from './routes/rsvp.$token'
 import { Route as RecapItineraryIdRouteImport } from './routes/recap.$itineraryId'
+import { Route as QaTestPlanRouteImport } from './routes/qa.test-plan'
 import { Route as PromoterJobsRouteImport } from './routes/promoter.jobs'
 import { Route as ProfilePreferencesRouteImport } from './routes/profile.preferences'
 import { Route as PortalWalletRouteImport } from './routes/portal.wallet'
@@ -495,6 +496,11 @@ const RecapItineraryIdRoute = RecapItineraryIdRouteImport.update({
   id: '/recap/$itineraryId',
   path: '/recap/$itineraryId',
   getParentRoute: () => rootRouteImport,
+} as any)
+const QaTestPlanRoute = QaTestPlanRouteImport.update({
+  id: '/test-plan',
+  path: '/test-plan',
+  getParentRoute: () => QaRoute,
 } as any)
 const PromoterJobsRoute = PromoterJobsRouteImport.update({
   id: '/jobs',
@@ -992,7 +998,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/promoter': typeof PromoterRouteWithChildren
-  '/qa': typeof QaRoute
+  '/qa': typeof QaRouteWithChildren
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
@@ -1077,6 +1083,7 @@ export interface FileRoutesByFullPath {
   '/portal/wallet': typeof PortalWalletRoute
   '/profile/preferences': typeof ProfilePreferencesRoute
   '/promoter/jobs': typeof PromoterJobsRoute
+  '/qa/test-plan': typeof QaTestPlanRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -1143,7 +1150,7 @@ export interface FileRoutesByTo {
   '/plan': typeof PlanRouteWithChildren
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
-  '/qa': typeof QaRoute
+  '/qa': typeof QaRouteWithChildren
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
@@ -1227,6 +1234,7 @@ export interface FileRoutesByTo {
   '/portal/wallet': typeof PortalWalletRoute
   '/profile/preferences': typeof ProfilePreferencesRoute
   '/promoter/jobs': typeof PromoterJobsRoute
+  '/qa/test-plan': typeof QaTestPlanRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -1301,7 +1309,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/privacy': typeof PrivacyRoute
   '/promoter': typeof PromoterRouteWithChildren
-  '/qa': typeof QaRoute
+  '/qa': typeof QaRouteWithChildren
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
   '/scan': typeof ScanRoute
@@ -1386,6 +1394,7 @@ export interface FileRoutesById {
   '/portal/wallet': typeof PortalWalletRoute
   '/profile/preferences': typeof ProfilePreferencesRoute
   '/promoter/jobs': typeof PromoterJobsRoute
+  '/qa/test-plan': typeof QaTestPlanRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
   '/rsvp/$tripId': typeof RsvpTripIdRoute
@@ -1546,6 +1555,7 @@ export interface FileRouteTypes {
     | '/portal/wallet'
     | '/profile/preferences'
     | '/promoter/jobs'
+    | '/qa/test-plan'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1696,6 +1706,7 @@ export interface FileRouteTypes {
     | '/portal/wallet'
     | '/profile/preferences'
     | '/promoter/jobs'
+    | '/qa/test-plan'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1854,6 +1865,7 @@ export interface FileRouteTypes {
     | '/portal/wallet'
     | '/profile/preferences'
     | '/promoter/jobs'
+    | '/qa/test-plan'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
     | '/rsvp/$tripId'
@@ -1928,7 +1940,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   PrivacyRoute: typeof PrivacyRoute
   PromoterRoute: typeof PromoterRouteWithChildren
-  QaRoute: typeof QaRoute
+  QaRoute: typeof QaRouteWithChildren
   QuickGenerateRoute: typeof QuickGenerateRoute
   ReservationsRoute: typeof ReservationsRoute
   ScanRoute: typeof ScanRoute
@@ -2449,6 +2461,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/recap/$itineraryId'
       preLoaderRoute: typeof RecapItineraryIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/qa/test-plan': {
+      id: '/qa/test-plan'
+      path: '/test-plan'
+      fullPath: '/qa/test-plan'
+      preLoaderRoute: typeof QaTestPlanRouteImport
+      parentRoute: typeof QaRoute
     }
     '/promoter/jobs': {
       id: '/promoter/jobs'
@@ -3276,6 +3295,16 @@ const PromoterRouteWithChildren = PromoterRoute._addFileChildren(
   PromoterRouteChildren,
 )
 
+interface QaRouteChildren {
+  QaTestPlanRoute: typeof QaTestPlanRoute
+}
+
+const QaRouteChildren: QaRouteChildren = {
+  QaTestPlanRoute: QaTestPlanRoute,
+}
+
+const QaRouteWithChildren = QaRoute._addFileChildren(QaRouteChildren)
+
 interface TeamsRouteChildren {
   TeamsIdRoute: typeof TeamsIdRoute
   TeamsNewRoute: typeof TeamsNewRoute
@@ -3349,7 +3378,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   PrivacyRoute: PrivacyRoute,
   PromoterRoute: PromoterRouteWithChildren,
-  QaRoute: QaRoute,
+  QaRoute: QaRouteWithChildren,
   QuickGenerateRoute: QuickGenerateRoute,
   ReservationsRoute: ReservationsRoute,
   ScanRoute: ScanRoute,

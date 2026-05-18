@@ -558,9 +558,7 @@ export function BuildMyNightWizard() {
   const [showFavorites, setShowFavorites] = useState(false);
   const [reservingKey, setReservingKey] = useState<string | null>(null);
   const [bookedSlots, setBookedSlots] = useState<Record<string, string>>({});
-  const [activeLoopState, setActiveLoopState] = useState<ActiveLoop | null>(() =>
-    getActiveLoop(),
-  );
+  const [activeLoopState, setActiveLoopState] = useState<ActiveLoop | null>(() => getActiveLoop());
   useEffect(() => {
     setActiveLoopState(getActiveLoop());
     return subscribeActiveLoop(() => setActiveLoopState(getActiveLoop()));
@@ -1409,8 +1407,7 @@ export function BuildMyNightWizard() {
     const existing = getActiveLoop();
     // Prefer the user-curated stops they tapped "+ Add" on; otherwise lock in
     // everything currently shown in the wizard.
-    const loop =
-      existing && existing.stops.length > 0 ? existing : buildLoopFromWizard();
+    const loop = existing && existing.stops.length > 0 ? existing : buildLoopFromWizard();
     setActiveLoop(loop);
     toast.success("Locked in", {
       description: `${loop.stops.length} stop${loop.stops.length === 1 ? "" : "s"} · opening boarding pass…`,
@@ -2189,7 +2186,9 @@ export function BuildMyNightWizard() {
                                     : `Add ${s.venue} to your night`
                                 }
                                 title={
-                                  added ? "Already on your boarding pass" : "Add this stop to your night"
+                                  added
+                                    ? "Already on your boarding pass"
+                                    : "Add this stop to your night"
                                 }
                                 className={`flex h-9 items-center justify-center gap-1 rounded-full border-2 border-ink px-2 font-mono text-[10px] font-extrabold uppercase tracking-widest shadow-brut transition-pop ${
                                   added
@@ -2610,8 +2609,7 @@ export function BuildMyNightWizard() {
               onClick={savePlan}
               className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full border-2 border-ink bg-ink px-5 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
             >
-              <Sparkles className="h-4 w-4" /> Lock it in (
-              {activeLoopState?.stops.length ?? 0})
+              <Sparkles className="h-4 w-4" /> Lock it in ({activeLoopState?.stops.length ?? 0})
             </button>
           </div>
         )}

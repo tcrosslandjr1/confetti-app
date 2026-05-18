@@ -65,10 +65,15 @@ function WalletPage() {
   const [activeRedemption, setActiveRedemption] = useState<Redemption | null>(null);
 
   const refresh = async () => {
-    if (!user) return;
+    if (!user) {
+      setGrants([]);
+      setRedemptions([]);
+      setLoading(false);
+      return;
+    }
     setLoading(true);
     const [g, r] = await Promise.all([listUserGrants(user.id), listUserRedemptions(user.id)]);
-    setGrants(g.length > 0 ? g : MOCK_GRANTS);
+    setGrants(g);
     setRedemptions(r);
     setLoading(false);
   };
@@ -78,7 +83,13 @@ function WalletPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
+  // Real balance ONLY uses real grants — never mock data. This prevents users
+  // with no real Confetti from generating a real redemption code against a
+  // phantom mock balance.
   const balance = useMemo(() => userBalance(grants, redemptions), [grants, redemptions]);
+  // Visual-only fallback so the "How you earned it" list isn't empty on first visit.
+  const displayGrants = grants.length > 0 ? grants : MOCK_GRANTS;
+  const usingMockGrants = grants.length === 0;
   const pendingRedemptions = redemptions.filter((r) => r.status === "pending");
 
   const handleRedeem = async () => {

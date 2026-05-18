@@ -833,14 +833,26 @@ function AuthPage() {
                 className="w-full rounded-2xl border-2 border-ink bg-cream px-4 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
               />
             )}
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-              className="w-full rounded-2xl border-2 border-ink bg-cream px-4 py-4 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none focus:ring-2 focus:ring-coral/40 transition"
-            />
+            <div className="relative">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                className={`w-full rounded-2xl border-2 bg-cream px-4 py-4 pr-12 text-sm font-semibold text-ink placeholder:text-ink/40 outline-none transition focus:ring-2 focus:ring-coral/40 ${
+                  emailLooksValid ? "border-ink" : "border-ink"
+                }`}
+              />
+              {emailLooksValid && (
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-y-0 right-4 my-auto grid h-7 w-7 place-items-center rounded-full border-2 border-ink bg-coral text-cream animate-[reveal-scale_0.35s_cubic-bezier(0.22,1,0.36,1)_forwards]"
+                >
+                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                </span>
+              )}
+            </div>
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
@@ -860,6 +872,30 @@ function AuthPage() {
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
             </div>
+            {/* Password strength meter — signup only, appears once user types. */}
+            {mode === "signup" && password.length > 0 && (
+              <div className="flex items-center gap-2 px-1 animate-[reveal-up_0.35s_cubic-bezier(0.22,1,0.36,1)_forwards]">
+                <div className="flex flex-1 gap-1">
+                  {[0, 1, 2, 3].map((i) => (
+                    <span
+                      key={i}
+                      className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
+                        i < pwStrength
+                          ? pwStrength >= 3
+                            ? "bg-coral"
+                            : pwStrength === 2
+                              ? "bg-amber-500"
+                              : "bg-ink/60"
+                          : "bg-ink/10"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink/60">
+                  {pwLabel}
+                </span>
+              </div>
+            )}
             {mode === "signup" && (
               <input
                 value={refCode}

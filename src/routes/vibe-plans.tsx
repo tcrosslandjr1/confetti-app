@@ -11,6 +11,7 @@ import { MobileHeader } from "@/components/AppShell";
 import { cn } from "@/lib/utils";
 import { generatePlan } from "@/lib/generate-plan.functions";
 import { classifyOuting } from "@/lib/classify-outing.functions";
+import { generateRankedOutingNames } from "@/lib/name-generator.functions";
 import type { GeneratedPlan } from "@/lib/agents/types";
 import { CITIES, findCityLoose, type CityContext } from "@/lib/agents/city-context";
 import { matchState, isKnownCity } from "@/lib/agents/states";
@@ -197,10 +198,15 @@ function VibePlansPage() {
   const [freeText, setFreeText] = useState("");
   const [classifying, setClassifying] = useState(false);
   const classify = useServerFn(classifyOuting);
+  const regenNames = useServerFn(generateRankedOutingNames);
 
   const [loading, setLoading] = useState(false);
   const [plan, setPlan] = useState<GeneratedPlan | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [selectedName, setSelectedName] = useState<string | null>(null);
+  const [renaming, setRenaming] = useState(false);
+  const [renameValue, setRenameValue] = useState("");
+  const [swappingName, setSwappingName] = useState(false);
 
   const waterfront = city ? detectWaterfront(city) : null;
 
@@ -241,6 +247,36 @@ function VibePlansPage() {
   function reset() {
     setPlan(null);
     setError(null);
+    setSelectedName(null);
+    setRenaming(false);
+    setRenameValue("");
+  }
+
+  async function swapName() {
+    if (!plan || !city) return;
+    const v = vibe ?? { id: "custom", label: customVibe || "Surprise me", occasionId: "friends", mood: "social", emoji: "✨" };
+    setSwappingName(true);
+    try {
+      const energyLabel = ["mellow", "easy", "social", "hyped", "wild"][energy - 1] ?? "social";
+      const res = await regenNames({
+        data: {
+          city: city.label,
+          category: v.label,
+          vibe: v.label,
+          audience: v.occasionId,
+          energyLevel: energyLabel,
+          count: 10,
+        },
+      });
+      if (res.ranked.length) {
+        setPlan({ ...plan, nameOptions: res.ranked.slice(0, 5), experienceName: res.ranked[0].name });
+        setSelectedName(res.ranked[0].name);
+      }
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Could not regenerate names.");
+    } finally {
+      setSwappingName(false);
+    }
   }
 
   async function build() {
@@ -328,6 +364,7 @@ function VibePlansPage() {
         },
       });
       setPlan(result);
+      setSelectedName(result.nameOptions?.[0]?.name ?? result.experienceName);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Could not generate a plan. Try again.");
     } finally {
@@ -366,7 +403,7 @@ function VibePlansPage() {
         })),
       }),
       city: plan.city,
-      experienceName: plan.experienceName,
+      experienceName: selectedName ?? plan.experienceName,
       experienceTagline: plan.experienceTagline,
       blueprint: plan.blueprint,
       estimatedSpend: plan.estimatedSpend,
@@ -389,13 +426,78 @@ function VibePlansPage() {
   // ── Render: plan view ─────────────────────────────────────────────
   if (plan) {
     const stopCount = plan.stops.length;
+    const displayName = selectedName ?? plan.experienceName;
+    const altNames = (plan.nameOptions ?? [])
+      .map((o) => o.name)
+      .filter((n) => n !== displayName)
+      .slice(0, 2);
     return (
       <div className="min-h-screen bg-background pb-12">
-        <MobileHeader eyebrow="Vibe Plans" title={plan.experienceName} />
+        <MobileHeader eyebrow="Vibe Plans" title={displayName} />
         <div className="space-y-4 px-5">
           <Button variant="ghost" size="sm" onClick={reset}>
             <ArrowLeft className="mr-1 h-4 w-4" /> New plan
           </Button>
+
+          {/* Name section */}
+          <Card className="space-y-3 p-4">
+            <div className="flex items-center justify-between">
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Itinerary Name
+              </label>
+              <div className="flex gap-1">
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => {
+                    setRenaming((r) => !r);
+                    setRenameValue(displayName);
+                  }}
+                >
+                  Rename
+                </Button>
+                <Button size="sm" variant="outline" onClick={() => void swapName()} disabled={swappingName}>
+                  {swappingName ? <Loader2 className="h-3 w-3 animate-spin" /> : "Swap Name"}
+                </Button>
+              </div>
+            </div>
+            {renaming ? (
+              <div className="flex gap-2">
+                <Input
+                  value={renameValue}
+                  maxLength={60}
+                  onChange={(e) => setRenameValue(e.target.value)}
+                  placeholder="Name this outing…"
+                />
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    const v = renameValue.trim();
+                    if (v) setSelectedName(v);
+                    setRenaming(false);
+                  }}
+                >
+                  Save
+                </Button>
+              </div>
+            ) : (
+              <h2 className="text-xl font-bold leading-tight">{displayName}</h2>
+            )}
+            {altNames.length ? (
+              <div className="flex flex-wrap gap-2">
+                {altNames.map((n) => (
+                  <button
+                    key={n}
+                    onClick={() => setSelectedName(n)}
+                    className="rounded-full border bg-card px-3 py-1 text-xs hover:bg-accent"
+                  >
+                    {n}
+                  </button>
+                ))}
+              </div>
+            ) : null}
+          </Card>
+
           <Card className="p-4">
             <p className="text-sm text-muted-foreground">{plan.experienceTagline}</p>
             <div className="mt-2 flex flex-wrap gap-2 text-xs">

@@ -55,8 +55,20 @@ const VIBES: Vibe[] = [
     emoji: "🤠",
   },
   { id: "live_music", label: "Live Music", occasionId: "friends", mood: "social", emoji: "🎤" },
+  // Guys-night / bachelor pack
+  { id: "guys_night", label: "Guys Night", occasionId: "friends", mood: "social", emoji: "🍻" },
+  { id: "bachelor", label: "Bachelor", occasionId: "birthday", mood: "hyped", emoji: "🥃" },
+  { id: "yacht", label: "Yacht Party", occasionId: "birthday", mood: "hyped", emoji: "🛥️" },
+  { id: "casino", label: "Casino", occasionId: "friends", mood: "hyped", emoji: "🎰" },
+  { id: "grown_man", label: "Grown Man", occasionId: "friends", mood: "easy", emoji: "🥃" },
+  { id: "cigar_whiskey", label: "Cigar & Whiskey", occasionId: "friends", mood: "easy", emoji: "🚬" },
+  { id: "wild", label: "Wild", occasionId: "birthday", mood: "wild", emoji: "🎉" },
+  { id: "late_night", label: "Late Night", occasionId: "friends", mood: "hyped", emoji: "🌃" },
   { id: "surprise", label: "Surprise Me", occasionId: "friends", mood: "social", emoji: "✨" },
 ];
+
+// Vibes that gate adult-entertainment toggle visibility (must be 21+ AND on-vibe).
+const ADULT_TRIGGER_IDS = new Set(["bachelor", "wild", "turn_up", "late_night"]);
 
 function VibePlansPage() {
   const generate = useServerFn(generatePlan);

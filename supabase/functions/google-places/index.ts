@@ -182,13 +182,95 @@ async function diagnose(key: string | undefined) {
   return { ok, keyPresent: true, keyMasked: masked, checks, remediation };
 }
 
+async function autocomplete(
+  input: string,
+  key: string,
+  opts: { sessionToken?: string; types?: string[]; country?: string } = {},
+) {
+  if (!input || input.trim().length < 2) return { suggestions: [] };
+  const body: Record<string, unknown> = {
+    input,
+    ...(opts.sessionToken ? { sessionToken: opts.sessionToken } : {}),
+    ...(opts.types?.length ? { includedPrimaryTypes: opts.types } : {}),
+    ...(opts.country
+      ? { includedRegionCodes: [opts.country.toLowerCase()] }
+      : {}),
+  };
+  const res = await fetch("https://places.googleapis.com/v1/places:autocomplete", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-Goog-Api-Key": key },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    return { suggestions: [], error: `HTTP ${res.status}: ${text.slice(0, 200)}` };
+  }
+  const data = await res.json();
+  const suggestions = (data.suggestions ?? [])
+    .map((s: any) => s.placePrediction)
+    .filter(Boolean)
+    .map((p: any) => ({
+      placeId: p.placeId,
+      primaryText: p.structuredFormat?.mainText?.text ?? p.text?.text ?? "",
+      secondaryText: p.structuredFormat?.secondaryText?.text ?? "",
+      fullText: p.text?.text ?? "",
+      types: p.types ?? [],
+    }));
+  return { suggestions };
+}
+
+async function placeDetails(placeId: string, key: string, sessionToken?: string) {
+  const url = new URL(`https://places.googleapis.com/v1/places/${encodeURIComponent(placeId)}`);
+  if (sessionToken) url.searchParams.set("sessionToken", sessionToken);
+  const res = await fetch(url.toString(), {
+    headers: {
+      "X-Goog-Api-Key": key,
+      "X-Goog-FieldMask":
+        "id,displayName,formattedAddress,location,addressComponents,websiteUri,googleMapsUri,internationalPhoneNumber,types",
+    },
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    return { error: `HTTP ${res.status}: ${text.slice(0, 200)}` };
+  }
+  const p = await res.json();
+  const findComp = (type: string) =>
+    p.addressComponents?.find((c: any) => c.types?.includes(type))?.longText ?? null;
+  return {
+    placeId: p.id,
+    name: p.displayName?.text ?? null,
+    formattedAddress: p.formattedAddress ?? null,
+    latitude: p.location?.latitude ?? null,
+    longitude: p.location?.longitude ?? null,
+    city: findComp("locality") ?? findComp("postal_town") ?? null,
+    state: findComp("administrative_area_level_1"),
+    country: findComp("country"),
+    postalCode: findComp("postal_code"),
+    neighborhood: findComp("neighborhood") ?? findComp("sublocality_level_1"),
+    websiteUri: p.websiteUri ?? null,
+    googleMapsUri: p.googleMapsUri ?? null,
+    phone: p.internationalPhoneNumber ?? null,
+    types: p.types ?? [],
+  };
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
   try {
     const key = Deno.env.get("GOOGLE_PLACES_API_KEY");
-    const body = (await req.json().catch(() => ({}))) as Body & { diag?: boolean };
+    const body = (await req.json().catch(() => ({}))) as Body & {
+      diag?: boolean;
+      autocomplete?: { input: string; sessionToken?: string; types?: string[]; country?: string };
+      details?: { placeId: string; sessionToken?: string };
+    };
     if (body?.diag) return json(await diagnose(key));
     if (!key) return json({ error: "missing GOOGLE_PLACES_API_KEY" }, 500);
+    if (body?.autocomplete?.input !== undefined) {
+      return json(await autocomplete(body.autocomplete.input, key, body.autocomplete));
+    }
+    if (body?.details?.placeId) {
+      return json(await placeDetails(body.details.placeId, key, body.details.sessionToken));
+    }
     if (!body?.queries?.length) return json({ results: [] });
     const results = await Promise.all(body.queries.slice(0, 12).map((q) => lookup(q, key)));
     return json({ results });

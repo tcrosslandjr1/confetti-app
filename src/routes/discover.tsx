@@ -16,6 +16,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { PullToRefresh } from "@/components/PullToRefresh";
 import { SAMPLE_VENUES as SAMPLE_DATA, type SampleCategory } from "@/lib/sample-venues";
+import { unsplashFor } from "@/lib/venue-images";
 
 const discoverSearchSchema = z.object({
   view: z.enum(["list", "map"]).optional().catch(undefined),

@@ -87,8 +87,8 @@ function AnalyticsPage() {
               <div />
               {DAYS.map((d) => (<div key={d} className="text-xs text-center text-muted-foreground">{d}</div>))}
               {HOURS.map((h, hi) => (
-                <>
-                  <div key={`h-${hi}`} className="text-xs text-muted-foreground text-right pr-2 py-1.5">{h}</div>
+                <Fragment key={hi}>
+                  <div className="text-xs text-muted-foreground text-right pr-2 py-1.5">{h}</div>
                   {DAYS.map((_, di) => {
                     const s = heat(di, hi);
                     return (
@@ -100,7 +100,7 @@ function AnalyticsPage() {
                       />
                     );
                   })}
-                </>
+                </Fragment>
               ))}
             </div>
           </div>

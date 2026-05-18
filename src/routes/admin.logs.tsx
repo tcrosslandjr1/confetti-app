@@ -41,7 +41,7 @@ const TABS: Array<{ id: Tab; label: string; icon: typeof ScrollText; tone: strin
 
 function AdminLogsPage() {
   const [tab, setTab] = useState<Tab>("api");
-  const [query, setQuery] = useState("");
+  const [filters, setFilters] = useState<LogFilterState>(EMPTY_FILTERS);
 
   return (
     <div className="space-y-6">
@@ -82,24 +82,16 @@ function AdminLogsPage() {
             </button>
           );
         })}
-
-        <div className="ml-auto inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs">
-          <Filter className="h-3 w-3 text-muted-foreground" />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Filter…"
-            className="w-40 bg-transparent text-xs outline-none placeholder:text-muted-foreground"
-          />
-        </div>
       </div>
 
+      <LogFilterBar value={filters} onChange={setFilters} placeholder="Search logs…" />
+
       {/* Panels */}
-      {tab === "api" && <ApiErrorsPanel query={query} />}
-      {tab === "ai" && <AiJobsPanel query={query} />}
-      {tab === "uploads" && <UploadsPanel query={query} />}
-      {tab === "admin" && <AdminActionsPanel query={query} />}
-      {tab === "security" && <SecurityPanel query={query} />}
+      {tab === "api" && <ApiErrorsPanel filters={filters} />}
+      {tab === "ai" && <AiJobsPanel filters={filters} />}
+      {tab === "uploads" && <UploadsPanel filters={filters} />}
+      {tab === "admin" && <AdminActionsPanel filters={filters} />}
+      {tab === "security" && <SecurityPanel filters={filters} />}
     </div>
   );
 }

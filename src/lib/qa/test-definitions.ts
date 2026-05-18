@@ -307,14 +307,13 @@ const suiteWeather: TestSuite = {
   run: () => {
     type WX = Parameters<typeof weatherEngineFromForecast>[0];
     const mk = (precip: number, tMax: number, label: string): NonNullable<WX> => ({
+      date: "2026-05-18",
       precipProb: precip,
       tMaxF: tMax,
       tMinF: tMax - 15,
       label,
       emoji: "☁️",
-      summary: label,
-      source: "qa",
-    } as NonNullable<WX>);
+    });
     const cases: Array<[string, NonNullable<WX>, RegExp]> = [
       ["Rain", mk(90, 70, "Rainy"), /rain/i],
       ["Heat", mk(10, 96, "Hot"), /heat/i],

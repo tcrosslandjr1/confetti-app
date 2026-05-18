@@ -31,11 +31,29 @@ const VIBES: Vibe[] = [
   { id: "chill", label: "Chill", occasionId: "date_night", mood: "mellow", emoji: "🌙" },
   { id: "turn_up", label: "Turn Up", occasionId: "girls_night", mood: "hyped", emoji: "🔥" },
   { id: "soft_life", label: "Soft Life", occasionId: "date_night", mood: "romantic", emoji: "🤍" },
-  { id: "instagrammy", label: "Instagrammy", occasionId: "girls_night", mood: "aesthetic", emoji: "📸" },
+  {
+    id: "instagrammy",
+    label: "Instagrammy",
+    occasionId: "girls_night",
+    mood: "aesthetic",
+    emoji: "📸",
+  },
   { id: "day_party", label: "Day Party", occasionId: "birthday", mood: "social", emoji: "☀️" },
   { id: "wine_night", label: "Wine Night", occasionId: "date_night", mood: "easy", emoji: "🍷" },
-  { id: "adventurous", label: "Adventurous", occasionId: "out_of_towner", mood: "social", emoji: "🎢" },
-  { id: "country_vibes", label: "Country Vibes", occasionId: "girls_night", mood: "social", emoji: "🤠" },
+  {
+    id: "adventurous",
+    label: "Adventurous",
+    occasionId: "out_of_towner",
+    mood: "social",
+    emoji: "🎢",
+  },
+  {
+    id: "country_vibes",
+    label: "Country Vibes",
+    occasionId: "girls_night",
+    mood: "social",
+    emoji: "🤠",
+  },
   { id: "live_music", label: "Live Music", occasionId: "friends", mood: "social", emoji: "🎤" },
   { id: "surprise", label: "Surprise Me", occasionId: "friends", mood: "social", emoji: "✨" },
 ];
@@ -100,7 +118,13 @@ function VibePlansPage() {
 
   async function build() {
     if (!city) return;
-    const v = vibe ?? { id: "custom", label: customVibe || "Surprise me", occasionId: "friends", mood: "social", emoji: "✨" };
+    const v = vibe ?? {
+      id: "custom",
+      label: customVibe || "Surprise me",
+      occasionId: "friends",
+      mood: "social",
+      emoji: "✨",
+    };
     setLoading(true);
     setError(null);
     try {
@@ -108,7 +132,9 @@ function VibePlansPage() {
       if (waterfrontPref === "yes" && waterfront?.hasWaterfront) {
         tweaks.push("strongly prefer waterfront stops");
       } else if (waterfrontPref === "no" || !waterfront?.hasWaterfront) {
-        tweaks.push("use scenic alternatives (rooftops, overlooks, skyline, mountain or desert views) — no waterfront stops");
+        tweaks.push(
+          "use scenic alternatives (rooftops, overlooks, skyline, mountain or desert views) — no waterfront stops",
+        );
       }
       const energyLabel = ["mellow", "easy", "social", "hyped", "wild"][energy - 1] ?? "social";
       tweaks.push(`energy: ${energyLabel}`);
@@ -173,9 +199,7 @@ function VibePlansPage() {
                   Swap
                 </Button>
               </div>
-              {i < plan.stops.length - 1 ? (
-                <div className="mt-3 h-px w-full bg-border" />
-              ) : null}
+              {i < plan.stops.length - 1 ? <div className="mt-3 h-px w-full bg-border" /> : null}
             </Card>
           ))}
 

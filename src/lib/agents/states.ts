@@ -65,9 +65,7 @@ const STATE_REGISTRY: Record<string, { label: string; citySlugs: string[]; alias
 };
 
 function lookupCities(slugs: string[]): CityContext[] {
-  return slugs
-    .map((s) => findCityLoose(s, null))
-    .filter((c): c is CityContext => Boolean(c));
+  return slugs.map((s) => findCityLoose(s, null)).filter((c): c is CityContext => Boolean(c));
 }
 
 /** If `query` is a state (or state alias), returns its supported cities for clarification. */

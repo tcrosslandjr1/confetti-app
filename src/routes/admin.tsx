@@ -72,25 +72,29 @@ const NAV: NavItem[] = [
 ];
 
 function AdminLayout() {
-  const { loading, isAdmin, user, viewAs } = useAuth();
+  const { loading, isAdmin, user, viewAs, isPreview } = useAuth();
   const navigate = useNavigate();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isLoginRoute = pathname === "/admin/login";
+  // Preview mode lets the admin console UI render without a real admin session
+  // so the role can be tested. RLS still blocks real data writes.
+  const allowPreview = isPreview && viewAs === "admin";
 
   useEffect(() => {
     if (loading || isLoginRoute) return;
+    if (allowPreview) return;
     if (!user) navigate({ to: "/admin/login" });
     else if (!isAdmin) navigate({ to: "/" });
     else if (viewAs === "customer") navigate({ to: "/portal" });
     else if (viewAs === "business") navigate({ to: "/advertise/portal" });
     else if (viewAs === "visitor") navigate({ to: "/" });
-  }, [loading, user, isAdmin, viewAs, navigate, isLoginRoute]);
+  }, [loading, user, isAdmin, viewAs, allowPreview, navigate, isLoginRoute]);
 
   if (isLoginRoute) {
     return <Outlet />;
   }
 
-  if (loading || !isAdmin || viewAs !== "admin") {
+  if (!allowPreview && (loading || !isAdmin || viewAs !== "admin")) {
     return (
       <div className="grid min-h-screen place-items-center bg-background text-sm text-muted-foreground">
         Checking access…

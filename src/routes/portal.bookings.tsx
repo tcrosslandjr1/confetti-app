@@ -152,7 +152,10 @@ function PortalBookingsPage() {
       toast.info("This is a sample booking — book a real venue to manage it here.");
       return;
     }
-    if (typeof window !== "undefined" && !window.confirm("Cancel this booking? This can't be undone.")) {
+    if (
+      typeof window !== "undefined" &&
+      !window.confirm("Cancel this booking? This can't be undone.")
+    ) {
       return;
     }
     const { error } = await supabase
@@ -276,7 +279,6 @@ function BookingsTabs({
     </div>
   );
 }
-
 
 function BookingCard({
   b,

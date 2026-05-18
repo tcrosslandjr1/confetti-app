@@ -431,18 +431,19 @@ const suitePersonalization: TestSuite = {
   name: "Personalization Engine",
   run: () => {
     type Sig = { signal_type: string; payload: Record<string, unknown>; city: string | null };
-    const signals: Sig[] = Array.from({ length: 5 }, () => ({
-      signal_type: "vibe_chosen",
-      payload: { vibe: "soft_life" },
-      city: "miami",
-    })).concat(
-      Array.from({ length: 3 }, () => ({
+    const signals: Sig[] = [
+      ...Array.from({ length: 5 }, (): Sig => ({
+        signal_type: "vibe_chosen",
+        payload: { vibe: "soft_life" },
+        city: "miami",
+      })),
+      ...Array.from({ length: 3 }, (): Sig => ({
         signal_type: "category_chosen",
         payload: { category: "brunch-baddies" },
         city: "miami",
       })),
-      [{ signal_type: "budget", payload: { tier: 2 }, city: "miami" }],
-    );
+      { signal_type: "budget", payload: { tier: 2 }, city: "miami" },
+    ];
     const profile = learnProfileFromSignals(signals, DEFAULT_PROFILE);
     const defaults = getDefaultsFromProfile(profile);
     return [

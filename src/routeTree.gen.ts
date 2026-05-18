@@ -93,6 +93,7 @@ import { Route as PlanReadyRouteImport } from './routes/plan.ready'
 import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
 import { Route as PartnerProfileRouteImport } from './routes/partner.profile'
 import { Route as PartnerOrderSettingsRouteImport } from './routes/partner.order-settings'
+import { Route as PartnerCalendarRouteImport } from './routes/partner.calendar'
 import { Route as PartnerBookingSettingsRouteImport } from './routes/partner.booking-settings'
 import { Route as PCodeRouteImport } from './routes/p.$code'
 import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
@@ -591,6 +592,11 @@ const PartnerProfileRoute = PartnerProfileRouteImport.update({
 const PartnerOrderSettingsRoute = PartnerOrderSettingsRouteImport.update({
   id: '/order-settings',
   path: '/order-settings',
+  getParentRoute: () => PartnerRoute,
+} as any)
+const PartnerCalendarRoute = PartnerCalendarRouteImport.update({
+  id: '/calendar',
+  path: '/calendar',
   getParentRoute: () => PartnerRoute,
 } as any)
 const PartnerBookingSettingsRoute = PartnerBookingSettingsRouteImport.update({
@@ -1108,6 +1114,7 @@ export interface FileRoutesByFullPath {
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
   '/partner/booking-settings': typeof PartnerBookingSettingsRoute
+  '/partner/calendar': typeof PartnerCalendarRoute
   '/partner/order-settings': typeof PartnerOrderSettingsRoute
   '/partner/profile': typeof PartnerProfileRoute
   '/plan/preview': typeof PlanPreviewRoute
@@ -1264,6 +1271,7 @@ export interface FileRoutesByTo {
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
   '/partner/booking-settings': typeof PartnerBookingSettingsRoute
+  '/partner/calendar': typeof PartnerCalendarRoute
   '/partner/order-settings': typeof PartnerOrderSettingsRoute
   '/partner/profile': typeof PartnerProfileRoute
   '/plan/preview': typeof PlanPreviewRoute
@@ -1430,6 +1438,7 @@ export interface FileRoutesById {
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
   '/partner/booking-settings': typeof PartnerBookingSettingsRoute
+  '/partner/calendar': typeof PartnerCalendarRoute
   '/partner/order-settings': typeof PartnerOrderSettingsRoute
   '/partner/profile': typeof PartnerProfileRoute
   '/plan/preview': typeof PlanPreviewRoute
@@ -1597,6 +1606,7 @@ export interface FileRouteTypes {
     | '/ideas/$slug'
     | '/p/$code'
     | '/partner/booking-settings'
+    | '/partner/calendar'
     | '/partner/order-settings'
     | '/partner/profile'
     | '/plan/preview'
@@ -1753,6 +1763,7 @@ export interface FileRouteTypes {
     | '/ideas/$slug'
     | '/p/$code'
     | '/partner/booking-settings'
+    | '/partner/calendar'
     | '/partner/order-settings'
     | '/partner/profile'
     | '/plan/preview'
@@ -1918,6 +1929,7 @@ export interface FileRouteTypes {
     | '/ideas/$slug'
     | '/p/$code'
     | '/partner/booking-settings'
+    | '/partner/calendar'
     | '/partner/order-settings'
     | '/partner/profile'
     | '/plan/preview'
@@ -2660,6 +2672,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PartnerOrderSettingsRouteImport
       parentRoute: typeof PartnerRoute
     }
+    '/partner/calendar': {
+      id: '/partner/calendar'
+      path: '/calendar'
+      fullPath: '/partner/calendar'
+      preLoaderRoute: typeof PartnerCalendarRouteImport
+      parentRoute: typeof PartnerRoute
+    }
     '/partner/booking-settings': {
       id: '/partner/booking-settings'
       path: '/booking-settings'
@@ -3356,6 +3375,7 @@ const CorporateRouteWithChildren = CorporateRoute._addFileChildren(
 
 interface PartnerRouteChildren {
   PartnerBookingSettingsRoute: typeof PartnerBookingSettingsRoute
+  PartnerCalendarRoute: typeof PartnerCalendarRoute
   PartnerOrderSettingsRoute: typeof PartnerOrderSettingsRoute
   PartnerProfileRoute: typeof PartnerProfileRoute
   PartnerIndexRoute: typeof PartnerIndexRoute
@@ -3363,6 +3383,7 @@ interface PartnerRouteChildren {
 
 const PartnerRouteChildren: PartnerRouteChildren = {
   PartnerBookingSettingsRoute: PartnerBookingSettingsRoute,
+  PartnerCalendarRoute: PartnerCalendarRoute,
   PartnerOrderSettingsRoute: PartnerOrderSettingsRoute,
   PartnerProfileRoute: PartnerProfileRoute,
   PartnerIndexRoute: PartnerIndexRoute,

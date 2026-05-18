@@ -419,9 +419,7 @@ function VibePlansPage() {
                   const res = await classify({
                     data: { text: freeText.trim(), city: city?.label },
                   });
-                  setSelectedCats((prev) =>
-                    Array.from(new Set([...prev, ...res.categoryIds])),
-                  );
+                  setSelectedCats((prev) => Array.from(new Set([...prev, ...res.categoryIds])));
                   const firstGroup = CATEGORIES_BY_ID[res.categoryIds[0]]?.group;
                   if (firstGroup) setActiveGroup(firstGroup);
                 } catch {
@@ -444,9 +442,7 @@ function VibePlansPage() {
                 return (
                   <button
                     key={id}
-                    onClick={() =>
-                      setSelectedCats((p) => p.filter((x) => x !== id))
-                    }
+                    onClick={() => setSelectedCats((p) => p.filter((x) => x !== id))}
                     className="rounded-full bg-primary px-2.5 py-1 text-[11px] text-primary-foreground"
                   >
                     {c.name} ✕
@@ -495,9 +491,7 @@ function VibePlansPage() {
                 <button
                   key={c.id}
                   onClick={() =>
-                    setSelectedCats((p) =>
-                      on ? p.filter((x) => x !== c.id) : [...p, c.id],
-                    )
+                    setSelectedCats((p) => (on ? p.filter((x) => x !== c.id) : [...p, c.id]))
                   }
                   className={cn(
                     "rounded-full border px-2.5 py-1 text-[11px] transition",

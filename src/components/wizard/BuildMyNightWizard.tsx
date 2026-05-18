@@ -960,6 +960,7 @@ export function BuildMyNightWizard() {
         }
         const fetched = (data?.stops ?? []) as Stop[];
         if (fetched.length) {
+          setDynamicError(null);
           setDynamicStops(fetched);
           setReplacements({});
         } else {

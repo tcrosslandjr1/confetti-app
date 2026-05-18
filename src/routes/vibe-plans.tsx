@@ -254,7 +254,13 @@ function VibePlansPage() {
 
   async function swapName() {
     if (!plan || !city) return;
-    const v = vibe ?? { id: "custom", label: customVibe || "Surprise me", occasionId: "friends", mood: "social", emoji: "✨" };
+    const v = vibe ?? {
+      id: "custom",
+      label: customVibe || "Surprise me",
+      occasionId: "friends",
+      mood: "social",
+      emoji: "✨",
+    };
     setSwappingName(true);
     try {
       const energyLabel = ["mellow", "easy", "social", "hyped", "wild"][energy - 1] ?? "social";
@@ -269,7 +275,11 @@ function VibePlansPage() {
         },
       });
       if (res.ranked.length) {
-        setPlan({ ...plan, nameOptions: res.ranked.slice(0, 5), experienceName: res.ranked[0].name });
+        setPlan({
+          ...plan,
+          nameOptions: res.ranked.slice(0, 5),
+          experienceName: res.ranked[0].name,
+        });
         setSelectedName(res.ranked[0].name);
       }
     } catch (e) {
@@ -456,7 +466,12 @@ function VibePlansPage() {
                 >
                   Rename
                 </Button>
-                <Button size="sm" variant="outline" onClick={() => void swapName()} disabled={swappingName}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => void swapName()}
+                  disabled={swappingName}
+                >
                   {swappingName ? <Loader2 className="h-3 w-3 animate-spin" /> : "Swap Name"}
                 </Button>
               </div>

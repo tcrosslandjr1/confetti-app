@@ -26,9 +26,7 @@ async function assertAdmin(userId: string) {
 /* ----------------------------- EVENTS ----------------------------- */
 
 const EventListInput = z.object({
-  status: z
-    .enum(["pending_review", "published", "rejected", "all"])
-    .default("pending_review"),
+  status: z.enum(["pending_review", "published", "rejected", "all"]).default("pending_review"),
   city: z.string().max(80).optional(),
   query: z.string().max(120).optional(),
   page: z.number().int().min(1).max(500).default(1),
@@ -144,9 +142,11 @@ export const adminListVenuesForModeration = createServerFn({ method: "GET" })
         .order("created_at", { ascending: false })
         .limit(500);
       rejectedIds = Array.from(
-        new Set(((rj ?? []) as { entity_id: string | null }[])
-          .map((r) => r.entity_id)
-          .filter((x): x is string => !!x)),
+        new Set(
+          ((rj ?? []) as { entity_id: string | null }[])
+            .map((r) => r.entity_id)
+            .filter((x): x is string => !!x),
+        ),
       );
     }
 
@@ -209,10 +209,7 @@ export const adminDecideVenue = createServerFn({ method: "POST" })
     if (!existing) throw new Error("Venue not found");
 
     const verified = data.decision === "approve";
-    const { error } = await supabase
-      .from("venues")
-      .update({ verified })
-      .eq("id", data.venueId);
+    const { error } = await supabase.from("venues").update({ verified }).eq("id", data.venueId);
     if (error) throw new Error(error.message);
 
     await supabase.from("admin_audit_log").insert({

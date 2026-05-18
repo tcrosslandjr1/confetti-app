@@ -96,8 +96,7 @@ const SEED: Report[] = [
     reporter: "Priya Rao",
     target: "Bistro 1521",
     context: "Venue listing",
-    content:
-      "Walked by today, sign on the door says closed for good. Should be unlisted.",
+    content: "Walked by today, sign on the door says closed for good. Should be unlisted.",
     reportedAt: "1h ago",
     status: "pending",
   },
@@ -109,8 +108,7 @@ const SEED: Report[] = [
     reporter: "Ana Ferreira",
     target: "@chef_jose_andres_official",
     context: "User profile",
-    content:
-      "Profile claims to be José Andrés. Avatar is a screenshot from his Instagram.",
+    content: "Profile claims to be José Andrés. Avatar is a screenshot from his Instagram.",
     reportedAt: "3h ago",
     status: "pending",
   },
@@ -234,15 +232,10 @@ function EventsModerationTab() {
   });
 
   const decideMut = useMutation({
-    mutationFn: (vars: {
-      eventId: string;
-      decision: "approve" | "reject";
-      note?: string;
-    }) => decide({ data: vars }),
+    mutationFn: (vars: { eventId: string; decision: "approve" | "reject"; note?: string }) =>
+      decide({ data: vars }),
     onSuccess: (_d, v) => {
-      toast.success(
-        v.decision === "approve" ? "Event approved" : "Event rejected",
-      );
+      toast.success(v.decision === "approve" ? "Event approved" : "Event rejected");
       qc.invalidateQueries({ queryKey: ["mod-events"] });
       setDecision(null);
     },
@@ -275,15 +268,9 @@ function EventsModerationTab() {
         placeholder="Search by title or venue…"
       />
 
-      {isLoading && (
-        <p className="text-sm text-muted-foreground">Loading events…</p>
-      )}
-      {error && (
-        <p className="text-sm text-destructive">{(error as Error).message}</p>
-      )}
-      {!isLoading && events.length === 0 && (
-        <EmptyState label="No events in this view." />
-      )}
+      {isLoading && <p className="text-sm text-muted-foreground">Loading events…</p>}
+      {error && <p className="text-sm text-destructive">{(error as Error).message}</p>}
+      {!isLoading && events.length === 0 && <EmptyState label="No events in this view." />}
 
       <div className="grid gap-3">
         {events.map((e) => (
@@ -293,18 +280,12 @@ function EventsModerationTab() {
           >
             <div className="h-20 w-full overflow-hidden rounded-md bg-muted sm:h-16 sm:w-24 shrink-0">
               {e.image_url && (
-                <img
-                  src={e.image_url}
-                  alt=""
-                  className="h-full w-full object-cover"
-                />
+                <img src={e.image_url} alt="" className="h-full w-full object-cover" />
               )}
             </div>
             <div className="flex-1 min-w-0 space-y-1">
               <div className="flex flex-wrap items-center gap-2">
-                <h4 className="text-sm font-semibold text-foreground truncate">
-                  {e.title}
-                </h4>
+                <h4 className="text-sm font-semibold text-foreground truncate">{e.title}</h4>
                 <EventStatusBadge status={e.status} />
                 {e.source && e.source !== "manual" && (
                   <Badge variant="outline" className="text-[10px]">
@@ -437,15 +418,10 @@ function VenuesModerationTab() {
   });
 
   const decideMut = useMutation({
-    mutationFn: (vars: {
-      venueId: string;
-      decision: "approve" | "reject";
-      note?: string;
-    }) => decide({ data: vars }),
+    mutationFn: (vars: { venueId: string; decision: "approve" | "reject"; note?: string }) =>
+      decide({ data: vars }),
     onSuccess: (_d, v) => {
-      toast.success(
-        v.decision === "approve" ? "Venue approved" : "Venue rejected",
-      );
+      toast.success(v.decision === "approve" ? "Venue approved" : "Venue rejected");
       qc.invalidateQueries({ queryKey: ["mod-venues"] });
       setDecision(null);
     },
@@ -489,15 +465,9 @@ function VenuesModerationTab() {
         placeholder="Search by name or neighborhood…"
       />
 
-      {isLoading && (
-        <p className="text-sm text-muted-foreground">Loading venues…</p>
-      )}
-      {error && (
-        <p className="text-sm text-destructive">{(error as Error).message}</p>
-      )}
-      {!isLoading && venues.length === 0 && (
-        <EmptyState label="No venues in this view." />
-      )}
+      {isLoading && <p className="text-sm text-muted-foreground">Loading venues…</p>}
+      {error && <p className="text-sm text-destructive">{(error as Error).message}</p>}
+      {!isLoading && venues.length === 0 && <EmptyState label="No venues in this view." />}
 
       <div className="grid gap-3">
         {venues.map((v) => {
@@ -508,15 +478,11 @@ function VenuesModerationTab() {
               className="flex flex-col gap-3 rounded-xl border border-border bg-card p-4 shadow-sm sm:flex-row sm:items-center"
             >
               <div className="h-20 w-full overflow-hidden rounded-md bg-muted sm:h-16 sm:w-24 shrink-0">
-                {img && (
-                  <img src={img} alt="" className="h-full w-full object-cover" />
-                )}
+                {img && <img src={img} alt="" className="h-full w-full object-cover" />}
               </div>
               <div className="flex-1 min-w-0 space-y-1">
                 <div className="flex flex-wrap items-center gap-2">
-                  <h4 className="text-sm font-semibold text-foreground truncate">
-                    {v.name}
-                  </h4>
+                  <h4 className="text-sm font-semibold text-foreground truncate">{v.name}</h4>
                   <VenueStatusBadge verified={v.verified} />
                   {v.category && (
                     <Badge variant="outline" className="text-[10px] capitalize">
@@ -716,9 +682,7 @@ function PaginationBar({
               if (page < totalPages) onPage(page + 1);
             }}
             aria-disabled={page >= totalPages}
-            className={
-              page >= totalPages ? "pointer-events-none opacity-50" : ""
-            }
+            className={page >= totalPages ? "pointer-events-none opacity-50" : ""}
           />
         </PaginationItem>
       </PaginationContent>
@@ -760,8 +724,7 @@ function ReportsTab() {
     return reports.filter((r) => {
       if (tab !== "all" && r.status !== tab) return false;
       if (typeFilter !== "all" && r.type !== typeFilter) return false;
-      if (severityFilter !== "all" && r.severity !== severityFilter)
-        return false;
+      if (severityFilter !== "all" && r.severity !== severityFilter) return false;
       if (q) {
         const hay =
           `${r.id} ${r.target} ${r.reason} ${r.content} ${r.context} ${r.reporter}`.toLowerCase();
@@ -830,9 +793,7 @@ function ReportsTab() {
         <div className="ml-auto flex items-center gap-2">
           <select
             value={typeFilter}
-            onChange={(e) =>
-              setTypeFilter(e.target.value as "all" | ItemType)
-            }
+            onChange={(e) => setTypeFilter(e.target.value as "all" | ItemType)}
             className="rounded-md border border-border bg-background px-3 py-2 text-sm"
           >
             <option value="all">All types</option>
@@ -843,9 +804,7 @@ function ReportsTab() {
           </select>
           <select
             value={severityFilter}
-            onChange={(e) =>
-              setSeverityFilter(e.target.value as "all" | Severity)
-            }
+            onChange={(e) => setSeverityFilter(e.target.value as "all" | Severity)}
             className="rounded-md border border-border bg-background px-3 py-2 text-sm"
           >
             <option value="all">All severities</option>
@@ -873,9 +832,7 @@ function ReportsTab() {
                       <Icon className="h-4 w-4" />
                     </div>
                     <div>
-                      <div className="text-xs font-mono text-muted-foreground">
-                        {r.id}
-                      </div>
+                      <div className="text-xs font-mono text-muted-foreground">{r.id}</div>
                       <div className="text-sm font-semibold capitalize">
                         {r.type} · {r.context}
                       </div>
@@ -901,10 +858,7 @@ function ReportsTab() {
 
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
                   <span>
-                    Reported by{" "}
-                    <span className="font-semibold text-foreground">
-                      {r.reporter}
-                    </span>{" "}
+                    Reported by <span className="font-semibold text-foreground">{r.reporter}</span>{" "}
                     · {r.reportedAt}
                   </span>
                 </div>

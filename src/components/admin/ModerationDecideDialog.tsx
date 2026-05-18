@@ -57,9 +57,7 @@ export function ModerationDecideDialog({
         </DialogHeader>
 
         <Textarea
-          placeholder={
-            isReject ? "Reason (required)…" : "Internal note (optional)…"
-          }
+          placeholder={isReject ? "Reason (required)…" : "Internal note (optional)…"}
           value={note}
           onChange={(e) => setNote(e.target.value)}
           rows={3}

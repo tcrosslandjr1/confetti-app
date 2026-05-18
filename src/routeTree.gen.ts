@@ -92,6 +92,7 @@ import { Route as PortalAchievementsRouteImport } from './routes/portal.achievem
 import { Route as PlanReadyRouteImport } from './routes/plan.ready'
 import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
 import { Route as PartnerReservationsRouteImport } from './routes/partner.reservations'
+import { Route as PartnerPromotionsRouteImport } from './routes/partner.promotions'
 import { Route as PartnerProfileRouteImport } from './routes/partner.profile'
 import { Route as PartnerOrdersRouteImport } from './routes/partner.orders'
 import { Route as PartnerOrderSettingsRouteImport } from './routes/partner.order-settings'
@@ -592,6 +593,11 @@ const PlanPreviewRoute = PlanPreviewRouteImport.update({
 const PartnerReservationsRoute = PartnerReservationsRouteImport.update({
   id: '/reservations',
   path: '/reservations',
+  getParentRoute: () => PartnerRoute,
+} as any)
+const PartnerPromotionsRoute = PartnerPromotionsRouteImport.update({
+  id: '/promotions',
+  path: '/promotions',
   getParentRoute: () => PartnerRoute,
 } as any)
 const PartnerProfileRoute = PartnerProfileRouteImport.update({
@@ -1151,6 +1157,7 @@ export interface FileRoutesByFullPath {
   '/partner/order-settings': typeof PartnerOrderSettingsRoute
   '/partner/orders': typeof PartnerOrdersRoute
   '/partner/profile': typeof PartnerProfileRoute
+  '/partner/promotions': typeof PartnerPromotionsRoute
   '/partner/reservations': typeof PartnerReservationsRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
@@ -1313,6 +1320,7 @@ export interface FileRoutesByTo {
   '/partner/order-settings': typeof PartnerOrderSettingsRoute
   '/partner/orders': typeof PartnerOrdersRoute
   '/partner/profile': typeof PartnerProfileRoute
+  '/partner/promotions': typeof PartnerPromotionsRoute
   '/partner/reservations': typeof PartnerReservationsRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
@@ -1485,6 +1493,7 @@ export interface FileRoutesById {
   '/partner/order-settings': typeof PartnerOrderSettingsRoute
   '/partner/orders': typeof PartnerOrdersRoute
   '/partner/profile': typeof PartnerProfileRoute
+  '/partner/promotions': typeof PartnerPromotionsRoute
   '/partner/reservations': typeof PartnerReservationsRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
@@ -1658,6 +1667,7 @@ export interface FileRouteTypes {
     | '/partner/order-settings'
     | '/partner/orders'
     | '/partner/profile'
+    | '/partner/promotions'
     | '/partner/reservations'
     | '/plan/preview'
     | '/plan/ready'
@@ -1820,6 +1830,7 @@ export interface FileRouteTypes {
     | '/partner/order-settings'
     | '/partner/orders'
     | '/partner/profile'
+    | '/partner/promotions'
     | '/partner/reservations'
     | '/plan/preview'
     | '/plan/ready'
@@ -1991,6 +2002,7 @@ export interface FileRouteTypes {
     | '/partner/order-settings'
     | '/partner/orders'
     | '/partner/profile'
+    | '/partner/promotions'
     | '/partner/reservations'
     | '/plan/preview'
     | '/plan/ready'
@@ -2723,6 +2735,13 @@ declare module '@tanstack/react-router' {
       path: '/reservations'
       fullPath: '/partner/reservations'
       preLoaderRoute: typeof PartnerReservationsRouteImport
+      parentRoute: typeof PartnerRoute
+    }
+    '/partner/promotions': {
+      id: '/partner/promotions'
+      path: '/promotions'
+      fullPath: '/partner/promotions'
+      preLoaderRoute: typeof PartnerPromotionsRouteImport
       parentRoute: typeof PartnerRoute
     }
     '/partner/profile': {
@@ -3477,6 +3496,7 @@ interface PartnerRouteChildren {
   PartnerOrderSettingsRoute: typeof PartnerOrderSettingsRoute
   PartnerOrdersRoute: typeof PartnerOrdersRoute
   PartnerProfileRoute: typeof PartnerProfileRoute
+  PartnerPromotionsRoute: typeof PartnerPromotionsRoute
   PartnerReservationsRoute: typeof PartnerReservationsRoute
   PartnerIndexRoute: typeof PartnerIndexRoute
 }
@@ -3490,6 +3510,7 @@ const PartnerRouteChildren: PartnerRouteChildren = {
   PartnerOrderSettingsRoute: PartnerOrderSettingsRoute,
   PartnerOrdersRoute: PartnerOrdersRoute,
   PartnerProfileRoute: PartnerProfileRoute,
+  PartnerPromotionsRoute: PartnerPromotionsRoute,
   PartnerReservationsRoute: PartnerReservationsRoute,
   PartnerIndexRoute: PartnerIndexRoute,
 }

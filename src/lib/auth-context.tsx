@@ -158,9 +158,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const loading = sessionLoading || roleLoading || !viewAsLoaded;
     const realRole: ViewAs = !session?.user ? "visitor" : isAdmin ? "admin" : "customer";
 
-    // Only admins can impersonate. For everyone else, viewAs = their real role.
-    const effective: ViewAs = isAdmin ? (viewAsState ?? "admin") : realRole;
-    const impersonating = isAdmin && effective !== "admin";
+    // The switcher is a UI-only role preview. Real permissions are always
+    // enforced server-side by RLS, so we let any visitor preview any role —
+    // admins included. `effective` falls back to the real role when nothing
+    // has been picked. `isImpersonating` is true whenever the preview differs
+    // from the real role (so the amber banner only shows when it should).
+    const effective: ViewAs = viewAsState ?? realRole;
+    const impersonating = effective !== realRole;
 
     return {
       user: session?.user ?? null,

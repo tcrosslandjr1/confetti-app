@@ -92,6 +92,7 @@ import { Route as PortalAchievementsRouteImport } from './routes/portal.achievem
 import { Route as PlanReadyRouteImport } from './routes/plan.ready'
 import { Route as PlanPreviewRouteImport } from './routes/plan.preview'
 import { Route as PartnerProfileRouteImport } from './routes/partner.profile'
+import { Route as PartnerBookingSettingsRouteImport } from './routes/partner.booking-settings'
 import { Route as PCodeRouteImport } from './routes/p.$code'
 import { Route as IdeasSlugRouteImport } from './routes/ideas.$slug'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
@@ -584,6 +585,11 @@ const PlanPreviewRoute = PlanPreviewRouteImport.update({
 const PartnerProfileRoute = PartnerProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
+  getParentRoute: () => PartnerRoute,
+} as any)
+const PartnerBookingSettingsRoute = PartnerBookingSettingsRouteImport.update({
+  id: '/booking-settings',
+  path: '/booking-settings',
   getParentRoute: () => PartnerRoute,
 } as any)
 const PCodeRoute = PCodeRouteImport.update({
@@ -1095,6 +1101,7 @@ export interface FileRoutesByFullPath {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
+  '/partner/booking-settings': typeof PartnerBookingSettingsRoute
   '/partner/profile': typeof PartnerProfileRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
@@ -1249,6 +1256,7 @@ export interface FileRoutesByTo {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
+  '/partner/booking-settings': typeof PartnerBookingSettingsRoute
   '/partner/profile': typeof PartnerProfileRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
@@ -1413,6 +1421,7 @@ export interface FileRoutesById {
   '/events/$eventId': typeof EventsEventIdRoute
   '/ideas/$slug': typeof IdeasSlugRoute
   '/p/$code': typeof PCodeRoute
+  '/partner/booking-settings': typeof PartnerBookingSettingsRoute
   '/partner/profile': typeof PartnerProfileRoute
   '/plan/preview': typeof PlanPreviewRoute
   '/plan/ready': typeof PlanReadyRoute
@@ -1578,6 +1587,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/p/$code'
+    | '/partner/booking-settings'
     | '/partner/profile'
     | '/plan/preview'
     | '/plan/ready'
@@ -1732,6 +1742,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/p/$code'
+    | '/partner/booking-settings'
     | '/partner/profile'
     | '/plan/preview'
     | '/plan/ready'
@@ -1895,6 +1906,7 @@ export interface FileRouteTypes {
     | '/events/$eventId'
     | '/ideas/$slug'
     | '/p/$code'
+    | '/partner/booking-settings'
     | '/partner/profile'
     | '/plan/preview'
     | '/plan/ready'
@@ -2629,6 +2641,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PartnerProfileRouteImport
       parentRoute: typeof PartnerRoute
     }
+    '/partner/booking-settings': {
+      id: '/partner/booking-settings'
+      path: '/booking-settings'
+      fullPath: '/partner/booking-settings'
+      preLoaderRoute: typeof PartnerBookingSettingsRouteImport
+      parentRoute: typeof PartnerRoute
+    }
     '/p/$code': {
       id: '/p/$code'
       path: '/p/$code'
@@ -3317,11 +3336,13 @@ const CorporateRouteWithChildren = CorporateRoute._addFileChildren(
 )
 
 interface PartnerRouteChildren {
+  PartnerBookingSettingsRoute: typeof PartnerBookingSettingsRoute
   PartnerProfileRoute: typeof PartnerProfileRoute
   PartnerIndexRoute: typeof PartnerIndexRoute
 }
 
 const PartnerRouteChildren: PartnerRouteChildren = {
+  PartnerBookingSettingsRoute: PartnerBookingSettingsRoute,
   PartnerProfileRoute: PartnerProfileRoute,
   PartnerIndexRoute: PartnerIndexRoute,
 }

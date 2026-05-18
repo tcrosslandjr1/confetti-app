@@ -780,6 +780,13 @@ const SLUG_ALIASES: Record<string, string> = {
   dmv: "dc",
   mia: "miami",
   sea: "seattle",
+  nashville: "nash",
+  memphis: "mem",
+  knoxville: "knox",
+  chattanooga: "chatt",
+  gatlinburg: "gat",
+  phoenix: "phx",
+  scottsdale: "phx",
   hou: "hou",
   // bos, phl, nash, aus, den, no, tor: no dedicated context — use loose match by name
 };

@@ -126,6 +126,7 @@ import { Route as AdminOutreachRouteImport } from './routes/admin.outreach'
 import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
 import { Route as AdminModerationRouteImport } from './routes/admin.moderation'
 import { Route as AdminMarqueeRouteImport } from './routes/admin.marquee'
+import { Route as AdminLogsRouteImport } from './routes/admin.logs'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminLaunchRouteImport } from './routes/admin.launch'
 import { Route as AdminIntegrationsRouteImport } from './routes/admin.integrations'
@@ -740,6 +741,11 @@ const AdminMarqueeRoute = AdminMarqueeRouteImport.update({
   path: '/marquee',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminLogsRoute = AdminLogsRouteImport.update({
+  id: '/logs',
+  path: '/logs',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -946,6 +952,7 @@ export interface FileRoutesByFullPath {
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/logs': typeof AdminLogsRoute
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/notifications': typeof AdminNotificationsRoute
@@ -1085,6 +1092,7 @@ export interface FileRoutesByTo {
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/logs': typeof AdminLogsRoute
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/notifications': typeof AdminNotificationsRoute
@@ -1233,6 +1241,7 @@ export interface FileRoutesById {
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/logs': typeof AdminLogsRoute
   '/admin/marquee': typeof AdminMarqueeRoute
   '/admin/moderation': typeof AdminModerationRoute
   '/admin/notifications': typeof AdminNotificationsRoute
@@ -1382,6 +1391,7 @@ export interface FileRouteTypes {
     | '/admin/integrations'
     | '/admin/launch'
     | '/admin/login'
+    | '/admin/logs'
     | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/notifications'
@@ -1521,6 +1531,7 @@ export interface FileRouteTypes {
     | '/admin/integrations'
     | '/admin/launch'
     | '/admin/login'
+    | '/admin/logs'
     | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/notifications'
@@ -1668,6 +1679,7 @@ export interface FileRouteTypes {
     | '/admin/integrations'
     | '/admin/launch'
     | '/admin/login'
+    | '/admin/logs'
     | '/admin/marquee'
     | '/admin/moderation'
     | '/admin/notifications'
@@ -2665,6 +2677,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminMarqueeRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/logs': {
+      id: '/admin/logs'
+      path: '/logs'
+      fullPath: '/admin/logs'
+      preLoaderRoute: typeof AdminLogsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/login'
@@ -2875,6 +2894,7 @@ interface AdminRouteChildren {
   AdminIntegrationsRoute: typeof AdminIntegrationsRoute
   AdminLaunchRoute: typeof AdminLaunchRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  AdminLogsRoute: typeof AdminLogsRoute
   AdminMarqueeRoute: typeof AdminMarqueeRoute
   AdminModerationRoute: typeof AdminModerationRoute
   AdminNotificationsRoute: typeof AdminNotificationsRoute
@@ -2901,6 +2921,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminIntegrationsRoute: AdminIntegrationsRoute,
   AdminLaunchRoute: AdminLaunchRoute,
   AdminLoginRoute: AdminLoginRoute,
+  AdminLogsRoute: AdminLogsRoute,
   AdminMarqueeRoute: AdminMarqueeRoute,
   AdminModerationRoute: AdminModerationRoute,
   AdminNotificationsRoute: AdminNotificationsRoute,

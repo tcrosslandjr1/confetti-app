@@ -403,7 +403,7 @@ function VibePlansPage() {
         })),
       }),
       city: plan.city,
-      experienceName: plan.experienceName,
+      experienceName: selectedName ?? plan.experienceName,
       experienceTagline: plan.experienceTagline,
       blueprint: plan.blueprint,
       estimatedSpend: plan.estimatedSpend,

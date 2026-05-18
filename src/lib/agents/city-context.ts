@@ -226,11 +226,86 @@ const TRAVEL_BY_SLUG: Record<string, TravelIntel> = {
   },
 };
 
+/** Waterfront defaults by slug — kept here so each city block stays terse. */
+const WATERFRONT_BY_SLUG: Record<string, WaterfrontProfile> = {
+  dc: {
+    hasWaterfront: true,
+    waterType: "river",
+    features: ["riverwalk", "pier", "marina", "boardwalk"],
+    activities: ["waterfront dining", "sunset cruise", "harbor stroll", "riverfront rooftops"],
+    signatureSpots: ["The Wharf", "Georgetown Waterfront", "Navy Yard"],
+  },
+  nyc: {
+    hasWaterfront: true,
+    waterType: "river",
+    features: ["pier", "boardwalk", "ferry terminal", "riverwalk"],
+    activities: [
+      "sunset cruise",
+      "yacht charter",
+      "waterfront dining",
+      "rooftop on the water",
+      "ferry hop",
+    ],
+    signatureSpots: ["Hudson Yards", "South Street Seaport", "Brooklyn Heights", "Pier 17"],
+  },
+  miami: {
+    hasWaterfront: true,
+    waterType: "ocean",
+    features: ["beach", "marina", "boardwalk", "harbor"],
+    activities: [
+      "beach club",
+      "yacht rental",
+      "sunset cruise",
+      "waterfront dining",
+      "rooftop on the bay",
+    ],
+    signatureSpots: ["South Beach", "Brickell Key", "Bayside Marina", "Coconut Grove"],
+  },
+  sf: {
+    hasWaterfront: true,
+    waterType: "bay",
+    features: ["embarcadero", "pier", "marina", "ferry terminal"],
+    activities: ["bay cruise", "waterfront dining", "ferry hop", "marina lounge"],
+    signatureSpots: ["Embarcadero", "Pier 39", "Marina District"],
+  },
+  chi: {
+    hasWaterfront: true,
+    waterType: "lake",
+    features: ["lakefront", "riverwalk", "pier", "marina"],
+    activities: [
+      "lakefront stroll",
+      "architectural river cruise",
+      "lakefront wineries",
+      "riverwalk cocktail lounges",
+    ],
+    signatureSpots: ["Navy Pier", "Chicago Riverwalk", "Lakefront Trail"],
+  },
+  seattle: {
+    hasWaterfront: true,
+    waterType: "harbor",
+    features: ["pier", "boardwalk", "ferry terminal", "marina"],
+    activities: ["harbor cruise", "ferry hop", "waterfront dining", "marina lounge"],
+    signatureSpots: ["Pike Place Waterfront", "Alki Beach"],
+  },
+  la: {
+    hasWaterfront: true,
+    waterType: "ocean",
+    features: ["beach", "pier", "boardwalk", "marina"],
+    activities: ["beach club", "yacht rental", "pier stroll", "marina dining"],
+    signatureSpots: ["Santa Monica Pier", "Venice Beach", "Marina del Rey"],
+  },
+  vegas: { hasWaterfront: false, features: [], activities: [] },
+  hou: { hasWaterfront: false, features: [], activities: [] },
+  atl: { hasWaterfront: false, features: [], activities: [] },
+};
+
 const make = (
   c: Omit<CityContext, "signatureNeighborhoods"> & { signatureNeighborhoods?: string[] },
 ): CityContext => ({
   ...c,
   travel: c.travel ?? TRAVEL_BY_SLUG[c.slug],
+  waterfront:
+    c.waterfront ?? WATERFRONT_BY_SLUG[c.slug] ?? { hasWaterfront: false, features: [], activities: [] },
   signatureNeighborhoods: c.signatureNeighborhoods ?? c.neighborhoods.map((n) => n.name),
 });
 

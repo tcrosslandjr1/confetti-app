@@ -93,10 +93,10 @@ export const recordSignals = createServerFn({ method: "POST" })
     const rows = data.signals.map((s) => ({
       user_id: userId,
       signal_type: s.signal_type,
-      payload: s.payload,
+      payload: s.payload as never,
       city: s.city ?? null,
     }));
-    await supabase.from("user_signals").insert(rows);
+    await supabase.from("user_signals").insert(rows as never);
     return { ok: true, count: rows.length };
   });
 

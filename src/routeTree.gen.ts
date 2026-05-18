@@ -47,6 +47,7 @@ import { Route as CheckInRouteImport } from './routes/check-in'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as BoardingPassRouteImport } from './routes/boarding-pass'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AskRouteImport } from './routes/ask'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as AdvertiseRouteImport } from './routes/advertise'
 import { Route as AdminRouteImport } from './routes/admin'
@@ -74,6 +75,7 @@ import { Route as RsvpTripIdRouteImport } from './routes/rsvp.$tripId'
 import { Route as RsvpTokenRouteImport } from './routes/rsvp.$token'
 import { Route as RecapItineraryIdRouteImport } from './routes/recap.$itineraryId'
 import { Route as PromoterJobsRouteImport } from './routes/promoter.jobs'
+import { Route as ProfilePreferencesRouteImport } from './routes/profile.preferences'
 import { Route as PortalWalletRouteImport } from './routes/portal.wallet'
 import { Route as PortalViralRouteImport } from './routes/portal.viral'
 import { Route as PortalSavedRouteImport } from './routes/portal.saved'
@@ -353,6 +355,11 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AskRoute = AskRouteImport.update({
+  id: '/ask',
+  path: '/ask',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppRoute = AppRouteImport.update({
   id: '/app',
   path: '/app',
@@ -487,6 +494,11 @@ const PromoterJobsRoute = PromoterJobsRouteImport.update({
   id: '/jobs',
   path: '/jobs',
   getParentRoute: () => PromoterRoute,
+} as any)
+const ProfilePreferencesRoute = ProfilePreferencesRouteImport.update({
+  id: '/profile/preferences',
+  path: '/profile/preferences',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const PortalWalletRoute = PortalWalletRouteImport.update({
   id: '/wallet',
@@ -947,6 +959,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRouteWithChildren
   '/app': typeof AppRouteWithChildren
+  '/ask': typeof AskRoute
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
@@ -1055,6 +1068,7 @@ export interface FileRoutesByFullPath {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/portal/wallet': typeof PortalWalletRoute
+  '/profile/preferences': typeof ProfilePreferencesRoute
   '/promoter/jobs': typeof PromoterJobsRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
@@ -1099,6 +1113,7 @@ export interface FileRoutesByTo {
   '/accessibility': typeof AccessibilityRoute
   '/active-confetti': typeof ActiveConfettiRoute
   '/active-loop': typeof ActiveLoopRoute
+  '/ask': typeof AskRoute
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
@@ -1202,6 +1217,7 @@ export interface FileRoutesByTo {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/portal/wallet': typeof PortalWalletRoute
+  '/profile/preferences': typeof ProfilePreferencesRoute
   '/promoter/jobs': typeof PromoterJobsRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
@@ -1250,6 +1266,7 @@ export interface FileRoutesById {
   '/admin': typeof AdminRouteWithChildren
   '/advertise': typeof AdvertiseRouteWithChildren
   '/app': typeof AppRouteWithChildren
+  '/ask': typeof AskRoute
   '/auth': typeof AuthRoute
   '/boarding-pass': typeof BoardingPassRoute
   '/chat': typeof ChatRoute
@@ -1358,6 +1375,7 @@ export interface FileRoutesById {
   '/portal/saved': typeof PortalSavedRoute
   '/portal/viral': typeof PortalViralRoute
   '/portal/wallet': typeof PortalWalletRoute
+  '/profile/preferences': typeof ProfilePreferencesRoute
   '/promoter/jobs': typeof PromoterJobsRoute
   '/recap/$itineraryId': typeof RecapItineraryIdRoute
   '/rsvp/$token': typeof RsvpTokenRoute
@@ -1407,6 +1425,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/advertise'
     | '/app'
+    | '/ask'
     | '/auth'
     | '/boarding-pass'
     | '/chat'
@@ -1515,6 +1534,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/portal/wallet'
+    | '/profile/preferences'
     | '/promoter/jobs'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
@@ -1559,6 +1579,7 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/active-confetti'
     | '/active-loop'
+    | '/ask'
     | '/auth'
     | '/boarding-pass'
     | '/chat'
@@ -1662,6 +1683,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/portal/wallet'
+    | '/profile/preferences'
     | '/promoter/jobs'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
@@ -1709,6 +1731,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/advertise'
     | '/app'
+    | '/ask'
     | '/auth'
     | '/boarding-pass'
     | '/chat'
@@ -1817,6 +1840,7 @@ export interface FileRouteTypes {
     | '/portal/saved'
     | '/portal/viral'
     | '/portal/wallet'
+    | '/profile/preferences'
     | '/promoter/jobs'
     | '/recap/$itineraryId'
     | '/rsvp/$token'
@@ -1865,6 +1889,7 @@ export interface RootRouteChildren {
   AdminRoute: typeof AdminRouteWithChildren
   AdvertiseRoute: typeof AdvertiseRouteWithChildren
   AppRoute: typeof AppRouteWithChildren
+  AskRoute: typeof AskRoute
   AuthRoute: typeof AuthRoute
   BoardingPassRoute: typeof BoardingPassRoute
   ChatRoute: typeof ChatRoute
@@ -1924,6 +1949,7 @@ export interface RootRouteChildren {
   EventsEventIdRoute: typeof EventsEventIdRoute
   IdeasSlugRoute: typeof IdeasSlugRoute
   PCodeRoute: typeof PCodeRoute
+  ProfilePreferencesRoute: typeof ProfilePreferencesRoute
   RecapItineraryIdRoute: typeof RecapItineraryIdRoute
   RsvpTokenRoute: typeof RsvpTokenRoute
   RsvpTripIdRoute: typeof RsvpTripIdRoute
@@ -2215,6 +2241,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ask': {
+      id: '/ask'
+      path: '/ask'
+      fullPath: '/ask'
+      preLoaderRoute: typeof AskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/app': {
       id: '/app'
       path: '/app'
@@ -2403,6 +2436,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/promoter/jobs'
       preLoaderRoute: typeof PromoterJobsRouteImport
       parentRoute: typeof PromoterRoute
+    }
+    '/profile/preferences': {
+      id: '/profile/preferences'
+      path: '/profile/preferences'
+      fullPath: '/profile/preferences'
+      preLoaderRoute: typeof ProfilePreferencesRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/portal/wallet': {
       id: '/portal/wallet'
@@ -3262,6 +3302,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRoute: AdminRouteWithChildren,
   AdvertiseRoute: AdvertiseRouteWithChildren,
   AppRoute: AppRouteWithChildren,
+  AskRoute: AskRoute,
   AuthRoute: AuthRoute,
   BoardingPassRoute: BoardingPassRoute,
   ChatRoute: ChatRoute,
@@ -3321,6 +3362,7 @@ const rootRouteChildren: RootRouteChildren = {
   EventsEventIdRoute: EventsEventIdRoute,
   IdeasSlugRoute: IdeasSlugRoute,
   PCodeRoute: PCodeRoute,
+  ProfilePreferencesRoute: ProfilePreferencesRoute,
   RecapItineraryIdRoute: RecapItineraryIdRoute,
   RsvpTokenRoute: RsvpTokenRoute,
   RsvpTripIdRoute: RsvpTripIdRoute,

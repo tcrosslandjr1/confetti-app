@@ -10,7 +10,7 @@ import {
   Repeat,
   Briefcase,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { logSecurityTrace } from "@/lib/security-trace";
 
 type Option = {

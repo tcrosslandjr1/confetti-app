@@ -112,7 +112,10 @@ function SavedPage() {
   };
 
   const add = async (vid: string) => {
-    if (!user) return;
+    if (!user) {
+      toast.error("Sign in to save venues.");
+      return;
+    }
     const { error } = await supabase
       .from("saved_venues")
       .insert({ user_id: user.id, venue_id: vid });

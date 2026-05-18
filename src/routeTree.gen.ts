@@ -181,6 +181,7 @@ import { Route as ApiPublicHooksDiscoverViralRouteImport } from './routes/api/pu
 import { Route as ApiAdminWalletGoogleDebugRouteImport } from './routes/api/admin/wallet/google-debug'
 import { Route as ApiAdminWalletGoogleClassRouteImport } from './routes/api/admin/wallet/google-class'
 import { Route as ApiPublicPartnerV1ReservationsIndexRouteImport } from './routes/api/public/partner/v1/reservations/index'
+import { Route as ApiPublicPartnerV1OrdersIndexRouteImport } from './routes/api/public/partner/v1/orders/index'
 import { Route as ApiPublicPartnerV1ReservationsIdRouteImport } from './routes/api/public/partner/v1/reservations/$id'
 
 const WeatherRoute = WeatherRouteImport.update({
@@ -1053,6 +1054,12 @@ const ApiPublicPartnerV1ReservationsIndexRoute =
     path: '/api/public/partner/v1/reservations/',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiPublicPartnerV1OrdersIndexRoute =
+  ApiPublicPartnerV1OrdersIndexRouteImport.update({
+    id: '/api/public/partner/v1/orders/',
+    path: '/api/public/partner/v1/orders/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicPartnerV1ReservationsIdRoute =
   ApiPublicPartnerV1ReservationsIdRouteImport.update({
     id: '/api/public/partner/v1/reservations/$id',
@@ -1233,6 +1240,7 @@ export interface FileRoutesByFullPath {
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
   '/api/public/partner/v1/reservations/$id': typeof ApiPublicPartnerV1ReservationsIdRoute
+  '/api/public/partner/v1/orders/': typeof ApiPublicPartnerV1OrdersIndexRoute
   '/api/public/partner/v1/reservations/': typeof ApiPublicPartnerV1ReservationsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -1399,6 +1407,7 @@ export interface FileRoutesByTo {
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
   '/api/public/partner/v1/reservations/$id': typeof ApiPublicPartnerV1ReservationsIdRoute
+  '/api/public/partner/v1/orders': typeof ApiPublicPartnerV1OrdersIndexRoute
   '/api/public/partner/v1/reservations': typeof ApiPublicPartnerV1ReservationsIndexRoute
 }
 export interface FileRoutesById {
@@ -1575,6 +1584,7 @@ export interface FileRoutesById {
   '/api/public/tiktok/callback': typeof ApiPublicTiktokCallbackRoute
   '/api/public/wallet/google': typeof ApiPublicWalletGoogleRoute
   '/api/public/partner/v1/reservations/$id': typeof ApiPublicPartnerV1ReservationsIdRoute
+  '/api/public/partner/v1/orders/': typeof ApiPublicPartnerV1OrdersIndexRoute
   '/api/public/partner/v1/reservations/': typeof ApiPublicPartnerV1ReservationsIndexRoute
 }
 export interface FileRouteTypes {
@@ -1752,6 +1762,7 @@ export interface FileRouteTypes {
     | '/api/public/tiktok/callback'
     | '/api/public/wallet/google'
     | '/api/public/partner/v1/reservations/$id'
+    | '/api/public/partner/v1/orders/'
     | '/api/public/partner/v1/reservations/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -1918,6 +1929,7 @@ export interface FileRouteTypes {
     | '/api/public/tiktok/callback'
     | '/api/public/wallet/google'
     | '/api/public/partner/v1/reservations/$id'
+    | '/api/public/partner/v1/orders'
     | '/api/public/partner/v1/reservations'
   id:
     | '__root__'
@@ -2093,6 +2105,7 @@ export interface FileRouteTypes {
     | '/api/public/tiktok/callback'
     | '/api/public/wallet/google'
     | '/api/public/partner/v1/reservations/$id'
+    | '/api/public/partner/v1/orders/'
     | '/api/public/partner/v1/reservations/'
   fileRoutesById: FileRoutesById
 }
@@ -2191,6 +2204,7 @@ export interface RootRouteChildren {
   ApiPublicTiktokCallbackRoute: typeof ApiPublicTiktokCallbackRoute
   ApiPublicWalletGoogleRoute: typeof ApiPublicWalletGoogleRoute
   ApiPublicPartnerV1ReservationsIdRoute: typeof ApiPublicPartnerV1ReservationsIdRoute
+  ApiPublicPartnerV1OrdersIndexRoute: typeof ApiPublicPartnerV1OrdersIndexRoute
   ApiPublicPartnerV1ReservationsIndexRoute: typeof ApiPublicPartnerV1ReservationsIndexRoute
 }
 
@@ -3400,6 +3414,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicPartnerV1ReservationsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/partner/v1/orders/': {
+      id: '/api/public/partner/v1/orders/'
+      path: '/api/public/partner/v1/orders'
+      fullPath: '/api/public/partner/v1/orders/'
+      preLoaderRoute: typeof ApiPublicPartnerV1OrdersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/partner/v1/reservations/$id': {
       id: '/api/public/partner/v1/reservations/$id'
       path: '/api/public/partner/v1/reservations/$id'
@@ -3779,6 +3800,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicTiktokCallbackRoute: ApiPublicTiktokCallbackRoute,
   ApiPublicWalletGoogleRoute: ApiPublicWalletGoogleRoute,
   ApiPublicPartnerV1ReservationsIdRoute: ApiPublicPartnerV1ReservationsIdRoute,
+  ApiPublicPartnerV1OrdersIndexRoute: ApiPublicPartnerV1OrdersIndexRoute,
   ApiPublicPartnerV1ReservationsIndexRoute:
     ApiPublicPartnerV1ReservationsIndexRoute,
 }

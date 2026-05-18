@@ -56,14 +56,41 @@ export const Route = createFileRoute("/create")({
 });
 
 const GROUP = [
-  { id: "solo", label: "Solo", desc: "Just you — flying solo tonight", size: 1, Icon: User },
-  { id: "couple", label: "Couple", desc: "Two of you, one shared vibe", size: 2, Icon: Heart },
+  {
+    id: "solo",
+    label: "Solo",
+    desc: "Just you — flying solo tonight",
+    size: 1,
+    Icon: User,
+    tableHint: "Bar seats & counters",
+    spendHint: "€25–€60 / night",
+    bestFor: "Chef's counters, listening bars, quick hops",
+    optimizesFor: "Walkable distance, solo-friendly seating, no reservation gates",
+    avoids: "Min-spend tables, group-only menus",
+  },
+  {
+    id: "couple",
+    label: "Couple",
+    desc: "Two of you, one shared vibe",
+    size: 2,
+    Icon: Heart,
+    tableHint: "2-tops, banquettes, window seats",
+    spendHint: "€80–€180 / night",
+    bestFor: "Intimate dinners, wine bars, dessert + nightcap",
+    optimizesFor: "Romance, shared plates, low-noise rooms",
+    avoids: "Loud sports bars, rowdy late-night clubs",
+  },
   {
     id: "small",
     label: "3–5 friends",
     desc: "Small crew, easy to coordinate",
     size: 4,
     Icon: Users,
+    tableHint: "4-tops, round tables, booths",
+    spendHint: "€40–€90 / person",
+    bestFor: "Sharing menus, cocktail bars, fun second stops",
+    optimizesFor: "Walkable routes, varied vibes, easy splits",
+    avoids: "Single-seat counters, strict 2-person tasting menus",
   },
   {
     id: "squad",
@@ -71,7 +98,23 @@ const GROUP = [
     desc: "Big group — we'll size venues to fit",
     size: 6,
     Icon: Users,
+    tableHint: "Long tables, group rooms, semi-private",
+    spendHint: "€50–€110 / person",
+    bestFor: "Group menus, karaoke, late-night dance floors",
+    optimizesFor: "Capacity, advance holds, splittable bills",
+    avoids: "Tiny rooms, walk-in-only spots, no-reservation venues",
   },
+];
+
+const GROUP_EXTRAS = [
+  { id: "kids", label: "Kids in tow", emoji: "👧" },
+  { id: "accessible", label: "Step-free access", emoji: "♿️" },
+  { id: "veg", label: "Vegan / veggie", emoji: "🌱" },
+  { id: "halal", label: "Halal", emoji: "🕌" },
+  { id: "gf", label: "Gluten-free", emoji: "🌾" },
+  { id: "split", label: "Splitting the bill", emoji: "💳" },
+  { id: "quiet", label: "Quiet rooms", emoji: "🤫" },
+  { id: "dog", label: "Dog-friendly", emoji: "🐶" },
 ];
 
 const OCCASIONS = [

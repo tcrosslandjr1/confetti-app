@@ -286,11 +286,11 @@ function AdminDashboard() {
       <section className="grid gap-6 lg:grid-cols-3">
         {/* Activity feed */}
         <div className="rounded-2xl border border-border bg-card p-5 shadow-card lg:col-span-2">
-          <div className="mb-4 flex items-center justify-between">
+          <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
             <div>
               <h2 className="font-display text-lg font-bold">Live activity</h2>
               <p className="text-xs text-muted-foreground">
-                System notifications and admin actions, newest first.
+                System notifications and admin actions, filter and sort below.
               </p>
             </div>
             <Link
@@ -300,8 +300,14 @@ function AdminDashboard() {
               Full audit <ChevronRight className="h-3 w-3" />
             </Link>
           </div>
+          <LogFilterBar
+            value={filters}
+            onChange={setFilters}
+            placeholder="Search activity…"
+            className="mb-4"
+          />
           <ul className="space-y-3">
-            {(feed ?? []).map((n) => (
+            {filteredFeed.map((n) => (
               <li
                 key={n.id}
                 className="flex gap-3 rounded-xl border border-border/60 bg-muted/30 p-3"
@@ -326,7 +332,7 @@ function AdminDashboard() {
                 )}
               </li>
             ))}
-            {audit.slice(0, 3).map((a) => (
+            {filteredAudit.map((a) => (
               <li key={a.id} className="flex gap-3 rounded-xl border border-border/60 bg-card p-3">
                 <div className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-purple/15 text-purple">
                   <CheckCircle2 className="h-3 w-3" />
@@ -339,9 +345,9 @@ function AdminDashboard() {
                 </div>
               </li>
             ))}
-            {(!feed || feed.length === 0) && audit.length === 0 && (
+            {filteredFeed.length === 0 && filteredAudit.length === 0 && (
               <li className="grid place-items-center rounded-xl border border-dashed border-border py-10 text-sm text-muted-foreground">
-                No activity yet. New approvals and system events will land here.
+                No activity matches these filters.
               </li>
             )}
           </ul>

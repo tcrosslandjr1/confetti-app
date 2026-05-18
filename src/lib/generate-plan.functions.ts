@@ -263,7 +263,33 @@ const PlanOutputSchema = z.object({
   estimatedSpend: z.string().describe("Per-person range, e.g. '$60–$90'"),
   fitScore: z.number().min(0).max(1),
   guardrailNote: z.string().max(160).nullable(),
-});
+  cheaperSwaps: z
+    .array(
+      z.object({
+        slot: z.string().min(1).max(40),
+        name: z.string().min(2).max(60),
+        reason: z.string().min(8).max(140),
+      }),
+    )
+    .max(4)
+    .nullable()
+    .describe("Same-vibe cheaper alternatives the user can tap to swap a stop down a price tier."),
+  luxuryUpgrades: z
+    .array(
+      z.object({
+        slot: z.string().min(1).max(40),
+        name: z.string().min(2).max(60),
+        reason: z.string().min(8).max(140),
+      }),
+    )
+    .max(4)
+    .nullable()
+    .describe("Same-vibe luxury upgrades the user can tap to elevate a stop."),
+  budgetWarning: z
+    .string()
+    .max(160)
+    .nullable()
+    .describe("Set when total estimate would exceed the user's budget ceiling."),
 
 export const generatePlan = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => PlanRequestSchema.parse(input))

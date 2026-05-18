@@ -247,6 +247,36 @@ function VibePlansPage() {
   function reset() {
     setPlan(null);
     setError(null);
+    setSelectedName(null);
+    setRenaming(false);
+    setRenameValue("");
+  }
+
+  async function swapName() {
+    if (!plan || !city) return;
+    const v = vibe ?? { id: "custom", label: customVibe || "Surprise me", occasionId: "friends", mood: "social", emoji: "✨" };
+    setSwappingName(true);
+    try {
+      const energyLabel = ["mellow", "easy", "social", "hyped", "wild"][energy - 1] ?? "social";
+      const res = await regenNames({
+        data: {
+          city: city.label,
+          category: v.label,
+          vibe: v.label,
+          audience: v.occasionId,
+          energyLevel: energyLabel,
+          count: 10,
+        },
+      });
+      if (res.ranked.length) {
+        setPlan({ ...plan, nameOptions: res.ranked.slice(0, 5), experienceName: res.ranked[0].name });
+        setSelectedName(res.ranked[0].name);
+      }
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Could not regenerate names.");
+    } finally {
+      setSwappingName(false);
+    }
   }
 
   async function build() {

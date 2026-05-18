@@ -33,6 +33,7 @@ import {
   dayCount,
   type CorporatePurpose,
 } from "@/lib/corporate";
+import { PlacesAutocomplete } from "@/components/PlacesAutocomplete";
 
 export const Route = createFileRoute("/teams/new")({
   validateSearch: (search: Record<string, unknown>): { fromTrip?: string } => ({

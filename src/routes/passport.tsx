@@ -22,9 +22,9 @@ import {
   Calendar,
   ChevronRight,
   Star,
-    Copy,
-    Download,
-    Check,
+  Copy,
+  Download,
+  Check,
 } from "lucide-react";
 import {
   addConfetti,

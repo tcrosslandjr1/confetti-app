@@ -609,11 +609,44 @@ function AuthPage() {
           </div>
 
           <div className="mt-8 lg:mt-4">
-            <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut">
+            {/* Segmented mode toggle */}
+            <div
+              className="rise-in mb-5 inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream p-1 shadow-brut"
+              style={{ ["--d" as never]: "0ms" } as CSSProperties}
+              role="tablist"
+              aria-label="Sign in or sign up"
+            >
+              {(["signup", "signin"] as const).map((m) => {
+                const active = mode === m;
+                return (
+                  <button
+                    key={m}
+                    type="button"
+                    role="tab"
+                    aria-selected={active}
+                    onClick={() => setMode(m)}
+                    className={`relative rounded-full px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${
+                      active
+                        ? "bg-ink text-cream shadow-brut"
+                        : "text-ink/60 hover:text-ink"
+                    }`}
+                  >
+                    {m === "signup" ? "Sign up" : "Sign in"}
+                  </button>
+                );
+              })}
+            </div>
+            <span
+              className="rise-in inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut"
+              style={{ ["--d" as never]: "80ms" } as CSSProperties}
+            >
               <span className="h-1.5 w-1.5 rounded-full bg-coral" />
               {mode === "signup" ? "Join the list" : "Welcome back"}
             </span>
-            <h1 className="mt-3 font-display text-[2.25rem] font-extrabold leading-[1.02] tracking-tight sm:text-4xl">
+            <h1
+              className="rise-in mt-3 font-display text-[2.25rem] font-extrabold leading-[1.02] tracking-tight sm:text-4xl"
+              style={{ ["--d" as never]: "160ms" } as CSSProperties}
+            >
               {mode === "signup" ? (
                 <>
                   Your personal <span className="text-gradient">guide</span> to every city.
@@ -624,7 +657,10 @@ function AuthPage() {
                 </>
               )}
             </h1>
-            <p className="mt-3 text-sm text-ink/70">
+            <p
+              className="rise-in mt-3 text-sm text-ink/70"
+              style={{ ["--d" as never]: "240ms" } as CSSProperties}
+            >
               {mode === "signup"
                 ? "Dining, nightlife, and curated experiences picked for your taste."
                 : "Pick up where you left off — your saved spots are waiting."}

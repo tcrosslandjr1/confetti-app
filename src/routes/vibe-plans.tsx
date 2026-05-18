@@ -81,8 +81,50 @@ const VIBES: Vibe[] = [
   },
   { id: "wild", label: "Wild", occasionId: "birthday", mood: "wild", emoji: "🎉" },
   { id: "late_night", label: "Late Night", occasionId: "friends", mood: "hyped", emoji: "🌃" },
+  { id: "romantic", label: "Romantic", occasionId: "date_night", mood: "romantic", emoji: "💋" },
+  { id: "classy", label: "Classy", occasionId: "date_night", mood: "easy", emoji: "🥂" },
+  { id: "family", label: "Family-Friendly", occasionId: "friends", mood: "easy", emoji: "👨‍👩‍👧" },
+  { id: "local_gems", label: "Local Gems", occasionId: "out_of_towner", mood: "easy", emoji: "📍" },
+  // Brunch Baddies pack
+  { id: "brunch_baddies", label: "Brunch Baddies", occasionId: "girls_night", mood: "aesthetic", emoji: "🥂" },
+  { id: "mimosas", label: "Mimosas", occasionId: "girls_night", mood: "easy", emoji: "🍊" },
+  { id: "rooftop", label: "Rooftop", occasionId: "friends", mood: "aesthetic", emoji: "🏙️" },
+  { id: "cute_fits", label: "Cute Fits", occasionId: "girls_night", mood: "aesthetic", emoji: "👗" },
+  { id: "pink_aesthetic", label: "Pink Aesthetic", occasionId: "girls_night", mood: "aesthetic", emoji: "🎀" },
+  { id: "photo_walls", label: "Photo Walls", occasionId: "girls_night", mood: "aesthetic", emoji: "📷" },
+  { id: "shopping_after", label: "Shopping After", occasionId: "girls_night", mood: "easy", emoji: "🛍️" },
   { id: "surprise", label: "Surprise Me", occasionId: "friends", mood: "social", emoji: "✨" },
 ];
+
+// Vibe → suggested category IDs (auto-applied when no categories picked yet).
+const VIBE_CATEGORY_HINTS: Record<string, string[]> = {
+  chill: ["chill_night", "wine_night", "coffee_night", "sunset_night", "bookstore_night"],
+  turn_up: ["club_night", "day_party", "bar_hop", "rooftop_night"],
+  soft_life: ["spa_day", "luxury_dinner", "nail_date", "yacht_sunset"],
+  instagrammy: ["rooftop_night", "art_district_night", "museum_night", "local_landmarks_tour"],
+  romantic: ["couples_night", "sunset_night", "fine_dining_night", "wine_night"],
+  classy: ["fine_dining_night", "jazz_night", "wine_night", "luxury_dinner"],
+  family: ["family_night", "zoo_or_aquarium", "museum_night", "bowling_night", "mini_golf"],
+  local_gems: ["local_hidden_gems", "neighborhood_tour", "local_breakfast_spots", "local_coffee_crawl"],
+  adventurous: ["jet_ski_day", "go_kart_racing", "hiking_trip", "rage_room"],
+  bachelor: ["yacht_day_party", "steakhouse_night", "club_night", "casino_night"],
+  wild: ["club_night", "after_hours_night", "bottle_service_night"],
+  late_night: ["after_hours_night", "lounge_night", "karaoke_night"],
+  guys_night: ["steakhouse_night", "sports_game_night"],
+  yacht: ["yacht_day_party", "sunset_yacht_cruise"],
+  casino: ["casino_night"],
+  wine_night: ["wine_night", "brewery_night"],
+  day_party: ["day_party", "pool_party"],
+  live_music: ["live_music_night", "jazz_night"],
+  // Brunch Baddies family — all route to the brunch_baddies category
+  brunch_baddies: ["brunch_baddies", "brunch"],
+  mimosas: ["brunch_baddies", "brunch"],
+  rooftop: ["brunch_baddies", "rooftop_night"],
+  cute_fits: ["brunch_baddies"],
+  pink_aesthetic: ["brunch_baddies"],
+  photo_walls: ["brunch_baddies", "art_district_night"],
+  shopping_after: ["brunch_baddies", "local_boutiques_tour", "shopping_mall_day"],
+};
 
 // Vibes that gate adult-entertainment toggle visibility (must be 21+ AND on-vibe).
 const ADULT_TRIGGER_IDS = new Set(["bachelor", "wild", "turn_up", "late_night"]);

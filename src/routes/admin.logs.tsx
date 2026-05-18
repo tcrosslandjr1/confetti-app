@@ -5,7 +5,6 @@ import {
   AlertTriangle,
   CheckCircle2,
   Cpu,
-  Filter,
   RefreshCw,
   ScrollText,
   ShieldAlert,
@@ -14,6 +13,12 @@ import {
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuditLog, type AuditEntry } from "@/lib/audit-log";
+import {
+  applyLogFilters,
+  EMPTY_FILTERS,
+  LogFilterBar,
+  type LogFilterState,
+} from "@/components/admin/LogFilterBar";
 
 export const Route = createFileRoute("/admin/logs")({
   head: () => ({ meta: [{ title: "System & Error Logs — Admin" }] }),

@@ -86,13 +86,43 @@ const VIBES: Vibe[] = [
   { id: "family", label: "Family-Friendly", occasionId: "friends", mood: "easy", emoji: "👨‍👩‍👧" },
   { id: "local_gems", label: "Local Gems", occasionId: "out_of_towner", mood: "easy", emoji: "📍" },
   // Brunch Baddies pack
-  { id: "brunch_baddies", label: "Brunch Baddies", occasionId: "girls_night", mood: "aesthetic", emoji: "🥂" },
+  {
+    id: "brunch_baddies",
+    label: "Brunch Baddies",
+    occasionId: "girls_night",
+    mood: "aesthetic",
+    emoji: "🥂",
+  },
   { id: "mimosas", label: "Mimosas", occasionId: "girls_night", mood: "easy", emoji: "🍊" },
   { id: "rooftop", label: "Rooftop", occasionId: "friends", mood: "aesthetic", emoji: "🏙️" },
-  { id: "cute_fits", label: "Cute Fits", occasionId: "girls_night", mood: "aesthetic", emoji: "👗" },
-  { id: "pink_aesthetic", label: "Pink Aesthetic", occasionId: "girls_night", mood: "aesthetic", emoji: "🎀" },
-  { id: "photo_walls", label: "Photo Walls", occasionId: "girls_night", mood: "aesthetic", emoji: "📷" },
-  { id: "shopping_after", label: "Shopping After", occasionId: "girls_night", mood: "easy", emoji: "🛍️" },
+  {
+    id: "cute_fits",
+    label: "Cute Fits",
+    occasionId: "girls_night",
+    mood: "aesthetic",
+    emoji: "👗",
+  },
+  {
+    id: "pink_aesthetic",
+    label: "Pink Aesthetic",
+    occasionId: "girls_night",
+    mood: "aesthetic",
+    emoji: "🎀",
+  },
+  {
+    id: "photo_walls",
+    label: "Photo Walls",
+    occasionId: "girls_night",
+    mood: "aesthetic",
+    emoji: "📷",
+  },
+  {
+    id: "shopping_after",
+    label: "Shopping After",
+    occasionId: "girls_night",
+    mood: "easy",
+    emoji: "🛍️",
+  },
   { id: "surprise", label: "Surprise Me", occasionId: "friends", mood: "social", emoji: "✨" },
 ];
 
@@ -105,7 +135,12 @@ const VIBE_CATEGORY_HINTS: Record<string, string[]> = {
   romantic: ["couples_night", "sunset_night", "fine_dining_night", "wine_night"],
   classy: ["fine_dining_night", "jazz_night", "wine_night", "luxury_dinner"],
   family: ["family_night", "zoo_or_aquarium", "museum_night", "bowling_night", "mini_golf"],
-  local_gems: ["local_hidden_gems", "neighborhood_tour", "local_breakfast_spots", "local_coffee_crawl"],
+  local_gems: [
+    "local_hidden_gems",
+    "neighborhood_tour",
+    "local_breakfast_spots",
+    "local_coffee_crawl",
+  ],
   adventurous: ["jet_ski_day", "go_kart_racing", "hiking_trip", "rage_room"],
   bachelor: ["yacht_day_party", "steakhouse_night", "club_night", "casino_night"],
   wild: ["club_night", "after_hours_night", "bottle_service_night"],
@@ -243,17 +278,28 @@ function VibePlansPage() {
 
       // Filter toggles
       if (familyFriendly)
-        tweaks.push("must be family-friendly (no clubs, strip clubs, heavy drinking, adult entertainment)");
+        tweaks.push(
+          "must be family-friendly (no clubs, strip clubs, heavy drinking, adult entertainment)",
+        );
       if (conversationFriendly)
         tweaks.push("must be conversation-friendly (avoid loud clubs and dive bars)");
       if (avoidAlcohol) tweaks.push("avoid alcohol-centric venues; prefer dry or low-ABV options");
       if (indoorOnly) tweaks.push("indoor stops only — no outdoor venues");
-      if (budgetFriendly) tweaks.push("budget-friendly: prioritize affordable picks under $25/person/stop");
+      if (budgetFriendly)
+        tweaks.push("budget-friendly: prioritize affordable picks under $25/person/stop");
 
       // Brunch Baddies-aware add-ons
       const isBrunchBaddies =
         catIds.includes("brunch_baddies") ||
-        (vibe && ["brunch_baddies", "mimosas", "cute_fits", "pink_aesthetic", "photo_walls", "shopping_after"].includes(vibe.id));
+        (vibe &&
+          [
+            "brunch_baddies",
+            "mimosas",
+            "cute_fits",
+            "pink_aesthetic",
+            "photo_walls",
+            "shopping_after",
+          ].includes(vibe.id));
       if (isBrunchBaddies) {
         tweaks.push(
           "Brunch Baddies daytime-first plan: cute fits, mimosas, rooftop or waterfront brunch, aesthetic plates, photo/flower walls, daytime music. No clubs or late-night venues.",
@@ -703,11 +749,26 @@ function VibePlansPage() {
             Filters
           </div>
           {[
-            { id: "family", label: "👨‍👩‍👧 Keep it family-friendly", state: familyFriendly, set: setFamilyFriendly },
-            { id: "convo", label: "💬 Conversation-friendly", state: conversationFriendly, set: setConversationFriendly },
+            {
+              id: "family",
+              label: "👨‍👩‍👧 Keep it family-friendly",
+              state: familyFriendly,
+              set: setFamilyFriendly,
+            },
+            {
+              id: "convo",
+              label: "💬 Conversation-friendly",
+              state: conversationFriendly,
+              set: setConversationFriendly,
+            },
             { id: "dry", label: "🚫 Avoid alcohol", state: avoidAlcohol, set: setAvoidAlcohol },
             { id: "indoor", label: "🏠 Indoor only", state: indoorOnly, set: setIndoorOnly },
-            { id: "budget", label: "💸 Budget-friendly", state: budgetFriendly, set: setBudgetFriendly },
+            {
+              id: "budget",
+              label: "💸 Budget-friendly",
+              state: budgetFriendly,
+              set: setBudgetFriendly,
+            },
           ].map((f) => (
             <label key={f.id} className="flex items-center justify-between gap-3 text-sm">
               <span>{f.label}</span>
@@ -720,9 +781,16 @@ function VibePlansPage() {
             </label>
           ))}
           {/* Brunch Baddies-only toggle */}
-          {(selectedCats.includes("brunch_baddies") ||
-            (vibe &&
-              ["brunch_baddies", "mimosas", "cute_fits", "pink_aesthetic", "photo_walls", "shopping_after"].includes(vibe.id))) ? (
+          {selectedCats.includes("brunch_baddies") ||
+          (vibe &&
+            [
+              "brunch_baddies",
+              "mimosas",
+              "cute_fits",
+              "pink_aesthetic",
+              "photo_walls",
+              "shopping_after",
+            ].includes(vibe.id)) ? (
             <label className="flex items-center justify-between gap-3 border-t pt-2 text-sm">
               <span>🪩 Add post-brunch day party</span>
               <input

@@ -669,6 +669,67 @@ function AuthPage() {
                 ? "Dining, nightlife, and curated experiences picked for your taste."
                 : "Pick up where you left off — your saved spots are waiting."}
             </p>
+
+            {/* What's next — 3-step micro-rail (signup only) */}
+            {mode === "signup" && (
+              <ol
+                className="rise-in mt-5 grid grid-cols-3 gap-2"
+                style={{ ["--d" as never]: "300ms" } as CSSProperties}
+                aria-label="What happens next"
+              >
+                {[
+                  { n: "01", t: "Account", d: "~60 sec", Icon: UserIcon },
+                  { n: "02", t: "Taste quiz", d: "5 taps", Icon: Sparkles },
+                  { n: "03", t: "Boarding pass", d: "tonight", Icon: Ticket },
+                ].map((s, i) => (
+                  <li
+                    key={s.n}
+                    className={`relative rounded-2xl border-2 p-2.5 ${
+                      i === 0
+                        ? "border-ink bg-cream shadow-brut"
+                        : "border-dashed border-ink/25 bg-cream/50"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span
+                        className={`font-mono text-[9px] font-bold uppercase tracking-[0.2em] ${
+                          i === 0 ? "text-coral" : "text-ink/40"
+                        }`}
+                      >
+                        {s.n}
+                      </span>
+                      <s.Icon
+                        className={`h-3.5 w-3.5 ${i === 0 ? "text-ink" : "text-ink/40"}`}
+                      />
+                    </div>
+                    <div className="mt-1 font-display text-sm font-extrabold leading-tight text-ink">
+                      {s.t}
+                    </div>
+                    <div className="font-mono text-[9px] uppercase tracking-widest text-ink/50">
+                      {s.d}
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            )}
+
+            {/* Trust micro-row */}
+            <div
+              className="rise-in mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] text-ink/65"
+              style={{ ["--d" as never]: "360ms" } as CSSProperties}
+            >
+              <span className="inline-flex items-center gap-1">
+                <ShieldCheck className="h-3 w-3 text-coral" /> No spam, ever
+              </span>
+              <span className="opacity-30">·</span>
+              <span className="inline-flex items-center gap-1">
+                <Zap className="h-3 w-3 text-coral" /> 60-sec signup
+              </span>
+              <span className="opacity-30">·</span>
+              <span className="inline-flex items-center gap-1">
+                <Gift className="h-3 w-3 text-coral" /> 250 Confetti welcome bonus
+              </span>
+            </div>
           </div>
 
           <div className="rise-in mt-8" style={{ ["--d" as never]: "320ms" } as CSSProperties}>

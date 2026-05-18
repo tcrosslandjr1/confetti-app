@@ -6,7 +6,8 @@ import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { findCity } from "./agents/city-context";
 import { findTemplate } from "./agents/templates";
 import { impromptuPoolPrompt } from "./agents/impromptu";
-import { buildWaterfrontPrompt, buildGirlsNightPresetsPrompt } from "./agents/waterfront";
+import { buildWaterfrontPrompt, detectWaterfront } from "./agents/waterfront";
+import { buildGirlsNightPresetsPrompt } from "./agents/girls-night-presets";
 import { fetchForecastForCityDate, weatherGuidance } from "./weather.server";
 import type { GeneratedPlan } from "./agents/types";
 
@@ -249,7 +250,7 @@ export const generatePlan = createServerFn({ method: "POST" })
       "[1] CITY CONTEXT AGENT — Honor only the supplied city tags, allowed activities, neighborhoods, and environment features. Never invent venues that don't fit the city's real environment (no harbor stops in landlocked cities, no casinos outside gaming towns, no beach bars in Chicago, etc.).",
       "[2] OCCASION TEMPLATE AGENT — Follow the provided blueprint flow exactly (pre-game → main → after, plus optional bonus). Respect noise/chaos/accessibility constraints. Never recommend chaotic venues for sensitive occasions (in-laws, corporate, family).",
       "[3] TASTE LEARNING AGENT — Treat the Taste Graph as authoritative user preference. Use only nightlife-relevant signals (likes, check-ins, follows, music/food/neighborhood). Never infer political, demographic, or sensitive attributes. Skip anything in the user's avoid list.",
-      "[4] VENUE MATCHING AGENT — Pick exactly one venue per template slot from the candidate list. Each pick must (a) match the slot's category hint and vibe, (b) be open at the recommended time, (c) honor the budget tier, (d) avoid duplicate categories across stops, (e) prefer venues in the city's signature neighborhoods, (f) apply Waterfront Swaps when the city has a waterfront and a swap genuinely improves the night (pier/marina/cruise/yacht/lakefront/beach), (g) when an explicit Girls Night tier preset is supplied, mirror its beat structure with real candidate venues.",
+      "[4] VENUE MATCHING AGENT — Pick exactly one venue per template slot from the candidate list. Each pick must (a) match the slot's category hint and vibe, (b) be open at the recommended time, (c) honor the budget tier, (d) avoid duplicate categories across stops, (e) prefer venues in the city's signature neighborhoods.",
       "[5] IMPROMPTU IDEAS AGENT — Add ONE optional bonus move from the supplied city pool (or invent one only if it clearly fits the city's allowed activities). Must be ≤5 minute walk from a stop, on-vibe, open, safe, and either scenic or fun. Set bonus to null if nothing genuinely enhances the night.",
       "",
       "[6] QUALITY GUARDRAIL POLICY — Before finalizing, validate every stop against HARD RULES:",
@@ -314,9 +315,7 @@ Start time: ${startTime}
 Duration: ${req.duration ?? "3 hr"}
 Budget ceiling: ${"$".repeat(budget)}
 
-${moodBlock}${weatherBlock}${tasteBlock}${buildWaterfrontPrompt(cityCtx)}
-
-${req.occasionId === "girls" ? buildGirlsNightPresetsPrompt(cityCtx, budget) + "\n\n" : ""}# Template (Occasion Template Agent)
+${moodBlock}${weatherBlock}${tasteBlock}# Template (Occasion Template Agent)
 Blueprint: ${template.blueprintName}
 Tone: ${template.tone}
 Constraints: noise<=${template.constraints.maxNoise}, chaos=${template.constraints.chaos}, accessibility=${template.constraints.accessibility ?? "any"}${template.constraints.avoidCategories?.length ? `, AVOID=[${template.constraints.avoidCategories.join(", ")}]` : ""}
@@ -330,6 +329,10 @@ ${candidateBlock}
 
 # Bonus-move pool (Impromptu Ideas Agent — pick one or null)
 ${impromptuPoolPrompt(cityCtx.slug, req.occasionId)}
+
+${buildWaterfrontPrompt(cityCtx)}
+
+${req.occasionId === "girls" ? buildGirlsNightPresetsPrompt(budget, detectWaterfront(cityCtx).hasWaterfront) : ""}
 
 # Your task
 Run all seven agents and return the structured plan.

@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { RidePreferencesPanel } from "@/components/RidePreferencesPanel";
 import {
   User,
   LogOut,
@@ -613,11 +612,6 @@ function ProfilePage() {
                   </div>
                 </section>
               ),
-            },
-            {
-              id: "rideshare",
-              title: "Rideshare",
-              node: <RidePreferencesPanel />,
             },
           ]}
         />

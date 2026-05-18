@@ -394,6 +394,14 @@ function VibePlansPage() {
           includeYacht: includeYacht && (waterfront?.hasWaterfront ?? false),
           includeCasino,
           includeAdultEntertainment: adultOk,
+          personality: personality ?? undefined,
+          budgetMode,
+          perPersonBudgetUsd: budget,
+          groupType: groupType ?? undefined,
+          timeOfDay: timeOfDay ?? undefined,
+          safetyModes,
+          localFlavorLevel,
+          weatherAware,
         },
       });
       setPlan(result);

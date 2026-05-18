@@ -277,36 +277,6 @@ function BookingsTabs({
   );
 }
 
-function Group({
-  title,
-  rows,
-  onCancel,
-  onUpdated,
-  muted,
-}: {
-  title: string;
-  rows: Booking[];
-  onCancel?: (id: string) => void;
-  onUpdated?: () => void;
-  muted?: boolean;
-}) {
-  if (rows.length === 0) return null;
-  return (
-    <section>
-      <h2 className="mb-3 font-display text-2xl font-bold">
-        {title}{" "}
-        <span className="rounded-full bg-muted px-2 py-0.5 text-sm font-semibold text-muted-foreground">
-          {rows.length}
-        </span>
-      </h2>
-      <ul className={`grid gap-3 sm:grid-cols-2 ${muted ? "opacity-80" : ""}`}>
-        {rows.map((b) => (
-          <BookingCard key={b.id} b={b} onCancel={onCancel} onUpdated={onUpdated} />
-        ))}
-      </ul>
-    </section>
-  );
-}
 
 function BookingCard({
   b,

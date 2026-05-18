@@ -419,7 +419,77 @@ function VibePlansPage() {
           ) : null}
         </Card>
 
-        {error ? (
+        {/* Optional add-ons: yacht / casino / adult — gated by city + vibe */}
+        <Card className="space-y-3 p-4">
+          <div className="flex items-center justify-between">
+            <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              Optional add-ons
+            </div>
+            <Badge variant="outline" className="text-[10px]">21+</Badge>
+          </div>
+
+          {waterfront?.hasWaterfront ? (
+            <label className="flex items-center justify-between gap-3 text-sm">
+              <span>🛥️ Include yacht or boat option</span>
+              <input
+                type="checkbox"
+                checked={includeYacht}
+                onChange={(e) => setIncludeYacht(e.target.checked)}
+                className="h-4 w-4"
+              />
+            </label>
+          ) : null}
+
+          <label className="flex items-start justify-between gap-3 text-sm">
+            <span>
+              🎰 Include casino stop
+              {includeCasino ? (
+                <span className="ml-1 block text-[10px] text-muted-foreground">
+                  Play for fun — set a buffer before you sit down.
+                </span>
+              ) : null}
+            </span>
+            <input
+              type="checkbox"
+              checked={includeCasino}
+              onChange={(e) => setIncludeCasino(e.target.checked)}
+              className="mt-1 h-4 w-4"
+            />
+          </label>
+
+          {vibe && ADULT_TRIGGER_IDS.has(vibe.id) ? (
+            <div className="rounded-lg border border-dashed p-3">
+              <label className="flex items-center justify-between gap-3 text-sm">
+                <span>🍸 Include optional adult entertainment</span>
+                <input
+                  type="checkbox"
+                  checked={includeAdult}
+                  onChange={(e) => setIncludeAdult(e.target.checked)}
+                  className="h-4 w-4"
+                />
+              </label>
+              {includeAdult ? (
+                <label className="mt-2 flex items-start gap-2 text-xs text-muted-foreground">
+                  <input
+                    type="checkbox"
+                    checked={ageConfirmed}
+                    onChange={(e) => setAgeConfirmed(e.target.checked)}
+                    className="mt-0.5 h-3.5 w-3.5"
+                  />
+                  <span>
+                    I confirm everyone in my group is 21+ and consents to adult-entertainment
+                    stops. Off by default.
+                  </span>
+                </label>
+              ) : null}
+            </div>
+          ) : (
+            <p className="text-[11px] text-muted-foreground">
+              Adult-entertainment toggle only appears for Bachelor / Wild / Turn Up / Late Night
+              vibes.
+            </p>
+          )}
+        </Card>
           <Card className="border-destructive/40 bg-destructive/5 p-3 text-sm text-destructive">
             {error}
           </Card>

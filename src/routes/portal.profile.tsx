@@ -613,6 +613,11 @@ function ProfilePage() {
                 </section>
               ),
             },
+            {
+              id: "rideshare",
+              title: "Rideshare",
+              node: <RidePreferencesPanel />,
+            },
           ]}
         />
       }

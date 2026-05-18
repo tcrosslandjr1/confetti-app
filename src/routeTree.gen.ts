@@ -152,6 +152,7 @@ import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.
 import { Route as TripsIdPassportRouteImport } from './routes/trips.$id.passport'
 import { Route as ConciergeChatThreadIdRouteImport } from './routes/concierge.chat.$threadId'
 import { Route as BusinessClaimPendingRouteImport } from './routes/business.claim.pending'
+import { Route as ApiQaRunRouteImport } from './routes/api.qa.run'
 import { Route as ApiPublicPickEventsRouteImport } from './routes/api/public/pick-events'
 import { Route as ApiPlansGenerateRouteImport } from './routes/api/plans/generate'
 import { Route as AdvertiseStoriesSlugRouteImport } from './routes/advertise.stories.$slug'
@@ -882,6 +883,11 @@ const BusinessClaimPendingRoute = BusinessClaimPendingRouteImport.update({
   path: '/pending',
   getParentRoute: () => BusinessClaimRoute,
 } as any)
+const ApiQaRunRoute = ApiQaRunRouteImport.update({
+  id: '/api/qa/run',
+  path: '/api/qa/run',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicPickEventsRoute = ApiPublicPickEventsRouteImport.update({
   id: '/api/public/pick-events',
   path: '/api/public/pick-events',
@@ -1105,6 +1111,7 @@ export interface FileRoutesByFullPath {
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
   '/api/plans/generate': typeof ApiPlansGenerateRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
+  '/api/qa/run': typeof ApiQaRunRoute
   '/business/claim/pending': typeof BusinessClaimPendingRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
@@ -1256,6 +1263,7 @@ export interface FileRoutesByTo {
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
   '/api/plans/generate': typeof ApiPlansGenerateRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
+  '/api/qa/run': typeof ApiQaRunRoute
   '/business/claim/pending': typeof BusinessClaimPendingRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
@@ -1416,6 +1424,7 @@ export interface FileRoutesById {
   '/advertise/stories/$slug': typeof AdvertiseStoriesSlugRoute
   '/api/plans/generate': typeof ApiPlansGenerateRoute
   '/api/public/pick-events': typeof ApiPublicPickEventsRoute
+  '/api/qa/run': typeof ApiQaRunRoute
   '/business/claim/pending': typeof BusinessClaimPendingRoute
   '/concierge/chat/$threadId': typeof ConciergeChatThreadIdRoute
   '/trips/$id/passport': typeof TripsIdPassportRoute
@@ -1577,6 +1586,7 @@ export interface FileRouteTypes {
     | '/advertise/stories/$slug'
     | '/api/plans/generate'
     | '/api/public/pick-events'
+    | '/api/qa/run'
     | '/business/claim/pending'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
@@ -1728,6 +1738,7 @@ export interface FileRouteTypes {
     | '/advertise/stories/$slug'
     | '/api/plans/generate'
     | '/api/public/pick-events'
+    | '/api/qa/run'
     | '/business/claim/pending'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
@@ -1887,6 +1898,7 @@ export interface FileRouteTypes {
     | '/advertise/stories/$slug'
     | '/api/plans/generate'
     | '/api/public/pick-events'
+    | '/api/qa/run'
     | '/business/claim/pending'
     | '/concierge/chat/$threadId'
     | '/trips/$id/passport'
@@ -1985,6 +1997,7 @@ export interface RootRouteChildren {
   TripsIndexRoute: typeof TripsIndexRoute
   ApiPlansGenerateRoute: typeof ApiPlansGenerateRoute
   ApiPublicPickEventsRoute: typeof ApiPublicPickEventsRoute
+  ApiQaRunRoute: typeof ApiQaRunRoute
   ApiAdminWalletGoogleClassRoute: typeof ApiAdminWalletGoogleClassRoute
   ApiAdminWalletGoogleDebugRoute: typeof ApiAdminWalletGoogleDebugRoute
   ApiPublicHooksDiscoverViralRoute: typeof ApiPublicHooksDiscoverViralRoute
@@ -3001,6 +3014,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessClaimPendingRouteImport
       parentRoute: typeof BusinessClaimRoute
     }
+    '/api/qa/run': {
+      id: '/api/qa/run'
+      path: '/api/qa/run'
+      fullPath: '/api/qa/run'
+      preLoaderRoute: typeof ApiQaRunRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/pick-events': {
       id: '/api/public/pick-events'
       path: '/api/public/pick-events'
@@ -3423,6 +3443,7 @@ const rootRouteChildren: RootRouteChildren = {
   TripsIndexRoute: TripsIndexRoute,
   ApiPlansGenerateRoute: ApiPlansGenerateRoute,
   ApiPublicPickEventsRoute: ApiPublicPickEventsRoute,
+  ApiQaRunRoute: ApiQaRunRoute,
   ApiAdminWalletGoogleClassRoute: ApiAdminWalletGoogleClassRoute,
   ApiAdminWalletGoogleDebugRoute: ApiAdminWalletGoogleDebugRoute,
   ApiPublicHooksDiscoverViralRoute: ApiPublicHooksDiscoverViralRoute,

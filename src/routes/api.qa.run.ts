@@ -11,7 +11,7 @@ export const Route = createFileRoute("/api/qa/run")({
         if (!valid.includes(tier)) {
           return Response.json({ error: `Invalid tier. Use: ${valid.join(", ")}` }, { status: 400 });
         }
-        const rows = runByPriority(tier as typeof valid[number]);
+        const rows = runByPriority(tier as "smoke" | "booking" | "personalization" | "full");
         const summary = rows.reduce(
           (acc, r) => {
             acc.total++;

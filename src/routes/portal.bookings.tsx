@@ -148,6 +148,13 @@ function PortalBookingsPage() {
   }, [bookings]);
 
   const cancel = async (id: string) => {
+    if (isMockBookingId(id)) {
+      toast.info("This is a sample booking — book a real venue to manage it here.");
+      return;
+    }
+    if (typeof window !== "undefined" && !window.confirm("Cancel this booking? This can't be undone.")) {
+      return;
+    }
     const { error } = await supabase
       .from("bookings")
       .update({ status: "cancelled", cancelled_at: new Date().toISOString() })

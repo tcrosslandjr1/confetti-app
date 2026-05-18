@@ -318,8 +318,29 @@ function CreatePage() {
   const completedCount = picks.filter((p) => p.done).length;
 
   return (
-    <div className="min-h-screen bg-background pb-32">
-      <div className="mx-auto max-w-md px-4 pt-5 sm:max-w-xl sm:pt-8 lg:max-w-2xl lg:px-6">
+    <div className="relative min-h-screen overflow-hidden bg-background pb-32">
+      {/* Warm ambient blobs */}
+      <div
+        className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-coral/20 blur-[100px] animate-blob"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -right-16 top-40 h-64 w-64 rounded-full bg-purple/15 blur-[90px] animate-blob"
+        style={{ animationDelay: "3s" }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute left-1/3 top-[60vh] h-56 w-56 rounded-full bg-gold/20 blur-[80px] animate-blob"
+        style={{ animationDelay: "7s" }}
+        aria-hidden="true"
+      />
+      {/* Subtle top glow */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-coral/[0.08] to-transparent"
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto max-w-md px-4 pt-5 sm:max-w-xl sm:pt-8 lg:max-w-2xl lg:px-6">
         {/* Top bar */}
         <div className="flex items-center justify-between">
           <button

@@ -23,6 +23,7 @@ import {
   Megaphone,
 } from "lucide-react";
 import type { VenueCard, SocialReel } from "@/lib/venue-discovery-types";
+import { VenueTrustSignals } from "@/components/VenueTrustSignals";
 
 /* ------------------------------------------------------------------ */
 /*  Social platform icons                                              */
@@ -281,6 +282,9 @@ export function VenueDiscoveryCard({
           </div>
         )}
       </div>
+
+      {/* Trust signals */}
+      <VenueTrustSignals trust={venue.trust} />
 
       {/* Social action row */}
       <SocialActionRow venue={venue} />

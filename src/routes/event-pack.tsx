@@ -1,15 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
-import {
-  ArrowLeft,
-  Copy,
-  Download,
-  FileDown,
-  Printer,
-  Share2,
-  Sparkles,
-} from "lucide-react";
+import { ArrowLeft, Copy, Download, FileDown, Printer, Share2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
@@ -61,8 +53,8 @@ function EventPackPage() {
     [activeId],
   );
 
-  const [liabilityValues, setLiabilityValues] = useState<Record<string, string>>(
-    () => Object.fromEntries(LIABILITY_FORM.fields.map((f) => [f, ""])),
+  const [liabilityValues, setLiabilityValues] = useState<Record<string, string>>(() =>
+    Object.fromEntries(LIABILITY_FORM.fields.map((f) => [f, ""])),
   );
 
   // ---- Export actions -----------------------------------------------------
@@ -126,14 +118,11 @@ function EventPackPage() {
           <h1 className="mt-3 font-display text-5xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
             Pick a plan.
             <br />
-            <span className="font-serif italic font-normal">
-              Print, share, run it.
-            </span>
+            <span className="font-serif italic font-normal">Print, share, run it.</span>
           </h1>
           <p className="mt-4 max-w-2xl text-base text-ink/80 sm:text-lg">
-            Five polished, ready-to-run group event packs. Itinerary, budget,
-            safety, signup sheet, liability form, and chat copy — all in one
-            printable view.
+            Five polished, ready-to-run group event packs. Itinerary, budget, safety, signup sheet,
+            liability form, and chat copy — all in one printable view.
           </p>
 
           {/* Template chips */}
@@ -166,19 +155,38 @@ function EventPackPage() {
             {active.title}
           </div>
           <div className="flex flex-wrap gap-2">
-            <Button onClick={handleCopyPlan} variant="outline" className="border-2 border-ink bg-cream font-bold shadow-brut hover:-translate-y-0.5">
+            <Button
+              onClick={handleCopyPlan}
+              variant="outline"
+              className="border-2 border-ink bg-cream font-bold shadow-brut hover:-translate-y-0.5"
+            >
               <Copy className="mr-1.5 h-4 w-4" /> Copy Plan
             </Button>
-            <Button onClick={handlePrintOrPdf} variant="outline" className="border-2 border-ink bg-cream font-bold shadow-brut hover:-translate-y-0.5">
+            <Button
+              onClick={handlePrintOrPdf}
+              variant="outline"
+              className="border-2 border-ink bg-cream font-bold shadow-brut hover:-translate-y-0.5"
+            >
               <FileDown className="mr-1.5 h-4 w-4" /> Export PDF
             </Button>
-            <Button onClick={handleExportCsv} variant="outline" className="border-2 border-ink bg-cream font-bold shadow-brut hover:-translate-y-0.5">
+            <Button
+              onClick={handleExportCsv}
+              variant="outline"
+              className="border-2 border-ink bg-cream font-bold shadow-brut hover:-translate-y-0.5"
+            >
               <Download className="mr-1.5 h-4 w-4" /> Signup CSV
             </Button>
-            <Button onClick={handleShareLink} variant="outline" className="border-2 border-ink bg-cream font-bold shadow-brut hover:-translate-y-0.5">
+            <Button
+              onClick={handleShareLink}
+              variant="outline"
+              className="border-2 border-ink bg-cream font-bold shadow-brut hover:-translate-y-0.5"
+            >
               <Share2 className="mr-1.5 h-4 w-4" /> Share Link
             </Button>
-            <Button onClick={handlePrintOrPdf} className="border-2 border-ink bg-coral font-bold text-cream shadow-brut hover:-translate-y-0.5">
+            <Button
+              onClick={handlePrintOrPdf}
+              className="border-2 border-ink bg-coral font-bold text-cream shadow-brut hover:-translate-y-0.5"
+            >
               <Printer className="mr-1.5 h-4 w-4" /> Print
             </Button>
           </div>
@@ -215,9 +223,7 @@ function EventPackPage() {
           <div className="print-all">
             <TabsContent value="overview" className="print-show">
               <SectionCard title="Event Overview" eyebrow={active.audience}>
-                <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
-                  {active.title}
-                </h2>
+                <h2 className="font-display text-3xl font-extrabold sm:text-4xl">{active.title}</h2>
                 <p className="mt-3 text-base leading-relaxed text-ink/80 sm:text-lg">
                   {active.summary}
                 </p>
@@ -272,24 +278,18 @@ function EventPackPage() {
                     </div>
                   ))}
                 </div>
-                <h3 className="mt-8 font-display text-2xl font-extrabold">
-                  Day-of Timeline
-                </h3>
+                <h3 className="mt-8 font-display text-2xl font-extrabold">Day-of Timeline</h3>
                 <div className="mt-3">
                   <Timeline items={active.dayOf} />
                 </div>
-                <h3 className="mt-8 font-display text-2xl font-extrabold">
-                  Day-of Role Checklist
-                </h3>
+                <h3 className="mt-8 font-display text-2xl font-extrabold">Day-of Role Checklist</h3>
                 <div className="mt-3 grid gap-4 sm:grid-cols-2">
                   {DAY_OF_ROLE_CHECKLIST.map((rc) => (
                     <div
                       key={rc.role}
                       className="rounded-2xl border-2 border-ink bg-cream p-4 shadow-brut"
                     >
-                      <div className="font-display text-lg font-extrabold">
-                        {rc.role}
-                      </div>
+                      <div className="font-display text-lg font-extrabold">{rc.role}</div>
                       <ul className="mt-2 space-y-1.5 text-sm">
                         {rc.tasks.map((t) => (
                           <li key={t} className="flex items-start gap-2">
@@ -324,10 +324,7 @@ function EventPackPage() {
                       {SIGNUP_CSV_SAMPLES.map((row, i) => (
                         <tr key={i} className={i % 2 ? "bg-cream" : "bg-gold/40"}>
                           {row.map((cell, j) => (
-                            <td
-                              key={j}
-                              className="border-t-2 border-ink px-3 py-2 align-top"
-                            >
+                            <td key={j} className="border-t-2 border-ink px-3 py-2 align-top">
                               {cell}
                             </td>
                           ))}
@@ -357,9 +354,7 @@ function EventPackPage() {
                 <CopyBlock
                   label="Chat announcement"
                   text={buildChatAnnouncement(active)}
-                  onCopy={() =>
-                    copyText(buildChatAnnouncement(active), "Chat copy copied")
-                  }
+                  onCopy={() => copyText(buildChatAnnouncement(active), "Chat copy copied")}
                 />
                 <CopyBlock
                   label="Flyer copy"
@@ -376,13 +371,8 @@ function EventPackPage() {
             </TabsContent>
 
             <TabsContent value="liability" className="print-show">
-              <SectionCard
-                title={LIABILITY_FORM.title}
-                eyebrow="Editable form"
-              >
-                <p className="text-base leading-relaxed text-ink/85">
-                  {LIABILITY_FORM.body}
-                </p>
+              <SectionCard title={LIABILITY_FORM.title} eyebrow="Editable form">
+                <p className="text-base leading-relaxed text-ink/85">{LIABILITY_FORM.body}</p>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   {LIABILITY_FORM.fields.map((f) => (
                     <label key={f} className="block">
@@ -511,15 +501,7 @@ function Timeline({ items }: { items: { time: string; label: string }[] }) {
   );
 }
 
-function CopyBlock({
-  label,
-  text,
-  onCopy,
-}: {
-  label: string;
-  text: string;
-  onCopy: () => void;
-}) {
+function CopyBlock({ label, text, onCopy }: { label: string; text: string; onCopy: () => void }) {
   return (
     <div className="mb-5 rounded-2xl border-2 border-ink bg-gold/30 p-4 shadow-brut">
       <div className="flex items-center justify-between gap-3">

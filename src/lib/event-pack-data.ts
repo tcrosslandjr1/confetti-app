@@ -28,8 +28,7 @@ export const EVENT_TEMPLATES: EventTemplate[] = [
     id: "fraternity-hike",
     title: "Fraternity Hiking Day Trip",
     audience: "Fraternity",
-    summary:
-      "Scenic half-day hike with picnic, team challenges, and photo checkpoints.",
+    summary: "Scenic half-day hike with picnic, team challenges, and photo checkpoints.",
     itinerary: [
       { time: "9:00 AM", label: "Meet at chapter house; gear check and payments." },
       { time: "9:30 AM", label: "Depart by carpool." },
@@ -59,14 +58,7 @@ export const EVENT_TEMPLATES: EventTemplate[] = [
     ],
     promo:
       "Hike + Picnic — Sat 9 AM. Scenic 4–6 mile loop, team games, and picnic. Bring water, sturdy shoes, and $15. RSVP by Thursday.",
-    roles: [
-      "Organizer",
-      "Safety Lead",
-      "Food Lead",
-      "Transport Lead",
-      "Photographer",
-      "Sweep",
-    ],
+    roles: ["Organizer", "Safety Lead", "Food Lead", "Transport Lead", "Photographer", "Sweep"],
     dayOf: [
       { time: "8:45 AM", label: "Setup and gear check" },
       { time: "9:00 AM", label: "Roll call and payments" },
@@ -191,8 +183,7 @@ export const EVENT_TEMPLATES: EventTemplate[] = [
     id: "church-picnic",
     title: "Church Friends Picnic & Service",
     audience: "Church Friends",
-    summary:
-      "Morning outreach followed by a relaxed potluck picnic and fellowship.",
+    summary: "Morning outreach followed by a relaxed potluck picnic and fellowship.",
     itinerary: [
       { time: "8:30 AM", label: "Meet at church." },
       { time: "9:00 AM–11:30 AM", label: "Outreach project in community." },
@@ -243,8 +234,7 @@ export const EVENT_TEMPLATES: EventTemplate[] = [
     id: "corporate-offsite",
     title: "Corporate Half-Day Offsite with Facilitated Workshop",
     audience: "Corporate Teams",
-    summary:
-      "Focused half-day to align priorities, run breakouts, and produce an action plan.",
+    summary: "Focused half-day to align priorities, run breakouts, and produce an action plan.",
     itinerary: [
       { time: "8:30 AM", label: "Arrival and coffee." },
       { time: "9:00 AM–10:15 AM", label: "Framing, objectives, and icebreaker." },
@@ -253,10 +243,7 @@ export const EVENT_TEMPLATES: EventTemplate[] = [
     ],
     budget: {
       range: "$40–$200",
-      lines: [
-        "Facilitator: $800–$2,500",
-        "Venue and catering: $20–$80 per person",
-      ],
+      lines: ["Facilitator: $800–$2,500", "Venue and catering: $20–$80 per person"],
     },
     logistics: [
       "Clear objectives and facilitator brief",
@@ -273,14 +260,7 @@ export const EVENT_TEMPLATES: EventTemplate[] = [
     ],
     promo:
       "Team Offsite — Half Day. Focused workshop to align Q3 priorities. Prework required. RSVP by Monday.",
-    roles: [
-      "Organizer",
-      "Facilitator",
-      "Note Taker",
-      "Logistics",
-      "Timekeeper",
-      "AV Lead",
-    ],
+    roles: ["Organizer", "Facilitator", "Note Taker", "Logistics", "Timekeeper", "AV Lead"],
     dayOf: [
       { time: "8:15 AM", label: "Venue setup and AV check" },
       { time: "8:30 AM", label: "Coffee and arrival" },
@@ -288,13 +268,7 @@ export const EVENT_TEMPLATES: EventTemplate[] = [
       { time: "11:30 AM", label: "Sharebacks and commitments" },
       { time: "12:00 PM", label: "Close and next steps" },
     ],
-    packing: [
-      "Laptop",
-      "Charger",
-      "Completed prework",
-      "Notebook",
-      "Business cards if relevant",
-    ],
+    packing: ["Laptop", "Charger", "Completed prework", "Notebook", "Business cards if relevant"],
   },
 ];
 
@@ -356,16 +330,8 @@ export const SIGNUP_CSV_SAMPLES: string[][] = [
 
 export const LIABILITY_FORM = {
   title: "Event Liability Acknowledgement and Emergency Contact",
-  body:
-    "I acknowledge that participation in this event involves inherent risks. I agree to follow event rules and instructions from organizers. I release the organizers and affiliated organizations from liability for injury or loss except where prohibited by law. In case of emergency, I authorize organizers to seek medical care on my behalf.",
-  fields: [
-    "Name",
-    "Date",
-    "Emergency Contact",
-    "Phone",
-    "Allergies / Medical Notes",
-    "Signature",
-  ],
+  body: "I acknowledge that participation in this event involves inherent risks. I agree to follow event rules and instructions from organizers. I release the organizers and affiliated organizations from liability for injury or loss except where prohibited by law. In case of emergency, I authorize organizers to seek medical care on my behalf.",
+  fields: ["Name", "Date", "Emergency Contact", "Phone", "Allergies / Medical Notes", "Signature"],
   disclaimer:
     "This template is not legal advice. Organizations should review with appropriate counsel before use.",
 };
@@ -373,12 +339,7 @@ export const LIABILITY_FORM = {
 export const DAY_OF_ROLE_CHECKLIST: { role: string; tasks: string[] }[] = [
   {
     role: "Organizer",
-    tasks: [
-      "Confirm RSVPs",
-      "Collect payments",
-      "Distribute final itinerary",
-      "Confirm vendors",
-    ],
+    tasks: ["Confirm RSVPs", "Collect payments", "Distribute final itinerary", "Confirm vendors"],
   },
   {
     role: "Safety Lead",
@@ -391,28 +352,15 @@ export const DAY_OF_ROLE_CHECKLIST: { role: string; tasks: string[] }[] = [
   },
   {
     role: "Transport Lead",
-    tasks: [
-      "Organize carpool",
-      "Confirm drivers and parking",
-      "Collect gas contributions",
-    ],
+    tasks: ["Organize carpool", "Confirm drivers and parking", "Collect gas contributions"],
   },
   {
     role: "Food Lead",
-    tasks: [
-      "Coordinate menu",
-      "Manage dietary needs",
-      "Bring utensils and trash bags",
-    ],
+    tasks: ["Coordinate menu", "Manage dietary needs", "Bring utensils and trash bags"],
   },
   {
     role: "Logistics",
-    tasks: [
-      "Manage permits",
-      "Confirm site reservations",
-      "Handle signage",
-      "Manage cleanup plan",
-    ],
+    tasks: ["Manage permits", "Confirm site reservations", "Handle signage", "Manage cleanup plan"],
   },
   {
     role: "Communications",

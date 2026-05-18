@@ -192,8 +192,60 @@ function VibePlansPage() {
     }
   }
 
+  function lockIn() {
+    if (!plan || !city) return;
+    const v = vibe ?? {
+      id: "custom",
+      label: customVibe || "Surprise me",
+      occasionId: "friends",
+      mood: "social",
+      emoji: "✨",
+    };
+    const loop: ActiveLoop = {
+      ...makeDemoLoop({
+        passenger: "GUEST",
+        groupSize,
+        occasion: v.label,
+        vibe: v.label,
+        to: v.label.toUpperCase(),
+        boardingTime: plan.stops[0]?.time ?? "6:00 PM",
+        stops: plan.stops.map((s) => ({
+          id: s.id,
+          name: s.name,
+          type: s.type,
+          time: s.time,
+          area: s.area,
+          venueId: s.venueId,
+          lat: s.lat,
+          lng: s.lng,
+          rationale: s.rationale,
+          slot: s.slot,
+        })),
+      }),
+      city: plan.city,
+      experienceName: plan.experienceName,
+      experienceTagline: plan.experienceTagline,
+      blueprint: plan.blueprint,
+      estimatedSpend: plan.estimatedSpend,
+      fitScore: plan.fitScore,
+      guardrailNote: plan.guardrailNote,
+      bonusMove: plan.bonus,
+      planParams: {
+        city: city.city,
+        occasionId: v.occasionId,
+        occasionLabel: v.label,
+        vibeId: v.id,
+        vibeLabel: v.label,
+        groupSize,
+      },
+    };
+    setActiveLoop(loop);
+    navigate({ to: "/boarding-pass" });
+  }
+
   // ── Render: plan view ─────────────────────────────────────────────
   if (plan) {
+    const stopCount = plan.stops.length;
     return (
       <div className="min-h-screen bg-background pb-12">
         <MobileHeader eyebrow="Vibe Plans" title={plan.experienceName} />
@@ -244,8 +296,8 @@ function VibePlansPage() {
             <Button className="flex-1" onClick={() => void build()} disabled={loading}>
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Regenerate"}
             </Button>
-            <Button asChild variant="secondary" className="flex-1">
-              <Link to="/boarding-pass">Lock it in</Link>
+            <Button variant="secondary" className="flex-1" onClick={lockIn}>
+              Lock in {stopCount} stop{stopCount === 1 ? "" : "s"}
             </Button>
           </div>
         </div>

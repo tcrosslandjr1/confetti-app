@@ -598,17 +598,25 @@ function NewTeamEventPage() {
                   />
                   <div className="grid gap-4 sm:grid-cols-2">
                     <Field label="City">
-                      <Input
+                      <PlacesAutocomplete
                         value={city}
-                        onChange={(e) => setCity(e.target.value)}
+                        onChange={setCity}
+                        onSelect={(p) => {
+                          setCity(p.city ?? p.name ?? city);
+                          if (!neighborhood && p.neighborhood) setNeighborhood(p.neighborhood);
+                        }}
+                        types={["(cities)"]}
                         placeholder="Washington DC"
+                        variant="address"
                       />
                     </Field>
                     <Field label="Neighborhood (optional)">
-                      <Input
+                      <PlacesAutocomplete
                         value={neighborhood}
-                        onChange={(e) => setNeighborhood(e.target.value)}
+                        onChange={setNeighborhood}
+                        onSelect={(p) => setNeighborhood(p.neighborhood ?? p.name ?? neighborhood)}
                         placeholder="Shaw, Capitol Hill…"
+                        variant="address"
                       />
                     </Field>
                   </div>

@@ -220,60 +220,60 @@ function SavedPage() {
                 </div>
               </li>
             ))}
-        {items
-          .filter((i) => i.venues)
-          .map((i) => (
-            <li
-              key={i.id}
-              className="overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut"
-            >
-              {i.venues!.image_url ? (
-                <img
-                  src={i.venues!.image_url}
-                  alt={i.venues!.name}
-                  className="h-36 w-full object-cover"
-                />
-              ) : (
-                <GooglePhotos
-                  venue={i.venues!.name}
-                  neighborhood={i.venues!.neighborhood}
-                  category={i.venues!.category}
-                  variant="hero"
-                />
-              )}
-              <div className="p-4">
-                <div className="flex items-start justify-between gap-2">
-                  <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
-                    {i.venues!.category}
+          {items
+            .filter((i) => i.venues)
+            .map((i) => (
+              <li
+                key={i.id}
+                className="overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut"
+              >
+                {i.venues!.image_url ? (
+                  <img
+                    src={i.venues!.image_url}
+                    alt={i.venues!.name}
+                    className="h-36 w-full object-cover"
+                  />
+                ) : (
+                  <GooglePhotos
+                    venue={i.venues!.name}
+                    neighborhood={i.venues!.neighborhood}
+                    category={i.venues!.category}
+                    variant="hero"
+                  />
+                )}
+                <div className="p-4">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                      {i.venues!.category}
+                    </div>
+                    <Heart className="h-4 w-4 fill-destructive text-destructive" />
                   </div>
-                  <Heart className="h-4 w-4 fill-destructive text-destructive" />
+                  <h3 className="mt-1 font-display text-lg font-bold">{i.venues!.name}</h3>
+                  <div className="mt-1.5">
+                    <VenueVerificationBadge venueName={i.venues!.name} size="xs" />
+                  </div>
+                  <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+                    {i.venues!.description}
+                  </p>
+                  <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground">
+                    {i.venues!.neighborhood && (
+                      <span className="inline-flex items-center gap-1">
+                        <MapPin className="h-3 w-3" />
+                        {i.venues!.neighborhood}
+                      </span>
+                    )}
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="h-7 text-destructive hover:text-destructive"
+                      onClick={() => remove(i.id)}
+                    >
+                      <Trash2 className="h-3.5 w-3.5" />
+                    </Button>
+                  </div>
                 </div>
-                <h3 className="mt-1 font-display text-lg font-bold">{i.venues!.name}</h3>
-                <div className="mt-1.5">
-                  <VenueVerificationBadge venueName={i.venues!.name} size="xs" />
-                </div>
-                <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
-                  {i.venues!.description}
-                </p>
-                <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground">
-                  {i.venues!.neighborhood && (
-                    <span className="inline-flex items-center gap-1">
-                      <MapPin className="h-3 w-3" />
-                      {i.venues!.neighborhood}
-                    </span>
-                  )}
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="h-7 text-destructive hover:text-destructive"
-                    onClick={() => remove(i.id)}
-                  >
-                    <Trash2 className="h-3.5 w-3.5" />
-                  </Button>
-                </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            ))}
         </ul>
       )}
     </div>

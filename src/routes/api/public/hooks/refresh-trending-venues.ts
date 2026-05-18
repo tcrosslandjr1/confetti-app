@@ -18,7 +18,15 @@ function decayFactor(ageDays: number) {
 export const Route = createFileRoute("/api/public/hooks/refresh-trending-venues")({
   server: {
     handlers: {
-      POST: async () => {
+      POST: async ({ request }) => {
+        const apiKey = request.headers.get("apikey");
+        const expected = process.env.SUPABASE_ANON_KEY || process.env.SUPABASE_PUBLISHABLE_KEY;
+        if (!expected || apiKey !== expected) {
+          return new Response(JSON.stringify({ error: "unauthorized" }), {
+            status: 401,
+            headers: { "Content-Type": "application/json" },
+          });
+        }
         const startedAt = Date.now();
         const since = new Date(Date.now() - LOOKBACK_DAYS * 86400_000).toISOString();
 

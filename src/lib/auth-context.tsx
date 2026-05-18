@@ -26,6 +26,13 @@ type AuthCtx = {
   viewAs: ViewAs;
   /** True when an admin is impersonating another role */
   isImpersonating: boolean;
+  /**
+   * True when viewAs was explicitly chosen via the role switcher but the real
+   * session can't grant that role (no user, or non-admin trying admin view).
+   * Route guards use this to render the UI shell so the role can be previewed
+   * without requiring a real login. Server-side RLS still enforces real perms.
+   */
+  isPreview: boolean;
   /** Effective role — viewAs when admin is impersonating, otherwise their real role */
   effectiveRole: ViewAs;
   setViewAs: (v: ViewAs) => void;
@@ -43,6 +50,7 @@ const Ctx = createContext<AuthCtx>({
   isAdmin: false,
   viewAs: "visitor",
   isImpersonating: false,
+  isPreview: false,
   effectiveRole: "visitor",
   setViewAs: () => {},
   exitImpersonation: () => {},

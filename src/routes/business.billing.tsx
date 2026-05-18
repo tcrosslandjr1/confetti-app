@@ -1,7 +1,10 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
-import { CheckCircle2, CreditCard, Download } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
+import { useQuery } from "@tanstack/react-query";
+import { CheckCircle2, CreditCard, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { BusinessPageShell } from "@/components/business/BusinessTabNav";
+import { getMyBusinessSubscription } from "@/lib/business-portal.functions";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -14,105 +17,140 @@ export const Route = createFileRoute("/business/billing")({
   component: BusinessBillingPage,
 });
 
-const INVOICES = [
-  { id: "INV-2026-005", date: "May 1, 2026", amount: "$199.00", status: "Paid" },
-  { id: "INV-2026-004", date: "Apr 1, 2026", amount: "$199.00", status: "Paid" },
-  { id: "INV-2026-003", date: "Mar 1, 2026", amount: "$199.00", status: "Paid" },
-];
+function fmtDate(d: string | null | undefined) {
+  return d
+    ? new Date(d).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })
+    : "—";
+}
 
 function BusinessBillingPage() {
+  const fetcher = useServerFn(getMyBusinessSubscription);
+  const q = useQuery({ queryKey: ["my-business-sub"], queryFn: () => fetcher() });
+
+  const sub = q.data?.subscription ?? null;
+  const history = q.data?.history ?? [];
+
   return (
     <BusinessPageShell
       eyebrow="Billing & Subscription"
-      title="Plan and invoices"
-      description="Manage your Confetti for Business subscription and payment method."
+      title="Plan and history"
+      description="Manage your Confetti for Business subscription."
       actions={
         <Button asChild>
-          <Link to="/business/pricing">Upgrade plan</Link>
+          <Link to="/business/pricing">{sub ? "Change plan" : "Upgrade plan"}</Link>
         </Button>
       }
     >
-      <div className="grid gap-4 md:grid-cols-3">
-        <Card className="p-5 md:col-span-2">
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
-                Current plan
-              </div>
-              <div className="mt-1 font-display text-2xl font-bold">Boost — Tier 2</div>
-              <div className="mt-1 text-sm text-muted-foreground">
-                Renews on <span className="font-semibold text-foreground">Jun 1, 2026</span> · $199
-                / mo
-              </div>
-            </div>
-            <CheckCircle2 className="h-8 w-8 text-emerald-500" />
-          </div>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {["Featured badge", "Boosted reels", "Priority search", "Hot Spots rotation"].map(
-              (f) => (
-                <span
-                  key={f}
-                  className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
-                >
-                  {f}
-                </span>
-              ),
-            )}
-          </div>
-        </Card>
-
-        <Card className="p-5">
-          <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
-            Payment method
-          </div>
-          <div className="mt-3 flex items-center gap-3 rounded-lg border bg-background/50 p-3">
-            <CreditCard className="h-5 w-5 text-muted-foreground" />
-            <div className="flex-1">
-              <div className="text-sm font-semibold">Visa •••• 4242</div>
-              <div className="text-xs text-muted-foreground">Exp 09/28</div>
-            </div>
-          </div>
-          <Button variant="outline" size="sm" className="mt-3 w-full">
-            Update card
-          </Button>
-        </Card>
-      </div>
-
-      <Card className="mt-6 p-5">
-        <div className="mb-3 font-display text-lg font-bold">Invoices</div>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead className="text-left text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
-              <tr>
-                <th className="py-2">Invoice</th>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Status</th>
-                <th className="text-right">Receipt</th>
-              </tr>
-            </thead>
-            <tbody>
-              {INVOICES.map((inv) => (
-                <tr key={inv.id} className="border-t border-border/60">
-                  <td className="py-2 font-mono text-xs">{inv.id}</td>
-                  <td>{inv.date}</td>
-                  <td className="font-semibold">{inv.amount}</td>
-                  <td>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-700">
-                      <CheckCircle2 className="h-2.5 w-2.5" /> {inv.status}
-                    </span>
-                  </td>
-                  <td className="text-right">
-                    <Button size="sm" variant="ghost">
-                      <Download className="h-3.5 w-3.5" />
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {q.isLoading ? (
+        <div className="grid place-items-center py-16 text-muted-foreground">
+          <Loader2 className="h-6 w-6 animate-spin" />
         </div>
-      </Card>
+      ) : (
+        <>
+          <div className="grid gap-4 md:grid-cols-3">
+            <Card className="p-5 md:col-span-2">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                    Current plan
+                  </div>
+                  <div className="mt-1 font-display text-2xl font-bold">
+                    {sub ? sub.tier ?? sub.product_id ?? "Active subscription" : "Free"}
+                  </div>
+                  <div className="mt-1 text-sm text-muted-foreground">
+                    {sub ? (
+                      <>
+                        Status{" "}
+                        <span className="font-semibold capitalize text-foreground">
+                          {sub.status}
+                        </span>
+                        {sub.current_period_end && (
+                          <>
+                            {" · "}
+                            {sub.cancel_at_period_end ? "ends" : "renews"}{" "}
+                            <span className="font-semibold text-foreground">
+                              {fmtDate(sub.current_period_end)}
+                            </span>
+                          </>
+                        )}
+                      </>
+                    ) : (
+                      "No active subscription. Upgrade to unlock promotion features."
+                    )}
+                  </div>
+                </div>
+                {sub ? (
+                  <CheckCircle2 className="h-8 w-8 text-emerald-500" />
+                ) : (
+                  <CreditCard className="h-8 w-8 text-muted-foreground" />
+                )}
+              </div>
+              {sub?.cancel_at_period_end && (
+                <div className="mt-3 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-xs text-amber-900">
+                  Scheduled to cancel at the end of the current period.
+                </div>
+              )}
+            </Card>
+
+            <Card className="p-5">
+              <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                Payment method
+              </div>
+              <div className="mt-3 flex items-center gap-3 rounded-lg border bg-background/50 p-3">
+                <CreditCard className="h-5 w-5 text-muted-foreground" />
+                <div className="flex-1 text-sm">
+                  {sub ? "Managed in Stripe" : "No card on file"}
+                </div>
+              </div>
+              <Button variant="outline" size="sm" className="mt-3 w-full" asChild>
+                <Link to="/business/pricing">Manage</Link>
+              </Button>
+            </Card>
+          </div>
+
+          <Card className="mt-6 p-5">
+            <div className="mb-3 font-display text-lg font-bold">Subscription history</div>
+            {history.length === 0 ? (
+              <div className="grid place-items-center py-10 text-sm text-muted-foreground">
+                No subscription records yet.
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead className="text-left font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                    <tr>
+                      <th className="py-2">Tier</th>
+                      <th>Status</th>
+                      <th>Period start</th>
+                      <th>Period end</th>
+                      <th>Env</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {history.map((row) => (
+                      <tr key={row.id} className="border-t border-border/60">
+                        <td className="py-2 font-semibold">
+                          {row.tier ?? row.product_id ?? "—"}
+                        </td>
+                        <td>
+                          <span className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+                            {row.status}
+                          </span>
+                        </td>
+                        <td>{fmtDate(row.current_period_start)}</td>
+                        <td>{fmtDate(row.current_period_end)}</td>
+                        <td className="text-xs uppercase text-muted-foreground">
+                          {row.environment}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </Card>
+        </>
+      )}
     </BusinessPageShell>
   );
 }

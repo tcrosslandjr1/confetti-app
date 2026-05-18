@@ -3,12 +3,17 @@ import { z } from "zod";
 import { apiError, authenticate, checkRate, json, orders } from "@/lib/partner-api";
 
 const Patch = z.object({
-  add_items: z.array(z.object({
-    menu_item_id: z.string(),
-    name: z.string(),
-    quantity: z.number().int().min(1),
-    price: z.number().nonnegative(),
-  })).max(50).optional(),
+  add_items: z
+    .array(
+      z.object({
+        menu_item_id: z.string(),
+        name: z.string(),
+        quantity: z.number().int().min(1),
+        price: z.number().nonnegative(),
+      }),
+    )
+    .max(50)
+    .optional(),
   remove_items: z.array(z.string()).max(50).optional(),
   new_total: z.number().nonnegative().optional(),
   status: z.enum(["confirmed", "preparing", "ready", "picked_up", "cancelled"]).optional(),
@@ -39,9 +44,14 @@ export const Route = createFileRoute("/api/public/partner/v1/orders/$id")({
         }
 
         let raw: unknown;
-        try { raw = await request.json(); } catch { return apiError("VALIDATION", "Invalid JSON"); }
+        try {
+          raw = await request.json();
+        } catch {
+          return apiError("VALIDATION", "Invalid JSON");
+        }
         const parsed = Patch.safeParse(raw);
-        if (!parsed.success) return apiError("VALIDATION", "Invalid request", parsed.error.flatten());
+        if (!parsed.success)
+          return apiError("VALIDATION", "Invalid request", parsed.error.flatten());
 
         let items = o.items;
         if (parsed.data.remove_items?.length) {
@@ -71,7 +81,12 @@ export const Route = createFileRoute("/api/public/partner/v1/orders/$id")({
         const o = orders.get(params.id);
         if (!o || o.venue_id !== auth.venue_id) return apiError("NOT_FOUND", "Order not found");
 
-        const cancelled = { ...o, status: "cancelled" as const, payment_status: "refunded" as const, updated_at: new Date().toISOString() };
+        const cancelled = {
+          ...o,
+          status: "cancelled" as const,
+          payment_status: "refunded" as const,
+          updated_at: new Date().toISOString(),
+        };
         orders.upsert(params.id, cancelled);
 
         return json({

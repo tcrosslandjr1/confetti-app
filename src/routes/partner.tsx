@@ -53,7 +53,6 @@ const NAV = [
   { to: "/partner/promotions", label: "Promotions", icon: Megaphone },
   { to: "/partner/api", label: "Partner API", icon: Code2 },
   { to: "/partner/support", label: "Support", icon: LifeBuoy },
-
 ];
 
 const VENUES = [

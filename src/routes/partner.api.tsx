@@ -5,7 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Copy, Play, BookOpen } from "lucide-react";
 
 export const Route = createFileRoute("/partner/api")({
@@ -20,22 +26,67 @@ type Endpoint = {
 };
 
 const ENDPOINTS: Endpoint[] = [
-  { method: "POST", path: "/api/public/partner/v1/reservations", desc: "Create reservation",
-    body: JSON.stringify({ user_id: "usr_abc123", venue_id: "ven_xyz789", datetime: "2026-12-31T20:00:00-05:00", party_size: 4, source: "itinerary", deposit: { required: true, amount: 50, currency: "USD" } }, null, 2) },
+  {
+    method: "POST",
+    path: "/api/public/partner/v1/reservations",
+    desc: "Create reservation",
+    body: JSON.stringify(
+      {
+        user_id: "usr_abc123",
+        venue_id: "ven_xyz789",
+        datetime: "2026-12-31T20:00:00-05:00",
+        party_size: 4,
+        source: "itinerary",
+        deposit: { required: true, amount: 50, currency: "USD" },
+      },
+      null,
+      2,
+    ),
+  },
   { method: "GET", path: "/api/public/partner/v1/reservations", desc: "List reservations" },
   { method: "GET", path: "/api/public/partner/v1/reservations/{id}", desc: "Get reservation" },
-  { method: "PATCH", path: "/api/public/partner/v1/reservations/{id}", desc: "Modify reservation",
-    body: JSON.stringify({ party_size: 6, notes: "Adding 2 more" }, null, 2) },
-  { method: "DELETE", path: "/api/public/partner/v1/reservations/{id}", desc: "Cancel reservation",
-    body: JSON.stringify({ reason: "user_cancelled", refund_deposit: true }, null, 2) },
-  { method: "POST", path: "/api/public/partner/v1/orders", desc: "Create order",
-    body: JSON.stringify({ user_id: "usr_abc123", venue_id: "ven_xyz789", type: "pickup", pickup_time: "2026-12-31T19:45:00-05:00", items: [{ menu_item_id: "mi_001", name: "Chicken & Waffles", quantity: 2, price: 18 }], subtotal: 36, tax: 3.06, tip: 5, total: 44.06 }, null, 2) },
+  {
+    method: "PATCH",
+    path: "/api/public/partner/v1/reservations/{id}",
+    desc: "Modify reservation",
+    body: JSON.stringify({ party_size: 6, notes: "Adding 2 more" }, null, 2),
+  },
+  {
+    method: "DELETE",
+    path: "/api/public/partner/v1/reservations/{id}",
+    desc: "Cancel reservation",
+    body: JSON.stringify({ reason: "user_cancelled", refund_deposit: true }, null, 2),
+  },
+  {
+    method: "POST",
+    path: "/api/public/partner/v1/orders",
+    desc: "Create order",
+    body: JSON.stringify(
+      {
+        user_id: "usr_abc123",
+        venue_id: "ven_xyz789",
+        type: "pickup",
+        pickup_time: "2026-12-31T19:45:00-05:00",
+        items: [{ menu_item_id: "mi_001", name: "Chicken & Waffles", quantity: 2, price: 18 }],
+        subtotal: 36,
+        tax: 3.06,
+        tip: 5,
+        total: 44.06,
+      },
+      null,
+      2,
+    ),
+  },
   { method: "GET", path: "/api/public/partner/v1/orders/{id}", desc: "Get order" },
   { method: "PATCH", path: "/api/public/partner/v1/orders/{id}", desc: "Modify order before prep" },
   { method: "DELETE", path: "/api/public/partner/v1/orders/{id}", desc: "Cancel order" },
   { method: "GET", path: "/api/public/partner/v1/menu", desc: "Fetch venue menu" },
   { method: "PUT", path: "/api/public/partner/v1/menu", desc: "Push full menu update" },
-  { method: "GET", path: "/api/public/partner/v1/availability?date=2026-12-31&party_size=4", desc: "Real-time slots (Tier 3)" },
+  {
+    method: "GET",
+    path: "/api/public/partner/v1/availability?date=2026-12-31&party_size=4",
+    desc: "Real-time slots (Tier 3)",
+  },
   { method: "POST", path: "/api/public/webhooks/partner", desc: "Inbound webhook (HMAC-signed)" },
 ];
 
@@ -72,7 +123,11 @@ function ApiPage() {
       });
       const text = await res.text();
       let pretty = text;
-      try { pretty = JSON.stringify(JSON.parse(text), null, 2); } catch { /* not JSON */ }
+      try {
+        pretty = JSON.stringify(JSON.parse(text), null, 2);
+      } catch {
+        /* not JSON */
+      }
       setResponse({ status: res.status, body: pretty });
     } catch (err) {
       setResponse({ status: 0, body: String(err) });
@@ -89,17 +144,24 @@ function ApiPage() {
             <BookOpen className="h-6 w-6 text-primary" /> Partner API
           </h1>
           <p className="text-muted-foreground text-sm mt-1">
-            Base URL: <code className="text-xs">/api/public/partner/v1</code> · Bearer auth · 100 req/min/venue
+            Base URL: <code className="text-xs">/api/public/partner/v1</code> · Bearer auth · 100
+            req/min/venue
           </p>
         </div>
         <Badge variant="outline">Tier 2 / 3 only</Badge>
       </div>
 
       <Card className="p-4 bg-muted/30">
-        <div className="text-xs uppercase tracking-wide text-muted-foreground mb-2">Demo tokens</div>
+        <div className="text-xs uppercase tracking-wide text-muted-foreground mb-2">
+          Demo tokens
+        </div>
         <div className="flex flex-wrap gap-2 text-xs">
-          <code className="px-2 py-1 rounded bg-card border">demo_token_sundae · Tier 3 · ven_xyz789</code>
-          <code className="px-2 py-1 rounded bg-card border">demo_token_downtown · Tier 2 · ven_dwntn</code>
+          <code className="px-2 py-1 rounded bg-card border">
+            demo_token_sundae · Tier 3 · ven_xyz789
+          </code>
+          <code className="px-2 py-1 rounded bg-card border">
+            demo_token_downtown · Tier 2 · ven_dwntn
+          </code>
         </div>
       </Card>
 
@@ -118,8 +180,17 @@ function ApiPage() {
                 }`}
               >
                 <div className="flex items-center gap-2">
-                  <Badge variant="outline" className={`text-[10px] px-1.5 py-0 ${METHOD_STYLE[e.method]}`}>{e.method}</Badge>
-                  <span className="font-mono truncate flex-1">{e.path.replace("/api/public/partner/v1", "").replace("/api/public/webhooks", "webhooks")}</span>
+                  <Badge
+                    variant="outline"
+                    className={`text-[10px] px-1.5 py-0 ${METHOD_STYLE[e.method]}`}
+                  >
+                    {e.method}
+                  </Badge>
+                  <span className="font-mono truncate flex-1">
+                    {e.path
+                      .replace("/api/public/partner/v1", "")
+                      .replace("/api/public/webhooks", "webhooks")}
+                  </span>
                 </div>
                 <div className="text-[11px] text-muted-foreground mt-0.5 ml-1">{e.desc}</div>
               </button>
@@ -131,8 +202,14 @@ function ApiPage() {
         <div className="space-y-4 min-w-0">
           <Card className="p-5">
             <div className="flex items-center gap-2 mb-4">
-              <Badge variant="outline" className={METHOD_STYLE[selected.method]}>{selected.method}</Badge>
-              <Input value={path} onChange={(e) => setPath(e.target.value)} className="font-mono text-xs flex-1" />
+              <Badge variant="outline" className={METHOD_STYLE[selected.method]}>
+                {selected.method}
+              </Badge>
+              <Input
+                value={path}
+                onChange={(e) => setPath(e.target.value)}
+                className="font-mono text-xs flex-1"
+              />
               <Button onClick={send} disabled={loading}>
                 <Play className="h-4 w-4 mr-1.5" />
                 {loading ? "Sending…" : "Send"}
@@ -141,12 +218,20 @@ function ApiPage() {
 
             <div className="space-y-3">
               <div>
-                <label className="text-xs uppercase tracking-wide text-muted-foreground">Bearer token</label>
-                <Input value={token} onChange={(e) => setToken(e.target.value)} className="font-mono text-xs mt-1" />
+                <label className="text-xs uppercase tracking-wide text-muted-foreground">
+                  Bearer token
+                </label>
+                <Input
+                  value={token}
+                  onChange={(e) => setToken(e.target.value)}
+                  className="font-mono text-xs mt-1"
+                />
               </div>
               {!["GET"].includes(selected.method) && (
                 <div>
-                  <label className="text-xs uppercase tracking-wide text-muted-foreground">Request body (JSON)</label>
+                  <label className="text-xs uppercase tracking-wide text-muted-foreground">
+                    Request body (JSON)
+                  </label>
                   <Textarea
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
@@ -163,7 +248,9 @@ function ApiPage() {
             <Card className="p-5">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs uppercase tracking-wide text-muted-foreground">Response</span>
+                  <span className="text-xs uppercase tracking-wide text-muted-foreground">
+                    Response
+                  </span>
                   <Badge
                     className={
                       response.status >= 200 && response.status < 300
@@ -175,8 +262,13 @@ function ApiPage() {
                     {response.status || "ERR"}
                   </Badge>
                 </div>
-                <Button variant="ghost" size="sm" onClick={() => navigator.clipboard.writeText(response.body)}>
-                  <Copy className="h-3.5 w-3.5 mr-1.5" />Copy
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => navigator.clipboard.writeText(response.body)}
+                >
+                  <Copy className="h-3.5 w-3.5 mr-1.5" />
+                  Copy
                 </Button>
               </div>
               <pre className="text-xs bg-muted/40 p-3 rounded-md overflow-x-auto max-h-[400px] overflow-y-auto">

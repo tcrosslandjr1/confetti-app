@@ -31,10 +31,10 @@ const ERROR_STATUS: Record<ApiErrorCode, number> = {
 };
 
 export function apiError(code: ApiErrorCode, message: string, details?: Json) {
-  return new Response(
-    JSON.stringify({ error: { code, message, details: details ?? null } }),
-    { status: ERROR_STATUS[code], headers: { "Content-Type": "application/json" } }
-  );
+  return new Response(JSON.stringify({ error: { code, message, details: details ?? null } }), {
+    status: ERROR_STATUS[code],
+    headers: { "Content-Type": "application/json" },
+  });
 }
 
 export function json(body: Json, status = 200, extraHeaders: Record<string, string> = {}) {
@@ -120,7 +120,13 @@ export type Order = {
   reservation_id?: string;
   type: "dine_in_preorder" | "pickup";
   pickup_time: string;
-  items: Array<{ menu_item_id: string; name: string; quantity: number; price: number; modifications?: string[] }>;
+  items: Array<{
+    menu_item_id: string;
+    name: string;
+    quantity: number;
+    price: number;
+    modifications?: string[];
+  }>;
   subtotal: number;
   tax: number;
   tip: number;
@@ -134,10 +140,19 @@ export type Order = {
 
 class Store<T extends { venue_id: string }> {
   private items = new Map<string, T>();
-  upsert(id: string, item: T) { this.items.set(id, item); return item; }
-  get(id: string) { return this.items.get(id); }
-  delete(id: string) { return this.items.delete(id); }
-  forVenue(venue_id: string) { return [...this.items.values()].filter((i) => i.venue_id === venue_id); }
+  upsert(id: string, item: T) {
+    this.items.set(id, item);
+    return item;
+  }
+  get(id: string) {
+    return this.items.get(id);
+  }
+  delete(id: string) {
+    return this.items.delete(id);
+  }
+  forVenue(venue_id: string) {
+    return [...this.items.values()].filter((i) => i.venue_id === venue_id);
+  }
 }
 
 export const reservations = new Store<Reservation>();

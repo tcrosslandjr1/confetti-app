@@ -24,7 +24,8 @@ export const Route = createFileRoute("/api/public/partner/v1/reservations/$id")(
         const limited = checkRate(auth.venue_id);
         if (limited) return limited;
         const r = reservations.get(params.id);
-        if (!r || r.venue_id !== auth.venue_id) return apiError("NOT_FOUND", "Reservation not found");
+        if (!r || r.venue_id !== auth.venue_id)
+          return apiError("NOT_FOUND", "Reservation not found");
         return json(r);
       },
 
@@ -34,12 +35,18 @@ export const Route = createFileRoute("/api/public/partner/v1/reservations/$id")(
         const limited = checkRate(auth.venue_id);
         if (limited) return limited;
         const r = reservations.get(params.id);
-        if (!r || r.venue_id !== auth.venue_id) return apiError("NOT_FOUND", "Reservation not found");
+        if (!r || r.venue_id !== auth.venue_id)
+          return apiError("NOT_FOUND", "Reservation not found");
 
         let raw: unknown;
-        try { raw = await request.json(); } catch { return apiError("VALIDATION", "Invalid JSON"); }
+        try {
+          raw = await request.json();
+        } catch {
+          return apiError("VALIDATION", "Invalid JSON");
+        }
         const parsed = Patch.safeParse(raw);
-        if (!parsed.success) return apiError("VALIDATION", "Invalid request", parsed.error.flatten());
+        if (!parsed.success)
+          return apiError("VALIDATION", "Invalid request", parsed.error.flatten());
 
         const updated = { ...r, ...parsed.data, updated_at: new Date().toISOString() };
         reservations.upsert(params.id, updated);
@@ -52,18 +59,21 @@ export const Route = createFileRoute("/api/public/partner/v1/reservations/$id")(
         const limited = checkRate(auth.venue_id);
         if (limited) return limited;
         const r = reservations.get(params.id);
-        if (!r || r.venue_id !== auth.venue_id) return apiError("NOT_FOUND", "Reservation not found");
+        if (!r || r.venue_id !== auth.venue_id)
+          return apiError("NOT_FOUND", "Reservation not found");
 
         let body: z.infer<typeof Cancel> = {};
         try {
           const text = await request.text();
           body = text ? Cancel.parse(JSON.parse(text)) : {};
-        } catch { /* allow empty body */ }
+        } catch {
+          /* allow empty body */
+        }
 
         const cancelled = {
           ...r,
           status: "cancelled" as const,
-          deposit_status: body.refund_deposit ? "refunded" as const : r.deposit_status,
+          deposit_status: body.refund_deposit ? ("refunded" as const) : r.deposit_status,
           updated_at: new Date().toISOString(),
         };
         reservations.upsert(params.id, cancelled);

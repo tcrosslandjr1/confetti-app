@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
-import { apiError, authenticate, checkRate, genId, json, orders, type Order } from "@/lib/partner-api";
+import {
+  apiError,
+  authenticate,
+  checkRate,
+  genId,
+  json,
+  orders,
+  type Order,
+} from "@/lib/partner-api";
 
 const Item = z.object({
   menu_item_id: z.string(),
@@ -35,12 +43,18 @@ export const Route = createFileRoute("/api/public/partner/v1/orders/")({
         if (limited) return limited;
 
         let raw: unknown;
-        try { raw = await request.json(); } catch { return apiError("VALIDATION", "Invalid JSON"); }
+        try {
+          raw = await request.json();
+        } catch {
+          return apiError("VALIDATION", "Invalid JSON");
+        }
         const parsed = Body.safeParse(raw);
-        if (!parsed.success) return apiError("VALIDATION", "Invalid request", parsed.error.flatten());
+        if (!parsed.success)
+          return apiError("VALIDATION", "Invalid request", parsed.error.flatten());
         const data = parsed.data;
 
-        if (auth.venue_id !== data.venue_id) return apiError("INVALID_TOKEN", "Token does not match venue_id");
+        if (auth.venue_id !== data.venue_id)
+          return apiError("INVALID_TOKEN", "Token does not match venue_id");
 
         const now = new Date().toISOString();
         const id = genId("ord");
@@ -74,7 +88,7 @@ export const Route = createFileRoute("/api/public/partner/v1/orders/")({
             items_confirmed: true,
             created_at: order.created_at,
           },
-          201
+          201,
         );
       },
 

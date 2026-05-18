@@ -29,8 +29,11 @@ export const Route = createFileRoute("/api/public/webhooks/partner")({
         if (!verifySignature(raw, sig)) return apiError("INVALID_TOKEN", "Invalid signature");
 
         let payload: z.infer<typeof Body>;
-        try { payload = Body.parse(JSON.parse(raw)); }
-        catch (e) { return apiError("VALIDATION", "Invalid payload", { issues: String(e) }); }
+        try {
+          payload = Body.parse(JSON.parse(raw));
+        } catch (e) {
+          return apiError("VALIDATION", "Invalid payload", { issues: String(e) });
+        }
 
         // Apply to in-memory store
         if (payload.resource_id) {

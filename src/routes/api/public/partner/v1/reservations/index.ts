@@ -1,8 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import {
-  apiError, authenticate, checkRate, confirmationCode, genId, json,
-  reservations, type Reservation,
+  apiError,
+  authenticate,
+  checkRate,
+  confirmationCode,
+  genId,
+  json,
+  reservations,
+  type Reservation,
 } from "@/lib/partner-api";
 
 const Body = z.object({
@@ -13,12 +19,14 @@ const Body = z.object({
   notes: z.string().max(500).optional(),
   source: z.enum(["itinerary", "direct", "party_room"]),
   itinerary_id: z.string().optional(),
-  deposit: z.object({
-    required: z.boolean(),
-    amount: z.number().nonnegative(),
-    currency: z.string().length(3),
-    payment_method_id: z.string().optional(),
-  }).optional(),
+  deposit: z
+    .object({
+      required: z.boolean(),
+      amount: z.number().nonnegative(),
+      currency: z.string().length(3),
+      payment_method_id: z.string().optional(),
+    })
+    .optional(),
 });
 
 export const Route = createFileRoute("/api/public/partner/v1/reservations/")({
@@ -31,9 +39,14 @@ export const Route = createFileRoute("/api/public/partner/v1/reservations/")({
         if (limited) return limited;
 
         let raw: unknown;
-        try { raw = await request.json(); } catch { return apiError("VALIDATION", "Invalid JSON"); }
+        try {
+          raw = await request.json();
+        } catch {
+          return apiError("VALIDATION", "Invalid JSON");
+        }
         const parsed = Body.safeParse(raw);
-        if (!parsed.success) return apiError("VALIDATION", "Invalid request", parsed.error.flatten());
+        if (!parsed.success)
+          return apiError("VALIDATION", "Invalid request", parsed.error.flatten());
         const data = parsed.data;
 
         if (auth.venue_id !== data.venue_id) {

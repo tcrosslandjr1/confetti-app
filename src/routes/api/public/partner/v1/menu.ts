@@ -29,20 +29,28 @@ const MENU: Record<string, unknown> = {
 };
 
 const PutBody = z.object({
-  categories: z.array(z.object({
-    name: z.string().min(1).max(80),
-    available_hours: z.string().max(40).optional(),
-    items: z.array(z.object({
-      id: z.string(),
-      name: z.string().min(1).max(120),
-      description: z.string().max(500).optional(),
-      price: z.number().nonnegative(),
-      image_url: z.string().url().optional(),
-      dietary: z.array(z.string()).max(20).optional(),
-      available: z.boolean().default(true),
-      popular: z.boolean().optional(),
-    })).max(500),
-  })).max(50),
+  categories: z
+    .array(
+      z.object({
+        name: z.string().min(1).max(80),
+        available_hours: z.string().max(40).optional(),
+        items: z
+          .array(
+            z.object({
+              id: z.string(),
+              name: z.string().min(1).max(120),
+              description: z.string().max(500).optional(),
+              price: z.number().nonnegative(),
+              image_url: z.string().url().optional(),
+              dietary: z.array(z.string()).max(20).optional(),
+              available: z.boolean().default(true),
+              popular: z.boolean().optional(),
+            }),
+          )
+          .max(500),
+      }),
+    )
+    .max(50),
 });
 
 export const Route = createFileRoute("/api/public/partner/v1/menu")({
@@ -53,7 +61,11 @@ export const Route = createFileRoute("/api/public/partner/v1/menu")({
         if (auth instanceof Response) return auth;
         const limited = checkRate(auth.venue_id);
         if (limited) return limited;
-        const menu = MENU[auth.venue_id] ?? { venue_id: auth.venue_id, last_updated: null, categories: [] };
+        const menu = MENU[auth.venue_id] ?? {
+          venue_id: auth.venue_id,
+          last_updated: null,
+          categories: [],
+        };
         return json(menu as never);
       },
 
@@ -64,7 +76,11 @@ export const Route = createFileRoute("/api/public/partner/v1/menu")({
         if (limited) return limited;
 
         let raw: unknown;
-        try { raw = await request.json(); } catch { return apiError("VALIDATION", "Invalid JSON"); }
+        try {
+          raw = await request.json();
+        } catch {
+          return apiError("VALIDATION", "Invalid JSON");
+        }
         const parsed = PutBody.safeParse(raw);
         if (!parsed.success) return apiError("VALIDATION", "Invalid menu", parsed.error.flatten());
 

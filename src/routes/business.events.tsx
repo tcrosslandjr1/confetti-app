@@ -88,7 +88,6 @@ function BusinessEventsPage() {
             venueId={activeId}
             onCreated={() => qc.invalidateQueries({ queryKey: ["my-venue-events"] })}
           />
-
         </div>
       }
     >
@@ -202,13 +201,7 @@ function LoadingBlock() {
   );
 }
 
-function AddEventDialog({
-  venueId,
-  onCreated,
-}: {
-  venueId: string | null;
-  onCreated: () => void;
-}) {
+function AddEventDialog({ venueId, onCreated }: { venueId: string | null; onCreated: () => void }) {
   const createEvent = useServerFn(createVenueEvent);
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");

@@ -359,11 +359,7 @@ export const createVenueEvent = createServerFn({ method: "POST" })
       created_by: context.userId,
       status: "published",
     };
-    const { data: row, error } = await supabase
-      .from("events")
-      .insert(insert)
-      .select("id")
-      .single();
+    const { data: row, error } = await supabase.from("events").insert(insert).select("id").single();
     if (error) throw new Error(error.message);
     return { ok: true, eventId: row.id };
   });

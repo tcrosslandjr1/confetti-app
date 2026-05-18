@@ -192,9 +192,7 @@ async function autocomplete(
     input,
     ...(opts.sessionToken ? { sessionToken: opts.sessionToken } : {}),
     ...(opts.types?.length ? { includedPrimaryTypes: opts.types } : {}),
-    ...(opts.country
-      ? { includedRegionCodes: [opts.country.toLowerCase()] }
-      : {}),
+    ...(opts.country ? { includedRegionCodes: [opts.country.toLowerCase()] } : {}),
   };
   const res = await fetch("https://places.googleapis.com/v1/places:autocomplete", {
     method: "POST",

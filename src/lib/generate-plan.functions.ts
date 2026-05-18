@@ -11,6 +11,15 @@ import { buildGirlsNightPresetsPrompt } from "./agents/girls-night-presets";
 import { buildMiamiGuysNightPrompt, isMiamiGuysNight } from "./agents/guys-night-presets";
 import { fetchForecastForCityDate, weatherGuidance } from "./weather.server";
 import { generateAndRankNames } from "./name-generator.functions";
+import {
+  runV6Engines,
+  type PersonalityId,
+  type BudgetMode,
+  type GroupType,
+  type TimeOfDay,
+  type SafetyMode,
+  type LocalFlavorLevel,
+} from "./agents/v6-engines";
 import type { GeneratedPlan } from "./agents/types";
 
 const PlanRequestSchema = z.object({

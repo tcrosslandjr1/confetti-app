@@ -78,6 +78,37 @@ function AuthPage() {
   const pickSeats = liveSeatsRemaining(tonightsPick.id, new Date());
   const pickShortCity = tonightsPick.city.split(",")[0].trim().toLowerCase();
 
+  // Mouse-driven parallax for the ambient background orbs. Values are
+  // normalized to roughly -1..1 around the viewport center and consumed via
+  // the `.parallax-soft` / `.parallax-strong` utilities in styles.css.
+  const parallaxRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onMove = (e: MouseEvent) => {
+      const el = parallaxRef.current;
+      if (!el) return;
+      const mx = (e.clientX / window.innerWidth) * 2 - 1;
+      const my = (e.clientY / window.innerHeight) * 2 - 1;
+      el.style.setProperty("--mx", mx.toFixed(3));
+      el.style.setProperty("--my", my.toFixed(3));
+    };
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
+
+  // Lightweight password strength heuristic (length + variety). 0..4.
+  const pwStrength = useMemo(() => {
+    let s = 0;
+    if (password.length >= 8) s++;
+    if (password.length >= 12) s++;
+    if (/[A-Z]/.test(password) && /[a-z]/.test(password)) s++;
+    if (/\d/.test(password) && /[^A-Za-z0-9]/.test(password)) s++;
+    return Math.min(s, 4);
+  }, [password]);
+  const pwLabel = ["too short", "weak", "ok", "strong", "excellent"][pwStrength];
+  const emailLooksValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+
   // Translate OAuth provider/Supabase errors into something a user can act on.
   function explainOAuthError(provider: "google" | "apple", raw: string): string {
     const msg = raw.toLowerCase();

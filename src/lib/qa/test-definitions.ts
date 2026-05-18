@@ -356,19 +356,19 @@ const suiteSafety: TestSuite = {
         out?.notes || "no notes",
       );
     });
-    const guarded = applySafetyGuards(
-      [
-        { vibeLabel: "Strip Club Crawl", occasionLabel: "bachelor" },
-        { vibeLabel: "Quiet Brunch", occasionLabel: "in-laws" },
-      ],
-      ["in_laws"],
-    );
+    const adultInput = { vibeLabel: "Strip Club Crawl", occasionLabel: "bachelor" };
+    const safeInput = { vibeLabel: "Quiet Brunch", occasionLabel: "in-laws" };
+    const guardedAdult = applySafetyGuards(adultInput, {
+      ...DEFAULT_PROFILE,
+      adult_opt_in: false,
+    });
+    const guardedSafe = applySafetyGuards(safeInput, DEFAULT_PROFILE);
     results.push(
       ok(
         "S11.G",
-        "applySafetyGuards filters adult content for in_laws",
-        guarded.length < 2,
-        `kept ${guarded.length}/2`,
+        "applySafetyGuards strips adult content when not opted in",
+        guardedAdult.vibeLabel === undefined && guardedSafe.vibeLabel === "Quiet Brunch",
+        `adult→${guardedAdult.vibeLabel ?? "blocked"}, safe→${guardedSafe.vibeLabel}`,
       ),
     );
     return results;

@@ -283,6 +283,9 @@ export function VenueDiscoveryCard({
         )}
       </div>
 
+      {/* Trust signals */}
+      <VenueTrustSignals trust={venue.trust} />
+
       {/* Social action row */}
       <SocialActionRow venue={venue} />
 

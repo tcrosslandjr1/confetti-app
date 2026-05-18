@@ -16,13 +16,23 @@ export const GIRLS_NIGHT_PRESETS: GirlsNightPreset[] = [
   {
     name: "Pier Pressure & Prosecco",
     tier: "cheap",
-    waterfront: ["Walk the pier or riverwalk", "Boba or ice cream", "Dockside photos", "Wine back home"],
+    waterfront: [
+      "Walk the pier or riverwalk",
+      "Boba or ice cream",
+      "Dockside photos",
+      "Wine back home",
+    ],
     inland: ["Cute neighborhood stroll", "Ice cream shop", "Rooftop or balcony wine hang"],
   },
   {
     name: "Broke But Bougie Winery Night",
     tier: "cheap",
-    waterfront: ["Cheap winery tasting", "Drive to the water", "Bottle on the dock", "Sunset playlist"],
+    waterfront: [
+      "Cheap winery tasting",
+      "Drive to the water",
+      "Bottle on the dock",
+      "Sunset playlist",
+    ],
     inland: ["Winery tasting", "Park picnic", "Golden-hour photos"],
   },
   {
@@ -96,7 +106,11 @@ export const GIRLS_NIGHT_PRESETS: GirlsNightPreset[] = [
   {
     name: "Sunset Vineyard Supper",
     tier: "high",
-    waterfront: ["Private winery tasting", "Chauffeured ride to waterfront", "Champagne on the pier"],
+    waterfront: [
+      "Private winery tasting",
+      "Chauffeured ride to waterfront",
+      "Champagne on the pier",
+    ],
     inland: ["Private winery tasting", "Chef's table dinner"],
   },
   {

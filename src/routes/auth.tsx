@@ -698,9 +698,7 @@ function AuthPage() {
                       >
                         {s.n}
                       </span>
-                      <s.Icon
-                        className={`h-3.5 w-3.5 ${i === 0 ? "text-ink" : "text-ink/40"}`}
-                      />
+                      <s.Icon className={`h-3.5 w-3.5 ${i === 0 ? "text-ink" : "text-ink/40"}`} />
                     </div>
                     <div className="mt-1 font-display text-sm font-extrabold leading-tight text-ink">
                       {s.t}
@@ -1075,7 +1073,6 @@ function AuthPage() {
             </span>
             <ArrowRight className="h-4 w-4 text-ink/40 transition-transform group-hover:translate-x-1 group-hover:text-coral" />
           </button>
-
 
           {import.meta.env.DEV && (
             <div className="mt-8 rounded-2xl border border-dashed border-border bg-card/50 p-4">

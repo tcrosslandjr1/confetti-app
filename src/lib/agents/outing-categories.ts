@@ -739,6 +739,8 @@ export const OUTING_CATEGORIES: OutingCategory[] = [
     avoidVenueTypes: ["dance_club", "dive_bar", "after_hours", "strip_club"],
     suggestedSlots: ["Brunch", "Photo", "Lounge", "Day Party (optional)"],
   }),
+  cat({
+    id: "breakfast_outing",
     name: "Breakfast Outing",
     group: "food",
     description: "Early-bird favorites.",

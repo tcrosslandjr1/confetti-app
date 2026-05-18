@@ -60,4 +60,6 @@ export type GeneratedPlan = {
   fitScore: number;
   /** Short note from the Quality Guardrail agent */
   guardrailNote?: string;
+  /** AI-generated alternate name options (best first), produced by the Name Generator + Rater. */
+  nameOptions?: { name: string; score: number }[];
 };

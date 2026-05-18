@@ -44,7 +44,7 @@ export const Route = createFileRoute("/advertise/portal")({
 });
 
 function AdvertiserPortal() {
-  const { user, loading, viewAs } = useAuth();
+  const { user, loading, viewAs, isPreview } = useAuth();
   const nav = useNavigate();
   const [advertiser, setAdvertiser] = useState<Advertiser | null>(null);
   const [subscription, setSubscription] = useState<AdvertiserSubscription | null>(null);

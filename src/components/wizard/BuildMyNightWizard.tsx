@@ -1423,39 +1423,32 @@ export function BuildMyNightWizard() {
     burst(e.clientX, e.clientY);
     const existing = getActiveLoop();
     const newStop = wizardStopToLoopStop(stop, existing?.stops.length ?? 0);
-    let nextStops = 1;
     if (existing) {
       const dup = existing.stops.some(
         (s) => (s.venueId && s.venueId === newStop.venueId) || s.name === newStop.name,
       );
       if (dup) {
-        toast.info(`${stop.venue} is already on your boarding pass — opening it.`);
-        setTimeout(() => {
-          closeWizard();
-          navigate({ to: "/boarding-pass" });
-        }, 200);
+        toast.info(`${stop.venue} is already added`);
         return;
       }
       const next: ActiveLoop = { ...existing, stops: [...existing.stops, newStop] };
       setActiveLoop(next);
-      nextStops = next.stops.length;
-    } else {
-      const loop = makeDemoLoop({
-        passenger: user?.email?.split("@")[0]?.toUpperCase() ?? "GUEST",
-        to: stop.vibe.toUpperCase(),
-        gate: stop.neighborhood?.toUpperCase().slice(0, 6) || "GATE 1",
-        boardingTime: stop.time,
-        stops: [newStop],
+      toast.success(`Added ${stop.venue}`, {
+        description: `${next.stops.length} stop${next.stops.length === 1 ? "" : "s"} ready — tap “Lock it in” when done.`,
       });
-      setActiveLoop(loop);
+      return;
     }
-    toast.success(`Added ${stop.venue}`, {
-      description: `${nextStops} stop${nextStops === 1 ? "" : "s"} · opening boarding pass…`,
+    const loop = makeDemoLoop({
+      passenger: user?.email?.split("@")[0]?.toUpperCase() ?? "GUEST",
+      to: stop.vibe.toUpperCase(),
+      gate: stop.neighborhood?.toUpperCase().slice(0, 6) || "GATE 1",
+      boardingTime: stop.time,
+      stops: [newStop],
     });
-    setTimeout(() => {
-      closeWizard();
-      navigate({ to: "/boarding-pass" });
-    }, 350);
+    setActiveLoop(loop);
+    toast.success(`Added ${stop.venue}`, {
+      description: "1 stop ready — tap “Lock it in” when done.",
+    });
   }
 
   return (

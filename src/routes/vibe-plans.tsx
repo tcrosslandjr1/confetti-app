@@ -550,8 +550,134 @@ function VibePlansPage() {
               <Badge variant="secondary">{plan.city}</Badge>
               <Badge variant="secondary">{plan.vibeLabel}</Badge>
               <Badge variant="secondary">{plan.estimatedSpend}</Badge>
+              {plan.perPersonEstimate ? (
+                <Badge variant="outline">{plan.perPersonEstimate}</Badge>
+              ) : null}
+              {plan.groupTotalEstimate ? (
+                <Badge variant="outline">{plan.groupTotalEstimate}</Badge>
+              ) : null}
+              {plan.reservationRecommended ? (
+                <Badge variant="outline">Reservation rec.</Badge>
+              ) : null}
+            </div>
+            {plan.budgetWarning ? (
+              <p className="mt-2 text-xs text-destructive">⚠️ {plan.budgetWarning}</p>
+            ) : null}
+            {(plan.personalityTone ||
+              plan.weatherNotes ||
+              plan.safetyNotes ||
+              plan.localFlavorNotes ||
+              plan.transportationNote) && (
+              <div className="mt-3 space-y-1 border-t pt-3 text-xs text-muted-foreground">
+                {plan.personalityTone ? <p>🎭 {plan.personalityTone}</p> : null}
+                {plan.weatherNotes ? <p>☁️ {plan.weatherNotes}</p> : null}
+                {plan.safetyNotes ? <p>🛡️ {plan.safetyNotes}</p> : null}
+                {plan.localFlavorNotes ? <p>📍 {plan.localFlavorNotes}</p> : null}
+                {plan.transportationNote ? <p>🚗 {plan.transportationNote}</p> : null}
+              </div>
+            )}
+            {plan.localFlavorTags?.length ? (
+              <div className="mt-2 flex flex-wrap gap-1">
+                {plan.localFlavorTags.map((t) => (
+                  <Badge key={t} variant="secondary" className="text-[10px]">
+                    {t}
+                  </Badge>
+                ))}
+              </div>
+            ) : null}
+            <div className="mt-3 flex flex-wrap gap-2">
+              <Button
+                size="sm"
+                variant="outline"
+                disabled={loading}
+                onClick={() => {
+                  setBudgetMode("save");
+                  void build();
+                }}
+              >
+                💸 Swap Cheaper
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                disabled={loading}
+                onClick={() => {
+                  setBudgetMode("upgrade");
+                  void build();
+                }}
+              >
+                ✨ Upgrade
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                disabled={loading}
+                onClick={() => {
+                  setSafetyModes((s) => Array.from(new Set([...s, "first_date"])) as SafetyMode[]);
+                  void build();
+                }}
+              >
+                🛡️ Make Safer
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                disabled={loading}
+                onClick={() => {
+                  setLocalFlavorLevel("heavy");
+                  void build();
+                }}
+              >
+                📍 More Local
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                disabled={loading}
+                onClick={() => {
+                  setIndoorOnly(true);
+                  setWeatherAware(true);
+                  void build();
+                }}
+              >
+                🌧️ Rain-Proof
+              </Button>
             </div>
           </Card>
+
+          {(plan.cheaperSwaps?.length || plan.luxuryUpgrades?.length) ? (
+            <Card className="p-4">
+              <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Swap options
+              </div>
+              {plan.cheaperSwaps?.length ? (
+                <div className="mt-2">
+                  <div className="text-xs font-semibold">Cheaper</div>
+                  <ul className="mt-1 space-y-1 text-sm">
+                    {plan.cheaperSwaps.map((s, i) => (
+                      <li key={`c${i}`}>
+                        <span className="font-medium">{s.slot}:</span> {s.name} —{" "}
+                        <span className="text-muted-foreground">{s.reason}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+              {plan.luxuryUpgrades?.length ? (
+                <div className="mt-2">
+                  <div className="text-xs font-semibold">Upgrade</div>
+                  <ul className="mt-1 space-y-1 text-sm">
+                    {plan.luxuryUpgrades.map((s, i) => (
+                      <li key={`u${i}`}>
+                        <span className="font-medium">{s.slot}:</span> {s.name} —{" "}
+                        <span className="text-muted-foreground">{s.reason}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+            </Card>
+          ) : null}
 
           {plan.stops.map((stop, i) => (
             <Card key={stop.id} className="p-4">

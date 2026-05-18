@@ -99,22 +99,22 @@ function AdvertiserPortal() {
     }
   }
 
+  const allowPreview = isPreview && viewAs === "business";
+
   useEffect(() => {
     if (loading) return;
+    // Preview mode lets the business portal UI render without a real session.
+    if (allowPreview) return;
     if (!user) {
       nav({ to: "/auth" });
       return;
     }
-    // Real business owners sign in as "customer" (only admins can impersonate
-    // other roles), so we allow customer + admin + business viewers to reach
-    // their advertiser portal. Visitors (signed-out preview) still bounce to
-    // the marketing page.
     if (viewAs === "visitor") {
       nav({ to: "/advertise" });
       return;
     }
     void refresh(user.id);
-  }, [user, loading, viewAs, nav, refresh]);
+  }, [user, loading, viewAs, allowPreview, nav, refresh]);
 
   if (loading || busy) {
     return (

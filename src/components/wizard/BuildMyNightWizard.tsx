@@ -2595,6 +2595,28 @@ export function BuildMyNightWizard() {
           )}
         </div>
 
+        {/* Sticky "Lock it in" CTA — appears on step 7 once user has added at least one stop */}
+        {step === 7 && addedStopKeys.size > 0 && (
+          <div className="flex shrink-0 items-center justify-between gap-3 border-t-2 border-ink bg-mint/40 px-5 py-3 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+0.75rem)]">
+            <div className="min-w-0">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-ink/70">
+                Your night so far
+              </p>
+              <p className="truncate font-display text-sm font-bold text-ink">
+                {activeLoopState?.stops.map((s) => s.name).join(" → ")}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={savePlan}
+              className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full border-2 border-ink bg-ink px-5 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brut-lg"
+            >
+              <Sparkles className="h-4 w-4" /> Lock it in (
+              {activeLoopState?.stops.length ?? 0})
+            </button>
+          </div>
+        )}
+
         {/* Footer nav */}
         {step <= 5 && (
           <div className="flex shrink-0 items-center justify-between gap-3 border-t-2 border-ink bg-cream/95 px-5 py-4 backdrop-blur pb-[calc(env(safe-area-inset-bottom)+1rem)]">

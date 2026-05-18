@@ -549,5 +549,20 @@ Name pattern hints: ${template.namePatterns.join(" | ")}.`;
       fitScore: output.fitScore,
       guardrailNote: output.guardrailNote ?? undefined,
       nameOptions,
+      // ── v6 engine outputs ───────────────────────────────────
+      personalityTone: v6.personalityTone,
+      budgetSummary: v6.budgetSummary,
+      perPersonEstimate: v6.perPersonEstimate,
+      groupTotalEstimate: v6.groupTotalEstimate,
+      weatherNotes: v6.weatherNotes,
+      safetyNotes: v6.safetyNotes,
+      localFlavorNotes: v6.localFlavorNotes,
+      localFlavorTags: v6.localFlavorTags,
+      reservationRecommended: v6.reservationRecommended,
+      transportationNote: v6.transportationNote,
+      pacingStyle: v6.pacingStyle,
+      cheaperSwaps: output.cheaperSwaps ?? undefined,
+      luxuryUpgrades: output.luxuryUpgrades ?? undefined,
+      budgetWarning: output.budgetWarning ?? undefined,
     };
   });

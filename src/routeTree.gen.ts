@@ -34,6 +34,7 @@ import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MeRouteImport } from './routes/me'
 import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as GroupOutingRouteImport } from './routes/group-outing'
 import { Route as ForBusinessRouteImport } from './routes/for-business'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as FavoritesRouteImport } from './routes/favorites'
@@ -312,6 +313,11 @@ const InvestorsRoute = InvestorsRouteImport.update({
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GroupOutingRoute = GroupOutingRouteImport.update({
+  id: '/group-outing',
+  path: '/group-outing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ForBusinessRoute = ForBusinessRouteImport.update({
@@ -1125,6 +1131,7 @@ export interface FileRoutesByFullPath {
   '/favorites': typeof FavoritesRoute
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
+  '/group-outing': typeof GroupOutingRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
@@ -1301,6 +1308,7 @@ export interface FileRoutesByTo {
   '/favorites': typeof FavoritesRoute
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
+  '/group-outing': typeof GroupOutingRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
@@ -1479,6 +1487,7 @@ export interface FileRoutesById {
   '/favorites': typeof FavoritesRoute
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
+  '/group-outing': typeof GroupOutingRoute
   '/how-it-works': typeof HowItWorksRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
@@ -1662,6 +1671,7 @@ export interface FileRouteTypes {
     | '/favorites'
     | '/features'
     | '/for-business'
+    | '/group-outing'
     | '/how-it-works'
     | '/investors'
     | '/me'
@@ -1838,6 +1848,7 @@ export interface FileRouteTypes {
     | '/favorites'
     | '/features'
     | '/for-business'
+    | '/group-outing'
     | '/how-it-works'
     | '/investors'
     | '/me'
@@ -2015,6 +2026,7 @@ export interface FileRouteTypes {
     | '/favorites'
     | '/features'
     | '/for-business'
+    | '/group-outing'
     | '/how-it-works'
     | '/investors'
     | '/me'
@@ -2197,6 +2209,7 @@ export interface RootRouteChildren {
   FavoritesRoute: typeof FavoritesRoute
   FeaturesRoute: typeof FeaturesRoute
   ForBusinessRoute: typeof ForBusinessRoute
+  GroupOutingRoute: typeof GroupOutingRoute
   HowItWorksRoute: typeof HowItWorksRoute
   InvestorsRoute: typeof InvestorsRoute
   MeRoute: typeof MeRoute
@@ -2450,6 +2463,13 @@ declare module '@tanstack/react-router' {
       path: '/how-it-works'
       fullPath: '/how-it-works'
       preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/group-outing': {
+      id: '/group-outing'
+      path: '/group-outing'
+      fullPath: '/group-outing'
+      preLoaderRoute: typeof GroupOutingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/for-business': {
@@ -3833,6 +3853,7 @@ const rootRouteChildren: RootRouteChildren = {
   FavoritesRoute: FavoritesRoute,
   FeaturesRoute: FeaturesRoute,
   ForBusinessRoute: ForBusinessRoute,
+  GroupOutingRoute: GroupOutingRoute,
   HowItWorksRoute: HowItWorksRoute,
   InvestorsRoute: InvestorsRoute,
   MeRoute: MeRoute,

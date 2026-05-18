@@ -396,8 +396,29 @@ Name pattern hints: ${template.namePatterns.join(" | ")}.`;
       };
     });
 
+    // ── Name Generator + Rater ────────────────────────────────────
+    const energyLevel = req.currentMood ?? undefined;
+    let nameOptions: { name: string; score: number }[] = [];
+    let topName = output.experienceName;
+    try {
+      const { ranked } = await generateAndRankNames({
+        city: cityCtx.label,
+        category: occasion,
+        vibe,
+        audience: template.audience ?? "friends",
+        energyLevel,
+        setting: cityCtx.signatureNeighborhoods?.[0],
+        count: 10,
+      });
+      nameOptions = ranked.slice(0, 5);
+      if (nameOptions[0]) topName = nameOptions[0].name;
+    } catch (e) {
+      // Non-fatal: fall back to model-supplied experienceName.
+      console.error("name generator failed", e);
+    }
+
     return {
-      experienceName: output.experienceName,
+      experienceName: topName,
       experienceTagline: output.experienceTagline,
       city: cityCtx.label,
       occasionLabel: occasion,
@@ -410,5 +431,6 @@ Name pattern hints: ${template.namePatterns.join(" | ")}.`;
       estimatedSpend: output.estimatedSpend,
       fitScore: output.fitScore,
       guardrailNote: output.guardrailNote ?? undefined,
+      nameOptions,
     };
   });

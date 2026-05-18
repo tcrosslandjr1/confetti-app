@@ -11,6 +11,7 @@ import { MobileHeader } from "@/components/AppShell";
 import { cn } from "@/lib/utils";
 import { generatePlan } from "@/lib/generate-plan.functions";
 import { classifyOuting } from "@/lib/classify-outing.functions";
+import { generateRankedOutingNames } from "@/lib/name-generator.functions";
 import type { GeneratedPlan } from "@/lib/agents/types";
 import { CITIES, findCityLoose, type CityContext } from "@/lib/agents/city-context";
 import { matchState, isKnownCity } from "@/lib/agents/states";

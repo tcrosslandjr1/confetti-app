@@ -62,14 +62,18 @@ function PrefsPage() {
           <Select
             value={profile.nightlife_intensity}
             options={["low", "medium", "high"]}
-            onChange={(v) => save({ nightlife_intensity: v as PersonalizationProfile["nightlife_intensity"] })}
+            onChange={(v) =>
+              save({ nightlife_intensity: v as PersonalizationProfile["nightlife_intensity"] })
+            }
           />
         </Field>
         <Field label="Promo sensitivity">
           <Select
             value={profile.promo_sensitivity}
             options={["low", "medium", "high"]}
-            onChange={(v) => save({ promo_sensitivity: v as PersonalizationProfile["promo_sensitivity"] })}
+            onChange={(v) =>
+              save({ promo_sensitivity: v as PersonalizationProfile["promo_sensitivity"] })
+            }
           />
         </Field>
         <Field label="Preferred budget tier">

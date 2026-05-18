@@ -48,7 +48,10 @@ const CURVES: Record<EnergyCurve, string[]> = {
   "food-and-culture": ["culture", "food", "culture"],
 };
 
-const THEME_BY_BEAT: Record<string, { theme: string; vibe: string; occasion: string; time: string }> = {
+const THEME_BY_BEAT: Record<
+  string,
+  { theme: string; vibe: string; occasion: string; time: string }
+> = {
   chill: { theme: "Easygoing Day", vibe: "easygoing", occasion: "casual", time: "afternoon" },
   turnup: { theme: "Big Night", vibe: "hyped", occasion: "night-out", time: "late_night" },
   brunch: { theme: "Brunch & Photos", vibe: "soft", occasion: "brunch-baddies", time: "brunch" },
@@ -87,13 +90,15 @@ export function dedupeAcrossDays<T extends { stops: { venueId?: string; type: st
   const usedTypes = new Map<string, number>();
   return days.map((d) => ({
     ...d,
-    stops: d.stops.map((s) => s).filter((s) => {
-      if (s.venueId && usedVenues.has(s.venueId)) return false;
-      const count = usedTypes.get(s.type) ?? 0;
-      if (count >= 2) return false;
-      if (s.venueId) usedVenues.add(s.venueId);
-      usedTypes.set(s.type, count + 1);
-      return true;
-    }),
+    stops: d.stops
+      .map((s) => s)
+      .filter((s) => {
+        if (s.venueId && usedVenues.has(s.venueId)) return false;
+        const count = usedTypes.get(s.type) ?? 0;
+        if (count >= 2) return false;
+        if (s.venueId) usedVenues.add(s.venueId);
+        usedTypes.set(s.type, count + 1);
+        return true;
+      }),
   }));
 }

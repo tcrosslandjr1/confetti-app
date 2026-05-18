@@ -42,7 +42,10 @@ type Signal = { signal_type: string; payload: Record<string, unknown>; city: str
 function topK(items: string[], k: number): string[] {
   const counts = new Map<string, number>();
   for (const it of items) counts.set(it, (counts.get(it) ?? 0) + 1);
-  return [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, k).map(([v]) => v);
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, k)
+    .map(([v]) => v);
 }
 
 /** Learn a profile from raw signal rows (most recent first). */
@@ -96,7 +99,9 @@ export function learnProfileFromSignals(
     }
   }
 
-  const avgPrice = prices.length ? Math.round(prices.reduce((a, b) => a + b, 0) / prices.length) : null;
+  const avgPrice = prices.length
+    ? Math.round(prices.reduce((a, b) => a + b, 0) / prices.length)
+    : null;
   const promoSens: "low" | "medium" | "high" =
     promoDismisses > promoClicks * 2 ? "low" : promoClicks > promoDismisses * 2 ? "high" : "medium";
 
@@ -136,6 +141,7 @@ export function applySafetyGuards<T extends { vibeLabel?: string; occasionLabel?
   return {
     ...input,
     vibeLabel: input.vibeLabel && blocked.test(input.vibeLabel) ? undefined : input.vibeLabel,
-    occasionLabel: input.occasionLabel && blocked.test(input.occasionLabel) ? undefined : input.occasionLabel,
+    occasionLabel:
+      input.occasionLabel && blocked.test(input.occasionLabel) ? undefined : input.occasionLabel,
   };
 }

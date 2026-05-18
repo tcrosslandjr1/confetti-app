@@ -40,7 +40,13 @@ export type PromoSelection = {
   disclosures: string[];
 };
 
-const ALLOWED_LABELS: PromoStep["label"][] = ["optional", "upgrade", "deal", "save", "available offer"];
+const ALLOWED_LABELS: PromoStep["label"][] = [
+  "optional",
+  "upgrade",
+  "deal",
+  "save",
+  "available offer",
+];
 
 type Filters = {
   vibe?: string;
@@ -93,7 +99,8 @@ export function selectPromos(
     if (d.adult_only && !filters.adultOptIn) return false;
     if (sensitive && !d.family_safe) return false;
     if (filters.groupSize < d.group_size_min || filters.groupSize > d.group_size_max) return false;
-    if (filters.budgetTier < d.budget_tier_min || filters.budgetTier > d.budget_tier_max) return false;
+    if (filters.budgetTier < d.budget_tier_min || filters.budgetTier > d.budget_tier_max)
+      return false;
     const now = Date.now();
     if (d.valid_from && new Date(d.valid_from).getTime() > now) return false;
     if (d.valid_until && new Date(d.valid_until).getTime() < now) return false;
@@ -105,28 +112,33 @@ export function selectPromos(
     .sort((a, b) => b.s - a.s)
     .slice(0, 2); // max 2 promos per itinerary
 
-  const promoSteps: PromoStep[] = ranked.map(({ d, s }) => {
-    const attached = plan.stops.find((st) =>
-      d.category_tags.some((t) => st.type.toLowerCase().includes(t.toLowerCase())),
-    );
-    const label = labelFor(d.deal_type);
-    if (!ALLOWED_LABELS.includes(label)) {
-      // Defensive: never leak forbidden labels.
-      return null as unknown as PromoStep;
-    }
-    return {
-      dealId: d.id,
-      attachedToStopId: attached?.id,
-      label,
-      title: d.title,
-      description: d.description,
-      disclosure: "This step includes a partner deal.",
-      fitScore: s,
-      nonPromoAlternative: attached
-        ? { name: attached.name, reason: "Keep your original pick — same vibe, no deal attached." }
-        : undefined,
-    };
-  }).filter(Boolean);
+  const promoSteps: PromoStep[] = ranked
+    .map(({ d, s }) => {
+      const attached = plan.stops.find((st) =>
+        d.category_tags.some((t) => st.type.toLowerCase().includes(t.toLowerCase())),
+      );
+      const label = labelFor(d.deal_type);
+      if (!ALLOWED_LABELS.includes(label)) {
+        // Defensive: never leak forbidden labels.
+        return null as unknown as PromoStep;
+      }
+      return {
+        dealId: d.id,
+        attachedToStopId: attached?.id,
+        label,
+        title: d.title,
+        description: d.description,
+        disclosure: "This step includes a partner deal.",
+        fitScore: s,
+        nonPromoAlternative: attached
+          ? {
+              name: attached.name,
+              reason: "Keep your original pick — same vibe, no deal attached.",
+            }
+          : undefined,
+      };
+    })
+    .filter(Boolean);
 
   return {
     promoSteps,

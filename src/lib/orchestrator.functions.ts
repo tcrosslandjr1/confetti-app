@@ -98,10 +98,7 @@ export const orchestratePlan = createServerFn({ method: "POST" })
 
     // 3. Branch single vs trip
     if (intent.mode === "trip" && (intent.tripLengthDays ?? 0) >= 2) {
-      const safeInput = applySafetyGuards(
-        { vibeLabel: vibe, occasionLabel: category },
-        profile,
-      );
+      const safeInput = applySafetyGuards({ vibeLabel: vibe, occasionLabel: category }, profile);
       const result = await generateTrip({
         data: {
           destinationCity: city,
@@ -113,16 +110,23 @@ export const orchestratePlan = createServerFn({ method: "POST" })
       });
       // Log signals (best-effort)
       void supabase.from("user_signals").insert([
-        { user_id: userId, signal_type: "trip_generated", payload: { city, days: intent.tripLengthDays }, city },
-        { user_id: userId, signal_type: "vibe_chosen", payload: { vibe: safeInput.vibeLabel }, city },
+        {
+          user_id: userId,
+          signal_type: "trip_generated",
+          payload: { city, days: intent.tripLengthDays },
+          city,
+        },
+        {
+          user_id: userId,
+          signal_type: "vibe_chosen",
+          payload: { vibe: safeInput.vibeLabel },
+          city,
+        },
       ]);
       return { mode: "trip" as const, ...result };
     }
 
-    const safeInput = applySafetyGuards(
-      { vibeLabel: vibe, occasionLabel: category },
-      profile,
-    );
+    const safeInput = applySafetyGuards({ vibeLabel: vibe, occasionLabel: category }, profile);
     const plan = await generatePlan({
       data: {
         city,

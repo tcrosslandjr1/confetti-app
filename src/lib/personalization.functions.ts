@@ -66,14 +66,12 @@ export const resetMyProfile = createServerFn({ method: "POST" })
   .handler(async ({ context }) => {
     const { supabase, userId } = context;
     await supabase.from("user_signals").delete().eq("user_id", userId);
-    await supabase
-      .from("user_preferences")
-      .upsert({
-        user_id: userId,
-        ...DEFAULT_PROFILE,
-        manual_overrides: {},
-        updated_at: new Date().toISOString(),
-      });
+    await supabase.from("user_preferences").upsert({
+      user_id: userId,
+      ...DEFAULT_PROFILE,
+      manual_overrides: {},
+      updated_at: new Date().toISOString(),
+    });
     return { ok: true };
   });
 
@@ -118,7 +116,11 @@ export const relearnMyProfile = createServerFn({ method: "POST" })
       .limit(500);
     const base = rowToProfile(prev as Record<string, unknown> | null);
     const learned = learnProfileFromSignals(
-      (sigs ?? []) as { signal_type: string; payload: Record<string, unknown>; city: string | null }[],
+      (sigs ?? []) as {
+        signal_type: string;
+        payload: Record<string, unknown>;
+        city: string | null;
+      }[],
       base,
     );
     await supabase

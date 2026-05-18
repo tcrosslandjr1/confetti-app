@@ -46,7 +46,11 @@ export function runByPriority(priority: Priority) {
           : null;
 
   const suites = ids ? SUITES.filter((s) => ids.has(s.id)) : SUITES;
-  const rows: { suiteId: string; suiteName: string; result: import("./test-definitions").TestResult }[] = [];
+  const rows: {
+    suiteId: string;
+    suiteName: string;
+    result: import("./test-definitions").TestResult;
+  }[] = [];
   for (const s of suites) {
     try {
       for (const r of s.run()) rows.push({ suiteId: s.id, suiteName: s.name, result: r });

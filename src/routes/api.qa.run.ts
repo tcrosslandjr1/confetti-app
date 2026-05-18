@@ -9,7 +9,10 @@ export const Route = createFileRoute("/api/qa/run")({
         const tier = url.searchParams.get("tier") ?? "smoke";
         const valid = ["smoke", "booking", "personalization", "full"];
         if (!valid.includes(tier)) {
-          return Response.json({ error: `Invalid tier. Use: ${valid.join(", ")}` }, { status: 400 });
+          return Response.json(
+            { error: `Invalid tier. Use: ${valid.join(", ")}` },
+            { status: 400 },
+          );
         }
         const rows = runByPriority(tier as "smoke" | "booking" | "personalization" | "full");
         const summary = rows.reduce(
@@ -20,7 +23,15 @@ export const Route = createFileRoute("/api/qa/run")({
           },
           { pass: 0, fail: 0, skip: 0, total: 0 },
         );
-        return Response.json({ summary, rows: rows.map((r) => ({ id: r.result.id, name: r.result.name, status: r.result.status, notes: r.result.notes })) });
+        return Response.json({
+          summary,
+          rows: rows.map((r) => ({
+            id: r.result.id,
+            name: r.result.name,
+            status: r.result.status,
+            notes: r.result.notes,
+          })),
+        });
       },
     },
   },

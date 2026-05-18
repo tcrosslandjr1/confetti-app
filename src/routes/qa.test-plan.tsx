@@ -28,7 +28,11 @@ function TestPlanPage() {
               tab === t ? "bg-primary text-primary-foreground" : "hover:bg-muted"
             }`}
           >
-            {t === "plan" ? "Test Plan v1" : t === "bug" ? "Bug Report Template" : "Automation Suite"}
+            {t === "plan"
+              ? "Test Plan v1"
+              : t === "bug"
+                ? "Bug Report Template"
+                : "Automation Suite"}
           </button>
         ))}
       </div>
@@ -93,7 +97,9 @@ function BugTab() {
 
 function AutomationTab() {
   const [running, setRunning] = useState<null | string>(null);
-  const [results, setResults] = useState<Record<string, { pass: number; fail: number; skip: number; total: number }>>({});
+  const [results, setResults] = useState<
+    Record<string, { pass: number; fail: number; skip: number; total: number }>
+  >({});
 
   const run = async (tier: string) => {
     setRunning(tier);
@@ -109,8 +115,8 @@ function AutomationTab() {
   return (
     <div className="space-y-4">
       <p className="text-sm text-muted-foreground">
-        Prioritized tiers: smoke (fast determinism), booking (partner flow), personalization (learned profile).
-        Run from this page or via <code>/api/qa/run?tier=smoke</code>.
+        Prioritized tiers: smoke (fast determinism), booking (partner flow), personalization
+        (learned profile). Run from this page or via <code>/api/qa/run?tier=smoke</code>.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {TIERS.map((t) => {
@@ -198,7 +204,18 @@ const TIERS = [
   {
     id: "smoke",
     label: "Smoke Tests",
-    suites: ["Onboarding", "Vibes", "Categories", "Cities", "Itinerary", "Weather", "Safety", "Time", "Orchestration", "E2E"],
+    suites: [
+      "Onboarding",
+      "Vibes",
+      "Categories",
+      "Cities",
+      "Itinerary",
+      "Weather",
+      "Safety",
+      "Time",
+      "Orchestration",
+      "E2E",
+    ],
   },
   {
     id: "booking",

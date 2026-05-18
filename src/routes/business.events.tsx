@@ -84,9 +84,11 @@ function BusinessEventsPage() {
       actions={
         <div className="flex items-center gap-2">
           <VenueSwitcher venues={venues} activeId={activeId} onChange={setActiveId} />
-          <Button disabled>
-            <CalendarPlus className="mr-1.5 h-4 w-4" /> Add event
-          </Button>
+          <AddEventDialog
+            venueId={activeId}
+            onCreated={() => qc.invalidateQueries({ queryKey: ["my-venue-events"] })}
+          />
+
         </div>
       }
     >

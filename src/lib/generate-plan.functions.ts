@@ -31,6 +31,12 @@ const PlanRequestSchema = z.object({
   currentMood: z.string().min(1).max(40).optional(),
   /** "Change My Night" steering, e.g. "make it more chill", "cheaper", "more romantic". */
   tweakDirective: z.string().max(300).optional(),
+  /** Opt-in: include a yacht / boat charter step (Miami, etc.). */
+  includeYacht: z.boolean().optional(),
+  /** Opt-in: include a casino stop. */
+  includeCasino: z.boolean().optional(),
+  /** Opt-in: include optional adult-entertainment stop (gated on vibe + 21+ assumption). */
+  includeAdultEntertainment: z.boolean().optional(),
 });
 
 type CandidateVenue = {

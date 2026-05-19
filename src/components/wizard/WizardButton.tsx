@@ -1,5 +1,8 @@
 import { useWizard, type WizardPreset } from "@/components/wizard/wizard-context";
 import { useConfettiBurst } from "@/components/ConfettiBurst";
+import { useAuth } from "@/lib/auth-context";
+import { useNavigate, useLocation } from "@tanstack/react-router";
+import { toast } from "sonner";
 import { type ReactNode } from "react";
 
 type Props = {
@@ -9,11 +12,16 @@ type Props = {
   preset?: WizardPreset;
 };
 
-/** Button that fires a confetti burst then opens the Build-My-Night wizard.
- *  Open to everyone — sign-in is only required when saving or booking. */
+/** Opens the Build-My-Night wizard. Requires a signed-in user.
+ *  Without auth, every wizard run produces venues that can't be saved
+ *  to a profile, booked, or learned-from — so we redirect to /auth and
+ *  return the user here after sign-in. */
 export function WizardButton({ children, className, ariaLabel, preset }: Props) {
   const { openWizard } = useWizard();
   const { burst, layer } = useConfettiBurst();
+  const { user, loading } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <>
@@ -22,6 +30,15 @@ export function WizardButton({ children, className, ariaLabel, preset }: Props) 
         aria-label={ariaLabel}
         className={className}
         onClick={(e) => {
+          // Don't fight the auth context while it's still resolving — just no-op.
+          if (loading) return;
+          if (!user) {
+            toast.message("Sign in to build your night", {
+              description: "Your plan saves to your profile so AI can learn your taste.",
+            });
+            navigate({ to: "/auth", search: { returnTo: location.pathname } as never });
+            return;
+          }
           burst(e.clientX, e.clientY);
           setTimeout(() => openWizard(preset), 120);
         }}

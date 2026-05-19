@@ -79,7 +79,11 @@ async function syncProfile(user: User) {
     last_login_at: new Date().toISOString()
   });
 
-  if (profileError) throw profileError;
+  // Non-fatal: the auth user already exists, so let the user proceed.
+  // A DB trigger or a later upsert (on next login) can repair the row.
+  if (profileError) {
+    console.warn("[Confetti] profile sync failed (non-fatal):", profileError.message);
+  }
 
   if (provider === "google" || provider === "apple") {
     const identity = user.identities?.find((item) => item.provider === provider);
@@ -152,20 +156,31 @@ export async function createAccountWithEmail(payload: AccountPayload) {
   if (error) throw error;
   if (!data.user) throw new Error("Account creation did not return a user.");
 
-  const { error: profileError } = await supabase.from("profiles").upsert({
-    id: data.user.id,
-    full_name: fullName,
-    username: clean.username,
-    email: clean.email,
-    auth_provider: "email",
-    last_login_at: new Date().toISOString()
-  });
+  const needsEmailConfirmation = Boolean(!data.session);
 
-  if (profileError) throw profileError;
+  // The profile upsert only succeeds when we have an active session
+  // (RLS requires auth.uid() = id). When email confirmation is required
+  // there's no session yet, so we skip the upsert here and let the
+  // auth callback or a database trigger fill in the profile later.
+  // Throwing on a missing-session profile error was previously failing
+  // the whole signup even though the auth user had been created.
+  if (!needsEmailConfirmation) {
+    const { error: profileError } = await supabase.from("profiles").upsert({
+      id: data.user.id,
+      full_name: fullName,
+      username: clean.username,
+      email: clean.email,
+      auth_provider: "email",
+      last_login_at: new Date().toISOString()
+    });
+    if (profileError) {
+      console.warn("[Confetti] profile upsert failed (non-fatal):", profileError.message);
+    }
+  }
 
   return {
     account: mapSupabaseUser(data.user),
-    needsEmailConfirmation: Boolean(!data.session)
+    needsEmailConfirmation
   };
 }
 

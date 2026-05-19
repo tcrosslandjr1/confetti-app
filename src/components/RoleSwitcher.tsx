@@ -1,5 +1,5 @@
 import { useAuth, type ViewAs } from "@/lib/auth-context";
-import { useNavigate } from "@tanstack/react-router";
+import { useLocation, useNavigate } from "@tanstack/react-router";
 import {
   Shield,
   User as UserIcon,
@@ -71,11 +71,16 @@ const OPTIONS: Option[] = [
 export function RoleSwitcher() {
   const { isAdmin, viewAs, setViewAs, isImpersonating, exitImpersonation, user } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [open, setOpen] = useState(false);
   // Avoid SSR hydration mismatch: viewAs is hydrated from sessionStorage on
   // the client, so render nothing until after mount.
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
+
+  // Hide on /admin routes so admins can't accidentally store a non-admin
+  // viewAs while working in the console.
+  const isAdminRoute = location.pathname.startsWith("/admin");
 
   // UI-only switcher — visible in every view so you can preview each role.
   // Real permissions are still enforced server-side by RLS.
@@ -118,6 +123,7 @@ export function RoleSwitcher() {
   };
 
   if (!mounted) return null;
+  if (isAdminRoute) return null;
   const current = OPTIONS.find((o) => o.value === viewAs)!;
 
   return (

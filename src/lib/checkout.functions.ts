@@ -105,15 +105,12 @@ async function resolveOrCreateCustomer(
 // createCheckoutSession — subscriptions and one-time unlocks
 // ============================================================================
 export const createCheckoutSession = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator(
     z.object({
       priceId: z.enum(ALL_PRICES),
       quantity: z.number().int().min(1).max(10).optional(),
       customerEmail: z.string().email().optional(),
-      userId: z
-        .string()
-        .regex(/^[a-zA-Z0-9_-]+$/)
-        .optional(),
       accountType: z.enum(["user", "business", "corporate"]).optional(),
       // Promo target — for boost/event/reel SKUs only
       targetType: z.enum(["venue", "event", "reel", "vendor"]).optional(),
@@ -125,7 +122,9 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
       trialDays: z.number().int().min(0).max(730).optional(),
     }).parse,
   )
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
+    // userId is always derived from the authenticated session — never the client.
+    const { userId } = context;
     const stripe = createStripeClient(data.environment);
 
     const prices = await stripe.prices.list({ lookup_keys: [data.priceId] });
@@ -133,13 +132,10 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
     const stripePrice = prices.data[0];
     const isRecurring = stripePrice.type === "recurring";
 
-    const customerId =
-      data.customerEmail || data.userId
-        ? await resolveOrCreateCustomer(stripe, {
-            email: data.customerEmail,
-            userId: data.userId,
-          })
-        : undefined;
+    const customerId = await resolveOrCreateCustomer(stripe, {
+      email: data.customerEmail,
+      userId,
+    });
 
     const accountType = data.accountType ?? "user";
 
@@ -148,7 +144,7 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
       productId:
         typeof stripePrice.product === "string" ? stripePrice.product : stripePrice.product.id,
       accountType,
-      ...(data.userId && { userId: data.userId }),
+      userId,
       ...(data.targetType && { targetType: data.targetType }),
       ...(data.targetId && { targetId: data.targetId }),
     };
@@ -162,11 +158,11 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
       mode: isRecurring ? "subscription" : "payment",
       ui_mode: "embedded_page",
       return_url: data.returnUrl,
-      ...(customerId && { customer: customerId }),
+      customer: customerId,
       metadata: { ...baseMetadata, ...(trialDays > 0 && { trialDays: String(trialDays) }) },
       ...(isRecurring && {
         subscription_data: {
-          ...(data.userId && { metadata: baseMetadata }),
+          metadata: baseMetadata,
           ...(trialDays > 0 && { trial_period_days: trialDays }),
         },
       }),

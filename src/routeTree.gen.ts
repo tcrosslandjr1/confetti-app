@@ -291,7 +291,7 @@ const PlanRoute = PlanRouteImport.update({
   id: '/plan',
   path: '/plan',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/plan.lazy').then((d) => d.Route))
 const PassportRoute = PassportRouteImport.update({
   id: '/passport',
   path: '/passport',
@@ -306,7 +306,7 @@ const PartnerRoute = PartnerRouteImport.update({
   id: '/partner',
   path: '/partner',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/partner.lazy').then((d) => d.Route))
 const OnboardingRoute = OnboardingRouteImport.update({
   id: '/onboarding',
   path: '/onboarding',

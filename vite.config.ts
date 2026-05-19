@@ -9,6 +9,10 @@ export default defineConfig({
   resolve: {
     alias: [
       {
+        find: /^@tanstack\/react-start\/server$/,
+        replacement: path.resolve(__dirname, "./src/lib/server-fn-shim.ts"),
+      },
+      {
         find: /^@tanstack\/react-start$/,
         replacement: path.resolve(__dirname, "./src/lib/server-fn-shim.ts"),
       },

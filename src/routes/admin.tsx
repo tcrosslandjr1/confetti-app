@@ -155,52 +155,81 @@ function AdminShell({
   };
 
   return (
-    <div className="flex min-h-screen w-full bg-background">
-      <Sidebar collapsible="icon">
-        <SidebarContent>
-          <div className="flex items-center gap-2 px-3 py-4">
-            <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-vibe shadow-pop">
-              <Sparkles className="h-4 w-4 text-primary-foreground" />
+    <div className="flex min-h-screen w-full bg-gradient-to-br from-cream/60 via-background to-background">
+      <Sidebar collapsible="icon" className="border-r-2 border-ink/10">
+        <SidebarContent className="bg-cream/30">
+          {/* Brand header */}
+          <div className="relative mx-2 mt-3 flex items-center gap-2.5 overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br from-coral via-orange-400 to-gold px-3 py-3 shadow-brut">
+            <span className="pointer-events-none absolute right-2 top-2 h-1.5 w-1.5 rotate-12 bg-cream/70" aria-hidden />
+            <span className="pointer-events-none absolute bottom-2 left-10 h-1.5 w-1.5 rotate-45 bg-ink/50" aria-hidden />
+            <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border-2 border-ink bg-cream shadow-brut">
+              <Sparkles className="h-4 w-4 text-coral" />
             </div>
-            <div className="text-sm">
-              <div className="font-display font-bold leading-none">Concierge</div>
-              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                Admin
+            <div className="min-w-0 text-sm">
+              <div className="font-display font-extrabold leading-none text-ink">Confetti</div>
+              <div className="mt-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-ink/70">
+                Admin · Command
               </div>
             </div>
           </div>
-          <SidebarGroup>
-            <SidebarGroupLabel>Operations</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {NAV.map((item) => {
-                  const active = item.exact ? pathname === item.to : pathname.startsWith(item.to);
-                  return (
-                    <SidebarMenuItem key={item.to}>
-                      <SidebarMenuButton asChild isActive={active}>
-                        <Link
-                          to={item.to as string as "/"}
-                          onClick={handleNav}
-                          className="flex items-center gap-2"
+
+          {NAV_SECTIONS.map((section) => (
+            <SidebarGroup key={section.label}>
+              <SidebarGroupLabel className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink/50">
+                {section.label}
+              </SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {section.items.map((item) => {
+                    const active = item.exact
+                      ? pathname === item.to
+                      : pathname.startsWith(item.to);
+                    return (
+                      <SidebarMenuItem key={item.to}>
+                        <SidebarMenuButton
+                          asChild
+                          isActive={active}
+                          className={
+                            active
+                              ? "border border-ink/15 bg-coral/15 font-bold text-ink shadow-sm hover:bg-coral/20"
+                              : "transition hover:translate-x-0.5 hover:bg-cream/60"
+                          }
                         >
-                          <item.icon className="h-4 w-4" />
-                          <span>{item.label}</span>
-                        </Link>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  );
-                })}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+                          <Link
+                            to={item.to as string as "/"}
+                            onClick={handleNav}
+                            className="flex items-center gap-2.5"
+                          >
+                            <item.icon
+                              className={`h-4 w-4 ${active ? "text-coral" : "text-ink/60"}`}
+                            />
+                            <span>{item.label}</span>
+                            {active && (
+                              <span className="ml-auto h-1.5 w-1.5 rounded-full bg-coral" />
+                            )}
+                          </Link>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    );
+                  })}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          ))}
+
           <SidebarGroup>
-            <SidebarGroupLabel>Shortcuts</SidebarGroupLabel>
+            <SidebarGroupLabel className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink/50">
+              Shortcuts
+            </SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <Link to="/" onClick={handleNav} className="flex items-center gap-2">
-                      <Sparkles className="h-4 w-4" />
+                  <SidebarMenuButton
+                    asChild
+                    className="transition hover:translate-x-0.5 hover:bg-cream/60"
+                  >
+                    <Link to="/" onClick={handleNav} className="flex items-center gap-2.5">
+                      <Sparkles className="h-4 w-4 text-ink/60" />
                       <span>View site</span>
                     </Link>
                   </SidebarMenuButton>

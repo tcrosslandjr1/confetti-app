@@ -12,8 +12,10 @@ function tanstackStartStub(): Plugin {
       if (id.startsWith("tanstack-start-")) return `\0stub-ts-${id}`;
       if (id.startsWith("tsr:")) return `\0stub-tsr-${id}`;
       if (id.startsWith("node:")) return `\0stub-node-${id}`;
-      if (id.includes("@tanstack/start")) return `\0stub-tanstack-pkg-${id.replace(/[^a-zA-Z0-9]/g, "_")}`;
-      if (id.includes("@tanstack/react-start")) return `\0stub-tanstack-pkg-${id.replace(/[^a-zA-Z0-9]/g, "_")}`;
+      if (id.includes("@tanstack/start"))
+        return `\0stub-tanstack-pkg-${id.replace(/[^a-zA-Z0-9]/g, "_")}`;
+      if (id.includes("@tanstack/react-start"))
+        return `\0stub-tanstack-pkg-${id.replace(/[^a-zA-Z0-9]/g, "_")}`;
       if (id.includes("@tanstack/server-fn")) return "\0stub-server-fn";
     },
     load(id) {
@@ -94,7 +96,8 @@ export default defineConfig({
     outDir: "dist",
     rollupOptions: {
       onwarn(warning, warn) {
-        if (warning.code === "UNRESOLVED_IMPORT" && warning.exporter?.includes("start-server")) return;
+        if (warning.code === "UNRESOLVED_IMPORT" && warning.exporter?.includes("start-server"))
+          return;
         warn(warning);
       },
     },

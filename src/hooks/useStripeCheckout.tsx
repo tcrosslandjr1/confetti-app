@@ -1,6 +1,13 @@
-import { useState, useCallback } from "react";
-import { StripeEmbeddedCheckout } from "@/components/StripeEmbeddedCheckout";
+import { useState, useCallback, lazy, Suspense } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+
+// Lazy import so @stripe/react-stripe-js + @stripe/stripe-js only enter
+// the bundle (in their own chunks) when the user actually opens checkout.
+const StripeEmbeddedCheckout = lazy(() =>
+  import("@/components/StripeEmbeddedCheckout").then((m) => ({
+    default: m.StripeEmbeddedCheckout,
+  })),
+);
 
 type Variant =
   | {

@@ -3573,14 +3573,8 @@ function TrendingTracker() {
 
   const handleScan = async () => {
     setScanning(true);
-    if (isSupabaseConfigured) {
-      try {
-        // Invoke the scan via Supabase Edge Function (if deployed) or just show animation
-        await supabase.functions.invoke("trigger-scan", { body: { type: "trend", scope: "tier1" } });
-      } catch {
-        // Edge function may not exist yet — that's OK, animation still plays
-      }
-    }
+    // Scan is triggered by pg_cron on cron-refresh-trending; the admin button
+    // just plays the animation and lets the next refresh pick up new rows.
     setTimeout(() => setScanning(false), 3000);
   };
 

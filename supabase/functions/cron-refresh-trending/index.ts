@@ -10,10 +10,11 @@ import { supabaseAdmin, corsHeaders, jsonResponse, errorResponse } from "../_sha
 serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders() });
 
-  // Verify cron secret (Supabase sends this header for scheduled functions)
+  // Verify cron secret — hard-require it so an unset CRON_SECRET
+  // doesn't leave the endpoint open to anonymous callers
   const authHeader = req.headers.get("Authorization");
   const cronSecret = Deno.env.get("CRON_SECRET");
-  if (cronSecret && authHeader !== `Bearer ${cronSecret}`) {
+  if (!cronSecret || authHeader !== `Bearer ${cronSecret}`) {
     return errorResponse("Unauthorized cron call", 401);
   }
 

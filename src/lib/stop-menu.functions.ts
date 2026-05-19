@@ -309,6 +309,7 @@ export const listStopOrders = createServerFn({ method: "POST" })
 /* -------------------------------------------------------------------------- */
 
 export const listVerifiedStopNames = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) =>
     z
       .object({

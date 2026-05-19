@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { z } from "zod";
 import { generateText, Output } from "ai";
 import { createLovableAiGatewayProvider } from "./ai-gateway.server";
@@ -162,6 +163,7 @@ export async function generateAndRankNames(
 // ── Public server functions ───────────────────────────────────────
 
 export const generateOutingNames = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((d: unknown) => GenerateNamesInput.parse(d))
   .handler(async ({ data }) => generateNamesInternal(data));
 
@@ -174,6 +176,7 @@ const RateInput = z.object({
 });
 
 export const rateOutingNames = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((d: unknown) => RateInput.parse(d))
   .handler(async ({ data }) =>
     rankNamesInternal(data.names, {
@@ -186,6 +189,7 @@ export const rateOutingNames = createServerFn({ method: "POST" })
 
 /** Convenience: generate + rank in one call, returns top-3 + full ranked list. */
 export const generateRankedOutingNames = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((d: unknown) => GenerateNamesInput.parse(d))
   .handler(async ({ data }) => {
     const { ranked } = await generateAndRankNames(data);

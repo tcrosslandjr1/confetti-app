@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { z } from "zod";
 import { generateText, Output } from "ai";
 import { createLovableAiGatewayProvider } from "./ai-gateway.server";
@@ -293,6 +294,7 @@ const PlanOutputSchema = z.object({
 });
 
 export const generatePlan = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((input: unknown) => PlanRequestSchema.parse(input))
   .handler(async ({ data: req }): Promise<GeneratedPlan> => {
     const apiKey = process.env.LOVABLE_API_KEY;

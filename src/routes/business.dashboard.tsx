@@ -66,12 +66,18 @@ function BusinessDashboardPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/30">
       <div className="mx-auto max-w-7xl space-y-10 px-4 py-10 md:px-6 md:py-14">
+        <div className="rounded-2xl border border-amber-300/60 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          <span className="font-semibold">Demo dashboard.</span> Performance numbers, AI insights,
+          events, social activity, and refresh history below are sample data to preview the layout.
+          Your real metrics will appear here once your venue is approved and analytics start
+          flowing.
+        </div>
         <DashboardHero
           venueName={venueName}
           status={claimStatus}
           boostLevel={promotionUnlocked ? 1 : 0}
           promotionUnlocked={promotionUnlocked}
-          lastRefresh="3 days ago"
+          lastRefresh="—"
         />
         <KPIStats />
         <AIInsights />

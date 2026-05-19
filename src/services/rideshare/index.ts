@@ -19,7 +19,11 @@ export interface RideLocation {
   address?: string;
 }
 
-export function buildUberLink(pickup: RideLocation, dropoff: RideLocation, partySize?: number): string {
+export function buildUberLink(
+  pickup: RideLocation,
+  dropoff: RideLocation,
+  partySize?: number,
+): string {
   const product = partySize && partySize > 4 ? "UberXL" : "UberX";
   const params = new URLSearchParams({
     action: "setPickup",
@@ -34,7 +38,11 @@ export function buildUberLink(pickup: RideLocation, dropoff: RideLocation, party
   return `https://m.uber.com/ul/?${params}`;
 }
 
-export function buildLyftLink(pickup: RideLocation, dropoff: RideLocation, partySize?: number): string {
+export function buildLyftLink(
+  pickup: RideLocation,
+  dropoff: RideLocation,
+  partySize?: number,
+): string {
   const rideType = partySize && partySize > 4 ? "lyft_xl" : "lyft";
   const params = new URLSearchParams({
     id: rideType,
@@ -47,7 +55,11 @@ export function buildLyftLink(pickup: RideLocation, dropoff: RideLocation, party
   return `https://lyft.com/ride?${params}`;
 }
 
-export function getRideOptions(pickup: RideLocation, dropoff: RideLocation, partySize?: number): RideOption[] {
+export function getRideOptions(
+  pickup: RideLocation,
+  dropoff: RideLocation,
+  partySize?: number,
+): RideOption[] {
   return [
     {
       provider: "uber",
@@ -66,7 +78,7 @@ export function getRideOptions(pickup: RideLocation, dropoff: RideLocation, part
 
 export function rideBetweenStops(
   stops: { lat: number; lng: number; name: string }[],
-  partySize?: number
+  partySize?: number,
 ): { from: string; to: string; rides: RideOption[] }[] {
   const legs: { from: string; to: string; rides: RideOption[] }[] = [];
   for (let i = 0; i < stops.length - 1; i++) {

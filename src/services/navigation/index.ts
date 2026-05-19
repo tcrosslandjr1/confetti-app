@@ -19,28 +19,28 @@ export interface Location {
 }
 
 export function buildGoogleMapsLink(destination: Location, origin?: Location): string {
-  const dest = destination.lat && destination.lng
-    ? `${destination.lat},${destination.lng}`
-    : encodeURIComponent(destination.address);
+  const dest =
+    destination.lat && destination.lng
+      ? `${destination.lat},${destination.lng}`
+      : encodeURIComponent(destination.address);
   const base = `https://www.google.com/maps/dir/?api=1&destination=${dest}`;
   if (origin) {
-    const orig = origin.lat && origin.lng
-      ? `${origin.lat},${origin.lng}`
-      : encodeURIComponent(origin.address);
+    const orig =
+      origin.lat && origin.lng ? `${origin.lat},${origin.lng}` : encodeURIComponent(origin.address);
     return `${base}&origin=${orig}`;
   }
   return base;
 }
 
 export function buildAppleMapsLink(destination: Location, origin?: Location): string {
-  const dest = destination.lat && destination.lng
-    ? `${destination.lat},${destination.lng}`
-    : encodeURIComponent(destination.address);
+  const dest =
+    destination.lat && destination.lng
+      ? `${destination.lat},${destination.lng}`
+      : encodeURIComponent(destination.address);
   let url = `https://maps.apple.com/?daddr=${dest}&dirflg=d`;
   if (origin) {
-    const orig = origin.lat && origin.lng
-      ? `${origin.lat},${origin.lng}`
-      : encodeURIComponent(origin.address);
+    const orig =
+      origin.lat && origin.lng ? `${origin.lat},${origin.lng}` : encodeURIComponent(origin.address);
     url += `&saddr=${orig}`;
   }
   return url;
@@ -55,8 +55,18 @@ export function buildWazeLink(destination: Location): string {
 
 export function getNavigationOptions(destination: Location, origin?: Location): NavigationLink[] {
   return [
-    { provider: "google", label: "Google Maps", url: buildGoogleMapsLink(destination, origin), icon: "🗺️" },
-    { provider: "apple", label: "Apple Maps", url: buildAppleMapsLink(destination, origin), icon: "🍎" },
+    {
+      provider: "google",
+      label: "Google Maps",
+      url: buildGoogleMapsLink(destination, origin),
+      icon: "🗺️",
+    },
+    {
+      provider: "apple",
+      label: "Apple Maps",
+      url: buildAppleMapsLink(destination, origin),
+      icon: "🍎",
+    },
     { provider: "waze", label: "Waze", url: buildWazeLink(destination), icon: "👻" },
   ];
 }
@@ -68,7 +78,7 @@ export function getDefaultNavigation(destination: Location, origin?: Location): 
 }
 
 export function navigateBetweenStops(
-  stops: Location[]
+  stops: Location[],
 ): { from: string; to: string; links: NavigationLink[] }[] {
   const legs: { from: string; to: string; links: NavigationLink[] }[] = [];
   for (let i = 0; i < stops.length - 1; i++) {

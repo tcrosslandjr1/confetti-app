@@ -76,7 +76,7 @@ import {
 } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { AnimatePresence, MotionConfig, motion, type Transition, useMotionValue, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { CSSProperties, Fragment, ReactNode, useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { Component, CSSProperties, Fragment, ReactNode, useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Link, Navigate, Route as RouterRoute, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
 import {
   fetchRouteIntelligence,
@@ -659,6 +659,62 @@ const panelVariants = {
   exit: { x: -18, opacity: 0, filter: "blur(8px)" }
 };
 
+// Stops a render error in any single route from blanking the whole app.
+// Previously a JS error during render produced a white screen with
+// nothing the user could do to recover. Now they see a message + reload.
+class RouteErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
+  constructor(props: { children: ReactNode }) {
+    super(props);
+    this.state = { error: null };
+  }
+  static getDerivedStateFromError(error: Error) {
+    return { error };
+  }
+  componentDidCatch(error: Error) {
+    console.error("[Confetti] route render error:", error);
+  }
+  render() {
+    if (this.state.error) {
+      return (
+        <div style={{ padding: 24, color: "#fff", maxWidth: 480, margin: "40px auto", textAlign: "center" }}>
+          <h2 style={{ fontSize: 18, marginBottom: 8 }}>Something hiccuped.</h2>
+          <p style={{ opacity: 0.7, fontSize: 14, marginBottom: 16 }}>
+            {this.state.error.message || "An unexpected error stopped this page from rendering."}
+          </p>
+          <button
+            onClick={() => window.location.assign("/home")}
+            style={{ padding: "10px 18px", borderRadius: 12, background: "#6c63ff", color: "#fff", border: 0, fontWeight: 600, cursor: "pointer" }}
+          >
+            Back to home
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+// Resolves :id from the URL and passes it to BusinessDashboard.
+// The previous element={<BusinessDashboard businessId="" />} hardcoded
+// an empty id, so every business route silently rendered "Business not found".
+function BusinessRoute() {
+  const { id } = useParams<{ id: string }>();
+  return <BusinessDashboard businessId={id ?? ""} />;
+}
+
+// Resolves the current user id from auth and passes it to the wallet
+// components. Replaces the previous hardcoded userId="demo-user" which
+// made every user see the same demo wallet.
+function WalletRoute({ kind }: { kind: "coupon" | "passes" }) {
+  const [userId, setUserId] = useState<string>("demo-user");
+  useEffect(() => {
+    getCurrentAccount().then((a) => {
+      if (a?.id) setUserId(a.id);
+    });
+  }, []);
+  return kind === "coupon" ? <CouponWallet userId={userId} /> : <MyWallet userId={userId} />;
+}
+
 function App() {
   const location = useLocation();
   const [installReady, setInstallReady] = useState(false);
@@ -677,7 +733,8 @@ function App() {
         <div className="phone-shell">
           <Aurora />
           <AnimatePresence initial={false} mode="sync">
-            <Routes location={location} key={location.pathname}>
+            <RouteErrorBoundary key={location.pathname}>
+            <Routes location={location}>
               <RouterRoute path="/" element={<Navigate to="/auth" replace />} />
               <RouterRoute path="/auth" element={<AuthPage />} />
               <RouterRoute path="/auth/callback" element={<AuthCallbackPage />} />
@@ -703,17 +760,18 @@ function App() {
               <RouterRoute path="/groups" element={<Groups />} />
               <RouterRoute path="/groups/:id" element={<GroupDetail />} />
               <RouterRoute path="/groups/:id/plan/:planId" element={<GroupPlanView />} />
-              <RouterRoute path="/wallet" element={<CouponWallet userId="demo-user" />} />
-              <RouterRoute path="/wallet/passes" element={<MyWallet userId="demo-user" />} />
+              <RouterRoute path="/wallet" element={<WalletRoute kind="coupon" />} />
+              <RouterRoute path="/wallet/passes" element={<WalletRoute kind="passes" />} />
               <RouterRoute path="/admin/fund" element={<FundAdminDashboard />} />
               <RouterRoute path="/admin/trending" element={<TrendingTracker />} />
               <RouterRoute path="/venue/scan" element={<BarcodeScanView />} />
-              <RouterRoute path="/business/:id" element={<BusinessDashboard businessId="" />} />
+              <RouterRoute path="/business/:id" element={<BusinessRoute />} />
               <RouterRoute path="/community" element={<CommunityExplore />} />
               <RouterRoute path="/community/plan/:planId" element={<CommunityPlanDetail />} />
               <RouterRoute path="/community/reputation" element={<ReputationProfile />} />
               <RouterRoute path="/community/share" element={<SharePlanFlow />} />
             </Routes>
+            </RouteErrorBoundary>
           </AnimatePresence>
           <AnimatePresence initial={false}>
             {installReady ? <InstallPrompt onClose={() => setInstallReady(false)} /> : null}

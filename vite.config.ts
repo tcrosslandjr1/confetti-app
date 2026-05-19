@@ -5,12 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  plugins: [
-    tsconfigPaths(),
-    tailwindcss(),
-    tanstackStart({ customViteReactPlugin: true }),
-    viteReact(),
-  ],
+  plugins: [tsconfigPaths(), tailwindcss(), tanstackStart(), viteReact()],
   build: {
     chunkSizeWarningLimit: 600,
     rollupOptions: {

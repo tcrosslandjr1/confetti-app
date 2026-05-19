@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { generatePlan } from "./generate-plan.functions";
-import { generateAndRankNames } from "./name-generator.functions";
+import { generateAndRankNames } from "./name-generator.server";
 import { planTripDays, type EnergyCurve, type TripInput } from "./agents/trip-engine";
 
 const TripRequestSchema = z.object({

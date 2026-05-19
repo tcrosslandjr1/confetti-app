@@ -123,6 +123,11 @@ export const createCheckoutSession = createServerFn({ method: "POST" })
     }).parse,
   )
   .handler(async ({ data, context }) => {
+    // returnUrl must point to our own origin — prevents open-redirect abuse.
+    const siteUrl = (process.env.SITE_URL ?? "https://confettiplan.lovable.app").replace(/\/$/, "");
+    if (!data.returnUrl.startsWith(siteUrl + "/") && data.returnUrl !== siteUrl) {
+      throw new Error("Invalid returnUrl");
+    }
     // userId is always derived from the authenticated session — never the client.
     const { userId } = context;
     const stripe = createStripeClient(data.environment);

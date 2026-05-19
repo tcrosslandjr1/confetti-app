@@ -98,6 +98,7 @@ import {
   type DiscoveredVenue,
   type WalletPass,
 } from "./lib/agents";
+import { buildItinerary } from "./lib/agents/itinerary-orchestrator";
 import { Groups, GroupDetail, GroupPlanView } from "./components/GroupViews";
 import { CouponWallet, BoostBadge, CheckInFlow, ConfettiPop, ConfettiSubscriptionCard, BusinessDashboard } from "./components/BoostViews";
 import { MyWallet, FundAdminDashboard, BarcodeScanView } from "./components/WalletViews";
@@ -1921,22 +1922,133 @@ function CreateConfetti() {
   );
 }
 
+type WizardState = {
+  userId?: string | null;
+  occasion?: string;
+  vibe?: string[];
+  partySize?: number;
+  arrivalMode?: "rideshare" | "drive";
+  evCharge?: boolean;
+  stopCount?: number;
+  seating?: string;
+  preOrders?: Record<string, string[]>;
+  builtAt?: string;
+  city?: string;
+};
+
+type AIStop = (typeof confettiStops)[number];
+
+// Maps a DiscoveredVenue from the orchestrator onto the structural
+// shape BoardingPass expects. Most boarding-pass fields (parking,
+// valet, dress code, time) aren't returned by the AI — we keep the
+// matching field from the static confettiStops at the same index as
+// a sensible default and only override the ones the venue actually
+// gives us (name, address, phone, website, hours, area, etc.).
+function venueToStop(venue: DiscoveredVenue, fallback: AIStop, role: AIStop["role"]): AIStop {
+  return {
+    ...fallback,
+    name: venue.name || fallback.name,
+    detail: venue.cuisineTags?.[0] || venue.vibeTags?.[0] || fallback.detail,
+    area: venue.city || venue.state || fallback.area,
+    address: venue.address || fallback.address,
+    phone: venue.phone || fallback.phone,
+    website: venue.website || fallback.website,
+    hours: (venue.hours && Object.values(venue.hours)[0]) || fallback.hours,
+    match: typeof venue.matchScore === "number" ? Math.round(venue.matchScore)
+         : typeof venue.rating === "number" ? Math.round(venue.rating * 20)
+         : fallback.match,
+    role,
+  };
+}
+
+// Calls the multi-agent itinerary orchestrator with the wizard inputs,
+// maps the returned venues to BoardingPass stop shape, and returns
+// { stops, loading, error }. Falls back to the static confettiStops
+// when the orchestrator is unavailable (no OpenAI/Anthropic key, no
+// venues returned, network error). The wizard's deterministic
+// rotation keeps the fallback varied per user/occasion/hour.
+function useAIItinerary(wizard: WizardState | null, rotatedFallback: AIStop[]): {
+  stops: AIStop[];
+  loading: boolean;
+  error: string | null;
+  source: "ai" | "fallback";
+} {
+  const [stops, setStops] = useState<AIStop[]>(rotatedFallback);
+  const [loading, setLoading] = useState<boolean>(Boolean(wizard?.userId));
+  const [error, setError] = useState<string | null>(null);
+  const [source, setSource] = useState<"ai" | "fallback">("fallback");
+
+  // Stable key so we don't refire on every render
+  const cacheKey = useMemo(() => JSON.stringify({
+    u: wizard?.userId, o: wizard?.occasion, v: wizard?.vibe,
+    p: wizard?.partySize, c: wizard?.city, b: wizard?.builtAt?.slice(0, 13),
+  }), [wizard?.userId, wizard?.occasion, wizard?.vibe, wizard?.partySize, wizard?.city, wizard?.builtAt]);
+
+  useEffect(() => {
+    if (!wizard?.userId) {
+      setLoading(false);
+      return;
+    }
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+
+    const today = new Date().toISOString().slice(0, 10);
+    const occasionPhrase = wizard.occasion?.replace(/-/g, " ") ?? "night out";
+    const vibePhrase = wizard.vibe?.length ? wizard.vibe.join(", ") : "great vibes";
+    const message = `Plan ${rotatedFallback.length} stops for a ${occasionPhrase} with a ${vibePhrase} vibe for a party of ${wizard.partySize ?? 2}.`;
+
+    buildItinerary({
+      userId: wizard.userId,
+      message,
+      city: wizard.city ?? "Washington",
+      date: today,
+      occasion: wizard.occasion,
+      groupSize: wizard.partySize,
+      vibes: wizard.vibe,
+    })
+      .then((result) => {
+        if (cancelled) return;
+        const aiVenues = result.venues ?? [];
+        if (!result.success || aiVenues.length === 0) {
+          setError(result.qcFeedback ?? "AI orchestrator returned no venues.");
+          setStops(rotatedFallback);
+          setSource("fallback");
+          return;
+        }
+        // Take up to N AI venues, pad with fallback for any missing slots
+        const desired = wizard.stopCount ?? rotatedFallback.length;
+        const slots = rotatedFallback.slice(0, desired);
+        const mapped = slots.map((slot, idx) => {
+          const venue = aiVenues[idx];
+          if (!venue) return slot;
+          const role: AIStop["role"] = idx === 0 ? "departure" : idx === slots.length - 1 ? "destination" : "stop";
+          return venueToStop(venue, slot, role);
+        });
+        setStops(mapped);
+        setSource("ai");
+      })
+      .catch((err) => {
+        if (cancelled) return;
+        console.warn("[Confetti] buildItinerary failed, using fallback:", err);
+        setError(err instanceof Error ? err.message : String(err));
+        setStops(rotatedFallback);
+        setSource("fallback");
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cacheKey]);
+
+  return { stops, loading, error, source };
+}
+
 function BoardingPass() {
   const navigate = useNavigate();
   const location = useLocation();
-
-  type WizardState = {
-    userId?: string | null;
-    occasion?: string;
-    vibe?: string[];
-    partySize?: number;
-    arrivalMode?: "rideshare" | "drive";
-    evCharge?: boolean;
-    stopCount?: number;
-    seating?: string;
-    preOrders?: Record<string, string[]>;
-    builtAt?: string;
-  };
   const wizard = (location.state ?? null) as WizardState | null;
 
   // Read the wizard inputs the user just filled in. Falls back to demo
@@ -1972,7 +2084,15 @@ function BoardingPass() {
   let seed = 0;
   for (let i = 0; i < seedSource.length; i++) seed = (seed * 31 + seedSource.charCodeAt(i)) | 0;
   const rotate = ((seed % confettiStops.length) + confettiStops.length) % confettiStops.length;
-  const orderedStops = [...confettiStops.slice(rotate), ...confettiStops.slice(0, rotate)];
+  const rotatedFallback = [...confettiStops.slice(rotate), ...confettiStops.slice(0, rotate)];
+
+  // Hit the multi-agent orchestrator with the wizard inputs. When the
+  // OpenAI / Anthropic / Places keys are live, this returns real venues
+  // personalized to occasion/vibe/party/user. When they're not yet set
+  // or the orchestrator fails, useAIItinerary falls back to the rotated
+  // confettiStops array so the boarding pass still renders.
+  const ai = useAIItinerary(wizard, rotatedFallback);
+  const orderedStops = ai.stops;
   const departureStop = orderedStops[0];
   const destinationStop = orderedStops[orderedStops.length - 1];
 
@@ -1998,7 +2118,7 @@ function BoardingPass() {
   return (
     <Page className="itinerary-screen">
       <Header
-        eyebrow="Your plan is ready"
+        eyebrow={ai.source === "ai" ? "AI · Your plan is ready" : "Your plan is ready"}
         title="Boarding Pass"
         actions={
           <div className="header-actions">
@@ -2007,6 +2127,35 @@ function BoardingPass() {
           </div>
         }
       />
+
+      {ai.loading && (
+        <div style={{
+          position: "fixed", inset: 0, zIndex: 50,
+          background: "rgba(20, 12, 28, 0.72)", backdropFilter: "blur(8px)",
+          display: "grid", placeItems: "center", padding: 24
+        }}>
+          <div style={{
+            background: "#f5efe2", color: "#1a1025",
+            padding: "32px 24px", borderRadius: 24, maxWidth: 380, width: "100%",
+            textAlign: "center", boxShadow: "0 20px 60px rgba(0,0,0,0.4)"
+          }}>
+            <div style={{ fontSize: 11, letterSpacing: 1.5, fontWeight: 700, marginBottom: 16, color: "#f72585", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
+              <Sparkles style={{ width: 14, height: 14 }} />
+              BUILDING YOUR NIGHT
+            </div>
+            <div style={{
+              width: 56, height: 56, margin: "0 auto 20px",
+              border: "3px solid rgba(247,37,133,0.15)",
+              borderTopColor: "#f72585", borderRadius: "50%",
+              animation: "spin 0.9s linear infinite"
+            }} />
+            <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 8 }}>Plating it up…</h2>
+            <p style={{ fontSize: 13, opacity: 0.6 }}>
+              Pulling venues that match your vibe, occasion, and party size.
+            </p>
+          </div>
+        </div>
+      )}
 
       <ScrollReveal>
         <motion.div

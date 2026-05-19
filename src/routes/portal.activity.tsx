@@ -83,79 +83,92 @@ function dayKey(ts: number) {
   });
 }
 
-// Hardcoded sample feed used when the local activity log is empty so the page
-// always shows real-looking content for App Store review.
-const MOCK_ENTRIES: ActivityEntry[] = [
-  {
-    id: "mock-1",
-    tripId: "mock-rose",
-    tripTitle: "Date night · Capitol Hill",
-    actor: "You",
-    kind: "booked",
-    message: "booked Rose's Luxury",
-    detail: "Party of 2 · 7:30 PM",
-    ts: new Date("2026-05-14T19:30:00").getTime(),
-  },
-  {
-    id: "mock-2",
-    tripId: "mock-saved",
-    tripTitle: "Wishlist",
-    actor: "You",
-    kind: "voted",
-    message: "saved Oyster Oyster to wishlist",
-    detail: "Shaw · Tasting menu",
-    ts: new Date("2026-05-13T15:10:00").getTime(),
-  },
-  {
-    id: "mock-3",
-    tripId: "mock-badge",
-    tripTitle: "Achievements",
-    actor: "You",
-    kind: "plan_completed",
-    message: "earned the 'First Plan' badge",
-    detail: "+50 Confetti",
-    ts: new Date("2026-05-12T21:05:00").getTime(),
-  },
-  {
-    id: "mock-4",
-    tripId: "mock-rooftop",
-    tripTitle: "Midnight on the Rooftop",
-    actor: "You",
-    kind: "plan_completed",
-    message: "completed plan 'Midnight on the Rooftop'",
-    detail: "3 stops · 4 hrs",
-    ts: new Date("2026-05-11T23:45:00").getTime(),
-  },
-  {
-    id: "mock-5",
-    tripId: "mock-maydan",
-    tripTitle: "Friday with the crew",
-    actor: "You",
-    kind: "check_in",
-    message: "checked in at Maydan",
-    detail: "14th Street · 8:15 PM",
-    ts: new Date("2026-05-10T20:15:00").getTime(),
-  },
-  {
-    id: "mock-6",
-    tripId: "mock-invite",
-    tripTitle: "Referrals",
-    actor: "You",
-    kind: "joined",
-    message: "invited Sarah to Confetti",
-    detail: "Pending · earns 250 Confetti on signup",
-    ts: new Date("2026-05-09T10:30:00").getTime(),
-  },
-];
+// Sample feed used when the local activity log is empty so the page always
+// shows real-looking content. Timestamps are relative to now so it never rots.
+const DAY = 24 * 60 * 60 * 1000;
+function buildMockEntries(): ActivityEntry[] {
+  const now = Date.now();
+  return [
+    {
+      id: "mock-1",
+      tripId: "mock-rose",
+      tripTitle: "Date night · Capitol Hill",
+      actor: "You",
+      kind: "booked",
+      message: "booked Rose's Luxury",
+      detail: "Party of 2 · 7:30 PM",
+      ts: now - 1 * DAY,
+    },
+    {
+      id: "mock-2",
+      tripId: "mock-saved",
+      tripTitle: "Wishlist",
+      actor: "You",
+      kind: "voted",
+      message: "saved Oyster Oyster to wishlist",
+      detail: "Shaw · Tasting menu",
+      ts: now - 2 * DAY,
+    },
+    {
+      id: "mock-3",
+      tripId: "mock-badge",
+      tripTitle: "Achievements",
+      actor: "You",
+      kind: "plan_completed",
+      message: "earned the 'First Plan' badge",
+      detail: "+50 Confetti",
+      ts: now - 3 * DAY,
+    },
+    {
+      id: "mock-4",
+      tripId: "mock-rooftop",
+      tripTitle: "Midnight on the Rooftop",
+      actor: "You",
+      kind: "plan_completed",
+      message: "completed plan 'Midnight on the Rooftop'",
+      detail: "3 stops · 4 hrs",
+      ts: now - 4 * DAY,
+    },
+    {
+      id: "mock-5",
+      tripId: "mock-maydan",
+      tripTitle: "Friday with the crew",
+      actor: "You",
+      kind: "check_in",
+      message: "checked in at Maydan",
+      detail: "14th Street · 8:15 PM",
+      ts: now - 5 * DAY,
+    },
+    {
+      id: "mock-6",
+      tripId: "mock-invite",
+      tripTitle: "Referrals",
+      actor: "You",
+      kind: "joined",
+      message: "invited Sarah to Confetti",
+      detail: "Pending · earns 250 Confetti on signup",
+      ts: now - 6 * DAY,
+    },
+  ];
+}
+
+const isMockTripId = (id: string) => id.startsWith("mock-");
 
 function PortalActivityPage() {
-  const [entries, setEntries] = useState<ActivityEntry[]>(MOCK_ENTRIES);
+  const [entries, setEntries] = useState<ActivityEntry[]>(() => buildMockEntries());
+  const [usingMock, setUsingMock] = useState(true);
   const [tripFilter, setTripFilter] = useState<string>("all");
   const [kindFilter, setKindFilter] = useState<KindFilter>("all");
 
   const load = useCallback(() => {
     const real = readLog();
-    setEntries(real.length > 0 ? real : MOCK_ENTRIES);
+    if (real.length > 0) {
+      setEntries(real);
+      setUsingMock(false);
+    } else {
+      setEntries(buildMockEntries());
+      setUsingMock(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -315,13 +328,19 @@ function PortalActivityPage() {
                           {e.tripTitle && (
                             <>
                               <span aria-hidden>·</span>
-                              <Link
-                                to="/trips/$id"
-                                params={{ id: e.tripId }}
-                                className="font-mono uppercase tracking-wider text-coral hover:underline underline-offset-2"
-                              >
-                                {e.tripTitle}
-                              </Link>
+                              {isMockTripId(e.tripId) ? (
+                                <span className="font-mono uppercase tracking-wider text-ink/60">
+                                  {e.tripTitle}
+                                </span>
+                              ) : (
+                                <Link
+                                  to="/trips/$id"
+                                  params={{ id: e.tripId }}
+                                  className="font-mono uppercase tracking-wider text-coral hover:underline underline-offset-2"
+                                >
+                                  {e.tripTitle}
+                                </Link>
+                              )}
                             </>
                           )}
                           {e.detail && (
@@ -341,7 +360,7 @@ function PortalActivityPage() {
         </div>
       )}
 
-      {entries.length > 0 && (
+      {!usingMock && entries.length > 0 && (
         <div className="mt-8 flex items-center justify-end">
           <button
             type="button"

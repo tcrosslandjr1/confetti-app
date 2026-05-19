@@ -255,32 +255,44 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <MapProvider>
-          <WizardProvider>
-            <ScrollProgress />
-            <ReferralCapture />
-            <Suspense fallback={null}>
-              <RoleSwitcher />
-            </Suspense>
-            <PageTransition>
-              <Outlet />
-            </PageTransition>
-            {/* Spacer so fixed mobile TabBar doesn't cover page content */}
-            <div aria-hidden className="h-24 lg:hidden" />
-            <Suspense fallback={null}>
-              <BuildMyNightWizard />
-            </Suspense>
-            <TabBar />
-            <FirstRunNudge />
-            <Suspense fallback={null}>
-              <CookieConsent />
-            </Suspense>
-            <Suspense fallback={null}>
-              <AuthDebugPanel />
-            </Suspense>
-            <Toaster />
-          </WizardProvider>
-        </MapProvider>
+        <Suspense fallback={null}>
+          <MapProvider>
+            <WizardProvider>
+              <Suspense fallback={null}>
+                <ScrollProgress />
+              </Suspense>
+              <Suspense fallback={null}>
+                <ReferralCapture />
+              </Suspense>
+              <Suspense fallback={null}>
+                <RoleSwitcher />
+              </Suspense>
+              <Suspense fallback={null}>
+                <PageTransition>
+                  <Outlet />
+                </PageTransition>
+              </Suspense>
+              {/* Spacer so fixed mobile TabBar doesn't cover page content */}
+              <div aria-hidden className="h-24 lg:hidden" />
+              <Suspense fallback={null}>
+                <BuildMyNightWizard />
+              </Suspense>
+              <Suspense fallback={null}>
+                <TabBar />
+              </Suspense>
+              <Suspense fallback={null}>
+                <FirstRunNudge />
+              </Suspense>
+              <Suspense fallback={null}>
+                <CookieConsent />
+              </Suspense>
+              <Suspense fallback={null}>
+                <AuthDebugPanel />
+              </Suspense>
+              <Toaster />
+            </WizardProvider>
+          </MapProvider>
+        </Suspense>
       </AuthProvider>
     </QueryClientProvider>
   );

@@ -1,13 +1,13 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "tanstack_start_ts"
   "private": true,
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "npm run typecheck && vite build",
-    "build:dev": "npm run typecheck && vite build --mode development",
-    "preview": "vite preview",
+        "dev": "vinxi dev",
+        "build": "vinxi build",
+        "build:dev": "vinxi build",
+        "preview": "vinxi start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",

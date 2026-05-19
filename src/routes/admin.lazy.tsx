@@ -1,10 +1,11 @@
 import { createLazyFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
-import { useEffect } from "react";
-import { BarChart3, Bell, CalendarCheck, LayoutDashboard, Megaphone, MessageSquareQuote, ScrollText, Settings, ShieldCheck, Sparkles, Store, Users } from "lucide-react";
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
+import { useEffect, useMemo, useState } from "react";
+import { BarChart3, Bell, CalendarCheck, LayoutDashboard, LogOut, Megaphone, MessageSquareQuote, Search, ScrollText, Settings, ShieldCheck, Sparkles, Store, Users, X } from "lucide-react";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 import { useAuth } from "@/lib/auth-context";
 import { NotificationsBell } from "@/components/NotificationsBell";
 import { AdminSkeleton } from "@/components/AdminSkeleton";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createLazyFileRoute("/admin")({
   component: AdminLayout,

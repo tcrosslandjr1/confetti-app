@@ -3,9 +3,56 @@ import viteReact from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
 import path from "node:path";
+import fs from "node:fs";
+
+// Stub server-only modules (*.server.ts and routes/api/**) in the client build.
+// In this SPA setup, createServerFn is shimmed to a noop, so server modules are
+// unreachable at runtime — but their static imports were dragging server-only
+// deps (Stripe, AI SDK, supabase admin) into the browser bundle.
+function stubServerModules() {
+  const isServerFile = (id: string) => {
+    const clean = id.split("?")[0];
+    if (/\.server\.(ts|tsx|js|jsx|mjs|cjs)$/.test(clean)) return true;
+    if (/[\\/]src[\\/]routes[\\/]api[\\/.]/.test(clean)) return true;
+    return false;
+  };
+  return {
+    name: "stub-server-modules",
+    enforce: "pre" as const,
+    load(id: string) {
+      if (!isServerFile(id)) return null;
+      const file = id.split("?")[0];
+      let src = "";
+      try {
+        src = fs.readFileSync(file, "utf8");
+      } catch {
+        return "const s = new Proxy(function(){}, { get: () => s, apply: () => s }); export default s;";
+      }
+      const names = new Set<string>();
+      for (const m of src.matchAll(
+        /export\s+(?:async\s+)?(?:const|let|var|function|class)\s+(\w+)/g,
+      )) {
+        names.add(m[1]);
+      }
+      for (const m of src.matchAll(/export\s*\{([^}]+)\}/g)) {
+        for (const part of m[1].split(",")) {
+          const name = part.split(/\s+as\s+/i).pop()!.trim().replace(/[;].*$/, "");
+          if (name && name !== "default") names.add(name);
+        }
+      }
+      const hasDefault = /export\s+default\b/.test(src);
+      const lines = [
+        "const __stub = new Proxy(function(){}, { get: () => __stub, apply: () => __stub, construct: () => ({}) });",
+        ...[...names].map((n) => `export const ${n} = __stub;`),
+        hasDefault ? "export default __stub;" : "",
+      ];
+      return lines.join("\n");
+    },
+  };
+}
 
 export default defineConfig({
-  plugins: [tsconfigPaths(), tailwindcss(), viteReact()],
+  plugins: [stubServerModules(), tsconfigPaths(), tailwindcss(), viteReact()],
   resolve: {
     alias: [
       {
@@ -20,5 +67,23 @@ export default defineConfig({
   },
   build: {
     chunkSizeWarningLimit: 2000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom"],
+          "vendor-router": ["@tanstack/react-router"],
+          "vendor-query": ["@tanstack/react-query"],
+          "vendor-supabase": ["@supabase/supabase-js"],
+          "vendor-motion": ["framer-motion"],
+          "vendor-ui": [
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-dropdown-menu",
+            "@radix-ui/react-tooltip",
+            "@radix-ui/react-popover",
+            "@radix-ui/react-tabs",
+          ],
+        },
+      },
+    },
   },
 });

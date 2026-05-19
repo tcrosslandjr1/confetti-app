@@ -90,7 +90,9 @@ function Lightbox({
         src={it.url}
         alt={it.attribution ?? ""}
         className="max-h-[85vh] max-w-full rounded-xl border-2 border-cream object-contain"
-        onClick={(e) = loading="lazy" decoding="async"> e.stopPropagation()}
+        loading="lazy"
+        decoding="async"
+        onClick={(e) => e.stopPropagation()}
       />
       <button
         onClick={(e) => {

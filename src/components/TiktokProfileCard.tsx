@@ -111,8 +111,9 @@ export function TiktokProfileCard() {
                 alt={tiktok.display_name ?? handle ?? "TikTok avatar"}
                 referrerPolicy="no-referrer"
                 className="h-14 w-14 rounded-2xl object-cover"
-                onError={(e) = loading="lazy" decoding="async"> {
-                  // Fall back to initials if TikTok blocks hotlinking.
+                loading="lazy"
+                decoding="async"
+                onError={(e) => {
                   (e.currentTarget as HTMLImageElement).style.display = "none";
                 }}
               />

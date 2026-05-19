@@ -20,6 +20,7 @@ import { unsplashFor } from "@/lib/venue-images";
 
 const discoverSearchSchema = z.object({
   view: z.enum(["list", "map"]).optional().catch(undefined),
+  venueId: z.string().optional().catch(undefined),
 });
 
 export const Route = createFileRoute("/discover")({

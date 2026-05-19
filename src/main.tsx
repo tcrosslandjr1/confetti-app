@@ -5,4 +5,7 @@ import "./styles.css";
 
 const router = getRouter();
 
-ReactDOM.hydrateRoot(document, <RouterProvider router={router} />);
+const rootEl = document.getElementById("root");
+if (!rootEl) throw new Error("Root element #root not found");
+
+ReactDOM.createRoot(rootEl).render(<RouterProvider router={router} />);

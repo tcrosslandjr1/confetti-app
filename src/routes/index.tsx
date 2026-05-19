@@ -1429,7 +1429,7 @@ function Landing() {
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border-2 border-cream/40 bg-cream/5 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-cream/80 backdrop-blur">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-75" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-75 motion-reduce:animate-none" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
               </span>
               For businesses

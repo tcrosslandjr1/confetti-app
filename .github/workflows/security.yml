@@ -1,0 +1,21 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run security regression check
+        env:
+          LOVABLE_SECURITY_SCAN_URL: ${{ secrets.LOVABLE_SECURITY_SCAN_URL }}
+          LOVABLE_SECURITY_SCAN_TOKEN: ${{ secrets.LOVABLE_SECURITY_SCAN_TOKEN }}
+        run: node .github/scripts/security-check.mjs

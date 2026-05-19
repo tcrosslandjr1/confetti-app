@@ -217,7 +217,7 @@ export function PartnerTestimonials() {
         <div className="absolute inset-x-0 bottom-0 h-1 bg-cream/10">
           <div
             key={`${index}-${paused}`}
-            className="h-full bg-gradient-to-r from-coral to-gold"
+            className="confetti-progress-bar h-full bg-gradient-to-r from-coral to-gold"
             style={{
               width: "100%",
               transformOrigin: "left center",

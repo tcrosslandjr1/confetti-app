@@ -1474,55 +1474,90 @@ function Landing() {
           </div>
 
           <div className="relative">
-            {/* Floating sticker */}
-            <div className="absolute -left-3 -top-3 z-10 -rotate-6 rounded-full border-2 border-ink bg-gold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut">
-              ↑ 23% MoM
-            </div>
-            <div className="rounded-2xl border-2 border-cream/30 bg-cream/[0.04] p-5 shadow-brut-lg backdrop-blur-xl">
-              <div className="flex items-center justify-between border-b-2 border-dashed border-cream/30 pb-3">
-                <span className="font-mono text-[11px] uppercase tracking-widest text-cream/70">
-                  PARTNER · last 30d
-                </span>
-                <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-coral">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral" />
-                  LIVE
-                </span>
-              </div>
-              <div className="mt-4 grid grid-cols-3 gap-3">
-                {[
-                  { k: "Impressions", v: "12.4k", d: "+18%" },
-                  { k: "Clicks", v: "892", d: "+24%" },
-                  { k: "CTR", v: "7.2%", d: "+0.9pt" },
-                ].map((s) => (
-                  <div
-                    key={s.k}
-                    className="rounded-xl border-2 border-cream/20 bg-ink/60 p-3 transition hover:border-coral/50"
-                  >
-                    <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
-                      {s.k}
-                    </div>
-                    <div className="mt-1 font-display text-2xl font-extrabold leading-none">
-                      {s.v}
-                    </div>
-                    <div className="mt-1 font-mono text-[9px] font-bold text-coral">{s.d}</div>
+            {(() => {
+              const fmtNum = (n: number) =>
+                n >= 1000 ? `${(n / 1000).toFixed(n >= 10000 ? 0 : 1)}k` : `${n}`;
+              const fmtDeltaPct = (n: number) =>
+                `${n >= 0 ? "+" : ""}${n.toFixed(n >= 10 || n <= -10 ? 0 : 1)}%`;
+              const fmtDeltaPts = (n: number) =>
+                `${n >= 0 ? "+" : ""}${n.toFixed(1)}pt`;
+
+              const imp = partnerStats?.impressions.value ?? 0;
+              const clk = partnerStats?.clicks.value ?? 0;
+              const ctr = partnerStats?.ctr.value ?? 0;
+              const impDelta = partnerStats?.impressions.deltaPct ?? 0;
+              const clkDelta = partnerStats?.clicks.deltaPct ?? 0;
+              const ctrDelta = partnerStats?.ctr.deltaPts ?? 0;
+
+              const stats = [
+                { k: "Impressions", v: fmtNum(imp), d: fmtDeltaPct(impDelta), up: impDelta >= 0 },
+                { k: "Clicks", v: fmtNum(clk), d: fmtDeltaPct(clkDelta), up: clkDelta >= 0 },
+                { k: "CTR", v: `${ctr.toFixed(1)}%`, d: fmtDeltaPts(ctrDelta), up: ctrDelta >= 0 },
+              ];
+
+              const placements = partnerStats?.placements30d ?? new Array(30).fill(0);
+              const maxP = Math.max(1, ...placements);
+
+              return (
+                <>
+                  <div className="absolute -left-3 -top-3 z-10 -rotate-6 rounded-full border-2 border-ink bg-gold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut">
+                    {impDelta >= 0 ? "↑" : "↓"} {fmtDeltaPct(impDelta)} MoM
                   </div>
-                ))}
-              </div>
-              {/* Mini sparkline bars */}
-              <div className="mt-4 rounded-xl border-2 border-cream/15 bg-ink/40 p-3">
-                <div className="mb-2 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-cream/60">
-                  <span>Itinerary placements</span>
-                  <span className="text-cream/40">30d</span>
-                </div>
-                <div className="flex h-12 items-end gap-1">
-                  {[40, 55, 38, 62, 48, 70, 52, 78, 60, 82, 68, 88, 72, 95, 80].map((h, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 rounded-sm bg-gradient-to-t from-coral/40 via-coral to-gold"
-                      style={{ height: `${h}%` }}
-                    />
-                  ))}
-                </div>
+                  <div className="rounded-2xl border-2 border-cream/30 bg-cream/[0.04] p-5 shadow-brut-lg backdrop-blur-xl">
+                    <div className="flex items-center justify-between border-b-2 border-dashed border-cream/30 pb-3">
+                      <span className="font-mono text-[11px] uppercase tracking-widest text-cream/70">
+                        PARTNER · last 30d
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-coral">
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral" />
+                        LIVE
+                      </span>
+                    </div>
+                    <div className="mt-4 grid grid-cols-3 gap-3">
+                      {stats.map((s) => (
+                        <div
+                          key={s.k}
+                          className="rounded-xl border-2 border-cream/20 bg-ink/60 p-3 transition hover:border-coral/50"
+                        >
+                          <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
+                            {s.k}
+                          </div>
+                          <div className="mt-1 font-display text-2xl font-extrabold leading-none">
+                            {s.v}
+                          </div>
+                          <div
+                            className={`mt-1 font-mono text-[9px] font-bold ${
+                              s.up ? "text-coral" : "text-cream/50"
+                            }`}
+                          >
+                            {s.d}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-4 rounded-xl border-2 border-cream/15 bg-ink/40 p-3">
+                      <div className="mb-2 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-cream/60">
+                        <span>Itinerary placements</span>
+                        <span className="text-cream/40">30d</span>
+                      </div>
+                      <div className="flex h-12 items-end gap-1">
+                        {placements.map((p, i) => {
+                          const h = Math.max(4, Math.round((p / maxP) * 100));
+                          return (
+                            <div
+                              key={i}
+                              className={`flex-1 rounded-sm ${
+                                p > 0
+                                  ? "bg-gradient-to-t from-coral/40 via-coral to-gold"
+                                  : "bg-cream/10"
+                              }`}
+                              style={{ height: `${h}%` }}
+                              title={`${p} placements`}
+                            />
+                          );
+                        })}
+                      </div>
+                    </div>
               </div>
               <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-cream/50">
                 <span>Verified by Confetti</span>

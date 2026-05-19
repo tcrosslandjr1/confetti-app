@@ -33,6 +33,9 @@ const SiteFooter = lazy(() =>
 const AdDebugPanel = lazy(() =>
   import("@/components/AdDebugPanel").then((m) => ({ default: m.AdDebugPanel })),
 );
+const PartnerTestimonials = lazy(() =>
+  import("@/components/PartnerTestimonials").then((m) => ({ default: m.PartnerTestimonials })),
+);
 import { TapToGoBookingModal } from "@/components/TapToGoBookingModal";
 
 const SAMPLE_ITINERARY_STOPS: TapToGoStop[] = [

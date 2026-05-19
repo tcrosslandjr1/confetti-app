@@ -206,15 +206,17 @@ function AdminShell({ user, pathname, }: {
             .filter((s) => s.items.length > 0);
     }, [query]);
     const initials = (user?.email ?? "?").slice(0, 2).toUpperCase();
-    const activeLabel = useMemo(() => {
+    const activeItem = useMemo(() => {
         for (const s of NAV_SECTIONS) {
             for (const i of s.items) {
                 const active = i.exact ? pathname === i.to : pathname.startsWith(i.to);
-                if (active) return i.label;
+                if (active) return { section: s.label, item: i };
             }
         }
-        return "Dashboard";
+        return { section: "Overview", item: NAV_SECTIONS[0].items[0] };
     }, [pathname]);
+    const activeLabel = activeItem.item.label;
+    const activeSection = activeItem.section;
     return (<div className="flex min-h-screen w-full bg-gradient-to-br from-cream/60 via-background to-background">
       <Sidebar collapsible="icon" className="border-r-2 border-ink/10">
         <SidebarContent className="bg-cream/30">

@@ -1,17 +1,19 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 /**
  * One-time admin bootstrap.
  *
- * Promotes the given email to the `admin` role. Self-disables: once any admin
- * row exists in `public.user_roles`, this function refuses to run again.
- * After the first successful call, all subsequent calls return
- * { ok: false, reason: "already_bootstrapped" }.
+ * Requires an authenticated session AND that no admin exists yet. Once any
+ * admin row exists in `public.user_roles`, this function refuses to run.
+ * Returns { ok: false, reason: "already_bootstrapped" } in that case.
  */
 export const bootstrapAdmin = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((input) => z.object({ email: z.string().email().max(255) }).parse(input))
+
   .handler(async ({ data }) => {
     // Guard: refuse if any admin already exists.
     const { count, error: countErr } = await supabaseAdmin

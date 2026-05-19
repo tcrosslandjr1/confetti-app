@@ -33,6 +33,9 @@ const SiteFooter = lazy(() =>
 const AdDebugPanel = lazy(() =>
   import("@/components/AdDebugPanel").then((m) => ({ default: m.AdDebugPanel })),
 );
+const PartnerTestimonials = lazy(() =>
+  import("@/components/PartnerTestimonials").then((m) => ({ default: m.PartnerTestimonials })),
+);
 import { TapToGoBookingModal } from "@/components/TapToGoBookingModal";
 
 const SAMPLE_ITINERARY_STOPS: TapToGoStop[] = [
@@ -1567,6 +1570,13 @@ function Landing() {
               );
             })()}
           </div>
+        </div>
+
+        {/* Partner testimonials carousel + logo strip */}
+        <div className="relative px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
+          <Suspense fallback={null}>
+            <PartnerTestimonials />
+          </Suspense>
         </div>
       </section>
 

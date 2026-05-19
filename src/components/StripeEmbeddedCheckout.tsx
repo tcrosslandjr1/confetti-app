@@ -40,7 +40,6 @@ export function StripeEmbeddedCheckout({ variant, customerEmail, userId, returnU
         priceId: variant.priceId as never,
         quantity: variant.quantity,
         customerEmail,
-        userId,
         accountType: variant.accountType,
         returnUrl: url,
         environment,

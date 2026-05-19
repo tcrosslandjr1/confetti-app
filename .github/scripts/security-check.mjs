@@ -81,7 +81,9 @@ for (const file of allFiles.filter(
     /\.(ts|tsx)$/.test(f) &&
     !/\.server\.ts$/.test(f) &&
     !/\.functions\.tsx?$/.test(f) &&
-    !f.includes("/integrations/supabase/"),
+    !f.includes("/integrations/supabase/") &&
+    // src/routes/api/** are TanStack server route handlers (server-only).
+    !f.includes("/src/routes/api/"),
 )) {
   const src = readFileSync(file, "utf8");
   if (/from\s+["']@\/integrations\/supabase\/client\.server["']/.test(src)) {

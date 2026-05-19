@@ -1056,15 +1056,7 @@ function VibePlansPage() {
           ))}
           {/* Brunch Baddies-only toggle */}
           {selectedCats.includes("brunch_baddies") ||
-          (vibe &&
-            [
-              "brunch_baddies",
-              "mimosas",
-              "cute_fits",
-              "pink_aesthetic",
-              "photo_walls",
-              "shopping_after",
-            ].includes(vibe.id)) ? (
+          (vibe && BRUNCH_BADDIES_TRIGGER_IDS.has(vibe.id)) ? (
             <label className="flex items-center justify-between gap-3 border-t pt-2 text-sm">
               <span>🪩 Add post-brunch day party</span>
               <input

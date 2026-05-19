@@ -80,7 +80,7 @@ function Header({ eyebrow, title, right }: { eyebrow: string; title: string; rig
   );
 }
 
-const spring = { type: "spring", stiffness: 400, damping: 28 };
+const spring = { type: "spring" as const, stiffness: 400, damping: 28 };
 
 /* ─── Tier badge helper ─────────────────────────────────────── */
 
@@ -175,7 +175,8 @@ export function CommunityExplore() {
     };
     if (activeVibe) query.vibeTags = [activeVibe];
     setPlans(getCommunityFeed(query));
-    setStats(getCommunityStats());
+    const s = getCommunityStats();
+    setStats({ totalPlans: s.totalPlans, totalReviews: s.totalReviews, activeUsers: s.totalUsers });
     setInsights(getAIInsights("Washington", 3));
   }, [sortBy, activeVibe]);
 
@@ -660,7 +661,7 @@ export function CommunityPlanDetail() {
 
   const handleRemix = async () => {
     if (!plan) return;
-    const remixed = await remixPlan(plan.id, "demo-user", "Tyrone");
+    const remixed = await remixPlan(plan, "demo-user", {});
     if (remixed) navigate(`/community/plan/${remixed.id}`);
   };
 
@@ -1137,20 +1138,19 @@ function ReviewFormModal({
       }
     });
 
-    const review = await submitReview(
-      "demo-user",
-      "Tyrone",
-      plan.id,
-      {
-        reviewType,
-        overallRating,
-        wouldRecommend,
-        stopRatings: ratings,
-        title: reviewType === "full_story" ? title : undefined,
-        body: reviewType === "full_story" ? body : undefined,
-        highlight: highlight || undefined,
-      }
-    );
+    const review = await submitReview({
+      userId: "demo-user",
+      userName: "Tyrone",
+      userTier: "newcomer",
+      planId: plan.id,
+      reviewType,
+      overallRating,
+      wouldRecommend,
+      stopRatings: ratings,
+      title: reviewType === "full_story" ? title : undefined,
+      body: reviewType === "full_story" ? body : undefined,
+      highlight: highlight || undefined,
+    });
 
     onSubmit(review);
     setSubmitting(false);

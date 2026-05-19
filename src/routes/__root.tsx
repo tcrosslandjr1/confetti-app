@@ -165,24 +165,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      // Single Google Fonts request for all three families with display=swap.
       {
         rel: "preload",
-        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=optional",
-        as: "style",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=optional",
-      },
-      {
-        rel: "preload",
-        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap",
         as: "style",
         fetchPriority: "high",
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap",
       },
     ],
   }),
@@ -193,25 +185,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
-  // Async-load the JetBrains Mono stylesheet without a string event handler
-  // (React rejects `onLoad="..."`; the inline script swaps media on load).
-  const asyncFontSwap = `(function(){var l=document.currentScript&&document.currentScript.previousElementSibling;if(l&&l.tagName==='LINK'){l.addEventListener('load',function(){l.media='all';});}})();`;
   return (
     <html lang="en">
       <head>
         <HeadContent />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap"
-          media="print"
-        />
-        <script dangerouslySetInnerHTML={{ __html: asyncFontSwap }} />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap"
-          />
-        </noscript>
       </head>
       <body>
         {children}

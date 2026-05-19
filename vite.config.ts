@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import viteReact from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import path from "node:path";
 import fs from "node:fs";
 
@@ -74,7 +75,17 @@ function stubServerModules() {
 }
 
 export default defineConfig({
-  plugins: [stubServerModules(), tsconfigPaths(), tailwindcss(), viteReact()],
+  plugins: [
+    stubServerModules(),
+    tsconfigPaths(),
+    // Must run BEFORE viteReact so generated route files get React refresh.
+    tanstackRouter({
+      target: "react",
+      autoCodeSplitting: true,
+    }),
+    tailwindcss(),
+    viteReact(),
+  ],
   server: {
     host: "0.0.0.0",
     port: 8080,

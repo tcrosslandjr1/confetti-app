@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "service role only — stripe webhook events" ON public.stripe_webhook_events;

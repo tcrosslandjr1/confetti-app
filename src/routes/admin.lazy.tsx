@@ -206,15 +206,17 @@ function AdminShell({ user, pathname, }: {
             .filter((s) => s.items.length > 0);
     }, [query]);
     const initials = (user?.email ?? "?").slice(0, 2).toUpperCase();
-    const activeLabel = useMemo(() => {
+    const activeItem = useMemo(() => {
         for (const s of NAV_SECTIONS) {
             for (const i of s.items) {
                 const active = i.exact ? pathname === i.to : pathname.startsWith(i.to);
-                if (active) return i.label;
+                if (active) return { section: s.label, item: i };
             }
         }
-        return "Dashboard";
+        return { section: "Overview", item: NAV_SECTIONS[0].items[0] };
     }, [pathname]);
+    const activeLabel = activeItem.item.label;
+    const activeSection = activeItem.section;
     return (<div className="flex min-h-screen w-full bg-gradient-to-br from-cream/60 via-background to-background">
       <Sidebar collapsible="icon" className="border-r-2 border-ink/10">
         <SidebarContent className="bg-cream/30">
@@ -358,11 +360,22 @@ function AdminShell({ user, pathname, }: {
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-border bg-background/80 px-4 backdrop-blur-xl">
           <SidebarTrigger />
-          <div className="flex items-center gap-2 text-sm">
-            <span className="font-semibold">Admin</span>
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm">
+            <Link
+              to="/admin"
+              className="font-semibold text-foreground hover:text-coral transition-colors"
+              activeOptions={{ exact: true }}
+              activeProps={{ className: "text-coral" }}
+            >
+              Admin
+            </Link>
             <span className="text-ink/30">/</span>
+            <span className="hidden rounded-md bg-muted px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-muted-foreground sm:inline">
+              {activeSection}
+            </span>
+            <span className="hidden text-ink/30 sm:inline">/</span>
             <span className="font-mono text-xs text-ink/70">{activeLabel}</span>
-          </div>
+          </nav>
           <div className="ml-auto flex items-center gap-2">
             <span className="hidden truncate text-xs text-muted-foreground sm:inline">
               {user?.email}

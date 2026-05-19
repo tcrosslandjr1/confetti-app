@@ -106,6 +106,7 @@ import AdminWalletManager from "./components/AdminWalletManager";
 import {
   completeAuthCallback,
   createAccountWithEmail,
+  getCurrentAccount,
   isSupabaseConfigured,
   normalizeUsername,
   signInWithEmailOrUsername,
@@ -985,9 +986,9 @@ function Header({ title, eyebrow, actions }: { title: string; eyebrow?: string; 
   );
 }
 
-function IconButton({ children, label, to }: { children: ReactNode; label: string; to?: string }) {
+function IconButton({ children, label, to, onClick }: { children: ReactNode; label: string; to?: string; onClick?: () => void }) {
   const content = (
-    <motion.button whileTap={{ scale: 0.9 }} className="icon-btn" aria-label={label} title={label}>
+    <motion.button whileTap={{ scale: 0.9 }} className="icon-btn" aria-label={label} title={label} onClick={onClick}>
       {children}
     </motion.button>
   );
@@ -1479,16 +1480,16 @@ function QuickIdea() {
     setSaved(true);
     setParticles(true);
     window.setTimeout(() => setParticles(false), 900);
-    // Interaction tracking: venue favorite (wired for when auth is connected)
-    // TODO: replace "anonymous" with real userId from auth context
-    import("@/lib/agents/interaction-tracker").then(({ trackInteraction }) => {
+    void (async () => {
+      const account = await getCurrentAccount();
+      const { trackInteraction } = await import("@/lib/agents/interaction-tracker");
       trackInteraction({
-        userId: "anonymous",
+        userId: account?.id ?? "anonymous",
         eventType: saved ? "venue_unfavorite" : "venue_favorite",
         venueId: venue.id,
         metadata: { source: "quick_idea_card" },
       });
-    });
+    })();
   };
 
   return (
@@ -1505,16 +1506,16 @@ function QuickIdea() {
       <TiltVenueCard venue={venue} onOpen={() => navigate(`/venue/${venue.id}`)} />
       <div className="action-row flash-actions">
         <motion.button whileTap={{ scale: 0.88 }} className="circle-action skip" onClick={() => {
-          // Interaction tracking: skip signal for taste learning
-          // TODO: replace "anonymous" with real userId from auth context
-          import("@/lib/agents/interaction-tracker").then(({ trackInteraction }) => {
+          void (async () => {
+            const account = await getCurrentAccount();
+            const { trackInteraction } = await import("@/lib/agents/interaction-tracker");
             trackInteraction({
-              userId: "anonymous",
+              userId: account?.id ?? "anonymous",
               eventType: "venue_skip",
               venueId: venue.id,
               metadata: { source: "quick_idea_card" },
             });
-          });
+          })();
         }}>
           <X />
         </motion.button>
@@ -3573,14 +3574,8 @@ function TrendingTracker() {
 
   const handleScan = async () => {
     setScanning(true);
-    if (isSupabaseConfigured) {
-      try {
-        // Invoke the scan via Supabase Edge Function (if deployed) or just show animation
-        await supabase.functions.invoke("trigger-scan", { body: { type: "trend", scope: "tier1" } });
-      } catch {
-        // Edge function may not exist yet — that's OK, animation still plays
-      }
-    }
+    // Scan is triggered by pg_cron on cron-refresh-trending; the admin button
+    // just plays the animation and lets the next refresh pick up new rows.
     setTimeout(() => setScanning(false), 3000);
   };
 
@@ -4508,11 +4503,11 @@ function TasteTuner() {
     if (direction === "right") setLiked(prev => [...prev, currentCard]);
     else setDisliked(prev => [...prev, currentCard]);
 
-    // Interaction tracking: card swipe signals for taste learning
-    // TODO: replace "anonymous" with real userId from auth context
-    import("@/lib/agents/interaction-tracker").then(({ trackInteraction }) => {
+    void (async () => {
+      const account = await getCurrentAccount();
+      const { trackInteraction } = await import("@/lib/agents/interaction-tracker");
       trackInteraction({
-        userId: "anonymous",
+        userId: account?.id ?? "anonymous",
         eventType: direction === "right" ? "card_swipe_right" : "card_swipe_left",
         metadata: {
           source: "taste_tuner",
@@ -4521,7 +4516,7 @@ function TasteTuner() {
           cardTags: card?.tags ?? [],
         },
       });
-    });
+    })();
 
     if (currentCard >= tasteCards.length - 1) {
       setDone(true);

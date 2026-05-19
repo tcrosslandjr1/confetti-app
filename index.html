@@ -266,6 +266,50 @@
           transform: none !important;
         }
       }
+
+      html[data-admin-splash] #initial-loader {
+        background: #faf8f5;
+      }
+      html[data-admin-splash] #initial-loader .orb,
+      html[data-admin-splash] #initial-loader .confetti-field {
+        display: none;
+      }
+      html[data-admin-splash] #initial-loader .mark::after {
+        border-color: rgba(26, 26, 26, 0.18);
+      }
+      html[data-admin-splash] #initial-loader .mark .arc-bg {
+        stroke: #ff7a4c;
+      }
+      html[data-admin-splash] #initial-loader .mark .arc-fg {
+        stroke: #1a1a1a;
+      }
+      html[data-admin-splash] #initial-loader .name::after {
+        content: "Admin Console";
+        display: block;
+        margin-top: 10px;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(26, 26, 26, 0.55);
+      }
+      html[data-admin-splash] #initial-loader .tagline-track {
+        display: none;
+      }
+      html[data-admin-splash] #initial-loader .tagline-box::before {
+        content: "Preparing command center";
+        display: flex;
+        height: 22px;
+        align-items: center;
+        justify-content: center;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(26, 26, 26, 0.45);
+      }
     </style>
   </head>
   <body>
@@ -275,7 +319,9 @@
       (function () {
         try {
           var p = location.pathname;
-          if (/^\/(admin|partner|corporate|advertise\/portal|business|concierge|portal)(\/|$)/.test(p)) {
+          if (/^\/admin(\/|$)/.test(p)) {
+            document.documentElement.setAttribute("data-admin-splash", "");
+          } else if (/^\/(partner|corporate|advertise\/portal|business|concierge|portal)(\/|$)/.test(p)) {
             document.documentElement.setAttribute("data-no-splash", "");
           }
         } catch (_) {}

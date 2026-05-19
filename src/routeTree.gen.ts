@@ -19,6 +19,7 @@ import { Route as TeamsRouteImport } from './routes/teams'
 import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ScanRouteImport } from './routes/scan'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as QuickGenerateRouteImport } from './routes/quick-generate'
 import { Route as QaRouteImport } from './routes/qa'
@@ -243,6 +244,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ScanRoute = ScanRouteImport.update({
   id: '/scan',
   path: '/scan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReservationsRoute = ReservationsRouteImport.update({
@@ -1179,6 +1185,7 @@ export interface FileRoutesByFullPath {
   '/qa': typeof QaRouteWithChildren
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/scan': typeof ScanRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taste-tuner': typeof TasteTunerRoute
@@ -1358,6 +1365,7 @@ export interface FileRoutesByTo {
   '/qa': typeof QaRouteWithChildren
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/scan': typeof ScanRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taste-tuner': typeof TasteTunerRoute
@@ -1545,6 +1553,7 @@ export interface FileRoutesById {
   '/qa': typeof QaRouteWithChildren
   '/quick-generate': typeof QuickGenerateRoute
   '/reservations': typeof ReservationsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/scan': typeof ScanRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taste-tuner': typeof TasteTunerRoute
@@ -1734,6 +1743,7 @@ export interface FileRouteTypes {
     | '/qa'
     | '/quick-generate'
     | '/reservations'
+    | '/reset-password'
     | '/scan'
     | '/sitemap.xml'
     | '/taste-tuner'
@@ -1913,6 +1923,7 @@ export interface FileRouteTypes {
     | '/qa'
     | '/quick-generate'
     | '/reservations'
+    | '/reset-password'
     | '/scan'
     | '/sitemap.xml'
     | '/taste-tuner'
@@ -2099,6 +2110,7 @@ export interface FileRouteTypes {
     | '/qa'
     | '/quick-generate'
     | '/reservations'
+    | '/reset-password'
     | '/scan'
     | '/sitemap.xml'
     | '/taste-tuner'
@@ -2287,6 +2299,7 @@ export interface RootRouteChildren {
   QaRoute: typeof QaRouteWithChildren
   QuickGenerateRoute: typeof QuickGenerateRoute
   ReservationsRoute: typeof ReservationsRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   ScanRoute: typeof ScanRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TasteTunerRoute: typeof TasteTunerRoute
@@ -2420,6 +2433,13 @@ declare module '@tanstack/react-router' {
       path: '/scan'
       fullPath: '/scan'
       preLoaderRoute: typeof ScanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reservations': {
@@ -3974,6 +3994,7 @@ const rootRouteChildren: RootRouteChildren = {
   QaRoute: QaRouteWithChildren,
   QuickGenerateRoute: QuickGenerateRoute,
   ReservationsRoute: ReservationsRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   ScanRoute: ScanRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TasteTunerRoute: TasteTunerRoute,

@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/sidebar";
 import { useAuth } from "@/lib/auth-context";
 import { NotificationsBell } from "@/components/NotificationsBell";
+import { AdminSkeleton } from "@/components/AdminSkeleton";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({

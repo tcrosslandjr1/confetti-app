@@ -1581,6 +1581,13 @@ function Landing() {
             <PartnerTestimonials />
           </Suspense>
         </div>
+
+        {/* FAQ accordion */}
+        <div className="relative px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
+          <Suspense fallback={null}>
+            <PartnerFaqAccordion />
+          </Suspense>
+        </div>
       </section>
 
       <Suspense fallback={null}>

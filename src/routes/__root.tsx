@@ -30,6 +30,24 @@ const CookieConsent = lazy(() =>
 const AuthDebugPanel = lazy(() =>
   import("@/components/AuthDebugPanel").then((m) => ({ default: m.AuthDebugPanel })),
 );
+const MapProvider = lazy(() =>
+  import("@/components/maps/MapProvider").then((m) => ({ default: m.MapProvider })),
+);
+const ScrollProgress = lazy(() =>
+  import("@/components/ScrollProgress").then((m) => ({ default: m.ScrollProgress })),
+);
+const ReferralCapture = lazy(() =>
+  import("@/components/ReferralCapture").then((m) => ({ default: m.ReferralCapture })),
+);
+const PageTransition = lazy(() =>
+  import("@/components/PageTransition").then((m) => ({ default: m.PageTransition })),
+);
+const TabBar = lazy(() =>
+  import("@/components/loop/TabBar").then((m) => ({ default: m.TabBar })),
+);
+const FirstRunNudge = lazy(() =>
+  import("@/components/FirstRunNudge").then((m) => ({ default: m.FirstRunNudge })),
+);
 
 function NotFoundComponent() {
   return (

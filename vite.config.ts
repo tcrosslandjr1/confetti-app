@@ -25,14 +25,40 @@ function tanstackStartStub(): Plugin {
       if (id.startsWith("node:")) {
         return `\0stub-node-${id}`;
       }
-      // Stub @tanstack/start-storage-context (server-only package)
-      if (id.includes("@tanstack/start-storage-context")) {
-        return `\0stub-storage-context`;
+      // Stub ALL @tanstack/start-* scoped packages
+      if (id.includes("@tanstack/start-")) {
+        return `\0stub-tanstack-pkg-${id.replace(/[^a-zA-Z0-9]/g, "_")}`;
+      }
+      // Stub @tanstack/server-fns-fetcher if referenced
+      if (id.includes("@tanstack/server-fn")) {
+        return "\0stub-server-fn";
       }
     },
     load(id) {
       if (id.startsWith("\0stub-")) {
-        return "export default {}; export const serverFnFetcher = () => {}; export const manifest = {}; export const scripts = []; export const AsyncLocalStorage = class {}; export const createHash = () => ({update: () => ({digest: () => ''})});";
+        return `
+          export default {};
+          export const serverFnFetcher = () => {};
+          export const manifest = {};
+          export const scripts = [];
+          export const AsyncLocalStorage = class {};
+          export const createHash = () => ({update: () => ({digest: () => ''})});
+          export const getStartContext = () => ({});
+          export const createIsomorphicFn = () => ({ client: (fn) => fn, server: (fn) => fn });
+          export const getStartOptions = () => ({});
+          export const createServerFn = (...args) => {
+            const fn = args[args.length - 1];
+            if (typeof fn === 'function') return fn;
+            return () => {};
+          };
+          export const createMiddleware = () => ({ server: () => ({}) });
+          export const registerGlobalMiddleware = () => {};
+          export const json = (d) => d;
+          export const redirect = () => {};
+          export const notFound = () => {};
+          export const createStartHandler = () => () => {};
+          export const defaultStreamHandler = () => {};
+        `;
       }
     },
   };
@@ -44,7 +70,10 @@ export default defineConfig({
     outDir: "dist",
     rollupOptions: {
       onwarn(warning, warn) {
-        if (warning.code === "UNRESOLVED_IMPORT" && warning.exporter?.includes("start-server")) {
+        if (
+          warning.code === "UNRESOLVED_IMPORT" &&
+          warning.exporter?.includes("start-server")
+        ) {
           return;
         }
         warn(warning);

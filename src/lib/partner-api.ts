@@ -79,10 +79,12 @@ export function checkRate(venue_id: string): Response | null {
 }
 
 // ---- HMAC for outbound webhooks ----
-const WEBHOOK_SECRET = process.env.PARTNER_WEBHOOK_SECRET || "demo_webhook_secret_change_me";
+function getWebhookSecret() {
+  return process.env.PARTNER_WEBHOOK_SECRET || "demo_webhook_secret_change_me";
+}
 
 export function signPayload(body: string): string {
-  return createHmac("sha256", WEBHOOK_SECRET).update(body).digest("hex");
+  return createHmac("sha256", getWebhookSecret()).update(body).digest("hex");
 }
 
 export function verifySignature(body: string, signature: string | null): boolean {

@@ -29,7 +29,7 @@ function ResetPasswordPage() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const hash = new URLSearchParams(
-      window.location.hash.startsWith("#") ? window.location.hash.slice(1) : ""
+      window.location.hash.startsWith("#") ? window.location.hash.slice(1) : "",
     );
     const type = hash.get("type");
     if (type === "recovery") {
@@ -103,9 +103,7 @@ function ResetPasswordPage() {
         <div className="rounded-2xl border-2 border-ink bg-cream p-6 shadow-brut">
           {mode === "request" && (
             <>
-              <h1 className="font-display text-2xl font-bold text-ink mb-2">
-                Reset your password
-              </h1>
+              <h1 className="font-display text-2xl font-bold text-ink mb-2">Reset your password</h1>
               <p className="text-sm text-muted-foreground mb-6">
                 Enter your email and we'll send you a link to create a new password.
               </p>
@@ -150,9 +148,7 @@ function ResetPasswordPage() {
 
           {mode === "reset" && (
             <>
-              <h1 className="font-display text-2xl font-bold text-ink mb-2">
-                Create new password
-              </h1>
+              <h1 className="font-display text-2xl font-bold text-ink mb-2">Create new password</h1>
               <p className="text-sm text-muted-foreground mb-6">
                 Enter a new password below. You'll be signed in automatically.
               </p>
@@ -218,9 +214,7 @@ function ResetPasswordPage() {
             <div className="text-center space-y-4 py-4">
               <CheckCircle className="mx-auto h-12 w-12 text-coral" />
               <h1 className="font-display text-2xl font-bold text-ink">
-                {mode === "success" && !password
-                  ? "Check your email"
-                  : "Password updated"}
+                {mode === "success" && !password ? "Check your email" : "Password updated"}
               </h1>
               <p className="text-sm text-muted-foreground">
                 {!password

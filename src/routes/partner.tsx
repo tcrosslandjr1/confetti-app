@@ -1,10 +1,4 @@
-import {
-  createFileRoute,
-  Link,
-  Outlet,
-  redirect,
-  useRouterState,
-} from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, redirect, useRouterState } from "@tanstack/react-router";
 import {
   LayoutDashboard,
   Store,
@@ -167,8 +161,8 @@ function PartnerLayout() {
               <Info className="h-4 w-4 mt-0.5 text-primary shrink-0" />
               <div className="flex-1 text-foreground/80">
                 <span className="font-medium text-foreground">Preview portal.</span> Showing sample
-                data while we wire real venue data. Reservations, orders, and analytics here are
-                not live yet.
+                data while we wire real venue data. Reservations, orders, and analytics here are not
+                live yet.
               </div>
               <button
                 type="button"
@@ -181,7 +175,6 @@ function PartnerLayout() {
             </div>
           )}
           <Outlet />
-
         </main>
       </div>
     </div>

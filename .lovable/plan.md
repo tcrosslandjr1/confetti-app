@@ -1,14 +1,17 @@
-# Audit: /partner/* and /promoter/*
+# Audit: /partner/_ and /promoter/_
 
 ## What I found
 
-### /promoter/* — already real
+### /promoter/\* — already real
+
 - `promoter.tsx` layout gates on `supabase.auth.getUser()` → redirects to `/auth`.
 - `promoter.index.tsx` and `promoter.jobs.tsx` are fully wired to `src/lib/promoter.functions.ts` via `useServerFn` + React Query (real reads/writes to `promoters`, `promoter_jobs`, `promoter_submissions`).
 - No major issues. Minor nits only (see below).
 
-### /partner/* — entirely mock UI, no backend, no auth
+### /partner/\* — entirely mock UI, no backend, no auth
+
 The whole portal under `/partner/*` (14 routes, ~2.5K lines) is static demo data:
+
 - **Zero** `supabase`, `useServerFn`, `useQuery`, or `useMutation` usages anywhere in `partner.*.tsx`.
 - `partner.tsx` layout has **no `beforeLoad` auth gate** — anyone (including signed-out users) can browse a "venue owner" dashboard with hardcoded stats, reservations, orders, menu, billing, analytics.
 - Venue switcher is `const VENUES = [{ id: "v1", name: "Sundae Rooftop", tier: 3 }, ...]` — local `useState`, not user-scoped.
@@ -25,7 +28,7 @@ Given the surface area, I propose splitting into two passes. **This plan covers 
 
 1. **Add auth gate to `/partner/*`.** In `src/routes/partner.tsx` add a `beforeLoad` identical to `promoter.tsx`: check `supabase.auth.getUser()`, redirect to `/auth?redirect=/partner` if signed out. Matches existing pattern, no new infra.
 
-2. **Add "Demo data" banner to the partner layout.** Small dismissible strip at top of `<main>` in `partner.tsx`: *"Preview portal — showing sample data. Real venue data wiring is in progress."* Single component, design-token colors only. Makes the mockup honest until Pass 2 lands.
+2. **Add "Demo data" banner to the partner layout.** Small dismissible strip at top of `<main>` in `partner.tsx`: _"Preview portal — showing sample data. Real venue data wiring is in progress."_ Single component, design-token colors only. Makes the mockup honest until Pass 2 lands.
 
 3. **Replace the hardcoded venue switcher with the signed-in user's email.** Until venue ownership tables exist, drop the fake `VENUES` array and show `user.email` + a disabled "Add venue" affordance. Keeps the chrome but stops implying multi-venue control the user doesn't have.
 

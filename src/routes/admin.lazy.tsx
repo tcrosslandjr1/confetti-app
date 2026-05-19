@@ -188,11 +188,30 @@ function AdminShell({ user, pathname, }: {
     user: ReturnType<typeof useAuth>["user"];
     pathname: string;
 }) {
-    const { isMobile, setOpenMobile } = useSidebar();
+    const { isMobile, setOpenMobile, state } = useSidebar();
+    const collapsed = state === "collapsed";
+    const [query, setQuery] = useState("");
     const handleNav = () => {
         if (isMobile)
             setOpenMobile(false);
     };
+    const filteredSections = useMemo(() => {
+        const q = query.trim().toLowerCase();
+        if (!q) return NAV_SECTIONS;
+        return NAV_SECTIONS
+            .map((s) => ({ ...s, items: s.items.filter((i) => i.label.toLowerCase().includes(q)) }))
+            .filter((s) => s.items.length > 0);
+    }, [query]);
+    const initials = (user?.email ?? "?").slice(0, 2).toUpperCase();
+    const activeLabel = useMemo(() => {
+        for (const s of NAV_SECTIONS) {
+            for (const i of s.items) {
+                const active = i.exact ? pathname === i.to : pathname.startsWith(i.to);
+                if (active) return i.label;
+            }
+        }
+        return "Dashboard";
+    }, [pathname]);
     return (<div className="flex min-h-screen w-full bg-gradient-to-br from-cream/60 via-background to-background">
       <Sidebar collapsible="icon" className="border-r-2 border-ink/10">
         <SidebarContent className="bg-cream/30">
@@ -203,17 +222,49 @@ function AdminShell({ user, pathname, }: {
             <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border-2 border-ink bg-cream shadow-brut">
               <Sparkles className="h-4 w-4 text-coral"/>
             </div>
-            <div className="min-w-0 text-sm">
-              <div className="font-display font-extrabold leading-none text-ink">Confetti</div>
-              <div className="mt-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-ink/70">
-                Admin · Command
+            {!collapsed && (
+              <div className="min-w-0 text-sm">
+                <div className="font-display font-extrabold leading-none text-ink">Confetti</div>
+                <div className="mt-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-ink/70">
+                  Admin · Command
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
-          {NAV_SECTIONS.map((section) => (<SidebarGroup key={section.label}>
-              <SidebarGroupLabel className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink/50">
-                {section.label}
+          {!collapsed && (
+            <div className="mx-2 mt-3">
+              <div className="relative">
+                <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink/40" />
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Filter nav…"
+                  className="w-full rounded-lg border border-ink/15 bg-cream/60 py-1.5 pl-8 pr-7 text-xs font-medium text-ink placeholder:text-ink/40 outline-none transition focus:border-coral focus:bg-cream"
+                />
+                {query && (
+                  <button
+                    type="button"
+                    onClick={() => setQuery("")}
+                    className="absolute right-1.5 top-1/2 grid h-5 w-5 -translate-y-1/2 place-items-center rounded text-ink/50 hover:bg-ink/5 hover:text-ink"
+                    aria-label="Clear filter"
+                  >
+                    <X className="h-3 w-3" />
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+
+          {filteredSections.map((section) => (<SidebarGroup key={section.label}>
+              <SidebarGroupLabel className="flex items-center justify-between font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink/50">
+                <span>{section.label}</span>
+                {!collapsed && (
+                  <span className="rounded-full bg-ink/5 px-1.5 py-0.5 text-[9px] font-bold text-ink/50">
+                    {section.items.length}
+                  </span>
+                )}
               </SidebarGroupLabel>
               <SidebarGroupContent>
                 <SidebarMenu>
@@ -222,8 +273,8 @@ function AdminShell({ user, pathname, }: {
                     ? pathname === item.to
                     : pathname.startsWith(item.to);
                 return (<SidebarMenuItem key={item.to}>
-                        <SidebarMenuButton asChild isActive={active} className={active
-                        ? "border border-ink/15 bg-coral/15 font-bold text-ink shadow-sm hover:bg-coral/20"
+                        <SidebarMenuButton asChild isActive={active} tooltip={item.label} className={active
+                        ? "relative border border-ink/15 bg-coral/15 font-bold text-ink shadow-sm hover:bg-coral/20 before:absolute before:left-0 before:top-1/2 before:h-5 before:w-1 before:-translate-y-1/2 before:rounded-r-full before:bg-coral"
                         : "transition hover:translate-x-0.5 hover:bg-cream/60"}>
                           <Link to={item.to as string as "/"} onClick={handleNav} className="flex items-center gap-2.5">
                             <item.icon className={`h-4 w-4 ${active ? "text-coral" : "text-ink/60"}`}/>
@@ -237,6 +288,12 @@ function AdminShell({ user, pathname, }: {
               </SidebarGroupContent>
             </SidebarGroup>))}
 
+          {filteredSections.length === 0 && !collapsed && (
+            <div className="mx-3 mt-1 rounded-lg border border-dashed border-ink/15 bg-cream/40 px-3 py-4 text-center text-[11px] text-ink/50">
+              No matches for "{query}"
+            </div>
+          )}
+
           <SidebarGroup>
             <SidebarGroupLabel className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink/50">
               Shortcuts
@@ -244,7 +301,7 @@ function AdminShell({ user, pathname, }: {
             <SidebarGroupContent>
               <SidebarMenu>
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild className="transition hover:translate-x-0.5 hover:bg-cream/60">
+                  <SidebarMenuButton asChild tooltip="View site" className="transition hover:translate-x-0.5 hover:bg-cream/60">
                     <Link to="/" onClick={handleNav} className="flex items-center gap-2.5">
                       <Sparkles className="h-4 w-4 text-ink/60"/>
                       <span>View site</span>
@@ -255,12 +312,54 @@ function AdminShell({ user, pathname, }: {
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
+
+        <SidebarFooter className="border-t border-ink/10 bg-cream/40 p-2">
+          {collapsed ? (
+            <div className="flex flex-col items-center gap-2">
+              <div className="grid h-8 w-8 place-items-center rounded-full border-2 border-ink bg-gradient-to-br from-coral to-gold text-[10px] font-extrabold text-cream shadow-brut">
+                {initials}
+              </div>
+              <button
+                type="button"
+                onClick={() => supabase.auth.signOut().then(() => (window.location.href = "/"))}
+                className="grid h-8 w-8 place-items-center rounded-lg text-ink/60 hover:bg-ink/5 hover:text-coral"
+                aria-label="Sign out"
+                title="Sign out"
+              >
+                <LogOut className="h-4 w-4" />
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2 rounded-xl border border-ink/10 bg-cream/70 p-2">
+              <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full border-2 border-ink bg-gradient-to-br from-coral to-gold text-[11px] font-extrabold text-cream shadow-brut">
+                {initials}
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="truncate text-xs font-bold text-ink">{user?.email ?? "Signed in"}</div>
+                <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink/50">Administrator</div>
+              </div>
+              <button
+                type="button"
+                onClick={() => supabase.auth.signOut().then(() => (window.location.href = "/"))}
+                className="grid h-8 w-8 place-items-center rounded-lg text-ink/50 transition hover:bg-coral/10 hover:text-coral"
+                aria-label="Sign out"
+                title="Sign out"
+              >
+                <LogOut className="h-4 w-4" />
+              </button>
+            </div>
+          )}
+        </SidebarFooter>
       </Sidebar>
 
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-border bg-background/80 px-4 backdrop-blur-xl">
           <SidebarTrigger />
-          <div className="text-sm font-semibold">Admin Console</div>
+          <div className="flex items-center gap-2 text-sm">
+            <span className="font-semibold">Admin</span>
+            <span className="text-ink/30">/</span>
+            <span className="font-mono text-xs text-ink/70">{activeLabel}</span>
+          </div>
           <div className="ml-auto flex items-center gap-2">
             <span className="hidden truncate text-xs text-muted-foreground sm:inline">
               {user?.email}

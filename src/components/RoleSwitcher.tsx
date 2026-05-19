@@ -123,6 +123,7 @@ export function RoleSwitcher() {
   };
 
   if (!mounted) return null;
+  if (isAdminRoute) return null;
   const current = OPTIONS.find((o) => o.value === viewAs)!;
 
   return (

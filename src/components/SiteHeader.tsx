@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Sparkles, LogOut, UserPlus } from "lucide-react";
 import { WizardButton } from "@/components/wizard/WizardButton";

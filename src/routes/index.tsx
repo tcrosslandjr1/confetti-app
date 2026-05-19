@@ -6,6 +6,12 @@ import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { getPartnerStats } from "@/lib/partner-stats.functions";
 import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { SiteHeader } from "@/components/SiteHeader";
 import { RecapBanner } from "@/components/RecapBanner";
 import { TasteConfirmPrompt } from "@/components/TasteConfirmPrompt";

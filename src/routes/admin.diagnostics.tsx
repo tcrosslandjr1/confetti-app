@@ -79,10 +79,17 @@ function useSupabasePing() {
     queryKey: ["diagnostics", "supabase-ping"],
     queryFn: async (): Promise<Check> => {
       const start = performance.now();
-      const { error } = await supabase.from("profiles").select("id", { head: true, count: "exact" }).limit(1);
+      const { error } = await supabase
+        .from("profiles")
+        .select("id", { head: true, count: "exact" })
+        .limit(1);
       const ms = Math.round(performance.now() - start);
       if (error) {
-        return { label: "Database reachable", status: "fail", detail: `${error.message} (${ms}ms)` };
+        return {
+          label: "Database reachable",
+          status: "fail",
+          detail: `${error.message} (${ms}ms)`,
+        };
       }
       return { label: "Database reachable", status: "ok", detail: `Round-trip ${ms}ms` };
     },
@@ -100,7 +107,9 @@ function useAuthCheck() {
       return {
         label: "Auth service",
         status: "ok",
-        detail: data.session ? `Signed in as ${data.session.user.email ?? data.session.user.id}` : "No active session",
+        detail: data.session
+          ? `Signed in as ${data.session.user.email ?? data.session.user.id}`
+          : "No active session",
       };
     },
     staleTime: 30_000,
@@ -144,7 +153,10 @@ function AdminDiagnostics() {
     {
       label: "Online",
       status: typeof navigator !== "undefined" && navigator.onLine ? "ok" : "warn",
-      detail: typeof navigator !== "undefined" && navigator.onLine ? "Browser reports online" : "Browser offline",
+      detail:
+        typeof navigator !== "undefined" && navigator.onLine
+          ? "Browser reports online"
+          : "Browser offline",
     },
     {
       label: "Current time",
@@ -211,7 +223,9 @@ function AdminDiagnostics() {
             }}
             className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-xs font-medium hover:bg-accent"
           >
-            <RefreshCw className={`h-3 w-3 ${ping.isFetching || auth.isFetching ? "animate-spin" : ""}`} />
+            <RefreshCw
+              className={`h-3 w-3 ${ping.isFetching || auth.isFetching ? "animate-spin" : ""}`}
+            />
             Refresh
           </button>
         </div>
@@ -271,8 +285,9 @@ function AdminDiagnostics() {
 
           <Section icon={Server} title="Dev server hint">
             <p className="text-xs text-muted-foreground">
-              The dev server runs on <code className="rounded bg-muted px-1">vite dev --port 8080</code>. If the
-              in-editor preview is blank, hit Publish/Update — the published preview pane is separate from the
+              The dev server runs on{" "}
+              <code className="rounded bg-muted px-1">vite dev --port 8080</code>. If the in-editor
+              preview is blank, hit Publish/Update — the published preview pane is separate from the
               live editor preview.
             </p>
           </Section>

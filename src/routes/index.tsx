@@ -1558,12 +1558,14 @@ function Landing() {
                         })}
                       </div>
                     </div>
-              </div>
-              <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-cream/50">
-                <span>Verified by Confetti</span>
-                <span>◐ realtime</span>
-              </div>
-            </div>
+                    <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-cream/50">
+                      <span>Verified by Confetti</span>
+                      <span>◐ realtime</span>
+                    </div>
+                  </div>
+                </>
+              );
+            })()}
           </div>
         </div>
       </section>

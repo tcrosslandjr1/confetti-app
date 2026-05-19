@@ -328,13 +328,19 @@ function PortalActivityPage() {
                           {e.tripTitle && (
                             <>
                               <span aria-hidden>·</span>
-                              <Link
-                                to="/trips/$id"
-                                params={{ id: e.tripId }}
-                                className="font-mono uppercase tracking-wider text-coral hover:underline underline-offset-2"
-                              >
-                                {e.tripTitle}
-                              </Link>
+                              {isMockTripId(e.tripId) ? (
+                                <span className="font-mono uppercase tracking-wider text-ink/60">
+                                  {e.tripTitle}
+                                </span>
+                              ) : (
+                                <Link
+                                  to="/trips/$id"
+                                  params={{ id: e.tripId }}
+                                  className="font-mono uppercase tracking-wider text-coral hover:underline underline-offset-2"
+                                >
+                                  {e.tripTitle}
+                                </Link>
+                              )}
                             </>
                           )}
                           {e.detail && (

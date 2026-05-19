@@ -155,13 +155,20 @@ function buildMockEntries(): ActivityEntry[] {
 const isMockTripId = (id: string) => id.startsWith("mock-");
 
 function PortalActivityPage() {
-  const [entries, setEntries] = useState<ActivityEntry[]>(MOCK_ENTRIES);
+  const [entries, setEntries] = useState<ActivityEntry[]>(() => buildMockEntries());
+  const [usingMock, setUsingMock] = useState(true);
   const [tripFilter, setTripFilter] = useState<string>("all");
   const [kindFilter, setKindFilter] = useState<KindFilter>("all");
 
   const load = useCallback(() => {
     const real = readLog();
-    setEntries(real.length > 0 ? real : MOCK_ENTRIES);
+    if (real.length > 0) {
+      setEntries(real);
+      setUsingMock(false);
+    } else {
+      setEntries(buildMockEntries());
+      setUsingMock(true);
+    }
   }, []);
 
   useEffect(() => {

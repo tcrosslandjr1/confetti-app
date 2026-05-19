@@ -57,6 +57,11 @@ function stubServerModules() {
 
 export default defineConfig({
   plugins: [stubServerModules(), tsconfigPaths(), tailwindcss(), viteReact()],
+  server: {
+    host: "0.0.0.0",
+    port: 8080,
+    strictPort: true,
+  },
   resolve: {
     alias: [
       {

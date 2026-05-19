@@ -211,11 +211,7 @@ function AdminLayout() {
   }
 
   if (!allowPreview && (loading || !isAdmin || viewAs !== "admin")) {
-    return (
-      <div className="grid min-h-screen place-items-center bg-background text-sm text-muted-foreground">
-        Checking access…
-      </div>
-    );
+    return <AdminSkeleton />;
   }
 
   return (

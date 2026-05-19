@@ -178,6 +178,14 @@ const VIBE_CATEGORY_HINTS: Record<string, string[]> = {
 
 // Vibes that gate adult-entertainment toggle visibility (must be 21+ AND on-vibe).
 const ADULT_TRIGGER_IDS = new Set(["bachelor", "wild", "turn_up", "late_night"]);
+const BRUNCH_BADDIES_TRIGGER_IDS = new Set([
+  "brunch_baddies",
+  "mimosas",
+  "cute_fits",
+  "pink_aesthetic",
+  "photo_walls",
+  "shopping_after",
+]);
 
 function VibePlansPage() {
   const generate = useServerFn(generatePlan);

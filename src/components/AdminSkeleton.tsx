@@ -6,7 +6,47 @@ import { Skeleton } from "@/components/ui/skeleton";
  * + main content grid). Rendered while the /admin route is fetching or while
  * the auth gate is resolving so the page never appears blank.
  */
+const SKELETON_TIMEOUT_MS = 15_000;
+
 export function AdminSkeleton() {
+  const [timedOut, setTimedOut] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setTimedOut(true), SKELETON_TIMEOUT_MS);
+    return () => clearTimeout(t);
+  }, []);
+
+  if (timedOut) {
+    return (
+      <div className="flex min-h-screen w-full items-center justify-center bg-gradient-to-br from-cream/60 via-background to-background px-4">
+        <div className="max-w-md space-y-4 text-center">
+          <h1 className="text-xl font-semibold tracking-tight text-foreground">
+            Admin console is taking too long
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            The page failed to load within {SKELETON_TIMEOUT_MS / 1000} seconds.
+            This may be due to a network issue or a slow auth check.
+          </p>
+          <div className="flex flex-wrap justify-center gap-2">
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+            >
+              Reload page
+            </button>
+            <a
+              href="/"
+              className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-accent"
+            >
+              Go home
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className="flex min-h-screen w-full bg-gradient-to-br from-cream/60 via-background to-background"

@@ -26,7 +26,8 @@ export const Route = createFileRoute("/api/public/webhooks/partner")({
       POST: async ({ request }) => {
         const raw = await request.text();
         const sig = request.headers.get("x-confetti-signature");
-        if (!(await verifySignature(raw, sig))) return apiError("INVALID_TOKEN", "Invalid signature");
+        if (!(await verifySignature(raw, sig)))
+          return apiError("INVALID_TOKEN", "Invalid signature");
 
         let payload: z.infer<typeof Body>;
         try {

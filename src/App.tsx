@@ -106,6 +106,7 @@ import AdminWalletManager from "./components/AdminWalletManager";
 import {
   completeAuthCallback,
   createAccountWithEmail,
+  getCurrentAccount,
   isSupabaseConfigured,
   normalizeUsername,
   signInWithEmailOrUsername,
@@ -1479,16 +1480,16 @@ function QuickIdea() {
     setSaved(true);
     setParticles(true);
     window.setTimeout(() => setParticles(false), 900);
-    // Interaction tracking: venue favorite (wired for when auth is connected)
-    // TODO: replace "anonymous" with real userId from auth context
-    import("@/lib/agents/interaction-tracker").then(({ trackInteraction }) => {
+    void (async () => {
+      const account = await getCurrentAccount();
+      const { trackInteraction } = await import("@/lib/agents/interaction-tracker");
       trackInteraction({
-        userId: "anonymous",
+        userId: account?.id ?? "anonymous",
         eventType: saved ? "venue_unfavorite" : "venue_favorite",
         venueId: venue.id,
         metadata: { source: "quick_idea_card" },
       });
-    });
+    })();
   };
 
   return (
@@ -1505,16 +1506,16 @@ function QuickIdea() {
       <TiltVenueCard venue={venue} onOpen={() => navigate(`/venue/${venue.id}`)} />
       <div className="action-row flash-actions">
         <motion.button whileTap={{ scale: 0.88 }} className="circle-action skip" onClick={() => {
-          // Interaction tracking: skip signal for taste learning
-          // TODO: replace "anonymous" with real userId from auth context
-          import("@/lib/agents/interaction-tracker").then(({ trackInteraction }) => {
+          void (async () => {
+            const account = await getCurrentAccount();
+            const { trackInteraction } = await import("@/lib/agents/interaction-tracker");
             trackInteraction({
-              userId: "anonymous",
+              userId: account?.id ?? "anonymous",
               eventType: "venue_skip",
               venueId: venue.id,
               metadata: { source: "quick_idea_card" },
             });
-          });
+          })();
         }}>
           <X />
         </motion.button>
@@ -4502,11 +4503,11 @@ function TasteTuner() {
     if (direction === "right") setLiked(prev => [...prev, currentCard]);
     else setDisliked(prev => [...prev, currentCard]);
 
-    // Interaction tracking: card swipe signals for taste learning
-    // TODO: replace "anonymous" with real userId from auth context
-    import("@/lib/agents/interaction-tracker").then(({ trackInteraction }) => {
+    void (async () => {
+      const account = await getCurrentAccount();
+      const { trackInteraction } = await import("@/lib/agents/interaction-tracker");
       trackInteraction({
-        userId: "anonymous",
+        userId: account?.id ?? "anonymous",
         eventType: direction === "right" ? "card_swipe_right" : "card_swipe_left",
         metadata: {
           source: "taste_tuner",
@@ -4515,7 +4516,7 @@ function TasteTuner() {
           cardTags: card?.tags ?? [],
         },
       });
-    });
+    })();
 
     if (currentCard >= tasteCards.length - 1) {
       setDone(true);

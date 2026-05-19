@@ -219,8 +219,24 @@ async function searchOverpass(body: SearchBody) {
 
 // ─── Handler ────────────────────────────────────────────────
 
+// Lightweight friction barrier: require the project anon/publishable key.
+// Stops opportunistic bots scanning Supabase function URLs from running up
+// our Google Places bill. Not a full auth check — that's done by Supabase
+// platform JWT verification on other functions.
+function isAuthorized(req: Request): boolean {
+  const expected = Deno.env.get("SUPABASE_ANON_KEY");
+  if (!expected) return true; // fail-open if secret not set (don't lock ourselves out)
+  const apiKey = req.headers.get("apikey");
+  const auth = req.headers.get("Authorization") ?? "";
+  return apiKey === expected || auth === `Bearer ${expected}`;
+}
+
 serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders() });
+
+  if (!isAuthorized(req)) {
+    return errorResponse("Unauthorized", 401);
+  }
 
   let body: SearchBody;
   try {

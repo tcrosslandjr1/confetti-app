@@ -4,20 +4,27 @@
 // ============================================================
 
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
-import { corsHeaders } from "../_shared/supabase-client.ts";
+import { corsHeaders, jsonResponse } from "../_shared/supabase-client.ts";
+
+const MAX_WIDTH = 1200;
+const MIN_WIDTH = 100;
 
 serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders() });
 
   const apiKey = Deno.env.get("GOOGLE_PLACES_API_KEY");
-  if (!apiKey) return new Response("missing key", { status: 500, headers: corsHeaders() });
+  if (!apiKey) return jsonResponse({ error: "GOOGLE_PLACES_API_KEY not configured" }, 500);
 
   const url = new URL(req.url);
   const path = url.searchParams.get("path");
-  const width = url.searchParams.get("w") ?? "600";
+
+  // Clamp width — without this, attackers can request arbitrarily large
+  // images and run up Google Places billing per request.
+  const requested = parseInt(url.searchParams.get("w") ?? "600", 10);
+  const width = Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, Number.isFinite(requested) ? requested : 600));
 
   if (!path || !/^places\/[A-Za-z0-9_-]+\/photos\/[A-Za-z0-9_-]+$/.test(path)) {
-    return new Response("bad path", { status: 400, headers: corsHeaders() });
+    return jsonResponse({ error: "Invalid photo path" }, 400);
   }
 
   const upstream = await fetch(
@@ -26,7 +33,7 @@ serve(async (req: Request) => {
   );
 
   if (!upstream.ok) {
-    return new Response("upstream error", { status: upstream.status, headers: corsHeaders() });
+    return jsonResponse({ error: `Upstream ${upstream.status}` }, upstream.status);
   }
 
   return new Response(upstream.body, {

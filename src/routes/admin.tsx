@@ -45,30 +45,63 @@ export const Route = createFileRoute("/admin")({
 });
 
 type NavItem = { to: string; label: string; icon: typeof LayoutDashboard; exact?: boolean };
-const NAV: NavItem[] = [
-  { to: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
-  { to: "/admin/users", label: "Users", icon: Users },
-  { to: "/admin/roles", label: "Admin roles", icon: ShieldCheck },
-  { to: "/admin/venues", label: "Venues", icon: Store },
-  { to: "/admin/bookings", label: "Bookings", icon: CalendarCheck },
-  { to: "/admin/notifications", label: "Notifications", icon: Bell },
-  { to: "/admin/advertisers", label: "Advertisers", icon: Megaphone },
-  { to: "/admin/business-claims", label: "Venue claims", icon: ShieldCheck },
-  { to: "/admin/outreach", label: "Weekly outreach", icon: Sparkles },
-  { to: "/admin/marquee", label: "Sponsored marquee", icon: Megaphone },
-  { to: "/admin/integrations", label: "Integrations", icon: Sparkles },
-  { to: "/admin/settings", label: "Settings", icon: Settings },
-  { to: "/admin/testimonials", label: "Testimonials", icon: MessageSquareQuote },
-  { to: "/admin/moderation", label: "Moderation", icon: ShieldCheck },
-  { to: "/admin/analytics", label: "Analytics", icon: BarChart3 },
-  { to: "/admin/event-analytics", label: "Event analytics", icon: BarChart3 },
-  { to: "/admin/pick-analytics", label: "Pick analytics", icon: BarChart3 },
-  { to: "/admin/ad-analytics", label: "Ad analytics", icon: BarChart3 },
-  { to: "/admin/audit", label: "Audit log", icon: ScrollText },
-  { to: "/admin/logs", label: "System logs", icon: ScrollText },
-  { to: "/admin/wallet-debug", label: "Wallet JWT debug", icon: ShieldCheck },
-  { to: "/admin/launch", label: "Launch checklist", icon: ScrollText },
-  { to: "/admin/routes-map", label: "Routes map", icon: ScrollText },
+type NavSection = { label: string; items: NavItem[] };
+
+const NAV_SECTIONS: NavSection[] = [
+  {
+    label: "Overview",
+    items: [{ to: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true }],
+  },
+  {
+    label: "People",
+    items: [
+      { to: "/admin/users", label: "Users", icon: Users },
+      { to: "/admin/roles", label: "Admin roles", icon: ShieldCheck },
+    ],
+  },
+  {
+    label: "Marketplace",
+    items: [
+      { to: "/admin/venues", label: "Venues", icon: Store },
+      { to: "/admin/bookings", label: "Bookings", icon: CalendarCheck },
+      { to: "/admin/business-claims", label: "Venue claims", icon: ShieldCheck },
+    ],
+  },
+  {
+    label: "Growth",
+    items: [
+      { to: "/admin/advertisers", label: "Advertisers", icon: Megaphone },
+      { to: "/admin/marquee", label: "Sponsored marquee", icon: Megaphone },
+      { to: "/admin/outreach", label: "Weekly outreach", icon: Sparkles },
+      { to: "/admin/notifications", label: "Notifications", icon: Bell },
+      { to: "/admin/testimonials", label: "Testimonials", icon: MessageSquareQuote },
+    ],
+  },
+  {
+    label: "Trust & Safety",
+    items: [{ to: "/admin/moderation", label: "Moderation", icon: ShieldCheck }],
+  },
+  {
+    label: "Analytics",
+    items: [
+      { to: "/admin/analytics", label: "Analytics", icon: BarChart3 },
+      { to: "/admin/event-analytics", label: "Event analytics", icon: BarChart3 },
+      { to: "/admin/pick-analytics", label: "Pick analytics", icon: BarChart3 },
+      { to: "/admin/ad-analytics", label: "Ad analytics", icon: BarChart3 },
+    ],
+  },
+  {
+    label: "System",
+    items: [
+      { to: "/admin/integrations", label: "Integrations", icon: Sparkles },
+      { to: "/admin/settings", label: "Settings", icon: Settings },
+      { to: "/admin/audit", label: "Audit log", icon: ScrollText },
+      { to: "/admin/logs", label: "System logs", icon: ScrollText },
+      { to: "/admin/wallet-debug", label: "Wallet JWT debug", icon: ShieldCheck },
+      { to: "/admin/launch", label: "Launch checklist", icon: ScrollText },
+      { to: "/admin/routes-map", label: "Routes map", icon: ScrollText },
+    ],
+  },
 ];
 
 function AdminLayout() {

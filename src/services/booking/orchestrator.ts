@@ -48,11 +48,7 @@ export interface ItineraryBookingResult {
   paymentStatus?: string;
 }
 
-type ProgressCallback = (
-  stopId: string,
-  status: BookingStatus,
-  detail?: string
-) => void;
+type ProgressCallback = (stopId: string, status: BookingStatus, detail?: string) => void;
 
 // ─── Configure All Providers ─────────────────────────────────────────
 export interface ConfettiApiConfig {
@@ -77,7 +73,7 @@ export function configureAll(cfg: ConfettiApiConfig) {
 async function bookStop(
   stop: StopBookingRequest,
   partySize: number,
-  userId: string
+  userId: string,
 ): Promise<BookingConfirmation | BookingError> {
   const req: BookingRequest = {
     provider: stop.provider,
@@ -132,7 +128,7 @@ async function bookStop(
 // ─── Book Entire Itinerary ───────────────────────────────────────────
 export async function bookItinerary(
   request: ItineraryBookingRequest,
-  onProgress?: ProgressCallback
+  onProgress?: ProgressCallback,
 ): Promise<ItineraryBookingResult> {
   const confirmations: BookingConfirmation[] = [];
   const errors: (BookingError & { stopId: string })[] = [];
@@ -169,11 +165,7 @@ export async function bookItinerary(
 
   // Determine overall status
   const status: ItineraryBookingResult["status"] =
-    errors.length === 0
-      ? "all_booked"
-      : confirmations.length === 0
-        ? "failed"
-        : "partial";
+    errors.length === 0 ? "all_booked" : confirmations.length === 0 ? "failed" : "partial";
 
   // Process payment if all bookable stops succeeded and payment method provided
   let paymentStatus: string | undefined;
@@ -185,11 +177,11 @@ export async function bookItinerary(
           totalCents,
           request.confettiCode,
           request.userId,
-          `Confetti itinerary: ${request.confettiCode}`
+          `Confetti itinerary: ${request.confettiCode}`,
         );
         const confirmed = await stripe.confirmPayment(
           intent.stripePaymentIntentId,
-          request.paymentMethodId
+          request.paymentMethodId,
         );
         paymentStatus = confirmed.status;
       }
@@ -209,7 +201,7 @@ export async function bookItinerary(
 
 // ─── Cancel Entire Itinerary ─────────────────────────────────────────
 export async function cancelItinerary(
-  confirmations: BookingConfirmation[]
+  confirmations: BookingConfirmation[],
 ): Promise<{ cancelled: string[]; failed: string[] }> {
   const cancelled: string[] = [];
   const failed: string[] = [];

@@ -97,7 +97,8 @@ export async function getCurrentWeather(lat: number, lng: number): Promise<Curre
   const params = new URLSearchParams({
     latitude: lat.toString(),
     longitude: lng.toString(),
-    current: "temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,cloud_cover,wind_speed_10m,weather_code",
+    current:
+      "temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,cloud_cover,wind_speed_10m,weather_code",
     temperature_unit: "fahrenheit",
     wind_speed_unit: "mph",
     precipitation_unit: "mm",
@@ -119,7 +120,11 @@ export async function getCurrentWeather(lat: number, lng: number): Promise<Curre
     windSpeed: Math.round(current.wind_speed_10m),
     weatherCode: current.weather_code,
     description: text,
-    isGoodForOutdoor: isOutdoorFriendly(current.weather_code, current.temperature_2m, current.wind_speed_10m),
+    isGoodForOutdoor: isOutdoorFriendly(
+      current.weather_code,
+      current.temperature_2m,
+      current.wind_speed_10m,
+    ),
     icon,
   };
 }
@@ -130,12 +135,13 @@ export async function getCurrentWeather(lat: number, lng: number): Promise<Curre
 export async function getHourlyForecast(
   lat: number,
   lng: number,
-  hours: number = 24
+  hours: number = 24,
 ): Promise<HourlyForecast[]> {
   const params = new URLSearchParams({
     latitude: lat.toString(),
     longitude: lng.toString(),
-    hourly: "temperature_2m,precipitation,precipitation_probability,cloud_cover,wind_speed_10m,weather_code",
+    hourly:
+      "temperature_2m,precipitation,precipitation_probability,cloud_cover,wind_speed_10m,weather_code",
     temperature_unit: "fahrenheit",
     wind_speed_unit: "mph",
     forecast_hours: hours.toString(),
@@ -160,7 +166,7 @@ export async function getHourlyForecast(
       isGoodForOutdoor: isOutdoorFriendly(
         hourly.weather_code[i],
         hourly.temperature_2m[i],
-        hourly.wind_speed_10m[i]
+        hourly.wind_speed_10m[i],
       ),
     };
   });
@@ -173,7 +179,7 @@ export async function getHourlyForecast(
 export async function getWeatherInsight(
   lat: number,
   lng: number,
-  planningHours: number = 12
+  planningHours: number = 12,
 ): Promise<WeatherInsight> {
   const forecast = await getHourlyForecast(lat, lng, planningHours);
 

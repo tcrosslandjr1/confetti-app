@@ -8,13 +8,7 @@ export type BookingProvider =
   | "mindbody"
   | "google_reserve";
 
-export type BookingStatus =
-  | "idle"
-  | "searching"
-  | "confirming"
-  | "booked"
-  | "failed"
-  | "cancelled";
+export type BookingStatus = "idle" | "searching" | "confirming" | "booked" | "failed" | "cancelled";
 
 export interface BookingRequest {
   provider: BookingProvider;

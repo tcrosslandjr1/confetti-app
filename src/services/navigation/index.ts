@@ -128,21 +128,14 @@ export function buildWazeLink(req: NavigationRequest): NavigationLink {
  * The app can show platform-appropriate default or let user choose.
  */
 export function getNavigationOptions(req: NavigationRequest): NavigationLink[] {
-  return [
-    buildGoogleMapsLink(req),
-    buildAppleMapsLink(req),
-    buildWazeLink(req),
-  ];
+  return [buildGoogleMapsLink(req), buildAppleMapsLink(req), buildWazeLink(req)];
 }
 
 /**
  * Smart default: Apple Maps on iOS, Google Maps elsewhere.
  * Detects platform from user agent.
  */
-export function getDefaultNavigation(
-  req: NavigationRequest,
-  userAgent?: string
-): NavigationLink {
+export function getDefaultNavigation(req: NavigationRequest, userAgent?: string): NavigationLink {
   const isIOS = userAgent?.match(/iPhone|iPad|iPod/i);
   return isIOS ? buildAppleMapsLink(req) : buildGoogleMapsLink(req);
 }
@@ -154,7 +147,7 @@ export function getDefaultNavigation(
 export function navigateBetweenStops(
   from: { name: string; lat: number; lng: number; address?: string },
   to: { name: string; lat: number; lng: number; address?: string },
-  mode: TravelMode = "driving"
+  mode: TravelMode = "driving",
 ): NavigationLink[] {
   return getNavigationOptions({
     origin: { lat: from.lat, lng: from.lng, address: from.address },

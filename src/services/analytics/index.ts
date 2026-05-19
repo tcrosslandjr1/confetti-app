@@ -13,22 +13,22 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 // ─── Types ────────────────────────────────���─────────────────────────
 
 export type EventCategory =
-  | "navigation"    // page/screen views
-  | "engagement"    // taps, scrolls, time spent
-  | "discovery"     // venue searches, filter usage
-  | "booking"       // reservation funnel steps
-  | "social"        // shares, group creation, community
-  | "monetization"  // boost purchases, subscription events
-  | "ai"           // chat interactions, recommendation quality
-  | "system";       // errors, performance, push notification opens
+  | "navigation" // page/screen views
+  | "engagement" // taps, scrolls, time spent
+  | "discovery" // venue searches, filter usage
+  | "booking" // reservation funnel steps
+  | "social" // shares, group creation, community
+  | "monetization" // boost purchases, subscription events
+  | "ai" // chat interactions, recommendation quality
+  | "system"; // errors, performance, push notification opens
 
 export interface AnalyticsEvent {
-  event: string;                    // e.g. "venue_search", "booking_started"
+  event: string; // e.g. "venue_search", "booking_started"
   category: EventCategory;
   properties?: Record<string, unknown>; // arbitrary event data
   userId?: string;
   sessionId?: string;
-  timestamp?: string;               // ISO — defaults to now
+  timestamp?: string; // ISO — defaults to now
 }
 
 export interface UserIdentity {
@@ -37,8 +37,8 @@ export interface UserIdentity {
 }
 
 export interface FunnelStep {
-  funnel: string;        // "booking", "onboarding", "group_creation"
-  step: string;          // "started", "selected_venue", "confirmed"
+  funnel: string; // "booking", "onboarding", "group_creation"
+  step: string; // "started", "selected_venue", "confirmed"
   stepNumber: number;
   userId: string;
   metadata?: Record<string, unknown>;
@@ -71,7 +71,11 @@ function generateSessionId(): string {
 /**
  * Track any event. Queues locally and flushes in batches.
  */
-export function track(event: string, category: EventCategory, properties?: Record<string, unknown>) {
+export function track(
+  event: string,
+  category: EventCategory,
+  properties?: Record<string, unknown>,
+) {
   const analyticsEvent: AnalyticsEvent = {
     event,
     category,
@@ -105,7 +109,10 @@ export function identify(userId: string, traits?: Record<string, unknown>) {
   if (supabase) {
     supabase
       .from("analytics_users")
-      .upsert({ user_id: userId, traits, last_seen: new Date().toISOString() }, { onConflict: "user_id" })
+      .upsert(
+        { user_id: userId, traits, last_seen: new Date().toISOString() },
+        { onConflict: "user_id" },
+      )
       .then(() => {});
   }
 }

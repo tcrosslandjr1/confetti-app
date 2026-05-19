@@ -125,7 +125,7 @@ export function getRideOptions(req: RideRequest): RideDeepLink[] {
 export function rideBetweenStops(
   from: { name: string; lat: number; lng: number; address?: string },
   to: { name: string; lat: number; lng: number; address?: string },
-  partySize?: number
+  partySize?: number,
 ): RideDeepLink[] {
   return getRideOptions({
     pickup: { lat: from.lat, lng: from.lng, address: from.address, nickname: from.name },

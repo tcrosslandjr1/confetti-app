@@ -36,6 +36,9 @@ const AdDebugPanel = lazy(() =>
 const PartnerTestimonials = lazy(() =>
   import("@/components/PartnerTestimonials").then((m) => ({ default: m.PartnerTestimonials })),
 );
+const PartnerFaqAccordion = lazy(() =>
+  import("@/components/PartnerFaqAccordion").then((m) => ({ default: m.PartnerFaqAccordion })),
+);
 import { TapToGoBookingModal } from "@/components/TapToGoBookingModal";
 
 const SAMPLE_ITINERARY_STOPS: TapToGoStop[] = [
@@ -1576,6 +1579,13 @@ function Landing() {
         <div className="relative px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
           <Suspense fallback={null}>
             <PartnerTestimonials />
+          </Suspense>
+        </div>
+
+        {/* FAQ accordion */}
+        <div className="relative px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
+          <Suspense fallback={null}>
+            <PartnerFaqAccordion />
           </Suspense>
         </div>
       </section>

@@ -1,7 +1,10 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/lib/auth-context";
 import { useEffect, useRef, useMemo, useState, lazy, Suspense } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
+import { getPartnerStats } from "@/lib/partner-stats.functions";
 import { ArrowUpRight, Sparkles, Star, MapPin, Clock, Car } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { RecapBanner } from "@/components/RecapBanner";

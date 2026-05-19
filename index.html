@@ -7,6 +7,8 @@
     <meta name="description" content="Your AI-powered lifestyle concierge" />
     <link rel="icon" type="image/svg+xml" href="/confetti-icon.svg" />
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@500&display=swap');
+
       #initial-loader {
         position: fixed;
         inset: 0;
@@ -14,47 +16,47 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 18px;
-        color: #1a1a1a;
         overflow: hidden;
-        background:
-          radial-gradient(1000px 600px at 15% -10%, rgba(255, 145, 110, 0.55), transparent 60%),
-          radial-gradient(900px 500px at 110% 110%, rgba(255, 196, 90, 0.55), transparent 55%),
-          radial-gradient(700px 500px at 50% 120%, rgba(230, 61, 87, 0.25), transparent 60%),
-          linear-gradient(180deg, #fff8f0 0%, #ffe6d2 100%);
-        font-family:
-          ui-sans-serif,
-          system-ui,
-          -apple-system,
-          "Segoe UI",
-          Roboto,
-          sans-serif;
-        animation: loader-fade-in 0.4s ease-out both;
+        background: #faf8f5;
+        font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+        animation: loader-fade-in 0.5s ease-out both;
       }
-      /* Soft animated aurora wash */
-      #initial-loader::before {
-        content: "";
+
+      /* Floating color orbs behind everything */
+      #initial-loader .orb {
         position: absolute;
-        inset: -20%;
-        background:
-          radial-gradient(40% 30% at 30% 30%, rgba(255, 122, 76, 0.35), transparent 70%),
-          radial-gradient(35% 25% at 70% 60%, rgba(255, 196, 74, 0.35), transparent 70%),
-          radial-gradient(30% 25% at 50% 80%, rgba(230, 61, 87, 0.3), transparent 70%);
-        filter: blur(40px);
-        animation: aurora 12s ease-in-out infinite alternate;
-        pointer-events: none;
-      }
-      /* Subtle grain overlay */
-      #initial-loader::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-        background-size: 3px 3px;
+        border-radius: 50%;
+        filter: blur(60px);
         opacity: 0.35;
-        mix-blend-mode: multiply;
         pointer-events: none;
+        will-change: transform;
       }
+      #initial-loader .orb-1 {
+        width: 500px;
+        height: 500px;
+        background: #ff7a4c;
+        top: -120px;
+        left: -80px;
+        animation: orb-drift-1 14s ease-in-out infinite alternate;
+      }
+      #initial-loader .orb-2 {
+        width: 400px;
+        height: 400px;
+        background: #ffc24a;
+        bottom: -100px;
+        right: -60px;
+        animation: orb-drift-2 16s ease-in-out infinite alternate;
+      }
+      #initial-loader .orb-3 {
+        width: 300px;
+        height: 300px;
+        background: #e63d57;
+        top: 40%;
+        left: 60%;
+        animation: orb-drift-3 18s ease-in-out infinite alternate;
+      }
+
+      /* Confetti field — architectural tumbling shapes */
       #initial-loader .confetti-field {
         position: absolute;
         inset: 0;
@@ -64,258 +66,204 @@
       }
       #initial-loader .confetti-field i {
         position: absolute;
-        top: -24px;
+        top: -30px;
         width: 10px;
         height: 14px;
         border-radius: 2px;
         opacity: 0;
         animation: confetti-fall linear infinite;
         will-change: transform, opacity;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
       }
       #initial-loader .confetti-field i:nth-child(3n) {
         border-radius: 50%;
-        width: 8px;
-        height: 8px;
+        width: 7px;
+        height: 7px;
       }
       #initial-loader .confetti-field i:nth-child(4n) {
-        width: 6px;
-        height: 16px;
+        width: 5px;
+        height: 18px;
         border-radius: 1px;
       }
+      #initial-loader .confetti-field i:nth-child(5n) {
+        width: 12px;
+        height: 6px;
+        border-radius: 1px;
+      }
+
+      /* Central stage */
       #initial-loader .stage {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 18px;
+        gap: 24px;
         z-index: 2;
       }
-      /* Glow halo behind badge */
-      #initial-loader .halo {
+
+      /* The mark — an animated "C" built from two arcs */
+      #initial-loader .mark {
+        position: relative;
+        width: 96px;
+        height: 96px;
+      }
+      #initial-loader .mark svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+      #initial-loader .mark .arc-bg {
+        fill: none;
+        stroke: #ff7a4c;
+        stroke-width: 14;
+        stroke-linecap: round;
+        stroke-dasharray: 260;
+        stroke-dashoffset: 260;
+        animation: arc-draw 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+      }
+      #initial-loader .mark .arc-fg {
+        fill: none;
+        stroke: #1a1a1a;
+        stroke-width: 14;
+        stroke-linecap: round;
+        stroke-dasharray: 260;
+        stroke-dashoffset: 260;
+        animation: arc-draw 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+      }
+      #initial-loader .mark::after {
+        content: "";
         position: absolute;
-        top: -28px;
-        width: 180px;
-        height: 180px;
+        inset: -18px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(255, 122, 76, 0.45), transparent 65%);
-        filter: blur(8px);
-        animation: halo-pulse 2.6s ease-in-out infinite;
-        z-index: -1;
+        border: 2px dashed rgba(255, 122, 76, 0.35);
+        animation: mark-spin 10s linear infinite;
       }
-      #initial-loader .badge {
-        position: relative;
-        width: 104px;
-        height: 104px;
-        border-radius: 30px;
-        display: grid;
-        place-items: center;
-        background:
-          radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.55), transparent 55%),
-          linear-gradient(135deg, #ff7a4c 0%, #ff5a3c 55%, #e63d57 100%);
-        box-shadow:
-          0 22px 50px -14px rgba(230, 61, 87, 0.6),
-          0 8px 20px -8px rgba(255, 122, 76, 0.55),
-          inset 0 1px 0 rgba(255, 255, 255, 0.55),
-          inset 0 -6px 14px rgba(0, 0, 0, 0.1);
-        animation:
-          badge-pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both,
-          badge-float 4s ease-in-out 0.7s infinite;
-      }
-      #initial-loader .badge::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 30px;
-        background: linear-gradient(
-          120deg,
-          transparent 30%,
-          rgba(255, 255, 255, 0.45) 50%,
-          transparent 70%
-        );
-        background-size: 200% 100%;
-        animation: badge-sheen 3s ease-in-out infinite;
-        pointer-events: none;
-      }
-      #initial-loader .badge::after {
-        content: "";
-        position: absolute;
-        inset: -8px;
-        border-radius: 36px;
-        border: 2px dashed rgba(255, 122, 76, 0.5);
-        animation: spin 8s linear infinite;
-      }
-      #initial-loader .emoji {
-        font-size: 56px;
-        line-height: 1;
-        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.18));
-        animation: bounce 1.6s ease-in-out infinite;
-        position: relative;
-        z-index: 1;
-      }
+
+      /* Brand name */
       #initial-loader .name {
-        font-size: 34px;
-        font-weight: 900;
-        letter-spacing: -0.025em;
-        background: linear-gradient(
-          90deg,
-          #1a1a1a 0%,
-          #e63d57 35%,
-          #ff7a4c 50%,
-          #e63d57 65%,
-          #1a1a1a 100%
-        );
-        background-size: 200% 100%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: shimmer 2.8s ease-in-out infinite;
+        font-size: 36px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: #1a1a1a;
+        line-height: 1;
+      }
+      #initial-loader .name span {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(12px);
+        animation: letter-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      /* Tagline that cycles */
+      #initial-loader .tagline-box {
+        height: 22px;
+        overflow: hidden;
+        position: relative;
+      }
+      #initial-loader .tagline-track {
+        display: flex;
+        flex-direction: column;
+        animation: tagline-cycle 6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
       }
       #initial-loader .tagline {
-        font-size: 12px;
-        font-weight: 700;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        font-weight: 500;
         text-transform: uppercase;
-        letter-spacing: 0.28em;
-        color: rgba(26, 26, 26, 0.55);
-        position: relative;
-        padding: 0 18px;
+        letter-spacing: 0.22em;
+        color: rgba(26, 26, 26, 0.45);
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
       }
-      #initial-loader .tagline::before,
-      #initial-loader .tagline::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 14px;
-        height: 1px;
-        background: rgba(26, 26, 26, 0.25);
+
+      /* Progress — a segmented bar */
+      #initial-loader .progress-track {
+        margin-top: 4px;
+        display: flex;
+        gap: 4px;
+        width: 140px;
       }
-      #initial-loader .tagline::before {
-        left: 0;
-      }
-      #initial-loader .tagline::after {
-        right: 0;
-      }
-      #initial-loader .progress {
-        margin-top: 6px;
-        width: 160px;
-        height: 4px;
+      #initial-loader .progress-track .bar {
+        flex: 1;
+        height: 3px;
         border-radius: 99px;
         background: rgba(26, 26, 26, 0.08);
         overflow: hidden;
         position: relative;
       }
-      #initial-loader .progress::after {
+      #initial-loader .progress-track .bar::after {
         content: "";
         position: absolute;
         inset: 0;
-        width: 40%;
         border-radius: 99px;
-        background: linear-gradient(90deg, #ff5a3c, #ff9a3c, #ffc24a);
-        animation: progress-slide 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        background: linear-gradient(90deg, #ff5a3c, #ff9a3c);
+        transform: translateX(-101%);
+        animation: bar-fill 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
       }
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      @keyframes bounce {
-        0%,
-        100% {
-          transform: translateY(0) rotate(-5deg) scale(1);
-        }
-        50% {
-          transform: translateY(-12px) rotate(5deg) scale(1.05);
-        }
-      }
-      @keyframes shimmer {
-        0%,
-        100% {
-          background-position: 200% 0;
-        }
-        50% {
-          background-position: 0 0;
-        }
-      }
-      @keyframes badge-pop {
-        0% {
-          transform: scale(0.6) rotate(-8deg);
-          opacity: 0;
-        }
-        100% {
-          transform: scale(1) rotate(0);
-          opacity: 1;
-        }
-      }
-      @keyframes badge-float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-6px);
-        }
-      }
-      @keyframes badge-sheen {
-        0% {
-          background-position: 200% 0;
-        }
-        100% {
-          background-position: -100% 0;
-        }
-      }
-      @keyframes halo-pulse {
-        0%,
-        100% {
-          opacity: 0.6;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.12);
-        }
-      }
-      @keyframes aurora {
-        0% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-        100% {
-          transform: translate(4%, -3%) rotate(8deg);
-        }
-      }
+      #initial-loader .progress-track .bar:nth-child(2)::after { animation-delay: 0.15s; }
+      #initial-loader .progress-track .bar:nth-child(3)::after { animation-delay: 0.3s; }
+      #initial-loader .progress-track .bar:nth-child(4)::after { animation-delay: 0.45s; }
+      #initial-loader .progress-track .bar:nth-child(5)::after { animation-delay: 0.6s; }
+
+      /* Keyframes */
       @keyframes loader-fade-in {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      @keyframes orb-drift-1 {
+        0%   { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(30px, 40px) scale(1.08); }
+      }
+      @keyframes orb-drift-2 {
+        0%   { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(-20px, -30px) scale(1.12); }
+      }
+      @keyframes orb-drift-3 {
+        0%   { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(40px, -20px) scale(0.95); }
+      }
+      @keyframes arc-draw {
+        to { stroke-dashoffset: 0; }
+      }
+      @keyframes mark-spin {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes letter-pop {
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes tagline-cycle {
+        0%, 20%    { transform: translateY(0); }
+        25%, 45%   { transform: translateY(-22px); }
+        50%, 70%   { transform: translateY(-44px); }
+        75%, 95%   { transform: translateY(-66px); }
+        100%       { transform: translateY(-88px); }
       }
       @keyframes confetti-fall {
-        0% {
-          transform: translate3d(0, -10vh, 0) rotate(0deg);
-          opacity: 0;
-        }
-        10% {
-          opacity: 1;
-        }
-        100% {
-          transform: translate3d(var(--dx, 40px), 110vh, 0) rotate(720deg);
-          opacity: 0.9;
-        }
+        0%   { transform: translate3d(0, -10vh, 0) rotate(0deg); opacity: 0; }
+        10%  { opacity: 1; }
+        100% { transform: translate3d(var(--dx, 40px), 110vh, 0) rotate(720deg); opacity: 0.85; }
       }
-      @keyframes progress-slide {
-        0% {
-          transform: translateX(-100%);
-        }
-        100% {
-          transform: translateX(350%);
-        }
+      @keyframes bar-fill {
+        0%   { transform: translateX(-101%); }
+        50%  { transform: translateX(0); }
+        100% { transform: translateX(101%); }
       }
+
       @media (prefers-reduced-motion: reduce) {
         #initial-loader *,
         #initial-loader *::before,
         #initial-loader *::after {
           animation: none !important;
+        }
+        #initial-loader .arc-bg,
+        #initial-loader .arc-fg {
+          stroke-dashoffset: 0 !important;
+        }
+        #initial-loader .name span {
+          opacity: 1 !important;
+          transform: none !important;
         }
       }
     </style>
@@ -323,6 +271,10 @@
   <body>
     <div id="root">
       <div id="initial-loader">
+        <div class="orb orb-1" aria-hidden="true"></div>
+        <div class="orb orb-2" aria-hidden="true"></div>
+        <div class="orb orb-3" aria-hidden="true"></div>
+
         <div class="confetti-field" aria-hidden="true">
           <i style="left: 5%; --dx: 60px; background: #ff5a3c; animation-duration: 4.2s; animation-delay: 0s;"></i>
           <i style="left: 12%; --dx: -40px; background: #ff9a3c; animation-duration: 5.1s; animation-delay: 0.6s;"></i>
@@ -337,12 +289,36 @@
           <i style="left: 84%; --dx: 55px; background: #ffc24a; animation-duration: 5.2s; animation-delay: 1.4s;"></i>
           <i style="left: 92%; --dx: -25px; background: #ff5a3c; animation-duration: 4.1s; animation-delay: 0.8s;"></i>
         </div>
+
         <div class="stage">
-          <div class="halo" aria-hidden="true"></div>
-          <div class="badge"><div class="emoji">🎊</div></div>
-          <div class="name">Confetti</div>
-          <div class="tagline">Curating your night</div>
-          <div class="progress" aria-hidden="true"></div>
+          <div class="mark">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="arc-bg" cx="50" cy="50" r="38" stroke-dasharray="190 70" transform="rotate(-90 50 50)" />
+              <circle class="arc-fg" cx="50" cy="50" r="38" stroke-dasharray="190 70" transform="rotate(-90 50 50)" />
+            </svg>
+          </div>
+
+          <div class="name">
+            <span style="animation-delay:0.3s">C</span><span style="animation-delay:0.38s">o</span><span style="animation-delay:0.46s">n</span><span style="animation-delay:0.54s">f</span><span style="animation-delay:0.62s">e</span><span style="animation-delay:0.70s">t</span><span style="animation-delay:0.78s">t</span><span style="animation-delay:0.86s">i</span>
+          </div>
+
+          <div class="tagline-box">
+            <div class="tagline-track">
+              <div class="tagline">Curating your night</div>
+              <div class="tagline">Sorting the city</div>
+              <div class="tagline">Loading venues</div>
+              <div class="tagline">Finding the vibe</div>
+              <div class="tagline">Curating your night</div>
+            </div>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
         </div>
       </div>
     </div>

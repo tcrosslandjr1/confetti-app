@@ -64,6 +64,19 @@ export class AsyncLocalStorage { getStore() { return {}; } run(s, fn) { return f
 export const createHash = () => ({ update: () => ({ digest: () => "" }) });
 export const randomBytes = (n) => new Uint8Array(n);
 export const createHmac = () => ({ update: () => ({ digest: () => "" }) });
+export const timingSafeEqual = () => false;
+export const createCipheriv = ${noopObj};
+export const createDecipheriv = ${noopObj};
+export const pbkdf2 = ${noop};
+export const pbkdf2Sync = () => new Uint8Array(32);
+export const scrypt = ${noop};
+export const scryptSync = () => new Uint8Array(32);
+export const sign = ${noop};
+export const verify = ${noop};
+export const generateKeyPairSync = ${noopObj};
+export const createSign = () => ({ update: () => ({ sign: () => "" }) });
+export const createVerify = () => ({ update: () => ({ verify: () => false }) });
+export const webcrypto = { subtle: {}, getRandomValues: (a) => a };
 export class Readable { pipe() { return this; } on() { return this; } }
 export class Writable { write() {} end() {} on() { return this; } }
 export class Transform extends Readable {}

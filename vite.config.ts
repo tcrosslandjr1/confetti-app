@@ -10,10 +10,14 @@ import fs from "node:fs";
 // unreachable at runtime — but their static imports were dragging server-only
 // deps (Stripe, AI SDK, supabase admin) into the browser bundle.
 function stubServerModules() {
+  const isApiRouteFile = (id: string) => {
+    const clean = id.split("?")[0];
+    return /[\\/]src[\\/]routes[\\/]api[\\/.]/.test(clean);
+  };
   const isServerFile = (id: string) => {
     const clean = id.split("?")[0];
     if (/\.server\.(ts|tsx|js|jsx|mjs|cjs)$/.test(clean)) return true;
-    if (/[\\/]src[\\/]routes[\\/]api[\\/.]/.test(clean)) return true;
+    if (isApiRouteFile(clean)) return true;
     return false;
   };
   return {
@@ -45,6 +49,20 @@ function stubServerModules() {
         }
       }
       const hasDefault = /export\s+default\b/.test(src);
+      if (isApiRouteFile(id)) {
+        const routePath =
+          src.match(/createFileRoute\(\s*(["'`])([^"'`]+)\1\s*\)/)?.[2] ?? "/api/__stub";
+        const extraNames = [...names]
+          .filter((n) => n !== "Route")
+          .map((n) => `export const ${n} = __stub;`);
+        return [
+          'import { createFileRoute } from "@tanstack/react-router";',
+          "const __stub = new Proxy(function(){}, { get: () => __stub, apply: () => __stub, construct: () => ({}) });",
+          `export const Route = createFileRoute(${JSON.stringify(routePath)})({});`,
+          ...extraNames,
+          hasDefault ? "export default __stub;" : "",
+        ].join("\n");
+      }
       const lines = [
         "const __stub = new Proxy(function(){}, { get: () => __stub, apply: () => __stub, construct: () => ({}) });",
         ...[...names].map((n) => `export const ${n} = __stub;`),

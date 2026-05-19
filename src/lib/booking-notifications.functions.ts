@@ -26,8 +26,19 @@ function opsInboxAddress(): string {
 }
 
 export const resolveVenueNotificationEmail = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
   .inputValidator((data) => z.object({ venueId: z.string().uuid().nullish() }).parse(data))
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
+    const { userId } = context;
+    // Restrict to admins or the venue's claiming advertiser/owner —
+    // staff_email is PII and must not leak to arbitrary signed-in users.
+    const { data: roleRow } = await supabaseAdmin
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", userId)
+      .eq("role", "admin")
+      .maybeSingle();
+    const isAdmin = !!roleRow;
     const opsInbox = opsInboxAddress();
     const opsResult = {
       email: opsInbox,

@@ -992,6 +992,16 @@ function AuthPage() {
                 </span>
               </div>
             )}
+            {mode === "signin" && (
+              <div className="flex justify-end px-1">
+                <Link
+                  to="/reset-password"
+                  className="text-xs font-medium text-muted-foreground hover:text-coral transition-colors underline-offset-4 hover:underline"
+                >
+                  Forgot password?
+                </Link>
+              </div>
+            )}
             {mode === "signup" && (
               <input
                 value={refCode}

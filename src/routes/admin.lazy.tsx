@@ -136,7 +136,7 @@ const NAV_SECTIONS: NavSection[] = [
 ];
 
 function AdminLayout() {
-    const { loading, isAdmin, user, viewAs, isPreview } = useAuth();
+    const { loading, isAdmin, user, viewAs, isPreview, setViewAs } = useAuth();
     const navigate = useNavigate();
     const { redirect } = Route.useSearch();
     const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -158,13 +158,32 @@ function AdminLayout() {
             isLoginRoute,
         });
     }, [pathname, loading, user, isAdmin, viewAs, isPreview, allowPreview, isLoginRoute]);
+
+    // PATH PRESERVATION: If an admin lands on /admin/* but their stored
+    // viewAs is something else (e.g. "customer" from the role switcher),
+    // snap viewAs back to "admin" instead of bouncing them to /portal.
+    // The intent is clear from the URL — they want the admin view.
+    useEffect(() => {
+        if (loading || isLoginRoute) return;
+        if (isAdmin && viewAs !== "admin" && pathname.startsWith("/admin")) {
+            setViewAs("admin");
+        }
+    }, [loading, isLoginRoute, isAdmin, viewAs, pathname, setViewAs]);
+
     useEffect(() => {
         if (loading || isLoginRoute)
             return;
         if (allowPreview)
             return;
+        // Don't redirect away while we're about to fix viewAs above.
+        if (isAdmin && viewAs !== "admin" && pathname.startsWith("/admin"))
+            return;
         if (!user)
-            navigate({ to: "/admin/login", search: { redirect: pathname } as never });
+            navigate({
+                to: "/admin/login",
+                search: { redirect: pathname } as never,
+                replace: true,
+            });
         else if (!isAdmin)
             navigate({ to: "/" });
         else if (viewAs === "customer")

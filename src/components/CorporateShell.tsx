@@ -120,7 +120,13 @@ export function CorporateShell() {
             </Button>
           </div>
         </aside>
-        <main className="min-w-0 flex-1">
+        <main className="min-w-0 flex-1 space-y-4">
+          <div className="rounded-2xl border border-amber-300/60 bg-amber-50 px-4 py-3 text-xs text-amber-900">
+            <strong className="font-semibold">Preview portal.</strong> The Corporate workspace is in
+            early access. Listed data is live, but actions like approvals, policy edits, team
+            management, and AI planner generation aren't wired yet — your account team will help
+            operate these flows during onboarding.
+          </div>
           <Outlet />
         </main>
       </div>

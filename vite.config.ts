@@ -3,27 +3,27 @@ import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
 
-// Stub out TanStack Start server-only imports for SPA build
+// Stub out all Node.js private (#) imports for SPA build
 function tanstackStartStub(): Plugin {
-  return {
-    name: "tanstack-start-stub",
-    enforce: "pre",
-    resolveId(id) {
-      if (id === "#tanstack-router-entry") {
-        return "\0tanstack-router-entry-stub";
-      }
-    },
-    load(id) {
-      if (id === "\0tanstack-router-entry-stub") {
-        return "export default {}";
-      }
-    },
-  };
+    return {
+          name: "tanstack-start-stub",
+          enforce: "pre",
+          resolveId(id) {
+                  if (id.startsWith("#")) {
+                            return `\0stub-${id}`;
+                  }
+          },
+          load(id) {
+                  if (id.startsWith("\0stub-#")) {
+                            return "export default {}";
+                  }
+          },
+    };
 }
 
 export default defineConfig({
-  plugins: [tanstackStartStub(), react(), tsconfigPaths(), tailwindcss()],
-  build: {
-    outDir: "dist",
-  },
+    plugins: [tanstackStartStub(), react(), tsconfigPaths(), tailwindcss()],
+    build: {
+          outDir: "dist",
+    },
 });

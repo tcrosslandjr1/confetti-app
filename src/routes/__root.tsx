@@ -13,12 +13,6 @@ import appCss from "../styles.css?url";
 import { AuthProvider } from "@/lib/auth-context";
 import { Toaster } from "@/components/ui/sonner";
 import { WizardProvider } from "@/components/wizard/wizard-context";
-import { ScrollProgress } from "@/components/ScrollProgress";
-import { ReferralCapture } from "@/components/ReferralCapture";
-import { TabBar } from "@/components/loop/TabBar";
-import { PageTransition } from "@/components/PageTransition";
-import { FirstRunNudge } from "@/components/FirstRunNudge";
-import { MapProvider } from "@/components/maps/MapProvider";
 import { preloadFallbackImages } from "@/lib/venue-images";
 import { installErrorTracking } from "@/lib/analytics";
 
@@ -35,6 +29,24 @@ const CookieConsent = lazy(() =>
 );
 const AuthDebugPanel = lazy(() =>
   import("@/components/AuthDebugPanel").then((m) => ({ default: m.AuthDebugPanel })),
+);
+const MapProvider = lazy(() =>
+  import("@/components/maps/MapProvider").then((m) => ({ default: m.MapProvider })),
+);
+const ScrollProgress = lazy(() =>
+  import("@/components/ScrollProgress").then((m) => ({ default: m.ScrollProgress })),
+);
+const ReferralCapture = lazy(() =>
+  import("@/components/ReferralCapture").then((m) => ({ default: m.ReferralCapture })),
+);
+const PageTransition = lazy(() =>
+  import("@/components/PageTransition").then((m) => ({ default: m.PageTransition })),
+);
+const TabBar = lazy(() =>
+  import("@/components/loop/TabBar").then((m) => ({ default: m.TabBar })),
+);
+const FirstRunNudge = lazy(() =>
+  import("@/components/FirstRunNudge").then((m) => ({ default: m.FirstRunNudge })),
 );
 
 function NotFoundComponent() {
@@ -243,32 +255,44 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <MapProvider>
-          <WizardProvider>
-            <ScrollProgress />
-            <ReferralCapture />
-            <Suspense fallback={null}>
-              <RoleSwitcher />
-            </Suspense>
-            <PageTransition>
-              <Outlet />
-            </PageTransition>
-            {/* Spacer so fixed mobile TabBar doesn't cover page content */}
-            <div aria-hidden className="h-24 lg:hidden" />
-            <Suspense fallback={null}>
-              <BuildMyNightWizard />
-            </Suspense>
-            <TabBar />
-            <FirstRunNudge />
-            <Suspense fallback={null}>
-              <CookieConsent />
-            </Suspense>
-            <Suspense fallback={null}>
-              <AuthDebugPanel />
-            </Suspense>
-            <Toaster />
-          </WizardProvider>
-        </MapProvider>
+        <Suspense fallback={null}>
+          <MapProvider>
+            <WizardProvider>
+              <Suspense fallback={null}>
+                <ScrollProgress />
+              </Suspense>
+              <Suspense fallback={null}>
+                <ReferralCapture />
+              </Suspense>
+              <Suspense fallback={null}>
+                <RoleSwitcher />
+              </Suspense>
+              <Suspense fallback={null}>
+                <PageTransition>
+                  <Outlet />
+                </PageTransition>
+              </Suspense>
+              {/* Spacer so fixed mobile TabBar doesn't cover page content */}
+              <div aria-hidden className="h-24 lg:hidden" />
+              <Suspense fallback={null}>
+                <BuildMyNightWizard />
+              </Suspense>
+              <Suspense fallback={null}>
+                <TabBar />
+              </Suspense>
+              <Suspense fallback={null}>
+                <FirstRunNudge />
+              </Suspense>
+              <Suspense fallback={null}>
+                <CookieConsent />
+              </Suspense>
+              <Suspense fallback={null}>
+                <AuthDebugPanel />
+              </Suspense>
+              <Toaster />
+            </WizardProvider>
+          </MapProvider>
+        </Suspense>
       </AuthProvider>
     </QueryClientProvider>
   );

@@ -985,9 +985,9 @@ function Header({ title, eyebrow, actions }: { title: string; eyebrow?: string; 
   );
 }
 
-function IconButton({ children, label, to }: { children: ReactNode; label: string; to?: string }) {
+function IconButton({ children, label, to, onClick }: { children: ReactNode; label: string; to?: string; onClick?: () => void }) {
   const content = (
-    <motion.button whileTap={{ scale: 0.9 }} className="icon-btn" aria-label={label} title={label}>
+    <motion.button whileTap={{ scale: 0.9 }} className="icon-btn" aria-label={label} title={label} onClick={onClick}>
       {children}
     </motion.button>
   );

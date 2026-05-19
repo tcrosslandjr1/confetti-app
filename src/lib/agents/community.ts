@@ -592,8 +592,10 @@ export function getReputationTierInfo(tier: ReputationTier) {
   return REPUTATION_TIERS[tier];
 }
 
-export function getAllTiers() {
-  return REPUTATION_TIERS;
+export function getAllTiers(): Array<{ tier: ReputationTier; minPoints: number; label: string; icon: string }> {
+  return (Object.entries(REPUTATION_TIERS) as Array<[ReputationTier, { minPoints: number; label: string; icon: string }]>)
+    .map(([tier, info]) => ({ tier, ...info }))
+    .sort((a, b) => a.minPoints - b.minPoints);
 }
 
 function checkBadges(userId: string): void {

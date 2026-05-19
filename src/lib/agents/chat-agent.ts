@@ -282,7 +282,7 @@ export async function sendMessage(
       content: orchestratorResult.success
         ? orchestratorResult.itinerary!
         : `I ran into a snag building your Confetti plan — let me try a different angle. ${orchestratorResult.qcFeedback ?? "What if we adjust the vibe or area?"}\n\nWhat would you like to tweak?`,
-      provider: orchestratorResult.agentResults[0]?.provider ?? "mock",
+      provider: (orchestratorResult.agentResults[0]?.provider ?? "mock") as AIResponse["provider"],
       model: orchestratorResult.agentResults[0]?.model ?? "multi-agent",
       latencyMs: orchestratorResult.totalLatencyMs,
     };

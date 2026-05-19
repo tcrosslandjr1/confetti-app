@@ -56,8 +56,20 @@ export function AdminSkeleton() {
     >
       {/* Sidebar */}
       <aside className="hidden w-64 shrink-0 border-r-2 border-ink/10 bg-cream/30 p-3 md:block">
-        {/* Brand chip */}
-        <Skeleton className="mb-4 h-14 w-full rounded-2xl" />
+        {/* Admin brand chip — NOT a skeleton so it reads immediately as admin */}
+        <div className="mb-4 flex items-center gap-2.5 rounded-2xl border-2 border-ink bg-gradient-to-br from-coral via-orange-400 to-gold px-3 py-3 shadow-brut opacity-60">
+          <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border-2 border-ink bg-cream shadow-brut">
+            <svg className="h-4 w-4 text-coral" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <div className="min-w-0">
+            <div className="font-display text-sm font-extrabold leading-none text-ink">Confetti</div>
+            <div className="mt-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-ink/70">
+              Admin Console
+            </div>
+          </div>
+        </div>
 
         {/* Nav sections */}
         {Array.from({ length: 5 }).map((_, sectionIdx) => (

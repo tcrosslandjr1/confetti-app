@@ -360,7 +360,7 @@ function PortalActivityPage() {
         </div>
       )}
 
-      {entries.length > 0 && (
+      {!usingMock && entries.length > 0 && (
         <div className="mt-8 flex items-center justify-end">
           <button
             type="button"

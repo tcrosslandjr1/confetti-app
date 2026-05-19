@@ -70,10 +70,7 @@ export default defineConfig({
     outDir: "dist",
     rollupOptions: {
       onwarn(warning, warn) {
-        if (
-          warning.code === "UNRESOLVED_IMPORT" &&
-          warning.exporter?.includes("start-server")
-        ) {
+        if (warning.code === "UNRESOLVED_IMPORT" && warning.exporter?.includes("start-server")) {
           return;
         }
         warn(warning);

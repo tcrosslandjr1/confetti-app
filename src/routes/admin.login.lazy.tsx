@@ -10,6 +10,8 @@ export const Route = createLazyFileRoute("/admin/login")({
 
 function AdminLoginPage() {
     const navigate = useNavigate();
+    const { redirect } = Route.useSearch();
+    const destination = redirect ?? "/admin";
     const { user, isAdmin, loading } = useAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -19,8 +21,8 @@ function AdminLoginPage() {
         if (loading)
             return;
         if (user && isAdmin)
-            navigate({ to: "/admin" });
-    }, [user, isAdmin, loading, navigate]);
+            navigate({ to: destination as never, replace: true });
+    }, [user, isAdmin, loading, navigate, destination]);
     const onSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setError(null);
@@ -45,7 +47,7 @@ function AdminLoginPage() {
                 await supabase.auth.signOut();
                 throw new Error("This account does not have admin access. Customers should sign in at /auth.");
             }
-            navigate({ to: "/admin" });
+            navigate({ to: destination as never, replace: true });
         }
         catch (err: any) {
             setError(err?.message ?? "Sign in failed");

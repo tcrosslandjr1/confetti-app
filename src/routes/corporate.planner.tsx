@@ -104,8 +104,12 @@ function CorporatePlannerPage() {
                 Ready to generate three vetted options for your <strong>{purpose}</strong> with{" "}
                 {size} people.
               </p>
-              <Button className="w-full">
-                <Sparkles className="mr-2 size-4" /> Generate options
+              <div className="rounded-lg border border-amber-300/60 bg-amber-50 p-3 text-xs text-amber-900">
+                AI generation is in private beta — your account team will produce options for this
+                brief and email them within one business day.
+              </div>
+              <Button className="w-full" disabled>
+                <Sparkles className="mr-2 size-4" /> Generation coming soon
               </Button>
             </div>
           )}

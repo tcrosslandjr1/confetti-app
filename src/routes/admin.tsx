@@ -42,7 +42,74 @@ export const Route = createFileRoute("/admin")({
     ],
   }),
   component: AdminLayout,
+  errorComponent: AdminRouteError,
+  pendingComponent: () => {
+    if (typeof window !== "undefined") {
+      // eslint-disable-next-line no-console
+      console.log("[admin] route pending…", window.location.pathname);
+    }
+    return (
+      <div className="grid min-h-screen place-items-center bg-background text-sm text-muted-foreground">
+        Loading admin console…
+      </div>
+    );
+  },
 });
+
+function AdminRouteError({ error, reset }: { error: Error; reset: () => void }) {
+  // eslint-disable-next-line no-console
+  console.group("[admin] route errorComponent caught error");
+  // eslint-disable-next-line no-console
+  console.error(error);
+  // eslint-disable-next-line no-console
+  console.log("name:", error?.name, "message:", error?.message);
+  // eslint-disable-next-line no-console
+  console.log("stack:", error?.stack);
+  if (typeof window !== "undefined") {
+    // eslint-disable-next-line no-console
+    console.log("pathname:", window.location.pathname);
+  }
+  // eslint-disable-next-line no-console
+  console.groupEnd();
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-2xl space-y-4 text-center">
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+          Admin console failed to load
+        </h1>
+        <p className="text-sm text-muted-foreground">
+          A route-load or render error was captured. Details below — full stack is also in the
+          browser console.
+        </p>
+        <details
+          open
+          className="rounded-md border border-border bg-muted/40 p-3 text-left text-xs"
+        >
+          <summary className="cursor-pointer font-mono font-semibold text-foreground">
+            {error?.name || "Error"}: {error?.message}
+          </summary>
+          <pre className="mt-2 max-h-72 overflow-auto whitespace-pre-wrap break-words font-mono text-[11px] text-muted-foreground">
+            {error?.stack}
+          </pre>
+        </details>
+        <div className="flex flex-wrap justify-center gap-2">
+          <button
+            onClick={reset}
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+          >
+            Try again
+          </button>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-accent"
+          >
+            Go home
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 type NavItem = { to: string; label: string; icon: typeof LayoutDashboard; exact?: boolean };
 type NavSection = { label: string; items: NavItem[] };

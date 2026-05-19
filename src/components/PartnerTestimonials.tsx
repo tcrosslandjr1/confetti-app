@@ -286,6 +286,13 @@ export function PartnerTestimonials() {
         .animate-confetti-marquee {
           animation: confetti-marquee 38s linear infinite;
         }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-confetti-marquee,
+          .confetti-progress-bar {
+            animation: none !important;
+            transform: none !important;
+          }
+        }
       `}</style>
     </section>
   );

@@ -2094,7 +2094,7 @@ export function BuildMyNightWizard() {
                               alt={s.venue}
                               loading="lazy"
                               className="h-full w-full object-cover"
-                            />
+                             decoding="async"/>
                             <div
                               className={`absolute inset-x-0 bottom-0 ${s.tone} border-t-2 border-ink px-1 py-0.5 text-center font-display text-[11px] font-extrabold leading-tight text-ink`}
                             >
@@ -2294,7 +2294,7 @@ export function BuildMyNightWizard() {
                                     alt={`${s.venue} photo ${pi + 1}`}
                                     loading="lazy"
                                     className="h-full w-full object-cover"
-                                  />
+                                   decoding="async"/>
                                 </a>
                               ))}
                             </div>
@@ -2709,7 +2709,7 @@ export function BuildMyNightWizard() {
                         alt={c.venue}
                         loading="lazy"
                         className="h-20 w-20 shrink-0 rounded-xl border-2 border-ink object-cover"
-                      />
+                       decoding="async"/>
                     ) : (
                       <div className="grid h-20 w-20 shrink-0 place-items-center rounded-xl border-2 border-ink bg-gold/40">
                         <MapPin className="h-5 w-5" />

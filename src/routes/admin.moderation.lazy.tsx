@@ -233,7 +233,7 @@ function EventsModerationTab() {
       <div className="grid gap-3">
         {events.map((e) => (<article key={e.id} className="flex flex-col gap-3 rounded-xl border border-border bg-card p-4 shadow-sm sm:flex-row sm:items-center">
             <div className="h-20 w-full overflow-hidden rounded-md bg-muted sm:h-16 sm:w-24 shrink-0">
-              {e.image_url && (<img src={e.image_url} alt="" className="h-full w-full object-cover"/>)}
+              {e.image_url && (<img src={e.image_url} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async"/>)}
             </div>
             <div className="flex-1 min-w-0 space-y-1">
               <div className="flex flex-wrap items-center gap-2">
@@ -376,7 +376,7 @@ function VenuesModerationTab() {
             const img = v.hero_image_url ?? v.image_url ?? null;
             return (<article key={v.id} className="flex flex-col gap-3 rounded-xl border border-border bg-card p-4 shadow-sm sm:flex-row sm:items-center">
               <div className="h-20 w-full overflow-hidden rounded-md bg-muted sm:h-16 sm:w-24 shrink-0">
-                {img && <img src={img} alt="" className="h-full w-full object-cover"/>}
+                {img && <img src={img} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async"/>}
               </div>
               <div className="flex-1 min-w-0 space-y-1">
                 <div className="flex flex-wrap items-center gap-2">

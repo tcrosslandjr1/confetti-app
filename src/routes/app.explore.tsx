@@ -123,7 +123,7 @@ function ExplorePage() {
                       alt={v.name}
                       className="size-full object-cover"
                       loading="lazy"
-                    />
+                     decoding="async"/>
                   )}
                 </div>
                 <div className="min-w-0 flex-1">

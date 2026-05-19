@@ -121,7 +121,7 @@ function StoryPage() {
         src={story.hero}
         alt=""
         className="mt-8 aspect-[16/9] w-full rounded-3xl border border-border object-cover shadow-pop"
-      />
+       loading="lazy" decoding="async"/>
 
       <section className="mt-10 grid gap-3 sm:grid-cols-3">
         {story.stats.map((s: Story["stats"][number]) => (

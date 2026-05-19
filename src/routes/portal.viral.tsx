@@ -707,7 +707,7 @@ function SpotlightCard({ v, rank }: { v: Row; rank: number }) {
             alt={v.venue_name}
             loading="lazy"
             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-          />
+           decoding="async"/>
         ) : (
           <div className="grid h-full place-items-center text-4xl">🔥</div>
         )}
@@ -756,7 +756,7 @@ function ViralCard({ v, rank, topScore }: { v: Row; rank?: number; topScore: num
             alt={v.venue_name}
             loading="lazy"
             className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
-          />
+           decoding="async"/>
         ) : (
           <div className="grid h-full place-items-center text-4xl">🍽️</div>
         )}

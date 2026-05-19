@@ -129,7 +129,7 @@ function BusinessEventsPage() {
                 return (
                   <Card key={e.id} className="overflow-hidden transition hover:shadow-md">
                     {e.image_url ? (
-                      <img src={e.image_url} alt={e.title} className="h-32 w-full object-cover" />
+                      <img src={e.image_url} alt={e.title} className="h-32 w-full object-cover"  loading="lazy" decoding="async"/>
                     ) : (
                       <div className="h-32 bg-gradient-to-br from-primary/30 to-orange-200" />
                     )}

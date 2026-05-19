@@ -43,7 +43,7 @@ function ReelsPage() {
               src={r.thumbnail_url}
               alt={r.title ?? "Reel"}
               className="absolute inset-0 size-full object-cover"
-            />
+             loading="lazy" decoding="async"/>
           ) : (
             <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-900" />
           )}

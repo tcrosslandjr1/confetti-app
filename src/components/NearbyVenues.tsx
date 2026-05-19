@@ -250,7 +250,7 @@ export function NearbyVenues({ limit = 6 }: { limit?: number }) {
                   alt={v.name}
                   className="h-36 w-full object-cover"
                   loading="lazy"
-                />
+                 decoding="async"/>
               ) : (
                 <GooglePhotos
                   venue={v.name}

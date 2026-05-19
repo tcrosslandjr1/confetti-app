@@ -105,7 +105,7 @@ function AdminBusinessClaimsPage() {
                     Claimant: {c.claimant?.display_name ?? c.user_id?.slice(0, 8) ?? "—"}
                   </p>
                 </div>
-                {c.venue?.hero_image_url && (<img src={c.venue.hero_image_url} alt="" className="h-20 w-20 rounded-lg object-cover"/>)}
+                {c.venue?.hero_image_url && (<img src={c.venue.hero_image_url} alt="" className="h-20 w-20 rounded-lg object-cover" loading="lazy" decoding="async"/>)}
               </div>
 
               <div className="rounded-lg bg-muted/40 p-3 text-sm space-y-2">

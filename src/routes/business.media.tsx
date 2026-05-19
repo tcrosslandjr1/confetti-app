@@ -171,7 +171,7 @@ function BusinessMediaPage() {
                       isHidden ? "opacity-50" : ""
                     }`}
                   >
-                    <img src={m.url} alt="" className="h-full w-full object-cover" />
+                    <img src={m.url} alt="" className="h-full w-full object-cover"  loading="lazy" decoding="async"/>
                     <div className="absolute inset-x-0 top-0 flex items-center justify-between p-2">
                       <span className="rounded-full bg-black/55 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-white backdrop-blur">
                         {m.source}

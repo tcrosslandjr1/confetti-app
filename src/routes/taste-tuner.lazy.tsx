@@ -120,7 +120,7 @@ function TasteTuner() {
             transform: `translateX(${drag.x}px) rotate(${rot}deg)`,
             transition: drag.dragging ? "none" : "transform 0.3s",
         }} className="absolute inset-0 cursor-grab touch-none overflow-hidden rounded-3xl border border-border bg-card shadow-pop active:cursor-grabbing">
-          <img src={card.image} alt={card.name} className="h-2/3 w-full object-cover" draggable={false}/>
+          <img src={card.image} alt={card.name} className="h-2/3 w-full object-cover" draggable={false} loading="lazy" decoding="async"/>
           <div className="space-y-2 p-4">
             <h2 className="font-display text-xl font-bold">{card.name}</h2>
             <div className="flex flex-wrap gap-1.5">

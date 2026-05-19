@@ -146,7 +146,7 @@ export const PassportShareCard = forwardRef<HTMLDivElement, Props>(function Pass
           </div>
           <div className="rounded-xl border-2 border-cream bg-cream p-1.5 shadow-brut">
             {qr ? (
-              <img src={qr} alt="QR code" className="h-20 w-20" />
+              <img src={qr} alt="QR code" className="h-20 w-20"  loading="lazy" decoding="async"/>
             ) : (
               <div className="h-20 w-20 animate-pulse rounded bg-ink/20" />
             )}

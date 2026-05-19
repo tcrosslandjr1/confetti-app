@@ -1,5 +1,5 @@
 import { useAuth, type ViewAs } from "@/lib/auth-context";
-import { useNavigate } from "@tanstack/react-router";
+import { useLocation, useNavigate } from "@tanstack/react-router";
 import {
   Shield,
   User as UserIcon,

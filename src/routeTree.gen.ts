@@ -160,6 +160,7 @@ import { Route as AdminLogsRouteImport } from './routes/admin.logs'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminLaunchRouteImport } from './routes/admin.launch'
 import { Route as AdminIntegrationsRouteImport } from './routes/admin.integrations'
+import { Route as AdminHealthRouteImport } from './routes/admin.health'
 import { Route as AdminEventAnalyticsRouteImport } from './routes/admin.event-analytics'
 import { Route as AdminDiagnosticsRouteImport } from './routes/admin.diagnostics'
 import { Route as AdminBusinessClaimsRouteImport } from './routes/admin.business-claims'
@@ -951,6 +952,11 @@ const AdminIntegrationsRoute = AdminIntegrationsRouteImport.update({
   path: '/integrations',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminHealthRoute = AdminHealthRouteImport.update({
+  id: '/health',
+  path: '/health',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminEventAnalyticsRoute = AdminEventAnalyticsRouteImport.update({
   id: '/event-analytics',
   path: '/event-analytics',
@@ -1205,6 +1211,7 @@ export interface FileRoutesByFullPath {
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
   '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
+  '/admin/health': typeof AdminHealthRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
   '/admin/login': typeof AdminLoginRoute
@@ -1384,6 +1391,7 @@ export interface FileRoutesByTo {
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
   '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
+  '/admin/health': typeof AdminHealthRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
   '/admin/login': typeof AdminLoginRoute
@@ -1573,6 +1581,7 @@ export interface FileRoutesById {
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
   '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
+  '/admin/health': typeof AdminHealthRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
   '/admin/login': typeof AdminLoginRoute
@@ -1763,6 +1772,7 @@ export interface FileRouteTypes {
     | '/admin/business-claims'
     | '/admin/diagnostics'
     | '/admin/event-analytics'
+    | '/admin/health'
     | '/admin/integrations'
     | '/admin/launch'
     | '/admin/login'
@@ -1942,6 +1952,7 @@ export interface FileRouteTypes {
     | '/admin/business-claims'
     | '/admin/diagnostics'
     | '/admin/event-analytics'
+    | '/admin/health'
     | '/admin/integrations'
     | '/admin/launch'
     | '/admin/login'
@@ -2130,6 +2141,7 @@ export interface FileRouteTypes {
     | '/admin/business-claims'
     | '/admin/diagnostics'
     | '/admin/event-analytics'
+    | '/admin/health'
     | '/admin/integrations'
     | '/admin/launch'
     | '/admin/login'
@@ -3422,6 +3434,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIntegrationsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/health': {
+      id: '/admin/health'
+      path: '/health'
+      fullPath: '/admin/health'
+      preLoaderRoute: typeof AdminHealthRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/event-analytics': {
       id: '/admin/event-analytics'
       path: '/event-analytics'
@@ -3680,6 +3699,7 @@ interface AdminRouteChildren {
   AdminBusinessClaimsRoute: typeof AdminBusinessClaimsRoute
   AdminDiagnosticsRoute: typeof AdminDiagnosticsRoute
   AdminEventAnalyticsRoute: typeof AdminEventAnalyticsRoute
+  AdminHealthRoute: typeof AdminHealthRoute
   AdminIntegrationsRoute: typeof AdminIntegrationsRoute
   AdminLaunchRoute: typeof AdminLaunchRoute
   AdminLoginRoute: typeof AdminLoginRoute
@@ -3710,6 +3730,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminBusinessClaimsRoute: AdminBusinessClaimsRoute,
   AdminDiagnosticsRoute: AdminDiagnosticsRoute,
   AdminEventAnalyticsRoute: AdminEventAnalyticsRoute,
+  AdminHealthRoute: AdminHealthRoute,
   AdminIntegrationsRoute: AdminIntegrationsRoute,
   AdminLaunchRoute: AdminLaunchRoute,
   AdminLoginRoute: AdminLoginRoute,

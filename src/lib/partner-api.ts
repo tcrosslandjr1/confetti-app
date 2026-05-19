@@ -1,8 +1,6 @@
 // Shared helpers for /api/public/partner/v1/* endpoints.
 // NOTE: Backed by an in-memory mock store; swap to Supabase tables when ready.
 
-import { createHmac, timingSafeEqual } from "node:crypto";
-
 export type Json = Record<string, unknown> | unknown[] | string | number | boolean | null;
 
 export type ApiErrorCode =
@@ -84,15 +82,34 @@ function getWebhookSecret() {
   return env?.PARTNER_WEBHOOK_SECRET || "demo_webhook_secret_change_me";
 }
 
-export function signPayload(body: string): string {
-  return createHmac("sha256", getWebhookSecret()).update(body).digest("hex");
+function bytesToHex(bytes: ArrayBuffer): string {
+  return [...new Uint8Array(bytes)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
-export function verifySignature(body: string, signature: string | null): boolean {
+function constantTimeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let mismatch = 0;
+  for (let i = 0; i < a.length; i += 1) mismatch |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return mismatch === 0;
+}
+
+export async function signPayload(body: string): Promise<string> {
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    "raw",
+    encoder.encode(getWebhookSecret()),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"],
+  );
+  return bytesToHex(await crypto.subtle.sign("HMAC", key, encoder.encode(body)));
+}
+
+export async function verifySignature(body: string, signature: string | null): Promise<boolean> {
   if (!signature) return false;
-  const expected = signPayload(body);
+  const expected = await signPayload(body);
   try {
-    return timingSafeEqual(Buffer.from(signature), Buffer.from(expected));
+    return constantTimeEqual(signature.toLowerCase(), expected);
   } catch {
     return false;
   }

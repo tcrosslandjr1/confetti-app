@@ -36,7 +36,11 @@ function stubServerModules() {
       }
       for (const m of src.matchAll(/export\s*\{([^}]+)\}/g)) {
         for (const part of m[1].split(",")) {
-          const name = part.split(/\s+as\s+/i).pop()!.trim().replace(/[;].*$/, "");
+          const name = part
+            .split(/\s+as\s+/i)
+            .pop()!
+            .trim()
+            .replace(/[;].*$/, "");
           if (name && name !== "default") names.add(name);
         }
       }

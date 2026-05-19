@@ -180,6 +180,22 @@ function AdminLayout() {
   // so the role can be tested. RLS still blocks real data writes.
   const allowPreview = isPreview && viewAs === "admin";
 
+  // Trace gate state so we can see WHY the admin shell is or isn't rendering.
+  useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log("[admin] gate", {
+      pathname,
+      loading,
+      hasUser: Boolean(user),
+      isAdmin,
+      viewAs,
+      isPreview,
+      allowPreview,
+      isLoginRoute,
+    });
+  }, [pathname, loading, user, isAdmin, viewAs, isPreview, allowPreview, isLoginRoute]);
+
+
   useEffect(() => {
     if (loading || isLoginRoute) return;
     if (allowPreview) return;

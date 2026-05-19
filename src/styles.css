@@ -54,6 +54,7 @@
   font-family: "Instrument Serif Fallback";
   src: local("Times New Roman"), local("Times");
   font-style: italic;
+  font-display: swap;
   ascent-override: 92%;
   descent-override: 22%;
   line-gap-override: 0%;
@@ -63,6 +64,7 @@
   font-family: "Instrument Serif Fallback";
   src: local("Times New Roman"), local("Times");
   font-style: normal;
+  font-display: swap;
   ascent-override: 92%;
   descent-override: 22%;
   line-gap-override: 0%;
@@ -71,6 +73,7 @@
 @font-face {
   font-family: "Bricolage Fallback";
   src: local("Arial");
+  font-display: swap;
   ascent-override: 95%;
   descent-override: 24%;
   line-gap-override: 0%;

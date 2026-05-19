@@ -138,6 +138,7 @@ const NAV_SECTIONS: NavSection[] = [
 function AdminLayout() {
     const { loading, isAdmin, user, viewAs, isPreview } = useAuth();
     const navigate = useNavigate();
+    const { redirect } = Route.useSearch();
     const pathname = useRouterState({ select: (s) => s.location.pathname });
     const isLoginRoute = pathname === "/admin/login";
     // Preview mode lets the admin console UI render without a real admin session
@@ -163,7 +164,7 @@ function AdminLayout() {
         if (allowPreview)
             return;
         if (!user)
-            navigate({ to: "/admin/login" });
+            navigate({ to: "/admin/login", search: { redirect: pathname } as never });
         else if (!isAdmin)
             navigate({ to: "/" });
         else if (viewAs === "customer")
@@ -172,7 +173,9 @@ function AdminLayout() {
             navigate({ to: "/advertise/portal" });
         else if (viewAs === "visitor")
             navigate({ to: "/" });
-    }, [loading, user, isAdmin, viewAs, allowPreview, navigate, isLoginRoute]);
+        else if (redirect && redirect !== pathname)
+            navigate({ to: redirect as never, replace: true });
+    }, [loading, user, isAdmin, viewAs, allowPreview, navigate, isLoginRoute, pathname, redirect]);
     if (isLoginRoute) {
         return <Outlet />;
     }

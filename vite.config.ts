@@ -100,8 +100,28 @@ export default defineConfig({
   plugins: [tanstackStartStub(), react(), tailwindcss(), tsconfigPaths()],
   build: {
     outDir: "dist",
+    chunkSizeWarningLimit: 600,
     rollupOptions: {
       input: "index.html",
+      output: {
+        // Split the 4.1 MB monolithic bundle. Without this every user
+        // was downloading the entire app (TanStack + framer-motion +
+        // AI SDKs + every page chunk) before initial render. Function
+        // form so it works under both Rollup and Rolldown.
+        manualChunks(id: string) {
+          if (!id.includes("node_modules")) return;
+          if (/node_modules\/(react|react-dom|react-router-dom)\//.test(id)) return "react";
+          if (id.includes("node_modules/@tanstack/")) return "tanstack";
+          if (id.includes("node_modules/framer-motion/")) return "motion";
+          if (id.includes("node_modules/lucide-react/")) return "icons";
+          if (id.includes("node_modules/@supabase/")) return "supabase";
+          if (id.includes("node_modules/@ai-sdk/") || id.includes("node_modules/ai/")) return "ai-sdk";
+          if (id.includes("node_modules/zod/") || id.includes("node_modules/@hookform/")) return "forms";
+          if (id.includes("node_modules/recharts/") || id.includes("node_modules/d3-")) return "charts";
+          if (id.includes("node_modules/date-fns/") || id.includes("node_modules/dayjs/")) return "date";
+          if (id.includes("node_modules/@radix-ui/")) return "radix";
+        },
+      },
     },
   },
   resolve: {

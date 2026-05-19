@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import {
-  Activity,
+  
   AlertTriangle,
   BarChart3,
   Bell,
@@ -238,46 +238,81 @@ function AdminDashboard() {
     },
   ];
 
+  const totalQueue = k.pendingAdvertisers + k.pendingClaims + k.pendingModeration;
+
   return (
     <div className="space-y-8">
-      {/* Header */}
-      <header className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-            Command center
-          </p>
-          <h1 className="font-display text-3xl font-bold leading-tight">Admin Dashboard</h1>
-          <p className="text-sm text-muted-foreground">
-            Fast snapshot of approvals, moderation, and system health.
-          </p>
+      {/* Hero Header */}
+      <header className="relative overflow-hidden rounded-3xl border-2 border-ink bg-gradient-to-br from-coral via-orange-400 to-gold p-6 shadow-brut sm:p-8">
+        {/* Confetti dots */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute left-[8%] top-4 h-2 w-2 rotate-12 bg-purple" />
+          <div className="absolute left-[22%] top-12 h-3 w-3 -rotate-12 rounded-sm bg-cream" />
+          <div className="absolute right-[12%] top-6 h-2.5 w-2.5 rotate-45 bg-ink" />
+          <div className="absolute right-[28%] bottom-6 h-2 w-2 -rotate-45 bg-cream" />
+          <div className="absolute right-[6%] bottom-10 h-3 w-3 rotate-12 rounded-full bg-purple" />
+          <div className="absolute left-[40%] bottom-4 h-2 w-2 bg-ink" />
         </div>
-        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs">
-          <Activity className="h-3.5 w-3.5 text-emerald-500" />
-          All systems operational
+
+        <div className="relative flex flex-wrap items-end justify-between gap-4">
+          <div className="min-w-0">
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-ink/70">
+              Command center
+            </p>
+            <h1 className="mt-1 font-display text-4xl font-bold leading-tight text-ink sm:text-5xl">
+              Admin Dashboard
+            </h1>
+            <p className="mt-2 max-w-lg text-sm text-ink/80">
+              Fast snapshot of approvals, moderation, and system health.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-cream px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-ink shadow-brut">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              All systems operational
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-ink px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-cream shadow-brut">
+              <Clock className="h-3 w-3" />
+              {totalQueue} in queue
+            </div>
+          </div>
         </div>
       </header>
 
       {/* KPI grid */}
       <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
-        {KPIS.map((kpi) => (
+        {KPIS.map((kpi, idx) => (
           <Link
             key={kpi.label}
             to={kpi.to as any}
-            className={`group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${kpi.tone} p-4 shadow-card transition hover:-translate-y-0.5 hover:shadow-brut`}
+            className={`group relative overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${kpi.tone} p-4 shadow-brut transition hover:-translate-y-1 hover:-rotate-1 hover:shadow-[6px_6px_0_0_hsl(var(--ink))]`}
           >
-            <div className="flex items-start justify-between">
-              <div className="grid h-9 w-9 place-items-center rounded-xl bg-background/70 backdrop-blur">
-                <kpi.icon className="h-4 w-4" />
+            {/* decorative confetti speck */}
+            <span
+              className="pointer-events-none absolute -right-2 -top-2 h-8 w-8 rotate-12 rounded-md bg-cream/40"
+              aria-hidden
+            />
+            <div className="relative flex items-start justify-between">
+              <div className="grid h-10 w-10 place-items-center rounded-xl border-2 border-ink bg-cream shadow-brut">
+                <kpi.icon className="h-4 w-4 text-ink" />
               </div>
-              <ChevronRight className="h-3.5 w-3.5 text-muted-foreground opacity-0 transition group-hover:opacity-100" />
+              <ChevronRight className="h-4 w-4 text-ink opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100" />
             </div>
-            <div className="mt-3 font-display text-2xl font-bold tabular-nums">
+            <div className="relative mt-3 font-display text-3xl font-bold leading-none tabular-nums text-ink">
               {isLoading ? "—" : kpi.value.toLocaleString()}
             </div>
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-foreground/80">
+            <div className="relative mt-2 text-[11px] font-bold uppercase tracking-wider text-ink/85">
               {kpi.label}
             </div>
-            <div className="mt-0.5 text-[10px] text-muted-foreground">{kpi.hint}</div>
+            <div className="relative mt-0.5 text-[10px] text-ink/60">{kpi.hint}</div>
+            {/* corner index marker */}
+            <span className="pointer-events-none absolute bottom-2 right-2 font-mono text-[9px] font-bold text-ink/30">
+              0{idx + 1}
+            </span>
           </Link>
         ))}
       </section>

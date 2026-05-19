@@ -11,7 +11,7 @@ import { buildWaterfrontPrompt, detectWaterfront } from "./agents/waterfront";
 import { buildGirlsNightPresetsPrompt } from "./agents/girls-night-presets";
 import { buildMiamiGuysNightPrompt, isMiamiGuysNight } from "./agents/guys-night-presets";
 import { fetchForecastForCityDate, weatherGuidance } from "./weather.server";
-import { generateAndRankNames } from "./name-generator.functions";
+import { generateAndRankNames } from "./name-generator.server";
 import {
   runV6Engines,
   type PersonalityId,

@@ -43,7 +43,6 @@ export function useStripeCheckout() {
           <StripeEmbeddedCheckout
             variant={options.variant}
             customerEmail={options.customerEmail}
-            userId={options.userId}
             returnUrl={options.returnUrl}
           />
         )}

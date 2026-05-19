@@ -206,7 +206,7 @@ export function PartnerTestimonials() {
                   </div>
                 </div>
                 <span className="inline-flex items-center gap-2 rounded-full border-2 border-cream/30 bg-ink/40 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-coral">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral" />
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral motion-reduce:animate-none" />
                   {t.metric}
                 </span>
               </div>

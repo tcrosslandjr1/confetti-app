@@ -13,7 +13,7 @@ import {
   getVendorStatus,
   createVendorDashboardLink,
 } from "@/lib/vendor-connect.functions";
-import { getStripeEnvironment } from "@/lib/stripe";
+import { getStripeEnvironment } from "@/lib/stripe-env";
 
 export const Route = createFileRoute("/business/payouts")({
   component: VendorPayoutsPage,

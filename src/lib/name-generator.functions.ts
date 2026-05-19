@@ -8,8 +8,6 @@ import {
   generateAndRankNames,
 } from "./name-generator.server";
 
-export { GenerateNamesInput };
-
 export const generateOutingNames = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((d: unknown) => GenerateNamesInput.parse(d))

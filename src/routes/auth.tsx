@@ -46,6 +46,7 @@ function AuthPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
   const { redirect: redirectTo } = Route.useSearch();
+  const safeRedirectTo = redirectTo ?? "/";
   const [mode, setMode] = useState<"signin" | "signup">("signup");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -171,7 +172,7 @@ function AuthPage() {
     setOauthBusy(provider);
     try {
       const { error, redirected } = await lovable.auth.signInWithOAuth(provider, {
-        redirect_uri: `${window.location.origin}/auth?redirect=${encodeURIComponent(redirectTo)}`,
+        redirect_uri: `${window.location.origin}/auth?redirect=${encodeURIComponent(safeRedirectTo)}`,
       });
       if (error) {
         setError(explainOAuthError(provider, error.message));

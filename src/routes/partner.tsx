@@ -1,4 +1,10 @@
-import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
+import {
+  createFileRoute,
+  Link,
+  Outlet,
+  redirect,
+  useRouterState,
+} from "@tanstack/react-router";
 import {
   LayoutDashboard,
   Store,
@@ -13,20 +19,26 @@ import {
   Megaphone,
   LifeBuoy,
   Building2,
-  ChevronDown,
   Bell,
   Code2,
+  Info,
+  X,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/partner")({
+  beforeLoad: async ({ location }) => {
+    const { data } = await supabase.auth.getUser();
+    if (!data.user) {
+      throw redirect({
+        to: "/auth",
+        search: { redirect: location.pathname } as never,
+      });
+    }
+    return { userEmail: data.user.email ?? null };
+  },
   head: () => ({
     meta: [
       { title: "Partner Dashboard — Confetti" },
@@ -55,14 +67,22 @@ const NAV = [
   { to: "/partner/support", label: "Support", icon: LifeBuoy },
 ];
 
-const VENUES = [
-  { id: "v1", name: "Sundae Rooftop", tier: 3 },
-  { id: "v2", name: "Sundae Downtown", tier: 2 },
-];
+const DEMO_BANNER_KEY = "partner-demo-banner-dismissed";
 
 function PartnerLayout() {
   const path = useRouterState({ select: (s) => s.location.pathname });
-  const [venue, setVenue] = useState(VENUES[0]);
+  const { userEmail } = Route.useRouteContext();
+  const initials = (userEmail ?? "?").slice(0, 2).toUpperCase();
+  const [bannerDismissed, setBannerDismissed] = useState(false);
+  useEffect(() => {
+    if (typeof window !== "undefined" && sessionStorage.getItem(DEMO_BANNER_KEY) === "1") {
+      setBannerDismissed(true);
+    }
+  }, []);
+  const dismissBanner = () => {
+    setBannerDismissed(true);
+    if (typeof window !== "undefined") sessionStorage.setItem(DEMO_BANNER_KEY, "1");
+  };
 
   return (
     <div className="min-h-screen bg-[hsl(var(--background))] text-foreground flex">
@@ -81,27 +101,24 @@ function PartnerLayout() {
         </div>
 
         <div className="px-3 py-3 border-b border-border/60">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button className="w-full flex items-center gap-2 px-2 py-2 rounded-md hover:bg-accent/50 text-left">
-                <Building2 className="h-4 w-4 text-primary" />
-                <div className="flex-1 min-w-0">
-                  <div className="text-sm font-medium truncate">{venue.name}</div>
-                  <div className="text-[11px] text-muted-foreground">Tier {venue.tier}</div>
-                </div>
-                <ChevronDown className="h-4 w-4 text-muted-foreground" />
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="w-56">
-              {VENUES.map((v) => (
-                <DropdownMenuItem key={v.id} onClick={() => setVenue(v)}>
-                  <Building2 className="h-4 w-4 mr-2" />
-                  <span className="flex-1">{v.name}</span>
-                  <span className="text-xs text-muted-foreground">T{v.tier}</span>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <div className="w-full flex items-center gap-2 px-2 py-2 rounded-md text-left">
+            <Building2 className="h-4 w-4 text-primary" />
+            <div className="flex-1 min-w-0">
+              <div className="text-sm font-medium truncate">Your venue</div>
+              <div className="text-[11px] text-muted-foreground truncate">
+                {userEmail ?? "Signed in"}
+              </div>
+            </div>
+          </div>
+          <Button
+            variant="ghost"
+            size="sm"
+            disabled
+            className="w-full mt-1 justify-start text-xs text-muted-foreground"
+            title="Venue claim flow coming soon"
+          >
+            + Add venue
+          </Button>
         </div>
 
         <nav className="flex-1 overflow-y-auto px-2 py-3 space-y-0.5">
@@ -125,8 +142,8 @@ function PartnerLayout() {
           })}
         </nav>
 
-        <div className="p-3 border-t border-border/60 text-[11px] text-muted-foreground">
-          Logged in as <span className="text-foreground">owner@sundae.com</span>
+        <div className="p-3 border-t border-border/60 text-[11px] text-muted-foreground truncate">
+          Logged in as <span className="text-foreground">{userEmail ?? "—"}</span>
         </div>
       </aside>
 
@@ -140,12 +157,31 @@ function PartnerLayout() {
             <span className="absolute top-2 right-2 h-2 w-2 rounded-full bg-primary" />
           </Button>
           <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary to-orange-400 text-primary-foreground grid place-items-center text-xs font-semibold">
-            SR
+            {initials}
           </div>
         </header>
 
         <main className="flex-1 p-4 md:p-8 max-w-[1400px] w-full mx-auto">
+          {!bannerDismissed && (
+            <div className="mb-6 flex items-start gap-3 rounded-lg border border-primary/20 bg-primary/5 px-4 py-3 text-sm">
+              <Info className="h-4 w-4 mt-0.5 text-primary shrink-0" />
+              <div className="flex-1 text-foreground/80">
+                <span className="font-medium text-foreground">Preview portal.</span> Showing sample
+                data while we wire real venue data. Reservations, orders, and analytics here are
+                not live yet.
+              </div>
+              <button
+                type="button"
+                onClick={dismissBanner}
+                className="text-muted-foreground hover:text-foreground"
+                aria-label="Dismiss"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+          )}
           <Outlet />
+
         </main>
       </div>
     </div>

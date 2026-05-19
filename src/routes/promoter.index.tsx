@@ -58,6 +58,16 @@ function PromoterProfilePage() {
 
   useEffect(() => {
     if (!promoter) return;
+    const audience = (promoter.audience ?? {}) as {
+      instagram?: number;
+      tiktok?: number;
+      youtube?: number;
+    };
+    const rateCard = (promoter.rate_card ?? {}) as {
+      post?: number;
+      reel?: number;
+      crawl?: number;
+    };
     setForm((f) => ({
       ...f,
       display_name: promoter.display_name ?? "",
@@ -66,12 +76,12 @@ function PromoterProfilePage() {
       niche: promoter.niche ?? [],
       cities: promoter.cities ?? [],
       sample_links: promoter.sample_links ?? [],
-      instagram_followers: (promoter.audience as any)?.instagram ?? 0,
-      tiktok_followers: (promoter.audience as any)?.tiktok ?? 0,
-      youtube_followers: (promoter.audience as any)?.youtube ?? 0,
-      rate_post_cents: (promoter.rate_card as any)?.post ?? 0,
-      rate_reel_cents: (promoter.rate_card as any)?.reel ?? 0,
-      rate_crawl_cents: (promoter.rate_card as any)?.crawl ?? 0,
+      instagram_followers: audience.instagram ?? 0,
+      tiktok_followers: audience.tiktok ?? 0,
+      youtube_followers: audience.youtube ?? 0,
+      rate_post_cents: rateCard.post ?? 0,
+      rate_reel_cents: rateCard.reel ?? 0,
+      rate_crawl_cents: rateCard.crawl ?? 0,
     }));
   }, [promoter]);
 

@@ -49,12 +49,11 @@ export const Route = createFileRoute("/admin")({
       // eslint-disable-next-line no-console
       console.log("[admin] route pending…", window.location.pathname);
     }
-    return (
-      <div className="grid min-h-screen place-items-center bg-background text-sm text-muted-foreground">
-        Loading admin console…
-      </div>
-    );
+    return <AdminSkeleton />;
   },
+  // Show the skeleton immediately on slow navigations rather than waiting the
+  // default 1s before swapping in pendingComponent.
+  pendingMs: 0,
 });
 
 function AdminRouteError({ error, reset }: { error: Error; reset: () => void }) {

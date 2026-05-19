@@ -185,25 +185,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
-  // Async-load the JetBrains Mono stylesheet without a string event handler
-  // (React rejects `onLoad="..."`; the inline script swaps media on load).
-  const asyncFontSwap = `(function(){var l=document.currentScript&&document.currentScript.previousElementSibling;if(l&&l.tagName==='LINK'){l.addEventListener('load',function(){l.media='all';});}})();`;
   return (
     <html lang="en">
       <head>
         <HeadContent />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap"
-          media="print"
-        />
-        <script dangerouslySetInnerHTML={{ __html: asyncFontSwap }} />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap"
-          />
-        </noscript>
       </head>
       <body>
         {children}

@@ -75,7 +75,17 @@ function stubServerModules() {
 }
 
 export default defineConfig({
-  plugins: [stubServerModules(), tsconfigPaths(), tailwindcss(), viteReact()],
+  plugins: [
+    stubServerModules(),
+    tsconfigPaths(),
+    // Must run BEFORE viteReact so generated route files get React refresh.
+    tanstackRouter({
+      target: "react",
+      autoCodeSplitting: true,
+    }),
+    tailwindcss(),
+    viteReact(),
+  ],
   server: {
     host: "0.0.0.0",
     port: 8080,

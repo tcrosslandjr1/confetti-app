@@ -129,10 +129,12 @@ export function SiteHeader() {
           {isVisitor ? (
             <Link
               to="/auth"
+              preload="render"
               className="hidden h-10 items-center whitespace-nowrap rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg min-[1320px]:inline-flex"
             >
               Sign up free
             </Link>
+
           ) : (
             <>
               <NotificationsBell />

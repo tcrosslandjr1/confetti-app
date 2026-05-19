@@ -1,6 +1,3 @@
-// @public-server-fn — returns only booleans about which OAuth providers are
-// configured; no secrets or user data. Safe to expose unauthenticated so the
-// ConnectionsPanel can render before login.
 import { createServerFn } from "@tanstack/react-start";
 import { getProvidersConfigStatus } from "./oauth-providers";
 

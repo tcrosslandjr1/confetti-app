@@ -1,6 +1,0 @@
-{
-  "$comment": "Allowed security findings (ignored / intentional). Any high-severity finding ID not listed here will fail the security-scan CI job.",
-  "allowed": [
-    "linked_social_accounts_missing_insert_update"
-  ]
-}

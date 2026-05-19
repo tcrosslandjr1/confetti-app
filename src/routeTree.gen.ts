@@ -160,6 +160,7 @@ import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminLaunchRouteImport } from './routes/admin.launch'
 import { Route as AdminIntegrationsRouteImport } from './routes/admin.integrations'
 import { Route as AdminEventAnalyticsRouteImport } from './routes/admin.event-analytics'
+import { Route as AdminDiagnosticsRouteImport } from './routes/admin.diagnostics'
 import { Route as AdminBusinessClaimsRouteImport } from './routes/admin.business-claims'
 import { Route as AdminBootstrapRouteImport } from './routes/admin.bootstrap'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
@@ -949,6 +950,11 @@ const AdminEventAnalyticsRoute = AdminEventAnalyticsRouteImport.update({
   path: '/event-analytics',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminDiagnosticsRoute = AdminDiagnosticsRouteImport.update({
+  id: '/diagnostics',
+  path: '/diagnostics',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminBusinessClaimsRoute = AdminBusinessClaimsRouteImport.update({
   id: '/business-claims',
   path: '/business-claims',
@@ -1190,6 +1196,7 @@ export interface FileRoutesByFullPath {
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/bootstrap': typeof AdminBootstrapRoute
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
+  '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
@@ -1367,6 +1374,7 @@ export interface FileRoutesByTo {
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/bootstrap': typeof AdminBootstrapRoute
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
+  '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
@@ -1554,6 +1562,7 @@ export interface FileRoutesById {
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/bootstrap': typeof AdminBootstrapRoute
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
+  '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/integrations': typeof AdminIntegrationsRoute
   '/admin/launch': typeof AdminLaunchRoute
@@ -1742,6 +1751,7 @@ export interface FileRouteTypes {
     | '/admin/bookings'
     | '/admin/bootstrap'
     | '/admin/business-claims'
+    | '/admin/diagnostics'
     | '/admin/event-analytics'
     | '/admin/integrations'
     | '/admin/launch'
@@ -1919,6 +1929,7 @@ export interface FileRouteTypes {
     | '/admin/bookings'
     | '/admin/bootstrap'
     | '/admin/business-claims'
+    | '/admin/diagnostics'
     | '/admin/event-analytics'
     | '/admin/integrations'
     | '/admin/launch'
@@ -2105,6 +2116,7 @@ export interface FileRouteTypes {
     | '/admin/bookings'
     | '/admin/bootstrap'
     | '/admin/business-claims'
+    | '/admin/diagnostics'
     | '/admin/event-analytics'
     | '/admin/integrations'
     | '/admin/launch'
@@ -3397,6 +3409,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminEventAnalyticsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/diagnostics': {
+      id: '/admin/diagnostics'
+      path: '/diagnostics'
+      fullPath: '/admin/diagnostics'
+      preLoaderRoute: typeof AdminDiagnosticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/business-claims': {
       id: '/admin/business-claims'
       path: '/business-claims'
@@ -3639,6 +3658,7 @@ interface AdminRouteChildren {
   AdminBookingsRoute: typeof AdminBookingsRoute
   AdminBootstrapRoute: typeof AdminBootstrapRoute
   AdminBusinessClaimsRoute: typeof AdminBusinessClaimsRoute
+  AdminDiagnosticsRoute: typeof AdminDiagnosticsRoute
   AdminEventAnalyticsRoute: typeof AdminEventAnalyticsRoute
   AdminIntegrationsRoute: typeof AdminIntegrationsRoute
   AdminLaunchRoute: typeof AdminLaunchRoute
@@ -3668,6 +3688,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminBookingsRoute: AdminBookingsRoute,
   AdminBootstrapRoute: AdminBootstrapRoute,
   AdminBusinessClaimsRoute: AdminBusinessClaimsRoute,
+  AdminDiagnosticsRoute: AdminDiagnosticsRoute,
   AdminEventAnalyticsRoute: AdminEventAnalyticsRoute,
   AdminIntegrationsRoute: AdminIntegrationsRoute,
   AdminLaunchRoute: AdminLaunchRoute,

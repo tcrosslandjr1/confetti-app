@@ -141,7 +141,7 @@ function ViralBigCard({ v }: {
         : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${v.venue_name} ${v.address ?? v.city}`)}`;
     return (<article className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
       <div className="relative aspect-[5/3] w-full overflow-hidden bg-muted">
-        {v.photo_url ? (<img src={v.photo_url} alt={v.venue_name} loading="lazy" className="h-full w-full object-cover"/>) : (<div className="grid h-full place-items-center text-4xl">🍽️</div>)}
+        {v.photo_url ? (<img src={v.photo_url} alt={v.venue_name} loading="lazy" className="h-full w-full object-cover" decoding="async"/>) : (<div className="grid h-full place-items-center text-4xl">🍽️</div>)}
         <div className="absolute left-2 top-2 flex items-center gap-1 rounded-full bg-background/85 px-2 py-1 text-[10px] font-bold backdrop-blur">
           {[...Array(heat)].map((_, i) => (<Flame key={i} className="h-3 w-3 text-rose-500"/>))}
           <span className="ml-1 text-foreground">{v.trend_score.toFixed(2)}</span>

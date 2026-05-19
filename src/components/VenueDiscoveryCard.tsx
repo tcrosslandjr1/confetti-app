@@ -182,7 +182,7 @@ function CommunityDrawer({ reels }: { reels: SocialReel[] }) {
                   alt=""
                   loading="lazy"
                   className="h-full w-full object-cover transition group-hover:scale-105"
-                />
+                 decoding="async"/>
                 <span className="absolute bottom-1 left-1 right-1 flex items-center gap-1 rounded-full bg-black/55 px-1.5 py-0.5 font-mono text-[8px] font-bold uppercase tracking-wider text-white backdrop-blur">
                   {reel.platform === "tiktok" ? (
                     <TikTokIcon size={9} />
@@ -253,7 +253,7 @@ export function VenueDiscoveryCard({
           alt={venue.name}
           loading="lazy"
           className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-        />
+         decoding="async"/>
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/15" />
         <HeroChips venue={venue} />
       </div>

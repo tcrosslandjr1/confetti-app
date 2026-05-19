@@ -232,7 +232,7 @@ function SavedPage() {
                     src={i.venues!.image_url}
                     alt={i.venues!.name}
                     className="h-36 w-full object-cover"
-                  />
+                   loading="lazy" decoding="async"/>
                 ) : (
                   <GooglePhotos
                     venue={i.venues!.name}

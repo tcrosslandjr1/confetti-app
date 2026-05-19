@@ -18,7 +18,7 @@ export function HeroImageManager({
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
           <div className="aspect-[16/10] w-full overflow-hidden rounded-xl border bg-muted sm:w-64">
             {heroUrl ? (
-              <img src={heroUrl} alt="Hero" className="h-full w-full object-cover" />
+              <img src={heroUrl} alt="Hero" className="h-full w-full object-cover"  loading="lazy" decoding="async"/>
             ) : (
               <div className="flex h-full items-center justify-center text-xs text-muted-foreground">
                 No hero set

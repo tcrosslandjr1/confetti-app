@@ -66,7 +66,7 @@ function EventDetail() {
       {/* Hero image */}
       <section className="relative">
         <div className="relative h-[44vh] min-h-[320px] w-full overflow-hidden">
-          <img src={event.image} alt={event.title} className="h-full w-full object-cover" />
+          <img src={event.image} alt={event.title} className="h-full w-full object-cover"  loading="lazy" decoding="async"/>
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         </div>
 

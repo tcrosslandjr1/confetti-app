@@ -89,7 +89,7 @@ const AnimatedTeamSection = React.forwardRef<HTMLDivElement, AnimatedTeamSection
                     alt={member.name}
                     loading="lazy"
                     className="h-full w-full object-cover"
-                  />
+                   decoding="async"/>
                 </div>
                 <span className="mt-3 whitespace-nowrap rounded-full border-2 border-ink bg-cream px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest shadow-brut">
                   {member.name}

@@ -135,7 +135,7 @@ function BusinessPromotersPage() {
                       src={p.avatar_url}
                       alt=""
                       className="w-12 h-12 rounded-full object-cover"
-                    />
+                     loading="lazy" decoding="async"/>
                   ) : (
                     <div className="w-12 h-12 rounded-full bg-primary/10" />
                   )}

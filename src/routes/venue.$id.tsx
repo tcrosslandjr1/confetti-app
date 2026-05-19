@@ -676,7 +676,7 @@ function StepVenue({ venue, onReserve }: { venue: Venue; onReserve: () => void }
           src={photo}
           alt={venue.name}
           className="aspect-[5/4] w-full object-cover sm:aspect-[16/10]"
-        />
+         loading="lazy" decoding="async"/>
         {/* Plum -> Indigo gradient overlay */}
         <div
           className="absolute inset-0"

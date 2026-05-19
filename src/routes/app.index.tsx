@@ -90,7 +90,7 @@ function TonightFeedPage() {
                     alt={v.name}
                     className="h-28 w-full object-cover"
                     loading="lazy"
-                  />
+                   decoding="async"/>
                 )}
                 <div className="p-3">
                   <div className="line-clamp-1 text-sm font-semibold">{v.name}</div>
@@ -120,7 +120,7 @@ function TonightFeedPage() {
                   alt={r.title ?? "Reel"}
                   className="size-full object-cover"
                   loading="lazy"
-                />
+                 decoding="async"/>
               )}
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-2 text-[11px] font-medium text-white">
                 {r.title ?? "Untitled"}

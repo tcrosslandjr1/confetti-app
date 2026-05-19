@@ -111,7 +111,7 @@ function FavoritesPage() {
                           src={fav.image_url}
                           alt={fav.venue_name}
                           className="h-full w-full object-cover transition-transform group-hover:scale-[1.03]"
-                        />
+                         loading="lazy" decoding="async"/>
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
                       <div className="absolute inset-x-0 bottom-0 p-4 text-white">

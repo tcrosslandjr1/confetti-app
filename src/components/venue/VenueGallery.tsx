@@ -28,7 +28,7 @@ export function VenueGallery({ items, fallback }: Props) {
               alt=""
               loading="lazy"
               className="h-full w-full object-cover transition-transform group-hover:scale-105"
-            />
+             decoding="async"/>
           </button>
         ))}
       </div>
@@ -90,7 +90,7 @@ function Lightbox({
         src={it.url}
         alt={it.attribution ?? ""}
         className="max-h-[85vh] max-w-full rounded-xl border-2 border-cream object-contain"
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e) = loading="lazy" decoding="async"> e.stopPropagation()}
       />
       <button
         onClick={(e) => {

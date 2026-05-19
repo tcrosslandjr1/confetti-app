@@ -107,7 +107,7 @@ export function GooglePhotos({
           alt={`${venue} — photo via Google`}
           className="h-36 w-full object-cover"
           loading="lazy"
-        />
+         decoding="async"/>
         <span className="absolute bottom-1 right-1 rounded-full bg-background/85 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground backdrop-blur">
           via Google
         </span>
@@ -125,7 +125,7 @@ export function GooglePhotos({
           alt={`${venue} photo ${i + 1}`}
           className="h-16 w-1/3 rounded-lg object-cover"
           loading="lazy"
-        />
+         decoding="async"/>
       ))}
     </div>
   );

@@ -182,7 +182,7 @@ function AdminTestimonialsPage() {
                 {rows.map((r) => (<tr key={r.id} className="border-t border-border align-top">
                     <td className="px-3 py-2">
                       <div className="flex items-center gap-2">
-                        {r.image_url ? (<img src={r.image_url} alt={r.name} className="h-8 w-8 rounded-full object-cover"/>) : (<div className="grid h-8 w-8 place-items-center rounded-full bg-muted text-xs font-bold">
+                        {r.image_url ? (<img src={r.image_url} alt={r.name} className="h-8 w-8 rounded-full object-cover" loading="lazy" decoding="async"/>) : (<div className="grid h-8 w-8 place-items-center rounded-full bg-muted text-xs font-bold">
                             {r.name[0]}
                           </div>)}
                         <div className="min-w-0">

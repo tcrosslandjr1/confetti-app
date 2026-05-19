@@ -115,7 +115,7 @@ function ViralCard({ v }: { v: ViralVenue }) {
             alt={v.venue_name}
             loading="lazy"
             className="h-full w-full object-cover transition group-hover:scale-105"
-          />
+           decoding="async"/>
         ) : (
           <div className="grid h-full place-items-center text-3xl">🍽️</div>
         )}

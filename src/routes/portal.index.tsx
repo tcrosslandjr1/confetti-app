@@ -765,7 +765,7 @@ function FeaturedCard({
       className="group block overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut"
     >
       {venue.image_url ? (
-        <img src={venue.image_url} alt={venue.name} className="h-40 w-full object-cover" />
+        <img src={venue.image_url} alt={venue.name} className="h-40 w-full object-cover"  loading="lazy" decoding="async"/>
       ) : (
         <GooglePhotos
           venue={venue.name}
@@ -804,7 +804,7 @@ function VenueCard({ v }: { v: Venue }) {
       className="group block overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut transition-pop hover:-translate-y-0.5 hover:shadow-brut"
     >
       {v.image_url ? (
-        <img src={v.image_url} alt={v.name} className="h-36 w-full object-cover" />
+        <img src={v.image_url} alt={v.name} className="h-36 w-full object-cover"  loading="lazy" decoding="async"/>
       ) : (
         <GooglePhotos
           venue={v.name}

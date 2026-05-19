@@ -14,11 +14,10 @@ type Variant =
 interface Props {
   variant: Variant;
   customerEmail?: string;
-  userId?: string;
   returnUrl?: string;
 }
 
-export function StripeEmbeddedCheckout({ variant, customerEmail, userId, returnUrl }: Props) {
+export function StripeEmbeddedCheckout({ variant, customerEmail, returnUrl }: Props) {
   const fetchClientSecret = async (): Promise<string> => {
     const url =
       returnUrl ?? `${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`;

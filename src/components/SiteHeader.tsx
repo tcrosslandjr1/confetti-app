@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Sparkles, LogOut, UserPlus } from "lucide-react";
 import { WizardButton } from "@/components/wizard/WizardButton";
@@ -55,11 +55,25 @@ const marketingLinks = [
 
 export function SiteHeader() {
   const { viewAs, signOut, user } = useAuth();
+  const router = useRouter();
   const showPortal = viewAs === "customer" || viewAs === "admin";
   const showAdmin = viewAs === "admin";
   const isVisitor = viewAs === "visitor" || !user;
   const scrolled = useScrolled(8);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Eagerly preload /auth for visitors so the "Sign up free" click is instant
+  // instead of waiting on a lazy chunk fetch (which feels like a "reflash").
+  useEffect(() => {
+    if (!isVisitor) return;
+    const idle =
+      (window as unknown as { requestIdleCallback?: (cb: () => void) => number })
+        .requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 200));
+    idle(() => {
+      void router.preloadRoute({ to: "/auth" });
+    });
+  }, [isVisitor, router]);
+
 
   return (
     <header
@@ -115,10 +129,12 @@ export function SiteHeader() {
           {isVisitor ? (
             <Link
               to="/auth"
+              preload="render"
               className="hidden h-10 items-center whitespace-nowrap rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg min-[1320px]:inline-flex"
             >
               Sign up free
             </Link>
+
           ) : (
             <>
               <NotificationsBell />

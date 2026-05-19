@@ -3,36 +3,17 @@ import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
 
-// Stub out ALL TanStack Start server-only imports for SPA build
 function tanstackStartStub(): Plugin {
   return {
     name: "tanstack-start-stub",
     enforce: "pre",
     resolveId(id) {
-      // Stub Node.js private (#) imports
-      if (id.startsWith("#")) {
-        return `\0stub-hash-${id}`;
-      }
-      // Stub ALL tanstack-start-* virtual modules (manifest, injected-head-scripts, etc.)
-      if (id.startsWith("tanstack-start-")) {
-        return `\0stub-ts-${id}`;
-      }
-      // Stub any tsr: protocol imports
-      if (id.startsWith("tsr:")) {
-        return `\0stub-tsr-${id}`;
-      }
-      // Stub Node.js built-in modules (node:async_hooks, node:crypto, node:stream, etc.)
-      if (id.startsWith("node:")) {
-        return `\0stub-node-${id}`;
-      }
-      // Stub ALL @tanstack/start-* scoped packages
-      if (id.includes("@tanstack/start-")) {
-        return `\0stub-tanstack-pkg-${id.replace(/[^a-zA-Z0-9]/g, "_")}`;
-      }
-      // Stub @tanstack/server-fns-fetcher if referenced
-      if (id.includes("@tanstack/server-fn")) {
-        return "\0stub-server-fn";
-      }
+      if (id.startsWith("#")) return `\0stub-hash-${id}`;
+      if (id.startsWith("tanstack-start-")) return `\0stub-ts-${id}`;
+      if (id.startsWith("tsr:")) return `\0stub-tsr-${id}`;
+      if (id.startsWith("node:")) return `\0stub-node-${id}`;
+      if (id.includes("@tanstack/start-")) return `\0stub-tanstack-pkg-${id.replace(/[^a-zA-Z0-9]/g, "_")}`;
+      if (id.includes("@tanstack/server-fn")) return "\0stub-server-fn";
     },
     load(id) {
       if (id.startsWith("\0stub-")) {
@@ -43,6 +24,18 @@ function tanstackStartStub(): Plugin {
           export const scripts = [];
           export const AsyncLocalStorage = class {};
           export const createHash = () => ({update: () => ({digest: () => ''})});
+          export const randomBytes = () => '';
+          export const createHmac = () => ({update: () => ({digest: () => ''})});
+          export const Readable = class { pipe() { return this; } on() { return this; } };
+          export const Writable = class { write() {} end() {} on() { return this; } };
+          export const Transform = class { pipe() { return this; } on() { return this; } };
+          export const Duplex = class { pipe() { return this; } on() { return this; } };
+          export const PassThrough = class { pipe() { return this; } on() { return this; } };
+          export const pipeline = () => {};
+          export const finished = () => {};
+          export const ReadableStream = class {};
+          export const WritableStream = class {};
+          export const TransformStream = class {};
           export const getStartContext = () => ({});
           export const createIsomorphicFn = () => ({ client: (fn) => fn, server: (fn) => fn });
           export const getStartOptions = () => ({});
@@ -70,9 +63,7 @@ export default defineConfig({
     outDir: "dist",
     rollupOptions: {
       onwarn(warning, warn) {
-        if (warning.code === "UNRESOLVED_IMPORT" && warning.exporter?.includes("start-server")) {
-          return;
-        }
+        if (warning.code === "UNRESOLVED_IMPORT" && warning.exporter?.includes("start-server")) return;
         warn(warning);
       },
     },

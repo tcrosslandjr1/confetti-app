@@ -368,15 +368,7 @@ function VibePlansPage() {
       // Brunch Baddies-aware add-ons
       const isBrunchBaddies =
         catIds.includes("brunch_baddies") ||
-        (vibe &&
-          [
-            "brunch_baddies",
-            "mimosas",
-            "cute_fits",
-            "pink_aesthetic",
-            "photo_walls",
-            "shopping_after",
-          ].includes(vibe.id));
+        (vibe && BRUNCH_BADDIES_TRIGGER_IDS.has(vibe.id));
       if (isBrunchBaddies) {
         tweaks.push(
           "Brunch Baddies daytime-first plan: cute fits, mimosas, rooftop or waterfront brunch, aesthetic plates, photo/flower walls, daytime music. No clubs or late-night venues.",

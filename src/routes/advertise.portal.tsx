@@ -126,16 +126,35 @@ function AdvertiserPortal() {
 
   if (!advertiser) {
     return (
-      <main className="mx-auto max-w-3xl px-4 py-16 text-center">
-        <Megaphone className="mx-auto h-10 w-10 text-primary" />
-        <h1 className="mt-4 font-display text-3xl font-bold">No advertiser account yet</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Sign up first — takes about a minute.</p>
-        <Link
-          to="/advertise"
-          className="mt-6 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-bold text-background"
-        >
-          Go to signup <ChevronRight className="h-4 w-4" />
-        </Link>
+      <main className="mx-auto max-w-3xl px-4 py-16">
+        <div className="relative overflow-hidden rounded-[2rem] border-2 border-ink bg-gradient-to-br from-coral via-orange-400 to-gold p-10 text-center shadow-brut">
+          {/* confetti dots */}
+          <span className="absolute left-6 top-8 h-3 w-3 rotate-12 rounded-sm bg-purple" />
+          <span className="absolute right-10 top-12 h-2 w-6 -rotate-12 rounded-sm bg-cream" />
+          <span className="absolute left-12 bottom-10 h-2 w-2 rounded-full bg-ink" />
+          <span className="absolute right-16 bottom-16 h-3 w-3 -rotate-45 rounded-sm bg-gold" />
+          <span className="absolute left-1/3 top-4 h-1.5 w-1.5 rounded-full bg-cream" />
+          <span className="absolute right-1/3 bottom-4 h-1.5 w-5 rotate-45 rounded-sm bg-purple" />
+
+          <div className="relative">
+            <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-ink bg-cream shadow-brut">
+              <Megaphone className="h-8 w-8 text-coral" />
+            </div>
+            <h1 className="mt-5 font-display text-4xl font-bold text-ink">
+              Light up your venue.
+            </h1>
+            <p className="mx-auto mt-2 max-w-md text-sm text-ink/80">
+              You don't have an advertiser account yet. Spin one up in about a minute and start
+              landing on Confetti plans.
+            </p>
+            <Link
+              to="/advertise"
+              className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-ink bg-ink px-6 py-3 text-sm font-bold uppercase tracking-wider text-cream shadow-brut transition-transform hover:-translate-y-0.5"
+            >
+              Go to signup <ChevronRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
       </main>
     );
   }

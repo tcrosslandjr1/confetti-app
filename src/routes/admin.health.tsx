@@ -127,7 +127,7 @@ function AdminHealthPage() {
         { k: "isAdmin", v: String(isAdmin) },
         { k: "viewAs", v: String(viewAs ?? "—") },
         { k: "isPreview", v: String(isPreview) },
-        { k: "userId", v: user?.id?.slice(0, 8) + "…" ?? "—" },
+        { k: "userId", v: user?.id ? user.id.slice(0, 8) + "…" : "—" },
       ],
     },
     {

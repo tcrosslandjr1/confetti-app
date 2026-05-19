@@ -13,10 +13,6 @@ export default defineConfig({
         find: /^@tanstack\/react-start$/,
         replacement: path.resolve(__dirname, "./src/lib/server-fn-shim.ts"),
       },
-      {
-        find: /^@tanstack\/react-start\/server$/,
-        replacement: path.resolve(__dirname, "./src/lib/server-fn-shim.ts"),
-      },
     ],
   },
   build: {

@@ -206,7 +206,7 @@ export function PartnerTestimonials() {
                   </div>
                 </div>
                 <span className="inline-flex items-center gap-2 rounded-full border-2 border-cream/30 bg-ink/40 px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-coral">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral" />
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral motion-reduce:animate-none" />
                   {t.metric}
                 </span>
               </div>
@@ -217,7 +217,7 @@ export function PartnerTestimonials() {
         <div className="absolute inset-x-0 bottom-0 h-1 bg-cream/10">
           <div
             key={`${index}-${paused}`}
-            className="h-full bg-gradient-to-r from-coral to-gold"
+            className="confetti-progress-bar h-full bg-gradient-to-r from-coral to-gold"
             style={{
               width: "100%",
               transformOrigin: "left center",
@@ -285,6 +285,13 @@ export function PartnerTestimonials() {
         }
         .animate-confetti-marquee {
           animation: confetti-marquee 38s linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-confetti-marquee,
+          .confetti-progress-bar {
+            animation: none !important;
+            transform: none !important;
+          }
         }
       `}</style>
     </section>

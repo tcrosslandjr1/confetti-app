@@ -1417,19 +1417,19 @@ function Landing() {
         <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-gold/20 blur-3xl" aria-hidden />
         {/* Confetti specks */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-          <span className="absolute left-[6%] top-10 h-2 w-2 rotate-12 bg-coral" />
-          <span className="absolute left-[18%] top-24 h-2.5 w-2.5 -rotate-12 rounded-sm bg-cream/70" />
-          <span className="absolute left-[38%] top-6 h-1.5 w-1.5 bg-gold" />
-          <span className="absolute right-[12%] top-16 h-2 w-2 rotate-45 bg-purple" />
-          <span className="absolute right-[30%] bottom-12 h-2 w-2 -rotate-45 rounded-full bg-coral" />
-          <span className="absolute left-[10%] bottom-10 h-2.5 w-2.5 rotate-12 bg-cream/50" />
+          <span className="absolute left-[6%] top-10 h-2 w-2 rotate-12 bg-coral motion-reduce:rotate-0" />
+          <span className="absolute left-[18%] top-24 h-2.5 w-2.5 -rotate-12 rounded-sm bg-cream/70 motion-reduce:rotate-0" />
+          <span className="absolute left-[38%] top-6 h-1.5 w-1.5 bg-gold motion-reduce:rotate-0" />
+          <span className="absolute right-[12%] top-16 h-2 w-2 rotate-45 bg-purple motion-reduce:rotate-0" />
+          <span className="absolute right-[30%] bottom-12 h-2 w-2 -rotate-45 rounded-full bg-coral motion-reduce:rotate-0" />
+          <span className="absolute left-[10%] bottom-10 h-2.5 w-2.5 rotate-12 bg-cream/50 motion-reduce:rotate-0" />
         </div>
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.4fr_1fr] lg:px-8 lg:py-24">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border-2 border-cream/40 bg-cream/5 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-cream/80 backdrop-blur">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-75" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-75 motion-reduce:animate-none" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
               </span>
               For businesses
@@ -1515,7 +1515,7 @@ function Landing() {
                         PARTNER · last 30d
                       </span>
                       <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-coral">
-                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral" />
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral motion-reduce:animate-none" />
                         LIVE
                       </span>
                     </div>

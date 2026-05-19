@@ -51,12 +51,25 @@ export const resolveVenueNotificationEmail = createServerFn({ method: "GET" })
 
     const { data: venue, error } = await supabaseAdmin
       .from("venues")
-      .select("id, name, staff_email, advertiser_id")
+      .select("id, name, staff_email, advertiser_id, claimed_by")
       .eq("id", data.venueId)
       .maybeSingle();
 
     if (error) throw error;
     if (!venue) return opsResult;
+
+    // Authorization: only admins, the venue claimer, or the linked advertiser owner
+    // may see the resolved staff/advertiser email for this venue.
+    let canSeeVenueEmail = isAdmin || venue.claimed_by === userId;
+    if (!canSeeVenueEmail && venue.advertiser_id) {
+      const { data: adv } = await supabaseAdmin
+        .from("advertisers")
+        .select("owner_id")
+        .eq("id", venue.advertiser_id)
+        .maybeSingle();
+      if (adv?.owner_id === userId) canSeeVenueEmail = true;
+    }
+    if (!canSeeVenueEmail) return { ...opsResult, venueName: venue.name };
 
     const staff = (venue.staff_email ?? "").trim();
     if (staff) {

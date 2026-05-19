@@ -1520,26 +1520,59 @@ function Landing() {
                       </span>
                     </div>
                     <div className="mt-4 grid grid-cols-3 gap-3">
-                      {stats.map((s) => (
-                        <div
-                          key={s.k}
-                          className="rounded-xl border-2 border-cream/20 bg-ink/60 p-3 transition hover:border-coral/50"
-                        >
-                          <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
-                            {s.k}
-                          </div>
-                          <div className="mt-1 font-display text-2xl font-extrabold leading-none">
-                            {s.v}
-                          </div>
-                          <div
-                            className={`mt-1 font-mono text-[9px] font-bold ${
-                              s.up ? "text-coral" : "text-cream/50"
-                            }`}
-                          >
-                            {s.d}
-                          </div>
-                        </div>
-                      ))}
+                      {stats.map((s) => {
+                        const tooltipText =
+                          s.k === "Impressions"
+                            ? "Times your venue appeared in an itinerary or home-page recommendation."
+                            : s.k === "Clicks"
+                              ? "Users who tapped through to view your venue details or booking link."
+                              : "Click-through rate = clicks ÷ impressions. Industry avg is ~2.5%.";
+                        return (
+                          <Tooltip key={s.k} delayDuration={200}>
+                            <TooltipTrigger asChild>
+                              <button
+                                type="button"
+                                className="rounded-xl border-2 border-cream/20 bg-ink/60 p-3 text-left transition hover:border-coral/50 focus:border-coral focus:outline-none"
+                              >
+                                <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-cream/60">
+                                  {s.k}
+                                  <svg
+                                    className="h-3 w-3 opacity-40"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    aria-hidden
+                                  >
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 16v-4" />
+                                    <path d="M12 8h.01" />
+                                  </svg>
+                                </div>
+                                <div className="mt-1 font-display text-2xl font-extrabold leading-none">
+                                  {s.v}
+                                </div>
+                                <div
+                                  className={`mt-1 font-mono text-[9px] font-bold ${
+                                    s.up ? "text-coral" : "text-cream/50"
+                                  }`}
+                                >
+                                  {s.d}
+                                </div>
+                              </button>
+                            </TooltipTrigger>
+                            <TooltipContent
+                              side="top"
+                              sideOffset={8}
+                              className="max-w-[220px] border-2 border-cream/30 bg-ink px-3 py-2 text-xs text-cream shadow-brut"
+                            >
+                              {tooltipText}
+                            </TooltipContent>
+                          </Tooltip>
+                        );
+                      })}
                     </div>
                     <div className="mt-4 rounded-xl border-2 border-cream/15 bg-ink/40 p-3">
                       <div className="mb-2 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-cream/60">

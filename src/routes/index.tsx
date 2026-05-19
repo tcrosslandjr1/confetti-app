@@ -1393,45 +1393,64 @@ function Landing() {
         </p>
       </section>
 
-      {/* ====================== FOR BUSINESSES CTA ====================== */}
-      <section className="border-t-2 border-ink bg-ink text-cream">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.4fr_1fr] lg:px-8 lg:py-24">
+      <section className="relative overflow-hidden border-t-2 border-ink bg-gradient-to-br from-ink via-ink to-[#1a0f0a] text-cream">
+        {/* Decorative glow blobs */}
+        <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-coral/30 blur-3xl" aria-hidden />
+        <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-gold/20 blur-3xl" aria-hidden />
+        {/* Confetti specks */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+          <span className="absolute left-[6%] top-10 h-2 w-2 rotate-12 bg-coral" />
+          <span className="absolute left-[18%] top-24 h-2.5 w-2.5 -rotate-12 rounded-sm bg-cream/70" />
+          <span className="absolute left-[38%] top-6 h-1.5 w-1.5 bg-gold" />
+          <span className="absolute right-[12%] top-16 h-2 w-2 rotate-45 bg-purple" />
+          <span className="absolute right-[30%] bottom-12 h-2 w-2 -rotate-45 rounded-full bg-coral" />
+          <span className="absolute left-[10%] bottom-10 h-2.5 w-2.5 rotate-12 bg-cream/50" />
+        </div>
+
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.4fr_1fr] lg:px-8 lg:py-24">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border-2 border-cream/40 bg-cream/5 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-cream/80">
-              <span className="h-2 w-2 rounded-full bg-coral" /> For businesses
+            <span className="inline-flex items-center gap-2 rounded-full border-2 border-cream/40 bg-cream/5 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-cream/80 backdrop-blur">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
+              </span>
+              For businesses
             </span>
-            <h2 className="mt-5 font-display text-4xl font-extrabold leading-[0.95] tracking-tight sm:text-5xl">
+            <h2 className="mt-5 font-display text-4xl font-extrabold leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
               Be the plan,{" "}
-              <span className="font-serif italic font-normal text-coral">not an afterthought.</span>
+              <span className="font-serif italic font-normal bg-gradient-to-r from-coral via-orange-400 to-gold bg-clip-text text-transparent">
+                not an afterthought.
+              </span>
             </h2>
             <p className="mt-4 max-w-xl text-base text-cream/80 sm:text-lg">
               Get your venue in front of people the second they're choosing what to do tonight.
               Promoted itinerary slots, home-page spotlights, and verified analytics.
             </p>
-            <ul className="mt-5 grid max-w-xl gap-2 text-sm text-cream/80 sm:grid-cols-2">
-              <li className="flex items-start gap-2">
-                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
-                Promoted in real itineraries
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
-                Claim &amp; verify your venue free
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
-                Impressions, clicks, CTR dashboard
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
-                Pause anytime — no contracts
-              </li>
+            <ul className="mt-6 grid max-w-xl gap-2.5 text-sm text-cream/85 sm:grid-cols-2">
+              {[
+                "Promoted in real itineraries",
+                "Claim & verify your venue free",
+                "Impressions, clicks, CTR dashboard",
+                "Pause anytime — no contracts",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2.5 rounded-lg border border-cream/10 bg-cream/[0.03] px-3 py-2 transition hover:border-coral/40 hover:bg-cream/[0.06]"
+                >
+                  <span className="mt-1 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-coral text-[10px] font-bold text-ink">
+                    ✓
+                  </span>
+                  {item}
+                </li>
+              ))}
             </ul>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 to="/advertise"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-cream bg-coral px-6 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5"
+                className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-cream bg-coral px-6 text-sm font-bold uppercase tracking-wider text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5"
               >
-                See packages <ArrowUpRight className="h-4 w-4" />
+                See packages{" "}
+                <ArrowUpRight className="h-4 w-4 transition group-hover:rotate-45" />
               </Link>
               <Link
                 to="/advertise/portal"
@@ -1441,27 +1460,61 @@ function Landing() {
               </Link>
             </div>
           </div>
+
           <div className="relative">
-            <div className="rounded-2xl border-2 border-cream/30 bg-cream/5 p-5 shadow-brut-lg backdrop-blur">
+            {/* Floating sticker */}
+            <div className="absolute -left-3 -top-3 z-10 -rotate-6 rounded-full border-2 border-ink bg-gold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-ink shadow-brut">
+              ↑ 23% MoM
+            </div>
+            <div className="rounded-2xl border-2 border-cream/30 bg-cream/[0.04] p-5 shadow-brut-lg backdrop-blur-xl">
               <div className="flex items-center justify-between border-b-2 border-dashed border-cream/30 pb-3">
                 <span className="font-mono text-[11px] uppercase tracking-widest text-cream/70">
                   PARTNER · last 30d
                 </span>
-                <span className="font-mono text-[11px] text-coral">LIVE</span>
+                <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-coral">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-coral" />
+                  LIVE
+                </span>
               </div>
               <div className="mt-4 grid grid-cols-3 gap-3">
                 {[
-                  { k: "Impressions", v: "12.4k" },
-                  { k: "Clicks", v: "892" },
-                  { k: "CTR", v: "7.2%" },
+                  { k: "Impressions", v: "12.4k", d: "+18%" },
+                  { k: "Clicks", v: "892", d: "+24%" },
+                  { k: "CTR", v: "7.2%", d: "+0.9pt" },
                 ].map((s) => (
-                  <div key={s.k} className="rounded-xl border-2 border-cream/30 bg-ink/40 p-3">
+                  <div
+                    key={s.k}
+                    className="rounded-xl border-2 border-cream/20 bg-ink/60 p-3 transition hover:border-coral/50"
+                  >
                     <div className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
                       {s.k}
                     </div>
-                    <div className="mt-1 font-display text-2xl font-extrabold">{s.v}</div>
+                    <div className="mt-1 font-display text-2xl font-extrabold leading-none">
+                      {s.v}
+                    </div>
+                    <div className="mt-1 font-mono text-[9px] font-bold text-coral">{s.d}</div>
                   </div>
                 ))}
+              </div>
+              {/* Mini sparkline bars */}
+              <div className="mt-4 rounded-xl border-2 border-cream/15 bg-ink/40 p-3">
+                <div className="mb-2 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-cream/60">
+                  <span>Itinerary placements</span>
+                  <span className="text-cream/40">30d</span>
+                </div>
+                <div className="flex h-12 items-end gap-1">
+                  {[40, 55, 38, 62, 48, 70, 52, 78, 60, 82, 68, 88, 72, 95, 80].map((h, i) => (
+                    <div
+                      key={i}
+                      className="flex-1 rounded-sm bg-gradient-to-t from-coral/40 via-coral to-gold"
+                      style={{ height: `${h}%` }}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-cream/50">
+                <span>Verified by Confetti</span>
+                <span>◐ realtime</span>
               </div>
             </div>
           </div>

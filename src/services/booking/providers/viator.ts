@@ -39,7 +39,7 @@ function headers() {
 // ─── Search Activities ───────────────────────────────────────────────
 export async function searchActivities(
   query: string,
-  destinationId: string = "684" // Washington DC
+  destinationId: string = "684", // Washington DC
 ): Promise<VenueSearchResult[]> {
   const res = await fetch(`${VIATOR_BASE}/products/search`, {
     method: "POST",
@@ -74,7 +74,7 @@ export async function searchActivities(
 export async function checkAvailability(
   productCode: string,
   date: string,
-  partySize: number
+  partySize: number,
 ): Promise<AvailabilitySlot[]> {
   const res = await fetch(`${VIATOR_BASE}/availability/check`, {
     method: "POST",
@@ -99,7 +99,7 @@ export async function checkAvailability(
 
 // ─── Book ────────────────────────────────────────────────────────────
 export async function createBooking(
-  req: BookingRequest
+  req: BookingRequest,
 ): Promise<BookingConfirmation | BookingError> {
   // Step 1: Hold the booking
   const holdRes = await fetch(`${VIATOR_BASE}/bookings/hold`, {

@@ -32,7 +32,7 @@ function headers() {
 export async function searchStations(
   location: { lat: number; lng: number },
   radiusMeters: number = 2000,
-  connectorType?: string
+  connectorType?: string,
 ): Promise<ChargingStation[]> {
   const params = new URLSearchParams({
     lat: location.lat.toString(),
@@ -77,7 +77,7 @@ export async function getStation(stationId: string): Promise<ChargingStation | n
 // ─── Start Charging Session ──────────────────────────────────────────
 export async function startSession(
   stationId: string,
-  portNumber: number = 1
+  portNumber: number = 1,
 ): Promise<ChargingSession | null> {
   const res = await fetch(`${CP_BASE}/sessions`, {
     method: "POST",

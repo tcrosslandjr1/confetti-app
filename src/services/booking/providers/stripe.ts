@@ -45,7 +45,7 @@ export async function createPaymentIntent(
   amountCents: number,
   confettiCode: string,
   userId: string,
-  description: string
+  description: string,
 ): Promise<PaymentIntent> {
   const res = await fetch(`${STRIPE_BASE}/payment_intents`, {
     method: "POST",
@@ -74,7 +74,7 @@ export async function createPaymentIntent(
 // ─── Confirm Payment ─────────────────────────────────────────────────
 export async function confirmPayment(
   paymentIntentId: string,
-  paymentMethodId: string
+  paymentMethodId: string,
 ): Promise<PaymentIntent> {
   const res = await fetch(`${STRIPE_BASE}/payment_intents/${paymentIntentId}/confirm`, {
     method: "POST",
@@ -104,7 +104,12 @@ export async function getPaymentStatus(paymentIntentId: string): Promise<Payment
     stripePaymentIntentId: data.id,
     amount: data.amount,
     currency: data.currency,
-    status: data.status === "succeeded" ? "succeeded" : data.status === "requires_payment_method" ? "failed" : "processing",
+    status:
+      data.status === "succeeded"
+        ? "succeeded"
+        : data.status === "requires_payment_method"
+          ? "failed"
+          : "processing",
     loopCode: data.metadata?.confetti_code || "",
   };
 }
@@ -112,7 +117,7 @@ export async function getPaymentStatus(paymentIntentId: string): Promise<Payment
 // ─── Refund ──────────────────────────────────────────────────────────
 export async function refundPayment(
   paymentIntentId: string,
-  amountCents?: number
+  amountCents?: number,
 ): Promise<boolean> {
   const body: Record<string, any> = { payment_intent: paymentIntentId };
   if (amountCents) body.amount = amountCents;

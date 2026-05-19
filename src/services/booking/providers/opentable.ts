@@ -69,10 +69,10 @@ async function authedFetch(path: string, options: RequestInit = {}) {
 export async function searchRestaurants(
   query: string,
   location: { lat: number; lng: number },
-  radius: number = 5000
+  radius: number = 5000,
 ): Promise<VenueSearchResult[]> {
   const res = await authedFetch(
-    `/restaurants?query=${encodeURIComponent(query)}&lat=${location.lat}&lng=${location.lng}&radius=${radius}`
+    `/restaurants?query=${encodeURIComponent(query)}&lat=${location.lat}&lng=${location.lng}&radius=${radius}`,
   );
   if (!res.ok) return [];
   const data = await res.json();
@@ -94,10 +94,10 @@ export async function searchRestaurants(
 export async function checkAvailability(
   venueId: string,
   date: string,
-  partySize: number
+  partySize: number,
 ): Promise<AvailabilitySlot[]> {
   const res = await authedFetch(
-    `/restaurants/${venueId}/availability?date=${date}&party_size=${partySize}`
+    `/restaurants/${venueId}/availability?date=${date}&party_size=${partySize}`,
   );
   if (!res.ok) return [];
   const data = await res.json();
@@ -112,7 +112,7 @@ export async function checkAvailability(
 
 // ─── Book ────────────────────────────────────────────────────────────
 export async function createReservation(
-  req: BookingRequest
+  req: BookingRequest,
 ): Promise<BookingConfirmation | BookingError> {
   const res = await authedFetch(`/reservations`, {
     method: "POST",
@@ -155,9 +155,7 @@ export async function createReservation(
 }
 
 // ─── Cancel ──────────────────────────────────────────────────────────
-export async function cancelReservation(
-  confirmationId: string
-): Promise<boolean> {
+export async function cancelReservation(confirmationId: string): Promise<boolean> {
   const res = await authedFetch(`/reservations/${confirmationId}`, {
     method: "DELETE",
   });

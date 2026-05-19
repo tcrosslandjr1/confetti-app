@@ -40,11 +40,11 @@ function headers() {
 // ─── Search ──────────────────────────────────────────────────────────
 export async function searchVenues(
   query: string,
-  location: { lat: number; lng: number }
+  location: { lat: number; lng: number },
 ): Promise<VenueSearchResult[]> {
   const res = await fetch(
     `${RESY_BASE}/venuesearch/search?query=${encodeURIComponent(query)}&lat=${location.lat}&long=${location.lng}&limit=20`,
-    { headers: headers() }
+    { headers: headers() },
   );
   if (!res.ok) return [];
   const data = await res.json();
@@ -66,11 +66,11 @@ export async function searchVenues(
 export async function checkAvailability(
   venueId: string,
   date: string,
-  partySize: number
+  partySize: number,
 ): Promise<AvailabilitySlot[]> {
   const res = await fetch(
     `${RESY_BASE}/find?venue_id=${venueId}&day=${date}&party_size=${partySize}&lat=0&long=0`,
-    { headers: headers() }
+    { headers: headers() },
   );
   if (!res.ok) return [];
   const data = await res.json();
@@ -85,7 +85,7 @@ export async function checkAvailability(
 
 // ─── Book ────────────────────────────────────────────────────────────
 export async function createReservation(
-  req: BookingRequest
+  req: BookingRequest,
 ): Promise<BookingConfirmation | BookingError> {
   // Step 1: Get config token for the slot
   const configRes = await fetch(`${RESY_BASE}/details`, {

@@ -40,7 +40,7 @@ function headers(siteId?: string) {
 // ─── Search Services ─────────────────────────────────────────────────
 export async function searchServices(
   siteId: string,
-  category?: string
+  category?: string,
 ): Promise<VenueSearchResult[]> {
   const params = new URLSearchParams();
   if (category) params.set("ProgramIDs", category);
@@ -65,11 +65,11 @@ export async function searchServices(
 export async function checkAvailability(
   siteId: string,
   sessionTypeId: string,
-  date: string
+  date: string,
 ): Promise<AvailabilitySlot[]> {
   const res = await fetch(
     `${MB_BASE}/appointment/availabledates?sessionTypeId=${sessionTypeId}&startDate=${date}&endDate=${date}`,
-    { headers: headers(siteId) }
+    { headers: headers(siteId) },
   );
   if (!res.ok) return [];
   const data = await res.json();
@@ -86,7 +86,7 @@ export async function checkAvailability(
 export async function createAppointment(
   req: BookingRequest,
   siteId: string,
-  staffId?: string
+  staffId?: string,
 ): Promise<BookingConfirmation | BookingError> {
   const res = await fetch(`${MB_BASE}/appointment/addappointment`, {
     method: "POST",
@@ -127,10 +127,7 @@ export async function createAppointment(
 }
 
 // ─── Cancel ──────────────────────────────────────────────────────────
-export async function cancelAppointment(
-  siteId: string,
-  appointmentId: string
-): Promise<boolean> {
+export async function cancelAppointment(siteId: string, appointmentId: string): Promise<boolean> {
   const res = await fetch(`${MB_BASE}/appointment/removeappointment`, {
     method: "POST",
     headers: headers(siteId),

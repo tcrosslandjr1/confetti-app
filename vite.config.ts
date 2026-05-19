@@ -8,8 +8,7 @@ export default defineConfig({
   plugins: [
     tsconfigPaths(),
     tailwindcss(),
-    tanstackStart({ customViteReactPlugin: true }),
-    react(),
+    tanstackStart(),
   ],
   build: {
     chunkSizeWarningLimit: 600,

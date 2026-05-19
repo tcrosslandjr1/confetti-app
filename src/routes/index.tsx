@@ -1568,6 +1568,13 @@ function Landing() {
             })()}
           </div>
         </div>
+
+        {/* Partner testimonials carousel + logo strip */}
+        <div className="relative px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
+          <Suspense fallback={null}>
+            <PartnerTestimonials />
+          </Suspense>
+        </div>
       </section>
 
       <Suspense fallback={null}>

@@ -23,47 +23,42 @@ function tanstackStartStub(): Plugin {
       const noop = "() => {}";
       const noopObj = "() => ({})";
       return `
-export const createServerFn = ${noop};
-export const createMiddleware = ${noop};
-export const registerGlobalMiddleware = ${noop};
+// Chainable builder for createServerFn / createMiddleware
+const _chain = new Proxy(function(){}, {
+  get(t, p) {
+    if (typeof p === "symbol") return undefined;
+    return () => _chain;
+  },
+  apply() { return undefined; }
+});
+export const createServerFn = () => _chain;
+export const createMiddleware = () => _chain;
+export const createIsomorphicFn = () => _chain;
+export const getStartContext = ${noopObj};
+export const getRequest = ${noopObj};
+export const getRequestHost = ${noop};
+export const getRequestHeaders = ${noopObj};
+export const getRequestUrl = ${noop};
+export const getResponseHeaders = ${noopObj};
+export const setResponseHeaders = ${noop};
+export const setResponseStatus = ${noop};
 export const json = (v) => v;
 export const redirect = ${noop};
-export const notFound = ${noop};
-export const createStartHandler = ${noop};
-export const defaultStreamHandler = ${noop};
-export const getStartContext = ${noopObj};
-export const createIsomorphicFn = ${noop};
-export const getStartOptions = ${noopObj};
-export const getRequest = ${noopObj};
-export const getResponse = ${noopObj};
-export const setResponse = ${noop};
-export const getHeaders = ${noopObj};
-export const parseCookies = ${noopObj};
-export const setCookie = ${noop};
-export const getCookie = ${noop};
-export const deleteCookie = ${noop};
-export const useServerFn = (fn) => fn;
-export const getRequestHost = () => "localhost";
-export const getRequestProtocol = () => "https";
-export const getRequestURL = () => new URL("https://localhost");
-export const getRequestPath = () => "/";
-export const getRequestIP = () => "127.0.0.1";
-export const getWebRequest = ${noopObj};
-export const getEvent = ${noopObj};
-export const getResponseHeaders = ${noopObj};
-export const setResponseHeader = ${noop};
-export const setResponseStatus = ${noop};
-export const sendRedirect = ${noop};
-export const sendError = ${noop};
-export const sendStream = ${noop};
-export const sendWebResponse = ${noop};
-export const isPrerendering = () => false;
-export const getRouterManifest = ${noopObj};
 export const createRouter = ${noopObj};
-export class AsyncLocalStorage { getStore() { return {}; } run(s, fn) { return fn(); } }
-export const createHash = () => ({ update: () => ({ digest: () => "" }) });
+export const createFileRoute = () => () => ({});
+export const createRootRouteWithContext = () => () => ({});
+export const createRootRoute = ${noopObj};
+export const lazyRouteComponent = (fn) => fn;
+export const useServerFn = (fn) => fn;
+export const mergeHeaders = ${noopObj};
+export const StartClient = () => null;
+export const DehydrateRouter = () => null;
+export const serverOnly = ${noop};
+export const clientOnly = (fn) => fn;
+// node:crypto stubs
+export const createHash = (a) => ({ update: () => ({ digest: () => "" }), digest: () => "" });
 export const randomBytes = (n) => new Uint8Array(n);
-export const createHmac = () => ({ update: () => ({ digest: () => "" }) });
+export const createHmac = (a,b) => ({ update: () => ({ digest: () => "" }), digest: () => "" });
 export const timingSafeEqual = () => false;
 export const createCipheriv = ${noopObj};
 export const createDecipheriv = ${noopObj};
@@ -74,11 +69,15 @@ export const scryptSync = () => new Uint8Array(32);
 export const sign = ${noop};
 export const verify = ${noop};
 export const generateKeyPairSync = ${noopObj};
-export const createSign = () => ({ update: () => ({ sign: () => "" }) });
-export const createVerify = () => ({ update: () => ({ verify: () => false }) });
-export const webcrypto = { subtle: {}, getRandomValues: (a) => a };
-export class Readable { pipe() { return this; } on() { return this; } }
-export class Writable { write() {} end() {} on() { return this; } }
+export const createSign = () => ({ update:()=>({sign:()=>""}),sign:()=>"" });
+export const createVerify = () => ({ update:()=>({verify:()=>false}),verify:()=>false });
+export const webcrypto = { subtle: { digest: async()=>new ArrayBuffer(0), encrypt: async()=>new ArrayBuffer(0), decrypt: async()=>new ArrayBuffer(0), sign: async()=>new ArrayBuffer(0), verify: async()=>false, generateKey: async()=>({}), importKey: async()=>({}), exportKey: async()=>new ArrayBuffer(0), deriveBits: async()=>new ArrayBuffer(0), deriveKey: async()=>({}) }, getRandomValues: (a)=>a };
+// node:async_hooks
+export class AsyncLocalStorage { getStore(){return undefined} run(s,fn,...a){return fn(...a)} enterWith(){} disable(){} }
+export class AsyncResource { constructor(){} runInAsyncScope(fn,...a){return fn(...a)} }
+// node:stream stubs
+export class Writable { write(){return true} end(){} on(){return this} pipe(){return this} }
+export class Readable { read(){return null} on(){return this} pipe(){return this} }
 export class Transform extends Readable {}
 export class Duplex extends Readable {}
 export class PassThrough extends Readable {}

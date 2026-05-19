@@ -316,8 +316,9 @@ function DiscoverPage() {
                           src={v.photo}
                           alt={v.name}
                           loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          onError={(e) = decoding="async"> {
+                          onError={(e) => {
                             const img = e.currentTarget;
                             const fb = unsplashFor(v.category ?? null, v.name);
                             if (img.src !== fb) img.src = fb;
@@ -532,8 +533,9 @@ function SelectedCard({ row, onClose }: { row: VenueRow; onClose: () => void }) 
             src={row.photo}
             alt={row.name}
             loading="lazy"
+            decoding="async"
             className="h-16 w-16 shrink-0 rounded-xl border-2 border-ink object-cover"
-            onError={(e) = decoding="async"> {
+            onError={(e) => {
               const img = e.currentTarget;
               const fb = unsplashFor(row.category ?? null, row.name);
               if (img.src !== fb) img.src = fb;

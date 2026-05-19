@@ -269,8 +269,24 @@
     </style>
   </head>
   <body>
+    <script>
+      // Skip the consumer-branded splash on portal/console shells — they have
+      // their own matching skeletons rendered by React.
+      (function () {
+        try {
+          var p = location.pathname;
+          if (/^\/(admin|partner|corporate|advertise\/portal|business|concierge|portal)(\/|$)/.test(p)) {
+            document.documentElement.setAttribute("data-no-splash", "");
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <style>
+      html[data-no-splash] #initial-loader { display: none !important; }
+    </style>
     <div id="root">
       <div id="initial-loader">
+
         <div class="orb orb-1" aria-hidden="true"></div>
         <div class="orb orb-2" aria-hidden="true"></div>
         <div class="orb orb-3" aria-hidden="true"></div>

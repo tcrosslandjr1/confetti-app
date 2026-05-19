@@ -281,7 +281,7 @@ const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any).lazy(() => import('./routes/pricing.lazy').then((d) => d.Route))
 const PortalRoute = PortalRouteImport.update({
   id: '/portal',
   path: '/portal',

@@ -60,18 +60,50 @@ function NotFoundComponent() {
 }
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+  // Verbose client-side logging so route-load / render failures surface in the
+  // browser console with full stack + location info.
+  // eslint-disable-next-line no-console
+  console.group("[route-error] Root errorComponent caught error");
+  // eslint-disable-next-line no-console
   console.error(error);
+  // eslint-disable-next-line no-console
+  console.log("name:", error?.name, "message:", error?.message);
+  // eslint-disable-next-line no-console
+  console.log("stack:", error?.stack);
+  if (typeof window !== "undefined") {
+    // eslint-disable-next-line no-console
+    console.log("pathname:", window.location.pathname, "search:", window.location.search);
+  }
+  // eslint-disable-next-line no-console
+  console.groupEnd();
   const router = useRouter();
+  const showDetails =
+    typeof window !== "undefined" &&
+    (import.meta.env.DEV ||
+      /lovableproject\.com|lovable\.app|localhost/.test(window.location.hostname));
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
+      <div className="max-w-2xl text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
           This page didn't load
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
           Something went wrong on our end. You can try refreshing or head back home.
         </p>
+        {showDetails && (error?.message || error?.stack) ? (
+          <details
+            open
+            className="mt-4 rounded-md border border-border bg-muted/40 p-3 text-left text-xs"
+          >
+            <summary className="cursor-pointer font-mono font-semibold text-foreground">
+              {error.name || "Error"}: {error.message}
+            </summary>
+            <pre className="mt-2 max-h-72 overflow-auto whitespace-pre-wrap break-words font-mono text-[11px] text-muted-foreground">
+              {error.stack}
+            </pre>
+          </details>
+        ) : null}
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {

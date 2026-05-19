@@ -105,7 +105,11 @@ function AchievementsPage() {
   const [tab, setTab] = useState<"all" | "unlocked" | "locked">("all");
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setItems([]);
+      setLoading(false);
+      return;
+    }
     let cancelled = false;
     setLoading(true);
     (async () => {

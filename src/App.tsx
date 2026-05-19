@@ -1648,7 +1648,34 @@ function CreateConfetti() {
   const [stopCount, setStopCount] = useState(3);
   const [seating, setSeating] = useState("booth");
   const [preOrders, setPreOrders] = useState<Record<string, string[]>>({});
+  const [authChecked, setAuthChecked] = useState(false);
+  const [authedUserId, setAuthedUserId] = useState<string | null>(null);
   const isDriving = arrivalMode === "drive";
+
+  // Require an account before letting the user build a plan. Without this
+  // gate the wizard renders fine but the BoardingPass it generates can't be
+  // personalized and can't be saved to a real profile.
+  useEffect(() => {
+    let cancelled = false;
+    getCurrentAccount().then((account) => {
+      if (cancelled) return;
+      if (!account?.id) {
+        navigate("/auth", { replace: true, state: { returnTo: "/create-confetti" } });
+        return;
+      }
+      setAuthedUserId(account.id);
+      setAuthChecked(true);
+    });
+    return () => { cancelled = true; };
+  }, [navigate]);
+
+  if (!authChecked) {
+    return (
+      <Page className="itinerary-screen">
+        <Header eyebrow="Create Your Plan" title="Checking your account…" />
+      </Page>
+    );
+  }
 
   const vibeOptions = ["Romantic", "Celebration", "Foodie", "Adventurous", "Chill", "Upscale", "Trendy", "Cozy"];
 
@@ -1866,7 +1893,26 @@ function CreateConfetti() {
           Back
         </button>
         <GradientButton>
-          <span onClick={() => step < totalSteps - 1 ? setStep(step + 1) : navigate("/boarding-pass")}>
+          <span onClick={() => {
+            if (step < totalSteps - 1) {
+              setStep(step + 1);
+            } else {
+              navigate("/boarding-pass", {
+                state: {
+                  userId: authedUserId,
+                  occasion,
+                  vibe,
+                  partySize,
+                  arrivalMode,
+                  evCharge,
+                  stopCount,
+                  seating,
+                  preOrders,
+                  builtAt: new Date().toISOString(),
+                },
+              });
+            }
+          }}>
             {step === totalSteps - 1 ? "Generate Boarding Pass" : "Continue"}
           </span>
         </GradientButton>
@@ -1877,13 +1923,66 @@ function CreateConfetti() {
 
 function BoardingPass() {
   const navigate = useNavigate();
-  const [arrivalMode] = useState<"rideshare" | "drive">("drive");
+  const location = useLocation();
+
+  type WizardState = {
+    userId?: string | null;
+    occasion?: string;
+    vibe?: string[];
+    partySize?: number;
+    arrivalMode?: "rideshare" | "drive";
+    evCharge?: boolean;
+    stopCount?: number;
+    seating?: string;
+    preOrders?: Record<string, string[]>;
+    builtAt?: string;
+  };
+  const wizard = (location.state ?? null) as WizardState | null;
+
+  // Read the wizard inputs the user just filled in. Falls back to demo
+  // defaults only if the user landed here without going through Create.
+  const [arrivalMode] = useState<"rideshare" | "drive">(wizard?.arrivalMode ?? "drive");
   const isDriving = arrivalMode === "drive";
-  const vibeTheme = "nightlife";
-  const activeOccasion = occasions.find(o => o.id === "date-night")!;
-  const confettiCode = "CNFT-DATE-0510";
-  const departureStop = confettiStops[0];
-  const destinationStop = confettiStops[confettiStops.length - 1];
+
+  const occasionId = wizard?.occasion ?? "date-night";
+  const activeOccasion = occasions.find(o => o.id === occasionId) ?? occasions[0];
+
+  // Map the user's primary vibe / occasion to a theme. Previously this was
+  // hardcoded to "nightlife" so every plan rendered the same color.
+  const vibePrimary = wizard?.vibe?.[0]?.toLowerCase();
+  const vibeTheme =
+    occasionId === "date-night" ? "date-night"
+    : occasionId === "family-night" ? "family"
+    : occasionId === "solo" ? "solo"
+    : occasionId === "celebration" || occasionId === "birthday" ? "celebration"
+    : vibePrimary?.includes("romantic") ? "date-night"
+    : vibePrimary?.includes("upscale") || vibePrimary?.includes("trendy") ? "nightlife"
+    : vibePrimary?.includes("chill") || vibePrimary?.includes("cozy") ? "solo"
+    : "nightlife";
+
+  // Vary the stops on each build using a hash of (user + occasion + day).
+  // Same user building the same occasion on the same day gets a stable
+  // result; building again tomorrow (or with a different vibe) varies.
+  const seedSource = [
+    wizard?.userId ?? "anonymous",
+    occasionId,
+    (wizard?.vibe ?? []).join(","),
+    wizard?.builtAt?.slice(0, 13) ?? new Date().toISOString().slice(0, 13), // hour-granularity
+  ].join("|");
+  let seed = 0;
+  for (let i = 0; i < seedSource.length; i++) seed = (seed * 31 + seedSource.charCodeAt(i)) | 0;
+  const rotate = ((seed % confettiStops.length) + confettiStops.length) % confettiStops.length;
+  const orderedStops = [...confettiStops.slice(rotate), ...confettiStops.slice(0, rotate)];
+  const departureStop = orderedStops[0];
+  const destinationStop = orderedStops[orderedStops.length - 1];
+
+  // Confetti code now reflects occasion + actual date instead of the
+  // hardcoded "CNFT-DATE-0510" everyone was seeing.
+  const builtDate = wizard?.builtAt ? new Date(wizard.builtAt) : new Date();
+  const occasionTag = occasionId.slice(0, 4).toUpperCase().replace(/[^A-Z]/g, "X");
+  const datePart = `${String(builtDate.getMonth() + 1).padStart(2, "0")}${String(builtDate.getDate()).padStart(2, "0")}`;
+  const confettiCode = `CNFT-${occasionTag}-${datePart}`;
+
   const departureCode = hoodCodes[departureStop.area] || "???";
   const destinationCode = hoodCodes[destinationStop.area] || "???";
 

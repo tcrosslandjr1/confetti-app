@@ -1,4 +1,10 @@
-import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
+import {
+  createFileRoute,
+  Link,
+  Outlet,
+  redirect,
+  useRouterState,
+} from "@tanstack/react-router";
 import {
   LayoutDashboard,
   Store,
@@ -13,18 +19,14 @@ import {
   Megaphone,
   LifeBuoy,
   Building2,
-  ChevronDown,
   Bell,
   Code2,
+  Info,
+  X,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/partner")({
   head: () => ({

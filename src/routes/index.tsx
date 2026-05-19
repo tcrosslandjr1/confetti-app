@@ -257,6 +257,15 @@ function Landing() {
 
   const [bookingOpen, setBookingOpen] = useState(false);
 
+  // Live partner stats for the "For businesses" CTA section.
+  const fetchPartnerStats = useServerFn(getPartnerStats);
+  const { data: partnerStats } = useQuery({
+    queryKey: ["partner-stats-30d"],
+    queryFn: () => fetchPartnerStats(),
+    staleTime: 5 * 60 * 1000,
+    refetchOnWindowFocus: false,
+  });
+
   // Show the bottom sticky CTA once the hero is offscreen so the primary action
   // is always one tap away while scrolling the long landing page.
   const [showStickyCta, setShowStickyCta] = useState(false);

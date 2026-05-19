@@ -80,7 +80,8 @@ export function checkRate(venue_id: string): Response | null {
 
 // ---- HMAC for outbound webhooks ----
 function getWebhookSecret() {
-  return process.env.PARTNER_WEBHOOK_SECRET || "demo_webhook_secret_change_me";
+  const env = typeof process !== "undefined" ? process.env : undefined;
+  return env?.PARTNER_WEBHOOK_SECRET || "demo_webhook_secret_change_me";
 }
 
 export function signPayload(body: string): string {

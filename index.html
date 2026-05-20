@@ -405,26 +405,37 @@
           </div>
 
           <div class="agents" aria-live="polite">
-            <div class="agent done">
-              <span class="tick">✓</span>
+            <div class="agent" data-step="1">
+              <span class="tick">●</span>
               <span class="label">Reading the city's pulse</span>
-              <span class="time">0.4s</span>
+              <span class="time">…</span>
             </div>
-            <div class="agent done">
-              <span class="tick">✓</span>
+            <div class="agent" data-step="2">
+              <span class="tick">●</span>
               <span class="label">Mapping tonight's hot venues</span>
-              <span class="time">0.8s</span>
+              <span class="time">…</span>
             </div>
-            <div class="agent">
+            <div class="agent" data-step="3">
               <span class="tick">●</span>
               <span class="label">Calibrating your taste profile</span>
               <span class="time">…</span>
             </div>
-            <div class="agent">
+            <div class="agent" data-step="4">
               <span class="tick">●</span>
               <span class="label">Sequencing your night</span>
               <span class="time">…</span>
             </div>
+          </div>
+
+          <div class="ticker" aria-hidden="true">
+            <span class="scan-dot"></span>
+            <span class="scan-label">Scanning</span>
+            <span class="scan-text">
+              <span>rooftop bars within 2 mi</span>
+              <span>jazz speakeasies opening late</span>
+              <span>chef's tables w/ tonight openings</span>
+              <span>sunset patios &amp; live DJs</span>
+            </span>
           </div>
 
           <div class="progress-track" aria-hidden="true">
@@ -436,8 +447,68 @@
           </div>
         </div>
 
+        <div class="skyline" aria-hidden="true">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path fill="#1a1a1a" d="M0,120 L0,80 L60,80 L60,55 L100,55 L100,75 L150,75 L150,40 L180,40 L180,30 L210,30 L210,60 L260,60 L260,45 L310,45 L310,70 L350,70 L350,35 L390,35 L390,55 L440,55 L440,25 L470,25 L470,50 L520,50 L520,65 L570,65 L570,38 L610,38 L610,58 L660,58 L660,45 L710,45 L710,70 L760,70 L760,30 L800,30 L800,55 L850,55 L850,42 L900,42 L900,68 L950,68 L950,50 L1000,50 L1000,35 L1040,35 L1040,60 L1090,60 L1090,75 L1140,75 L1140,55 L1200,55 L1200,120 Z"/>
+            <g fill="#ff7a4c">
+              <rect class="win" x="68" y="62" width="4" height="6"/>
+              <rect class="win" x="78" y="62" width="4" height="6"/>
+              <rect class="win" x="160" y="48" width="4" height="6"/>
+              <rect class="win" x="170" y="48" width="4" height="6"/>
+              <rect class="win" x="270" y="52" width="4" height="6"/>
+              <rect class="win" x="320" y="55" width="4" height="6"/>
+              <rect class="win" x="360" y="44" width="4" height="6"/>
+              <rect class="win" x="450" y="34" width="4" height="6"/>
+              <rect class="win" x="530" y="56" width="4" height="6"/>
+              <rect class="win" x="620" y="46" width="4" height="6"/>
+              <rect class="win" x="720" y="55" width="4" height="6"/>
+              <rect class="win" x="770" y="42" width="4" height="6"/>
+              <rect class="win" x="860" y="52" width="4" height="6"/>
+              <rect class="win" x="910" y="55" width="4" height="6"/>
+              <rect class="win" x="1010" y="44" width="4" height="6"/>
+              <rect class="win" x="1100" y="64" width="4" height="6"/>
+            </g>
+          </svg>
+        </div>
+
       </div>
     </div>
+    <script>
+      (function () {
+        var loader = document.getElementById("initial-loader");
+        if (!loader) return;
+        var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        // Sequential agent progression — flips ● → ✓ over time
+        var agents = loader.querySelectorAll(".agent");
+        var times = ["0.4s", "0.8s", "1.3s", "1.9s"];
+        agents.forEach(function (el, i) {
+          setTimeout(function () {
+            el.classList.add("done");
+            var tick = el.querySelector(".tick");
+            var time = el.querySelector(".time");
+            if (tick) tick.textContent = "✓";
+            if (time) time.textContent = times[i] || "";
+          }, 600 + i * 700);
+        });
+
+        // Pointer parallax — subtle 3D tilt on the card
+        if (!reduced) {
+          var stage = loader.querySelector(".stage");
+          loader.addEventListener("pointermove", function (e) {
+            var rect = loader.getBoundingClientRect();
+            var x = (e.clientX - rect.left) / rect.width - 0.5;
+            var y = (e.clientY - rect.top) / rect.height - 0.5;
+            stage.style.setProperty("--rx", (x * 6).toFixed(2) + "deg");
+            stage.style.setProperty("--ry", (-y * 6).toFixed(2) + "deg");
+          });
+          loader.addEventListener("pointerleave", function () {
+            stage.style.setProperty("--rx", "0deg");
+            stage.style.setProperty("--ry", "0deg");
+          });
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

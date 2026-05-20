@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { Lock, ShieldCheck } from "lucide-react";
+import { KeyRound, Loader2, Lock, ShieldCheck, X } from "lucide-react";
 import { useServerFn } from "@tanstack/react-start";
-import { logPinUnlockAttempt } from "@/lib/admin-audit.functions";
+import { logPinUnlockAttempt, resetPinLockout } from "@/lib/admin-audit.functions";
 
 // Hardcoded console PIN. Note: this is a UX gate on the admin shell — it is
 // NOT a security boundary. RLS + the `admin` role still gate all real data
@@ -76,8 +76,43 @@ export function AdminPinLock({
   const [shake, setShake] = useState(false);
   const [lockout, setLockout] = useState<LockoutState>(() => readLockout());
   const [now, setNow] = useState(() => Date.now());
+  const [showRecovery, setShowRecovery] = useState(false);
+  const [recoveryPassword, setRecoveryPassword] = useState("");
+  const [recoveryBusy, setRecoveryBusy] = useState(false);
+  const [recoveryError, setRecoveryError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const logPinFn = useServerFn(logPinUnlockAttempt);
+  const resetLockoutFn = useServerFn(resetPinLockout);
+
+  const handleRecover = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!recoveryPassword || recoveryBusy) return;
+    setRecoveryBusy(true);
+    setRecoveryError(null);
+    try {
+      const res = await resetLockoutFn({
+        data: {
+          password: recoveryPassword,
+          userAgent: typeof window !== "undefined" ? window.navigator.userAgent : undefined,
+        },
+      });
+      if (!res.ok) {
+        setRecoveryError(res.error ?? "Recovery failed");
+        return;
+      }
+      const cleared = { attempts: 0, lockoutCount: 0, lockedUntil: 0 };
+      setLockout(cleared);
+      writeLockout(cleared);
+      setRecoveryPassword("");
+      setShowRecovery(false);
+      setError(null);
+      setTimeout(() => inputRef.current?.focus(), 0);
+    } catch {
+      setRecoveryError("Recovery failed — try again");
+    } finally {
+      setRecoveryBusy(false);
+    }
+  };
 
   const isLocked = lockout.lockedUntil > now;
   const remainingMs = Math.max(0, lockout.lockedUntil - now);
@@ -260,21 +295,92 @@ export function AdminPinLock({
 
           {isLocked ? (
             <div
-              className="rounded-xl border-2 border-coral/40 bg-coral/10 px-3 py-2.5 text-center"
+              className="space-y-2.5 rounded-xl border-2 border-coral/40 bg-coral/10 px-3 py-2.5"
               role="alert"
               aria-live="polite"
             >
-              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-coral">
-                Console locked
+              <div className="text-center">
+                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-coral">
+                  Console locked
+                </div>
+                <div className="mt-0.5 text-sm font-extrabold text-ink">
+                  Try again in {remainingLabel}
+                </div>
+                <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/55">
+                  {lockout.lockoutCount > 1
+                    ? `Lockout ${lockout.lockoutCount} · escalating backoff`
+                    : `${lockout.attempts} failed attempts`}
+                </div>
               </div>
-              <div className="mt-0.5 text-sm font-extrabold text-ink">
-                Try again in {remainingLabel}
-              </div>
-              <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/55">
-                {lockout.lockoutCount > 1
-                  ? `Lockout ${lockout.lockoutCount} · escalating backoff`
-                  : "Sign out if this isn't you"}
-              </div>
+
+              {!showRecovery ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowRecovery(true);
+                    setRecoveryError(null);
+                  }}
+                  className="flex w-full items-center justify-center gap-1.5 rounded-lg border-2 border-ink bg-cream px-3 py-2 text-[11px] font-extrabold uppercase tracking-wide text-ink transition hover:bg-ink hover:text-cream"
+                >
+                  <KeyRound className="h-3.5 w-3.5" />
+                  Recover with password
+                </button>
+              ) : (
+                <div className="space-y-2 rounded-lg border border-ink/15 bg-cream p-2.5">
+                  <div className="flex items-center justify-between">
+                    <div className="font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-ink/60">
+                      Re-auth to unlock
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowRecovery(false);
+                        setRecoveryPassword("");
+                        setRecoveryError(null);
+                      }}
+                      className="grid h-5 w-5 place-items-center rounded text-ink/50 hover:bg-ink/5 hover:text-ink"
+                      aria-label="Cancel recovery"
+                    >
+                      <X className="h-3 w-3" />
+                    </button>
+                  </div>
+                  <input
+                    type="password"
+                    autoFocus
+                    value={recoveryPassword}
+                    onChange={(e) => {
+                      setRecoveryPassword(e.target.value);
+                      setRecoveryError(null);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        void handleRecover(e as unknown as FormEvent);
+                      }
+                    }}
+                    placeholder="Account password"
+                    className="w-full rounded-md border border-ink/20 bg-cream px-2.5 py-1.5 text-xs text-ink outline-none placeholder:text-ink/40 focus:border-coral"
+                  />
+                  {recoveryError ? (
+                    <p className="text-[11px] font-bold text-coral">{recoveryError}</p>
+                  ) : null}
+                  <button
+                    type="button"
+                    onClick={(e) => void handleRecover(e as unknown as FormEvent)}
+                    disabled={!recoveryPassword || recoveryBusy}
+                    className="flex w-full items-center justify-center gap-1.5 rounded-md border-2 border-ink bg-coral px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wide text-cream shadow-brut transition hover:translate-y-[1px] hover:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    {recoveryBusy ? (
+                      <>
+                        <Loader2 className="h-3 w-3 animate-spin" />
+                        Verifying…
+                      </>
+                    ) : (
+                      "Reset lockout"
+                    )}
+                  </button>
+                </div>
+              )}
             </div>
           ) : error ? (
             <p className="text-center text-xs font-bold text-coral" role="alert">

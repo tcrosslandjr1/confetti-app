@@ -13,6 +13,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { WizardProvider } from "@/components/wizard/wizard-context";
 import { preloadFallbackImages } from "@/lib/venue-images";
 import { installErrorTracking } from "@/lib/analytics";
+import { recoverStalePage } from "@/lib/stale-page-recovery";
 
 const RoleSwitcher = lazy(() =>
   import("@/components/RoleSwitcher").then((m) => ({ default: m.RoleSwitcher })),
@@ -70,6 +71,10 @@ function NotFoundComponent() {
 }
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+  useEffect(() => {
+    recoverStalePage(error);
+  }, [error]);
+
   // Verbose client-side logging so route-load / render failures surface in the
   // browser console with full stack + location info.
   // eslint-disable-next-line no-console

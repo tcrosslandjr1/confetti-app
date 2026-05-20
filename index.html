@@ -517,15 +517,29 @@
           try { sessionStorage.removeItem(bootKey); } catch (_) {}
         }
 
+        function dismissLoader() {
+          var el = document.getElementById("initial-loader");
+          if (el && el.parentNode) el.parentNode.removeChild(el);
+        }
+
+        var REASON_COPY = {
+          timeout: "Preview took too long to respond.",
+          preload: "A page module failed to load.",
+          module: "A script failed to load.",
+          promise: "A background request failed.",
+        };
+
         function recoverBoot(reason) {
           if (bootDone || !document.getElementById("initial-loader")) return;
-          var alreadyTried = false;
+          if (loader.hasAttribute("data-boot-stalled")) return;
+          var attempts = 0;
           try {
-            alreadyTried = sessionStorage.getItem(bootKey) === "1";
-            if (!alreadyTried) sessionStorage.setItem(bootKey, "1");
+            attempts = parseInt(sessionStorage.getItem(bootKey) || "0", 10) || 0;
+            sessionStorage.setItem(bootKey, String(attempts + 1));
           } catch (_) {}
 
-          if (!alreadyTried) {
+          // First stall: try a single silent reload with cache-bust.
+          if (attempts === 0 && reason !== "timeout") {
             var url = new URL(location.href);
             url.searchParams.set("_boot", Date.now().toString(36));
             location.replace(url.toString());
@@ -535,19 +549,39 @@
           loader.setAttribute("data-boot-stalled", reason || "timeout");
           var label = loader.querySelector(".ticker .scan-label");
           var text = loader.querySelector(".ticker .scan-text");
-          if (label) label.textContent = "Reload needed";
-          if (text) text.innerHTML = '<span style="opacity:1;transform:none">Tap to push the latest preview through</span>';
+          if (label) label.textContent = "Preview stalled";
+          if (text) text.innerHTML = '<span style="opacity:1;transform:none">' +
+            (REASON_COPY[reason] || "The app didn't finish loading.") + '</span>';
+
+          var stage = loader.querySelector(".stage");
+          if (!stage) return;
+
+          if (!loader.querySelector(".boot-reason")) {
+            var note = document.createElement("div");
+            note.className = "boot-reason";
+            note.textContent = "Reason: " + (reason || "timeout");
+            stage.appendChild(note);
+          }
           if (!loader.querySelector(".boot-retry")) {
             var button = document.createElement("button");
             button.className = "boot-retry";
             button.type = "button";
-            button.textContent = "Reload Confetti";
+            button.textContent = "Retry now";
             button.onclick = function () {
               try { sessionStorage.removeItem(bootKey); } catch (_) {}
-              location.reload();
+              var u = new URL(location.href);
+              u.searchParams.set("_boot", Date.now().toString(36));
+              location.replace(u.toString());
             };
-            var stage = loader.querySelector(".stage");
-            if (stage) stage.appendChild(button);
+            stage.appendChild(button);
+          }
+          if (!loader.querySelector(".boot-skip")) {
+            var skip = document.createElement("button");
+            skip.className = "boot-skip";
+            skip.type = "button";
+            skip.textContent = "Continue anyway";
+            skip.onclick = dismissLoader;
+            stage.appendChild(skip);
           }
         }
 
@@ -561,7 +595,8 @@
           var reason = String((event && event.reason && (event.reason.message || event.reason)) || "");
           if (/module|import|preload|Failed to fetch|502/i.test(reason)) recoverBoot("promise");
         });
-        setTimeout(function () { recoverBoot("timeout"); }, 6500);
+        // Shorter watchdog so a stuck preview surfaces the retry UI quickly.
+        setTimeout(function () { recoverBoot("timeout"); }, 4000);
 
         // Sequential agent progression — flips ● → ✓ over time
         var agents = loader.querySelectorAll(".agent");

@@ -310,32 +310,6 @@ function AdminShell({ user, pathname, onLock }: {
             )}
           </div>
 
-          {!collapsed && (
-            <div className="mx-2 mt-3">
-              <div className="relative">
-                <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink/40" />
-                <input
-                  type="text"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Filter nav…"
-                  className="w-full rounded-lg border border-ink/15 bg-cream/60 py-1.5 pl-8 pr-7 text-xs font-medium text-ink placeholder:text-ink/40 outline-none transition focus:border-coral focus:bg-cream"
-                />
-                {query && (
-                  <button
-                    type="button"
-                    onClick={() => setQuery("")}
-                    className="absolute right-1.5 top-1/2 grid h-5 w-5 -translate-y-1/2 place-items-center rounded text-ink/50 hover:bg-ink/5 hover:text-ink"
-                    aria-label="Clear filter"
-                  >
-                    <X className="h-3 w-3" />
-                  </button>
-                )}
-              </div>
-            </div>
-          )}
-
-          {!collapsed && (
             <div className="mx-2 mt-3">
               <div className="relative">
                 <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink/40" />

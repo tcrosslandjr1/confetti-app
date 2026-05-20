@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
-const DEMO_ADMIN_EMAIL = "admin@demo.local";
+const DEMO_ADMIN_EMAIL = "admin@confetti.com";
 const DEMO_CUSTOMER_EMAIL = "customer@demo.local";
 // Default password used only when SEED_DEMO_PASSWORD env var is not set.
 const DEFAULT_DEMO_PASSWORD = "Demo1234!";

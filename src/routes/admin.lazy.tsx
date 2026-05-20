@@ -550,3 +550,19 @@ function AdminShell({ user, pathname, onLock }: {
       <AdminGlobalSearch open={globalSearchOpen} onOpenChange={setGlobalSearchOpen} />
     </div>);
 }
+
+function EnvBadge() {
+    const env = useMemo(() => {
+        if (typeof window === "undefined") return null;
+        const h = window.location.hostname;
+        if (h === "localhost" || h.endsWith(".local")) return { label: "DEV", tone: "bg-purple text-cream" };
+        if (h.includes("preview") || h.includes("lovableproject.com")) return { label: "PREVIEW", tone: "bg-amber-400 text-ink" };
+        return null;
+    }, []);
+    if (!env) return null;
+    return (
+        <span className={`hidden items-center rounded-md border border-ink/20 px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider shadow-sm sm:inline-flex ${env.tone}`}>
+            {env.label}
+        </span>
+    );
+}

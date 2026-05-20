@@ -2,10 +2,33 @@ import "./styles.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "@tanstack/react-router";
-import {
-  clearStalePageRecovery,
-  recoverStalePage,
-} from "@/lib/stale-page-recovery";
+
+type StaleRecovery = typeof import("@/lib/stale-page-recovery");
+
+let staleRecoveryPromise: Promise<StaleRecovery> | undefined;
+
+function loadStaleRecovery() {
+  staleRecoveryPromise ??= import("@/lib/stale-page-recovery");
+  return staleRecoveryPromise;
+}
+
+async function tryRecoverStalePage(error: unknown) {
+  try {
+    const { recoverStalePage } = await loadStaleRecovery();
+    return recoverStalePage(error);
+  } catch {
+    return false;
+  }
+}
+
+async function clearStalePageRecovery() {
+  try {
+    const recovery = await loadStaleRecovery();
+    recovery.clearStalePageRecovery();
+  } catch {
+    // Ignore — fallback reload still works if the recovery helper is unavailable.
+  }
+}
 
 const rootEl = document.getElementById("root");
 if (!rootEl) throw new Error("Root element #root not found");
@@ -74,8 +97,9 @@ for (const eventName of STALE_ERROR_EVENTS) {
       eventName === "unhandledrejection"
         ? (event as PromiseRejectionEvent).reason
         : (event as ErrorEvent).error || (event as ErrorEvent).message;
-    if (!recoverStalePage(error)) return;
-    event.preventDefault();
+    void tryRecoverStalePage(error).then((recovered) => {
+      if (recovered) event.preventDefault();
+    });
   });
 }
 
@@ -89,8 +113,7 @@ function renderErrorFallback() {
           <button
             type="button"
             onClick={() => {
-              clearStalePageRecovery();
-              window.location.reload();
+              void clearStalePageRecovery().finally(() => window.location.reload());
             }}
             className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
           >
@@ -104,18 +127,18 @@ function renderErrorFallback() {
 
 void import("./router")
   .then(({ getRouter }) => {
-    clearStalePageRecovery();
-    window.dispatchEvent(new CustomEvent("confetti:app-booted"));
+    void clearStalePageRecovery();
     const router = getRouter();
     root.render(
       <StrictMode>
         <RouterProvider router={router} />
       </StrictMode>,
     );
+    window.dispatchEvent(new CustomEvent("confetti:app-booted"));
   })
-  .catch((error) => {
+  .catch(async (error) => {
     console.error("[bootstrap] Failed to load router", error);
-    if (recoverStalePage(error)) {
+    if (await tryRecoverStalePage(error)) {
       return;
     }
     renderErrorFallback();

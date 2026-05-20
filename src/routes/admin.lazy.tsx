@@ -1,6 +1,6 @@
 import { createLazyFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
-import { BarChart3, Bell, CalendarCheck, LayoutDashboard, LogOut, Megaphone, MessageSquareQuote, Search, ScrollText, Settings, ShieldCheck, Sparkles, Store, Users, X } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { BarChart3, Bell, CalendarCheck, ChevronDown, LayoutDashboard, LogOut, Megaphone, MessageSquareQuote, Search, ScrollText, Settings, ShieldCheck, Sparkles, Store, Users, X } from "lucide-react";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 import { useAuth } from "@/lib/auth-context";
 import { NotificationsBell } from "@/components/NotificationsBell";
@@ -227,6 +227,18 @@ function AdminShell({ user, pathname, }: {
     const { isMobile, setOpenMobile, state } = useSidebar();
     const collapsed = state === "collapsed";
     const [query, setQuery] = useState("");
+    const searchRef = useRef<HTMLInputElement | null>(null);
+    const COLLAPSED_KEY = "confetti.admin.nav.collapsed.v1";
+    const [collapsedGroups, setCollapsedGroups] = useState<Record<string, boolean>>(() => {
+        if (typeof window === "undefined") return {};
+        try { return JSON.parse(window.localStorage.getItem(COLLAPSED_KEY) ?? "{}"); }
+        catch { return {}; }
+    });
+    useEffect(() => {
+        try { window.localStorage.setItem(COLLAPSED_KEY, JSON.stringify(collapsedGroups)); } catch { /* noop */ }
+    }, [collapsedGroups]);
+    const toggleGroup = (label: string) =>
+        setCollapsedGroups((p) => ({ ...p, [label]: !p[label] }));
     const handleNav = () => {
         if (isMobile)
             setOpenMobile(false);
@@ -238,6 +250,7 @@ function AdminShell({ user, pathname, }: {
             .map((s) => ({ ...s, items: s.items.filter((i) => i.label.toLowerCase().includes(q)) }))
             .filter((s) => s.items.length > 0);
     }, [query]);
+    const isFiltering = query.trim().length > 0;
     const initials = (user?.email ?? "?").slice(0, 2).toUpperCase();
     const activeItem = useMemo(() => {
         for (const s of NAV_SECTIONS) {
@@ -250,6 +263,30 @@ function AdminShell({ user, pathname, }: {
     }, [pathname]);
     const activeLabel = activeItem.item.label;
     const activeSection = activeItem.section;
+    // Keyboard shortcuts: "/" or Cmd/Ctrl+K to focus search, Esc to clear.
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => {
+            const target = e.target as HTMLElement | null;
+            const typing = target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable);
+            if ((e.key === "k" || e.key === "K") && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault();
+                searchRef.current?.focus();
+                searchRef.current?.select();
+                return;
+            }
+            if (!typing && e.key === "/") {
+                e.preventDefault();
+                searchRef.current?.focus();
+                return;
+            }
+            if (e.key === "Escape" && document.activeElement === searchRef.current) {
+                setQuery("");
+                searchRef.current?.blur();
+            }
+        };
+        window.addEventListener("keydown", onKey);
+        return () => window.removeEventListener("keydown", onKey);
+    }, []);
     return (<div className="flex min-h-screen w-full bg-gradient-to-br from-cream/60 via-background to-background">
       <Sidebar collapsible="icon" className="border-r-2 border-ink/10">
         <SidebarContent className="bg-cream/30">
@@ -295,36 +332,90 @@ function AdminShell({ user, pathname, }: {
             </div>
           )}
 
-          {filteredSections.map((section) => (<SidebarGroup key={section.label}>
-              <SidebarGroupLabel className="flex items-center justify-between font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink/50">
-                <span>{section.label}</span>
-                {!collapsed && (
-                  <span className="rounded-full bg-ink/5 px-1.5 py-0.5 text-[9px] font-bold text-ink/50">
-                    {section.items.length}
-                  </span>
+          {!collapsed && (
+            <div className="mx-2 mt-3">
+              <div className="relative">
+                <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink/40" />
+                <input
+                  ref={searchRef}
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Filter nav…"
+                  className="w-full rounded-lg border border-ink/15 bg-cream/60 py-1.5 pl-8 pr-14 text-xs font-medium text-ink placeholder:text-ink/40 outline-none transition focus:border-coral focus:bg-cream focus:ring-2 focus:ring-coral/20"
+                />
+                {query ? (
+                  <button
+                    type="button"
+                    onClick={() => setQuery("")}
+                    className="absolute right-1.5 top-1/2 grid h-5 w-5 -translate-y-1/2 place-items-center rounded text-ink/50 hover:bg-ink/5 hover:text-ink"
+                    aria-label="Clear filter"
+                  >
+                    <X className="h-3 w-3" />
+                  </button>
+                ) : (
+                  <kbd className="pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2 rounded border border-ink/15 bg-cream px-1 py-0.5 font-mono text-[9px] font-bold text-ink/50">
+                    /
+                  </kbd>
                 )}
-              </SidebarGroupLabel>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  {section.items.map((item) => {
-                const active = item.exact
-                    ? pathname === item.to
-                    : pathname.startsWith(item.to);
-                return (<SidebarMenuItem key={item.to}>
-                        <SidebarMenuButton asChild isActive={active} tooltip={item.label} className={active
-                        ? "relative border border-ink/15 bg-coral/15 font-bold text-ink shadow-sm hover:bg-coral/20 before:absolute before:left-0 before:top-1/2 before:h-5 before:w-1 before:-translate-y-1/2 before:rounded-r-full before:bg-coral"
-                        : "transition hover:translate-x-0.5 hover:bg-cream/60"}>
-                          <Link to={item.to as string as "/"} onClick={handleNav} className="flex items-center gap-2.5">
-                            <item.icon className={`h-4 w-4 ${active ? "text-coral" : "text-ink/60"}`}/>
-                            <span>{item.label}</span>
-                            {active && (<span className="ml-auto h-1.5 w-1.5 rounded-full bg-coral"/>)}
-                          </Link>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>);
-            })}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>))}
+              </div>
+            </div>
+          )}
+
+          {filteredSections.map((section, idx) => {
+            const open = isFiltering || !collapsedGroups[section.label];
+            return (
+              <SidebarGroup key={section.label} className={idx > 0 ? "mt-1 border-t border-ink/5 pt-2" : undefined}>
+                <SidebarGroupLabel asChild className="px-2">
+                  <button
+                    type="button"
+                    onClick={() => !isFiltering && !collapsed && toggleGroup(section.label)}
+                    disabled={isFiltering || collapsed}
+                    className="group flex w-full items-center justify-between rounded-md font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink/50 transition hover:text-ink disabled:cursor-default disabled:hover:text-ink/50"
+                    aria-expanded={open}
+                  >
+                    <span className="flex items-center gap-1.5">
+                      {!collapsed && !isFiltering && (
+                        <ChevronDown
+                          className={`h-3 w-3 transition-transform duration-200 ${open ? "" : "-rotate-90"}`}
+                        />
+                      )}
+                      <span>{section.label}</span>
+                    </span>
+                    {!collapsed && (
+                      <span className="rounded-full bg-ink/5 px-1.5 py-0.5 text-[9px] font-bold text-ink/50 transition group-hover:bg-coral/15 group-hover:text-coral">
+                        {section.items.length}
+                      </span>
+                    )}
+                  </button>
+                </SidebarGroupLabel>
+                {open && (
+                  <SidebarGroupContent className="animate-fade-in">
+                    <SidebarMenu>
+                      {section.items.map((item) => {
+                        const active = item.exact
+                          ? pathname === item.to
+                          : pathname.startsWith(item.to);
+                        return (
+                          <SidebarMenuItem key={item.to}>
+                            <SidebarMenuButton asChild isActive={active} tooltip={item.label} className={active
+                              ? "relative border border-ink/15 bg-coral/15 font-bold text-ink shadow-sm hover:bg-coral/20 before:absolute before:left-0 before:top-1/2 before:h-5 before:w-1 before:-translate-y-1/2 before:rounded-r-full before:bg-coral"
+                              : "transition hover:translate-x-0.5 hover:bg-cream/60"}>
+                              <Link to={item.to as string as "/"} onClick={handleNav} className="flex items-center gap-2.5">
+                                <item.icon className={`h-4 w-4 ${active ? "text-coral" : "text-ink/60"}`}/>
+                                <span>{item.label}</span>
+                                {active && (<span className="ml-auto h-1.5 w-1.5 rounded-full bg-coral"/>)}
+                              </Link>
+                            </SidebarMenuButton>
+                          </SidebarMenuItem>
+                        );
+                      })}
+                    </SidebarMenu>
+                  </SidebarGroupContent>
+                )}
+              </SidebarGroup>
+            );
+          })}
 
           {filteredSections.length === 0 && !collapsed && (
             <div className="mx-3 mt-1 rounded-lg border border-dashed border-ink/15 bg-cream/40 px-3 py-4 text-center text-[11px] text-ink/50">

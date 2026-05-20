@@ -91,11 +91,22 @@ function AdminAskPage() {
 
           <div className="mt-3 max-h-[70vh] space-y-1 overflow-y-auto pr-1">
             {loading && (
-              <div className="font-mono text-[10px] uppercase tracking-wider text-ink/40">
+              <div className="flex items-center gap-2 py-2 font-mono text-[10px] uppercase tracking-wider text-ink/40">
+                <RefreshCw className="h-3.5 w-3.5 animate-spin" />
                 Loading…
               </div>
             )}
-            {!loading && allAgents.length === 0 && (
+            {loadError && (
+              <button
+                type="button"
+                onClick={() => void load()}
+                className="flex w-full items-center gap-2 rounded-xl border-2 border-red-500 bg-red-50 px-3 py-2 text-left text-xs font-semibold text-red-700 shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5"
+              >
+                <RotateCcw className="h-4 w-4" />
+                Retry loading agents
+              </button>
+            )}
+            {!loading && !loadError && allAgents.length === 0 && (
               <div className="font-mono text-[10px] uppercase tracking-wider text-ink/40">
                 No agents found. Visit /admin/agents to seed.
               </div>

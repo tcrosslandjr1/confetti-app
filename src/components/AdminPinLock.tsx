@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Lock, ShieldCheck } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
+import { logPinUnlockAttempt } from "@/lib/admin-audit.functions";
 
 // Hardcoded console PIN. Note: this is a UX gate on the admin shell — it is
 // NOT a security boundary. RLS + the `admin` role still gate all real data
@@ -39,14 +41,32 @@ export function AdminPinLock({
   const [shake, setShake] = useState(false);
   const [attempts, setAttempts] = useState(0);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const logPinFn = useServerFn(logPinUnlockAttempt);
 
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
-  const submit = (value: string) => {
+  const submit = async (value: string) => {
     if (value.length !== PIN_LENGTH) return;
-    if (value === ADMIN_PIN) {
+    const nextAttempt = attempts + 1;
+    const success = value === ADMIN_PIN;
+
+    // Log every attempt (success or failure)
+    try {
+      await logPinFn({
+        data: {
+          success,
+          attemptNumber: nextAttempt,
+          ip: typeof window !== "undefined" ? undefined : undefined,
+          userAgent: typeof window !== "undefined" ? window.navigator.userAgent : undefined,
+        },
+      });
+    } catch {
+      // Don't block unlock if audit logging fails
+    }
+
+    if (success) {
       try {
         window.sessionStorage.setItem(UNLOCK_KEY, "1");
       } catch {
@@ -56,7 +76,7 @@ export function AdminPinLock({
       onUnlock();
       return;
     }
-    setAttempts((n) => n + 1);
+    setAttempts(nextAttempt);
     setError("Incorrect PIN. Try again.");
     setShake(true);
     setPin("");

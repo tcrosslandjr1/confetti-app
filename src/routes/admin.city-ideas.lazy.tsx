@@ -63,19 +63,19 @@ function CityIdeasPage() {
 
   return (
     <div className="space-y-6">
-      <AdminPageHeader title="City Ideas" subtitle="AI-curated trending experiences from web, TikTok & Instagram" />
+      <AdminPageHeader title="City Ideas" description="AI-curated trending experiences from web, TikTok & Instagram" />
 
       <AdminKpiGrid>
-        <AdminKpiCard label="Total ideas" value={kpis.total} tone="primary" />
-        <AdminKpiCard label="Cities covered" value={kpis.cityCount} />
-        <AdminKpiCard label="Rooftop bars" value={kpis.byCat.rooftop_bar || 0} />
-        <AdminKpiCard label="Game night" value={kpis.byCat.game_night || 0} />
+        <AdminKpiCard label="Total ideas" value={kpis.total} tone="coral" />
+        <AdminKpiCard label="Cities covered" value={kpis.cityCount} tone="purple" />
+        <AdminKpiCard label="Rooftop bars" value={kpis.byCat.rooftop_bar || 0} tone="teal" />
+        <AdminKpiCard label="Game night" value={kpis.byCat.game_night || 0} tone="amber" />
       </AdminKpiGrid>
 
       <AdminFilterBar
-        searchValue={search}
-        onSearchChange={setSearch}
-        searchPlaceholder="Search ideas, venues, cities..."
+        query={search}
+        onQueryChange={setSearch}
+        placeholder="Search ideas, venues, cities..."
       >
         <Select value={city} onValueChange={setCity}>
           <SelectTrigger className="w-48"><SelectValue /></SelectTrigger>

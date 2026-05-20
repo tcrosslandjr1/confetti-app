@@ -78,12 +78,10 @@ export function RoleSwitcher() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  // Hide on /admin routes so admins can't accidentally store a non-admin
-  // viewAs while working in the console.
-  const isAdminRoute = location.pathname.startsWith("/admin");
-
-  // UI-only switcher — visible in every view so you can preview each role.
-  // Real permissions are still enforced server-side by RLS.
+  // Admin-only impersonation UI. Visitors / customers / business users must
+  // never see this — it would let them flip the UI into another role's view.
+  // Real permissions are still enforced server-side by RLS regardless, but
+  // hiding it removes the confusing "change my view" affordance.
 
   const goToRole = (value: ViewAs) => {
     const opt = OPTIONS.find((o) => o.value === value)!;

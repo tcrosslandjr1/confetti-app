@@ -229,7 +229,7 @@ function PortalBriefPage() {
               <Link
                 key={v.id}
                 to={"/venue/$id" as any}
-                params={{ id: v.id }}
+                params={{ id: v.id } as never}
                 className="group flex items-center gap-3 rounded-xl border border-ink/15 bg-background p-3 transition hover:-translate-y-0.5 hover:border-ink hover:shadow-brut"
               >
                 <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-coral/15 text-coral">

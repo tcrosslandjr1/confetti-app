@@ -68,21 +68,50 @@
       #initial-loader .confetti-field i:nth-child(4n) { width: 4px; height: 16px; border-radius: 1px; }
       #initial-loader .confetti-field i:nth-child(5n) { width: 11px; height: 5px; border-radius: 1px; }
 
+      /* Cursor spotlight — sits above orbs, below card */
+      #initial-loader .spotlight {
+        position: absolute; inset: 0; z-index: 1; pointer-events: none;
+        background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%),
+          rgba(255, 224, 196, 0.55), transparent 60%);
+        mix-blend-mode: soft-light;
+        transition: background 0.2s ease-out;
+      }
+      /* Subtle noise grain for tactile depth */
+      #initial-loader::after {
+        content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+        opacity: 0.06; mix-blend-mode: multiply;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/></svg>");
+      }
+
       /* Frosted brutalist card — matches the rest of the site */
       #initial-loader .stage {
         position: relative;
         display: flex; flex-direction: column;
         align-items: stretch; gap: 0;
         z-index: 2;
-        width: min(420px, calc(100vw - 32px));
-        padding: 28px 28px 22px;
-        background: rgba(250, 248, 245, 0.62);
-        backdrop-filter: blur(28px) saturate(140%);
-        -webkit-backdrop-filter: blur(28px) saturate(140%);
+        width: min(440px, calc(100vw - 32px));
+        padding: 26px 26px 20px;
+        background: rgba(250, 248, 245, 0.66);
+        backdrop-filter: blur(32px) saturate(150%);
+        -webkit-backdrop-filter: blur(32px) saturate(150%);
         border: 2px solid #1a1a1a;
-        border-radius: 22px;
-        box-shadow: 8px 8px 0 0 #1a1a1a, 0 30px 60px -20px rgba(26,26,26,0.35);
+        border-radius: 24px;
+        box-shadow:
+          8px 8px 0 0 #1a1a1a,
+          0 40px 80px -24px rgba(26,26,26,0.45),
+          inset 0 1px 0 rgba(255,255,255,0.6);
         animation: card-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      /* Soft halo behind the card */
+      #initial-loader .stage::before {
+        content: ""; position: absolute; inset: -40px; z-index: -1;
+        background: radial-gradient(closest-side, rgba(255,122,76,0.35), transparent 70%);
+        filter: blur(40px); opacity: 0.7;
+        animation: halo-pulse 5s ease-in-out infinite;
+      }
+      @keyframes halo-pulse {
+        0%,100% { opacity: 0.55; transform: scale(1); }
+        50%     { opacity: 0.85; transform: scale(1.06); }
       }
 
       /* Header row: mark + name inline */
@@ -110,6 +139,20 @@
         border-radius: 50%;
         border: 1.5px dashed rgba(255, 122, 76, 0.55);
         animation: mark-spin 8s linear infinite;
+      }
+      /* Sparkles orbiting the logo mark */
+      #initial-loader .mark .spark {
+        position: absolute; width: 5px; height: 5px; border-radius: 50%;
+        background: #ff7a4c; box-shadow: 0 0 8px rgba(255,122,76,0.9);
+        top: 50%; left: 50%; margin: -2.5px;
+        transform-origin: 0 0;
+      }
+      #initial-loader .mark .spark.s1 { animation: spark-orbit 3.2s linear infinite; }
+      #initial-loader .mark .spark.s2 { background:#ffc24a; box-shadow:0 0 8px rgba(255,194,74,.9); animation: spark-orbit 4.1s linear infinite reverse; animation-delay:-1s; }
+      #initial-loader .mark .spark.s3 { background:#e63d57; box-shadow:0 0 8px rgba(230,61,87,.9); animation: spark-orbit 5s linear infinite; animation-delay:-2s; }
+      @keyframes spark-orbit {
+        from { transform: rotate(0deg) translateX(34px) rotate(0deg); }
+        to   { transform: rotate(360deg) translateX(34px) rotate(-360deg); }
       }
       #initial-loader .name {
         font-size: 28px; font-weight: 800;
@@ -176,6 +219,120 @@
       #initial-loader .agent .time {
         font-size: 10px; color: rgba(26,26,26,0.4); letter-spacing: 0.05em;
       }
+
+      /* Live stats row */
+      #initial-loader .stats {
+        margin-top: 14px; padding-top: 12px;
+        border-top: 1.5px dashed rgba(26,26,26,0.2);
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+      }
+      #initial-loader .stat {
+        display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+        padding: 6px 8px; border-radius: 10px;
+        background: rgba(255,255,255,0.35);
+        border: 1px solid rgba(26,26,26,0.08);
+      }
+      #initial-loader .stat .num {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 16px; font-weight: 800; color: #1a1a1a;
+        letter-spacing: -0.01em; line-height: 1;
+        font-variant-numeric: tabular-nums;
+      }
+      #initial-loader .stat .lbl {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 8.5px; font-weight: 700;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        color: rgba(26,26,26,0.55);
+      }
+
+      /* Mini city-map plan being drawn */
+      #initial-loader .minimap {
+        margin-top: 14px; padding: 10px;
+        border-radius: 14px;
+        background: linear-gradient(140deg, rgba(255,255,255,0.45), rgba(255,224,196,0.25));
+        border: 1px solid rgba(26,26,26,0.1);
+        position: relative; overflow: hidden;
+      }
+      #initial-loader .minimap svg { width: 100%; height: 92px; display: block; }
+      #initial-loader .minimap .grid line { stroke: rgba(26,26,26,0.07); stroke-width: 0.5; }
+      #initial-loader .minimap .road { stroke: rgba(26,26,26,0.18); stroke-width: 1.5; fill: none; stroke-linecap: round; }
+      #initial-loader .minimap .route {
+        stroke: #ff5a3c; stroke-width: 2.5; fill: none;
+        stroke-linecap: round; stroke-linejoin: round;
+        stroke-dasharray: 360; stroke-dashoffset: 360;
+        filter: drop-shadow(0 1px 2px rgba(255,90,60,0.4));
+        animation: route-draw 3.6s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards,
+                   route-pulse 2.4s ease-in-out 4.4s infinite;
+      }
+      #initial-loader .minimap .pin {
+        opacity: 0; transform-origin: center;
+        animation: pin-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      }
+      #initial-loader .minimap .pin:nth-of-type(1) { animation-delay: 1.0s; }
+      #initial-loader .minimap .pin:nth-of-type(2) { animation-delay: 1.8s; }
+      #initial-loader .minimap .pin:nth-of-type(3) { animation-delay: 2.6s; }
+      #initial-loader .minimap .pin:nth-of-type(4) { animation-delay: 3.4s; }
+      #initial-loader .minimap .pin .ring {
+        fill: none; stroke: #ff5a3c; stroke-width: 1.5;
+        transform-box: fill-box; transform-origin: center;
+        animation: pin-ring 1.8s ease-out infinite;
+      }
+      #initial-loader .minimap .traveler {
+        fill: #1a1a1a;
+        offset-path: path("M 12 70 Q 80 55 130 50 T 240 30 T 340 55");
+        offset-distance: 0%;
+        animation: travel 4.4s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+      }
+      #initial-loader .minimap .tag {
+        position: absolute; top: 10px; right: 12px;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 8.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
+        color: #1a1a1a; background: rgba(255,255,255,0.7);
+        padding: 3px 7px; border-radius: 99px;
+        border: 1px solid rgba(26,26,26,0.15);
+      }
+      #initial-loader .minimap .tag .dot {
+        display:inline-block; width:5px; height:5px; border-radius:50%;
+        background:#ff5a3c; margin-right:5px; vertical-align: 1px;
+        animation: dot-pulse 1.2s ease-in-out infinite;
+      }
+      @keyframes route-draw { to { stroke-dashoffset: 0; } }
+      @keyframes route-pulse {
+        0%,100% { filter: drop-shadow(0 1px 2px rgba(255,90,60,0.4)); }
+        50%     { filter: drop-shadow(0 1px 6px rgba(255,90,60,0.85)); }
+      }
+      @keyframes pin-pop {
+        0%   { opacity: 0; transform: translateY(-4px) scale(0.4); }
+        60%  { opacity: 1; transform: translateY(0) scale(1.15); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      @keyframes pin-ring {
+        0%   { r: 4; opacity: 0.7; }
+        100% { r: 11; opacity: 0; }
+      }
+      @keyframes travel { to { offset-distance: 100%; } }
+
+      /* Shooting comet across the skyline */
+      #initial-loader .comet {
+        position: absolute; top: 18%; left: -10%;
+        width: 120px; height: 2px; border-radius: 99px;
+        background: linear-gradient(90deg, transparent, #fff, #ffc24a);
+        filter: drop-shadow(0 0 6px rgba(255,194,74,0.9));
+        transform: rotate(14deg);
+        animation: comet-fly 7s ease-in 1.5s infinite;
+        opacity: 0;
+      }
+      #initial-loader .comet.comet-2 {
+        top: 36%; animation-delay: 4.5s; animation-duration: 9s;
+        background: linear-gradient(90deg, transparent, #fff, #ff7a4c);
+      }
+      @keyframes comet-fly {
+        0%   { transform: translate(0, 0) rotate(14deg); opacity: 0; }
+        10%  { opacity: 1; }
+        70%  { opacity: 0.9; }
+        100% { transform: translate(130vw, 30vh) rotate(14deg); opacity: 0; }
+      }
+
 
       /* Segmented progress strip */
       #initial-loader .progress-track {
@@ -403,6 +560,7 @@
         <div class="orb orb-1" aria-hidden="true"></div>
         <div class="orb orb-2" aria-hidden="true"></div>
         <div class="orb orb-3" aria-hidden="true"></div>
+        <div class="spotlight" aria-hidden="true"></div>
 
         <div class="confetti-field" aria-hidden="true">
           <i style="left: 5%; --dx: 60px; background: #ff5a3c; animation-duration: 4.2s; animation-delay: 0s;"></i>
@@ -426,6 +584,9 @@
                 <circle class="arc-bg" cx="50" cy="50" r="38" stroke-dasharray="190 70" transform="rotate(-90 50 50)" />
                 <circle class="arc-fg" cx="50" cy="50" r="38" stroke-dasharray="190 70" transform="rotate(-90 50 50)" />
               </svg>
+              <span class="spark s1" aria-hidden="true"></span>
+              <span class="spark s2" aria-hidden="true"></span>
+              <span class="spark s3" aria-hidden="true"></span>
             </div>
             <div class="name">
               <span style="animation-delay:0.3s">C</span><span style="animation-delay:0.38s">o</span><span style="animation-delay:0.46s">n</span><span style="animation-delay:0.54s">f</span><span style="animation-delay:0.62s">e</span><span style="animation-delay:0.70s">t</span><span style="animation-delay:0.78s">t</span><span style="animation-delay:0.86s">i</span>
@@ -456,6 +617,39 @@
               <span class="label">Sequencing your night</span>
               <span class="time">…</span>
             </div>
+          </div>
+
+          <div class="minimap" aria-hidden="true">
+            <span class="tag"><span class="dot"></span>Tonight · 4 stops</span>
+            <svg viewBox="0 0 360 92" preserveAspectRatio="none">
+              <g class="grid">
+                <line x1="0" y1="20" x2="360" y2="20"/>
+                <line x1="0" y1="46" x2="360" y2="46"/>
+                <line x1="0" y1="72" x2="360" y2="72"/>
+                <line x1="80" y1="0" x2="80" y2="92"/>
+                <line x1="180" y1="0" x2="180" y2="92"/>
+                <line x1="280" y1="0" x2="280" y2="92"/>
+              </g>
+              <g>
+                <path class="road" d="M -10 30 L 380 30"/>
+                <path class="road" d="M -10 65 L 380 65"/>
+                <path class="road" d="M 90 -5 L 90 100"/>
+                <path class="road" d="M 220 -5 L 220 100"/>
+                <path class="road" d="M 310 -5 L 310 100"/>
+              </g>
+              <path class="route" d="M 12 70 Q 80 55 130 50 T 240 30 T 340 55"/>
+              <g class="pin"><circle class="ring" cx="12" cy="70" r="4"/><circle cx="12" cy="70" r="4" fill="#ff5a3c"/></g>
+              <g class="pin"><circle class="ring" cx="130" cy="50" r="4"/><circle cx="130" cy="50" r="4" fill="#ff5a3c"/></g>
+              <g class="pin"><circle class="ring" cx="240" cy="30" r="4"/><circle cx="240" cy="30" r="4" fill="#ff5a3c"/></g>
+              <g class="pin"><circle class="ring" cx="340" cy="55" r="4"/><circle cx="340" cy="55" r="4" fill="#1a1a1a"/></g>
+              <circle class="traveler" r="3.5"/>
+            </svg>
+          </div>
+
+          <div class="stats" aria-hidden="true">
+            <div class="stat"><span class="num" data-count="1247">0</span><span class="lbl">Venues</span></div>
+            <div class="stat"><span class="num" data-count="38">0</span><span class="lbl">Live signals</span></div>
+            <div class="stat"><span class="num" data-count="12">0</span><span class="lbl">Trending</span></div>
           </div>
 
           <div class="ticker" aria-hidden="true">
@@ -499,7 +693,11 @@
               <rect class="win" x="1010" y="44" width="4" height="6"/>
               <rect class="win" x="1100" y="64" width="4" height="6"/>
             </g>
+            <circle cx="1060" cy="22" r="7" fill="#ffc24a" opacity="0.85"/>
+            <circle cx="1060" cy="22" r="11" fill="#ffc24a" opacity="0.18"/>
           </svg>
+          <span class="comet" aria-hidden="true"></span>
+          <span class="comet comet-2" aria-hidden="true"></span>
         </div>
 
       </div>
@@ -615,6 +813,33 @@
             if (time) time.textContent = times[i] || "";
           }, 600 + i * 700);
         });
+
+        // Animated stat counters
+        loader.querySelectorAll(".stat .num").forEach(function (el) {
+          var target = parseInt(el.getAttribute("data-count") || "0", 10);
+          if (!target || reduced) { el.textContent = target.toLocaleString(); return; }
+          var start = performance.now();
+          var dur = 1600;
+          function tick(now) {
+            var t = Math.min(1, (now - start) / dur);
+            var eased = 1 - Math.pow(1 - t, 3);
+            el.textContent = Math.round(target * eased).toLocaleString();
+            if (t < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+
+        // Cursor spotlight
+        var spotlight = loader.querySelector(".spotlight");
+        if (spotlight && !reduced) {
+          loader.addEventListener("pointermove", function (e) {
+            var rect = loader.getBoundingClientRect();
+            var x = ((e.clientX - rect.left) / rect.width) * 100;
+            var y = ((e.clientY - rect.top) / rect.height) * 100;
+            spotlight.style.setProperty("--mx", x + "%");
+            spotlight.style.setProperty("--my", y + "%");
+          });
+        }
 
         // Pointer parallax — subtle 3D tilt on the card
         if (!reduced) {

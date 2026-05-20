@@ -267,15 +267,14 @@ function AdminShell({ user, pathname, onLock }: {
     }, [pathname]);
     const activeLabel = activeItem.item.label;
     const activeSection = activeItem.section;
-    // Keyboard shortcuts: "/" or Cmd/Ctrl+K to focus search, Esc to clear.
+    // Keyboard shortcuts: Cmd/Ctrl+K opens global search; "/" focuses sidebar filter; Esc clears.
     useEffect(() => {
         const onKey = (e: KeyboardEvent) => {
             const target = e.target as HTMLElement | null;
             const typing = target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable);
             if ((e.key === "k" || e.key === "K") && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault();
-                searchRef.current?.focus();
-                searchRef.current?.select();
+                setGlobalSearchOpen(true);
                 return;
             }
             if (!typing && e.key === "/") {

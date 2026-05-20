@@ -498,6 +498,7 @@ function AdminShell({ user, pathname, onLock }: {
             </span>
             <span className="hidden text-ink/30 sm:inline">/</span>
             <span className="font-mono text-xs text-ink/70">{activeLabel}</span>
+            <EnvBadge />
           </nav>
           <div className="ml-auto flex items-center gap-2">
             <button

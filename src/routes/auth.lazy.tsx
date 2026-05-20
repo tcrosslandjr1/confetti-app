@@ -973,28 +973,11 @@ function AuthPage() {
               </span>
             </button>
 
-            {/* Social proof — avatar stack + live counter */}
-            <div className="mt-3 flex items-center justify-center gap-2.5">
-              <div className="flex -space-x-2">
-                {[
-                  { i: "MR", c: "bg-coral text-cream" },
-                  { i: "JT", c: "bg-ink text-cream" },
-                  { i: "AS", c: "bg-gold text-ink" },
-                  { i: "LK", c: "bg-purple text-cream" },
-                ].map((a) => (
-                  <span
-                    key={a.i}
-                    className={`grid h-7 w-7 place-items-center rounded-full border-2 border-cream font-display text-[10px] font-extrabold shadow-brut ${a.c}`}
-                  >
-                    {a.i}
-                  </span>
-                ))}
-              </div>
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/60">
-                <span className="font-bold text-ink">12,438</span> joined ·{" "}
-                <span className="text-coral">214 tonight</span>
-              </span>
-            </div>
+            {/* Tonight counter */}
+            <p className="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-ink/55">
+              <span className="text-coral font-bold">214</span> joined tonight
+            </p>
+
 
             {mode === "signup" && (
               <p className="text-center text-[11px] leading-relaxed text-ink/60">

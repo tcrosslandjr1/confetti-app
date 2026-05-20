@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confetti Vendor Data Processing Agreement — Confetti</title>
+<style>
+  :root {
+    --cream: #FFF8F0;
+    --dark: #1a1a2e;
+    --accent: #E8533F;
+    --accent2: #F4A261;
+    --text: #333;
+    --muted: #666;
+    --border: #e5e5e5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .header {
+    background: var(--dark);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .header .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+  .header .logo span { color: var(--accent); }
+  .header .tagline {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  /* Index page */
+  .index-hero {
+    text-align: center;
+    padding: 2rem 0 1.5rem;
+  }
+  .index-hero h1 {
+    font-size: 2rem;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+  }
+  .index-hero p {
+    color: var(--muted);
+    font-size: 1rem;
+  }
+  .doc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  .doc-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: box-shadow 0.2s, transform 0.15s;
+    border: 1px solid var(--border);
+  }
+  .doc-link:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transform: translateY(-1px);
+  }
+  .doc-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  /* Document pages */
+  .doc-content {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .doc-content h1 {
+    font-size: 1.75rem;
+    color: var(--dark);
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .doc-content h2 {
+    font-size: 1.25rem;
+    color: var(--dark);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .doc-content h3 {
+    font-size: 1.05rem;
+    color: var(--accent);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .doc-content p { margin-bottom: 1rem; }
+  .doc-content ul, .doc-content ol {
+    margin: 0.5rem 0 1rem 1.5rem;
+  }
+  .doc-content li { margin-bottom: 0.35rem; }
+  .doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+  .doc-content th, .doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    text-align: left;
+  }
+  .doc-content th {
+    background: var(--dark);
+    color: white;
+    font-weight: 600;
+  }
+  .doc-content tr:nth-child(even) { background: #fafafa; }
+  .doc-content code {
+    background: #f5f5f5;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85em;
+  }
+  .doc-content pre {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+  .doc-content pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+  .doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+  .doc-content strong { color: var(--dark); }
+
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 1rem; }
+    .doc-content { padding: 1.5rem; }
+    .doc-content h1 { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <a href="/" class="logo">Confetti<span>.</span></a>
+  <span class="tagline">Legal Documents</span>
+</div>
+<div class="container">
+  <a href="/legal/" class="back-link">&larr; Back to Legal Documents</a>
+  <div class="doc-content"><h1>Confetti Vendor Data Processing Agreement</h1>
+<p><strong>Effective Date:</strong> May 19, 2026
+<strong>Entity:</strong> Confetti App, LLC</p>
+<hr />
+<h2>1. Definitions</h2>
+<ul>
+<li><strong>Controller:</strong> Confetti App, LLC</li>
+<li><strong>Processor:</strong> The Vendor identified in the signature block</li>
+<li><strong>Sub-Processor:</strong> Any third party engaged by the Processor to process Personal Data</li>
+<li><strong>Personal Data / Processing:</strong> As defined under GDPR and applicable data protection laws</li>
+</ul>
+<h2>2. Scope</h2>
+<p>This DPA applies to all Personal Data processed by Vendor on behalf of Confetti App, LLC in connection with services provided under the underlying service agreement.</p>
+<h3>Annex 1: Processing Details</h3>
+<ul>
+<li><strong>Data Subjects:</strong> Confetti users, Influencers, Venue Partners, employees</li>
+<li><strong>Data Types:</strong> Names, emails, device identifiers, usage data, payment tokens</li>
+<li><strong>Purpose:</strong> Service delivery as described in the underlying agreement</li>
+<li><strong>Duration:</strong> Term of the underlying agreement + data deletion period</li>
+</ul>
+<h2>3. Vendor Obligations</h2>
+<ul>
+<li>Process Personal Data only on documented instructions from Confetti App, LLC</li>
+<li>Ensure authorized personnel are bound by confidentiality</li>
+<li>Implement and maintain security measures including: TLS 1.2+ in transit, AES-256 at rest, access controls, logging, regular vulnerability assessments</li>
+<li>Not engage Sub-Processors without 30 days' prior written notice and equivalent contractual protections</li>
+<li>Assist with data subject rights requests within 5 business days</li>
+<li>Assist with DPIAs where required</li>
+<li>Make available all information necessary to demonstrate compliance</li>
+</ul>
+<h2>4. Breach Notification</h2>
+<p>Vendor must notify Confetti App, LLC within 24 hours of becoming aware of any Personal Data breach, including: nature and scope, data subjects affected, consequences, and remedial actions.</p>
+<h2>5. International Transfers</h2>
+<p>Vendor shall not transfer Personal Data outside the United States or European Economic Area without Standard Contractual Clauses or other approved transfer mechanism.</p>
+<h2>6. Audit Rights</h2>
+<p>Confetti App, LLC may audit Vendor's compliance annually. SOC 2 Type II or ISO 27001 certification may be accepted in lieu of on-site audit.</p>
+<h2>7. Data Return &amp; Deletion</h2>
+<p>Upon termination, Vendor must return or securely delete all Personal Data within 30 days and certify deletion in writing.</p>
+<h2>8. Liability</h2>
+<p>Vendor shall indemnify Confetti App, LLC for losses arising from Vendor's breach of this DPA or applicable data protection law.</p>
+<h2>9. Term</h2>
+<p>Concurrent with the underlying service agreement; survives until all Personal Data is deleted.</p>
+<h2>10. Governing Law</h2>
+<p>District of Columbia.</p>
+<hr />
+<p><strong>SIGNATURES</strong></p>
+<p>Controller: Confetti App, LLC
+Name: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_ Title: </em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>_ Date: <strong><em>_</em></strong>______</p>
+<p>Processor (Vendor):
+Company: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_
+Name: </em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>_ Title: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_ Date: </em></strong><strong><em>_</em></strong>___</p></div>
+</div>
+<div class="footer">
+  &copy; 2026 Confetti App, LLC &bull; Washington, DC &bull; <a href="mailto:legal@confetti.app" style="color:var(--accent)">legal@confetti.app</a>
+</div>
+</body>
+</html>

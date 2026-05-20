@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confetti Privacy Policy — Confetti</title>
+<style>
+  :root {
+    --cream: #FFF8F0;
+    --dark: #1a1a2e;
+    --accent: #E8533F;
+    --accent2: #F4A261;
+    --text: #333;
+    --muted: #666;
+    --border: #e5e5e5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .header {
+    background: var(--dark);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .header .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+  .header .logo span { color: var(--accent); }
+  .header .tagline {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  /* Index page */
+  .index-hero {
+    text-align: center;
+    padding: 2rem 0 1.5rem;
+  }
+  .index-hero h1 {
+    font-size: 2rem;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+  }
+  .index-hero p {
+    color: var(--muted);
+    font-size: 1rem;
+  }
+  .doc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  .doc-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: box-shadow 0.2s, transform 0.15s;
+    border: 1px solid var(--border);
+  }
+  .doc-link:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transform: translateY(-1px);
+  }
+  .doc-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  /* Document pages */
+  .doc-content {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .doc-content h1 {
+    font-size: 1.75rem;
+    color: var(--dark);
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .doc-content h2 {
+    font-size: 1.25rem;
+    color: var(--dark);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .doc-content h3 {
+    font-size: 1.05rem;
+    color: var(--accent);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .doc-content p { margin-bottom: 1rem; }
+  .doc-content ul, .doc-content ol {
+    margin: 0.5rem 0 1rem 1.5rem;
+  }
+  .doc-content li { margin-bottom: 0.35rem; }
+  .doc-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+  .doc-content th, .doc-content td {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    text-align: left;
+  }
+  .doc-content th {
+    background: var(--dark);
+    color: white;
+    font-weight: 600;
+  }
+  .doc-content tr:nth-child(even) { background: #fafafa; }
+  .doc-content code {
+    background: #f5f5f5;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85em;
+  }
+  .doc-content pre {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+  .doc-content pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+  .doc-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+  .doc-content strong { color: var(--dark); }
+
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 1rem; }
+    .doc-content { padding: 1.5rem; }
+    .doc-content h1 { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <a href="/" class="logo">Confetti<span>.</span></a>
+  <span class="tagline">Legal Documents</span>
+</div>
+<div class="container">
+  <a href="/legal/" class="back-link">&larr; Back to Legal Documents</a>
+  <div class="doc-content"><h1>Confetti Privacy Policy</h1>
+<p><strong>Effective Date:</strong> May 19, 2026
+<strong>Entity:</strong> Confetti App, LLC</p>
+<hr />
+<h2>1. Introduction</h2>
+<p>Confetti App, LLC ("we," "us," "our") operates the Confetti mobile application and website. This Privacy Policy explains how we collect, use, share, and protect your personal information.</p>
+<h2>2. Information We Collect</h2>
+<h3>2.1 Information You Provide</h3>
+<ul>
+<li>Account details (name, email, phone, date of birth)</li>
+<li>Profile preferences (cuisine, ambiance, dietary restrictions)</li>
+<li>Reviews, ratings, and feedback</li>
+<li>Payment information (processed by third-party payment processors)</li>
+<li>Communications with our support team or AI concierge</li>
+</ul>
+<h3>2.2 Information Collected Automatically</h3>
+<ul>
+<li>Device identifiers (device ID, OS version, app version)</li>
+<li>Location data (with your permission)</li>
+<li>Usage data (pages viewed, features used, session duration)</li>
+<li>Log data (IP address, browser type, access times)</li>
+</ul>
+<h3>2.3 Information from Third Parties</h3>
+<ul>
+<li>Social media profile data (when you connect accounts)</li>
+<li>Venue booking confirmations (with your permission)</li>
+</ul>
+<h2>3. How We Use Your Information</h2>
+<p>We use your information to:
+- Provide and personalize the Service
+- Build and maintain your Taste Graph (see Data Profiling Addendum, Doc 17)
+- Process transactions and send billing communications
+- Send service-related notifications
+- Improve our AI recommendation models
+- Detect and prevent fraud, abuse, or security threats
+- Comply with legal obligations</p>
+<h2>4. Legal Basis for Processing (GDPR)</h2>
+<ul>
+<li><strong>Consent:</strong> Taste Graph profiling, marketing communications, special category data</li>
+<li><strong>Contract Performance:</strong> Account management, service delivery</li>
+<li><strong>Legitimate Interest:</strong> Service improvement, fraud prevention, analytics</li>
+<li><strong>Legal Obligation:</strong> Tax reporting, law enforcement requests</li>
+</ul>
+<h2>5. AI Profiling &amp; Automated Decision-Making</h2>
+<p>Confetti uses AI to build personalized Taste Graphs. See the Data Profiling &amp; Taste Learning Addendum (Doc 17) for complete details on how profiling works, your GDPR Article 22 rights, and your controls.</p>
+<h2>6. Data Sharing</h2>
+<p>We do NOT sell your personal data. We share data with:
+- <strong>Service Providers:</strong> Hosting, analytics, payment processing, email delivery
+- <strong>Venue Partners:</strong> Anonymized and aggregated trend data only
+- <strong>Legal Requirements:</strong> When required by law, subpoena, or court order
+- <strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</p>
+<h2>7. Cookies &amp; Tracking</h2>
+<p>See the Cookie &amp; Tracking Consent Policy (Doc 03) for details on cookies, pixels, and analytics tools.</p>
+<h2>8. Data Retention</h2>
+<ul>
+<li>Account data: Duration of account + 30 days after deletion</li>
+<li>Taste Graph: Active account + 30 days (or until opt-out)</li>
+<li>Behavioral signals: 90 days rolling</li>
+<li>Payment records: 7 years (tax/legal compliance)</li>
+<li>Support communications: 3 years</li>
+</ul>
+<h2>9. Your Rights</h2>
+<h3>GDPR (EU/EEA/UK)</h3>
+<ul>
+<li>Access, rectification, erasure, restriction, portability, objection</li>
+<li>Withdraw consent at any time</li>
+<li>Lodge a complaint with your supervisory authority</li>
+</ul>
+<h3>CCPA (California)</h3>
+<ul>
+<li>Right to know, delete, opt-out of sale (we do not sell data)</li>
+<li>Right to non-discrimination</li>
+</ul>
+<h3>All Users</h3>
+<ul>
+<li>Access your data: Profile &gt; Privacy &gt; Download My Data</li>
+<li>Delete your data: Profile &gt; Privacy &gt; Delete My Account</li>
+<li>Manage preferences: Profile &gt; Taste Settings</li>
+</ul>
+<h2>10. International Data Transfers</h2>
+<p>Data may be transferred to and processed in the United States. We use Standard Contractual Clauses (SCCs) and other safeguards for EU/EEA/UK data transfers.</p>
+<h2>11. Data Security</h2>
+<p>We implement industry-standard security measures including:
+- TLS 1.2+ encryption in transit
+- AES-256 encryption at rest
+- Access controls and audit logging
+- Regular security assessments and penetration testing</p>
+<h2>12. Children's Privacy</h2>
+<p>Confetti does not knowingly collect data from children under 18. See the Age Verification Gate Policy (Doc 06).</p>
+<h2>13. Changes to This Policy</h2>
+<p>We will notify you of material changes via email or in-app notification at least 30 days before the effective date.</p>
+<h2>14. Contact</h2>
+<ul>
+<li><strong>Privacy:</strong> privacy@confetti.app</li>
+<li><strong>DPO:</strong> dpo@confetti.app</li>
+<li><strong>Mail:</strong> Confetti App, LLC, Attn: Privacy, Washington, DC</li>
+</ul></div>
+</div>
+<div class="footer">
+  &copy; 2026 Confetti App, LLC &bull; Washington, DC &bull; <a href="mailto:legal@confetti.app" style="color:var(--accent)">legal@confetti.app</a>
+</div>
+</body>
+</html>

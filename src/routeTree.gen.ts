@@ -167,6 +167,7 @@ import { Route as AdminBusinessClaimsRouteImport } from './routes/admin.business
 import { Route as AdminBootstrapRouteImport } from './routes/admin.bootstrap'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as AdminAuditRouteImport } from './routes/admin.audit'
+import { Route as AdminAskRouteImport } from './routes/admin.ask'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 import { Route as AdminAgentsRouteImport } from './routes/admin.agents'
 import { Route as AdminAdvertisersRouteImport } from './routes/admin.advertisers'
@@ -1024,6 +1025,11 @@ const AdminAuditRoute = AdminAuditRouteImport.update({
   path: '/audit',
   getParentRoute: () => AdminRoute,
 } as any).lazy(() => import('./routes/admin.audit.lazy').then((d) => d.Route))
+const AdminAskRoute = AdminAskRouteImport.update({
+  id: '/ask',
+  path: '/ask',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
   id: '/analytics',
   path: '/analytics',
@@ -1254,6 +1260,7 @@ export interface FileRoutesByFullPath {
   '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/agents': typeof AdminAgentsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/ask': typeof AdminAskRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/bootstrap': typeof AdminBootstrapRoute
@@ -1435,6 +1442,7 @@ export interface FileRoutesByTo {
   '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/agents': typeof AdminAgentsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/ask': typeof AdminAskRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/bootstrap': typeof AdminBootstrapRoute
@@ -1626,6 +1634,7 @@ export interface FileRoutesById {
   '/admin/advertisers': typeof AdminAdvertisersRoute
   '/admin/agents': typeof AdminAgentsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/ask': typeof AdminAskRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/bootstrap': typeof AdminBootstrapRoute
@@ -1818,6 +1827,7 @@ export interface FileRouteTypes {
     | '/admin/advertisers'
     | '/admin/agents'
     | '/admin/analytics'
+    | '/admin/ask'
     | '/admin/audit'
     | '/admin/bookings'
     | '/admin/bootstrap'
@@ -1999,6 +2009,7 @@ export interface FileRouteTypes {
     | '/admin/advertisers'
     | '/admin/agents'
     | '/admin/analytics'
+    | '/admin/ask'
     | '/admin/audit'
     | '/admin/bookings'
     | '/admin/bootstrap'
@@ -2189,6 +2200,7 @@ export interface FileRouteTypes {
     | '/admin/advertisers'
     | '/admin/agents'
     | '/admin/analytics'
+    | '/admin/ask'
     | '/admin/audit'
     | '/admin/bookings'
     | '/admin/bootstrap'
@@ -3537,6 +3549,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAuditRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/ask': {
+      id: '/admin/ask'
+      path: '/ask'
+      fullPath: '/admin/ask'
+      preLoaderRoute: typeof AdminAskRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/analytics': {
       id: '/admin/analytics'
       path: '/analytics'
@@ -3755,6 +3774,7 @@ interface AdminRouteChildren {
   AdminAdvertisersRoute: typeof AdminAdvertisersRoute
   AdminAgentsRoute: typeof AdminAgentsRoute
   AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminAskRoute: typeof AdminAskRoute
   AdminAuditRoute: typeof AdminAuditRoute
   AdminBookingsRoute: typeof AdminBookingsRoute
   AdminBootstrapRoute: typeof AdminBootstrapRoute
@@ -3787,6 +3807,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminAdvertisersRoute: AdminAdvertisersRoute,
   AdminAgentsRoute: AdminAgentsRoute,
   AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminAskRoute: AdminAskRoute,
   AdminAuditRoute: AdminAuditRoute,
   AdminBookingsRoute: AdminBookingsRoute,
   AdminBootstrapRoute: AdminBootstrapRoute,

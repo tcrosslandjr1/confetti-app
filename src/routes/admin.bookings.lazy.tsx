@@ -314,6 +314,7 @@ function AdminBookingsPage() {
   const [sortDir, setSortDir] = useState<SortDir>("desc");
   const [selected, setSelected] = useState<Booking | null>(null);
   const [deliveries, setDeliveries] = useState<Delivery[]>([]);
+  const [statusChanges, setStatusChanges] = useState<StatusChange[]>([]);
   const [deliveriesLoading, setDeliveriesLoading] = useState(false);
   const [actionId, setActionId] = useState<string | null>(null);
   const [liveOn, setLiveOn] = useState(true);

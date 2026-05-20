@@ -127,13 +127,24 @@ export function SiteHeader() {
         <div className="ml-auto flex items-center gap-2">
           <CitySelector compact className="hidden min-[1400px]:block" />
           {isVisitor ? (
-            <Link
-              to="/auth"
-              preload="render"
-              className="hidden h-10 items-center whitespace-nowrap rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg min-[1320px]:inline-flex"
-            >
-              Sign up free
-            </Link>
+            <>
+              <Link
+                to="/auth"
+                search={{ mode: "signin" } as never}
+                preload="render"
+                className="hidden h-10 items-center whitespace-nowrap rounded-full px-3 font-mono text-xs font-bold uppercase tracking-widest text-ink/75 transition-colors hover:text-ink sm:inline-flex"
+              >
+                Log in
+              </Link>
+              <Link
+                to="/auth"
+                preload="render"
+                className="hidden h-10 items-center whitespace-nowrap rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg min-[1100px]:inline-flex"
+              >
+                Sign up free
+              </Link>
+            </>
+
 
           ) : (
             <>

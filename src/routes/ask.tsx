@@ -1,6 +1,12 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
+import {
+  Sparkles,
+  UserCircle,
+  Route,
+  Compass,
+} from "lucide-react";
 import { orchestratePlan } from "@/lib/orchestrator.functions";
 
 export const Route = createFileRoute("/ask")({

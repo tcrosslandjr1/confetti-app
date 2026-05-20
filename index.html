@@ -814,6 +814,33 @@
           }, 600 + i * 700);
         });
 
+        // Animated stat counters
+        loader.querySelectorAll(".stat .num").forEach(function (el) {
+          var target = parseInt(el.getAttribute("data-count") || "0", 10);
+          if (!target || reduced) { el.textContent = target.toLocaleString(); return; }
+          var start = performance.now();
+          var dur = 1600;
+          function tick(now) {
+            var t = Math.min(1, (now - start) / dur);
+            var eased = 1 - Math.pow(1 - t, 3);
+            el.textContent = Math.round(target * eased).toLocaleString();
+            if (t < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+
+        // Cursor spotlight
+        var spotlight = loader.querySelector(".spotlight");
+        if (spotlight && !reduced) {
+          loader.addEventListener("pointermove", function (e) {
+            var rect = loader.getBoundingClientRect();
+            var x = ((e.clientX - rect.left) / rect.width) * 100;
+            var y = ((e.clientY - rect.top) / rect.height) * 100;
+            spotlight.style.setProperty("--mx", x + "%");
+            spotlight.style.setProperty("--my", y + "%");
+          });
+        }
+
         // Pointer parallax — subtle 3D tilt on the card
         if (!reduced) {
           var stage = loader.querySelector(".stage");

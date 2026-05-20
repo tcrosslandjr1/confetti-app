@@ -312,6 +312,27 @@
       }
       @keyframes travel { to { offset-distance: 100%; } }
 
+      /* Shooting comet across the skyline */
+      #initial-loader .comet {
+        position: absolute; top: 18%; left: -10%;
+        width: 120px; height: 2px; border-radius: 99px;
+        background: linear-gradient(90deg, transparent, #fff, #ffc24a);
+        filter: drop-shadow(0 0 6px rgba(255,194,74,0.9));
+        transform: rotate(14deg);
+        animation: comet-fly 7s ease-in 1.5s infinite;
+        opacity: 0;
+      }
+      #initial-loader .comet.comet-2 {
+        top: 36%; animation-delay: 4.5s; animation-duration: 9s;
+        background: linear-gradient(90deg, transparent, #fff, #ff7a4c);
+      }
+      @keyframes comet-fly {
+        0%   { transform: translate(0, 0) rotate(14deg); opacity: 0; }
+        10%  { opacity: 1; }
+        70%  { opacity: 0.9; }
+        100% { transform: translate(130vw, 30vh) rotate(14deg); opacity: 0; }
+      }
+
 
       /* Segmented progress strip */
       #initial-loader .progress-track {

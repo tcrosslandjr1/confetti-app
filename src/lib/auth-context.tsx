@@ -68,7 +68,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [viewAsState, setViewAsState] = useState<ViewAs | null>(null);
   const [viewAsLoaded, setViewAsLoaded] = useState(!isBrowser);
 
-  // Keep the selected view stable across preview refreshes so admins don't jump back to /admin.
+  // Keep the selected view stable only for real admins. Visitors and normal
+  // customers must never inherit a stale admin/business preview from sessionStorage.
   useEffect(() => {
     if (typeof window === "undefined") {
       setViewAsLoaded(true);
@@ -166,19 +167,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const loading = sessionLoading || roleLoading || !viewAsLoaded;
     const realRole: ViewAs = !session?.user ? "visitor" : isAdmin ? "admin" : "customer";
 
-    // The switcher is a UI-only role preview. Real permissions are always
-    // enforced server-side by RLS, so we let any visitor preview any role —
-    // admins included. `effective` falls back to the real role when nothing
-    // has been picked. `isImpersonating` is true whenever the preview differs
-    // from the real role (so the amber banner only shows when it should).
-    const effective: ViewAs = viewAsState ?? realRole;
+    // Only real admins can preview other views. Everyone else is locked to
+    // their real visitor/customer role even if an old tab has sessionStorage.
+    const effective: ViewAs = isAdmin ? (viewAsState ?? realRole) : realRole;
     const impersonating = effective !== realRole;
-    // Preview = an explicit pick that the real session can't satisfy (no user,
-    // or non-admin asking for an admin-only view). The UI shell still renders
-    // so the role can be tested; RLS continues to enforce real permissions.
-    const preview =
-      viewAsState !== null &&
-      ((!session?.user && viewAsState !== "visitor") || (viewAsState === "admin" && !isAdmin));
+    const preview = false;
 
     return {
       user: session?.user ?? null,

@@ -90,6 +90,7 @@ import { Route as PortalSavedRouteImport } from './routes/portal.saved'
 import { Route as PortalReferRouteImport } from './routes/portal.refer'
 import { Route as PortalProfileRouteImport } from './routes/portal.profile'
 import { Route as PortalPassportRouteImport } from './routes/portal.passport'
+import { Route as PortalBriefRouteImport } from './routes/portal.brief'
 import { Route as PortalBookingsRouteImport } from './routes/portal.bookings'
 import { Route as PortalActivityRouteImport } from './routes/portal.activity'
 import { Route as PortalAchievementsRouteImport } from './routes/portal.achievements'
@@ -142,6 +143,7 @@ import { Route as AppPlanRouteImport } from './routes/app.plan'
 import { Route as AppExploreRouteImport } from './routes/app.explore'
 import { Route as ApiPlanRouteImport } from './routes/api/plan'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as AdvertiseReportsRouteImport } from './routes/advertise.reports'
 import { Route as AdvertisePortalRouteImport } from './routes/advertise.portal'
 import { Route as AdminWalletDebugRouteImport } from './routes/admin.wallet-debug'
 import { Route as AdminVenuesRouteImport } from './routes/admin.venues'
@@ -164,6 +166,7 @@ import { Route as AdminHealthRouteImport } from './routes/admin.health'
 import { Route as AdminEventAnalyticsRouteImport } from './routes/admin.event-analytics'
 import { Route as AdminDiagnosticsRouteImport } from './routes/admin.diagnostics'
 import { Route as AdminBusinessClaimsRouteImport } from './routes/admin.business-claims'
+import { Route as AdminBriefRouteImport } from './routes/admin.brief'
 import { Route as AdminBootstrapRouteImport } from './routes/admin.bootstrap'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as AdminAuditRouteImport } from './routes/admin.audit'
@@ -610,6 +613,11 @@ const PortalPassportRoute = PortalPassportRouteImport.update({
   path: '/passport',
   getParentRoute: () => PortalRoute,
 } as any)
+const PortalBriefRoute = PortalBriefRouteImport.update({
+  id: '/brief',
+  path: '/brief',
+  getParentRoute: () => PortalRoute,
+} as any)
 const PortalBookingsRoute = PortalBookingsRouteImport.update({
   id: '/bookings',
   path: '/bookings',
@@ -870,6 +878,11 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdvertiseReportsRoute = AdvertiseReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AdvertiseRoute,
+} as any)
 const AdvertisePortalRoute = AdvertisePortalRouteImport.update({
   id: '/portal',
   path: '/portal',
@@ -1006,6 +1019,11 @@ const AdminBusinessClaimsRoute = AdminBusinessClaimsRouteImport.update({
 } as any).lazy(() =>
   import('./routes/admin.business-claims.lazy').then((d) => d.Route),
 )
+const AdminBriefRoute = AdminBriefRouteImport.update({
+  id: '/brief',
+  path: '/brief',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminBootstrapRoute = AdminBootstrapRouteImport.update({
   id: '/bootstrap',
   path: '/bootstrap',
@@ -1264,6 +1282,7 @@ export interface FileRoutesByFullPath {
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/bootstrap': typeof AdminBootstrapRoute
+  '/admin/brief': typeof AdminBriefRoute
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
   '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
@@ -1286,6 +1305,7 @@ export interface FileRoutesByFullPath {
   '/admin/venues': typeof AdminVenuesRoute
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
+  '/advertise/reports': typeof AdvertiseReportsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
@@ -1338,6 +1358,7 @@ export interface FileRoutesByFullPath {
   '/portal/achievements': typeof PortalAchievementsRoute
   '/portal/activity': typeof PortalActivityRoute
   '/portal/bookings': typeof PortalBookingsRoute
+  '/portal/brief': typeof PortalBriefRoute
   '/portal/passport': typeof PortalPassportRoute
   '/portal/profile': typeof PortalProfileRoute
   '/portal/refer': typeof PortalReferRoute
@@ -1446,6 +1467,7 @@ export interface FileRoutesByTo {
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/bootstrap': typeof AdminBootstrapRoute
+  '/admin/brief': typeof AdminBriefRoute
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
   '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
@@ -1468,6 +1490,7 @@ export interface FileRoutesByTo {
   '/admin/venues': typeof AdminVenuesRoute
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
+  '/advertise/reports': typeof AdvertiseReportsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
@@ -1520,6 +1543,7 @@ export interface FileRoutesByTo {
   '/portal/achievements': typeof PortalAchievementsRoute
   '/portal/activity': typeof PortalActivityRoute
   '/portal/bookings': typeof PortalBookingsRoute
+  '/portal/brief': typeof PortalBriefRoute
   '/portal/passport': typeof PortalPassportRoute
   '/portal/profile': typeof PortalProfileRoute
   '/portal/refer': typeof PortalReferRoute
@@ -1638,6 +1662,7 @@ export interface FileRoutesById {
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
   '/admin/bootstrap': typeof AdminBootstrapRoute
+  '/admin/brief': typeof AdminBriefRoute
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
   '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
@@ -1660,6 +1685,7 @@ export interface FileRoutesById {
   '/admin/venues': typeof AdminVenuesRoute
   '/admin/wallet-debug': typeof AdminWalletDebugRoute
   '/advertise/portal': typeof AdvertisePortalRoute
+  '/advertise/reports': typeof AdvertiseReportsRoute
   '/api/chat': typeof ApiChatRoute
   '/api/plan': typeof ApiPlanRoute
   '/app/explore': typeof AppExploreRoute
@@ -1712,6 +1738,7 @@ export interface FileRoutesById {
   '/portal/achievements': typeof PortalAchievementsRoute
   '/portal/activity': typeof PortalActivityRoute
   '/portal/bookings': typeof PortalBookingsRoute
+  '/portal/brief': typeof PortalBriefRoute
   '/portal/passport': typeof PortalPassportRoute
   '/portal/profile': typeof PortalProfileRoute
   '/portal/refer': typeof PortalReferRoute
@@ -1831,6 +1858,7 @@ export interface FileRouteTypes {
     | '/admin/audit'
     | '/admin/bookings'
     | '/admin/bootstrap'
+    | '/admin/brief'
     | '/admin/business-claims'
     | '/admin/diagnostics'
     | '/admin/event-analytics'
@@ -1853,6 +1881,7 @@ export interface FileRouteTypes {
     | '/admin/venues'
     | '/admin/wallet-debug'
     | '/advertise/portal'
+    | '/advertise/reports'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
@@ -1905,6 +1934,7 @@ export interface FileRouteTypes {
     | '/portal/achievements'
     | '/portal/activity'
     | '/portal/bookings'
+    | '/portal/brief'
     | '/portal/passport'
     | '/portal/profile'
     | '/portal/refer'
@@ -2013,6 +2043,7 @@ export interface FileRouteTypes {
     | '/admin/audit'
     | '/admin/bookings'
     | '/admin/bootstrap'
+    | '/admin/brief'
     | '/admin/business-claims'
     | '/admin/diagnostics'
     | '/admin/event-analytics'
@@ -2035,6 +2066,7 @@ export interface FileRouteTypes {
     | '/admin/venues'
     | '/admin/wallet-debug'
     | '/advertise/portal'
+    | '/advertise/reports'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
@@ -2087,6 +2119,7 @@ export interface FileRouteTypes {
     | '/portal/achievements'
     | '/portal/activity'
     | '/portal/bookings'
+    | '/portal/brief'
     | '/portal/passport'
     | '/portal/profile'
     | '/portal/refer'
@@ -2204,6 +2237,7 @@ export interface FileRouteTypes {
     | '/admin/audit'
     | '/admin/bookings'
     | '/admin/bootstrap'
+    | '/admin/brief'
     | '/admin/business-claims'
     | '/admin/diagnostics'
     | '/admin/event-analytics'
@@ -2226,6 +2260,7 @@ export interface FileRouteTypes {
     | '/admin/venues'
     | '/admin/wallet-debug'
     | '/advertise/portal'
+    | '/advertise/reports'
     | '/api/chat'
     | '/api/plan'
     | '/app/explore'
@@ -2278,6 +2313,7 @@ export interface FileRouteTypes {
     | '/portal/achievements'
     | '/portal/activity'
     | '/portal/bookings'
+    | '/portal/brief'
     | '/portal/passport'
     | '/portal/profile'
     | '/portal/refer'
@@ -3010,6 +3046,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortalPassportRouteImport
       parentRoute: typeof PortalRoute
     }
+    '/portal/brief': {
+      id: '/portal/brief'
+      path: '/brief'
+      fullPath: '/portal/brief'
+      preLoaderRoute: typeof PortalBriefRouteImport
+      parentRoute: typeof PortalRoute
+    }
     '/portal/bookings': {
       id: '/portal/bookings'
       path: '/bookings'
@@ -3374,6 +3417,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/advertise/reports': {
+      id: '/advertise/reports'
+      path: '/reports'
+      fullPath: '/advertise/reports'
+      preLoaderRoute: typeof AdvertiseReportsRouteImport
+      parentRoute: typeof AdvertiseRoute
+    }
     '/advertise/portal': {
       id: '/advertise/portal'
       path: '/portal'
@@ -3526,6 +3576,13 @@ declare module '@tanstack/react-router' {
       path: '/business-claims'
       fullPath: '/admin/business-claims'
       preLoaderRoute: typeof AdminBusinessClaimsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/brief': {
+      id: '/admin/brief'
+      path: '/brief'
+      fullPath: '/admin/brief'
+      preLoaderRoute: typeof AdminBriefRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/bootstrap': {
@@ -3778,6 +3835,7 @@ interface AdminRouteChildren {
   AdminAuditRoute: typeof AdminAuditRoute
   AdminBookingsRoute: typeof AdminBookingsRoute
   AdminBootstrapRoute: typeof AdminBootstrapRoute
+  AdminBriefRoute: typeof AdminBriefRoute
   AdminBusinessClaimsRoute: typeof AdminBusinessClaimsRoute
   AdminDiagnosticsRoute: typeof AdminDiagnosticsRoute
   AdminEventAnalyticsRoute: typeof AdminEventAnalyticsRoute
@@ -3811,6 +3869,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminAuditRoute: AdminAuditRoute,
   AdminBookingsRoute: AdminBookingsRoute,
   AdminBootstrapRoute: AdminBootstrapRoute,
+  AdminBriefRoute: AdminBriefRoute,
   AdminBusinessClaimsRoute: AdminBusinessClaimsRoute,
   AdminDiagnosticsRoute: AdminDiagnosticsRoute,
   AdminEventAnalyticsRoute: AdminEventAnalyticsRoute,
@@ -3839,12 +3898,14 @@ const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface AdvertiseRouteChildren {
   AdvertisePortalRoute: typeof AdvertisePortalRoute
+  AdvertiseReportsRoute: typeof AdvertiseReportsRoute
   AdvertiseIndexRoute: typeof AdvertiseIndexRoute
   AdvertiseStoriesSlugRoute: typeof AdvertiseStoriesSlugRoute
 }
 
 const AdvertiseRouteChildren: AdvertiseRouteChildren = {
   AdvertisePortalRoute: AdvertisePortalRoute,
+  AdvertiseReportsRoute: AdvertiseReportsRoute,
   AdvertiseIndexRoute: AdvertiseIndexRoute,
   AdvertiseStoriesSlugRoute: AdvertiseStoriesSlugRoute,
 }
@@ -3970,6 +4031,7 @@ interface PortalRouteChildren {
   PortalAchievementsRoute: typeof PortalAchievementsRoute
   PortalActivityRoute: typeof PortalActivityRoute
   PortalBookingsRoute: typeof PortalBookingsRoute
+  PortalBriefRoute: typeof PortalBriefRoute
   PortalPassportRoute: typeof PortalPassportRoute
   PortalProfileRoute: typeof PortalProfileRoute
   PortalReferRoute: typeof PortalReferRoute
@@ -3983,6 +4045,7 @@ const PortalRouteChildren: PortalRouteChildren = {
   PortalAchievementsRoute: PortalAchievementsRoute,
   PortalActivityRoute: PortalActivityRoute,
   PortalBookingsRoute: PortalBookingsRoute,
+  PortalBriefRoute: PortalBriefRoute,
   PortalPassportRoute: PortalPassportRoute,
   PortalProfileRoute: PortalProfileRoute,
   PortalReferRoute: PortalReferRoute,

@@ -13,21 +13,35 @@ if (!rootEl) throw new Error("Root element #root not found");
 function BootFallback() {
   const isAdmin = window.location.pathname.startsWith("/admin");
   return (
-    <div className="grid min-h-screen place-items-center bg-background px-4 text-foreground">
-      <div className="w-full max-w-md space-y-4 text-center">
-        <div className="mx-auto grid h-14 w-14 place-items-center rounded-xl border-2 border-ink bg-coral text-cream shadow-brut">
+    <div className="grid min-h-screen place-items-center overflow-hidden bg-cream px-4 text-ink">
+      <div className="pointer-events-none absolute -left-32 -top-32 h-[34rem] w-[34rem] rounded-full bg-coral/35 blur-3xl" />
+      <div className="pointer-events-none absolute -right-28 bottom-0 h-[30rem] w-[30rem] rounded-full bg-gold/35 blur-3xl" />
+      <div className="relative w-full max-w-md rounded-[1.35rem] border-2 border-ink bg-cream/65 p-7 text-center shadow-brut-lg backdrop-blur-2xl">
+        <div className="mx-auto grid h-14 w-14 place-items-center rounded-full border-2 border-ink bg-coral text-cream shadow-brut">
           {isAdmin ? "⚙" : "C"}
         </div>
         <div>
-          <h1 className="font-display text-xl font-extrabold tracking-tight text-ink">
+          <h1 className="mt-4 font-display text-2xl font-extrabold tracking-tight text-ink">
             {isAdmin ? "Loading Admin Console" : "Loading Confetti"}
           </h1>
-          <p className="mt-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink/55">
-            {isAdmin ? "Preparing command center" : "Curating your city"}
+          <p className="mt-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink/70">
+            {isAdmin ? "Preparing command center" : "AI agents are sequencing your city"}
           </p>
         </div>
-        <div className="mx-auto h-2 w-44 overflow-hidden rounded-full border border-ink/20 bg-cream">
-          <div className="h-full w-1/2 animate-pulse rounded-full bg-coral" />
+        <div className="mt-5 space-y-2 border-y border-dashed border-ink/25 py-4 text-left font-mono text-[11px] text-ink/75">
+          {[
+            "Reading live venue signals",
+            "Checking visitor/admin route",
+            "Warming the planner agents",
+          ].map((line) => (
+            <div key={line} className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-coral animate-pulse" />
+              {line}
+            </div>
+          ))}
+        </div>
+        <div className="mt-5 h-2 overflow-hidden rounded-full border border-ink/20 bg-cream">
+          <div className="h-full w-2/3 animate-pulse rounded-full bg-coral" />
         </div>
       </div>
     </div>

@@ -196,11 +196,24 @@ function AdminLayout() {
         else if (redirect && redirect !== pathname)
             navigate({ to: redirect as never, replace: true });
     }, [loading, user, isAdmin, viewAs, allowPreview, navigate, isLoginRoute, pathname, redirect]);
+    // PIN lock — gate the admin shell behind a 6-digit PIN per browser tab.
+    // Login route is exempt so admins can sign in first.
+    const [unlocked, setUnlocked] = useState<boolean>(() => isAdminUnlocked());
+    useEffect(() => {
+        if (!user) {
+            // Signing out also clears the PIN unlock so the next admin must re-enter it.
+            lockAdmin();
+            setUnlocked(false);
+        }
+    }, [user]);
     if (isLoginRoute) {
         return <Outlet />;
     }
     if (!allowPreview && (loading || !isAdmin || viewAs !== "admin")) {
         return <AdminSkeleton />;
+    }
+    if (!unlocked) {
+        return <AdminPinLock email={user?.email ?? null} onUnlock={() => setUnlocked(true)} />;
     }
     return (<SidebarProvider>
       <AdminShell user={user} pathname={pathname}/>

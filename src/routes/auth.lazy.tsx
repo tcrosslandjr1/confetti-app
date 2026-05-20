@@ -550,7 +550,7 @@ function AuthPage() {
         </aside>
 
         {/* Form pane */}
-        <div className="flex flex-col px-5 py-8 sm:px-10 lg:py-14">
+        <div className="flex flex-col px-4 py-6 sm:px-10 sm:py-8 lg:py-14">
           {/* Mobile immersive hero strip */}
           <div className="lg:hidden">
             <div className="relative overflow-hidden rounded-3xl border-2 border-ink bg-gradient-vibe p-5 text-primary-foreground shadow-brut">

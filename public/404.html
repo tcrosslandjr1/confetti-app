@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      // SPA fallback: save the requested path and redirect to root.
+      // The main index.html will pick this up via sessionStorage and
+      // restore the URL with history.replaceState before the router boots.
+      sessionStorage.setItem('__spa_redirect__', location.pathname + location.search + location.hash);
+      location.replace('/');
+    </script>
+  </head>
+  <body></body>
+</html>

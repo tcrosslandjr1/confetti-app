@@ -1015,6 +1015,18 @@
         }
       })();
     </script>
+    <script>
+      // SPA redirect recovery: if the user hit a non-root URL directly and
+      // was bounced here via public/404.html, restore the original path so
+      // TanStack Router initialises on the correct route.
+      (function () {
+        var r = sessionStorage.getItem('__spa_redirect__');
+        if (r) {
+          sessionStorage.removeItem('__spa_redirect__');
+          history.replaceState(null, '', r);
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

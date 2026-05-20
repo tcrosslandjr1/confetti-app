@@ -14,17 +14,23 @@ export const Route = createLazyFileRoute("/admin/ask")({
 });
 
 function AdminAskPage() {
+  const { agentId } = Route.useSearch();
+  const navigate = Route.useNavigate();
   const [view, setView] = useState<ControlCenterView | null>(null);
   const [target, setTarget] = useState<AgentRecord | null>(null);
   const [loading, setLoading] = useState(true);
-
   const [loadError, setLoadError] = useState(false);
 
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError(false);
     try {
-      setView(await getControlCenterView());
+      const v = await getControlCenterView();
+      setView(v);
+      if (agentId) {
+        const found = v.teams.flatMap((t) => t.agents).find((a) => a.id === agentId);
+        if (found) setTarget(found);
+      }
     } catch (e) {
       setLoadError(true);
       toast.error("Failed to load agents", {
@@ -35,14 +41,29 @@ function AdminAskPage() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [agentId]);
 
   useEffect(() => {
     void load();
   }, [load]);
 
+  useEffect(() => {
+    if (!agentId) {
+      setTarget(null);
+      return;
+    }
+    if (view) {
+      const found = view.teams.flatMap((t) => t.agents).find((a) => a.id === agentId);
+      setTarget(found ?? null);
+    }
+  }, [agentId, view]);
+
   const allAgents: AgentRecord[] =
     view?.teams.flatMap((t) => t.agents) ?? [];
+
+  const selectAgent = (id: string | null) => {
+    navigate({ search: (prev: Record<string, unknown>) => ({ ...prev, agentId: id ?? undefined }) });
+  };
 
   return (
     <div className="min-h-screen bg-cream">
@@ -80,7 +101,7 @@ function AdminAskPage() {
           </div>
           <button
             type="button"
-            onClick={() => setTarget(null)}
+            onClick={() => selectAgent(null)}
             className={`mb-2 flex w-full items-center gap-2 rounded-xl border-2 border-ink px-3 py-2 text-left text-sm font-semibold shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 ${
               target === null ? "bg-coral text-cream" : "bg-cream text-ink"
             }`}
@@ -115,7 +136,7 @@ function AdminAskPage() {
               <button
                 key={a.id}
                 type="button"
-                onClick={() => setTarget(a)}
+                onClick={() => selectAgent(a.id)}
                 className={`flex w-full items-center gap-2 rounded-lg border-2 border-ink px-2.5 py-1.5 text-left text-xs font-semibold transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 ${
                   target?.id === a.id
                     ? "bg-ink text-cream shadow-brut"
@@ -131,8 +152,8 @@ function AdminAskPage() {
 
         <ChatView
           target={target}
-          onPickAgent={() => setTarget(null)}
-          onClose={() => setTarget(null)}
+          onPickAgent={() => selectAgent(null)}
+          onClose={() => selectAgent(null)}
         />
       </div>
     </div>

@@ -400,14 +400,14 @@ function AgentRow({ agent, onChat }: { agent: AgentRecord; onChat: () => void })
             {agent.tasks_completed}
           </span>
         )}
-        <button
-          type="button"
-          onClick={onChat}
+        <Link
+          to="/admin/ask"
+          search={{ agentId: agent.id }}
           className="inline-flex items-center gap-1 rounded-lg border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-coral hover:text-cream"
         >
           <MessageSquare className="h-3 w-3" />
           Chat
-        </button>
+        </Link>
       </div>
     </div>
   );

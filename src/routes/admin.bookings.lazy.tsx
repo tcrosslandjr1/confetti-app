@@ -94,6 +94,21 @@ type Delivery = {
   created_at: string;
 };
 
+type StatusChange = {
+  id: string;
+  booking_id: string;
+  old_status: string | null;
+  new_status: string;
+  actor_email: string | null;
+  actor_role: string;
+  note: string | null;
+  created_at: string;
+};
+
+type AuditEntry =
+  | { kind: "status"; at: string; data: StatusChange }
+  | { kind: "notification"; at: string; data: Delivery };
+
 const SOURCE_LABEL: Record<string, string> = {
   venue_staff_email: "Venue staff email",
   linked_advertiser: "Linked advertiser",

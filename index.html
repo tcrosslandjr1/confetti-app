@@ -478,6 +478,59 @@
         var loader = document.getElementById("initial-loader");
         if (!loader) return;
         var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var bootDone = false;
+        var bootKey = "__confetti_boot_retry__";
+
+        function finishBoot() {
+          bootDone = true;
+          try { sessionStorage.removeItem(bootKey); } catch (_) {}
+        }
+
+        function recoverBoot(reason) {
+          if (bootDone || !document.getElementById("initial-loader")) return;
+          var alreadyTried = false;
+          try {
+            alreadyTried = sessionStorage.getItem(bootKey) === "1";
+            if (!alreadyTried) sessionStorage.setItem(bootKey, "1");
+          } catch (_) {}
+
+          if (!alreadyTried) {
+            var url = new URL(location.href);
+            url.searchParams.set("_boot", Date.now().toString(36));
+            location.replace(url.toString());
+            return;
+          }
+
+          loader.setAttribute("data-boot-stalled", reason || "timeout");
+          var label = loader.querySelector(".ticker .scan-label");
+          var text = loader.querySelector(".ticker .scan-text");
+          if (label) label.textContent = "Reload needed";
+          if (text) text.innerHTML = '<span style="opacity:1;transform:none">Tap to push the latest preview through</span>';
+          if (!loader.querySelector(".boot-retry")) {
+            var button = document.createElement("button");
+            button.className = "boot-retry";
+            button.type = "button";
+            button.textContent = "Reload Confetti";
+            button.onclick = function () {
+              try { sessionStorage.removeItem(bootKey); } catch (_) {}
+              location.reload();
+            };
+            var stage = loader.querySelector(".stage");
+            if (stage) stage.appendChild(button);
+          }
+        }
+
+        window.addEventListener("confetti:app-booted", finishBoot, { once: true });
+        window.addEventListener("vite:preloadError", function () { recoverBoot("preload"); });
+        window.addEventListener("error", function (event) {
+          var message = String((event && (event.message || event.filename)) || "");
+          if (/module|import|preload|Failed to fetch|502/i.test(message)) recoverBoot("module");
+        }, true);
+        window.addEventListener("unhandledrejection", function (event) {
+          var reason = String((event && event.reason && (event.reason.message || event.reason)) || "");
+          if (/module|import|preload|Failed to fetch|502/i.test(reason)) recoverBoot("promise");
+        });
+        setTimeout(function () { recoverBoot("timeout"); }, 6500);
 
         // Sequential agent progression — flips ● → ✓ over time
         var agents = loader.querySelectorAll(".agent");

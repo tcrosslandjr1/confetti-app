@@ -780,6 +780,66 @@ export type Database = {
         }
         Relationships: []
       }
+      city_ideas: {
+        Row: {
+          best_time: string | null
+          category: string
+          city: string
+          country: string | null
+          created_at: string
+          description: string
+          id: string
+          neighborhood: string | null
+          price_tier: number | null
+          published: boolean | null
+          source: string | null
+          source_refs: Json | null
+          title: string
+          trending_score: number | null
+          updated_at: string
+          venue_hint: string | null
+          vibe_tags: string[] | null
+        }
+        Insert: {
+          best_time?: string | null
+          category: string
+          city: string
+          country?: string | null
+          created_at?: string
+          description: string
+          id?: string
+          neighborhood?: string | null
+          price_tier?: number | null
+          published?: boolean | null
+          source?: string | null
+          source_refs?: Json | null
+          title: string
+          trending_score?: number | null
+          updated_at?: string
+          venue_hint?: string | null
+          vibe_tags?: string[] | null
+        }
+        Update: {
+          best_time?: string | null
+          category?: string
+          city?: string
+          country?: string | null
+          created_at?: string
+          description?: string
+          id?: string
+          neighborhood?: string | null
+          price_tier?: number | null
+          published?: boolean | null
+          source?: string | null
+          source_refs?: Json | null
+          title?: string
+          trending_score?: number | null
+          updated_at?: string
+          venue_hint?: string | null
+          vibe_tags?: string[] | null
+        }
+        Relationships: []
+      }
       confetti_grants: {
         Row: {
           advertiser_id: string | null

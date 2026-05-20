@@ -8,6 +8,8 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
+import { createFileRoute } from '@tanstack/react-router'
+
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WeatherRouteImport } from './routes/weather'
 import { Route as ViralRouteImport } from './routes/viral'
@@ -201,6 +203,8 @@ import { Route as ApiPublicPartnerV1ReservationsIndexRouteImport } from './route
 import { Route as ApiPublicPartnerV1OrdersIndexRouteImport } from './routes/api/public/partner/v1/orders/index'
 import { Route as ApiPublicPartnerV1ReservationsIdRouteImport } from './routes/api/public/partner/v1/reservations/$id'
 import { Route as ApiPublicPartnerV1OrdersIdRouteImport } from './routes/api/public/partner/v1/orders/$id'
+
+const AdminCityIdeasLazyRouteImport = createFileRoute('/admin/city-ideas')()
 
 const WeatherRoute = WeatherRouteImport.update({
   id: '/weather',
@@ -533,6 +537,13 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any).lazy(() => import('./routes/admin.index.lazy').then((d) => d.Route))
+const AdminCityIdeasLazyRoute = AdminCityIdeasLazyRouteImport.update({
+  id: '/city-ideas',
+  path: '/city-ideas',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() =>
+  import('./routes/admin.city-ideas.lazy').then((d) => d.Route),
+)
 const VenueIdRoute = VenueIdRouteImport.update({
   id: '/venue/$id',
   path: '/venue/$id',
@@ -1375,6 +1386,7 @@ export interface FileRoutesByFullPath {
   '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
+  '/admin/city-ideas': typeof AdminCityIdeasLazyRoute
   '/admin/': typeof AdminIndexRoute
   '/advertise/': typeof AdvertiseIndexRoute
   '/app/': typeof AppIndexRoute
@@ -1560,6 +1572,7 @@ export interface FileRoutesByTo {
   '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
+  '/admin/city-ideas': typeof AdminCityIdeasLazyRoute
   '/admin': typeof AdminIndexRoute
   '/advertise': typeof AdvertiseIndexRoute
   '/app': typeof AppIndexRoute
@@ -1755,6 +1768,7 @@ export interface FileRoutesById {
   '/teams/new': typeof TeamsNewRoute
   '/trips/$id': typeof TripsIdRouteWithChildren
   '/venue/$id': typeof VenueIdRoute
+  '/admin/city-ideas': typeof AdminCityIdeasLazyRoute
   '/admin/': typeof AdminIndexRoute
   '/advertise/': typeof AdvertiseIndexRoute
   '/app/': typeof AppIndexRoute
@@ -1951,6 +1965,7 @@ export interface FileRouteTypes {
     | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
+    | '/admin/city-ideas'
     | '/admin/'
     | '/advertise/'
     | '/app/'
@@ -2136,6 +2151,7 @@ export interface FileRouteTypes {
     | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
+    | '/admin/city-ideas'
     | '/admin'
     | '/advertise'
     | '/app'
@@ -2330,6 +2346,7 @@ export interface FileRouteTypes {
     | '/teams/new'
     | '/trips/$id'
     | '/venue/$id'
+    | '/admin/city-ideas'
     | '/admin/'
     | '/advertise/'
     | '/app/'
@@ -2932,6 +2949,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/city-ideas': {
+      id: '/admin/city-ideas'
+      path: '/city-ideas'
+      fullPath: '/admin/city-ideas'
+      preLoaderRoute: typeof AdminCityIdeasLazyRouteImport
       parentRoute: typeof AdminRoute
     }
     '/venue/$id': {
@@ -3857,6 +3881,7 @@ interface AdminRouteChildren {
   AdminUsersRoute: typeof AdminUsersRoute
   AdminVenuesRoute: typeof AdminVenuesRoute
   AdminWalletDebugRoute: typeof AdminWalletDebugRoute
+  AdminCityIdeasLazyRoute: typeof AdminCityIdeasLazyRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
@@ -3891,6 +3916,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminUsersRoute: AdminUsersRoute,
   AdminVenuesRoute: AdminVenuesRoute,
   AdminWalletDebugRoute: AdminWalletDebugRoute,
+  AdminCityIdeasLazyRoute: AdminCityIdeasLazyRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 

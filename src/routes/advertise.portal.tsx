@@ -194,6 +194,27 @@ function AdvertiserPortal() {
         <StatCard label="CTR" value={`${ctr}%`} />
       </div>
 
+      {/* Reports brief CTA */}
+      <Link
+        to="/advertise/reports"
+        className="mt-4 flex items-center justify-between gap-3 rounded-2xl border-2 border-ink bg-gradient-to-br from-cream via-cream to-gold/10 p-4 shadow-brut transition-transform hover:-translate-y-0.5"
+      >
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-ink bg-gold/20">
+            <BarChart3 className="h-5 w-5 text-ink" />
+          </div>
+          <div>
+            <p className="text-sm font-bold text-ink">View your performance brief</p>
+            <p className="text-xs text-muted-foreground">
+              Daily insights, booking trends, and audience reach for your venue
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 rounded-full border-2 border-ink bg-ink px-4 py-2 text-xs font-bold uppercase tracking-wider text-cream shadow-brut">
+          <TrendingUp className="h-3.5 w-3.5" /> Reports
+        </div>
+      </Link>
+
       {/* Subscription + claims */}
       <div className="mt-6 grid gap-4 lg:grid-cols-[1.2fr_1fr]">
         <SubscriptionPanel advertiserId={advertiser.id} onChange={(s) => setSubscription(s)} />

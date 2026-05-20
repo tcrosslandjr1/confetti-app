@@ -770,7 +770,46 @@ function AuthPage() {
             </ul>
           </div>
 
+          {/* Live activity ticker — rotating social proof */}
+          <div
+            className="rise-in mt-6 overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut"
+            style={{ ["--d" as never]: "400ms" } as CSSProperties}
+            aria-live="polite"
+          >
+            <div className="flex items-center gap-2 border-b-2 border-ink/15 bg-gradient-to-r from-coral/15 via-cream to-cream px-3 py-1.5">
+              <span className="relative inline-flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
+              </span>
+              <span className="font-mono text-[9px] font-bold uppercase tracking-[0.25em] text-ink">
+                live · happening now
+              </span>
+              <span className="ml-auto font-mono text-[9px] uppercase tracking-[0.2em] text-ink/50">
+                {liveItem.ago}
+              </span>
+            </div>
+            <div key={activityIdx} className="flex items-center gap-3 px-3 py-2.5 animate-[reveal-up_0.4s_cubic-bezier(0.22,1,0.36,1)_both]">
+              <span
+                className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink font-display text-[11px] font-extrabold text-cream shadow-brut ${liveItem.c}`}
+              >
+                {liveItem.who[0]}
+              </span>
+              <div className="min-w-0 flex-1">
+                <div className="truncate text-sm font-semibold text-ink">
+                  <span className="font-display font-extrabold">{liveItem.who}</span>{" "}
+                  <span className="text-ink/70">{liveItem.what}</span>
+                </div>
+                <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/55">
+                  <MapPin className="mr-1 inline h-2.5 w-2.5" />
+                  {liveItem.where}
+                </div>
+              </div>
+              <PartyPopper className="h-4 w-4 shrink-0 text-coral" />
+            </div>
+          </div>
+
           <div className="rise-in mt-8" style={{ ["--d" as never]: "320ms" } as CSSProperties}>
+
             <div className="mb-3 flex items-center gap-3">
               <span className="h-px flex-1 bg-ink/20" />
               <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-ink/60">

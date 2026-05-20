@@ -22,9 +22,11 @@ import {
   ArrowRightLeft,
   Sparkles,
   X,
+  RotateCcw,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
+import { toast } from "sonner";
 import {
   getControlCenterView,
   seedControlCenterDemo,

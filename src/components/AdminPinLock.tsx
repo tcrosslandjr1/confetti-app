@@ -74,17 +74,43 @@ export function AdminPinLock({
   const [pin, setPin] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [shake, setShake] = useState(false);
-  const [attempts, setAttempts] = useState(0);
+  const [lockout, setLockout] = useState<LockoutState>(() => readLockout());
+  const [now, setNow] = useState(() => Date.now());
   const inputRef = useRef<HTMLInputElement | null>(null);
   const logPinFn = useServerFn(logPinUnlockAttempt);
 
+  const isLocked = lockout.lockedUntil > now;
+  const remainingMs = Math.max(0, lockout.lockedUntil - now);
+  const remainingSec = Math.ceil(remainingMs / 1000);
+  const remainingLabel =
+    remainingSec >= 60
+      ? `${Math.floor(remainingSec / 60)}m ${remainingSec % 60}s`
+      : `${remainingSec}s`;
+
   useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+    if (!isLocked) inputRef.current?.focus();
+  }, [isLocked]);
+
+  // Tick once per second while locked so countdown updates
+  useEffect(() => {
+    if (!isLocked) return;
+    const id = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(id);
+  }, [isLocked]);
+
+  // Auto-clear lockout state when timer expires
+  useEffect(() => {
+    if (lockout.lockedUntil > 0 && lockout.lockedUntil <= now) {
+      const cleared = { ...lockout, lockedUntil: 0, attempts: 0 };
+      setLockout(cleared);
+      writeLockout(cleared);
+    }
+  }, [now, lockout]);
 
   const submit = async (value: string) => {
     if (value.length !== PIN_LENGTH) return;
-    const nextAttempt = attempts + 1;
+    if (isLocked) return;
+    const nextAttempt = lockout.attempts + 1;
     const success = value === ADMIN_PIN;
 
     // Log every attempt (success or failure)
@@ -93,8 +119,9 @@ export function AdminPinLock({
         data: {
           success,
           attemptNumber: nextAttempt,
-          ip: typeof window !== "undefined" ? undefined : undefined,
-          userAgent: typeof window !== "undefined" ? window.navigator.userAgent : undefined,
+          ip: undefined,
+          userAgent:
+            typeof window !== "undefined" ? window.navigator.userAgent : undefined,
         },
       });
     } catch {
@@ -107,16 +134,41 @@ export function AdminPinLock({
       } catch {
         /* noop */
       }
+      // Reset lockout state on success
+      const cleared = { attempts: 0, lockoutCount: 0, lockedUntil: 0 };
+      setLockout(cleared);
+      writeLockout(cleared);
       setError(null);
       onUnlock();
       return;
     }
-    setAttempts(nextAttempt);
-    setError("Incorrect PIN. Try again.");
+
+    // Failure path
+    let nextState: LockoutState;
+    if (nextAttempt >= MAX_ATTEMPTS) {
+      const tier = Math.min(lockout.lockoutCount, LOCKOUT_LADDER_MS.length - 1);
+      const duration = LOCKOUT_LADDER_MS[tier];
+      nextState = {
+        attempts: nextAttempt,
+        lockoutCount: lockout.lockoutCount + 1,
+        lockedUntil: Date.now() + duration,
+      };
+      setError(
+        `Too many wrong PINs. Locked for ${Math.round(duration / 60000)} minutes.`,
+      );
+    } else {
+      nextState = { ...lockout, attempts: nextAttempt };
+      const left = MAX_ATTEMPTS - nextAttempt;
+      setError(
+        `Incorrect PIN. ${left} attempt${left === 1 ? "" : "s"} remaining.`,
+      );
+    }
+    setLockout(nextState);
+    writeLockout(nextState);
     setShake(true);
     setPin("");
     window.setTimeout(() => setShake(false), 400);
-    inputRef.current?.focus();
+    if (!nextState.lockedUntil) inputRef.current?.focus();
   };
 
   const onSubmit = (e: FormEvent) => {
@@ -125,11 +177,11 @@ export function AdminPinLock({
   };
 
   const onChange = (raw: string) => {
+    if (isLocked) return;
     const cleaned = raw.replace(/\D/g, "").slice(0, PIN_LENGTH);
     setPin(cleaned);
     setError(null);
     if (cleaned.length === PIN_LENGTH) {
-      // Auto-submit on full PIN
       submit(cleaned);
     }
   };

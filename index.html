@@ -338,24 +338,41 @@
         </div>
 
         <div class="stage">
-          <div class="mark">
-            <svg viewBox="0 0 100 100" aria-hidden="true">
-              <circle class="arc-bg" cx="50" cy="50" r="38" stroke-dasharray="190 70" transform="rotate(-90 50 50)" />
-              <circle class="arc-fg" cx="50" cy="50" r="38" stroke-dasharray="190 70" transform="rotate(-90 50 50)" />
-            </svg>
+          <div class="header">
+            <div class="mark">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle class="arc-bg" cx="50" cy="50" r="38" stroke-dasharray="190 70" transform="rotate(-90 50 50)" />
+                <circle class="arc-fg" cx="50" cy="50" r="38" stroke-dasharray="190 70" transform="rotate(-90 50 50)" />
+              </svg>
+            </div>
+            <div class="name">
+              <span style="animation-delay:0.3s">C</span><span style="animation-delay:0.38s">o</span><span style="animation-delay:0.46s">n</span><span style="animation-delay:0.54s">f</span><span style="animation-delay:0.62s">e</span><span style="animation-delay:0.70s">t</span><span style="animation-delay:0.78s">t</span><span style="animation-delay:0.86s">i</span>
+            </div>
+            <div class="meta">
+              <span class="pill"><span class="dot"></span>Live</span>
+            </div>
           </div>
 
-          <div class="name">
-            <span style="animation-delay:0.3s">C</span><span style="animation-delay:0.38s">o</span><span style="animation-delay:0.46s">n</span><span style="animation-delay:0.54s">f</span><span style="animation-delay:0.62s">e</span><span style="animation-delay:0.70s">t</span><span style="animation-delay:0.78s">t</span><span style="animation-delay:0.86s">i</span>
-          </div>
-
-          <div class="tagline-box">
-            <div class="tagline-track">
-              <div class="tagline">Curating your night</div>
-              <div class="tagline">Sorting the city</div>
-              <div class="tagline">Loading venues</div>
-              <div class="tagline">Finding the vibe</div>
-              <div class="tagline">Curating your night</div>
+          <div class="agents" aria-live="polite">
+            <div class="agent done">
+              <span class="tick">✓</span>
+              <span class="label">Reading the city's pulse</span>
+              <span class="time">0.4s</span>
+            </div>
+            <div class="agent done">
+              <span class="tick">✓</span>
+              <span class="label">Mapping tonight's hot venues</span>
+              <span class="time">0.8s</span>
+            </div>
+            <div class="agent">
+              <span class="tick">●</span>
+              <span class="label">Calibrating your taste profile</span>
+              <span class="time">…</span>
+            </div>
+            <div class="agent">
+              <span class="tick">●</span>
+              <span class="label">Sequencing your night</span>
+              <span class="time">…</span>
             </div>
           </div>
 
@@ -367,6 +384,7 @@
             <div class="bar"></div>
           </div>
         </div>
+
       </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>

@@ -264,14 +264,35 @@ function Landing() {
   useScrollDepth("/");
   useTimeToInteraction("/");
   useEffect(() => {
-    if (loading || !user || typeof window === "undefined") return;
+    if (loading || typeof window === "undefined") {
+      void import("@/lib/view-audit").then(({ logViewAudit }) =>
+        logViewAudit({
+          kind: "guard", source: "Landing",
+          path: "/", role: effectiveRole ?? viewAs, viewAs,
+          decision: "wait", reason: loading ? "auth loading" : "ssr",
+        }),
+      );
+      return;
+    }
     const role = effectiveRole ?? viewAs;
     const target =
       role === "admin" ? "/admin"
       : role === "business" ? "/advertise/portal"
       : role === "customer" ? "/portal"
       : null;
-    if (target && window.location.pathname === "/") {
+    void import("@/lib/view-audit").then(({ logViewAudit }) =>
+      logViewAudit({
+        kind: target ? "redirect" : "guard",
+        source: "Landing",
+        path: "/", role, viewAs,
+        target: target ?? undefined,
+        decision: target ? "redirect" : "allow",
+        reason: !user
+          ? "no session — staying on visitor page"
+          : `signed-in role=${role}`,
+      }),
+    );
+    if (target && user && window.location.pathname === "/") {
       window.location.replace(target);
     }
   }, [user, viewAs, effectiveRole, loading, navigate]);

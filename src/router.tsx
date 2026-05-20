@@ -2,7 +2,11 @@ import { QueryClient } from "@tanstack/react-query";
 import { Link, createRouter, useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { retryChunkLoad } from "@/lib/chunk-retry";
-import { isStaleModuleError, recoverStalePage } from "@/lib/stale-page-recovery";
+import {
+  clearStalePageRecovery,
+  isStaleModuleError,
+  recoverStalePage,
+} from "@/lib/stale-page-recovery";
 import { routeTree } from "./routeTree.gen";
 
 function DefaultRouterError({ error, reset }: { error: Error; reset: () => void }) {
@@ -79,6 +83,18 @@ function DefaultRouterError({ error, reset }: { error: Error; reset: () => void 
             className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
           >
             Try again
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              clearStalePageRecovery();
+              const url = new URL(window.location.href);
+              url.searchParams.set("_r", Date.now().toString(36));
+              window.location.replace(url.toString());
+            }}
+            className="rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground"
+          >
+            Clear and reload
           </button>
           <Link
             to="/"

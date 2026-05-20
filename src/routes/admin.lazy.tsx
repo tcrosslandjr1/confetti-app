@@ -359,7 +359,7 @@ function AdminShell({ user, pathname, }: {
               </div>
               <button
                 type="button"
-                onClick={() => supabase.auth.signOut().then(() => (window.location.href = "/"))}
+                onClick={() => (() => { lockAdmin(); return supabase.auth.signOut().then(() => (window.location.href = "/")); })()}
                 className="grid h-8 w-8 place-items-center rounded-lg text-ink/60 hover:bg-ink/5 hover:text-coral"
                 aria-label="Sign out"
                 title="Sign out"
@@ -378,7 +378,7 @@ function AdminShell({ user, pathname, }: {
               </div>
               <button
                 type="button"
-                onClick={() => supabase.auth.signOut().then(() => (window.location.href = "/"))}
+                onClick={() => (() => { lockAdmin(); return supabase.auth.signOut().then(() => (window.location.href = "/")); })()}
                 className="grid h-8 w-8 place-items-center rounded-lg text-ink/50 transition hover:bg-coral/10 hover:text-coral"
                 aria-label="Sign out"
                 title="Sign out"

@@ -1,15 +1,59 @@
 import { QueryClient } from "@tanstack/react-query";
 import { Link, createRouter, useRouter } from "@tanstack/react-router";
-import { useEffect } from "react";
-import { recoverStalePage } from "@/lib/stale-page-recovery";
+import { useEffect, useState } from "react";
+import { retryChunkLoad } from "@/lib/chunk-retry";
+import { isStaleModuleError, recoverStalePage } from "@/lib/stale-page-recovery";
 import { routeTree } from "./routeTree.gen";
 
 function DefaultRouterError({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
+  const stale = isStaleModuleError(error);
+  const [phase, setPhase] = useState<"retrying" | "failed">(stale ? "retrying" : "failed");
+  const [attempt, setAttempt] = useState(0);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    recoverStalePage(error);
-  }, [error]);
+    let cancelled = false;
+    if (!stale) return;
+
+    (async () => {
+      const outcome = await retryChunkLoad(error, (a, t) => {
+        if (cancelled) return;
+        setAttempt(a);
+        setTotal(t);
+      });
+      if (cancelled) return;
+      if (outcome === "recovered") {
+        // Chunk is back — re-run loaders + clear the boundary.
+        router.invalidate();
+        reset();
+        return;
+      }
+      // Last-ditch full reload (once per session) before showing the UI.
+      if (recoverStalePage(error)) return;
+      setPhase("failed");
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [error, reset, router, stale]);
+
+  if (phase === "retrying") {
+    return (
+      <div className="grid min-h-screen place-items-center bg-background px-4 text-center text-foreground">
+        <div className="max-w-md space-y-3">
+          <div
+            aria-hidden
+            className="mx-auto h-8 w-8 animate-spin rounded-full border-2 border-muted border-t-primary"
+          />
+          <p className="text-sm text-muted-foreground">
+            Reconnecting{total ? ` (${attempt}/${total})` : ""}…
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="grid min-h-screen place-items-center bg-background px-4 text-center text-foreground">
@@ -47,6 +91,7 @@ function DefaultRouterError({ error, reset }: { error: Error; reset: () => void 
     </div>
   );
 }
+
 
 function DefaultNotFound() {
   return (

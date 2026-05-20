@@ -280,6 +280,9 @@ function RootComponent() {
               <Suspense fallback={null}>
                 <AuthDebugPanel />
               </Suspense>
+              <Suspense fallback={null}>
+                <ViewAuditOverlay />
+              </Suspense>
               <Toaster />
             </WizardProvider>
           </MapProvider>

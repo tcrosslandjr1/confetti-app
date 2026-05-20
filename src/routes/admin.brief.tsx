@@ -164,6 +164,61 @@ function useTopVenues(range: Range) {
   });
 }
 
+function useTrend(range: Range) {
+  return useQuery({
+    queryKey: ["admin", "brief", "trend", range],
+    queryFn: async () => {
+      const now = new Date();
+      const hourly = range === "24h";
+      const bucketCount = hourly ? 24 : range === "7d" ? 7 : 30;
+      const bucketMs = hourly ? 3_600_000 : 86_400_000;
+      // Align start to a bucket boundary (top of hour / start of day).
+      const aligned = new Date(now);
+      if (hourly) aligned.setMinutes(0, 0, 0);
+      else aligned.setHours(0, 0, 0, 0);
+      const startTs = aligned.getTime() - (bucketCount - 1) * bucketMs;
+
+      const buckets = Array.from({ length: bucketCount }, (_, i) => {
+        const ts = startTs + i * bucketMs;
+        const d = new Date(ts);
+        const label = hourly
+          ? d.toLocaleTimeString([], { hour: "numeric" })
+          : d.toLocaleDateString([], { month: "short", day: "numeric" });
+        return { ts, label, bookings: 0, agentRuns: 0 };
+      });
+
+      function place(key: "bookings" | "agentRuns", iso: string | null | undefined) {
+        if (!iso) return;
+        const idx = Math.floor((new Date(iso).getTime() - startTs) / bucketMs);
+        if (idx >= 0 && idx < bucketCount) buckets[idx][key] += 1;
+      }
+
+      const sinceIsoStr = new Date(startTs).toISOString();
+      const [bookingsRes, tasksRes] = await Promise.all([
+        supabase
+          .from("bookings" as any)
+          .select("created_at")
+          .gte("created_at", sinceIsoStr)
+          .limit(5000),
+        supabase
+          .from("agent_tasks" as any)
+          .select("completed_at")
+          .gte("completed_at", sinceIsoStr)
+          .not("completed_at", "is", null)
+          .limit(5000),
+      ]);
+
+      for (const r of (bookingsRes.data ?? []) as any[]) place("bookings", r.created_at);
+      for (const r of (tasksRes.data ?? []) as any[]) place("agentRuns", r.completed_at);
+
+      return buckets;
+    },
+    staleTime: 60_000,
+  });
+}
+
+
+
 function AdminBriefPage() {
   const [range, setRange] = useState<Range>("24h");
   const { data, isLoading, refetch, isFetching } = useBrief(range);

@@ -158,6 +158,8 @@ export default function AgentControlCenter() {
     );
   }
 
+  if (!view) return null;
+
   return (
     <div className="min-h-screen bg-cream pb-24 text-ink">
       <Header onRefresh={loadData} />

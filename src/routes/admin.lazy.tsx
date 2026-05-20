@@ -7,6 +7,7 @@ import { NotificationsBell } from "@/components/NotificationsBell";
 import { AdminSkeleton } from "@/components/AdminSkeleton";
 import { AdminPinLock, isAdminUnlocked, lockAdmin } from "@/components/AdminPinLock";
 import { AdminIdleLock } from "@/components/AdminIdleLock";
+import { AdminGlobalSearch } from "@/components/AdminGlobalSearch";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createLazyFileRoute("/admin")({

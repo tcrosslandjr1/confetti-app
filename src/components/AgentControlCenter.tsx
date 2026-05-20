@@ -484,9 +484,9 @@ function TaskCard({ task }: { task: AgentTask }) {
 
 // ── Chat ────────────────────────────────────────────────────
 
-type ChatMsg = { role: "user" | "assistant"; content: string };
+export type ChatMsg = { role: "user" | "assistant"; content: string };
 
-function ChatView({
+export function ChatView({
   target,
   onPickAgent,
   onClose,

@@ -89,15 +89,22 @@ type Tab = "teams" | "feed" | "board" | "chat";
 export default function AgentControlCenter() {
   const [view, setView] = useState<ControlCenterView | null>(null);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
   const [tab, setTab] = useState<Tab>("teams");
   const [expandedTeam, setExpandedTeam] = useState<string | null>(null);
   const [chatTarget, setChatTarget] = useState<AgentRecord | null>(null);
 
   const loadData = useCallback(async () => {
     setLoading(true);
+    setLoadError(false);
     try {
       setView(await getControlCenterView());
     } catch (err) {
+      setLoadError(true);
+      toast.error("Failed to load agents", {
+        description: err instanceof Error ? err.message : "Unknown error",
+        action: { label: "Retry", onClick: () => void loadData() },
+      });
       console.error("Failed to load control center:", err);
     }
     setLoading(false);
@@ -117,13 +124,35 @@ export default function AgentControlCenter() {
     setTab("chat");
   };
 
-  if (loading || !view) {
+  if (loading || (!view && !loadError)) {
     return (
       <div className="min-h-screen bg-cream text-ink">
-        <Header />
+        <Header onRefresh={loadData} />
         <div className="flex items-center justify-center gap-3 p-16 text-ink/60">
           <RefreshCw className="h-5 w-5 animate-spin" />
           <span className="font-mono text-sm uppercase tracking-wider">Loading agents…</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (loadError) {
+    return (
+      <div className="min-h-screen bg-cream text-ink">
+        <Header onRefresh={loadData} />
+        <div className="flex flex-col items-center gap-4 p-16">
+          <AlertTriangle className="h-10 w-10 text-red-500" />
+          <p className="font-mono text-sm uppercase tracking-wider text-ink/70">
+            Could not load agents
+          </p>
+          <button
+            type="button"
+            onClick={() => void loadData()}
+            className="inline-flex items-center gap-2 rounded-xl border-2 border-ink bg-cream px-5 py-2.5 text-sm font-bold text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5"
+          >
+            <RotateCcw className="h-4 w-4" />
+            Retry
+          </button>
         </div>
       </div>
     );

@@ -35,6 +35,8 @@ import {
   Sparkles,
   Trash2,
   ChevronRight,
+  BarChart3,
+  TrendingUp,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";

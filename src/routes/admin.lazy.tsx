@@ -84,7 +84,10 @@ type NavSection = {
 const NAV_SECTIONS: NavSection[] = [
     {
         label: "Overview",
-        items: [{ to: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true }],
+        items: [
+            { to: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
+            { to: "/admin/brief", label: "Daily brief", icon: ScrollText },
+        ],
     },
     {
         label: "People",

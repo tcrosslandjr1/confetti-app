@@ -5,6 +5,7 @@ import { AlertTriangle, BarChart3, Bell, CalendarCheck, CheckCircle2, ChevronRig
 import { supabase } from "@/integrations/supabase/client";
 import { useAuditLog } from "@/lib/audit-log";
 import { applyLogFilters, EMPTY_FILTERS, LogFilterBar, type LogFilterState } from "@/components/admin/LogFilterBar";
+import { AdminKpiCard, AdminKpiGrid, AdminSection } from "@/components/admin/AdminUI";
 
 export const Route = createLazyFileRoute("/admin/")({
   component: AdminDashboard,

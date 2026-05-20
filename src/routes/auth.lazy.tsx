@@ -716,6 +716,7 @@ function AuthPage() {
                 <span className="text-coral font-bold">{liveItem.who}</span> {liveItem.what}
               </span>
             </div>
+          </div>
 
           <div className="rise-in mt-8" style={{ ["--d" as never]: "320ms" } as CSSProperties}>
 

@@ -50,6 +50,9 @@ const FirstRunNudge = lazy(() =>
 const ViewAuditOverlay = lazy(() =>
   import("@/components/ViewAuditOverlay").then((m) => ({ default: m.ViewAuditOverlay })),
 );
+const DebugBanner = lazy(() =>
+  import("@/components/DebugBanner").then((m) => ({ default: m.DebugBanner })),
+);
 
 function NotFoundComponent() {
   return (

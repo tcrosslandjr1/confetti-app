@@ -41,8 +41,34 @@ function sinceIso(range: Range) {
 }
 
 function AdvertiseReportsPage() {
-  const { user } = useAuth();
+  const { user, loading, viewAs, isPreview } = useAuth();
+  const navigate = useNavigate();
   const [range, setRange] = useState<Range>("7d");
+
+  const allowPreview = isPreview && viewAs === "business";
+
+  // Route guard: only business owners (or admins switched to business preview) may view.
+  useEffect(() => {
+    if (loading) return;
+    if (allowPreview) return;
+    if (!user) {
+      navigate({ to: "/auth", search: { redirect: "/advertise/reports" } as never });
+      return;
+    }
+    if (viewAs === "visitor") {
+      navigate({ to: "/advertise" });
+      return;
+    }
+    if (viewAs === "customer") {
+      navigate({ to: "/portal" });
+      return;
+    }
+    if (viewAs === "admin") {
+      navigate({ to: "/admin" });
+      return;
+    }
+  }, [user, loading, viewAs, allowPreview, navigate]);
+
 
   const { data: myVenues } = useQuery({
     enabled: !!user?.id,

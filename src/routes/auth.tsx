@@ -32,11 +32,12 @@ import { getTonightsPick, liveSeatsRemaining, formatEventDate } from "@/lib/even
 import { getSelectedCity, subscribeSelectedCity } from "@/lib/cities";
 
 export const Route = createFileRoute("/auth")({
-  validateSearch: (search: Record<string, unknown>): { redirect?: string } => {
+  validateSearch: (search: Record<string, unknown>): { redirect?: string; mode?: "signin" | "signup" } => {
     const raw = typeof search.redirect === "string" ? search.redirect : "";
     // Only allow internal paths to avoid open-redirect to off-site URLs.
     const safe = raw.startsWith("/") && !raw.startsWith("//") ? raw : "/";
-    return { redirect: safe };
+    const m = search.mode === "signin" || search.mode === "signup" ? search.mode : undefined;
+    return { redirect: safe, mode: m };
   },
   head: () => ({ meta: [{ title: "Sign in — Confetti" }] }),
   component: AuthPage,
@@ -45,9 +46,10 @@ export const Route = createFileRoute("/auth")({
 function AuthPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
-  const { redirect: redirectTo } = Route.useSearch();
+  const { redirect: redirectTo, mode: initialMode } = Route.useSearch();
   const safeRedirectTo = redirectTo ?? "/";
-  const [mode, setMode] = useState<"signin" | "signup">("signup");
+  const [mode, setMode] = useState<"signin" | "signup">(initialMode ?? "signup");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");

@@ -192,7 +192,7 @@ function AuthPage() {
 
   const fillDemo = (which: "admin" | "customer") => {
     setMode("signin");
-    setEmail(which === "admin" ? "admin@demo.local" : "customer@demo.local");
+    setEmail(which === "admin" ? "admin@confetti.com" : "customer@demo.local");
     setPassword("Demo1234!");
   };
 

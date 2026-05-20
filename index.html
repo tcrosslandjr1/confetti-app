@@ -595,8 +595,13 @@
           var reason = String((event && event.reason && (event.reason.message || event.reason)) || "");
           if (/module|import|preload|Failed to fetch|502/i.test(reason)) recoverBoot("promise");
         });
-        // Shorter watchdog so a stuck preview surfaces the retry UI quickly.
-        setTimeout(function () { recoverBoot("timeout"); }, 4000);
+        // Watchdog: give the bundle enough time on cold starts / slow networks
+        // before surfacing the retry UI. Also bail early if React has already
+        // taken over #root (loader element is gone).
+        setTimeout(function () {
+          if (!document.getElementById("initial-loader")) { finishBoot(); return; }
+          recoverBoot("timeout");
+        }, 20000);
 
         // Sequential agent progression — flips ● → ✓ over time
         var agents = loader.querySelectorAll(".agent");

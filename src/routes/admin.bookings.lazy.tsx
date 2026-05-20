@@ -542,7 +542,7 @@ function AdminBookingsPage() {
   const updateStatus = async (b: Booking, next: "confirmed" | "cancelled") => {
     setActionId(b.id);
     try {
-      const patch: Record<string, unknown> =
+      const patch =
         next === "cancelled"
           ? { status: "cancelled", cancelled_at: new Date().toISOString() }
           : { status: "confirmed", cancelled_at: null };
@@ -553,12 +553,9 @@ function AdminBookingsPage() {
       if (error) throw error;
       toast.success(`Booking ${next}`);
       setBookings((rows) =>
-        rows.map((r) =>
-          r.id === b.id ? { ...r, ...patch, status: patch.status as string } : r,
-        ),
+        rows.map((r) => (r.id === b.id ? { ...r, ...patch } : r)),
       );
-      if (selected?.id === b.id)
-        setSelected({ ...b, ...patch, status: patch.status as string });
+      if (selected?.id === b.id) setSelected({ ...b, ...patch });
     } catch (e) {
       toast.error("Update failed", { description: (e as Error).message });
     } finally {

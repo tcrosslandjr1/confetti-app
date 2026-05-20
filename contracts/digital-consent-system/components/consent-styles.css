@@ -1,0 +1,672 @@
+/* ==========================================================================
+   Confetti App — Consent UI Styles
+   Clean, accessible, anti-dark-pattern compliant.
+   All toggles default OFF visually. Equal prominence for accept/decline.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   CSS Variables — Confetti brand palette
+   --------------------------------------------------------------------------- */
+
+:root {
+  --confetti-bg: #FFFDF7;
+  --confetti-card: #FFFFFF;
+  --confetti-text: #1A1A2E;
+  --confetti-text-light: #5A5A6E;
+  --confetti-text-muted: #8A8A9E;
+  --confetti-primary: #E85D75;
+  --confetti-primary-hover: #D44D65;
+  --confetti-secondary: #2D2D44;
+  --confetti-border: #E8E8EC;
+  --confetti-toggle-off: #C8C8D0;
+  --confetti-toggle-on: #E85D75;
+  --confetti-toggle-locked: #E8E8EC;
+  --confetti-notice-bg: #FFF3E0;
+  --confetti-notice-border: #FFB74D;
+  --confetti-danger: #D32F2F;
+  --confetti-danger-hover: #B71C1C;
+  --confetti-success: #2E7D32;
+  --confetti-radius: 12px;
+  --confetti-radius-sm: 8px;
+  --confetti-shadow: 0 2px 12px rgba(26, 26, 46, 0.08);
+  --confetti-shadow-lg: 0 8px 32px rgba(26, 26, 46, 0.12);
+}
+
+/* ---------------------------------------------------------------------------
+   Boarding Pass Consent — Onboarding Flow
+   --------------------------------------------------------------------------- */
+
+.boarding-pass-consent {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--confetti-text);
+  background: var(--confetti-bg);
+  min-height: 100vh;
+}
+
+/* Progress bar */
+.consent-progress {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.progress-bar {
+  height: 4px;
+  background: var(--confetti-border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--confetti-primary);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 13px;
+  color: var(--confetti-text-muted);
+}
+
+/* Consent card */
+.consent-card {
+  background: var(--confetti-card);
+  border-radius: var(--confetti-radius);
+  padding: 32px 24px;
+  box-shadow: var(--confetti-shadow);
+}
+
+.consent-card h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--confetti-text);
+}
+
+.consent-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--confetti-text);
+}
+
+.consent-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--confetti-text);
+}
+
+.consent-card-icon {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.consent-subtitle {
+  font-size: 16px;
+  color: var(--confetti-text-light);
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.consent-body {
+  font-size: 15px;
+  color: var(--confetti-text-light);
+  margin: 0 0 16px;
+  line-height: 1.6;
+}
+
+.consent-body-light {
+  font-size: 14px;
+  color: var(--confetti-text-muted);
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+/* Legal doc links */
+.legal-doc-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.legal-doc-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--confetti-bg);
+  border: 1px solid var(--confetti-border);
+  border-radius: var(--confetti-radius-sm);
+  color: var(--confetti-primary);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: border-color 0.2s;
+}
+
+.legal-doc-link:hover {
+  border-color: var(--confetti-primary);
+}
+
+.doc-version {
+  font-size: 12px;
+  color: var(--confetti-text-muted);
+  font-weight: 400;
+}
+
+/* Core agreements checkbox */
+.consent-checkbox {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  margin: 16px 0;
+  background: var(--confetti-bg);
+  border-radius: var(--confetti-radius-sm);
+  cursor: pointer;
+}
+
+.consent-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--confetti-primary);
+}
+
+.consent-checkbox span {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--confetti-text);
+}
+
+.consent-hint {
+  font-size: 13px;
+  color: var(--confetti-text-muted);
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* Detail box (taste profiling explainer) */
+.consent-detail-box {
+  background: var(--confetti-bg);
+  border-radius: var(--confetti-radius-sm);
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.consent-detail-box h4 {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--confetti-text-muted);
+  margin: 12px 0 4px;
+}
+
+.consent-detail-box h4:first-child {
+  margin-top: 0;
+}
+
+.consent-detail-box p {
+  font-size: 14px;
+  color: var(--confetti-text-light);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Consent section divider */
+.consent-section {
+  padding: 16px 0;
+  border-top: 1px solid var(--confetti-border);
+}
+
+.consent-section:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* Special category data notice (GDPR Art. 9) */
+.special-category-notice {
+  background: var(--confetti-notice-bg);
+  border-left: 3px solid var(--confetti-notice-border);
+  padding: 12px 16px;
+  border-radius: 0 var(--confetti-radius-sm) var(--confetti-radius-sm) 0;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--confetti-text);
+}
+
+/* TCPA notice */
+.tcpa-notice {
+  font-size: 12px;
+  color: var(--confetti-text-muted);
+  margin: 8px 0 0;
+  line-height: 1.5;
+  padding: 8px 12px;
+  background: var(--confetti-bg);
+  border-radius: var(--confetti-radius-sm);
+}
+
+/* Footer note */
+.consent-footer-note {
+  font-size: 13px;
+  color: var(--confetti-text-muted);
+  text-align: center;
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* ---------------------------------------------------------------------------
+   Consent Toggle (Shared)
+   --------------------------------------------------------------------------- */
+
+.consent-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.consent-toggle-text {
+  flex: 1;
+}
+
+.consent-toggle-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--confetti-text);
+  cursor: pointer;
+}
+
+.consent-toggle-description {
+  font-size: 13px;
+  color: var(--confetti-text-muted);
+  margin: 2px 0 0;
+  line-height: 1.4;
+}
+
+.consent-toggle {
+  position: relative;
+  width: 52px;
+  height: 30px;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.consent-toggle-off {
+  background: var(--confetti-toggle-off);
+}
+
+.consent-toggle-on {
+  background: var(--confetti-toggle-on);
+}
+
+.consent-toggle-locked {
+  background: var(--confetti-toggle-locked);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.consent-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.consent-toggle-on .consent-toggle-thumb {
+  transform: translateX(22px);
+}
+
+.consent-toggle:focus-visible {
+  outline: 2px solid var(--confetti-primary);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+   Action Buttons
+   --------------------------------------------------------------------------- */
+
+.consent-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 14px 24px;
+  background: var(--confetti-primary);
+  color: white;
+  border: none;
+  border-radius: var(--confetti-radius-sm);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--confetti-primary-hover);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  flex: 1;
+  padding: 14px 24px;
+  background: transparent;
+  color: var(--confetti-text);
+  border: 1px solid var(--confetti-border);
+  border-radius: var(--confetti-radius-sm);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--confetti-text-muted);
+}
+
+.btn-danger {
+  flex: 1;
+  padding: 14px 24px;
+  background: var(--confetti-danger);
+  color: white;
+  border: none;
+  border-radius: var(--confetti-radius-sm);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--confetti-danger-hover);
+}
+
+.btn-danger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Error display */
+.consent-error {
+  background: #FFEBEE;
+  color: var(--confetti-danger);
+  padding: 12px 16px;
+  border-radius: var(--confetti-radius-sm);
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+/* ---------------------------------------------------------------------------
+   Privacy Settings Page
+   --------------------------------------------------------------------------- */
+
+.privacy-settings {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--confetti-text);
+}
+
+.privacy-settings h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.settings-intro {
+  font-size: 15px;
+  color: var(--confetti-text-light);
+  margin: 0 0 32px;
+  line-height: 1.5;
+}
+
+.settings-section {
+  margin-bottom: 32px;
+}
+
+.settings-section h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--confetti-text);
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--confetti-border);
+}
+
+.settings-body {
+  font-size: 14px;
+  color: var(--confetti-text-light);
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.settings-body a {
+  color: var(--confetti-primary);
+  text-decoration: none;
+}
+
+.settings-body a:hover {
+  text-decoration: underline;
+}
+
+/* Consent setting row */
+.consent-setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--confetti-border);
+}
+
+.consent-setting-row:last-child {
+  border-bottom: none;
+}
+
+.consent-setting-info {
+  flex: 1;
+}
+
+.consent-setting-info h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: var(--confetti-text);
+}
+
+.consent-setting-info p {
+  font-size: 13px;
+  color: var(--confetti-text-muted);
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+
+.special-notice {
+  color: var(--confetti-notice-border) !important;
+  font-weight: 500;
+}
+
+.locked-notice {
+  color: var(--confetti-text-muted) !important;
+  font-style: italic;
+}
+
+/* Action message */
+.action-message {
+  background: #E8F5E9;
+  color: var(--confetti-success);
+  padding: 12px 16px;
+  border-radius: var(--confetti-radius-sm);
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.loading-text {
+  text-align: center;
+  color: var(--confetti-text-muted);
+  padding: 48px 0;
+}
+
+/* Data rights grid */
+.data-rights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 480px) {
+  .data-rights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.data-right-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  background: var(--confetti-card);
+  border: 1px solid var(--confetti-border);
+  border-radius: var(--confetti-radius-sm);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.data-right-btn:hover:not(:disabled) {
+  border-color: var(--confetti-primary);
+  box-shadow: var(--confetti-shadow);
+}
+
+.data-right-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.data-right-btn strong {
+  font-size: 14px;
+  color: var(--confetti-text);
+}
+
+.data-right-btn span {
+  font-size: 12px;
+  color: var(--confetti-text-muted);
+  line-height: 1.4;
+}
+
+.data-right-btn-danger {
+  border-color: #FFCDD2;
+}
+
+.data-right-btn-danger:hover:not(:disabled) {
+  border-color: var(--confetti-danger);
+}
+
+.data-right-btn-danger strong {
+  color: var(--confetti-danger);
+}
+
+/* ---------------------------------------------------------------------------
+   Modals
+   --------------------------------------------------------------------------- */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 46, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modal-content {
+  background: var(--confetti-card);
+  border-radius: var(--confetti-radius);
+  padding: 24px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: var(--confetti-shadow-lg);
+}
+
+.modal-content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--confetti-text);
+}
+
+.modal-content p {
+  font-size: 14px;
+  color: var(--confetti-text-light);
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+.consequence-text {
+  background: var(--confetti-bg);
+  padding: 12px;
+  border-radius: var(--confetti-radius-sm);
+  font-weight: 500;
+  color: var(--confetti-text) !important;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Delete confirmation */
+.delete-confirm-label {
+  display: block;
+  font-size: 14px;
+  color: var(--confetti-text);
+  margin: 16px 0 0;
+}
+
+.delete-confirm-input {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--confetti-border);
+  border-radius: var(--confetti-radius-sm);
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.delete-confirm-input:focus {
+  outline: none;
+  border-color: var(--confetti-danger);
+}

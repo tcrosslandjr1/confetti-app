@@ -98,6 +98,7 @@ function renderErrorFallback() {
 void import("./router")
   .then(({ getRouter }) => {
     clearStalePageRecovery();
+    window.dispatchEvent(new CustomEvent("confetti:app-booted"));
     const router = getRouter();
     root.render(
       <StrictMode>

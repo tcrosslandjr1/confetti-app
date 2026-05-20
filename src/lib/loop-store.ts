@@ -38,6 +38,21 @@ export type LoopStop = {
   bookingType?: "reservation" | "parking" | "both";
   /** Source category for pre-order menu generation (meal/drinks/activity/scenic). */
   category?: string;
+  // ── Extra stop details (all optional, surfaced on the boarding pass) ──
+  /** Per-person spend tier, e.g. "$", "$$", "$$$", "$$$$". */
+  priceLevel?: string;
+  /** Dress code hint, e.g. "Smart casual", "No sneakers", "Anything goes". */
+  dressCode?: string;
+  /** House signature — drink, dish, or moment to try. */
+  signature?: string;
+  /** Crowd / age vibe, e.g. "Late-20s creatives", "Date-night couples". */
+  crowd?: string;
+  /** Direct phone for last-minute calls. */
+  phone?: string;
+  /** Best for / occasion fit, e.g. "Birthdays", "First dates". */
+  bestFor?: string;
+  /** Typical wait window if walk-in, e.g. "15–30 min after 9pm". */
+  waitTime?: string;
 };
 
 export type LoopBonusMove = {

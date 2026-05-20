@@ -35,14 +35,14 @@ function seed(): AuditEntry[] {
   });
   return [
     mk(3, {
-      admin: "admin@demo.local",
+      admin: "admin@confetti.com",
       action: "approve",
       entity: "report",
       targetId: "RP-2037",
       summary: "Approved review report on Albi",
     }),
     mk(22, {
-      admin: "admin@demo.local",
+      admin: "admin@confetti.com",
       action: "remove",
       entity: "report",
       targetId: "RP-2036",
@@ -56,14 +56,14 @@ function seed(): AuditEntry[] {
       summary: "Approved Maydan listing",
     }),
     mk(120, {
-      admin: "admin@demo.local",
+      admin: "admin@confetti.com",
       action: "confirm",
       entity: "booking",
       targetId: "BK-1041",
       summary: "Confirmed booking at Albi",
     }),
     mk(240, {
-      admin: "admin@demo.local",
+      admin: "admin@confetti.com",
       action: "role",
       entity: "user",
       targetId: "U-1040",

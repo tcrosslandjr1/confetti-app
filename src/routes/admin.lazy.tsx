@@ -5,6 +5,7 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupConte
 import { useAuth } from "@/lib/auth-context";
 import { NotificationsBell } from "@/components/NotificationsBell";
 import { AdminSkeleton } from "@/components/AdminSkeleton";
+import { AdminPinLock, isAdminUnlocked, lockAdmin } from "@/components/AdminPinLock";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createLazyFileRoute("/admin")({
@@ -195,11 +196,24 @@ function AdminLayout() {
         else if (redirect && redirect !== pathname)
             navigate({ to: redirect as never, replace: true });
     }, [loading, user, isAdmin, viewAs, allowPreview, navigate, isLoginRoute, pathname, redirect]);
+    // PIN lock — gate the admin shell behind a 6-digit PIN per browser tab.
+    // Login route is exempt so admins can sign in first.
+    const [unlocked, setUnlocked] = useState<boolean>(() => isAdminUnlocked());
+    useEffect(() => {
+        if (!user) {
+            // Signing out also clears the PIN unlock so the next admin must re-enter it.
+            lockAdmin();
+            setUnlocked(false);
+        }
+    }, [user]);
     if (isLoginRoute) {
         return <Outlet />;
     }
     if (!allowPreview && (loading || !isAdmin || viewAs !== "admin")) {
         return <AdminSkeleton />;
+    }
+    if (!unlocked) {
+        return <AdminPinLock email={user?.email ?? null} onUnlock={() => setUnlocked(true)} />;
     }
     return (<SidebarProvider>
       <AdminShell user={user} pathname={pathname}/>
@@ -345,7 +359,7 @@ function AdminShell({ user, pathname, }: {
               </div>
               <button
                 type="button"
-                onClick={() => supabase.auth.signOut().then(() => (window.location.href = "/"))}
+                onClick={() => (() => { lockAdmin(); return supabase.auth.signOut().then(() => (window.location.href = "/")); })()}
                 className="grid h-8 w-8 place-items-center rounded-lg text-ink/60 hover:bg-ink/5 hover:text-coral"
                 aria-label="Sign out"
                 title="Sign out"
@@ -364,7 +378,7 @@ function AdminShell({ user, pathname, }: {
               </div>
               <button
                 type="button"
-                onClick={() => supabase.auth.signOut().then(() => (window.location.href = "/"))}
+                onClick={() => (() => { lockAdmin(); return supabase.auth.signOut().then(() => (window.location.href = "/")); })()}
                 className="grid h-8 w-8 place-items-center rounded-lg text-ink/50 transition hover:bg-coral/10 hover:text-coral"
                 aria-label="Sign out"
                 title="Sign out"

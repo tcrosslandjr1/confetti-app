@@ -286,6 +286,9 @@ function RootComponent() {
               <Suspense fallback={null}>
                 <ViewAuditOverlay />
               </Suspense>
+              <Suspense fallback={null}>
+                <DebugBanner />
+              </Suspense>
               <Toaster />
             </WizardProvider>
           </MapProvider>

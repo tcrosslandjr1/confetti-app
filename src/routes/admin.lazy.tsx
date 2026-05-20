@@ -184,37 +184,55 @@ function AdminLayout() {
     }, [loading, isLoginRoute, isAdmin, viewAs, pathname, setViewAs]);
 
     useEffect(() => {
-        if (loading || isLoginRoute)
-            return;
-        if (allowPreview)
-            return;
-        // Don't redirect away while we're about to fix viewAs above.
-        if (isAdmin && viewAs !== "admin" && pathname.startsWith("/admin"))
-            return;
-        if (!user)
+        const log = (decision: string, reason: string, target?: string) => {
+            void import("@/lib/view-audit").then(({ logViewAudit }) =>
+                logViewAudit({
+                    kind: target ? "redirect" : "guard",
+                    source: "AdminLayout", path: pathname, viewAs,
+                    role: isAdmin ? "admin" : "non-admin",
+                    target, decision, reason,
+                }),
+            );
+        };
+        if (loading || isLoginRoute) { log("wait", loading ? "auth loading" : "login route"); return; }
+        if (allowPreview) { log("allow", "preview mode (isPreview && viewAs=admin)"); return; }
+        if (isAdmin && viewAs !== "admin" && pathname.startsWith("/admin")) {
+            log("wait", `admin with viewAs=${viewAs} — snap back pending`); return;
+        }
+        if (!user) {
+            log("redirect", "no session", "/admin/login");
             navigate({
                 to: "/admin/login",
                 search: { redirect: pathname } as never,
                 replace: true,
             });
+        }
         else if (!isAdmin) {
+            log("redirect", "not admin", "/");
             if (typeof window !== "undefined") window.location.replace("/");
             else navigate({ to: "/" });
         }
         else if (viewAs === "customer") {
+            log("redirect", "viewAs=customer", "/portal");
             if (typeof window !== "undefined") window.location.replace("/portal");
             else navigate({ to: "/portal" });
         }
         else if (viewAs === "business") {
+            log("redirect", "viewAs=business", "/advertise/portal");
             if (typeof window !== "undefined") window.location.replace("/advertise/portal");
             else navigate({ to: "/advertise/portal" });
         }
         else if (viewAs === "visitor") {
+            log("redirect", "viewAs=visitor", "/");
             if (typeof window !== "undefined") window.location.replace("/");
             else navigate({ to: "/" });
         }
-        else if (redirect && redirect !== pathname)
+        else if (redirect && redirect !== pathname) {
+            log("redirect", "?redirect= search param", redirect);
             navigate({ to: redirect as never, replace: true });
+        } else {
+            log("allow", "admin viewing /admin");
+        }
     }, [loading, user, isAdmin, viewAs, allowPreview, navigate, isLoginRoute, pathname, redirect]);
     // PIN lock — gate the admin shell behind a 6-digit PIN per browser tab.
     // Login route is exempt so admins can sign in first.

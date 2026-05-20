@@ -90,6 +90,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       initialised = true;
       setSession(s);
       setSessionLoading(false);
+      void import("@/lib/view-audit").then(({ logViewAudit }) =>
+        logViewAudit({
+          kind: "auth", source: "AuthProvider",
+          decision: event,
+          reason: s?.user?.email ? `user=${s.user.email}` : "no session",
+          path: typeof window !== "undefined" ? window.location.pathname : null,
+        }),
+      );
       if (event === "SIGNED_IN") {
         setViewAsState(null);
         // Fire-and-forget: link any pending ?ref= code to this account
@@ -150,11 +158,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const setViewAs = useCallback((v: ViewAs) => {
     setViewAsState(v);
     if (typeof window !== "undefined") sessionStorage.setItem(VIEW_KEY, v);
+    void import("@/lib/view-audit").then(({ logViewAudit }) =>
+      logViewAudit({
+        kind: "view-change", source: "setViewAs",
+        viewAs: v, decision: "set",
+        path: typeof window !== "undefined" ? window.location.pathname : null,
+      }),
+    );
   }, []);
 
   const exitImpersonation = useCallback(() => {
     setViewAsState(null);
     if (typeof window !== "undefined") sessionStorage.removeItem(VIEW_KEY);
+    void import("@/lib/view-audit").then(({ logViewAudit }) =>
+      logViewAudit({
+        kind: "view-change", source: "exitImpersonation",
+        decision: "reset",
+        path: typeof window !== "undefined" ? window.location.pathname : null,
+      }),
+    );
   }, []);
 
   const signOut = useCallback(async () => {

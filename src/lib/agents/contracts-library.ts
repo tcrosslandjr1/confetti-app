@@ -6,7 +6,13 @@
  * Provides expiration monitoring and alert flag management.
  */
 
-import { supabase } from "@/integrations/supabase/client";
+import { supabase as supabaseClient } from "@/integrations/supabase/client";
+
+// Tables (contracts, contract_versions, documents) are not yet present in the
+// generated Supabase types. Cast to `any` so this agent compiles; replace once
+// a migration adds the tables and types regenerate.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const supabase = supabaseClient as any;
 
 // ═══════════════════════════════════════════════════════════
 // Types

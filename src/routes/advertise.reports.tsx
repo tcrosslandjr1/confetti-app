@@ -152,19 +152,11 @@ function AdvertiseReportsPage() {
     toast.success("Report downloaded");
   };
 
-  if (!user) {
+  // While the guard resolves (or for non-business roles awaiting redirect), show a placeholder.
+  if (loading || (!allowPreview && (!user || viewAs !== "business"))) {
     return (
-      <div className="mx-auto max-w-2xl px-4 py-16 text-center">
-        <h1 className="font-display text-2xl font-extrabold">Sign in to view reports</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Reports are available to verified business owners.
-        </p>
-        <Link
-          to="/auth"
-          className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-ink bg-coral px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut"
-        >
-          Sign in
-        </Link>
+      <div className="grid min-h-[60vh] place-items-center text-sm text-muted-foreground">
+        <Loader2 className="mr-2 inline h-4 w-4 animate-spin" /> Loading reports…
       </div>
     );
   }

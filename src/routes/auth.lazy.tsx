@@ -157,13 +157,31 @@ function AuthPage() {
     return `${label} sign-in failed: ${raw}`;
   }
 
-  // Parse OAuth callback errors landing back on /auth (?error=… or #error=…).
+  // Parse OAuth callback results landing back on /auth (?error=… or #error=…).
   useEffect(() => {
     if (typeof window === "undefined") return;
     const search = new URLSearchParams(window.location.search);
     const hash = new URLSearchParams(
       window.location.hash.startsWith("#") ? window.location.hash.slice(1) : "",
     );
+    const accessToken = hash.get("access_token");
+    const refreshToken = hash.get("refresh_token");
+    if (accessToken && refreshToken) {
+      setOauthBusy("google");
+      supabase.auth
+        .setSession({ access_token: accessToken, refresh_token: refreshToken })
+        .then(({ data, error }) => {
+          window.history.replaceState({}, "", `${window.location.pathname}${window.location.search}`);
+          if (error) {
+            setError(explainOAuthError("google", error.message));
+            return;
+          }
+          if (data.user) void routeAfterAuth(data.user.id);
+        })
+        .catch((e) => setError(explainOAuthError("google", e?.message ?? String(e))))
+        .finally(() => setOauthBusy(null));
+      return;
+    }
     const errParam =
       search.get("error_description") ||
       search.get("error") ||
@@ -199,7 +217,7 @@ function AuthPage() {
       }
       if (!redirected) {
         // Tokens already exchanged — auth-context will pick the session up.
-        navigate({ to: redirectTo as never });
+        navigate({ to: safeRedirectTo as never });
       }
       // If redirected === true, the browser is navigating away; leave busy on.
     } catch (e: any) {
@@ -244,7 +262,7 @@ function AuthPage() {
     } catch {
       // Ignore — fall through to default redirect.
     }
-    navigate({ to: redirectTo as never });
+    navigate({ to: safeRedirectTo as never });
   }
 
   useEffect(() => {

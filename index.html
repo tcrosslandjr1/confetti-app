@@ -140,6 +140,20 @@
         border: 1.5px dashed rgba(255, 122, 76, 0.55);
         animation: mark-spin 8s linear infinite;
       }
+      /* Sparkles orbiting the logo mark */
+      #initial-loader .mark .spark {
+        position: absolute; width: 5px; height: 5px; border-radius: 50%;
+        background: #ff7a4c; box-shadow: 0 0 8px rgba(255,122,76,0.9);
+        top: 50%; left: 50%; margin: -2.5px;
+        transform-origin: 0 0;
+      }
+      #initial-loader .mark .spark.s1 { animation: spark-orbit 3.2s linear infinite; }
+      #initial-loader .mark .spark.s2 { background:#ffc24a; box-shadow:0 0 8px rgba(255,194,74,.9); animation: spark-orbit 4.1s linear infinite reverse; animation-delay:-1s; }
+      #initial-loader .mark .spark.s3 { background:#e63d57; box-shadow:0 0 8px rgba(230,61,87,.9); animation: spark-orbit 5s linear infinite; animation-delay:-2s; }
+      @keyframes spark-orbit {
+        from { transform: rotate(0deg) translateX(34px) rotate(0deg); }
+        to   { transform: rotate(360deg) translateX(34px) rotate(-360deg); }
+      }
       #initial-loader .name {
         font-size: 28px; font-weight: 800;
         letter-spacing: -0.03em; color: #1a1a1a; line-height: 1;

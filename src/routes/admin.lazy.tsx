@@ -501,7 +501,7 @@ function AdminShell({ user, pathname, onLock }: {
               <Search className="h-4 w-4" />
             </button>
             <Link
-              to="/ask"
+              to="/admin/ask"
               className="hidden items-center gap-1.5 rounded-lg border-2 border-ink bg-coral px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-cream shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 sm:inline-flex"
               aria-label="Talk to AI agents"
             >
@@ -509,7 +509,7 @@ function AdminShell({ user, pathname, onLock }: {
               <span>Talk to AI</span>
             </Link>
             <Link
-              to="/ask"
+              to="/admin/ask"
               className="grid h-8 w-8 place-items-center rounded-lg border-2 border-ink bg-coral text-cream shadow-brut sm:hidden"
               aria-label="Talk to AI agents"
             >

@@ -80,6 +80,30 @@ function AuthPage() {
   const pickSeats = liveSeatsRemaining(tonightsPick.id, new Date());
   const pickShortCity = tonightsPick.city.split(",")[0].trim().toLowerCase();
 
+  // Rotating "live activity" feed shown above the OAuth buttons. Cycles every
+  // 2.6s. Purely cosmetic social-proof; values are illustrative, not from a
+  // real feed, so we keep them light and city-flavored.
+  const ACTIVITY = useMemo(
+    () => [
+      { who: "Maya", what: "claimed Velvet Rooftop", where: "soho", ago: "just now", c: "bg-coral" },
+      { who: "Jordan", what: "earned 250 Confetti", where: "miami", ago: "12s ago", c: "bg-gold" },
+      { who: "Priya", what: "joined the list", where: "austin", ago: "27s ago", c: "bg-purple" },
+      { who: "Sam", what: "booked Basement No.6", where: "brooklyn", ago: "41s ago", c: "bg-ink" },
+      { who: "Noor", what: "unlocked skip-the-line", where: "la", ago: "1m ago", c: "bg-coral" },
+      { who: "Leo", what: "saved Maison Lune", where: "paris", ago: "1m ago", c: "bg-gold" },
+    ],
+    [],
+  );
+  const [activityIdx, setActivityIdx] = useState(0);
+  useEffect(() => {
+    const id = window.setInterval(
+      () => setActivityIdx((i) => (i + 1) % ACTIVITY.length),
+      2600,
+    );
+    return () => window.clearInterval(id);
+  }, [ACTIVITY.length]);
+  const liveItem = ACTIVITY[activityIdx];
+
   // Mouse-driven parallax for the ambient background orbs. Values are
   // normalized to roughly -1..1 around the viewport center and consumed via
   // the `.parallax-soft` / `.parallax-strong` utilities in styles.css.

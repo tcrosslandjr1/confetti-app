@@ -691,122 +691,31 @@ function AuthPage() {
                 : "Pick up where you left off — your saved spots are waiting."}
             </p>
 
-            {/* What's next — 3-step micro-rail (signup only) */}
-            {mode === "signup" && (
-              <div
-                className="rise-in relative mt-6"
-                style={{ ["--d" as never]: "300ms" } as CSSProperties}
-              >
-                {/* Connector line behind the cards */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute left-[16%] right-[16%] top-1/2 -z-0 h-0.5 -translate-y-1/2 bg-[repeating-linear-gradient(90deg,_oklch(0.2_0_0_/_0.25)_0_6px,_transparent_6px_12px)]"
-                />
-                <ol
-                  className="relative z-10 grid grid-cols-3 gap-2.5"
-                  aria-label="What happens next"
-                >
-                  {[
-                    { n: "01", t: "Account", d: "~60 sec", Icon: UserIcon },
-                    { n: "02", t: "Taste quiz", d: "5 taps", Icon: Sparkles },
-                    { n: "03", t: "Boarding pass", d: "tonight", Icon: Ticket },
-                  ].map((s, i) => (
-                    <li
-                      key={s.n}
-                      className={`relative rounded-2xl border-2 p-3 transition-transform hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none ${
-                        i === 0
-                          ? "border-ink bg-cream shadow-brut"
-                          : "border-dashed border-ink/30 bg-cream/70"
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <span
-                          className={`font-mono text-[9px] font-bold uppercase tracking-[0.2em] ${
-                            i === 0 ? "text-coral" : "text-ink/40"
-                          }`}
-                        >
-                          {s.n}
-                        </span>
-                        <span
-                          className={`grid h-6 w-6 place-items-center rounded-lg border ${
-                            i === 0
-                              ? "border-ink bg-coral/15 text-ink"
-                              : "border-ink/20 bg-cream/60 text-ink/40"
-                          }`}
-                        >
-                          <s.Icon className="h-3.5 w-3.5" />
-                        </span>
-                      </div>
-                      <div className="mt-1.5 font-display text-sm font-extrabold leading-tight text-ink">
-                        {s.t}
-                      </div>
-                      <div className="font-mono text-[9px] uppercase tracking-widest text-ink/55">
-                        {s.d}
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            )}
-
-            {/* Trust micro-row */}
-            <ul
-              className="rise-in mt-5 flex flex-wrap items-center gap-1.5 text-[11px] text-ink/70"
-              style={{ ["--d" as never]: "360ms" } as CSSProperties}
+            {/* Social proof — compact avatar stack + live counter (replaces 3-step rail + ticker) */}
+            <div
+              className="rise-in mt-5 flex flex-wrap items-center gap-3"
+              style={{ ["--d" as never]: "300ms" } as CSSProperties}
             >
-              {[
-                { Icon: ShieldCheck, label: "No spam, ever" },
-                { Icon: Zap, label: "60-sec signup" },
-                { Icon: Gift, label: "250 Confetti bonus" },
-              ].map(({ Icon, label }) => (
-                <li
-                  key={label}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-ink/15 bg-cream/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-ink/75"
-                >
-                  <Icon className="h-3 w-3 text-coral" />
-                  {label}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Live activity ticker — rotating social proof */}
-          <div
-            className="rise-in mt-6 overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut"
-            style={{ ["--d" as never]: "400ms" } as CSSProperties}
-            aria-live="polite"
-          >
-            <div className="flex items-center gap-2 border-b-2 border-ink/15 bg-gradient-to-r from-coral/15 via-cream to-cream px-3 py-1.5">
-              <span className="relative inline-flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
-              </span>
-              <span className="font-mono text-[9px] font-bold uppercase tracking-[0.25em] text-ink">
-                live · happening now
-              </span>
-              <span className="ml-auto font-mono text-[9px] uppercase tracking-[0.2em] text-ink/50">
-                {liveItem.ago}
-              </span>
-            </div>
-            <div key={activityIdx} className="flex items-center gap-3 px-3 py-2.5 animate-[reveal-up_0.4s_cubic-bezier(0.22,1,0.36,1)_both]">
-              <span
-                className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink font-display text-[11px] font-extrabold text-cream shadow-brut ${liveItem.c}`}
-              >
-                {liveItem.who[0]}
-              </span>
-              <div className="min-w-0 flex-1">
-                <div className="truncate text-sm font-semibold text-ink">
-                  <span className="font-display font-extrabold">{liveItem.who}</span>{" "}
-                  <span className="text-ink/70">{liveItem.what}</span>
-                </div>
-                <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/55">
-                  <MapPin className="mr-1 inline h-2.5 w-2.5" />
-                  {liveItem.where}
-                </div>
+              <div className="flex -space-x-2">
+                {[
+                  { i: "MR", c: "bg-coral text-cream" },
+                  { i: "JT", c: "bg-ink text-cream" },
+                  { i: "AS", c: "bg-gold text-ink" },
+                  { i: "LK", c: "bg-purple text-cream" },
+                ].map((a) => (
+                  <span
+                    key={a.i}
+                    className={`grid h-7 w-7 place-items-center rounded-full border-2 border-cream font-display text-[10px] font-extrabold shadow-brut ${a.c}`}
+                  >
+                    {a.i}
+                  </span>
+                ))}
               </div>
-              <PartyPopper className="h-4 w-4 shrink-0 text-coral" />
+              <span key={activityIdx} className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/65 animate-[reveal-up_0.35s_cubic-bezier(0.22,1,0.36,1)_both]">
+                <span className="font-bold text-ink">12,438</span> joined ·{" "}
+                <span className="text-coral font-bold">{liveItem.who}</span> {liveItem.what}
+              </span>
             </div>
-          </div>
 
           <div className="rise-in mt-8" style={{ ["--d" as never]: "320ms" } as CSSProperties}>
 

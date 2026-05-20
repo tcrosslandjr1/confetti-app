@@ -254,13 +254,31 @@ export function AdminPinLock({
             onChange={(e) => onChange(e.target.value)}
             aria-label="Admin PIN"
             placeholder="• • • • • •"
-            className="w-full rounded-xl border-2 border-ink bg-cream px-4 py-3 text-center font-mono text-xl tracking-[0.5em] text-ink outline-none placeholder:text-ink/25 focus:border-coral focus:shadow-brut"
+            disabled={isLocked}
+            className="w-full rounded-xl border-2 border-ink bg-cream px-4 py-3 text-center font-mono text-xl tracking-[0.5em] text-ink outline-none placeholder:text-ink/25 focus:border-coral focus:shadow-brut disabled:cursor-not-allowed disabled:opacity-60"
           />
 
-          {error ? (
+          {isLocked ? (
+            <div
+              className="rounded-xl border-2 border-coral/40 bg-coral/10 px-3 py-2.5 text-center"
+              role="alert"
+              aria-live="polite"
+            >
+              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-coral">
+                Console locked
+              </div>
+              <div className="mt-0.5 text-sm font-extrabold text-ink">
+                Try again in {remainingLabel}
+              </div>
+              <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/55">
+                {lockout.lockoutCount > 1
+                  ? `Lockout ${lockout.lockoutCount} · escalating backoff`
+                  : "Sign out if this isn't you"}
+              </div>
+            </div>
+          ) : error ? (
             <p className="text-center text-xs font-bold text-coral" role="alert">
               {error}
-              {attempts >= 3 ? " · Sign out if this isn't you." : ""}
             </p>
           ) : (
             <p className="text-center font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink/45">
@@ -271,10 +289,10 @@ export function AdminPinLock({
 
         <button
           type="submit"
-          disabled={pin.length !== PIN_LENGTH}
+          disabled={isLocked || pin.length !== PIN_LENGTH}
           className="w-full rounded-xl border-2 border-ink bg-coral px-4 py-3 text-sm font-extrabold uppercase tracking-wide text-cream shadow-brut transition hover:translate-y-[1px] hover:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Unlock console
+          {isLocked ? `Locked · ${remainingLabel}` : "Unlock console"}
         </button>
 
         <p className="text-center font-mono text-[9px] uppercase tracking-[0.18em] text-ink/40">

@@ -1,7 +1,8 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
-import { CheckCircle2, ScrollText, Search, Trash2, User as UserIcon, XCircle, Edit3, Shield, CalendarCheck, Store, Flag, Download, Eraser, ShieldAlert, MapPin } from "lucide-react";
+import { CheckCircle2, ScrollText, Search, Trash2, User as UserIcon, XCircle, Edit3, Shield, CalendarCheck, Store, Flag, Download, Eraser, ShieldAlert, MapPin, Loader2, Database } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +10,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { type AuditAction, type AuditEntity, clearAudit, useAuditLog } from "@/lib/audit-log";
 import { clearAccessDenials, useAccessDenials, type DenialEntry } from "@/lib/access-denials";
 import { clearSecurityTrace, useSecurityTrace, type SecurityTraceEntry } from "@/lib/security-trace";
+import { exportAdminAuditLog } from "@/lib/admin-audit.functions";
 import { toast } from "sonner";
 
 export const Route = createLazyFileRoute("/admin/audit")({
@@ -93,6 +95,8 @@ function AdminAuditPage() {
         toast.success(`Exported ${filtered.length} entries`);
     };
     return (<div className="space-y-6">
+      <PersistentAuditExportSection />
+
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
@@ -376,6 +380,190 @@ function AccessDenialsSection() {
         </Table>
       </div>
     </section>);
+}
+
+function todayISO() {
+    return new Date().toISOString().slice(0, 10);
+}
+function daysAgoISO(n: number) {
+    const d = new Date();
+    d.setDate(d.getDate() - n);
+    return d.toISOString().slice(0, 10);
+}
+
+function PersistentAuditExportSection() {
+    const exportFn = useServerFn(exportAdminAuditLog);
+    const [from, setFrom] = useState<string>(daysAgoISO(7));
+    const [to, setTo] = useState<string>(todayISO());
+    const [action, setAction] = useState<string>("all");
+    const [busy, setBusy] = useState(false);
+
+    const ACTION_OPTIONS = [
+        "all",
+        "pin_unlock_success",
+        "pin_unlock_failed",
+        "pin_lockout_reset",
+        "pin_lockout_reset_failed",
+        "pin_idle_lock",
+        "approve",
+        "reject",
+        "remove",
+        "role",
+        "status",
+        "edit",
+    ];
+
+    const handleExport = async () => {
+        if (!from || !to) {
+            toast.error("Pick a from and to date");
+            return;
+        }
+        if (from > to) {
+            toast.error("'From' date must be before 'To' date");
+            return;
+        }
+        setBusy(true);
+        try {
+            // Convert dates to ISO datetime; treat `to` as end-of-day exclusive next day.
+            const fromISO = new Date(`${from}T00:00:00.000Z`).toISOString();
+            const toDate = new Date(`${to}T00:00:00.000Z`);
+            toDate.setUTCDate(toDate.getUTCDate() + 1);
+            const toISO = toDate.toISOString();
+
+            const { rows, truncated } = await exportFn({
+                data: { from: fromISO, to: toISO, action: action === "all" ? undefined : action },
+            });
+
+            if (rows.length === 0) {
+                toast.info("No audit entries found in that range");
+                return;
+            }
+
+            const headers = [
+                "id",
+                "created_at",
+                "reviewer_id",
+                "reviewer_email",
+                "action",
+                "entity_type",
+                "entity_id",
+                "entity_label",
+                "note",
+                "ip_address",
+                "user_agent",
+                "metadata_json",
+            ];
+            const csvRows = [
+                headers,
+                ...rows.map((r) => headers.map((h) => (r as unknown as Record<string, unknown>)[h] ?? "")),
+            ];
+            const csv = csvRows
+                .map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(","))
+                .join("\n");
+            const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `admin-audit-${from}_to_${to}${action !== "all" ? `_${action}` : ""}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+            toast.success(
+                `Exported ${rows.length} entries${truncated ? " (capped at 10,000 — narrow your range)" : ""}`,
+            );
+        } catch (e) {
+            toast.error(e instanceof Error ? e.message : "Export failed");
+        } finally {
+            setBusy(false);
+        }
+    };
+
+    const presets: Array<{ label: string; days: number }> = [
+        { label: "Last 24h", days: 1 },
+        { label: "7 days", days: 7 },
+        { label: "30 days", days: 30 },
+        { label: "90 days", days: 90 },
+    ];
+
+    return (
+        <section className="rounded-2xl border-2 border-ink bg-gradient-to-br from-cream to-cream/60 p-4 shadow-brut">
+            <header className="flex flex-wrap items-end justify-between gap-3">
+                <div>
+                    <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink/55">
+                        Database export
+                    </p>
+                    <h2 className="font-display text-xl font-extrabold leading-tight text-ink flex items-center gap-2">
+                        <Database className="h-5 w-5 text-coral" /> Export admin activity (CSV)
+                    </h2>
+                    <p className="mt-1 text-xs text-ink/60">
+                        Download persistent admin_audit_log entries for a date range. Capped at 10,000 rows.
+                    </p>
+                </div>
+            </header>
+
+            <div className="mt-3 flex flex-wrap items-end gap-3">
+                <div className="flex flex-col gap-1">
+                    <label className="font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-ink/55">
+                        From
+                    </label>
+                    <Input
+                        type="date"
+                        value={from}
+                        max={to}
+                        onChange={(e) => setFrom(e.target.value)}
+                        className="w-[160px]"
+                    />
+                </div>
+                <div className="flex flex-col gap-1">
+                    <label className="font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-ink/55">
+                        To
+                    </label>
+                    <Input
+                        type="date"
+                        value={to}
+                        min={from}
+                        max={todayISO()}
+                        onChange={(e) => setTo(e.target.value)}
+                        className="w-[160px]"
+                    />
+                </div>
+                <div className="flex flex-col gap-1">
+                    <label className="font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-ink/55">
+                        Action
+                    </label>
+                    <select
+                        value={action}
+                        onChange={(e) => setAction(e.target.value)}
+                        className="h-9 rounded-md border border-input bg-background px-2 text-sm"
+                    >
+                        {ACTION_OPTIONS.map((a) => (
+                            <option key={a} value={a}>
+                                {a}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <Button onClick={handleExport} disabled={busy} className="gap-1.5">
+                    {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}
+                    {busy ? "Exporting…" : "Export CSV"}
+                </Button>
+                <div className="flex items-center gap-1.5 pl-2">
+                    {presets.map((p) => (
+                        <button
+                            key={p.label}
+                            type="button"
+                            onClick={() => {
+                                setFrom(daysAgoISO(p.days));
+                                setTo(todayISO());
+                            }}
+                            className="rounded-md border border-ink/15 bg-cream px-2 py-1 text-[11px] font-bold text-ink/70 transition hover:border-coral hover:text-ink"
+                        >
+                            {p.label}
+                        </button>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 }
 
 function StatCard({ label, value }: {

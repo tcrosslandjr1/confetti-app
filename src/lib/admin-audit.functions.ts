@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 
@@ -123,4 +124,77 @@ export const logPinIdleLock = createServerFn({ method: "POST" })
     });
 
     return { logged: true };
+  });
+
+export type AuditExportRow = {
+  id: string;
+  created_at: string;
+  reviewer_id: string;
+  reviewer_email: string | null;
+  action: string;
+  entity_type: string;
+  entity_id: string | null;
+  entity_label: string | null;
+  note: string | null;
+  ip_address: string | null;
+  user_agent: string | null;
+  metadata_json: string;
+};
+
+/**
+ * Returns admin_audit_log rows in [from, to) for CSV export.
+ * Capped at 10,000 rows per export. Admin-gated via has_role check.
+ */
+export const exportAdminAuditLog = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator(
+    z.object({
+      from: z.string().datetime(),
+      to: z.string().datetime(),
+      action: z.string().trim().max(64).optional(),
+    }).parse,
+  )
+  .handler(async ({ data, context }): Promise<{ rows: AuditExportRow[]; truncated: boolean }> => {
+    const { supabase, userId } = context;
+    const { data: roleRow } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", userId)
+      .eq("role", "admin")
+      .maybeSingle();
+    if (!roleRow) throw new Error("Admins only");
+
+    const LIMIT = 10_000;
+    let query = supabaseAdmin
+      .from("admin_audit_log")
+      .select(
+        "id, created_at, reviewer_id, reviewer_email, action, entity_type, entity_id, entity_label, note, ip_address, user_agent, metadata",
+      )
+      .gte("created_at", data.from)
+      .lt("created_at", data.to)
+      .order("created_at", { ascending: false })
+      .limit(LIMIT);
+
+    if (data.action && data.action !== "all") {
+      query = query.eq("action", data.action);
+    }
+
+    const { data: rows, error } = await query;
+    if (error) throw new Error(error.message);
+
+    const mapped: AuditExportRow[] = (rows ?? []).map((r) => ({
+      id: r.id,
+      created_at: r.created_at,
+      reviewer_id: r.reviewer_id,
+      reviewer_email: r.reviewer_email,
+      action: r.action,
+      entity_type: r.entity_type,
+      entity_id: r.entity_id,
+      entity_label: r.entity_label,
+      note: r.note,
+      ip_address: r.ip_address == null ? null : String(r.ip_address),
+      user_agent: r.user_agent,
+      metadata_json: r.metadata == null ? "" : JSON.stringify(r.metadata),
+    }));
+    return { rows: mapped, truncated: mapped.length >= LIMIT };
   });

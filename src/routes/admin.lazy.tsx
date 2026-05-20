@@ -242,6 +242,7 @@ function AdminShell({ user, pathname, onLock }: {
     const [query, setQuery] = useState("");
     const searchRef = useRef<HTMLInputElement | null>(null);
     const [globalSearchOpen, setGlobalSearchOpen] = useState(false);
+    const { data: navCounts } = useAdminNavCounts();
     const COLLAPSED_KEY = "confetti.admin.nav.collapsed.v1";
     const [collapsedGroups, setCollapsedGroups] = useState<Record<string, boolean>>(() => {
         if (typeof window === "undefined") return {};

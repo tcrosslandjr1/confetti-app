@@ -41,6 +41,10 @@ function AdminAskPage() {
     }
   }, [authLoading, user, isAdmin, viewAs, navigate]);
 
+  if (authLoading || !isAdmin || viewAs !== "admin") {
+    return <AdminSkeleton />;
+  }
+
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError(false);

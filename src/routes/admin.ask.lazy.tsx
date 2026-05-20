@@ -1,7 +1,9 @@
-import { createLazyFileRoute, Link } from "@tanstack/react-router";
+import { createLazyFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { ArrowLeft, Bot, RefreshCw, RotateCcw, Sparkles } from "lucide-react";
 import { toast } from "sonner";
+import { useAuth } from "@/lib/auth-context";
+import { AdminSkeleton } from "@/components/AdminSkeleton";
 import {
   getControlCenterView,
   type AgentRecord,

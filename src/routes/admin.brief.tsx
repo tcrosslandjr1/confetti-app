@@ -401,6 +401,68 @@ function AdminBriefPage() {
         ))}
       </section>
 
+      {/* ─── Trend charts ─── */}
+      <section className="grid gap-6 lg:grid-cols-2">
+        <TrendCard
+          title="Bookings"
+          subtitle={range === "24h" ? "Hourly · last 24h" : range === "7d" ? "Daily · last 7d" : "Daily · last 30d"}
+          total={trendTotals.bookings}
+          peak={trendTotals.peakBookings}
+          dataKey="bookings"
+          color="var(--coral)"
+          drilldownTo="/admin/bookings"
+          drilldownLabel="Open bookings →"
+          data={trend ?? []}
+          loading={trendLoading}
+          icon={CalendarCheck}
+        />
+        <TrendCard
+          title="Agent runs"
+          subtitle={range === "24h" ? "Hourly · completions" : "Daily · completions"}
+          total={trendTotals.agentRuns}
+          peak={trendTotals.peakAgent}
+          dataKey="agentRuns"
+          color="var(--purple)"
+          drilldownTo="/admin/agents"
+          drilldownLabel="Agent dashboard →"
+          data={trend ?? []}
+          loading={trendLoading}
+          icon={Bot}
+        />
+      </section>
+
+      {/* ─── Drill-down quick links ─── */}
+      <section className="rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut">
+        <div className="mb-3 flex items-center justify-between">
+          <h2 className="font-display text-lg font-bold inline-flex items-center gap-2">
+            <TrendingUp className="h-4 w-4 text-coral" /> Jump into a queue
+          </h2>
+        </div>
+        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { to: "/admin/agents", label: "Agents", icon: Bot },
+            { to: "/admin/bookings", label: "Bookings", icon: CalendarCheck },
+            { to: "/admin/moderation", label: "Moderation", icon: AlertTriangle },
+            { to: "/admin/business-claims", label: "Claims", icon: ClipboardCheck },
+            { to: "/admin/advertisers", label: "Advertisers", icon: Sparkles },
+            { to: "/admin/users", label: "Users", icon: UserPlus },
+            { to: "/admin/venues", label: "Venues", icon: Store },
+            { to: "/admin/logs", label: "Logs", icon: Zap },
+          ].map((l) => (
+            <Link
+              key={l.to}
+              to={l.to as any}
+              className="flex items-center gap-2 rounded-xl border-2 border-ink bg-background p-3 text-sm font-bold transition hover:-translate-y-0.5 hover:shadow-brut"
+            >
+              <l.icon className="h-4 w-4 text-coral" />
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+
+
       <section className="grid gap-6 lg:grid-cols-3">
         <div className="rounded-2xl border border-border bg-card p-5 shadow-card lg:col-span-2">
           <div className="mb-3 flex items-center justify-between">

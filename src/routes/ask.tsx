@@ -1,6 +1,12 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
+import {
+  Sparkles,
+  UserCircle,
+  Map,
+  Compass,
+} from "lucide-react";
 import { orchestratePlan } from "@/lib/orchestrator.functions";
 
 export const Route = createFileRoute("/ask")({
@@ -25,11 +31,35 @@ function AskPage() {
   const [result, setResult] = useState<Awaited<ReturnType<typeof orchestrate>> | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const examples = [
-    "3 days in Miami with the boys",
-    "Girls brunch in Brickell tomorrow",
-    "Soft-life weekend in NYC for two",
-    "Bachelor weekend in Vegas, 4 days",
+  const quickPrompts = [
+    {
+      id: "plan",
+      label: "Plan my night",
+      text: "Plan a fun evening for me tonight",
+      icon: Sparkles,
+      tone: "bg-coral text-cream border-coral",
+    },
+    {
+      id: "personalize",
+      label: "Personalize",
+      text: "What do you think I'd love this weekend?",
+      icon: UserCircle,
+      tone: "bg-gold text-ink border-ink",
+    },
+    {
+      id: "trip",
+      label: "Plan a trip",
+      text: "Plan a 3-day trip somewhere exciting",
+      icon: Map,
+      tone: "bg-ink text-cream border-ink",
+    },
+    {
+      id: "intent",
+      label: "What can I do?",
+      text: "What kind of experiences do you offer?",
+      icon: Compass,
+      tone: "bg-cream text-ink border-ink",
+    },
   ];
 
   async function handleSubmit(text: string) {
@@ -81,19 +111,24 @@ function AskPage() {
           </button>
         </form>
 
-        <div className="mt-6 flex flex-wrap gap-2">
-          {examples.map((ex) => (
-            <button
-              key={ex}
-              onClick={() => {
-                setInput(ex);
-                void handleSubmit(ex);
-              }}
-              className="rounded-full border border-border bg-card px-3 py-1.5 text-sm text-muted-foreground hover:bg-accent"
-            >
-              {ex}
-            </button>
-          ))}
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {quickPrompts.map((q) => {
+            const Icon = q.icon;
+            return (
+              <button
+                key={q.id}
+                onClick={() => {
+                  setInput(q.text);
+                  void handleSubmit(q.text);
+                }}
+                disabled={loading}
+                className={`flex flex-col items-center gap-2 rounded-2xl border-2 px-3 py-4 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md disabled:opacity-50 ${q.tone}`}
+              >
+                <Icon className="h-5 w-5" />
+                <span>{q.label}</span>
+              </button>
+            );
+          })}
         </div>
 
         {error && (

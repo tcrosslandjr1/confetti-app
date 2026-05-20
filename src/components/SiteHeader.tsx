@@ -303,14 +303,25 @@ function MobileMenu({
           Build a night
         </WizardButton>
         {isVisitor ? (
-          <Link
-            to="/auth"
-            onClick={close}
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-cream font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
-          >
-            <UserPlus className="h-4 w-4" />
-            Sign up free
-          </Link>
+          <div className="grid grid-cols-2 gap-2">
+            <Link
+              to="/auth"
+              search={{ mode: "signin" } as never}
+              onClick={close}
+              className="flex h-12 items-center justify-center gap-2 rounded-full border-2 border-ink bg-white font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            >
+              Log in
+            </Link>
+            <Link
+              to="/auth"
+              onClick={close}
+              className="flex h-12 items-center justify-center gap-2 rounded-full border-2 border-ink bg-coral font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            >
+              <UserPlus className="h-4 w-4" />
+              Sign up
+            </Link>
+          </div>
+
         ) : (
           <button
             onClick={() => {

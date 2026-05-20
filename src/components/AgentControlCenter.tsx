@@ -559,7 +559,12 @@ export function ChatView({
       });
       setMessages([...next, { role: "assistant", content: res.reply }]);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Agent failed to reply");
+      const msg = e instanceof Error ? e.message : "Agent failed to reply";
+      setError(msg);
+      toast.error("Message failed", {
+        description: msg,
+        action: { label: "Retry", onClick: () => void send() },
+      });
     } finally {
       setBusy(false);
     }

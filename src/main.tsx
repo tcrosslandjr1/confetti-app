@@ -42,14 +42,49 @@ root.render(
 // "Failed to fetch dynamically imported module" on the very next navigation.
 // Auto-recover once by forcing a fresh load before showing the fallback UI.
 const STALE_RELOAD_KEY = "__lovable_stale_module_reload__";
+const STALE_ERROR_EVENTS = ["error", "unhandledrejection"] as const;
 
 function isStaleModuleError(error: unknown): boolean {
-  const msg = error instanceof Error ? error.message : String(error ?? "");
+  const msg =
+    error instanceof Error
+      ? `${error.name} ${error.message} ${error.stack ?? ""}`
+      : String(error ?? "");
   return (
     msg.includes("Failed to fetch dynamically imported module") ||
     msg.includes("error loading dynamically imported module") ||
-    msg.includes("Importing a module script failed")
+    msg.includes("Importing a module script failed") ||
+    msg.includes("Failed to load module script") ||
+    msg.includes("dynamically imported module") ||
+    msg.includes("vite/preload-helper")
   );
+}
+
+function reloadOnceForStaleModule(): boolean {
+  let alreadyTried = false;
+  try {
+    alreadyTried = sessionStorage.getItem(STALE_RELOAD_KEY) === "1";
+    if (!alreadyTried) sessionStorage.setItem(STALE_RELOAD_KEY, "1");
+  } catch {
+    /* sessionStorage may be unavailable */
+  }
+  if (alreadyTried) return false;
+
+  const url = new URL(window.location.href);
+  url.searchParams.set("_r", Date.now().toString(36));
+  window.location.replace(url.toString());
+  return true;
+}
+
+for (const eventName of STALE_ERROR_EVENTS) {
+  window.addEventListener(eventName, (event) => {
+    const error =
+      eventName === "unhandledrejection"
+        ? (event as PromiseRejectionEvent).reason
+        : (event as ErrorEvent).error || (event as ErrorEvent).message;
+    if (!isStaleModuleError(error)) return;
+    event.preventDefault();
+    reloadOnceForStaleModule();
+  });
 }
 
 function renderErrorFallback() {

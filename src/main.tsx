@@ -10,6 +10,12 @@ import {
 const rootEl = document.getElementById("root");
 if (!rootEl) throw new Error("Root element #root not found");
 
+declare global {
+  interface Window {
+    __confettiRoot?: ReturnType<typeof createRoot>;
+  }
+}
+
 function BootFallback() {
   const isAdmin = window.location.pathname.startsWith("/admin");
   return (
@@ -48,7 +54,8 @@ function BootFallback() {
   );
 }
 
-const root = createRoot(rootEl);
+const root = window.__confettiRoot ?? createRoot(rootEl);
+window.__confettiRoot = root;
 
 root.render(
   <StrictMode>

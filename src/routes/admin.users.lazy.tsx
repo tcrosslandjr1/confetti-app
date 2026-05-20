@@ -76,6 +76,13 @@ function AdminUsersPage() {
     const [statusFilter, setStatusFilter] = useState<"all" | "active" | "suspended">("all");
     const [pending, setPending] = useState<string | null>(null);
     const [confirmDelete, setConfirmDelete] = useState<AdminUserRow | null>(null);
+    type SortKey = "name" | "pts" | "joined" | "lastSeen";
+    const [sortKey, setSortKey] = useState<SortKey>("joined");
+    const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+    const toggleSort = (k: SortKey) => {
+        if (sortKey === k) setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+        else { setSortKey(k); setSortDir("desc"); }
+    };
     const load = async () => {
         setLoading(true);
         try {
@@ -100,24 +107,46 @@ function AdminUsersPage() {
         admins: users.filter((u) => u.roles.includes("admin")).length,
     }), [users]);
     const filtered = useMemo(() => {
-        return users.filter((u) => {
+        const list = users.filter((u) => {
             const banned = isBanned(u);
-            if (roleFilter !== "all" && !u.roles.includes(roleFilter))
-                return false;
-            if (statusFilter === "active" && banned)
-                return false;
-            if (statusFilter === "suspended" && !banned)
-                return false;
+            if (roleFilter !== "all" && !u.roles.includes(roleFilter)) return false;
+            if (statusFilter === "active" && banned) return false;
+            if (statusFilter === "suspended" && !banned) return false;
             if (query) {
                 const q = query.toLowerCase();
                 if (!u.email.toLowerCase().includes(q) &&
                     !(u.display_name ?? "").toLowerCase().includes(q) &&
-                    !u.id.toLowerCase().includes(q))
-                    return false;
+                    !u.id.toLowerCase().includes(q)) return false;
             }
             return true;
         });
-    }, [users, query, roleFilter, statusFilter]);
+        const dir = sortDir === "asc" ? 1 : -1;
+        const cmp = (a: AdminUserRow, b: AdminUserRow): number => {
+            switch (sortKey) {
+                case "name":
+                    return (a.display_name ?? a.email).localeCompare(b.display_name ?? b.email) * dir;
+                case "pts":
+                    return ((a.confetti_pts ?? 0) - (b.confetti_pts ?? 0)) * dir;
+                case "joined":
+                    return (new Date(a.created_at ?? 0).getTime() - new Date(b.created_at ?? 0).getTime()) * dir;
+                case "lastSeen":
+                    return (new Date(a.last_sign_in_at ?? 0).getTime() - new Date(b.last_sign_in_at ?? 0).getTime()) * dir;
+            }
+        };
+        return [...list].sort(cmp);
+    }, [users, query, roleFilter, statusFilter, sortKey, sortDir]);
+    const exportCsv = () => {
+        downloadCsv(`users-${new Date().toISOString().slice(0, 10)}.csv`, filtered.map((u) => ({
+            id: u.id,
+            email: u.email,
+            display_name: u.display_name ?? "",
+            roles: u.roles.join("|"),
+            status: isBanned(u) ? "suspended" : "active",
+            confetti_pts: u.confetti_pts,
+            created_at: u.created_at,
+            last_sign_in_at: u.last_sign_in_at ?? "",
+        })));
+    };
     const toggleRole = async (u: AdminUserRow, role: AppRole) => {
         const grant = !u.roles.includes(role);
         setPending(u.id);

@@ -138,7 +138,7 @@ export type AuditExportRow = {
   note: string | null;
   ip_address: string | null;
   user_agent: string | null;
-  metadata: Record<string, unknown> | null;
+  metadata_json: string;
 };
 
 /**

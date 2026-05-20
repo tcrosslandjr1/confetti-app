@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { Loader2 } from "lucide-react";
 import {
   BarChart3,
   CalendarCheck,
@@ -40,8 +41,34 @@ function sinceIso(range: Range) {
 }
 
 function AdvertiseReportsPage() {
-  const { user } = useAuth();
+  const { user, loading, viewAs, isPreview } = useAuth();
+  const navigate = useNavigate();
   const [range, setRange] = useState<Range>("7d");
+
+  const allowPreview = isPreview && viewAs === "business";
+
+  // Route guard: only business owners (or admins switched to business preview) may view.
+  useEffect(() => {
+    if (loading) return;
+    if (allowPreview) return;
+    if (!user) {
+      navigate({ to: "/auth", search: { redirect: "/advertise/reports" } as never });
+      return;
+    }
+    if (viewAs === "visitor") {
+      navigate({ to: "/advertise" });
+      return;
+    }
+    if (viewAs === "customer") {
+      navigate({ to: "/portal" });
+      return;
+    }
+    if (viewAs === "admin") {
+      navigate({ to: "/admin" });
+      return;
+    }
+  }, [user, loading, viewAs, allowPreview, navigate]);
+
 
   const { data: myVenues } = useQuery({
     enabled: !!user?.id,
@@ -125,19 +152,11 @@ function AdvertiseReportsPage() {
     toast.success("Report downloaded");
   };
 
-  if (!user) {
+  // While the guard resolves (or for non-business roles awaiting redirect), show a placeholder.
+  if (loading || (!allowPreview && (!user || viewAs !== "business"))) {
     return (
-      <div className="mx-auto max-w-2xl px-4 py-16 text-center">
-        <h1 className="font-display text-2xl font-extrabold">Sign in to view reports</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Reports are available to verified business owners.
-        </p>
-        <Link
-          to="/auth"
-          className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-ink bg-coral px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut"
-        >
-          Sign in
-        </Link>
+      <div className="grid min-h-[60vh] place-items-center text-sm text-muted-foreground">
+        <Loader2 className="mr-2 inline h-4 w-4 animate-spin" /> Loading reports…
       </div>
     );
   }

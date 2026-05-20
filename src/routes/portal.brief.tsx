@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
+import { Loader2 } from "lucide-react";
 import {
   Bookmark,
   CalendarCheck,
@@ -30,11 +31,45 @@ export const Route = createFileRoute("/portal/brief")({
 });
 
 function PortalBriefPage() {
-  const { user } = useAuth();
+  const { user, loading, viewAs, isPreview } = useAuth();
+  const navigate = useNavigate();
   const userId = user?.id ?? null;
   const today = new Date();
   const greeting =
     today.getHours() < 12 ? "Good morning" : today.getHours() < 18 ? "Good afternoon" : "Good evening";
+
+  const allowPreview = isPreview && viewAs === "customer";
+
+  // Defense-in-depth guard — the /portal layout already redirects, but ensure
+  // this personalized page never renders for the wrong role.
+  useEffect(() => {
+    if (loading) return;
+    if (allowPreview) return;
+    if (!user) {
+      navigate({ to: "/auth", search: { redirect: "/portal/brief" } as never });
+      return;
+    }
+    if (viewAs === "visitor") {
+      navigate({ to: "/" });
+      return;
+    }
+    if (viewAs === "business") {
+      navigate({ to: "/advertise/portal" });
+      return;
+    }
+    if (viewAs === "admin") {
+      navigate({ to: "/admin" });
+      return;
+    }
+  }, [user, loading, viewAs, allowPreview, navigate]);
+
+  if (loading || (!allowPreview && (!user || viewAs !== "customer"))) {
+    return (
+      <div className="grid min-h-[60vh] place-items-center text-sm text-muted-foreground">
+        <Loader2 className="mr-2 inline h-4 w-4 animate-spin" /> Loading your brief…
+      </div>
+    );
+  }
 
   const { data: profile } = useQuery({
     enabled: !!userId,

@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Lock, ShieldCheck } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
+import { logPinUnlockAttempt } from "@/lib/admin-audit.functions";
 
 // Hardcoded console PIN. Note: this is a UX gate on the admin shell — it is
 // NOT a security boundary. RLS + the `admin` role still gate all real data

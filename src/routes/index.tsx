@@ -255,17 +255,26 @@ const FAQS = [
 ];
 
 function Landing() {
-  // Signed-in customers get the personalized portal instead of the marketing landing.
-  const { user, viewAs, loading } = useAuth();
+  // Hard-redirect signed-in roles to their home so reloads are deterministic:
+  // visitors always land here; admins/customers/business/influencers always
+  // land on their respective surfaces.
+  const { user, viewAs, effectiveRole, loading } = useAuth();
   const navigate = useNavigate();
   usePageview("landing", "/");
   useScrollDepth("/");
   useTimeToInteraction("/");
   useEffect(() => {
-    if (loading) return;
-    if (user && viewAs === "customer") navigate({ to: "/portal" });
-    else if (user && viewAs === "admin") navigate({ to: "/admin" });
-  }, [user, viewAs, loading, navigate]);
+    if (loading || !user || typeof window === "undefined") return;
+    const role = effectiveRole ?? viewAs;
+    const target =
+      role === "admin" ? "/admin"
+      : role === "business" ? "/advertise/portal"
+      : role === "customer" ? "/portal"
+      : null;
+    if (target && window.location.pathname === "/") {
+      window.location.replace(target);
+    }
+  }, [user, viewAs, effectiveRole, loading, navigate]);
 
   const [bookingOpen, setBookingOpen] = useState(false);
 

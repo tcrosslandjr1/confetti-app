@@ -1651,17 +1651,17 @@ function Landing() {
 
       {/* Scroll-triggered sticky CTA — appears after the hero is offscreen */}
       <div
-        className={`fixed inset-x-0 bottom-0 z-40 border-t-2 border-ink bg-cream/95 backdrop-blur transition-transform duration-300 ${
+        className={`fixed inset-x-0 bottom-0 z-40 border-t-2 border-ink bg-cream shadow-[0_-6px_24px_-8px_rgba(0,0,0,0.25)] transition-transform duration-300 ${
           showStickyCta ? "translate-y-0" : "translate-y-full"
         }`}
         aria-hidden={!showStickyCta}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
           <div className="min-w-0">
-            <p className="truncate font-display text-sm font-extrabold leading-tight">
+            <p className="truncate font-display text-sm font-extrabold leading-tight text-ink sm:text-base">
               Your whole night, planned in 60 sec.
             </p>
-            <p className="truncate text-[11px] text-ink/60">Free · No signup to try</p>
+            <p className="truncate text-xs font-semibold text-ink/80">Free · No signup to try</p>
           </div>
           <span onClick={() => trackCta("plan_my_night_sticky", { location: "sticky_bar" })}>
             <WizardButton

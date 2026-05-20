@@ -1047,21 +1047,18 @@ function AuthPage() {
             </div>
           )}
 
-          <div className="mt-auto pt-10 text-center text-xs text-muted-foreground">
-            By continuing you agree to our terms and{" "}
-            <Link to="/data-terms" className="underline">
-              data sharing policy
+          <div className="mt-auto pt-8 text-center text-[11px] text-ink/55">
+            <Link to="/data-terms" className="underline underline-offset-2 hover:text-coral">
+              Terms &amp; data policy
             </Link>
-            .{" "}
-            <Link to="/events" className="underline">
+            <span className="mx-2 text-ink/30">·</span>
+            <Link to="/events" className="underline underline-offset-2 hover:text-coral">
               Browse events
             </Link>
-            <div className="mt-3">
-              Are you an admin?{" "}
-              <Link to="/admin/login" className="font-semibold text-foreground underline">
-                Sign in here →
-              </Link>
-            </div>
+            <span className="mx-2 text-ink/30">·</span>
+            <Link to="/admin/login" className="underline underline-offset-2 hover:text-coral">
+              Admin sign in
+            </Link>
           </div>
         </div>
       </div>

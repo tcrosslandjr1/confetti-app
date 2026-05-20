@@ -221,9 +221,10 @@ function AdminLayout() {
     </SidebarProvider>);
 }
 
-function AdminShell({ user, pathname, }: {
+function AdminShell({ user, pathname, onLock }: {
     user: ReturnType<typeof useAuth>["user"];
     pathname: string;
+    onLock: () => void;
 }) {
     const { isMobile, setOpenMobile, state } = useSidebar();
     const collapsed = state === "collapsed";

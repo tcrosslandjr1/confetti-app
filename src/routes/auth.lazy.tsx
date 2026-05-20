@@ -801,58 +801,9 @@ function AuthPage() {
                 </span>
               </button>
 
-              <button
-                type="button"
-                onClick={() =>
-                  setError(
-                    "Sign in with email/Google/Apple first, then connect TikTok from your profile to link the two accounts.",
-                  )
-                }
-                className="group inline-flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-dashed border-ink/40 bg-cream/60 px-4 py-3 text-sm font-bold text-ink/70 transition-all hover:border-ink hover:bg-cream hover:text-ink"
-              >
-                <span className="inline-flex items-center gap-3">
-                  <span className="grid h-8 w-8 place-items-center rounded-lg border-2 border-ink/30 bg-ink text-cream group-hover:border-ink">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M19.6 6.3a5.5 5.5 0 0 1-3.4-1.2 5.5 5.5 0 0 1-2-3.4h-3.5v13.6a2.5 2.5 0 1 1-2.5-2.5c.3 0 .5 0 .8.1V9.4a6.1 6.1 0 0 0-.8 0 6 6 0 1 0 6 6V9a8.9 8.9 0 0 0 5.4 1.8V7.3c-.6 0-1.3-.3-2-1z" />
-                    </svg>
-                  </span>
-                  Continue with TikTok
-                </span>
-                <span className="rounded-md border border-ink/30 bg-cream px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em]">
-                  soon
-                </span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() =>
-                  setError(
-                    "Sign in with email/Google/Apple first, then connect Instagram from your profile to link the two accounts. (Requires an Instagram Business or Creator account.)",
-                  )
-                }
-                className="group inline-flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-dashed border-ink/40 bg-cream/60 px-4 py-3 text-sm font-bold text-ink/70 transition-all hover:border-ink hover:bg-cream hover:text-ink"
-              >
-                <span className="inline-flex items-center gap-3">
-                  <span className="grid h-8 w-8 place-items-center rounded-lg border-2 border-ink/30 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white group-hover:border-ink">
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <rect x="3" y="3" width="18" height="18" rx="5" />
-                      <circle cx="12" cy="12" r="4" />
-                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
-                    </svg>
-                  </span>
-                  Continue with Instagram
-                </span>
-                <span className="rounded-md border border-ink/30 bg-cream px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em]">
-                  soon
-                </span>
-              </button>
+              <p className="pt-1 text-center font-mono text-[9px] uppercase tracking-[0.2em] text-ink/45">
+                TikTok &amp; Instagram · connect from your profile after sign-in
+              </p>
             </div>
           </div>
 

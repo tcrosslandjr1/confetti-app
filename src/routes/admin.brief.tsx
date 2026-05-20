@@ -20,7 +20,6 @@ import {
   Area,
   AreaChart,
   CartesianGrid,
-  Legend,
   ResponsiveContainer,
   Tooltip as RTooltip,
   XAxis,

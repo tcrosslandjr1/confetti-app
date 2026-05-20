@@ -339,6 +339,30 @@ function StopCard({
               "{vibeLine}"
             </div>
           )}
+          {(stop.priceLevel || stop.dressCode || stop.waitTime || stop.bookable) && (
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {stop.priceLevel && (
+                <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-ink">
+                  <DollarSign className="h-2.5 w-2.5" /> {stop.priceLevel}
+                </span>
+              )}
+              {stop.dressCode && (
+                <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-white px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-ink/80">
+                  <Shirt className="h-2.5 w-2.5" /> {stop.dressCode}
+                </span>
+              )}
+              {stop.waitTime && (
+                <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink/30 bg-white px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-ink/70">
+                  <Clock className="h-2.5 w-2.5" /> {stop.waitTime}
+                </span>
+              )}
+              {stop.bookable && (
+                <span className="inline-flex items-center gap-1 rounded-full border-2 border-coral bg-coral/10 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-coral">
+                  ✓ Reserve
+                </span>
+              )}
+            </div>
+          )}
           <div className="mt-4 flex flex-wrap items-center gap-2">
             <a
               href={navUrl}

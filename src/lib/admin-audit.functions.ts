@@ -51,12 +51,8 @@ export const resetPinLockout = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((input: { password: string; userAgent?: string }) => input)
   .handler(async ({ data, context }) => {
-    const { userId, supabase, claims } = context as {
-      userId: string;
-      supabase: ReturnType<typeof supabaseAdmin>["auth"] extends never ? never : typeof supabaseAdmin;
-      claims: { email?: string };
-    };
-    const email = claims?.email;
+    const { userId, supabase, claims } = context;
+    const email = (claims as { email?: string })?.email;
     if (!email) {
       return { ok: false as const, error: "No email on session" };
     }

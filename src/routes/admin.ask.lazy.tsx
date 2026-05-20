@@ -1,7 +1,9 @@
-import { createLazyFileRoute, Link } from "@tanstack/react-router";
+import { createLazyFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { ArrowLeft, Bot, RefreshCw, RotateCcw, Sparkles } from "lucide-react";
 import { toast } from "sonner";
+import { useAuth } from "@/lib/auth-context";
+import { AdminSkeleton } from "@/components/AdminSkeleton";
 import {
   getControlCenterView,
   type AgentRecord,
@@ -14,12 +16,34 @@ export const Route = createLazyFileRoute("/admin/ask")({
 });
 
 function AdminAskPage() {
+  const { loading: authLoading, isAdmin, user, viewAs } = useAuth();
+  const navigate = useNavigate();
   const { agentId } = Route.useSearch();
-  const navigate = Route.useNavigate();
+  const navigateRoute = Route.useNavigate();
   const [view, setView] = useState<ControlCenterView | null>(null);
   const [target, setTarget] = useState<AgentRecord | null>(null);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
+
+  // Admin-only guard
+  useEffect(() => {
+    if (authLoading) return;
+    if (!user) {
+      navigate({ to: "/admin/login", search: { redirect: "/admin/ask" } as never, replace: true });
+    } else if (!isAdmin) {
+      navigate({ to: "/", replace: true });
+    } else if (viewAs === "customer") {
+      navigate({ to: "/portal", replace: true });
+    } else if (viewAs === "business") {
+      navigate({ to: "/advertise/portal", replace: true });
+    } else if (viewAs === "visitor") {
+      navigate({ to: "/", replace: true });
+    }
+  }, [authLoading, user, isAdmin, viewAs, navigate]);
+
+  if (authLoading || !isAdmin || viewAs !== "admin") {
+    return <AdminSkeleton />;
+  }
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -62,7 +86,7 @@ function AdminAskPage() {
     view?.teams.flatMap((t) => t.agents) ?? [];
 
   const selectAgent = (id: string | null) => {
-    navigate({ search: (prev: Record<string, unknown>) => ({ ...prev, agentId: id ?? undefined }) });
+    navigateRoute({ search: { agentId: id || undefined } as never });
   };
 
   return (

@@ -510,10 +510,13 @@
   .reveal-scale.in {
     animation: reveal-scale 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
-  /* Auto-rising entrance — bind --d on the element for stagger. */
+  /* Auto-rising entrance — bind --d on the element for stagger.
+     IMPORTANT: keep base opacity at 1 so the content is visible even if the
+     animation is dropped (offscreen, paint-skipped, or interrupted by a
+     reflow). The keyframe still drives the 0→1 + translate intro. */
   .rise-in {
-    opacity: 0;
-    animation: reveal-up 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 1;
+    animation: reveal-up 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
     animation-delay: var(--d, 0ms);
   }
   /* Diagonal shine sweep — pair with `position: relative; overflow: hidden`. */

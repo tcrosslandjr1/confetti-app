@@ -23,39 +23,55 @@ export const chatWithAgents = createServerFn({ method: "POST" })
   .handler(async ({ data, context }) => {
     const apiKey = process.env.LOVABLE_API_KEY;
     if (!apiKey) throw new Error("Missing LOVABLE_API_KEY");
-    const { supabase } = context;
+    const sb = context.supabase as unknown as {
+      from: (t: string) => {
+        select: (cols: string) => {
+          order?: (c: string) => Promise<{ data: unknown[] | null }>;
+          eq?: (
+            c: string,
+            v: string,
+          ) => { maybeSingle: () => Promise<{ data: unknown }> };
+        };
+      };
+    };
 
-    // Load registry context
-    const { data: teams } = await supabase
+    type TeamRow = { id: string; name: string; description: string | null };
+    type AgentRow = {
+      id: string;
+      name: string;
+      description: string | null;
+      team_id: string;
+    };
+
+    const teamsRes = await sb
       .from("agent_teams")
       .select("id,name,description")
-      .order("sort_order");
-    const { data: agents } = await supabase
+      .order!("sort_order");
+    const agentsRes = await sb
       .from("agent_registry")
       .select("id,name,description,team_id,status,last_task")
-      .order("name");
+      .order!("name");
+    const teams = (teamsRes.data ?? []) as TeamRow[];
+    const agents = (agentsRes.data ?? []) as AgentRow[];
 
     let target: { id: string; name: string; description: string | null } | null = null;
     if (data.targetAgentId) {
-      const { data: t } = await supabase
+      const tRes = await sb
         .from("agent_registry")
         .select("id,name,description")
-        .eq("id", data.targetAgentId)
+        .eq!("id", data.targetAgentId)
         .maybeSingle();
-      if (t) target = t as never;
+      if (tRes.data) target = tRes.data as TeamRow;
     }
 
     const teamLines =
-      (teams ?? [])
-        .map((t: { id: string; name: string; description: string | null }) => {
-          const members = (agents ?? []).filter(
-            (a: { team_id: string }) => a.team_id === t.id,
-          );
-          return `• ${t.name} (${members.length}): ${members
-            .map((m: { name: string }) => m.name)
-            .join(", ")}`;
+      teams
+        .map((t) => {
+          const members = agents.filter((a) => a.team_id === t.id);
+          return `• ${t.name} (${members.length}): ${members.map((m) => m.name).join(", ")}`;
         })
         .join("\n") || "(no teams registered)";
+
 
     const system = target
       ? `You are "${target.name}", a Confetti agent. ${target.description ?? ""}

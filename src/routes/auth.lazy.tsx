@@ -452,6 +452,19 @@ function AuthPage() {
             <div className="auth-collage-card absolute left-[2%] bottom-0 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut motion-reduce:transform-none motion-reduce:transition-none">
               <ShieldCheck className="h-3 w-3 text-coral" /> skip the line
             </div>
+
+            {/* Boarding pass "approved" stamp — playful wow flourish */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute right-[8%] top-[8%] z-10 rotate-[14deg] select-none rounded-2xl border-[3px] border-coral bg-cream/95 px-3 py-1.5 text-coral shadow-brut animate-[float_5s_ease-in-out_infinite]"
+            >
+              <div className="font-display text-[11px] font-extrabold leading-none tracking-[0.2em]">
+                APPROVED
+              </div>
+              <div className="mt-0.5 font-mono text-[8px] font-bold uppercase leading-none tracking-[0.25em] text-coral/80">
+                · vip · tonight ·
+              </div>
+            </div>
           </div>
 
           <div className="relative space-y-6 text-primary-foreground">
@@ -550,7 +563,7 @@ function AuthPage() {
         </aside>
 
         {/* Form pane */}
-        <div className="flex flex-col px-5 py-8 sm:px-10 lg:py-14">
+        <div className="flex flex-col px-4 py-6 sm:px-10 sm:py-8 lg:py-14">
           {/* Mobile immersive hero strip */}
           <div className="lg:hidden">
             <div className="relative overflow-hidden rounded-3xl border-2 border-ink bg-gradient-vibe p-5 text-primary-foreground shadow-brut">
@@ -691,120 +704,30 @@ function AuthPage() {
                 : "Pick up where you left off — your saved spots are waiting."}
             </p>
 
-            {/* What's next — 3-step micro-rail (signup only) */}
-            {mode === "signup" && (
-              <div
-                className="rise-in relative mt-6"
-                style={{ ["--d" as never]: "300ms" } as CSSProperties}
-              >
-                {/* Connector line behind the cards */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute left-[16%] right-[16%] top-1/2 -z-0 h-0.5 -translate-y-1/2 bg-[repeating-linear-gradient(90deg,_oklch(0.2_0_0_/_0.25)_0_6px,_transparent_6px_12px)]"
-                />
-                <ol
-                  className="relative z-10 grid grid-cols-3 gap-2.5"
-                  aria-label="What happens next"
-                >
-                  {[
-                    { n: "01", t: "Account", d: "~60 sec", Icon: UserIcon },
-                    { n: "02", t: "Taste quiz", d: "5 taps", Icon: Sparkles },
-                    { n: "03", t: "Boarding pass", d: "tonight", Icon: Ticket },
-                  ].map((s, i) => (
-                    <li
-                      key={s.n}
-                      className={`relative rounded-2xl border-2 p-3 transition-transform hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none ${
-                        i === 0
-                          ? "border-ink bg-cream shadow-brut"
-                          : "border-dashed border-ink/30 bg-cream/70"
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <span
-                          className={`font-mono text-[9px] font-bold uppercase tracking-[0.2em] ${
-                            i === 0 ? "text-coral" : "text-ink/40"
-                          }`}
-                        >
-                          {s.n}
-                        </span>
-                        <span
-                          className={`grid h-6 w-6 place-items-center rounded-lg border ${
-                            i === 0
-                              ? "border-ink bg-coral/15 text-ink"
-                              : "border-ink/20 bg-cream/60 text-ink/40"
-                          }`}
-                        >
-                          <s.Icon className="h-3.5 w-3.5" />
-                        </span>
-                      </div>
-                      <div className="mt-1.5 font-display text-sm font-extrabold leading-tight text-ink">
-                        {s.t}
-                      </div>
-                      <div className="font-mono text-[9px] uppercase tracking-widest text-ink/55">
-                        {s.d}
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            )}
-
-            {/* Trust micro-row */}
-            <ul
-              className="rise-in mt-5 flex flex-wrap items-center gap-1.5 text-[11px] text-ink/70"
-              style={{ ["--d" as never]: "360ms" } as CSSProperties}
+            {/* Social proof — compact avatar stack + live counter (replaces 3-step rail + ticker) */}
+            <div
+              className="rise-in mt-5 flex flex-wrap items-center gap-3"
+              style={{ ["--d" as never]: "300ms" } as CSSProperties}
             >
-              {[
-                { Icon: ShieldCheck, label: "No spam, ever" },
-                { Icon: Zap, label: "60-sec signup" },
-                { Icon: Gift, label: "250 Confetti bonus" },
-              ].map(({ Icon, label }) => (
-                <li
-                  key={label}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-ink/15 bg-cream/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-ink/75"
-                >
-                  <Icon className="h-3 w-3 text-coral" />
-                  {label}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Live activity ticker — rotating social proof */}
-          <div
-            className="rise-in mt-6 overflow-hidden rounded-2xl border-2 border-ink bg-cream shadow-brut"
-            style={{ ["--d" as never]: "400ms" } as CSSProperties}
-            aria-live="polite"
-          >
-            <div className="flex items-center gap-2 border-b-2 border-ink/15 bg-gradient-to-r from-coral/15 via-cream to-cream px-3 py-1.5">
-              <span className="relative inline-flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-coral" />
-              </span>
-              <span className="font-mono text-[9px] font-bold uppercase tracking-[0.25em] text-ink">
-                live · happening now
-              </span>
-              <span className="ml-auto font-mono text-[9px] uppercase tracking-[0.2em] text-ink/50">
-                {liveItem.ago}
-              </span>
-            </div>
-            <div key={activityIdx} className="flex items-center gap-3 px-3 py-2.5 animate-[reveal-up_0.4s_cubic-bezier(0.22,1,0.36,1)_both]">
-              <span
-                className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border-2 border-ink font-display text-[11px] font-extrabold text-cream shadow-brut ${liveItem.c}`}
-              >
-                {liveItem.who[0]}
-              </span>
-              <div className="min-w-0 flex-1">
-                <div className="truncate text-sm font-semibold text-ink">
-                  <span className="font-display font-extrabold">{liveItem.who}</span>{" "}
-                  <span className="text-ink/70">{liveItem.what}</span>
-                </div>
-                <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/55">
-                  <MapPin className="mr-1 inline h-2.5 w-2.5" />
-                  {liveItem.where}
-                </div>
+              <div className="flex -space-x-2">
+                {[
+                  { i: "MR", c: "bg-coral text-cream" },
+                  { i: "JT", c: "bg-ink text-cream" },
+                  { i: "AS", c: "bg-gold text-ink" },
+                  { i: "LK", c: "bg-purple text-cream" },
+                ].map((a) => (
+                  <span
+                    key={a.i}
+                    className={`grid h-7 w-7 place-items-center rounded-full border-2 border-cream font-display text-[10px] font-extrabold shadow-brut ${a.c}`}
+                  >
+                    {a.i}
+                  </span>
+                ))}
               </div>
-              <PartyPopper className="h-4 w-4 shrink-0 text-coral" />
+              <span key={activityIdx} className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/65 animate-[reveal-up_0.35s_cubic-bezier(0.22,1,0.36,1)_both]">
+                <span className="font-bold text-ink">12,438</span> joined ·{" "}
+                <span className="text-coral font-bold">{liveItem.who}</span> {liveItem.what}
+              </span>
             </div>
           </div>
 
@@ -891,58 +814,9 @@ function AuthPage() {
                 </span>
               </button>
 
-              <button
-                type="button"
-                onClick={() =>
-                  setError(
-                    "Sign in with email/Google/Apple first, then connect TikTok from your profile to link the two accounts.",
-                  )
-                }
-                className="group inline-flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-dashed border-ink/40 bg-cream/60 px-4 py-3 text-sm font-bold text-ink/70 transition-all hover:border-ink hover:bg-cream hover:text-ink"
-              >
-                <span className="inline-flex items-center gap-3">
-                  <span className="grid h-8 w-8 place-items-center rounded-lg border-2 border-ink/30 bg-ink text-cream group-hover:border-ink">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M19.6 6.3a5.5 5.5 0 0 1-3.4-1.2 5.5 5.5 0 0 1-2-3.4h-3.5v13.6a2.5 2.5 0 1 1-2.5-2.5c.3 0 .5 0 .8.1V9.4a6.1 6.1 0 0 0-.8 0 6 6 0 1 0 6 6V9a8.9 8.9 0 0 0 5.4 1.8V7.3c-.6 0-1.3-.3-2-1z" />
-                    </svg>
-                  </span>
-                  Continue with TikTok
-                </span>
-                <span className="rounded-md border border-ink/30 bg-cream px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em]">
-                  soon
-                </span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() =>
-                  setError(
-                    "Sign in with email/Google/Apple first, then connect Instagram from your profile to link the two accounts. (Requires an Instagram Business or Creator account.)",
-                  )
-                }
-                className="group inline-flex w-full items-center justify-between gap-3 rounded-2xl border-2 border-dashed border-ink/40 bg-cream/60 px-4 py-3 text-sm font-bold text-ink/70 transition-all hover:border-ink hover:bg-cream hover:text-ink"
-              >
-                <span className="inline-flex items-center gap-3">
-                  <span className="grid h-8 w-8 place-items-center rounded-lg border-2 border-ink/30 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white group-hover:border-ink">
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <rect x="3" y="3" width="18" height="18" rx="5" />
-                      <circle cx="12" cy="12" r="4" />
-                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
-                    </svg>
-                  </span>
-                  Continue with Instagram
-                </span>
-                <span className="rounded-md border border-ink/30 bg-cream px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em]">
-                  soon
-                </span>
-              </button>
+              <p className="pt-1 text-center font-mono text-[9px] uppercase tracking-[0.2em] text-ink/45">
+                TikTok &amp; Instagram · connect from your profile after sign-in
+              </p>
             </div>
           </div>
 
@@ -1112,28 +986,11 @@ function AuthPage() {
               </span>
             </button>
 
-            {/* Social proof — avatar stack + live counter */}
-            <div className="mt-3 flex items-center justify-center gap-2.5">
-              <div className="flex -space-x-2">
-                {[
-                  { i: "MR", c: "bg-coral text-cream" },
-                  { i: "JT", c: "bg-ink text-cream" },
-                  { i: "AS", c: "bg-gold text-ink" },
-                  { i: "LK", c: "bg-purple text-cream" },
-                ].map((a) => (
-                  <span
-                    key={a.i}
-                    className={`grid h-7 w-7 place-items-center rounded-full border-2 border-cream font-display text-[10px] font-extrabold shadow-brut ${a.c}`}
-                  >
-                    {a.i}
-                  </span>
-                ))}
-              </div>
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/60">
-                <span className="font-bold text-ink">12,438</span> joined ·{" "}
-                <span className="text-coral">214 tonight</span>
-              </span>
-            </div>
+            {/* Tonight counter */}
+            <p className="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-ink/55">
+              <span className="text-coral font-bold">214</span> joined tonight
+            </p>
+
 
             {mode === "signup" && (
               <p className="text-center text-[11px] leading-relaxed text-ink/60">
@@ -1203,21 +1060,18 @@ function AuthPage() {
             </div>
           )}
 
-          <div className="mt-auto pt-10 text-center text-xs text-muted-foreground">
-            By continuing you agree to our terms and{" "}
-            <Link to="/data-terms" className="underline">
-              data sharing policy
+          <div className="mt-auto pt-8 text-center text-[11px] text-ink/55">
+            <Link to="/data-terms" className="underline underline-offset-2 hover:text-coral">
+              Terms &amp; data policy
             </Link>
-            .{" "}
-            <Link to="/events" className="underline">
+            <span className="mx-2 text-ink/30">·</span>
+            <Link to="/events" className="underline underline-offset-2 hover:text-coral">
               Browse events
             </Link>
-            <div className="mt-3">
-              Are you an admin?{" "}
-              <Link to="/admin/login" className="font-semibold text-foreground underline">
-                Sign in here →
-              </Link>
-            </div>
+            <span className="mx-2 text-ink/30">·</span>
+            <Link to="/admin/login" className="underline underline-offset-2 hover:text-coral">
+              Admin sign in
+            </Link>
           </div>
         </div>
       </div>

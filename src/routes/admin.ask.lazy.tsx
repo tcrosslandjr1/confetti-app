@@ -18,11 +18,19 @@ function AdminAskPage() {
   const [target, setTarget] = useState<AgentRecord | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const [loadError, setLoadError] = useState(false);
+
   const load = useCallback(async () => {
     setLoading(true);
+    setLoadError(false);
     try {
       setView(await getControlCenterView());
     } catch (e) {
+      setLoadError(true);
+      toast.error("Failed to load agents", {
+        description: e instanceof Error ? e.message : "Unknown error",
+        action: { label: "Retry", onClick: () => void load() },
+      });
       console.error("Failed to load agents:", e);
     } finally {
       setLoading(false);

@@ -452,6 +452,19 @@ function AuthPage() {
             <div className="auth-collage-card absolute left-[2%] bottom-0 inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-ink shadow-brut motion-reduce:transform-none motion-reduce:transition-none">
               <ShieldCheck className="h-3 w-3 text-coral" /> skip the line
             </div>
+
+            {/* Boarding pass "approved" stamp — playful wow flourish */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute right-[8%] top-[8%] z-10 rotate-[14deg] select-none rounded-2xl border-[3px] border-coral bg-cream/95 px-3 py-1.5 text-coral shadow-brut animate-[float_5s_ease-in-out_infinite]"
+            >
+              <div className="font-display text-[11px] font-extrabold leading-none tracking-[0.2em]">
+                APPROVED
+              </div>
+              <div className="mt-0.5 font-mono text-[8px] font-bold uppercase leading-none tracking-[0.25em] text-coral/80">
+                · vip · tonight ·
+              </div>
+            </div>
           </div>
 
           <div className="relative space-y-6 text-primary-foreground">

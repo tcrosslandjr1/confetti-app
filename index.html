@@ -243,6 +243,68 @@
         100% { transform: translateX(101%); }
       }
 
+      /* Skyline silhouette */
+      #initial-loader .skyline {
+        position: absolute; left: 0; right: 0; bottom: 0;
+        height: 120px; z-index: 1; pointer-events: none;
+        opacity: 0.9;
+        mask-image: linear-gradient(to bottom, transparent, #000 55%);
+        -webkit-mask-image: linear-gradient(to bottom, transparent, #000 55%);
+      }
+      #initial-loader .skyline svg { width: 100%; height: 100%; display: block; }
+      #initial-loader .skyline .win { animation: window-flicker 4s ease-in-out infinite; }
+      #initial-loader .skyline .win:nth-child(odd) { animation-delay: 1.2s; }
+      #initial-loader .skyline .win:nth-child(3n) { animation-delay: 2.4s; }
+      @keyframes window-flicker {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.25; }
+      }
+
+      /* Live "now scanning" ticker */
+      #initial-loader .ticker {
+        margin-top: 14px; padding-top: 12px;
+        border-top: 1.5px dashed rgba(26,26,26,0.18);
+        display: flex; align-items: center; gap: 8px;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 10px; font-weight: 700;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        color: rgba(26,26,26,0.55);
+        overflow: hidden;
+      }
+      #initial-loader .ticker .scan-dot {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: #ff5a3c; flex-shrink: 0;
+        animation: scan-pulse 1.4s ease-out infinite;
+      }
+      #initial-loader .ticker .scan-label { flex-shrink: 0; color: #1a1a1a; }
+      #initial-loader .ticker .scan-text {
+        flex: 1; min-width: 0; position: relative; height: 14px;
+      }
+      #initial-loader .ticker .scan-text span {
+        position: absolute; inset: 0;
+        display: flex; align-items: center;
+        opacity: 0; white-space: nowrap;
+        animation: scan-cycle 12s ease-in-out infinite;
+      }
+      #initial-loader .ticker .scan-text span:nth-child(1) { animation-delay: 0s; }
+      #initial-loader .ticker .scan-text span:nth-child(2) { animation-delay: 3s; }
+      #initial-loader .ticker .scan-text span:nth-child(3) { animation-delay: 6s; }
+      #initial-loader .ticker .scan-text span:nth-child(4) { animation-delay: 9s; }
+      @keyframes scan-cycle {
+        0%, 22%   { opacity: 1; transform: translateY(0); }
+        25%, 100% { opacity: 0; transform: translateY(-6px); }
+      }
+      @keyframes scan-pulse {
+        0%   { box-shadow: 0 0 0 0 rgba(255,90,60,0.55); }
+        100% { box-shadow: 0 0 0 8px rgba(255,90,60,0); }
+      }
+
+      /* Pointer parallax tilt */
+      #initial-loader .stage {
+        transform: perspective(900px) rotateX(var(--ry, 0deg)) rotateY(var(--rx, 0deg));
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
       @media (prefers-reduced-motion: reduce) {
         #initial-loader *,
         #initial-loader *::before,
@@ -250,7 +312,8 @@
         #initial-loader .arc-bg,
         #initial-loader .arc-fg { stroke-dashoffset: 0 !important; }
         #initial-loader .name span,
-        #initial-loader .agent { opacity: 1 !important; transform: none !important; }
+        #initial-loader .agent,
+        #initial-loader .ticker .scan-text span:first-child { opacity: 1 !important; transform: none !important; }
       }
 
 
@@ -342,26 +405,37 @@
           </div>
 
           <div class="agents" aria-live="polite">
-            <div class="agent done">
-              <span class="tick">✓</span>
+            <div class="agent" data-step="1">
+              <span class="tick">●</span>
               <span class="label">Reading the city's pulse</span>
-              <span class="time">0.4s</span>
+              <span class="time">…</span>
             </div>
-            <div class="agent done">
-              <span class="tick">✓</span>
+            <div class="agent" data-step="2">
+              <span class="tick">●</span>
               <span class="label">Mapping tonight's hot venues</span>
-              <span class="time">0.8s</span>
+              <span class="time">…</span>
             </div>
-            <div class="agent">
+            <div class="agent" data-step="3">
               <span class="tick">●</span>
               <span class="label">Calibrating your taste profile</span>
               <span class="time">…</span>
             </div>
-            <div class="agent">
+            <div class="agent" data-step="4">
               <span class="tick">●</span>
               <span class="label">Sequencing your night</span>
               <span class="time">…</span>
             </div>
+          </div>
+
+          <div class="ticker" aria-hidden="true">
+            <span class="scan-dot"></span>
+            <span class="scan-label">Scanning</span>
+            <span class="scan-text">
+              <span>rooftop bars within 2 mi</span>
+              <span>jazz speakeasies opening late</span>
+              <span>chef's tables w/ tonight openings</span>
+              <span>sunset patios &amp; live DJs</span>
+            </span>
           </div>
 
           <div class="progress-track" aria-hidden="true">
@@ -373,8 +447,68 @@
           </div>
         </div>
 
+        <div class="skyline" aria-hidden="true">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path fill="#1a1a1a" d="M0,120 L0,80 L60,80 L60,55 L100,55 L100,75 L150,75 L150,40 L180,40 L180,30 L210,30 L210,60 L260,60 L260,45 L310,45 L310,70 L350,70 L350,35 L390,35 L390,55 L440,55 L440,25 L470,25 L470,50 L520,50 L520,65 L570,65 L570,38 L610,38 L610,58 L660,58 L660,45 L710,45 L710,70 L760,70 L760,30 L800,30 L800,55 L850,55 L850,42 L900,42 L900,68 L950,68 L950,50 L1000,50 L1000,35 L1040,35 L1040,60 L1090,60 L1090,75 L1140,75 L1140,55 L1200,55 L1200,120 Z"/>
+            <g fill="#ff7a4c">
+              <rect class="win" x="68" y="62" width="4" height="6"/>
+              <rect class="win" x="78" y="62" width="4" height="6"/>
+              <rect class="win" x="160" y="48" width="4" height="6"/>
+              <rect class="win" x="170" y="48" width="4" height="6"/>
+              <rect class="win" x="270" y="52" width="4" height="6"/>
+              <rect class="win" x="320" y="55" width="4" height="6"/>
+              <rect class="win" x="360" y="44" width="4" height="6"/>
+              <rect class="win" x="450" y="34" width="4" height="6"/>
+              <rect class="win" x="530" y="56" width="4" height="6"/>
+              <rect class="win" x="620" y="46" width="4" height="6"/>
+              <rect class="win" x="720" y="55" width="4" height="6"/>
+              <rect class="win" x="770" y="42" width="4" height="6"/>
+              <rect class="win" x="860" y="52" width="4" height="6"/>
+              <rect class="win" x="910" y="55" width="4" height="6"/>
+              <rect class="win" x="1010" y="44" width="4" height="6"/>
+              <rect class="win" x="1100" y="64" width="4" height="6"/>
+            </g>
+          </svg>
+        </div>
+
       </div>
     </div>
+    <script>
+      (function () {
+        var loader = document.getElementById("initial-loader");
+        if (!loader) return;
+        var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        // Sequential agent progression — flips ● → ✓ over time
+        var agents = loader.querySelectorAll(".agent");
+        var times = ["0.4s", "0.8s", "1.3s", "1.9s"];
+        agents.forEach(function (el, i) {
+          setTimeout(function () {
+            el.classList.add("done");
+            var tick = el.querySelector(".tick");
+            var time = el.querySelector(".time");
+            if (tick) tick.textContent = "✓";
+            if (time) time.textContent = times[i] || "";
+          }, 600 + i * 700);
+        });
+
+        // Pointer parallax — subtle 3D tilt on the card
+        if (!reduced) {
+          var stage = loader.querySelector(".stage");
+          loader.addEventListener("pointermove", function (e) {
+            var rect = loader.getBoundingClientRect();
+            var x = (e.clientX - rect.left) / rect.width - 0.5;
+            var y = (e.clientY - rect.top) / rect.height - 0.5;
+            stage.style.setProperty("--rx", (x * 6).toFixed(2) + "deg");
+            stage.style.setProperty("--ry", (-y * 6).toFixed(2) + "deg");
+          });
+          loader.addEventListener("pointerleave", function () {
+            stage.style.setProperty("--rx", "0deg");
+            stage.style.setProperty("--ry", "0deg");
+          });
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

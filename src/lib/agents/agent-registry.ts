@@ -10,7 +10,13 @@
  *     that show up in the live feed + kanban board on the Agent Control Center
  */
 
-import { supabase } from "@/integrations/supabase/client";
+import { supabase as supabaseTyped } from "@/integrations/supabase/client";
+// Loose-typed alias — these tables use string PKs and RPC helpers that the
+// generated types do not capture cleanly.
+const supabase = supabaseTyped as unknown as {
+  from: (t: string) => any;
+  rpc: (fn: string, args?: Record<string, unknown>) => Promise<unknown> & { catch: (cb: (e: unknown) => void) => Promise<unknown> };
+};
 
 // ═══════════════════════════════════════════════════════════
 // Types

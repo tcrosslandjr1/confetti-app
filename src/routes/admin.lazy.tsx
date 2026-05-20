@@ -227,6 +227,18 @@ function AdminShell({ user, pathname, }: {
     const { isMobile, setOpenMobile, state } = useSidebar();
     const collapsed = state === "collapsed";
     const [query, setQuery] = useState("");
+    const searchRef = useRef<HTMLInputElement | null>(null);
+    const COLLAPSED_KEY = "confetti.admin.nav.collapsed.v1";
+    const [collapsedGroups, setCollapsedGroups] = useState<Record<string, boolean>>(() => {
+        if (typeof window === "undefined") return {};
+        try { return JSON.parse(window.localStorage.getItem(COLLAPSED_KEY) ?? "{}"); }
+        catch { return {}; }
+    });
+    useEffect(() => {
+        try { window.localStorage.setItem(COLLAPSED_KEY, JSON.stringify(collapsedGroups)); } catch { /* noop */ }
+    }, [collapsedGroups]);
+    const toggleGroup = (label: string) =>
+        setCollapsedGroups((p) => ({ ...p, [label]: !p[label] }));
     const handleNav = () => {
         if (isMobile)
             setOpenMobile(false);
@@ -238,6 +250,7 @@ function AdminShell({ user, pathname, }: {
             .map((s) => ({ ...s, items: s.items.filter((i) => i.label.toLowerCase().includes(q)) }))
             .filter((s) => s.items.length > 0);
     }, [query]);
+    const isFiltering = query.trim().length > 0;
     const initials = (user?.email ?? "?").slice(0, 2).toUpperCase();
     const activeItem = useMemo(() => {
         for (const s of NAV_SECTIONS) {
@@ -250,6 +263,30 @@ function AdminShell({ user, pathname, }: {
     }, [pathname]);
     const activeLabel = activeItem.item.label;
     const activeSection = activeItem.section;
+    // Keyboard shortcuts: "/" or Cmd/Ctrl+K to focus search, Esc to clear.
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => {
+            const target = e.target as HTMLElement | null;
+            const typing = target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable);
+            if ((e.key === "k" || e.key === "K") && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault();
+                searchRef.current?.focus();
+                searchRef.current?.select();
+                return;
+            }
+            if (!typing && e.key === "/") {
+                e.preventDefault();
+                searchRef.current?.focus();
+                return;
+            }
+            if (e.key === "Escape" && document.activeElement === searchRef.current) {
+                setQuery("");
+                searchRef.current?.blur();
+            }
+        };
+        window.addEventListener("keydown", onKey);
+        return () => window.removeEventListener("keydown", onKey);
+    }, []);
     return (<div className="flex min-h-screen w-full bg-gradient-to-br from-cream/60 via-background to-background">
       <Sidebar collapsible="icon" className="border-r-2 border-ink/10">
         <SidebarContent className="bg-cream/30">

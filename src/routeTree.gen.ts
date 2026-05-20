@@ -18,6 +18,7 @@ import { Route as TranslateRouteImport } from './routes/translate'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TeamsRouteImport } from './routes/teams'
+import { Route as TeamEventsRouteImport } from './routes/team-events'
 import { Route as TasteTunerRouteImport } from './routes/taste-tuner'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ScanRouteImport } from './routes/scan'
@@ -36,12 +37,14 @@ import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as MeRouteImport } from './routes/me'
 import { Route as InvestorsRouteImport } from './routes/investors'
+import { Route as InfluencerRouteImport } from './routes/influencer'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as HealthRouteImport } from './routes/health'
 import { Route as GroupOutingRouteImport } from './routes/group-outing'
 import { Route as ForBusinessRouteImport } from './routes/for-business'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as FavoritesRouteImport } from './routes/favorites'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EventPackRouteImport } from './routes/event-pack'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as DataTermsRouteImport } from './routes/data-terms'
@@ -128,6 +131,7 @@ import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
 import { Route as BusinessSocialRouteImport } from './routes/business.social'
 import { Route as BusinessSignupRouteImport } from './routes/business.signup'
 import { Route as BusinessSettingsRouteImport } from './routes/business.settings'
+import { Route as BusinessRegisterRouteImport } from './routes/business.register'
 import { Route as BusinessPromotersRouteImport } from './routes/business.promoters'
 import { Route as BusinessPricingRouteImport } from './routes/business.pricing'
 import { Route as BusinessPendingRouteImport } from './routes/business.pending'
@@ -167,6 +171,7 @@ import { Route as AdminIntegrationsRouteImport } from './routes/admin.integratio
 import { Route as AdminHealthRouteImport } from './routes/admin.health'
 import { Route as AdminEventAnalyticsRouteImport } from './routes/admin.event-analytics'
 import { Route as AdminDiagnosticsRouteImport } from './routes/admin.diagnostics'
+import { Route as AdminContractsRouteImport } from './routes/admin.contracts'
 import { Route as AdminBusinessClaimsRouteImport } from './routes/admin.business-claims'
 import { Route as AdminBriefRouteImport } from './routes/admin.brief'
 import { Route as AdminBootstrapRouteImport } from './routes/admin.bootstrap'
@@ -241,6 +246,11 @@ const TeamsRoute = TeamsRouteImport.update({
   path: '/teams',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/teams.lazy').then((d) => d.Route))
+const TeamEventsRoute = TeamEventsRouteImport.update({
+  id: '/team-events',
+  path: '/team-events',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/team-events.lazy').then((d) => d.Route))
 const TasteTunerRoute = TasteTunerRouteImport.update({
   id: '/taste-tuner',
   path: '/taste-tuner',
@@ -335,6 +345,11 @@ const InvestorsRoute = InvestorsRouteImport.update({
   path: '/investors',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InfluencerRoute = InfluencerRouteImport.update({
+  id: '/influencer',
+  path: '/influencer',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/influencer.lazy').then((d) => d.Route))
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
@@ -365,6 +380,11 @@ const FavoritesRoute = FavoritesRouteImport.update({
   path: '/favorites',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/faq.lazy').then((d) => d.Route))
 const EventPackRoute = EventPackRouteImport.update({
   id: '/event-pack',
   path: '/event-pack',
@@ -804,6 +824,13 @@ const BusinessSettingsRoute = BusinessSettingsRouteImport.update({
   path: '/business/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessRegisterRoute = BusinessRegisterRouteImport.update({
+  id: '/business/register',
+  path: '/business/register',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/business.register.lazy').then((d) => d.Route),
+)
 const BusinessPromotersRoute = BusinessPromotersRouteImport.update({
   id: '/business/promoters',
   path: '/business/promoters',
@@ -1022,6 +1049,13 @@ const AdminDiagnosticsRoute = AdminDiagnosticsRouteImport.update({
   getParentRoute: () => AdminRoute,
 } as any).lazy(() =>
   import('./routes/admin.diagnostics.lazy').then((d) => d.Route),
+)
+const AdminContractsRoute = AdminContractsRouteImport.update({
+  id: '/contracts',
+  path: '/contracts',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() =>
+  import('./routes/admin.contracts.lazy').then((d) => d.Route),
 )
 const AdminBusinessClaimsRoute = AdminBusinessClaimsRouteImport.update({
   id: '/business-claims',
@@ -1254,12 +1288,14 @@ export interface FileRoutesByFullPath {
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
   '/event-pack': typeof EventPackRoute
+  '/faq': typeof FaqRoute
   '/favorites': typeof FavoritesRoute
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
   '/group-outing': typeof GroupOutingRoute
   '/health': typeof HealthRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/influencer': typeof InfluencerRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
@@ -1278,6 +1314,7 @@ export interface FileRoutesByFullPath {
   '/scan': typeof ScanRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taste-tuner': typeof TasteTunerRoute
+  '/team-events': typeof TeamEventsRoute
   '/teams': typeof TeamsRouteWithChildren
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
@@ -1295,6 +1332,7 @@ export interface FileRoutesByFullPath {
   '/admin/bootstrap': typeof AdminBootstrapRoute
   '/admin/brief': typeof AdminBriefRoute
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
+  '/admin/contracts': typeof AdminContractsRoute
   '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/health': typeof AdminHealthRoute
@@ -1334,6 +1372,7 @@ export interface FileRoutesByFullPath {
   '/business/pending': typeof BusinessPendingRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
+  '/business/register': typeof BusinessRegisterRoute
   '/business/settings': typeof BusinessSettingsRoute
   '/business/signup': typeof BusinessSignupRoute
   '/business/social': typeof BusinessSocialRoute
@@ -1444,12 +1483,14 @@ export interface FileRoutesByTo {
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
   '/event-pack': typeof EventPackRoute
+  '/faq': typeof FaqRoute
   '/favorites': typeof FavoritesRoute
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
   '/group-outing': typeof GroupOutingRoute
   '/health': typeof HealthRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/influencer': typeof InfluencerRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
@@ -1465,6 +1506,7 @@ export interface FileRoutesByTo {
   '/scan': typeof ScanRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taste-tuner': typeof TasteTunerRoute
+  '/team-events': typeof TeamEventsRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/translate': typeof TranslateRoute
@@ -1481,6 +1523,7 @@ export interface FileRoutesByTo {
   '/admin/bootstrap': typeof AdminBootstrapRoute
   '/admin/brief': typeof AdminBriefRoute
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
+  '/admin/contracts': typeof AdminContractsRoute
   '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/health': typeof AdminHealthRoute
@@ -1520,6 +1563,7 @@ export interface FileRoutesByTo {
   '/business/pending': typeof BusinessPendingRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
+  '/business/register': typeof BusinessRegisterRoute
   '/business/settings': typeof BusinessSettingsRoute
   '/business/signup': typeof BusinessSignupRoute
   '/business/social': typeof BusinessSocialRoute
@@ -1636,12 +1680,14 @@ export interface FileRoutesById {
   '/data-terms': typeof DataTermsRoute
   '/discover': typeof DiscoverRoute
   '/event-pack': typeof EventPackRoute
+  '/faq': typeof FaqRoute
   '/favorites': typeof FavoritesRoute
   '/features': typeof FeaturesRoute
   '/for-business': typeof ForBusinessRoute
   '/group-outing': typeof GroupOutingRoute
   '/health': typeof HealthRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/influencer': typeof InfluencerRoute
   '/investors': typeof InvestorsRoute
   '/me': typeof MeRoute
   '/onboarding': typeof OnboardingRoute
@@ -1660,6 +1706,7 @@ export interface FileRoutesById {
   '/scan': typeof ScanRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taste-tuner': typeof TasteTunerRoute
+  '/team-events': typeof TeamEventsRoute
   '/teams': typeof TeamsRouteWithChildren
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
@@ -1677,6 +1724,7 @@ export interface FileRoutesById {
   '/admin/bootstrap': typeof AdminBootstrapRoute
   '/admin/brief': typeof AdminBriefRoute
   '/admin/business-claims': typeof AdminBusinessClaimsRoute
+  '/admin/contracts': typeof AdminContractsRoute
   '/admin/diagnostics': typeof AdminDiagnosticsRoute
   '/admin/event-analytics': typeof AdminEventAnalyticsRoute
   '/admin/health': typeof AdminHealthRoute
@@ -1716,6 +1764,7 @@ export interface FileRoutesById {
   '/business/pending': typeof BusinessPendingRoute
   '/business/pricing': typeof BusinessPricingRoute
   '/business/promoters': typeof BusinessPromotersRoute
+  '/business/register': typeof BusinessRegisterRoute
   '/business/settings': typeof BusinessSettingsRoute
   '/business/signup': typeof BusinessSignupRoute
   '/business/social': typeof BusinessSocialRoute
@@ -1833,12 +1882,14 @@ export interface FileRouteTypes {
     | '/data-terms'
     | '/discover'
     | '/event-pack'
+    | '/faq'
     | '/favorites'
     | '/features'
     | '/for-business'
     | '/group-outing'
     | '/health'
     | '/how-it-works'
+    | '/influencer'
     | '/investors'
     | '/me'
     | '/onboarding'
@@ -1857,6 +1908,7 @@ export interface FileRouteTypes {
     | '/scan'
     | '/sitemap.xml'
     | '/taste-tuner'
+    | '/team-events'
     | '/teams'
     | '/terms'
     | '/testimonials'
@@ -1874,6 +1926,7 @@ export interface FileRouteTypes {
     | '/admin/bootstrap'
     | '/admin/brief'
     | '/admin/business-claims'
+    | '/admin/contracts'
     | '/admin/diagnostics'
     | '/admin/event-analytics'
     | '/admin/health'
@@ -1913,6 +1966,7 @@ export interface FileRouteTypes {
     | '/business/pending'
     | '/business/pricing'
     | '/business/promoters'
+    | '/business/register'
     | '/business/settings'
     | '/business/signup'
     | '/business/social'
@@ -2023,12 +2077,14 @@ export interface FileRouteTypes {
     | '/data-terms'
     | '/discover'
     | '/event-pack'
+    | '/faq'
     | '/favorites'
     | '/features'
     | '/for-business'
     | '/group-outing'
     | '/health'
     | '/how-it-works'
+    | '/influencer'
     | '/investors'
     | '/me'
     | '/onboarding'
@@ -2044,6 +2100,7 @@ export interface FileRouteTypes {
     | '/scan'
     | '/sitemap.xml'
     | '/taste-tuner'
+    | '/team-events'
     | '/terms'
     | '/testimonials'
     | '/translate'
@@ -2060,6 +2117,7 @@ export interface FileRouteTypes {
     | '/admin/bootstrap'
     | '/admin/brief'
     | '/admin/business-claims'
+    | '/admin/contracts'
     | '/admin/diagnostics'
     | '/admin/event-analytics'
     | '/admin/health'
@@ -2099,6 +2157,7 @@ export interface FileRouteTypes {
     | '/business/pending'
     | '/business/pricing'
     | '/business/promoters'
+    | '/business/register'
     | '/business/settings'
     | '/business/signup'
     | '/business/social'
@@ -2214,12 +2273,14 @@ export interface FileRouteTypes {
     | '/data-terms'
     | '/discover'
     | '/event-pack'
+    | '/faq'
     | '/favorites'
     | '/features'
     | '/for-business'
     | '/group-outing'
     | '/health'
     | '/how-it-works'
+    | '/influencer'
     | '/investors'
     | '/me'
     | '/onboarding'
@@ -2238,6 +2299,7 @@ export interface FileRouteTypes {
     | '/scan'
     | '/sitemap.xml'
     | '/taste-tuner'
+    | '/team-events'
     | '/teams'
     | '/terms'
     | '/testimonials'
@@ -2255,6 +2317,7 @@ export interface FileRouteTypes {
     | '/admin/bootstrap'
     | '/admin/brief'
     | '/admin/business-claims'
+    | '/admin/contracts'
     | '/admin/diagnostics'
     | '/admin/event-analytics'
     | '/admin/health'
@@ -2294,6 +2357,7 @@ export interface FileRouteTypes {
     | '/business/pending'
     | '/business/pricing'
     | '/business/promoters'
+    | '/business/register'
     | '/business/settings'
     | '/business/signup'
     | '/business/social'
@@ -2410,12 +2474,14 @@ export interface RootRouteChildren {
   DataTermsRoute: typeof DataTermsRoute
   DiscoverRoute: typeof DiscoverRoute
   EventPackRoute: typeof EventPackRoute
+  FaqRoute: typeof FaqRoute
   FavoritesRoute: typeof FavoritesRoute
   FeaturesRoute: typeof FeaturesRoute
   ForBusinessRoute: typeof ForBusinessRoute
   GroupOutingRoute: typeof GroupOutingRoute
   HealthRoute: typeof HealthRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  InfluencerRoute: typeof InfluencerRoute
   InvestorsRoute: typeof InvestorsRoute
   MeRoute: typeof MeRoute
   OnboardingRoute: typeof OnboardingRoute
@@ -2434,6 +2500,7 @@ export interface RootRouteChildren {
   ScanRoute: typeof ScanRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TasteTunerRoute: typeof TasteTunerRoute
+  TeamEventsRoute: typeof TeamEventsRoute
   TeamsRoute: typeof TeamsRouteWithChildren
   TermsRoute: typeof TermsRoute
   TestimonialsRoute: typeof TestimonialsRoute
@@ -2454,6 +2521,7 @@ export interface RootRouteChildren {
   BusinessPendingRoute: typeof BusinessPendingRoute
   BusinessPricingRoute: typeof BusinessPricingRoute
   BusinessPromotersRoute: typeof BusinessPromotersRoute
+  BusinessRegisterRoute: typeof BusinessRegisterRoute
   BusinessSettingsRoute: typeof BusinessSettingsRoute
   BusinessSignupRoute: typeof BusinessSignupRoute
   BusinessSocialRoute: typeof BusinessSocialRoute
@@ -2543,6 +2611,13 @@ declare module '@tanstack/react-router' {
       path: '/teams'
       fullPath: '/teams'
       preLoaderRoute: typeof TeamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team-events': {
+      id: '/team-events'
+      path: '/team-events'
+      fullPath: '/team-events'
+      preLoaderRoute: typeof TeamEventsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/taste-tuner': {
@@ -2671,6 +2746,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InvestorsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/influencer': {
+      id: '/influencer'
+      path: '/influencer'
+      fullPath: '/influencer'
+      preLoaderRoute: typeof InfluencerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/how-it-works': {
       id: '/how-it-works'
       path: '/how-it-works'
@@ -2711,6 +2793,13 @@ declare module '@tanstack/react-router' {
       path: '/favorites'
       fullPath: '/favorites'
       preLoaderRoute: typeof FavoritesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/event-pack': {
@@ -3322,6 +3411,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessSettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business/register': {
+      id: '/business/register'
+      path: '/business/register'
+      fullPath: '/business/register'
+      preLoaderRoute: typeof BusinessRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business/promoters': {
       id: '/business/promoters'
       path: '/business/promoters'
@@ -3595,6 +3691,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminDiagnosticsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/contracts': {
+      id: '/admin/contracts'
+      path: '/contracts'
+      fullPath: '/admin/contracts'
+      preLoaderRoute: typeof AdminContractsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/business-claims': {
       id: '/admin/business-claims'
       path: '/business-claims'
@@ -3861,6 +3964,7 @@ interface AdminRouteChildren {
   AdminBootstrapRoute: typeof AdminBootstrapRoute
   AdminBriefRoute: typeof AdminBriefRoute
   AdminBusinessClaimsRoute: typeof AdminBusinessClaimsRoute
+  AdminContractsRoute: typeof AdminContractsRoute
   AdminDiagnosticsRoute: typeof AdminDiagnosticsRoute
   AdminEventAnalyticsRoute: typeof AdminEventAnalyticsRoute
   AdminHealthRoute: typeof AdminHealthRoute
@@ -3896,6 +4000,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminBootstrapRoute: AdminBootstrapRoute,
   AdminBriefRoute: AdminBriefRoute,
   AdminBusinessClaimsRoute: AdminBusinessClaimsRoute,
+  AdminContractsRoute: AdminContractsRoute,
   AdminDiagnosticsRoute: AdminDiagnosticsRoute,
   AdminEventAnalyticsRoute: AdminEventAnalyticsRoute,
   AdminHealthRoute: AdminHealthRoute,
@@ -4168,12 +4273,14 @@ const rootRouteChildren: RootRouteChildren = {
   DataTermsRoute: DataTermsRoute,
   DiscoverRoute: DiscoverRoute,
   EventPackRoute: EventPackRoute,
+  FaqRoute: FaqRoute,
   FavoritesRoute: FavoritesRoute,
   FeaturesRoute: FeaturesRoute,
   ForBusinessRoute: ForBusinessRoute,
   GroupOutingRoute: GroupOutingRoute,
   HealthRoute: HealthRoute,
   HowItWorksRoute: HowItWorksRoute,
+  InfluencerRoute: InfluencerRoute,
   InvestorsRoute: InvestorsRoute,
   MeRoute: MeRoute,
   OnboardingRoute: OnboardingRoute,
@@ -4192,6 +4299,7 @@ const rootRouteChildren: RootRouteChildren = {
   ScanRoute: ScanRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TasteTunerRoute: TasteTunerRoute,
+  TeamEventsRoute: TeamEventsRoute,
   TeamsRoute: TeamsRouteWithChildren,
   TermsRoute: TermsRoute,
   TestimonialsRoute: TestimonialsRoute,
@@ -4212,6 +4320,7 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessPendingRoute: BusinessPendingRoute,
   BusinessPricingRoute: BusinessPricingRoute,
   BusinessPromotersRoute: BusinessPromotersRoute,
+  BusinessRegisterRoute: BusinessRegisterRoute,
   BusinessSettingsRoute: BusinessSettingsRoute,
   BusinessSignupRoute: BusinessSignupRoute,
   BusinessSocialRoute: BusinessSocialRoute,

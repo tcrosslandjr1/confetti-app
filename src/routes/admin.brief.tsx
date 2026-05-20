@@ -223,6 +223,17 @@ function AdminBriefPage() {
   const [range, setRange] = useState<Range>("24h");
   const { data, isLoading, refetch, isFetching } = useBrief(range);
   const { data: topVenues } = useTopVenues(range);
+  const { data: trend, isLoading: trendLoading } = useTrend(range);
+
+  const trendTotals = useMemo(() => {
+    const t = trend ?? [];
+    return {
+      bookings: t.reduce((s, b) => s + b.bookings, 0),
+      agentRuns: t.reduce((s, b) => s + b.agentRuns, 0),
+      peakBookings: t.reduce((m, b) => Math.max(m, b.bookings), 0),
+      peakAgent: t.reduce((m, b) => Math.max(m, b.agentRuns), 0),
+    };
+  }, [trend]);
 
   const stats = useMemo(
     () => [

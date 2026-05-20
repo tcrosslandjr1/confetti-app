@@ -12,9 +12,20 @@ import {
   RefreshCw,
   Sparkles,
   Store,
+  TrendingUp,
   UserPlus,
   Zap,
 } from "lucide-react";
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  Legend,
+  ResponsiveContainer,
+  Tooltip as RTooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 

@@ -427,9 +427,31 @@ function StopCard({
             <BackCell icon={<Wifi className="h-4 w-4" />} label="Transit">
               {stop.area ? `Near ${stop.area}` : "Check local transit"}
             </BackCell>
-            <BackCell icon={<MenuIcon className="h-4 w-4" />} label="Must Try">
-              {stop.type || "Ask the bartender"}
+            <BackCell icon={<SparklesIcon className="h-4 w-4" />} label="Signature">
+              {stop.signature || stop.type || "Ask the bartender"}
             </BackCell>
+            <BackCell icon={<DollarSign className="h-4 w-4" />} label="Spend">
+              {stop.priceLevel ? `${stop.priceLevel} per person` : "Mid-range"}
+            </BackCell>
+            <BackCell icon={<Shirt className="h-4 w-4" />} label="Dress Code">
+              {stop.dressCode || "Anything goes"}
+            </BackCell>
+            <BackCell icon={<Users className="h-4 w-4" />} label="Crowd">
+              {stop.crowd || "Mixed locals"}
+            </BackCell>
+            <BackCell icon={<Heart className="h-4 w-4" />} label="Best For">
+              {stop.bestFor || (stop.bookable ? "Plans you don't want to wing" : "Spontaneous nights")}
+            </BackCell>
+            <BackCell icon={<Clock className="h-4 w-4" />} label="Wait">
+              {stop.waitTime || (stop.bookable ? "None — you're booked" : "Usually walk-in friendly")}
+            </BackCell>
+            {stop.phone && (
+              <BackCell icon={<Phone className="h-4 w-4" />} label="Call Ahead">
+                <a href={`tel:${stop.phone.replace(/[^0-9+]/g, "")}`} className="underline">
+                  {stop.phone}
+                </a>
+              </BackCell>
+            )}
             <BackCell icon={<Info className="h-4 w-4" />} label="Notes">
               {stop.rationale || (stop.bookable ? "Reservation recommended" : "Walk-ins welcome")}
             </BackCell>

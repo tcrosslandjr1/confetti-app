@@ -217,63 +217,71 @@ function AdminUsersPage() {
             setPending(null);
         }
     };
-    return (<div className="space-y-6">
-      <header className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">People</p>
-          <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
-            <Users className="h-7 w-7"/> Users
-          </h1>
-          <p className="text-sm text-muted-foreground">
-            Manage roles, suspend accounts, and trigger password resets.
-          </p>
-        </div>
-        <div className="grid grid-cols-4 gap-2 text-center">
-          {[
-            { k: "total", label: "Total", v: counts.total },
-            { k: "active", label: "Active", v: counts.active },
-            { k: "suspended", label: "Suspended", v: counts.suspended },
-            { k: "admins", label: "Admins", v: counts.admins },
-        ].map((s) => (<div key={s.k} className="rounded-xl border border-border bg-card px-4 py-2 shadow-card">
-              <div className="text-xl font-bold font-display">{s.v}</div>
-              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                {s.label}
-              </div>
-            </div>))}
-        </div>
-      </header>
+    const SortHeader = ({ k, label, align = "left" }: { k: SortKey; label: string; align?: "left" | "right" }) => {
+        const active = sortKey === k;
+        const Icon = active ? (sortDir === "asc" ? ArrowUp : ArrowDown) : ArrowUpDown;
+        return (
+          <button
+            type="button"
+            onClick={() => toggleSort(k)}
+            className={`inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider transition hover:text-coral ${active ? "text-coral" : "text-muted-foreground"} ${align === "right" ? "ml-auto" : ""}`}
+          >
+            <span>{label}</span>
+            <Icon className="h-3 w-3" />
+          </button>
+        );
+    };
 
-      <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-border bg-card p-3 shadow-card">
-        <div className="relative flex-1 min-w-[240px]">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"/>
-          <Input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search by name, email, or ID…" className="pl-9"/>
-        </div>
+    return (<div className="space-y-6">
+      <AdminPageHeader
+        eyebrow="People"
+        title="Users"
+        icon={Users}
+        description="Manage roles, suspend accounts, trigger password resets, and export the directory."
+        actions={
+          <div className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wider text-ink shadow-brut">
+            <Sparkles className="h-3 w-3 text-coral" />
+            {counts.total.toLocaleString()} total · {counts.admins} admins
+          </div>
+        }
+      />
+
+      <AdminKpiGrid cols={4}>
+        <AdminKpiCard label="Total users" value={counts.total} icon={Users} tone="coral" loading={loading} index={0} />
+        <AdminKpiCard label="Active" value={counts.active} icon={UserCheck} tone="emerald" loading={loading} index={1} />
+        <AdminKpiCard label="Suspended" value={counts.suspended} icon={UserX} tone="destructive" loading={loading} index={2} />
+        <AdminKpiCard label="Admins" value={counts.admins} icon={Crown} tone="gold" loading={loading} index={3} />
+      </AdminKpiGrid>
+
+      <AdminFilterBar
+        query={query}
+        onQueryChange={setQuery}
+        placeholder="Search by name, email, or ID…"
+        onRefresh={() => void load()}
+        onExport={exportCsv}
+        refreshing={loading}
+      >
         <select value={roleFilter} onChange={(e) => setRoleFilter(e.target.value as "all" | AppRole)} className="rounded-md border border-border bg-background px-3 py-2 text-sm">
           <option value="all">All roles</option>
-          {ROLES.map((r) => (<option key={r} value={r}>
-              {r}
-            </option>))}
+          {ROLES.map((r) => (<option key={r} value={r}>{r}</option>))}
         </select>
         <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value as "all" | "active" | "suspended")} className="rounded-md border border-border bg-background px-3 py-2 text-sm">
           <option value="all">All statuses</option>
           <option value="active">Active</option>
           <option value="suspended">Suspended</option>
         </select>
-        <Button variant="outline" size="sm" onClick={() => void load()} disabled={loading}>
-          {loading ? <Loader2 className="h-4 w-4 animate-spin"/> : "Refresh"}
-        </Button>
-      </div>
+      </AdminFilterBar>
 
       <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>User</TableHead>
+              <TableHead><SortHeader k="name" label="User" /></TableHead>
               <TableHead>Roles</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead className="text-right">Pts</TableHead>
-              <TableHead>Joined</TableHead>
-              <TableHead>Last sign-in</TableHead>
+              <TableHead className="text-right"><SortHeader k="pts" label="Pts" align="right" /></TableHead>
+              <TableHead><SortHeader k="joined" label="Joined" /></TableHead>
+              <TableHead><SortHeader k="lastSeen" label="Last sign-in" /></TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -283,8 +291,13 @@ function AdminUsersPage() {
                   <Loader2 className="mx-auto h-5 w-5 animate-spin"/>
                 </TableCell>
               </TableRow>) : filtered.length === 0 ? (<TableRow>
-                <TableCell colSpan={7} className="py-12 text-center text-sm text-muted-foreground">
-                  No users match your filters.
+                <TableCell colSpan={7} className="py-0">
+                  <AdminEmptyState
+                    title="No users match"
+                    description={query || roleFilter !== "all" || statusFilter !== "all"
+                      ? "Try clearing filters or broadening your search."
+                      : "Users will appear here as they sign up."}
+                  />
                 </TableCell>
               </TableRow>) : (filtered.map((u) => {
             const banned = isBanned(u);

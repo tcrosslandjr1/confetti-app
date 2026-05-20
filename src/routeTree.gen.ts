@@ -1029,7 +1029,7 @@ const AdminAskRoute = AdminAskRouteImport.update({
   id: '/ask',
   path: '/ask',
   getParentRoute: () => AdminRoute,
-} as any)
+} as any).lazy(() => import('./routes/admin.ask.lazy').then((d) => d.Route))
 const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
   id: '/analytics',
   path: '/analytics',

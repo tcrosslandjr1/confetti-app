@@ -38,8 +38,54 @@ root.render(
   </StrictMode>,
 );
 
+// Stale Vite module graphs (after a dev-server restart) cause
+// "Failed to fetch dynamically imported module" on the very next navigation.
+// Auto-recover once by forcing a fresh load before showing the fallback UI.
+const STALE_RELOAD_KEY = "__lovable_stale_module_reload__";
+
+function isStaleModuleError(error: unknown): boolean {
+  const msg = error instanceof Error ? error.message : String(error ?? "");
+  return (
+    msg.includes("Failed to fetch dynamically imported module") ||
+    msg.includes("error loading dynamically imported module") ||
+    msg.includes("Importing a module script failed")
+  );
+}
+
+function renderErrorFallback() {
+  root.render(
+    <StrictMode>
+      <div className="grid min-h-screen place-items-center bg-background px-4 text-center text-foreground">
+        <div className="max-w-md space-y-3">
+          <h1 className="text-xl font-semibold">This page didn't load</h1>
+          <p className="text-sm text-muted-foreground">Refresh the preview to try again.</p>
+          <button
+            type="button"
+            onClick={() => {
+              try {
+                sessionStorage.removeItem(STALE_RELOAD_KEY);
+              } catch {
+                /* ignore */
+              }
+              window.location.reload();
+            }}
+            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
+          >
+            Reload
+          </button>
+        </div>
+      </div>
+    </StrictMode>,
+  );
+}
+
 void import("./router")
   .then(({ getRouter }) => {
+    try {
+      sessionStorage.removeItem(STALE_RELOAD_KEY);
+    } catch {
+      /* ignore */
+    }
     const router = getRouter();
     root.render(
       <StrictMode>
@@ -49,21 +95,20 @@ void import("./router")
   })
   .catch((error) => {
     console.error("[bootstrap] Failed to load router", error);
-    root.render(
-      <StrictMode>
-        <div className="grid min-h-screen place-items-center bg-background px-4 text-center text-foreground">
-          <div className="max-w-md space-y-3">
-            <h1 className="text-xl font-semibold">This page didn't load</h1>
-            <p className="text-sm text-muted-foreground">Refresh the preview to try again.</p>
-            <button
-              type="button"
-              onClick={() => window.location.reload()}
-              className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
-            >
-              Reload
-            </button>
-          </div>
-        </div>
-      </StrictMode>,
-    );
+    if (isStaleModuleError(error)) {
+      let alreadyTried = false;
+      try {
+        alreadyTried = sessionStorage.getItem(STALE_RELOAD_KEY) === "1";
+        if (!alreadyTried) sessionStorage.setItem(STALE_RELOAD_KEY, "1");
+      } catch {
+        /* sessionStorage may be unavailable */
+      }
+      if (!alreadyTried) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("_r", Date.now().toString(36));
+        window.location.replace(url.toString());
+        return;
+      }
+    }
+    renderErrorFallback();
   });

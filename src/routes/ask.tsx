@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   Sparkles,
   UserCircle,
-  MapRoute as RouteIcon,
+  Map,
   Compass,
 } from "lucide-react";
 import { orchestratePlan } from "@/lib/orchestrator.functions";

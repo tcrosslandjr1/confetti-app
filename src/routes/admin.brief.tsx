@@ -528,3 +528,119 @@ function AdminBriefPage() {
     </div>
   );
 }
+
+type TrendDatum = { ts: number; label: string; bookings: number; agentRuns: number };
+
+function TrendCard({
+  title,
+  subtitle,
+  total,
+  peak,
+  dataKey,
+  color,
+  data,
+  loading,
+  drilldownTo,
+  drilldownLabel,
+  icon: Icon,
+}: {
+  title: string;
+  subtitle: string;
+  total: number;
+  peak: number;
+  dataKey: "bookings" | "agentRuns";
+  color: string;
+  data: TrendDatum[];
+  loading: boolean;
+  drilldownTo: string;
+  drilldownLabel: string;
+  icon: typeof CalendarCheck;
+}) {
+  const gradId = `grad-${dataKey}`;
+  return (
+    <div className="rounded-2xl border-2 border-ink bg-cream p-5 shadow-brut">
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <div className="inline-flex items-center gap-2">
+            <span className="grid h-8 w-8 place-items-center rounded-lg border-2 border-ink bg-cream shadow-brut">
+              <Icon className="h-4 w-4 text-ink" />
+            </span>
+            <h3 className="font-display text-lg font-bold">{title}</h3>
+          </div>
+          <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-ink/60">
+            {subtitle}
+          </p>
+        </div>
+        <Link
+          to={drilldownTo as any}
+          className="shrink-0 text-xs font-bold text-coral hover:underline"
+        >
+          {drilldownLabel}
+        </Link>
+      </div>
+
+      <div className="mt-3 flex items-baseline gap-4">
+        <div>
+          <div className="font-display text-3xl font-bold tabular-nums text-ink">
+            {loading ? "—" : total.toLocaleString()}
+          </div>
+          <div className="text-[10px] font-bold uppercase tracking-wider text-ink/60">total</div>
+        </div>
+        <div>
+          <div className="font-display text-xl font-bold tabular-nums text-ink/80">
+            {loading ? "—" : peak.toLocaleString()}
+          </div>
+          <div className="text-[10px] font-bold uppercase tracking-wider text-ink/60">peak bucket</div>
+        </div>
+      </div>
+
+      <div className="mt-4 h-44 w-full">
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={data} margin={{ top: 4, right: 8, bottom: 0, left: -16 }}>
+            <defs>
+              <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={color} stopOpacity={0.45} />
+                <stop offset="100%" stopColor={color} stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <CartesianGrid strokeDasharray="2 4" stroke="oklch(0.18 0.02 280 / 0.12)" vertical={false} />
+            <XAxis
+              dataKey="label"
+              tick={{ fontSize: 10, fill: "oklch(0.18 0.02 280 / 0.6)" }}
+              tickLine={false}
+              axisLine={false}
+              interval="preserveStartEnd"
+              minTickGap={24}
+            />
+            <YAxis
+              tick={{ fontSize: 10, fill: "oklch(0.18 0.02 280 / 0.6)" }}
+              tickLine={false}
+              axisLine={false}
+              width={32}
+              allowDecimals={false}
+            />
+            <RTooltip
+              cursor={{ stroke: color, strokeWidth: 1, strokeDasharray: "3 3" }}
+              contentStyle={{
+                border: "2px solid var(--ink)",
+                borderRadius: 12,
+                background: "var(--cream)",
+                fontSize: 12,
+                fontWeight: 600,
+              }}
+              labelStyle={{ color: "var(--ink)", fontWeight: 700 }}
+              formatter={(v: number) => [v.toLocaleString(), title]}
+            />
+            <Area
+              type="monotone"
+              dataKey={dataKey}
+              stroke={color}
+              strokeWidth={2}
+              fill={`url(#${gradId})`}
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
+  );
+}

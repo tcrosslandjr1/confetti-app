@@ -403,27 +403,38 @@ function AdminBookingsPage() {
     };
   }, [liveOn, load]);
 
-  // Load deliveries for selected booking
+  // Load deliveries + status change history for selected booking
   useEffect(() => {
     if (!selected) {
       setDeliveries([]);
+      setStatusChanges([]);
       return;
     }
     let cancelled = false;
     setDeliveriesLoading(true);
-    supabase
-      .from("booking_notification_deliveries")
-      .select(
-        "id,booking_id,recipient_email,source,status,error,subject,created_at",
-      )
-      .eq("booking_id", selected.id)
-      .order("created_at", { ascending: false })
-      .then(({ data, error }) => {
-        if (cancelled) return;
-        if (error) toast.error("Couldn't load notification log");
-        else setDeliveries((data as Delivery[]) ?? []);
-        setDeliveriesLoading(false);
-      });
+    Promise.all([
+      supabase
+        .from("booking_notification_deliveries")
+        .select(
+          "id,booking_id,recipient_email,source,status,error,subject,created_at",
+        )
+        .eq("booking_id", selected.id)
+        .order("created_at", { ascending: false }),
+      supabase
+        .from("booking_status_changes")
+        .select(
+          "id,booking_id,old_status,new_status,actor_email,actor_role,note,created_at",
+        )
+        .eq("booking_id", selected.id)
+        .order("created_at", { ascending: false }),
+    ]).then(([deliveriesRes, statusRes]) => {
+      if (cancelled) return;
+      if (deliveriesRes.error) toast.error("Couldn't load notification log");
+      else setDeliveries((deliveriesRes.data as Delivery[]) ?? []);
+      if (statusRes.error) toast.error("Couldn't load status history");
+      else setStatusChanges((statusRes.data as StatusChange[]) ?? []);
+      setDeliveriesLoading(false);
+    });
     return () => {
       cancelled = true;
     };

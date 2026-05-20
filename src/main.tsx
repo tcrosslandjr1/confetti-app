@@ -131,17 +131,7 @@ void import("./router")
   .catch((error) => {
     console.error("[bootstrap] Failed to load router", error);
     if (isStaleModuleError(error)) {
-      let alreadyTried = false;
-      try {
-        alreadyTried = sessionStorage.getItem(STALE_RELOAD_KEY) === "1";
-        if (!alreadyTried) sessionStorage.setItem(STALE_RELOAD_KEY, "1");
-      } catch {
-        /* sessionStorage may be unavailable */
-      }
-      if (!alreadyTried) {
-        const url = new URL(window.location.href);
-        url.searchParams.set("_r", Date.now().toString(36));
-        window.location.replace(url.toString());
+      if (reloadOnceForStaleModule()) {
         return;
       }
     }

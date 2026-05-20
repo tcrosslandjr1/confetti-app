@@ -95,6 +95,8 @@ function AdminAuditPage() {
         toast.success(`Exported ${filtered.length} entries`);
     };
     return (<div className="space-y-6">
+      <PersistentAuditExportSection />
+
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">

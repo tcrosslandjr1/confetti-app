@@ -598,6 +598,39 @@
             </div>
           </div>
 
+          <div class="minimap" aria-hidden="true">
+            <span class="tag"><span class="dot"></span>Tonight · 4 stops</span>
+            <svg viewBox="0 0 360 92" preserveAspectRatio="none">
+              <g class="grid">
+                <line x1="0" y1="20" x2="360" y2="20"/>
+                <line x1="0" y1="46" x2="360" y2="46"/>
+                <line x1="0" y1="72" x2="360" y2="72"/>
+                <line x1="80" y1="0" x2="80" y2="92"/>
+                <line x1="180" y1="0" x2="180" y2="92"/>
+                <line x1="280" y1="0" x2="280" y2="92"/>
+              </g>
+              <g>
+                <path class="road" d="M -10 30 L 380 30"/>
+                <path class="road" d="M -10 65 L 380 65"/>
+                <path class="road" d="M 90 -5 L 90 100"/>
+                <path class="road" d="M 220 -5 L 220 100"/>
+                <path class="road" d="M 310 -5 L 310 100"/>
+              </g>
+              <path class="route" d="M 12 70 Q 80 55 130 50 T 240 30 T 340 55"/>
+              <g class="pin"><circle class="ring" cx="12" cy="70" r="4"/><circle cx="12" cy="70" r="4" fill="#ff5a3c"/></g>
+              <g class="pin"><circle class="ring" cx="130" cy="50" r="4"/><circle cx="130" cy="50" r="4" fill="#ff5a3c"/></g>
+              <g class="pin"><circle class="ring" cx="240" cy="30" r="4"/><circle cx="240" cy="30" r="4" fill="#ff5a3c"/></g>
+              <g class="pin"><circle class="ring" cx="340" cy="55" r="4"/><circle cx="340" cy="55" r="4" fill="#1a1a1a"/></g>
+              <circle class="traveler" r="3.5"/>
+            </svg>
+          </div>
+
+          <div class="stats" aria-hidden="true">
+            <div class="stat"><span class="num" data-count="1247">0</span><span class="lbl">Venues</span></div>
+            <div class="stat"><span class="num" data-count="38">0</span><span class="lbl">Live signals</span></div>
+            <div class="stat"><span class="num" data-count="12">0</span><span class="lbl">Trending</span></div>
+          </div>
+
           <div class="ticker" aria-hidden="true">
             <span class="scan-dot"></span>
             <span class="scan-label">Scanning</span>

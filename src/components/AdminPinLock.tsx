@@ -10,6 +10,41 @@ import { logPinUnlockAttempt } from "@/lib/admin-audit.functions";
 const ADMIN_PIN = "236166";
 const PIN_LENGTH = ADMIN_PIN.length;
 const UNLOCK_KEY = "confetti.admin.pin.unlocked.v1";
+const LOCKOUT_KEY = "confetti.admin.pin.lockout.v1";
+const MAX_ATTEMPTS = 5;
+// Progressive backoff: 1st lockout 5min, 2nd 10min, 3rd+ 15min
+const LOCKOUT_LADDER_MS = [5, 10, 15].map((m) => m * 60_000);
+
+type LockoutState = {
+  attempts: number;
+  lockoutCount: number;
+  lockedUntil: number; // epoch ms, 0 = not locked
+};
+
+function readLockout(): LockoutState {
+  if (typeof window === "undefined") return { attempts: 0, lockoutCount: 0, lockedUntil: 0 };
+  try {
+    const raw = window.localStorage.getItem(LOCKOUT_KEY);
+    if (!raw) return { attempts: 0, lockoutCount: 0, lockedUntil: 0 };
+    const parsed = JSON.parse(raw) as LockoutState;
+    return {
+      attempts: Number(parsed.attempts) || 0,
+      lockoutCount: Number(parsed.lockoutCount) || 0,
+      lockedUntil: Number(parsed.lockedUntil) || 0,
+    };
+  } catch {
+    return { attempts: 0, lockoutCount: 0, lockedUntil: 0 };
+  }
+}
+
+function writeLockout(state: LockoutState) {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(LOCKOUT_KEY, JSON.stringify(state));
+  } catch {
+    /* noop */
+  }
+}
 
 export function isAdminUnlocked(): boolean {
   if (typeof window === "undefined") return false;

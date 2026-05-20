@@ -196,7 +196,7 @@ export async function reportError(agentId: string, errorMsg: string): Promise<vo
       status: "error",
       last_task: `❌ ${errorMsg}`,
       last_active: new Date().toISOString(),
-      error_count: supabase.rpc ? undefined : 0,
+      error_count: undefined,
       updated_at: new Date().toISOString(),
     })
     .eq("id", agentId);

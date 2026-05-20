@@ -504,6 +504,26 @@ function AdminShell({ user, pathname, onLock }: {
             <span className="font-mono text-xs text-ink/70">{activeLabel}</span>
           </nav>
           <div className="ml-auto flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setGlobalSearchOpen(true)}
+              className="hidden items-center gap-2 rounded-lg border border-ink/15 bg-cream/60 px-2.5 py-1.5 text-xs font-medium text-ink/60 transition hover:border-coral hover:text-ink sm:flex"
+              aria-label="Open global search"
+            >
+              <Search className="h-3.5 w-3.5" />
+              <span>Search users, events, bookings…</span>
+              <kbd className="ml-2 rounded border border-ink/15 bg-cream px-1 py-0.5 font-mono text-[9px] font-bold text-ink/50">
+                ⌘K
+              </kbd>
+            </button>
+            <button
+              type="button"
+              onClick={() => setGlobalSearchOpen(true)}
+              className="grid h-8 w-8 place-items-center rounded-lg border border-ink/15 bg-cream/60 text-ink/60 transition hover:border-coral hover:text-ink sm:hidden"
+              aria-label="Open global search"
+            >
+              <Search className="h-4 w-4" />
+            </button>
             <span className="hidden truncate text-xs text-muted-foreground sm:inline">
               {user?.email}
             </span>
@@ -515,5 +535,6 @@ function AdminShell({ user, pathname, onLock }: {
         </main>
       </div>
       <AdminIdleLock onLock={onLock} email={user?.email ?? null} />
+      <AdminGlobalSearch open={globalSearchOpen} onOpenChange={setGlobalSearchOpen} />
     </div>);
 }

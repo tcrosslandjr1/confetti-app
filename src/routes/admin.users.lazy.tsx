@@ -1,8 +1,7 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { Search, Users, MoreHorizontal, Shield, UserCheck, UserX, Crown, Loader2, KeyRound, Trash2 } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { ArrowDown, ArrowUp, ArrowUpDown, Crown, KeyRound, Loader2, MoreHorizontal, Shield, Sparkles, Trash2, UserCheck, Users, UserX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -11,6 +10,7 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth-context";
 import { listAdminUsersFn, setUserRoleFn, setUserSuspendedFn, sendPasswordResetFn, deleteUserFn, type AdminUserRow, type AppRole } from "@/lib/admin-users.functions";
+import { AdminEmptyState, AdminFilterBar, AdminKpiCard, AdminKpiGrid, AdminPageHeader, downloadCsv } from "@/components/admin/AdminUI";
 
 export const Route = createLazyFileRoute("/admin/users")({
   component: AdminUsersPage,

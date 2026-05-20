@@ -1,7 +1,8 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
-import { CheckCircle2, ScrollText, Search, Trash2, User as UserIcon, XCircle, Edit3, Shield, CalendarCheck, Store, Flag, Download, Eraser, ShieldAlert, MapPin } from "lucide-react";
+import { CheckCircle2, ScrollText, Search, Trash2, User as UserIcon, XCircle, Edit3, Shield, CalendarCheck, Store, Flag, Download, Eraser, ShieldAlert, MapPin, Loader2, Database } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +10,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { type AuditAction, type AuditEntity, clearAudit, useAuditLog } from "@/lib/audit-log";
 import { clearAccessDenials, useAccessDenials, type DenialEntry } from "@/lib/access-denials";
 import { clearSecurityTrace, useSecurityTrace, type SecurityTraceEntry } from "@/lib/security-trace";
+import { exportAdminAuditLog } from "@/lib/admin-audit.functions";
 import { toast } from "sonner";
 
 export const Route = createLazyFileRoute("/admin/audit")({

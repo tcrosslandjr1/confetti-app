@@ -63,14 +63,6 @@ function PortalBriefPage() {
     }
   }, [user, loading, viewAs, allowPreview, navigate]);
 
-  if (loading || (!allowPreview && (!user || viewAs !== "customer"))) {
-    return (
-      <div className="grid min-h-[60vh] place-items-center text-sm text-muted-foreground">
-        <Loader2 className="mr-2 inline h-4 w-4 animate-spin" /> Loading your brief…
-      </div>
-    );
-  }
-
   const { data: profile } = useQuery({
     enabled: !!userId,
     queryKey: ["portal", "brief", "profile", userId],
@@ -165,6 +157,14 @@ function PortalBriefPage() {
     ],
     [profile, ledgerToday, upcoming],
   );
+
+  if (loading || (!allowPreview && (!user || viewAs !== "customer"))) {
+    return (
+      <div className="grid min-h-[60vh] place-items-center text-sm text-muted-foreground">
+        <Loader2 className="mr-2 inline h-4 w-4 animate-spin" /> Loading your brief…
+      </div>
+    );
+  }
 
   return (
     <div className="mx-auto max-w-3xl px-4 pt-6 pb-32">

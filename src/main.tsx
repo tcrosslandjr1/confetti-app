@@ -2,6 +2,10 @@ import "./styles.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "@tanstack/react-router";
+import {
+  clearStalePageRecovery,
+  recoverStalePage,
+} from "@/lib/stale-page-recovery";
 
 const rootEl = document.getElementById("root");
 if (!rootEl) throw new Error("Root element #root not found");
@@ -41,15 +45,17 @@ root.render(
 // Stale Vite module graphs (after a dev-server restart) cause
 // "Failed to fetch dynamically imported module" on the very next navigation.
 // Auto-recover once by forcing a fresh load before showing the fallback UI.
-const STALE_RELOAD_KEY = "__lovable_stale_module_reload__";
+const STALE_ERROR_EVENTS = ["error", "unhandledrejection"] as const;
 
-function isStaleModuleError(error: unknown): boolean {
-  const msg = error instanceof Error ? error.message : String(error ?? "");
-  return (
-    msg.includes("Failed to fetch dynamically imported module") ||
-    msg.includes("error loading dynamically imported module") ||
-    msg.includes("Importing a module script failed")
-  );
+for (const eventName of STALE_ERROR_EVENTS) {
+  window.addEventListener(eventName, (event) => {
+    const error =
+      eventName === "unhandledrejection"
+        ? (event as PromiseRejectionEvent).reason
+        : (event as ErrorEvent).error || (event as ErrorEvent).message;
+    if (!recoverStalePage(error)) return;
+    event.preventDefault();
+  });
 }
 
 function renderErrorFallback() {
@@ -62,11 +68,7 @@ function renderErrorFallback() {
           <button
             type="button"
             onClick={() => {
-              try {
-                sessionStorage.removeItem(STALE_RELOAD_KEY);
-              } catch {
-                /* ignore */
-              }
+              clearStalePageRecovery();
               window.location.reload();
             }}
             className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
@@ -81,11 +83,7 @@ function renderErrorFallback() {
 
 void import("./router")
   .then(({ getRouter }) => {
-    try {
-      sessionStorage.removeItem(STALE_RELOAD_KEY);
-    } catch {
-      /* ignore */
-    }
+    clearStalePageRecovery();
     const router = getRouter();
     root.render(
       <StrictMode>
@@ -95,20 +93,8 @@ void import("./router")
   })
   .catch((error) => {
     console.error("[bootstrap] Failed to load router", error);
-    if (isStaleModuleError(error)) {
-      let alreadyTried = false;
-      try {
-        alreadyTried = sessionStorage.getItem(STALE_RELOAD_KEY) === "1";
-        if (!alreadyTried) sessionStorage.setItem(STALE_RELOAD_KEY, "1");
-      } catch {
-        /* sessionStorage may be unavailable */
-      }
-      if (!alreadyTried) {
-        const url = new URL(window.location.href);
-        url.searchParams.set("_r", Date.now().toString(36));
-        window.location.replace(url.toString());
-        return;
-      }
+    if (recoverStalePage(error)) {
+      return;
     }
     renderErrorFallback();
   });

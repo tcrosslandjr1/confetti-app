@@ -127,13 +127,24 @@ export function SiteHeader() {
         <div className="ml-auto flex items-center gap-2">
           <CitySelector compact className="hidden min-[1400px]:block" />
           {isVisitor ? (
-            <Link
-              to="/auth"
-              preload="render"
-              className="hidden h-10 items-center whitespace-nowrap rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg min-[1320px]:inline-flex"
-            >
-              Sign up free
-            </Link>
+            <>
+              <Link
+                to="/auth"
+                search={{ mode: "signin" } as never}
+                preload="render"
+                className="hidden h-10 items-center whitespace-nowrap rounded-full px-3 font-mono text-xs font-bold uppercase tracking-widest text-ink/75 transition-colors hover:text-ink sm:inline-flex"
+              >
+                Log in
+              </Link>
+              <Link
+                to="/auth"
+                preload="render"
+                className="hidden h-10 items-center whitespace-nowrap rounded-full border-2 border-ink bg-cream px-4 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg min-[1100px]:inline-flex"
+              >
+                Sign up free
+              </Link>
+            </>
+
 
           ) : (
             <>
@@ -292,14 +303,25 @@ function MobileMenu({
           Build a night
         </WizardButton>
         {isVisitor ? (
-          <Link
-            to="/auth"
-            onClick={close}
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-ink bg-cream font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
-          >
-            <UserPlus className="h-4 w-4" />
-            Sign up free
-          </Link>
+          <div className="grid grid-cols-2 gap-2">
+            <Link
+              to="/auth"
+              search={{ mode: "signin" } as never}
+              onClick={close}
+              className="flex h-12 items-center justify-center gap-2 rounded-full border-2 border-ink bg-white font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            >
+              Log in
+            </Link>
+            <Link
+              to="/auth"
+              onClick={close}
+              className="flex h-12 items-center justify-center gap-2 rounded-full border-2 border-ink bg-coral font-mono text-xs font-bold uppercase tracking-widest text-cream shadow-brut transition-pop active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            >
+              <UserPlus className="h-4 w-4" />
+              Sign up
+            </Link>
+          </div>
+
         ) : (
           <button
             onClick={() => {

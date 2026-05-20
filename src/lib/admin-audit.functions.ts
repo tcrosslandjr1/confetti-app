@@ -182,8 +182,19 @@ export const exportAdminAuditLog = createServerFn({ method: "POST" })
     const { data: rows, error } = await query;
     if (error) throw new Error(error.message);
 
-    return {
-      rows: (rows ?? []) as AuditExportRow[],
-      truncated: (rows?.length ?? 0) >= LIMIT,
-    };
+    const mapped: AuditExportRow[] = (rows ?? []).map((r) => ({
+      id: r.id,
+      created_at: r.created_at,
+      reviewer_id: r.reviewer_id,
+      reviewer_email: r.reviewer_email,
+      action: r.action,
+      entity_type: r.entity_type,
+      entity_id: r.entity_id,
+      entity_label: r.entity_label,
+      note: r.note,
+      ip_address: r.ip_address == null ? null : String(r.ip_address),
+      user_agent: r.user_agent,
+      metadata_json: r.metadata == null ? "" : JSON.stringify(r.metadata),
+    }));
+    return { rows: mapped, truncated: mapped.length >= LIMIT };
   });

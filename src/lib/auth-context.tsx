@@ -90,6 +90,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       initialised = true;
       setSession(s);
       setSessionLoading(false);
+      void import("@/lib/view-audit").then(({ logViewAudit }) =>
+        logViewAudit({
+          kind: "auth", source: "AuthProvider",
+          decision: event,
+          reason: s?.user?.email ? `user=${s.user.email}` : "no session",
+          path: typeof window !== "undefined" ? window.location.pathname : null,
+        }),
+      );
       if (event === "SIGNED_IN") {
         setViewAsState(null);
         // Fire-and-forget: link any pending ?ref= code to this account

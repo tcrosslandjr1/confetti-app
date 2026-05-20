@@ -10,7 +10,13 @@
  *     that show up in the live feed + kanban board on the Agent Control Center
  */
 
-import { supabase } from "@/integrations/supabase/client";
+import { supabase as supabaseTyped } from "@/integrations/supabase/client";
+// Loose-typed alias — these tables use string PKs and RPC helpers that the
+// generated types do not capture cleanly.
+const supabase = supabaseTyped as unknown as {
+  from: (t: string) => any;
+  rpc: (fn: string, args?: Record<string, unknown>) => Promise<unknown> & { catch: (cb: (e: unknown) => void) => Promise<unknown> };
+};
 
 // ═══════════════════════════════════════════════════════════
 // Types
@@ -157,7 +163,7 @@ export async function reportStatus(
   if (lastTask) {
     update.last_task = lastTask;
     if (status === "idle") {
-      update.tasks_completed = supabase.rpc ? undefined : 0; // handled by raw SQL below
+      update.tasks_completed = undefined; // handled by RPC below
     }
   }
 
@@ -190,7 +196,7 @@ export async function reportError(agentId: string, errorMsg: string): Promise<vo
       status: "error",
       last_task: `❌ ${errorMsg}`,
       last_active: new Date().toISOString(),
-      error_count: supabase.rpc ? undefined : 0,
+      error_count: undefined,
       updated_at: new Date().toISOString(),
     })
     .eq("id", agentId);

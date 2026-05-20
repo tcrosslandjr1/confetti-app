@@ -168,6 +168,7 @@ import { Route as AdminBootstrapRouteImport } from './routes/admin.bootstrap'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
 import { Route as AdminAuditRouteImport } from './routes/admin.audit'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AdminAgentsRouteImport } from './routes/admin.agents'
 import { Route as AdminAdvertisersRouteImport } from './routes/admin.advertisers'
 import { Route as AdminAdAnalyticsRouteImport } from './routes/admin.ad-analytics'
 import { Route as ConciergeChatIndexRouteImport } from './routes/concierge.chat.index'
@@ -1030,6 +1031,11 @@ const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
 } as any).lazy(() =>
   import('./routes/admin.analytics.lazy').then((d) => d.Route),
 )
+const AdminAgentsRoute = AdminAgentsRouteImport.update({
+  id: '/agents',
+  path: '/agents',
+  getParentRoute: () => AdminRoute,
+} as any).lazy(() => import('./routes/admin.agents.lazy').then((d) => d.Route))
 const AdminAdvertisersRoute = AdminAdvertisersRouteImport.update({
   id: '/advertisers',
   path: '/advertisers',
@@ -1246,6 +1252,7 @@ export interface FileRoutesByFullPath {
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
+  '/admin/agents': typeof AdminAgentsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
@@ -1426,6 +1433,7 @@ export interface FileRoutesByTo {
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
+  '/admin/agents': typeof AdminAgentsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
@@ -1616,6 +1624,7 @@ export interface FileRoutesById {
   '/weather': typeof WeatherRoute
   '/admin/ad-analytics': typeof AdminAdAnalyticsRoute
   '/admin/advertisers': typeof AdminAdvertisersRoute
+  '/admin/agents': typeof AdminAgentsRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/audit': typeof AdminAuditRoute
   '/admin/bookings': typeof AdminBookingsRoute
@@ -1807,6 +1816,7 @@ export interface FileRouteTypes {
     | '/weather'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
+    | '/admin/agents'
     | '/admin/analytics'
     | '/admin/audit'
     | '/admin/bookings'
@@ -1987,6 +1997,7 @@ export interface FileRouteTypes {
     | '/weather'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
+    | '/admin/agents'
     | '/admin/analytics'
     | '/admin/audit'
     | '/admin/bookings'
@@ -2176,6 +2187,7 @@ export interface FileRouteTypes {
     | '/weather'
     | '/admin/ad-analytics'
     | '/admin/advertisers'
+    | '/admin/agents'
     | '/admin/analytics'
     | '/admin/audit'
     | '/admin/bookings'
@@ -3532,6 +3544,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAnalyticsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/agents': {
+      id: '/admin/agents'
+      path: '/agents'
+      fullPath: '/admin/agents'
+      preLoaderRoute: typeof AdminAgentsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/advertisers': {
       id: '/admin/advertisers'
       path: '/advertisers'
@@ -3734,6 +3753,7 @@ declare module '@tanstack/react-router' {
 interface AdminRouteChildren {
   AdminAdAnalyticsRoute: typeof AdminAdAnalyticsRoute
   AdminAdvertisersRoute: typeof AdminAdvertisersRoute
+  AdminAgentsRoute: typeof AdminAgentsRoute
   AdminAnalyticsRoute: typeof AdminAnalyticsRoute
   AdminAuditRoute: typeof AdminAuditRoute
   AdminBookingsRoute: typeof AdminBookingsRoute
@@ -3765,6 +3785,7 @@ interface AdminRouteChildren {
 const AdminRouteChildren: AdminRouteChildren = {
   AdminAdAnalyticsRoute: AdminAdAnalyticsRoute,
   AdminAdvertisersRoute: AdminAdvertisersRoute,
+  AdminAgentsRoute: AdminAgentsRoute,
   AdminAnalyticsRoute: AdminAnalyticsRoute,
   AdminAuditRoute: AdminAuditRoute,
   AdminBookingsRoute: AdminBookingsRoute,

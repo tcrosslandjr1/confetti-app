@@ -10,6 +10,7 @@ import { AdminIdleLock } from "@/components/AdminIdleLock";
 import { AdminGlobalSearch } from "@/components/AdminGlobalSearch";
 import { supabase } from "@/integrations/supabase/client";
 import { recoverStalePage } from "@/lib/stale-page-recovery";
+import { useAdminNavCounts, ROUTE_TO_COUNT_KEY } from "@/lib/admin-nav-counts";
 
 export const Route = createLazyFileRoute("/admin")({
   component: AdminLayout,

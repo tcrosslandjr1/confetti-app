@@ -163,7 +163,7 @@ export async function reportStatus(
   if (lastTask) {
     update.last_task = lastTask;
     if (status === "idle") {
-      update.tasks_completed = supabase.rpc ? undefined : 0; // handled by raw SQL below
+      update.tasks_completed = undefined; // handled by RPC below
     }
   }
 

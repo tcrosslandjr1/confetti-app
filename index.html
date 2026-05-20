@@ -209,10 +209,26 @@
         box-shadow: 4px 4px 0 0 #ff7a4c;
         cursor: pointer;
       }
+      #initial-loader .boot-skip {
+        margin-top: 8px; width: 100%; min-height: 36px;
+        border: 1px solid rgba(26,26,26,0.25); border-radius: 999px;
+        background: transparent; color: #1a1a1a;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 10px; font-weight: 700;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        cursor: pointer;
+      }
+      #initial-loader .boot-reason {
+        margin-top: 10px; font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+        color: #b04a1f;
+      }
       #initial-loader[data-boot-stalled] .progress-track .bar::after {
         animation-duration: 0.7s;
         background: linear-gradient(90deg, #1a1a1a, #ff7a4c);
       }
+      #initial-loader[data-boot-stalled] .agents,
+      #initial-loader[data-boot-stalled] .ticker { opacity: 0.45; }
 
       /* Keyframes */
       @keyframes loader-fade-in { from { opacity: 0; } to { opacity: 1; } }

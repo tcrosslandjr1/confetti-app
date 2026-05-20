@@ -336,6 +336,223 @@ export type Database = {
         }
         Relationships: []
       }
+      agent_messages: {
+        Row: {
+          body: string | null
+          created_at: string
+          from_agent: string
+          id: string
+          metadata: Json
+          msg_type: string
+          read: boolean
+          subject: string
+          to_agent: string | null
+          to_team: string | null
+        }
+        Insert: {
+          body?: string | null
+          created_at?: string
+          from_agent: string
+          id?: string
+          metadata?: Json
+          msg_type: string
+          read?: boolean
+          subject: string
+          to_agent?: string | null
+          to_team?: string | null
+        }
+        Update: {
+          body?: string | null
+          created_at?: string
+          from_agent?: string
+          id?: string
+          metadata?: Json
+          msg_type?: string
+          read?: boolean
+          subject?: string
+          to_agent?: string | null
+          to_team?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "agent_messages_from_agent_fkey"
+            columns: ["from_agent"]
+            isOneToOne: false
+            referencedRelation: "agent_registry"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "agent_messages_to_agent_fkey"
+            columns: ["to_agent"]
+            isOneToOne: false
+            referencedRelation: "agent_registry"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "agent_messages_to_team_fkey"
+            columns: ["to_team"]
+            isOneToOne: false
+            referencedRelation: "agent_teams"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      agent_registry: {
+        Row: {
+          created_at: string
+          description: string
+          error_count: number
+          file_path: string
+          id: string
+          last_active: string | null
+          last_task: string | null
+          layer: string
+          name: string
+          status: string
+          tasks_completed: number
+          team_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string
+          error_count?: number
+          file_path?: string
+          id: string
+          last_active?: string | null
+          last_task?: string | null
+          layer?: string
+          name: string
+          status?: string
+          tasks_completed?: number
+          team_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          error_count?: number
+          file_path?: string
+          id?: string
+          last_active?: string | null
+          last_task?: string | null
+          layer?: string
+          name?: string
+          status?: string
+          tasks_completed?: number
+          team_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "agent_registry_team_id_fkey"
+            columns: ["team_id"]
+            isOneToOne: false
+            referencedRelation: "agent_teams"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      agent_tasks: {
+        Row: {
+          assigned_to: string | null
+          completed_at: string | null
+          created_at: string
+          created_by: string
+          description: string | null
+          due_at: string | null
+          id: string
+          priority: string
+          status: string
+          team_id: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          assigned_to?: string | null
+          completed_at?: string | null
+          created_at?: string
+          created_by: string
+          description?: string | null
+          due_at?: string | null
+          id?: string
+          priority?: string
+          status?: string
+          team_id?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          assigned_to?: string | null
+          completed_at?: string | null
+          created_at?: string
+          created_by?: string
+          description?: string | null
+          due_at?: string | null
+          id?: string
+          priority?: string
+          status?: string
+          team_id?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "agent_tasks_assigned_to_fkey"
+            columns: ["assigned_to"]
+            isOneToOne: false
+            referencedRelation: "agent_registry"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "agent_tasks_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "agent_registry"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "agent_tasks_team_id_fkey"
+            columns: ["team_id"]
+            isOneToOne: false
+            referencedRelation: "agent_teams"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      agent_teams: {
+        Row: {
+          color: string
+          created_at: string
+          description: string | null
+          icon: string
+          id: string
+          name: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          color?: string
+          created_at?: string
+          description?: string | null
+          icon?: string
+          id: string
+          name: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          color?: string
+          created_at?: string
+          description?: string | null
+          icon?: string
+          id?: string
+          name?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       analytics_events: {
         Row: {
           created_at: string
@@ -4158,6 +4375,8 @@ export type Database = {
         }
         Returns: boolean
       }
+      increment_agent_errors: { Args: { agent_id: string }; Returns: undefined }
+      increment_agent_tasks: { Args: { agent_id: string }; Returns: undefined }
       is_corp_admin: {
         Args: { _company: string; _user: string }
         Returns: boolean

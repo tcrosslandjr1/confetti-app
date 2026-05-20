@@ -16,12 +16,30 @@ export const Route = createLazyFileRoute("/admin/ask")({
 });
 
 function AdminAskPage() {
+  const { loading: authLoading, isAdmin, user, viewAs } = useAuth();
+  const navigate = useNavigate();
   const { agentId } = Route.useSearch();
-  const navigate = Route.useNavigate();
+  const navigateRoute = Route.useNavigate();
   const [view, setView] = useState<ControlCenterView | null>(null);
   const [target, setTarget] = useState<AgentRecord | null>(null);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
+
+  // Admin-only guard
+  useEffect(() => {
+    if (authLoading) return;
+    if (!user) {
+      navigate({ to: "/admin/login", search: { redirect: "/admin/ask" } as never, replace: true });
+    } else if (!isAdmin) {
+      navigate({ to: "/", replace: true });
+    } else if (viewAs === "customer") {
+      navigate({ to: "/portal", replace: true });
+    } else if (viewAs === "business") {
+      navigate({ to: "/advertise/portal", replace: true });
+    } else if (viewAs === "visitor") {
+      navigate({ to: "/", replace: true });
+    }
+  }, [authLoading, user, isAdmin, viewAs, navigate]);
 
   const load = useCallback(async () => {
     setLoading(true);

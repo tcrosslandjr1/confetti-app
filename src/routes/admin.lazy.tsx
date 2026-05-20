@@ -7,6 +7,7 @@ import { NotificationsBell } from "@/components/NotificationsBell";
 import { AdminSkeleton } from "@/components/AdminSkeleton";
 import { AdminPinLock, isAdminUnlocked, lockAdmin } from "@/components/AdminPinLock";
 import { AdminIdleLock } from "@/components/AdminIdleLock";
+import { AdminGlobalSearch } from "@/components/AdminGlobalSearch";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createLazyFileRoute("/admin")({
@@ -230,6 +231,7 @@ function AdminShell({ user, pathname, onLock }: {
     const collapsed = state === "collapsed";
     const [query, setQuery] = useState("");
     const searchRef = useRef<HTMLInputElement | null>(null);
+    const [globalSearchOpen, setGlobalSearchOpen] = useState(false);
     const COLLAPSED_KEY = "confetti.admin.nav.collapsed.v1";
     const [collapsedGroups, setCollapsedGroups] = useState<Record<string, boolean>>(() => {
         if (typeof window === "undefined") return {};
@@ -265,15 +267,14 @@ function AdminShell({ user, pathname, onLock }: {
     }, [pathname]);
     const activeLabel = activeItem.item.label;
     const activeSection = activeItem.section;
-    // Keyboard shortcuts: "/" or Cmd/Ctrl+K to focus search, Esc to clear.
+    // Keyboard shortcuts: Cmd/Ctrl+K opens global search; "/" focuses sidebar filter; Esc clears.
     useEffect(() => {
         const onKey = (e: KeyboardEvent) => {
             const target = e.target as HTMLElement | null;
             const typing = target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable);
             if ((e.key === "k" || e.key === "K") && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault();
-                searchRef.current?.focus();
-                searchRef.current?.select();
+                setGlobalSearchOpen(true);
                 return;
             }
             if (!typing && e.key === "/") {
@@ -503,6 +504,26 @@ function AdminShell({ user, pathname, onLock }: {
             <span className="font-mono text-xs text-ink/70">{activeLabel}</span>
           </nav>
           <div className="ml-auto flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setGlobalSearchOpen(true)}
+              className="hidden items-center gap-2 rounded-lg border border-ink/15 bg-cream/60 px-2.5 py-1.5 text-xs font-medium text-ink/60 transition hover:border-coral hover:text-ink sm:flex"
+              aria-label="Open global search"
+            >
+              <Search className="h-3.5 w-3.5" />
+              <span>Search users, events, bookings…</span>
+              <kbd className="ml-2 rounded border border-ink/15 bg-cream px-1 py-0.5 font-mono text-[9px] font-bold text-ink/50">
+                ⌘K
+              </kbd>
+            </button>
+            <button
+              type="button"
+              onClick={() => setGlobalSearchOpen(true)}
+              className="grid h-8 w-8 place-items-center rounded-lg border border-ink/15 bg-cream/60 text-ink/60 transition hover:border-coral hover:text-ink sm:hidden"
+              aria-label="Open global search"
+            >
+              <Search className="h-4 w-4" />
+            </button>
             <span className="hidden truncate text-xs text-muted-foreground sm:inline">
               {user?.email}
             </span>
@@ -514,5 +535,6 @@ function AdminShell({ user, pathname, onLock }: {
         </main>
       </div>
       <AdminIdleLock onLock={onLock} email={user?.email ?? null} />
+      <AdminGlobalSearch open={globalSearchOpen} onOpenChange={setGlobalSearchOpen} />
     </div>);
 }

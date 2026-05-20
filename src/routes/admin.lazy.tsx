@@ -513,5 +513,6 @@ function AdminShell({ user, pathname, onLock }: {
           <Outlet />
         </main>
       </div>
+      <AdminIdleLock onLock={onLock} email={user?.email ?? null} />
     </div>);
 }

@@ -1162,55 +1162,129 @@ function AdminBookingsPage() {
 
                 <Separator />
 
-                {/* Notification timeline */}
+                {/* Audit log — status changes + notification sends */}
                 <div>
-                  <p className="text-xs uppercase text-muted-foreground">
-                    Notification timeline
-                  </p>
-                  <ScrollArea className="mt-2 max-h-64 rounded-md border border-border">
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs uppercase text-muted-foreground">
+                      Audit log
+                    </p>
+                    <p className="text-[10px] text-muted-foreground">
+                      {statusChanges.length} status ·{" "}
+                      {deliveries.length} notifications
+                    </p>
+                  </div>
+                  <ScrollArea className="mt-2 max-h-80 rounded-md border border-border">
                     {deliveriesLoading ? (
                       <div className="flex items-center gap-2 p-3 text-sm text-muted-foreground">
                         <Loader2 className="h-4 w-4 animate-spin" /> Loading…
                       </div>
-                    ) : deliveries.length === 0 ? (
-                      <div className="p-3 text-sm text-muted-foreground">
-                        No notification attempts yet.
-                      </div>
-                    ) : (
-                      <ul className="divide-y divide-border">
-                        {deliveries.map((d) => (
-                          <li key={d.id} className="p-3 text-sm">
-                            <div className="flex items-center justify-between gap-2">
-                              <div className="flex items-center gap-2">
-                                <span
-                                  className={`rounded-full border px-2 py-0.5 text-[10px] font-medium ${
-                                    d.status === "sent"
-                                      ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-700"
-                                      : d.status === "failed"
-                                        ? "border-destructive/30 bg-destructive/10 text-destructive"
-                                        : d.status === "skipped"
-                                          ? "border-border bg-muted text-muted-foreground"
-                                          : "border-amber-500/30 bg-amber-500/10 text-amber-700"
-                                  }`}
-                                >
-                                  {d.status}
-                                </span>
-                                <span className="font-mono text-xs">
-                                  {d.recipient_email ?? "—"}
-                                </span>
-                              </div>
-                              <span className="text-[10px] text-muted-foreground">
-                                {new Date(d.created_at).toLocaleString()}
-                              </span>
-                            </div>
-                            <p className="mt-1 text-xs text-muted-foreground">
-                              {SOURCE_LABEL[d.source] ?? d.source}
-                              {d.error ? ` · ${d.error}` : ""}
-                            </p>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    ) : (() => {
+                      const entries: AuditEntry[] = [
+                        ...statusChanges.map((s) => ({
+                          kind: "status" as const,
+                          at: s.created_at,
+                          data: s,
+                        })),
+                        ...deliveries.map((d) => ({
+                          kind: "notification" as const,
+                          at: d.created_at,
+                          data: d,
+                        })),
+                      ].sort(
+                        (a, b) =>
+                          new Date(b.at).getTime() - new Date(a.at).getTime(),
+                      );
+                      if (entries.length === 0) {
+                        return (
+                          <div className="p-3 text-sm text-muted-foreground">
+                            No audit entries yet.
+                          </div>
+                        );
+                      }
+                      return (
+                        <ul className="divide-y divide-border">
+                          {entries.map((e) => {
+                            if (e.kind === "status") {
+                              const s = e.data;
+                              const actor =
+                                s.actor_email ??
+                                (s.actor_role === "system"
+                                  ? "System"
+                                  : s.actor_role);
+                              return (
+                                <li key={`s-${s.id}`} className="p-3 text-sm">
+                                  <div className="flex items-center justify-between gap-2">
+                                    <div className="flex items-center gap-2">
+                                      <span className="rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
+                                        Status
+                                      </span>
+                                      <span className="text-xs">
+                                        {s.old_status ? (
+                                          <>
+                                            <span className="text-muted-foreground">
+                                              {s.old_status}
+                                            </span>
+                                            <span className="mx-1 text-muted-foreground">
+                                              →
+                                            </span>
+                                          </>
+                                        ) : null}
+                                        <span className="font-semibold">
+                                          {s.new_status}
+                                        </span>
+                                      </span>
+                                    </div>
+                                    <span className="text-[10px] text-muted-foreground">
+                                      {new Date(s.created_at).toLocaleString()}
+                                    </span>
+                                  </div>
+                                  <p className="mt-1 text-xs text-muted-foreground">
+                                    by{" "}
+                                    <span className="font-mono">{actor}</span>
+                                    <span className="ml-1 rounded bg-muted px-1 py-0.5 text-[10px] uppercase">
+                                      {s.actor_role}
+                                    </span>
+                                    {s.note ? ` · ${s.note}` : ""}
+                                  </p>
+                                </li>
+                              );
+                            }
+                            const d = e.data;
+                            return (
+                              <li key={`n-${d.id}`} className="p-3 text-sm">
+                                <div className="flex items-center justify-between gap-2">
+                                  <div className="flex items-center gap-2">
+                                    <span
+                                      className={`rounded-full border px-2 py-0.5 text-[10px] font-medium ${
+                                        d.status === "sent"
+                                          ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-700"
+                                          : d.status === "failed"
+                                            ? "border-destructive/30 bg-destructive/10 text-destructive"
+                                            : d.status === "skipped"
+                                              ? "border-border bg-muted text-muted-foreground"
+                                              : "border-amber-500/30 bg-amber-500/10 text-amber-700"
+                                      }`}
+                                    >
+                                      Notify · {d.status}
+                                    </span>
+                                    <span className="font-mono text-xs">
+                                      {d.recipient_email ?? "—"}
+                                    </span>
+                                  </div>
+                                  <span className="text-[10px] text-muted-foreground">
+                                    {new Date(d.created_at).toLocaleString()}
+                                  </span>
+                                </div>
+                                <p className="mt-1 text-xs text-muted-foreground">
+                                  {SOURCE_LABEL[d.source] ?? d.source}
+                                  {d.error ? ` · ${d.error}` : ""}
+                                </p>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      );
+                    })()}
                   </ScrollArea>
                 </div>
               </div>

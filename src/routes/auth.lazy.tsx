@@ -306,7 +306,7 @@ function AuthPage() {
   return (
     <div
       ref={parallaxRef}
-      className="relative min-h-screen overflow-x-hidden overflow-y-auto bg-cream text-ink"
+      className="relative min-h-screen overflow-x-clip bg-cream text-ink"
       style={{ ["--mx" as never]: 0, ["--my" as never]: 0 } as CSSProperties}
     >
       {/* Immersive background: animated orbs + ticker tape + grain */}

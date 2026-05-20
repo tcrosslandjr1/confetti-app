@@ -1,6 +1,6 @@
 import { createLazyFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { BarChart3, Bell, CalendarCheck, ChevronDown, LayoutDashboard, LogOut, Megaphone, MessageSquareQuote, Search, ScrollText, Settings, ShieldCheck, Sparkles, Store, Users, X } from "lucide-react";
+import { BarChart3, Bell, Bot, CalendarCheck, ChevronDown, LayoutDashboard, LogOut, Megaphone, MessageSquareQuote, Search, ScrollText, Settings, ShieldCheck, Sparkles, Store, Users, X } from "lucide-react";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 import { useAuth } from "@/lib/auth-context";
 import { NotificationsBell } from "@/components/NotificationsBell";
@@ -134,6 +134,7 @@ const NAV_SECTIONS: NavSection[] = [
             { to: "/admin/wallet-debug", label: "Wallet JWT debug", icon: ShieldCheck },
             { to: "/admin/launch", label: "Launch checklist", icon: ScrollText },
             { to: "/admin/routes-map", label: "Routes map", icon: ScrollText },
+            { to: "/admin/agents", label: "Agent control", icon: Bot },
         ],
     },
 ];

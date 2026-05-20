@@ -76,8 +76,43 @@ export function AdminPinLock({
   const [shake, setShake] = useState(false);
   const [lockout, setLockout] = useState<LockoutState>(() => readLockout());
   const [now, setNow] = useState(() => Date.now());
+  const [showRecovery, setShowRecovery] = useState(false);
+  const [recoveryPassword, setRecoveryPassword] = useState("");
+  const [recoveryBusy, setRecoveryBusy] = useState(false);
+  const [recoveryError, setRecoveryError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const logPinFn = useServerFn(logPinUnlockAttempt);
+  const resetLockoutFn = useServerFn(resetPinLockout);
+
+  const handleRecover = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!recoveryPassword || recoveryBusy) return;
+    setRecoveryBusy(true);
+    setRecoveryError(null);
+    try {
+      const res = await resetLockoutFn({
+        data: {
+          password: recoveryPassword,
+          userAgent: typeof window !== "undefined" ? window.navigator.userAgent : undefined,
+        },
+      });
+      if (!res.ok) {
+        setRecoveryError(res.error ?? "Recovery failed");
+        return;
+      }
+      const cleared = { attempts: 0, lockoutCount: 0, lockedUntil: 0 };
+      setLockout(cleared);
+      writeLockout(cleared);
+      setRecoveryPassword("");
+      setShowRecovery(false);
+      setError(null);
+      setTimeout(() => inputRef.current?.focus(), 0);
+    } catch {
+      setRecoveryError("Recovery failed — try again");
+    } finally {
+      setRecoveryBusy(false);
+    }
+  };
 
   const isLocked = lockout.lockedUntil > now;
   const remainingMs = Math.max(0, lockout.lockedUntil - now);

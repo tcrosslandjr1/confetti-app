@@ -10,6 +10,41 @@ import { logPinUnlockAttempt } from "@/lib/admin-audit.functions";
 const ADMIN_PIN = "236166";
 const PIN_LENGTH = ADMIN_PIN.length;
 const UNLOCK_KEY = "confetti.admin.pin.unlocked.v1";
+const LOCKOUT_KEY = "confetti.admin.pin.lockout.v1";
+const MAX_ATTEMPTS = 5;
+// Progressive backoff: 1st lockout 5min, 2nd 10min, 3rd+ 15min
+const LOCKOUT_LADDER_MS = [5, 10, 15].map((m) => m * 60_000);
+
+type LockoutState = {
+  attempts: number;
+  lockoutCount: number;
+  lockedUntil: number; // epoch ms, 0 = not locked
+};
+
+function readLockout(): LockoutState {
+  if (typeof window === "undefined") return { attempts: 0, lockoutCount: 0, lockedUntil: 0 };
+  try {
+    const raw = window.localStorage.getItem(LOCKOUT_KEY);
+    if (!raw) return { attempts: 0, lockoutCount: 0, lockedUntil: 0 };
+    const parsed = JSON.parse(raw) as LockoutState;
+    return {
+      attempts: Number(parsed.attempts) || 0,
+      lockoutCount: Number(parsed.lockoutCount) || 0,
+      lockedUntil: Number(parsed.lockedUntil) || 0,
+    };
+  } catch {
+    return { attempts: 0, lockoutCount: 0, lockedUntil: 0 };
+  }
+}
+
+function writeLockout(state: LockoutState) {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(LOCKOUT_KEY, JSON.stringify(state));
+  } catch {
+    /* noop */
+  }
+}
 
 export function isAdminUnlocked(): boolean {
   if (typeof window === "undefined") return false;
@@ -39,17 +74,43 @@ export function AdminPinLock({
   const [pin, setPin] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [shake, setShake] = useState(false);
-  const [attempts, setAttempts] = useState(0);
+  const [lockout, setLockout] = useState<LockoutState>(() => readLockout());
+  const [now, setNow] = useState(() => Date.now());
   const inputRef = useRef<HTMLInputElement | null>(null);
   const logPinFn = useServerFn(logPinUnlockAttempt);
 
+  const isLocked = lockout.lockedUntil > now;
+  const remainingMs = Math.max(0, lockout.lockedUntil - now);
+  const remainingSec = Math.ceil(remainingMs / 1000);
+  const remainingLabel =
+    remainingSec >= 60
+      ? `${Math.floor(remainingSec / 60)}m ${remainingSec % 60}s`
+      : `${remainingSec}s`;
+
   useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+    if (!isLocked) inputRef.current?.focus();
+  }, [isLocked]);
+
+  // Tick once per second while locked so countdown updates
+  useEffect(() => {
+    if (!isLocked) return;
+    const id = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(id);
+  }, [isLocked]);
+
+  // Auto-clear lockout state when timer expires
+  useEffect(() => {
+    if (lockout.lockedUntil > 0 && lockout.lockedUntil <= now) {
+      const cleared = { ...lockout, lockedUntil: 0, attempts: 0 };
+      setLockout(cleared);
+      writeLockout(cleared);
+    }
+  }, [now, lockout]);
 
   const submit = async (value: string) => {
     if (value.length !== PIN_LENGTH) return;
-    const nextAttempt = attempts + 1;
+    if (isLocked) return;
+    const nextAttempt = lockout.attempts + 1;
     const success = value === ADMIN_PIN;
 
     // Log every attempt (success or failure)
@@ -58,8 +119,9 @@ export function AdminPinLock({
         data: {
           success,
           attemptNumber: nextAttempt,
-          ip: typeof window !== "undefined" ? undefined : undefined,
-          userAgent: typeof window !== "undefined" ? window.navigator.userAgent : undefined,
+          ip: undefined,
+          userAgent:
+            typeof window !== "undefined" ? window.navigator.userAgent : undefined,
         },
       });
     } catch {
@@ -72,16 +134,41 @@ export function AdminPinLock({
       } catch {
         /* noop */
       }
+      // Reset lockout state on success
+      const cleared = { attempts: 0, lockoutCount: 0, lockedUntil: 0 };
+      setLockout(cleared);
+      writeLockout(cleared);
       setError(null);
       onUnlock();
       return;
     }
-    setAttempts(nextAttempt);
-    setError("Incorrect PIN. Try again.");
+
+    // Failure path
+    let nextState: LockoutState;
+    if (nextAttempt >= MAX_ATTEMPTS) {
+      const tier = Math.min(lockout.lockoutCount, LOCKOUT_LADDER_MS.length - 1);
+      const duration = LOCKOUT_LADDER_MS[tier];
+      nextState = {
+        attempts: nextAttempt,
+        lockoutCount: lockout.lockoutCount + 1,
+        lockedUntil: Date.now() + duration,
+      };
+      setError(
+        `Too many wrong PINs. Locked for ${Math.round(duration / 60000)} minutes.`,
+      );
+    } else {
+      nextState = { ...lockout, attempts: nextAttempt };
+      const left = MAX_ATTEMPTS - nextAttempt;
+      setError(
+        `Incorrect PIN. ${left} attempt${left === 1 ? "" : "s"} remaining.`,
+      );
+    }
+    setLockout(nextState);
+    writeLockout(nextState);
     setShake(true);
     setPin("");
     window.setTimeout(() => setShake(false), 400);
-    inputRef.current?.focus();
+    if (!nextState.lockedUntil) inputRef.current?.focus();
   };
 
   const onSubmit = (e: FormEvent) => {
@@ -90,11 +177,11 @@ export function AdminPinLock({
   };
 
   const onChange = (raw: string) => {
+    if (isLocked) return;
     const cleaned = raw.replace(/\D/g, "").slice(0, PIN_LENGTH);
     setPin(cleaned);
     setError(null);
     if (cleaned.length === PIN_LENGTH) {
-      // Auto-submit on full PIN
       submit(cleaned);
     }
   };
@@ -167,13 +254,31 @@ export function AdminPinLock({
             onChange={(e) => onChange(e.target.value)}
             aria-label="Admin PIN"
             placeholder="• • • • • •"
-            className="w-full rounded-xl border-2 border-ink bg-cream px-4 py-3 text-center font-mono text-xl tracking-[0.5em] text-ink outline-none placeholder:text-ink/25 focus:border-coral focus:shadow-brut"
+            disabled={isLocked}
+            className="w-full rounded-xl border-2 border-ink bg-cream px-4 py-3 text-center font-mono text-xl tracking-[0.5em] text-ink outline-none placeholder:text-ink/25 focus:border-coral focus:shadow-brut disabled:cursor-not-allowed disabled:opacity-60"
           />
 
-          {error ? (
+          {isLocked ? (
+            <div
+              className="rounded-xl border-2 border-coral/40 bg-coral/10 px-3 py-2.5 text-center"
+              role="alert"
+              aria-live="polite"
+            >
+              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-coral">
+                Console locked
+              </div>
+              <div className="mt-0.5 text-sm font-extrabold text-ink">
+                Try again in {remainingLabel}
+              </div>
+              <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/55">
+                {lockout.lockoutCount > 1
+                  ? `Lockout ${lockout.lockoutCount} · escalating backoff`
+                  : "Sign out if this isn't you"}
+              </div>
+            </div>
+          ) : error ? (
             <p className="text-center text-xs font-bold text-coral" role="alert">
               {error}
-              {attempts >= 3 ? " · Sign out if this isn't you." : ""}
             </p>
           ) : (
             <p className="text-center font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-ink/45">
@@ -184,10 +289,10 @@ export function AdminPinLock({
 
         <button
           type="submit"
-          disabled={pin.length !== PIN_LENGTH}
+          disabled={isLocked || pin.length !== PIN_LENGTH}
           className="w-full rounded-xl border-2 border-ink bg-coral px-4 py-3 text-sm font-extrabold uppercase tracking-wide text-cream shadow-brut transition hover:translate-y-[1px] hover:shadow-none disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Unlock console
+          {isLocked ? `Locked · ${remainingLabel}` : "Unlock console"}
         </button>
 
         <p className="text-center font-mono text-[9px] uppercase tracking-[0.18em] text-ink/40">

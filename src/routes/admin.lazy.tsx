@@ -197,14 +197,22 @@ function AdminLayout() {
                 search: { redirect: pathname } as never,
                 replace: true,
             });
-        else if (!isAdmin)
-            navigate({ to: "/" });
-        else if (viewAs === "customer")
-            navigate({ to: "/portal" });
-        else if (viewAs === "business")
-            navigate({ to: "/advertise/portal" });
-        else if (viewAs === "visitor")
-            navigate({ to: "/" });
+        else if (!isAdmin) {
+            if (typeof window !== "undefined") window.location.replace("/");
+            else navigate({ to: "/" });
+        }
+        else if (viewAs === "customer") {
+            if (typeof window !== "undefined") window.location.replace("/portal");
+            else navigate({ to: "/portal" });
+        }
+        else if (viewAs === "business") {
+            if (typeof window !== "undefined") window.location.replace("/advertise/portal");
+            else navigate({ to: "/advertise/portal" });
+        }
+        else if (viewAs === "visitor") {
+            if (typeof window !== "undefined") window.location.replace("/");
+            else navigate({ to: "/" });
+        }
         else if (redirect && redirect !== pathname)
             navigate({ to: redirect as never, replace: true });
     }, [loading, user, isAdmin, viewAs, allowPreview, navigate, isLoginRoute, pathname, redirect]);

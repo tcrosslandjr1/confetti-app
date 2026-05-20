@@ -102,63 +102,21 @@ function AdminDashboard() {
         aiJobsToday: 0,
         systemAlerts: 0,
     };
-    const KPIS = [
-        {
-            label: "Pending business approvals",
-            value: k.pendingAdvertisers,
-            icon: ClipboardCheck,
-            tone: "from-coral/30 to-coral/5",
-            to: "/admin/advertisers",
-            hint: "Awaiting review",
-        },
-        {
-            label: "Venue claims pending",
-            value: k.pendingClaims,
-            icon: ShieldCheck,
-            tone: "from-purple/30 to-purple/5",
-            to: "/admin/business-claims",
-            hint: "Owner verification",
-        },
-        {
-            label: "Open moderation reports",
-            value: k.pendingModeration,
-            icon: AlertTriangle,
-            tone: "from-amber-400/30 to-amber-100/5",
-            to: "/admin/moderation",
-            hint: "Photos · flyers · details",
-        },
-        {
-            label: "Active venues",
-            value: k.activeVenues,
-            icon: Store,
-            tone: "from-emerald-400/25 to-emerald-100/5",
-            to: "/admin/venues",
-            hint: "Live in marketplace",
-        },
-        {
-            label: "Signups today",
-            value: k.signupsToday,
-            icon: UserPlus,
-            tone: "from-pink/25 to-pink/5",
-            to: "/admin/users",
-            hint: "New profiles",
-        },
-        {
-            label: "AI refresh jobs",
-            value: k.aiJobsToday,
-            icon: RefreshCw,
-            tone: "from-teal/25 to-teal/5",
-            to: "/admin/logs",
-            hint: "Today",
-        },
-        {
-            label: "System alerts",
-            value: k.systemAlerts,
-            icon: Zap,
-            tone: "from-destructive/30 to-destructive/5",
-            to: "/admin/logs",
-            hint: "Last 24h",
-        },
+    const KPIS: Array<{
+      label: string;
+      value: number;
+      icon: typeof ClipboardCheck;
+      tone: "coral" | "purple" | "amber" | "emerald" | "pink" | "teal" | "destructive";
+      to: string;
+      hint: string;
+    }> = [
+        { label: "Pending business approvals", value: k.pendingAdvertisers, icon: ClipboardCheck, tone: "coral", to: "/admin/advertisers", hint: "Awaiting review" },
+        { label: "Venue claims pending", value: k.pendingClaims, icon: ShieldCheck, tone: "purple", to: "/admin/business-claims", hint: "Owner verification" },
+        { label: "Open moderation reports", value: k.pendingModeration, icon: AlertTriangle, tone: "amber", to: "/admin/moderation", hint: "Photos · flyers · details" },
+        { label: "Active venues", value: k.activeVenues, icon: Store, tone: "emerald", to: "/admin/venues", hint: "Live in marketplace" },
+        { label: "Signups today", value: k.signupsToday, icon: UserPlus, tone: "pink", to: "/admin/users", hint: "New profiles" },
+        { label: "AI refresh jobs", value: k.aiJobsToday, icon: RefreshCw, tone: "teal", to: "/admin/logs", hint: "Today" },
+        { label: "System alerts", value: k.systemAlerts, icon: Zap, tone: "destructive", to: "/admin/logs", hint: "Last 24h" },
     ];
     const QUICK_ACTIONS: Array<{
         to: string;

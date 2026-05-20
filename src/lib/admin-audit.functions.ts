@@ -14,14 +14,11 @@ export const logPinUnlockAttempt = createServerFn({ method: "POST" })
   )
   .handler(async ({ data, context }) => {
     const { userId, supabase } = context;
-
-    // Resolve email from profiles so we always have reviewer_email
     const { data: profile } = await supabase
       .from("profiles")
       .select("display_name")
       .eq("id", userId)
       .single();
-
     const displayName = profile?.display_name ?? "unknown";
 
     await supabaseAdmin.from("admin_audit_log").insert({
@@ -43,4 +40,59 @@ export const logPinUnlockAttempt = createServerFn({ method: "POST" })
     });
 
     return { logged: true };
+  });
+
+/**
+ * Verifies the signed-in admin's password and, on success, logs a lockout
+ * reset event. Used by the PIN lock screen to clear a lockout without
+ * forcing a full sign-out.
+ */
+export const resetPinLockout = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input: { password: string; userAgent?: string }) => input)
+  .handler(async ({ data, context }) => {
+    const { userId, supabase, claims } = context as {
+      userId: string;
+      supabase: ReturnType<typeof supabaseAdmin>["auth"] extends never ? never : typeof supabaseAdmin;
+      claims: { email?: string };
+    };
+    const email = claims?.email;
+    if (!email) {
+      return { ok: false as const, error: "No email on session" };
+    }
+
+    // Verify the password by signing in via the admin API (does not affect
+    // the user's current session because we use a server-only client).
+    const { error: signInError } = await supabaseAdmin.auth.signInWithPassword({
+      email,
+      password: data.password,
+    });
+
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("display_name")
+      .eq("id", userId)
+      .single();
+    const displayName = profile?.display_name ?? "unknown";
+
+    await supabaseAdmin.from("admin_audit_log").insert({
+      reviewer_id: userId,
+      reviewer_email: `${displayName} <admin>`,
+      action: signInError ? "pin_lockout_reset_failed" : "pin_lockout_reset",
+      entity_type: "system",
+      entity_id: "admin-console",
+      entity_label: "Admin Console PIN",
+      note: signInError
+        ? "Failed lockout reset (wrong password)"
+        : "Lockout reset via password re-auth",
+      metadata: {
+        success: !signInError,
+        userAgent: data.userAgent ?? null,
+      },
+    });
+
+    if (signInError) {
+      return { ok: false as const, error: "Incorrect password" };
+    }
+    return { ok: true as const };
   });

@@ -205,29 +205,21 @@ function AdminDashboard() {
       </header>
 
       {/* KPI grid */}
-      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
-        {KPIS.map((kpi, idx) => (<Link key={kpi.label} to={kpi.to as any} className={`group relative overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${kpi.tone} p-4 shadow-brut transition hover:-translate-y-1 hover:-rotate-1 hover:shadow-[6px_6px_0_0_hsl(var(--ink))]`}>
-            {/* decorative confetti speck */}
-            <span className="pointer-events-none absolute -right-2 -top-2 h-8 w-8 rotate-12 rounded-md bg-cream/40" aria-hidden/>
-            <div className="relative flex items-start justify-between">
-              <div className="grid h-10 w-10 place-items-center rounded-xl border-2 border-ink bg-cream shadow-brut">
-                <kpi.icon className="h-4 w-4 text-ink"/>
-              </div>
-              <ChevronRight className="h-4 w-4 text-ink opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100"/>
-            </div>
-            <div className="relative mt-3 font-display text-3xl font-bold leading-none tabular-nums text-ink">
-              {isLoading ? "—" : kpi.value.toLocaleString()}
-            </div>
-            <div className="relative mt-2 text-[11px] font-bold uppercase tracking-wider text-ink/85">
-              {kpi.label}
-            </div>
-            <div className="relative mt-0.5 text-[10px] text-ink/60">{kpi.hint}</div>
-            {/* corner index marker */}
-            <span className="pointer-events-none absolute bottom-2 right-2 font-mono text-[9px] font-bold text-ink/30">
-              0{idx + 1}
-            </span>
-          </Link>))}
-      </section>
+      <AdminKpiGrid cols={7}>
+        {KPIS.map((kpi, idx) => (
+          <AdminKpiCard
+            key={kpi.label}
+            label={kpi.label}
+            value={kpi.value}
+            icon={kpi.icon}
+            tone={kpi.tone}
+            to={kpi.to}
+            hint={kpi.hint}
+            loading={isLoading}
+            index={idx}
+          />
+        ))}
+      </AdminKpiGrid>
 
       {/* Main grid: activity feed + quick actions */}
       <section className="grid gap-6 lg:grid-cols-3">

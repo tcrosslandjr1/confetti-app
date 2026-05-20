@@ -9,6 +9,7 @@ import { AdminPinLock, isAdminUnlocked, lockAdmin } from "@/components/AdminPinL
 import { AdminIdleLock } from "@/components/AdminIdleLock";
 import { AdminGlobalSearch } from "@/components/AdminGlobalSearch";
 import { supabase } from "@/integrations/supabase/client";
+import { recoverStalePage } from "@/lib/stale-page-recovery";
 
 export const Route = createLazyFileRoute("/admin")({
   component: AdminLayout,
@@ -26,6 +27,10 @@ function AdminRouteError({ error, reset }: {
     error: Error;
     reset: () => void;
 }) {
+    useEffect(() => {
+        recoverStalePage(error);
+    }, [error]);
+
     // eslint-disable-next-line no-console
     console.group("[admin] route errorComponent caught error");
     // eslint-disable-next-line no-console

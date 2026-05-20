@@ -82,7 +82,7 @@ function AdminAskPage() {
     view?.teams.flatMap((t) => t.agents) ?? [];
 
   const selectAgent = (id: string | null) => {
-    navigate({ search: (prev: Record<string, unknown>) => ({ ...prev, agentId: id ?? undefined }) });
+    navigateRoute({ search: { agentId: id || undefined } as never });
   };
 
   return (

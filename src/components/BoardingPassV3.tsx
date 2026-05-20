@@ -24,6 +24,9 @@ import {
   Camera,
   Car,
   Check,
+  Clock,
+  DollarSign,
+  Heart,
   Info,
   Loader2,
   MapPin,
@@ -33,6 +36,9 @@ import {
   Music,
   Phone,
   Plus,
+  Shirt,
+  Sparkles as SparklesIcon,
+  Users,
   Wifi,
   X,
 } from "lucide-react";
@@ -333,6 +339,30 @@ function StopCard({
               "{vibeLine}"
             </div>
           )}
+          {(stop.priceLevel || stop.dressCode || stop.waitTime || stop.bookable) && (
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {stop.priceLevel && (
+                <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-cream px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-ink">
+                  <DollarSign className="h-2.5 w-2.5" /> {stop.priceLevel}
+                </span>
+              )}
+              {stop.dressCode && (
+                <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink bg-white px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-ink/80">
+                  <Shirt className="h-2.5 w-2.5" /> {stop.dressCode}
+                </span>
+              )}
+              {stop.waitTime && (
+                <span className="inline-flex items-center gap-1 rounded-full border-2 border-ink/30 bg-white px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-ink/70">
+                  <Clock className="h-2.5 w-2.5" /> {stop.waitTime}
+                </span>
+              )}
+              {stop.bookable && (
+                <span className="inline-flex items-center gap-1 rounded-full border-2 border-coral bg-coral/10 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-coral">
+                  ✓ Reserve
+                </span>
+              )}
+            </div>
+          )}
           <div className="mt-4 flex flex-wrap items-center gap-2">
             <a
               href={navUrl}
@@ -397,9 +427,31 @@ function StopCard({
             <BackCell icon={<Wifi className="h-4 w-4" />} label="Transit">
               {stop.area ? `Near ${stop.area}` : "Check local transit"}
             </BackCell>
-            <BackCell icon={<MenuIcon className="h-4 w-4" />} label="Must Try">
-              {stop.type || "Ask the bartender"}
+            <BackCell icon={<SparklesIcon className="h-4 w-4" />} label="Signature">
+              {stop.signature || stop.type || "Ask the bartender"}
             </BackCell>
+            <BackCell icon={<DollarSign className="h-4 w-4" />} label="Spend">
+              {stop.priceLevel ? `${stop.priceLevel} per person` : "Mid-range"}
+            </BackCell>
+            <BackCell icon={<Shirt className="h-4 w-4" />} label="Dress Code">
+              {stop.dressCode || "Anything goes"}
+            </BackCell>
+            <BackCell icon={<Users className="h-4 w-4" />} label="Crowd">
+              {stop.crowd || "Mixed locals"}
+            </BackCell>
+            <BackCell icon={<Heart className="h-4 w-4" />} label="Best For">
+              {stop.bestFor || (stop.bookable ? "Plans you don't want to wing" : "Spontaneous nights")}
+            </BackCell>
+            <BackCell icon={<Clock className="h-4 w-4" />} label="Wait">
+              {stop.waitTime || (stop.bookable ? "None — you're booked" : "Usually walk-in friendly")}
+            </BackCell>
+            {stop.phone && (
+              <BackCell icon={<Phone className="h-4 w-4" />} label="Call Ahead">
+                <a href={`tel:${stop.phone.replace(/[^0-9+]/g, "")}`} className="underline">
+                  {stop.phone}
+                </a>
+              </BackCell>
+            )}
             <BackCell icon={<Info className="h-4 w-4" />} label="Notes">
               {stop.rationale || (stop.bookable ? "Reservation recommended" : "Walk-ins welcome")}
             </BackCell>

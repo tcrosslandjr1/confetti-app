@@ -68,11 +68,7 @@ function renderErrorFallback() {
           <button
             type="button"
             onClick={() => {
-              try {
-                sessionStorage.removeItem(STALE_RELOAD_KEY);
-              } catch {
-                /* ignore */
-              }
+              clearStalePageRecovery();
               window.location.reload();
             }}
             className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
@@ -87,11 +83,7 @@ function renderErrorFallback() {
 
 void import("./router")
   .then(({ getRouter }) => {
-    try {
-      sessionStorage.removeItem(STALE_RELOAD_KEY);
-    } catch {
-      /* ignore */
-    }
+    clearStalePageRecovery();
     const router = getRouter();
     root.render(
       <StrictMode>
@@ -101,10 +93,8 @@ void import("./router")
   })
   .catch((error) => {
     console.error("[bootstrap] Failed to load router", error);
-    if (isStaleModuleError(error)) {
-      if (reloadOnceForStaleModule()) {
-        return;
-      }
+    if (recoverStalePage(error)) {
+      return;
     }
     renderErrorFallback();
   });

@@ -6,6 +6,7 @@ import { useAuth } from "@/lib/auth-context";
 import { NotificationsBell } from "@/components/NotificationsBell";
 import { AdminSkeleton } from "@/components/AdminSkeleton";
 import { AdminPinLock, isAdminUnlocked, lockAdmin } from "@/components/AdminPinLock";
+import { AdminIdleLock } from "@/components/AdminIdleLock";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createLazyFileRoute("/admin")({
@@ -216,13 +217,14 @@ function AdminLayout() {
         return <AdminPinLock email={user?.email ?? null} onUnlock={() => setUnlocked(true)} />;
     }
     return (<SidebarProvider>
-      <AdminShell user={user} pathname={pathname}/>
+      <AdminShell user={user} pathname={pathname} onLock={() => { lockAdmin(); setUnlocked(false); }} />
     </SidebarProvider>);
 }
 
-function AdminShell({ user, pathname, }: {
+function AdminShell({ user, pathname, onLock }: {
     user: ReturnType<typeof useAuth>["user"];
     pathname: string;
+    onLock: () => void;
 }) {
     const { isMobile, setOpenMobile, state } = useSidebar();
     const collapsed = state === "collapsed";
@@ -511,5 +513,6 @@ function AdminShell({ user, pathname, }: {
           <Outlet />
         </main>
       </div>
+      <AdminIdleLock onLock={onLock} email={user?.email ?? null} />
     </div>);
 }

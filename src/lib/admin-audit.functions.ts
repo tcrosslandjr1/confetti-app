@@ -92,3 +92,35 @@ export const resetPinLockout = createServerFn({ method: "POST" })
     }
     return { ok: true as const };
   });
+
+/**
+ * Logs an automatic idle lock event when the admin console auto-locks
+ * after a period of inactivity.
+ */
+export const logPinIdleLock = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input: { userAgent?: string }) => input)
+  .handler(async ({ data, context }) => {
+    const { userId, supabase } = context;
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("display_name")
+      .eq("id", userId)
+      .single();
+    const displayName = profile?.display_name ?? "unknown";
+
+    await supabaseAdmin.from("admin_audit_log").insert({
+      reviewer_id: userId,
+      reviewer_email: `${displayName} <admin>`,
+      action: "pin_idle_lock",
+      entity_type: "system",
+      entity_id: "admin-console",
+      entity_label: "Admin Console PIN",
+      note: "Console auto-locked due to inactivity",
+      metadata: {
+        userAgent: data.userAgent ?? null,
+      },
+    });
+
+    return { logged: true };
+  });

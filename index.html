@@ -639,6 +639,77 @@
       @keyframes hoods-scroll {
         from { transform: translateX(0); }
         to   { transform: translateX(-50%); }
+
+      /* ── Mobile pass (≤480px) — tighten loader so it fits one phone screen ── */
+      @media (max-width: 480px) {
+        #initial-loader .orb { filter: blur(90px); opacity: 0.45; }
+        #initial-loader .orb-1 { width: 380px; height: 380px; top: -120px; left: -80px; }
+        #initial-loader .orb-2 { width: 340px; height: 340px; bottom: -120px; right: -80px; }
+        #initial-loader .orb-3 { width: 260px; height: 260px; }
+        #initial-loader .skyline { height: 70px; opacity: 0.7; }
+        #initial-loader .comet { display: none; }
+
+        #initial-loader .stage {
+          width: calc(100vw - 20px);
+          padding: 16px 16px 14px;
+          border-radius: 20px;
+          box-shadow: 5px 5px 0 0 #1a1a1a, 0 24px 48px -20px rgba(26,26,26,0.4);
+          /* Disable parallax tilt on touch */
+          transform: none !important;
+        }
+        #initial-loader .stage::before { inset: -20px; }
+
+        #initial-loader .header { padding-bottom: 12px; gap: 10px; }
+        #initial-loader .mark { width: 40px; height: 40px; }
+        #initial-loader .mark::after { inset: -5px; }
+        @keyframes spark-orbit {
+          from { transform: rotate(0deg) translateX(26px) rotate(0deg); }
+          to   { transform: rotate(360deg) translateX(26px) rotate(-360deg); }
+        }
+        #initial-loader .name { font-size: 22px; }
+        #initial-loader .header .pill { font-size: 9px; padding: 3px 7px; letter-spacing: 0.14em; }
+        #initial-loader .eq { height: 12px; margin-left: 6px; }
+
+        #initial-loader .agents { padding: 12px 0 2px; gap: 7px; }
+        #initial-loader .agent { font-size: 11px; gap: 8px; }
+        #initial-loader .agent .tick { width: 14px; height: 14px; font-size: 9px; }
+        #initial-loader .agent .time { font-size: 9px; }
+
+        #initial-loader .stats { margin-top: 10px; padding-top: 10px; gap: 6px; }
+        #initial-loader .stat { padding: 5px 6px; border-radius: 8px; }
+        #initial-loader .stat .num { font-size: 14px; }
+        #initial-loader .stat .lbl { font-size: 7.5px; letter-spacing: 0.12em; }
+
+        #initial-loader .minimap { margin-top: 10px; padding: 8px; border-radius: 12px; }
+        #initial-loader .minimap svg { height: 68px; }
+        #initial-loader .minimap .tag { font-size: 7.5px; padding: 2px 6px; top: 7px; right: 8px; }
+
+        #initial-loader .venues { margin-top: 10px; height: 48px; border-radius: 12px; }
+        #initial-loader .venues .v-card { grid-template-columns: 30px 1fr auto; gap: 8px; padding: 0 10px; }
+        #initial-loader .venues .v-thumb { width: 30px; height: 30px; border-radius: 8px; }
+        #initial-loader .venues .v-name { font-size: 15px; }
+        #initial-loader .venues .v-sub { font-size: 8px; }
+        #initial-loader .venues .v-score { font-size: 9px; padding: 3px 6px; }
+
+        #initial-loader .hoods { margin-top: 8px; }
+        #initial-loader .hoods .chip { font-size: 8.5px; padding: 4px 8px; }
+
+        #initial-loader .ticker { margin-top: 10px; padding-top: 10px; font-size: 9px; gap: 6px; }
+        #initial-loader .ticker .scan-text { height: 12px; }
+
+        #initial-loader .progress-track { margin-top: 12px; padding-top: 10px; }
+        #initial-loader .progress-track .bar { height: 3px; }
+
+        #initial-loader .boot-retry { margin-top: 10px; min-height: 38px; font-size: 10px; }
+        #initial-loader .boot-skip { min-height: 32px; font-size: 9px; }
+      }
+
+      /* Very short screens — hide the non-essential animated extras to avoid scroll */
+      @media (max-width: 480px) and (max-height: 720px) {
+        #initial-loader .minimap,
+        #initial-loader .hoods,
+        #initial-loader .skyline { display: none; }
+        #initial-loader .stage { padding: 14px 14px 12px; }
       }
     </style>
   </head>

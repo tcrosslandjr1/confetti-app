@@ -643,6 +643,50 @@ export type Database = {
         }
         Relationships: []
       }
+      booking_status_changes: {
+        Row: {
+          actor_email: string | null
+          actor_role: string
+          booking_id: string
+          changed_by: string | null
+          created_at: string
+          id: string
+          new_status: string
+          note: string | null
+          old_status: string | null
+        }
+        Insert: {
+          actor_email?: string | null
+          actor_role?: string
+          booking_id: string
+          changed_by?: string | null
+          created_at?: string
+          id?: string
+          new_status: string
+          note?: string | null
+          old_status?: string | null
+        }
+        Update: {
+          actor_email?: string | null
+          actor_role?: string
+          booking_id?: string
+          changed_by?: string | null
+          created_at?: string
+          id?: string
+          new_status?: string
+          note?: string | null
+          old_status?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "booking_status_changes_booking_id_fkey"
+            columns: ["booking_id"]
+            isOneToOne: false
+            referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       bookings: {
         Row: {
           admin_notes: string | null

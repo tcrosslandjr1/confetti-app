@@ -667,8 +667,16 @@ export function ChatView({
           )}
         </div>
         {error && (
-          <div className="mt-3 rounded-lg border-2 border-red-500 bg-red-50 px-3 py-2 text-xs text-red-700">
-            {error}
+          <div className="mt-3 flex items-center justify-between rounded-lg border-2 border-red-500 bg-red-50 px-3 py-2 text-xs text-red-700">
+            <span>{error}</span>
+            <button
+              type="button"
+              onClick={() => void send()}
+              className="ml-2 inline-flex items-center gap-1 rounded-md border border-red-300 bg-white px-2 py-1 font-semibold text-red-700 hover:bg-red-100"
+            >
+              <RotateCcw className="h-3 w-3" />
+              Retry
+            </button>
           </div>
         )}
       </div>

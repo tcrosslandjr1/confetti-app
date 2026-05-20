@@ -1,8 +1,7 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { Search, Users, MoreHorizontal, Shield, UserCheck, UserX, Crown, Loader2, KeyRound, Trash2 } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { ArrowDown, ArrowUp, ArrowUpDown, Crown, KeyRound, Loader2, MoreHorizontal, Shield, Sparkles, Trash2, UserCheck, Users, UserX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -11,6 +10,7 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth-context";
 import { listAdminUsersFn, setUserRoleFn, setUserSuspendedFn, sendPasswordResetFn, deleteUserFn, type AdminUserRow, type AppRole } from "@/lib/admin-users.functions";
+import { AdminEmptyState, AdminFilterBar, AdminKpiCard, AdminKpiGrid, AdminPageHeader, downloadCsv } from "@/components/admin/AdminUI";
 
 export const Route = createLazyFileRoute("/admin/users")({
   component: AdminUsersPage,
@@ -76,6 +76,13 @@ function AdminUsersPage() {
     const [statusFilter, setStatusFilter] = useState<"all" | "active" | "suspended">("all");
     const [pending, setPending] = useState<string | null>(null);
     const [confirmDelete, setConfirmDelete] = useState<AdminUserRow | null>(null);
+    type SortKey = "name" | "pts" | "joined" | "lastSeen";
+    const [sortKey, setSortKey] = useState<SortKey>("joined");
+    const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+    const toggleSort = (k: SortKey) => {
+        if (sortKey === k) setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+        else { setSortKey(k); setSortDir("desc"); }
+    };
     const load = async () => {
         setLoading(true);
         try {
@@ -100,24 +107,46 @@ function AdminUsersPage() {
         admins: users.filter((u) => u.roles.includes("admin")).length,
     }), [users]);
     const filtered = useMemo(() => {
-        return users.filter((u) => {
+        const list = users.filter((u) => {
             const banned = isBanned(u);
-            if (roleFilter !== "all" && !u.roles.includes(roleFilter))
-                return false;
-            if (statusFilter === "active" && banned)
-                return false;
-            if (statusFilter === "suspended" && !banned)
-                return false;
+            if (roleFilter !== "all" && !u.roles.includes(roleFilter)) return false;
+            if (statusFilter === "active" && banned) return false;
+            if (statusFilter === "suspended" && !banned) return false;
             if (query) {
                 const q = query.toLowerCase();
                 if (!u.email.toLowerCase().includes(q) &&
                     !(u.display_name ?? "").toLowerCase().includes(q) &&
-                    !u.id.toLowerCase().includes(q))
-                    return false;
+                    !u.id.toLowerCase().includes(q)) return false;
             }
             return true;
         });
-    }, [users, query, roleFilter, statusFilter]);
+        const dir = sortDir === "asc" ? 1 : -1;
+        const cmp = (a: AdminUserRow, b: AdminUserRow): number => {
+            switch (sortKey) {
+                case "name":
+                    return (a.display_name ?? a.email).localeCompare(b.display_name ?? b.email) * dir;
+                case "pts":
+                    return ((a.confetti_pts ?? 0) - (b.confetti_pts ?? 0)) * dir;
+                case "joined":
+                    return (new Date(a.created_at ?? 0).getTime() - new Date(b.created_at ?? 0).getTime()) * dir;
+                case "lastSeen":
+                    return (new Date(a.last_sign_in_at ?? 0).getTime() - new Date(b.last_sign_in_at ?? 0).getTime()) * dir;
+            }
+        };
+        return [...list].sort(cmp);
+    }, [users, query, roleFilter, statusFilter, sortKey, sortDir]);
+    const exportCsv = () => {
+        downloadCsv(`users-${new Date().toISOString().slice(0, 10)}.csv`, filtered.map((u) => ({
+            id: u.id,
+            email: u.email,
+            display_name: u.display_name ?? "",
+            roles: u.roles.join("|"),
+            status: isBanned(u) ? "suspended" : "active",
+            confetti_pts: u.confetti_pts,
+            created_at: u.created_at,
+            last_sign_in_at: u.last_sign_in_at ?? "",
+        })));
+    };
     const toggleRole = async (u: AdminUserRow, role: AppRole) => {
         const grant = !u.roles.includes(role);
         setPending(u.id);
@@ -188,63 +217,71 @@ function AdminUsersPage() {
             setPending(null);
         }
     };
-    return (<div className="space-y-6">
-      <header className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">People</p>
-          <h1 className="font-display text-3xl font-bold leading-tight flex items-center gap-2">
-            <Users className="h-7 w-7"/> Users
-          </h1>
-          <p className="text-sm text-muted-foreground">
-            Manage roles, suspend accounts, and trigger password resets.
-          </p>
-        </div>
-        <div className="grid grid-cols-4 gap-2 text-center">
-          {[
-            { k: "total", label: "Total", v: counts.total },
-            { k: "active", label: "Active", v: counts.active },
-            { k: "suspended", label: "Suspended", v: counts.suspended },
-            { k: "admins", label: "Admins", v: counts.admins },
-        ].map((s) => (<div key={s.k} className="rounded-xl border border-border bg-card px-4 py-2 shadow-card">
-              <div className="text-xl font-bold font-display">{s.v}</div>
-              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                {s.label}
-              </div>
-            </div>))}
-        </div>
-      </header>
+    const SortHeader = ({ k, label, align = "left" }: { k: SortKey; label: string; align?: "left" | "right" }) => {
+        const active = sortKey === k;
+        const Icon = active ? (sortDir === "asc" ? ArrowUp : ArrowDown) : ArrowUpDown;
+        return (
+          <button
+            type="button"
+            onClick={() => toggleSort(k)}
+            className={`inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider transition hover:text-coral ${active ? "text-coral" : "text-muted-foreground"} ${align === "right" ? "ml-auto" : ""}`}
+          >
+            <span>{label}</span>
+            <Icon className="h-3 w-3" />
+          </button>
+        );
+    };
 
-      <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-border bg-card p-3 shadow-card">
-        <div className="relative flex-1 min-w-[240px]">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"/>
-          <Input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search by name, email, or ID…" className="pl-9"/>
-        </div>
+    return (<div className="space-y-6">
+      <AdminPageHeader
+        eyebrow="People"
+        title="Users"
+        icon={Users}
+        description="Manage roles, suspend accounts, trigger password resets, and export the directory."
+        actions={
+          <div className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-cream px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wider text-ink shadow-brut">
+            <Sparkles className="h-3 w-3 text-coral" />
+            {counts.total.toLocaleString()} total · {counts.admins} admins
+          </div>
+        }
+      />
+
+      <AdminKpiGrid cols={4}>
+        <AdminKpiCard label="Total users" value={counts.total} icon={Users} tone="coral" loading={loading} index={0} />
+        <AdminKpiCard label="Active" value={counts.active} icon={UserCheck} tone="emerald" loading={loading} index={1} />
+        <AdminKpiCard label="Suspended" value={counts.suspended} icon={UserX} tone="destructive" loading={loading} index={2} />
+        <AdminKpiCard label="Admins" value={counts.admins} icon={Crown} tone="gold" loading={loading} index={3} />
+      </AdminKpiGrid>
+
+      <AdminFilterBar
+        query={query}
+        onQueryChange={setQuery}
+        placeholder="Search by name, email, or ID…"
+        onRefresh={() => void load()}
+        onExport={exportCsv}
+        refreshing={loading}
+      >
         <select value={roleFilter} onChange={(e) => setRoleFilter(e.target.value as "all" | AppRole)} className="rounded-md border border-border bg-background px-3 py-2 text-sm">
           <option value="all">All roles</option>
-          {ROLES.map((r) => (<option key={r} value={r}>
-              {r}
-            </option>))}
+          {ROLES.map((r) => (<option key={r} value={r}>{r}</option>))}
         </select>
         <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value as "all" | "active" | "suspended")} className="rounded-md border border-border bg-background px-3 py-2 text-sm">
           <option value="all">All statuses</option>
           <option value="active">Active</option>
           <option value="suspended">Suspended</option>
         </select>
-        <Button variant="outline" size="sm" onClick={() => void load()} disabled={loading}>
-          {loading ? <Loader2 className="h-4 w-4 animate-spin"/> : "Refresh"}
-        </Button>
-      </div>
+      </AdminFilterBar>
 
       <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>User</TableHead>
+              <TableHead><SortHeader k="name" label="User" /></TableHead>
               <TableHead>Roles</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead className="text-right">Pts</TableHead>
-              <TableHead>Joined</TableHead>
-              <TableHead>Last sign-in</TableHead>
+              <TableHead className="text-right"><SortHeader k="pts" label="Pts" align="right" /></TableHead>
+              <TableHead><SortHeader k="joined" label="Joined" /></TableHead>
+              <TableHead><SortHeader k="lastSeen" label="Last sign-in" /></TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -254,8 +291,13 @@ function AdminUsersPage() {
                   <Loader2 className="mx-auto h-5 w-5 animate-spin"/>
                 </TableCell>
               </TableRow>) : filtered.length === 0 ? (<TableRow>
-                <TableCell colSpan={7} className="py-12 text-center text-sm text-muted-foreground">
-                  No users match your filters.
+                <TableCell colSpan={7} className="py-0">
+                  <AdminEmptyState
+                    title="No users match"
+                    description={query || roleFilter !== "all" || statusFilter !== "all"
+                      ? "Try clearing filters or broadening your search."
+                      : "Users will appear here as they sign up."}
+                  />
                 </TableCell>
               </TableRow>) : (filtered.map((u) => {
             const banned = isBanned(u);

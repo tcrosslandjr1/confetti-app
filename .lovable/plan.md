@@ -1,57 +1,44 @@
-# Audit: /partner/_ and /promoter/_
+# Full Admin Overhaul Plan
 
-## What I found
+30 admin pages exist. Doing this in one turn would produce sloppy, inconsistent work. Splitting into 5 focused phases — each phase ships independently, builds cleanly, and you can review before the next one.
 
-### /promoter/\* — already real
+## Phase 1 — Shared admin shell (this turn)
 
-- `promoter.tsx` layout gates on `supabase.auth.getUser()` → redirects to `/auth`.
-- `promoter.index.tsx` and `promoter.jobs.tsx` are fully wired to `src/lib/promoter.functions.ts` via `useServerFn` + React Query (real reads/writes to `promoters`, `promoter_jobs`, `promoter_submissions`).
-- No major issues. Minor nits only (see below).
+The biggest visual win for the least risk. Every page inherits these:
 
-### /partner/\* — entirely mock UI, no backend, no auth
+- **`AdminPageHeader`** component: title, subtitle slot, breadcrumbs from route, right-side action slot (export, refresh, primary CTA).
+- **`AdminKpiCard`** component: label, value, delta, trend sparkline, icon, semantic color states. Used everywhere.
+- **`AdminEmptyState` / `AdminErrorState` / `AdminLoadingState`** — consistent loading/empty/error UX.
+- **`AdminFilterBar`** — search input + filter chips + date range, used by every table page.
+- **`AdminDataTable`** wrapper — sortable headers, sticky header, row click → detail, CSV export, pagination.
+- Sidebar polish: section badges show live counts (pending claims, unread notifs, open moderation), collapsed mini-state, command-K palette already exists — wire it to all routes.
+- Top bar: global search, environment badge (dev/preview/prod), "live" pulse indicator when realtime subscriptions are active.
 
-The whole portal under `/partner/*` (14 routes, ~2.5K lines) is static demo data:
+## Phase 2 — People + Marketplace (Users, Roles, Venues, Claims)
 
-- **Zero** `supabase`, `useServerFn`, `useQuery`, or `useMutation` usages anywhere in `partner.*.tsx`.
-- `partner.tsx` layout has **no `beforeLoad` auth gate** — anyone (including signed-out users) can browse a "venue owner" dashboard with hardcoded stats, reservations, orders, menu, billing, analytics.
-- Venue switcher is `const VENUES = [{ id: "v1", name: "Sundae Rooftop", tier: 3 }, ...]` — local `useState`, not user-scoped.
-- `partner.index.tsx` STATS / TIMELINE, `partner.reservations.tsx`, `partner.orders.tsx`, `partner.menu.tsx`, `partner.analytics.tsx`, etc. — all module-level constants.
-- The only "real" partner surface is `src/routes/api/public/partner/v1/*` (external partner REST API) which is backed by `src/lib/partner-api.ts`'s in-memory `Map` store with two demo bearer tokens. The portal UI does **not** talk to those endpoints either.
+Each gets: KPI header, filter bar, sortable table, detail drawer, ops actions, CSV export, realtime where it matters (new claims, new users).
 
-This is a UX/security gap: the route looks production-ready but is a clickable mockup served to the public internet.
+## Phase 3 — Growth (Advertisers, Marquee, Outreach, Notifications, Testimonials, Promoters)
 
-## Proposed plan
+Campaign-style dashboards: spend/impressions/CTR cards, status pipelines, bulk actions, scheduling UI.
 
-Given the surface area, I propose splitting into two passes. **This plan covers Pass 1 only** — gate access + honest framing. Pass 2 (real data wiring) is a much bigger backend project and should be its own scoped request.
+## Phase 4 — Analytics suite (Analytics, Event/Pick/Ad analytics, Dashboard)
 
-### Pass 1 — Gate + label (this plan)
+Recharts dashboards with date pickers, segment filters, comparison vs previous period, top-N tables, export.
 
-1. **Add auth gate to `/partner/*`.** In `src/routes/partner.tsx` add a `beforeLoad` identical to `promoter.tsx`: check `supabase.auth.getUser()`, redirect to `/auth?redirect=/partner` if signed out. Matches existing pattern, no new infra.
+## Phase 5 — System (Integrations, Settings, Audit, Logs, Wallet debug, Launch, Routes map, Agents, Diagnostics, Health, Bootstrap, Ask, Login)
 
-2. **Add "Demo data" banner to the partner layout.** Small dismissible strip at top of `<main>` in `partner.tsx`: _"Preview portal — showing sample data. Real venue data wiring is in progress."_ Single component, design-token colors only. Makes the mockup honest until Pass 2 lands.
+Ops-focused: health status, log tailing, integration connection states, audit timeline, role-gated dangerous actions with confirm dialogs.
 
-3. **Replace the hardcoded venue switcher with the signed-in user's email.** Until venue ownership tables exist, drop the fake `VENUES` array and show `user.email` + a disabled "Add venue" affordance. Keeps the chrome but stops implying multi-venue control the user doesn't have.
+## Conventions (locked across all phases)
 
-4. **Promoter nits (small):**
-   - `promoter.index.tsx` `audience`/`rate_card` reads use `as any` (lines 69–74) — tighten to a typed helper.
-   - That's it; rest of the promoter flow is clean.
+- Light theme only — warm coral on cream (per project memory).
+- All colors via semantic tokens in `src/styles.css`. No hex in components.
+- Sonner for toasts. shadcn primitives only.
+- TanStack Query for all data; `useServerFn` for mutations; invalidate keys on success.
+- Realtime via Supabase channels, gated behind a per-page "Live" toggle so it can be paused.
+- Every page: KPI header → filter/search → main view → detail drawer.
 
-### Out of scope (Pass 2, separate request)
+## What I'll do this turn
 
-- Replacing partner mock constants with real Supabase reads (venues, reservations, orders, menu, analytics tables — most don't exist yet).
-- Real venue ownership / multi-venue switcher backed by a `venue_owners` table.
-- Wiring portal UI to the `/api/public/partner/v1/*` endpoints (or, more likely, to internal server fns).
-- Swapping `partner-api.ts`'s in-memory store for Supabase tables.
-- Visual redesign of either portal.
-
-## Verification
-
-- `bunx vite build` passes.
-- Signed-out visit to `/partner` redirects to `/auth?redirect=/partner`; signed-in visit renders the dashboard with the demo banner.
-- `/promoter/*` behavior unchanged.
-
-## Technical notes
-
-- The auth gate mirrors `src/routes/promoter.tsx` exactly — copy the `beforeLoad` block and change the redirect path.
-- The banner should use existing tokens (`bg-amber-50 dark:bg-amber-950/30` is fine for warm coral theme; or `bg-primary/5 text-primary` to match Confetti palette). No new CSS variables.
-- No DB migrations, no new server functions, no new dependencies.
+Phase 1 only — build the shared shell + components and apply them to `admin.index` (Dashboard) and `admin.users` as reference implementations. After you confirm the shell feels right, I'll roll Phase 2–5 page-by-page in subsequent turns.

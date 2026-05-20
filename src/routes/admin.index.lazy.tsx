@@ -5,6 +5,7 @@ import { AlertTriangle, BarChart3, Bell, CalendarCheck, CheckCircle2, ChevronRig
 import { supabase } from "@/integrations/supabase/client";
 import { useAuditLog } from "@/lib/audit-log";
 import { applyLogFilters, EMPTY_FILTERS, LogFilterBar, type LogFilterState } from "@/components/admin/LogFilterBar";
+import { AdminKpiCard, AdminKpiGrid, AdminSection } from "@/components/admin/AdminUI";
 
 export const Route = createLazyFileRoute("/admin/")({
   component: AdminDashboard,
@@ -101,63 +102,21 @@ function AdminDashboard() {
         aiJobsToday: 0,
         systemAlerts: 0,
     };
-    const KPIS = [
-        {
-            label: "Pending business approvals",
-            value: k.pendingAdvertisers,
-            icon: ClipboardCheck,
-            tone: "from-coral/30 to-coral/5",
-            to: "/admin/advertisers",
-            hint: "Awaiting review",
-        },
-        {
-            label: "Venue claims pending",
-            value: k.pendingClaims,
-            icon: ShieldCheck,
-            tone: "from-purple/30 to-purple/5",
-            to: "/admin/business-claims",
-            hint: "Owner verification",
-        },
-        {
-            label: "Open moderation reports",
-            value: k.pendingModeration,
-            icon: AlertTriangle,
-            tone: "from-amber-400/30 to-amber-100/5",
-            to: "/admin/moderation",
-            hint: "Photos · flyers · details",
-        },
-        {
-            label: "Active venues",
-            value: k.activeVenues,
-            icon: Store,
-            tone: "from-emerald-400/25 to-emerald-100/5",
-            to: "/admin/venues",
-            hint: "Live in marketplace",
-        },
-        {
-            label: "Signups today",
-            value: k.signupsToday,
-            icon: UserPlus,
-            tone: "from-pink/25 to-pink/5",
-            to: "/admin/users",
-            hint: "New profiles",
-        },
-        {
-            label: "AI refresh jobs",
-            value: k.aiJobsToday,
-            icon: RefreshCw,
-            tone: "from-teal/25 to-teal/5",
-            to: "/admin/logs",
-            hint: "Today",
-        },
-        {
-            label: "System alerts",
-            value: k.systemAlerts,
-            icon: Zap,
-            tone: "from-destructive/30 to-destructive/5",
-            to: "/admin/logs",
-            hint: "Last 24h",
-        },
+    const KPIS: Array<{
+      label: string;
+      value: number;
+      icon: typeof ClipboardCheck;
+      tone: "coral" | "purple" | "amber" | "emerald" | "pink" | "teal" | "destructive";
+      to: string;
+      hint: string;
+    }> = [
+        { label: "Pending business approvals", value: k.pendingAdvertisers, icon: ClipboardCheck, tone: "coral", to: "/admin/advertisers", hint: "Awaiting review" },
+        { label: "Venue claims pending", value: k.pendingClaims, icon: ShieldCheck, tone: "purple", to: "/admin/business-claims", hint: "Owner verification" },
+        { label: "Open moderation reports", value: k.pendingModeration, icon: AlertTriangle, tone: "amber", to: "/admin/moderation", hint: "Photos · flyers · details" },
+        { label: "Active venues", value: k.activeVenues, icon: Store, tone: "emerald", to: "/admin/venues", hint: "Live in marketplace" },
+        { label: "Signups today", value: k.signupsToday, icon: UserPlus, tone: "pink", to: "/admin/users", hint: "New profiles" },
+        { label: "AI refresh jobs", value: k.aiJobsToday, icon: RefreshCw, tone: "teal", to: "/admin/logs", hint: "Today" },
+        { label: "System alerts", value: k.systemAlerts, icon: Zap, tone: "destructive", to: "/admin/logs", hint: "Last 24h" },
     ];
     const QUICK_ACTIONS: Array<{
         to: string;
@@ -246,29 +205,21 @@ function AdminDashboard() {
       </header>
 
       {/* KPI grid */}
-      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
-        {KPIS.map((kpi, idx) => (<Link key={kpi.label} to={kpi.to as any} className={`group relative overflow-hidden rounded-2xl border-2 border-ink bg-gradient-to-br ${kpi.tone} p-4 shadow-brut transition hover:-translate-y-1 hover:-rotate-1 hover:shadow-[6px_6px_0_0_hsl(var(--ink))]`}>
-            {/* decorative confetti speck */}
-            <span className="pointer-events-none absolute -right-2 -top-2 h-8 w-8 rotate-12 rounded-md bg-cream/40" aria-hidden/>
-            <div className="relative flex items-start justify-between">
-              <div className="grid h-10 w-10 place-items-center rounded-xl border-2 border-ink bg-cream shadow-brut">
-                <kpi.icon className="h-4 w-4 text-ink"/>
-              </div>
-              <ChevronRight className="h-4 w-4 text-ink opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100"/>
-            </div>
-            <div className="relative mt-3 font-display text-3xl font-bold leading-none tabular-nums text-ink">
-              {isLoading ? "—" : kpi.value.toLocaleString()}
-            </div>
-            <div className="relative mt-2 text-[11px] font-bold uppercase tracking-wider text-ink/85">
-              {kpi.label}
-            </div>
-            <div className="relative mt-0.5 text-[10px] text-ink/60">{kpi.hint}</div>
-            {/* corner index marker */}
-            <span className="pointer-events-none absolute bottom-2 right-2 font-mono text-[9px] font-bold text-ink/30">
-              0{idx + 1}
-            </span>
-          </Link>))}
-      </section>
+      <AdminKpiGrid cols={7}>
+        {KPIS.map((kpi, idx) => (
+          <AdminKpiCard
+            key={kpi.label}
+            label={kpi.label}
+            value={kpi.value}
+            icon={kpi.icon}
+            tone={kpi.tone}
+            to={kpi.to}
+            hint={kpi.hint}
+            loading={isLoading}
+            index={idx}
+          />
+        ))}
+      </AdminKpiGrid>
 
       {/* Main grid: activity feed + quick actions */}
       <section className="grid gap-6 lg:grid-cols-3">

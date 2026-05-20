@@ -1,9 +1,15 @@
 import { QueryClient } from "@tanstack/react-query";
 import { Link, createRouter, useRouter } from "@tanstack/react-router";
+import { useEffect } from "react";
+import { recoverStalePage } from "@/lib/stale-page-recovery";
 import { routeTree } from "./routeTree.gen";
 
 function DefaultRouterError({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
+
+  useEffect(() => {
+    recoverStalePage(error);
+  }, [error]);
 
   return (
     <div className="grid min-h-screen place-items-center bg-background px-4 text-center text-foreground">

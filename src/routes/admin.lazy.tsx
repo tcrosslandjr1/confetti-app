@@ -12,6 +12,18 @@ import { supabase } from "@/integrations/supabase/client";
 import { recoverStalePage } from "@/lib/stale-page-recovery";
 import { useAdminNavCounts, ROUTE_TO_COUNT_KEY } from "@/lib/admin-nav-counts";
 
+function renderHighlight(label: string, query: string) {
+    const q = query.trim();
+    if (!q) return label;
+    const idx = label.toLowerCase().indexOf(q.toLowerCase());
+    if (idx === -1) return label;
+    return (<>
+      {label.slice(0, idx)}
+      <mark className="rounded bg-gold/40 px-0.5 text-ink">{label.slice(idx, idx + q.length)}</mark>
+      {label.slice(idx + q.length)}
+    </>);
+}
+
 export const Route = createLazyFileRoute("/admin")({
   component: AdminLayout,
   errorComponent: AdminRouteError,
